@@ -1,0 +1,5 @@
+{{- $str := .Page.File.Dir -}}
+{{- $path := path.Dir $str -}}
+<a class="link" href="{{ printf "/%s/%s" $path .Destination | safeURL }}" {{ with .Title}} title="{{ . }}"
+    {{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"
+    {{ end }}>{{ .Text | safeHTML }}</a>

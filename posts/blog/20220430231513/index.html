@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="青龙脚本部署 - https://lovemjh.github.io/posts/blog/20220430231513/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>青龙脚本部署</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.github.io/style.min.a52a9deea50c044b5100529b926604dd4ba41319221e01484d0aefcc97c1619f.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            青龙脚本部署
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2021-11-15&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2021-11-15&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            10969 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            22 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/java-web/20220430214595/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/java-2/20220430214272/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装docker">安装docker</a></li>
+    <li><a href="#配置国内镜像仓库">配置国内镜像仓库</a></li>
+    <li><a href="#前言">前言：</a></li>
+    <li><a href="#教程">教程：</a>
+      <ul>
+        <li><a href="#其他的加速地址如下">其他的加速地址如下：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#拉取青龙镜像">拉取青龙镜像</a></li>
+    <li><a href="#部署镜像">部署镜像</a></li>
+    <li><a href="#打开防火墙">打开防火墙</a></li>
+    <li><a href="#登录青龙面板">登录青龙面板</a></li>
+    <li><a href="#完成登录">完成登录</a>
+      <ul>
+        <li><a href="#青龙面板更新命令一步一步执行">青龙面板更新命令：一步一步执行</a></li>
+      </ul>
+    </li>
+    <li><a href="#依赖安装">依赖安装</a>
+      <ul>
+        <li><a href="#安装配置文件及依赖">安装配置文件及依赖</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第一步安装unzip">第一步.安装unzip</a></li>
+        <li><a href="#第二步创建一个目录放配置以及chromium">第二步.创建一个目录放配置以及chromium</a></li>
+        <li><a href="#第三步拉取nvjdc镜像并创建容器">第三步.拉取nvjdc镜像并创建容器</a></li>
+        <li><a href="#第四步查看日志-看是否安装成功-出现-netjdc-started-表示成功">第四步.查看日志 看是否安装成功 出现 NETJDC started 表示成功</a></li>
+        <li><a href="#第五步配置文件填入自己的青龙id和密钥">第五步.配置文件填入自己的青龙id和密钥</a></li>
+        <li><a href="#第六步配置完所有重启容器">第六步.配置完所有重启容器</a></li>
+        <li><a href="#第七步访问前端">第七步.访问前端</a></li>
+        <li><a href="#03版多容器配置">0.3版多容器配置：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#第一步-这里以linux-amd64为例去官网下载安装go语言安装包这里已经准备好下载指令-直接第二步开始">第一步. 这里以linux amd64为例，去官网下载安装go语言安装包(这里已经准备好下载指令 直接第二步开始）：</a></li>
+    <li><a href="#第二步-输入下方指令-下载go1167linux-amd64targz包">第二步. 输入下方指令 下载go1.16.7.linux-amd64.tar.gz包</a></li>
+    <li><a href="#第三步-解压-tar--xvzf-go1167linux-amd64targz-输入以下命令">第三步. 解压 tar -xvzf go1.16.7.linux-amd64.tar.gz 输入以下命令</a></li>
+    <li><a href="#第四步-设置环境变量-输入指令vi-etcprofile-将下方框内文本复制到最后一行">第四步. 设置环境变量 输入指令：vi /etc/profile ,将下方框内文本复制到最后一行</a>
+      <ul>
+        <li><a href="#保存文件后-输入指令">保存文件后 输入指令：</a></li>
+        <li><a href="#如果要查看go安装好没有-输入指令go-env-输出如下图代表go安装好了">如果要查看go安装好没有 输入指令：go env 输出如下图代表go安装好了</a></li>
+        <li><a href="#安装git如果安装过就不用安装">安装git：（如果安装过就不用安装）</a></li>
+        <li><a href="#安装gcc-2个命令一个一个跑完-安装过的跳过">安装gcc 2个命令一个一个跑完 (安装过的跳过）</a></li>
+      </ul>
+    </li>
+    <li><a href="#第五步-拉库编译和安装傻妞一步一步执行">第五步. 拉库编译和安装傻妞(一步一步执行)</a>
+      <ul>
+        <li><a href="#然后在sillygirl文件夹里面运行一下指令-初始化并生成配置文件-等弹出二维码机器人qq扫码绑定机器人">然后在sillyGirl文件夹里面运行一下指令 ##初始化并生成配置文件 等弹出二维码机器人QQ扫码绑定机器人</a></li>
+        <li><a href="#扫码绑定后按住ctrl再按c退出然后输入下面的静默挂机挂机指令">扫码绑定后按住ctrl再按c退出，然后输入下面的静默挂机挂机指令</a></li>
+        <li><a href="#接下来去qq">接下来去QQ</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#对接芝士命令">对接芝士命令</a></li>
+    <li><a href="#重启傻妞教程">重启傻妞教程</a></li>
+    <li><a href="#相关问题">相关问题</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#要求">要求：</a>
+      <ul>
+        <li><a href="#第一步需要你安装了nolanjdc">第一步.需要你安装了Nolanjdc</a></li>
+        <li><a href="#第二步傻妞机器人的安装更新">第二步.傻妞机器人的安装更新</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#faker库">Faker库</a></li>
+    <li><a href="#青蛙库"><strong>青蛙库</strong></a></li>
+    <li><a href="#如何拉库">如何拉库：</a></li>
+    <li><a href="#拉取单个脚本">拉取单个脚本</a></li>
+    <li><a href="#使用方法">使用方法：</a></li>
+    <li><a href="#截止2021年9月21日目前还在维护的仓库">截止2021年9月21日目前还在维护的仓库</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言-1">前言：</a></li>
+        <li><a href="#脚本文件">脚本文件：</a></li>
+        <li><a href="#安装教程">安装教程：</a></li>
+        <li><a href="#第三步运行脚本-完成安装">第三步.运行脚本 完成安装</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言-2">前言：</a></li>
+      </ul>
+    </li>
+    <li><a href="#教程-1">教程：</a>
+      <ul>
+        <li><a href="#第一步我百度了一下好多cdn都不支持非标准端口加速基本上都是80-443端口-我们今天用的是七牛的免费cdn-这里我不提供链接自己百度-注册好--登录控制台--然后点添加域名-看图片">第一步.我百度了一下好多cdn都不支持非标准端口加速基本上都是80 443端口 我们今天用的是七牛的免费cdn 这里我不提供链接自己百度 注册好 &gt; 登录控制台 &gt; 然后点添加域名 看图片</a></li>
+        <li><a href="#第二步来到图4页面-看清楚我选的配置">第二步.来到图4页面 看清楚我选的配置</a></li>
+        <li><a href="#第三步上面都配置完了后-你点确定哟-然后去你的域名服务商哪里解析cname记录">第三步.上面都配置完了后 你点确定哟 然后去你的域名服务商哪里解析CNAME记录</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言-3">前言：</a></li>
+        <li><a href="#第一步拉取脚本">第一步.拉取脚本</a></li>
+        <li><a href="#第二步去京喜选择你要砍的东西">第二步.去京喜选择你要砍的东西</a></li>
+        <li><a href="#第三步运行脚本">第三步.运行脚本</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#说明">说明：</a>
+      <ul>
+        <li><a href="#kingfeng-仅支持-qinglong-29">KingFeng 仅支持 qinglong 2.9+</a></li>
+        <li><a href="#kingfeng">Kingfeng:</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装教程-1">安装教程：</a>
+      <ul>
+        <li><a href="#第一步如果你的青龙面板不是qinglong-29的-请在在ssh执行以下命令-如果是29的忽略这一步">第一步.如果你的青龙面板不是qinglong 2.9+的 请在在ssh执行以下命令 如果是2.9+的忽略这一步</a></li>
+        <li><a href="#第二步复制粘贴到ssh执行下列命令-如出现无法拉取-请自行设置docker国内源">第二步.复制粘贴到ssh执行下列命令 如出现无法拉取 请自行设置docker国内源</a></li>
+        <li><a href="#完成以上命令继续输入一下命令">完成以上命令继续输入一下命令</a></li>
+        <li><a href="#第三步配置docker映射目录下的configyaml-默认地址-用户名kingfengconfigyaml">第三步.配置docker映射目录：下的config.yaml 默认地址： /用户名/kingfeng/config.yaml</a></li>
+        <li><a href="#第四步就可以访问kingfeng前端了">第四步.就可以访问kingfeng前端了</a></li>
+        <li><a href="#更新教程">更新教程：</a></li>
+        <li><a href="#常见问题">常见问题</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 id="docker安装">docker安装</h1>
+<h2 id="安装docker">安装docker</h2>
+<p>安装过Docker的可以跳过这一步，没有安装的使用以下脚本命令直接安装Docker。</p>
+<pre tabindex="0"><code>//安装依赖
+yum -y install yum-utils device-mapper-persistent-data lvm2
+
+//配置仓库镜像
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+//安装docker
+yum -y install docker-ce
+</code></pre><p>安装Docker好后记得启动Docker，和设置开机启动 使用一下命令</p>
+<pre tabindex="0"><code>##启动Docker：  sudo systemctl start docker
+
+##开机启动Docker：  sudo systemctl enable docker
+</code></pre><h2 id="配置国内镜像仓库">配置国内镜像仓库</h2>
+<h2 id="前言">前言：</h2>
+<p>Docker在默认安装之后，通过命令docker pull 拉取镜像时，默认访问docker hub上的镜像，在国内网络环境下，下载时间较久或者拉取失败，所以要配置国内镜像仓库。</p>
+<h2 id="教程">教程：</h2>
+<p>第一步.新建或编辑daemon.json</p>
+<pre tabindex="0"><code>vi /etc/docker/daemon.json
+</code></pre><p>第二部.编辑daemon.json文件填入一下内容 记得退出保存</p>
+<pre tabindex="0"><code>{
+    &#34;registry-mirrors&#34;: [&#34;http://hub-mirror.c.163.com&#34;]
+}
+</code></pre><p>第三步.第三步：重启docker</p>
+<pre tabindex="0"><code>systemctl restart docker.service
+</code></pre><p>第四步.执行docker info查看是否修改成功</p>
+<pre tabindex="0"><code>docker info
+</code></pre><p>成功如下图<br>
+<img src="/posts/blog/20220430231513/image-20220430232054550.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="其他的加速地址如下">其他的加速地址如下：</h3>
+<p>##网易
+<a class="link" href="/posts/blog/http://hub-mirror.c.163.com"  target="_blank" rel="noopener"
+    >http://hub-mirror.c.163.com</a>
+##Docker中国区官方镜像
+<a class="link" href="/posts/blog/https://registry.docker-cn.com"  target="_blank" rel="noopener"
+    >https://registry.docker-cn.com</a>
+##中国科技大学
+<a class="link" href="/posts/blog/https://docker.mirrors.ustc.edu.cn"  target="_blank" rel="noopener"
+    >https://docker.mirrors.ustc.edu.cn</a>
+##阿里云容器  服务
+<a class="link" href="/posts/blog/https://cr.console.aliyun.com/"  target="_blank" rel="noopener"
+    >https://cr.console.aliyun.com/</a></p>
+<h1 id="青龙面板安装">青龙面板安装</h1>
+<h2 id="拉取青龙镜像">拉取青龙镜像</h2>
+<pre tabindex="0"><code>docker pull whyour/qinglong:latest
+</code></pre><h2 id="部署镜像">部署镜像</h2>
+<p>##建议改一下青龙端口以防被爆破 将-P 5700：5700改成-P 5800：5700 青龙面板地址就变成你的ip+5800 前提改的端口没有被占用，如果你不需要改直接复制以下命令执行</p>
+<pre tabindex="0"><code>docker run -dit \
+   -v $PWD/ql/config:/ql/config \
+   -v $PWD/ql/log:/ql/log \
+   -v $PWD/ql/db:/ql/db \
+   -v $PWD/ql/jbot:/ql/jbot \
+   -v $PWD/ql/raw:/ql/raw \
+   -v $PWD/ql/repo:/ql/repo \
+   -v $PWD/ql/scripts:/ql/scripts \
+   -p 5700:5700 \
+   --name qinglong \
+   --hostname qinglong \
+   --restart always \
+   whyour/qinglong:latest
+</code></pre><h2 id="打开防火墙">打开防火墙</h2>
+<p>去你的服务商开启防火墙 开放端口5700</p>
+<p>以下部分主机商开通端口教程</p>
+<p>腾讯云: <a class="link" href="/posts/blog/https://www.bt.cn/bbs/thread-1229-1-1.html"  target="_blank" rel="noopener"
+    >https://www.bt.cn/bbs/thread-1229-1-1.html</a></p>
+<p>阿里云：https://www.bt.cn/bbs/thread-2897-1-1.html</p>
+<p>华为云：https://www.bt.cn/bbs/thread-3923-1-1.html</p>
+<h2 id="登录青龙面板">登录青龙面板</h2>
+<p>面板地址：http://你服务器IP:5700
+默认账号：admin
+默认密码：adminadmin
+注意：当您使用以上密码首次登录后，面板会显示已初始化密码。请在SSH终端内输入以下指令查看新密码（输出的结果就是实际的密码了{“username”:“admin ##这里是你的管理员账号”,“password”:” 123456 ##这里的就是你新管理密码”），代码如下：</p>
+<pre tabindex="0"><code>docker exec -it qinglong cat /ql/config/auth.json
+</code></pre><h2 id="完成登录">完成登录</h2>
+<p><img src="/posts/blog/20220430231513/image-20220430232256871.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="青龙面板更新命令一步一步执行">青龙面板更新命令：一步一步执行</h3>
+<pre tabindex="0"><code>cd qinglong   ##进入青龙目录 qinglong改你的目录
+
+docker-compose down
+
+docker pull whyour/qinglong:latest
+
+docker-compose up -d
+</code></pre><h2 id="依赖安装">依赖安装</h2>
+<p>1.出现下列错误：(缺依赖)</p>
+<p>Error: Cannot find module ‘xx’</p>
+<p>执行命令：docker exec -it ql(ql你的容器名称) pnpm install xx（xx填缺少依赖的文件名）</p>
+<p>2.一般出现这种错误：(缺文件)</p>
+<p>Error: Cannot find module ‘./xx’</p>
+<p>执行命令：那就很有是拉库命令不完整，请检查或复制完整的拉库命令,看看群置顶↑😜</p>
+<p>3.一般出现这种错误：(缺py依赖)</p>
+<p>ModuleNotFoundError: No module named ‘xxx’,并且是.py结尾的脚本</p>
+<p>执行命令：docker exec -it ql(ql你的容器名称) pip3 install xxx</p>
+<p>4.遇到这种问题：(脚本问题)</p>
+<p>TypeError: Cannot read property ‘xxxx’ of undefined</p>
+<p>操作是：原因可能是脚本问题，或者接口问题，又或者是黑号，又或者是京东问题，又或者是ip黑了，等等。总之遇到这种情况，有人说重装能解决，或者换ip再试试，自</p>
+<p>SSH安装依赖：</p>
+<pre tabindex="0"><code>docker exec -it qinglong bash -c &#34;apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev &amp;&amp; cd scripts &amp;&amp; npm install canvas --build-from-source&#34;
+</code></pre><p>宠物汪汪依赖</p>
+<pre tabindex="0"><code>docker exec -it qinglong bash -c &#34;cd scripts &amp;&amp; npm i -S png-js&#34;
+
+
+签到及宠汪汪兑换必装依赖文件
+cd ql/scripts &amp;&amp; wget  https://cdn.jsdelivr.net/gh/mzljjkj/mzkj@master/20210819/66ed73000262d5876ea6464d5b6280a5/66ed73000262d5876ea6464d5b6280a5.zip &amp;&amp; unzip 66ed73000262d5876ea6464d5b6280a5.zip
+
+
+安装tough-cookie
+cd /root/ql/scripts &amp;&amp; npm install png-js crypto-js download got http-server request tough-cookie tunnel ws
+ 
+安装crypto-js
+npm install crypto-js
+ 
+</code></pre><p>全部依赖库：</p>
+<pre tabindex="0"><code>docker exec -it qinglong bash -c &#34;npm install -g typescript&#34;
+docker exec -it qinglong bash -c &#34;npm install axios date-fns&#34;
+docker exec -it qinglong bash -c &#34;npm install crypto -g&#34;
+docker exec -it qinglong bash -c &#34;npm install jsdom&#34;
+docker exec -it qinglong bash -c &#34;npm install png-js&#34;
+docker exec -it qinglong bash -c &#34;npm install -g npm&#34;
+docker exec -it qinglong bash -c &#34;pnpm i png-js&#34;
+docker exec -it qinglong bash -c &#34;pip3 install requests&#34;
+docker exec -it qinglong bash -c &#34;apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev &amp;&amp; cd scripts &amp;&amp; npm install canvas --build-from-source&#34;
+docker exec -it qinglong bash -c &#34;apk add python3 zlib-dev gcc jpeg-dev python3-dev musl-dev freetype-dev&#34;
+docker exec -it qinglong bash -c &#34;cd /ql/scripts/ &amp;&amp; apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev &amp;&amp; npm i &amp;&amp; npm i -S ts-node typescript @types/node date-fns axios png-js canvas --build-from-source&#34;
+</code></pre><h3 id="安装配置文件及依赖">安装配置文件及依赖</h3>
+<p>不废话，每个教程都会出现的依赖，一行一行执行完就行，不用理会报错什么的。<br>
+正常用户都是node.js<br>
+IOS软件用户请使用 <a class="link" href="/posts/blog/https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD"  target="_blank" rel="noopener"
+    >https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD</a>_DailyBonus.js</p>
+<pre tabindex="0"><code>下载
+cd /usr/local  &amp;&amp; wget https://nodejs.org/dist/v14.17.5/node-v14.17.5-linux-x64.tar.xz
+ 
+解压
+xz -dk node-v14.17.5-linux-x64.tar.xz  &amp;&amp; tar -xvf node-v14.17.5-linux-x64.tar
+ 
+复制下面放到profile文件（看前面步骤）
+ 
+export NODE_HOME=/usr/local/node-v14.17.5-linux-x64
+export PATH=$PATH:$NODE_HOME/bin
+export NODE_PATH=$NODE_HOME/lib/node_modules
+ 
+生效
+source /etc/profile
+</code></pre><p><strong>必装依赖（别偷懒）</strong></p>
+<pre tabindex="0"><code>一、安装got
+cd xdd-plus  &amp;&amp;  npm install got
+ 
+二、安装tough-cookie
+cd /root/ql/scripts &amp;&amp; npm install png-js crypto-js download got http-server request tough-cookie tunnel ws
+ 
+三、安装crypto-js
+npm install crypto-js
+ 
+四、图形验证依赖 宠汪汪 图形签到等需求
+docker exec -it qinglong bash -c &#34;cd scripts &amp;&amp; npm i -S png-js&#34;
+ 
+五、部分脚本依赖
+docker exec -it qinglong bash -c &#34;apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev &amp;&amp; cd scripts &amp;&amp; npm install canvas --build-from-source&#34;
+ 
+六、签到及宠汪汪兑换必装依赖文件
+cd ql/scripts &amp;&amp; wget  https://cdn.jsdelivr.net/gh/mzljjkj/mzkj@master/20210819/66ed73000262d5876ea6464d5b6280a5/66ed73000262d5876ea6464d5b6280a5.zip &amp;&amp; unzip 66ed73000262d5876ea6464d5b6280a5.zip
+ 
+七、全部依赖
+docker exec -it qinglong bash -c &#34;npm install -g typescript&#34;
+docker exec -it qinglong bash -c &#34;npm install axios date-fns&#34;
+ 
+docker exec -it qinglong bash -c &#34;npm install png-js&#34;
+docker exec -it qinglong bash -c &#34;npm install -g npm&#34;
+docker exec -it qinglong bash -c &#34;pnpm i png-js&#34;
+docker exec -it qinglong bash -c &#34;pip3 install requests&#34;
+docker exec -it qinglong bash -c &#34;apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev &amp;&amp; cd scripts &amp;&amp; npm install canvas --build-from-source&#34;
+docker exec -it qinglong bash -c &#34;apk add python3 zlib-dev gcc jpeg-dev python3-dev musl-dev freetype-dev&#34;
+docker exec -it qinglong bash -c &#34;cd /ql/scripts/ &amp;&amp; apk add --no-cache build-base g++ cairo-dev pango-dev giflib-dev &amp;&amp; npm i &amp;&amp; npm i -S ts-node typescript @types/node date-fns axios png-js canvas --build-from-source&#34;
+</code></pre><p>上述资源大部分来自互联网，大家参考使用。致敬各位作者。</p>
+<h1 id="青龙nvjdc前端使用与安装教程">青龙nvjdc前端使用与安装教程</h1>
+<p><img src="/posts/blog/20220430231513/image-20220430232422100.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="第一步安装unzip">第一步.安装unzip</h3>
+<pre tabindex="0"><code>yum install wget unzip -y
+</code></pre><h3 id="第二步创建一个目录放配置以及chromium">第二步.创建一个目录放配置以及chromium</h3>
+<p>1.创建目录和进入nolanjdc</p>
+<pre tabindex="0"><code>mkdir nolanjdc &amp;&amp; cd nolanjdc
+</code></pre><p>2.下载config.json 配置文件 并且修改自己的配置</p>
+<pre tabindex="0"><code>#国外机
+wget -O Config.json https://github.com/shiunke/nvjdc/blob/main/Config.json
+#国内机
+wget -O Config.json https://ghproxy.com/https://github.com/shiunke/nvjdc/blob/main/Config.json
+</code></pre><p><img src="/posts/blog/20220430231513/image-20220430232448231.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>3.创建chromium文件夹并进入</p>
+<pre tabindex="0"><code>mkdir -p  .local-chromium/Linux-884014 &amp;&amp; cd .local-chromium/Linux-884014
+</code></pre><p>4.chromium目录下载chromium</p>
+<pre tabindex="0"><code>wget https://mirrors.huaweicloud.com/chromium-browser-snapshots/Linux_x64/884014/chrome-linux.zip &amp;&amp; unzip chrome-linux.zip
+</code></pre><p>5.删除下载chrome的压缩包</p>
+<pre tabindex="0"><code>rm  -f chrome-linux.zip
+</code></pre><p><img src="/posts/blog/20220430231513/image-20220430232511670.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>6.回到 nolanjdc目录</p>
+<pre tabindex="0"><code>cd &amp;&amp; cd nolanjdc
+</code></pre><p><img src="/posts/blog/20220430231513/image-20220430232530892.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="第三步拉取nvjdc镜像并创建容器">第三步.拉取nvjdc镜像并创建容器</h3>
+<p>1.镜像拉取</p>
+<pre tabindex="0"><code class="language-none" data-lang="none">docker pull nolanhzy/nvjdc:1.0
+</code></pre><p><img src="/posts/blog/20220430231513/image-20220430232549314.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>2.创建容器</p>
+<pre tabindex="0"><code class="language-none" data-lang="none">docker run   --name nolanjdc -p 5800:80 -d  -v  &#34;$(pwd)&#34;/Config.json:/app/Config/Config.json:ro \-v &#34;$(pwd)&#34;/.local-chromium:/app/.local-chromium  \-it --privileged=true  nolanhzy/nvjdc:1.0
+</code></pre><p><img src="/posts/blog/20220430231513/image-20220430232612902.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="第四步查看日志-看是否安装成功-出现-netjdc-started-表示成功">第四步.查看日志 看是否安装成功 出现 NETJDC started 表示成功</h3>
+<pre tabindex="0"><code>docker logs -f nolanjdc
+</code></pre><p><img src="/posts/blog/20220430231513/image-20220430232635409.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="第五步配置文件填入自己的青龙id和密钥">第五步.配置文件填入自己的青龙id和密钥</h3>
+<p><img src="/posts/blog/20220430231513/image-20220430232653142.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="第六步配置完所有重启容器">第六步.配置完所有重启容器</h3>
+<p><strong>注意：配置或改了配置文件完一定要重启容器要不然报错或者改了没有生效</strong></p>
+<pre tabindex="0"><code>##重启nolanjdc指令：docker restart nolanjdc
+</code></pre><h3 id="第七步访问前端">第七步.访问前端</h3>
+<p>链接是：你的ip加你的端口 如127.0.0.1:5703（如果按照本教程来的默认5703如果自己改过按照你改的来）</p>
+<h3 id="03版多容器配置">0.3版多容器配置：</h3>
+<pre tabindex="0"><code>{
+///最大支持几个网页
+&#34;MaxTab&#34;: &#34;4&#34;,
+//网站标题
+&#34;Title&#34;: &#34;NolanJDCloud&#34;,
+//网站公告
+&#34;Announcement&#34;: &#34;本项目脚本收集于互联网，为了您的财产安全，请关闭京东免密支付。&#34;,
+///多青龙配置
+&#34;Config&#34;: [
+{
+//容器1
+//序号必须从1开始
+&#34;QLkey&#34;: 1,
+//服务器名称
+&#34;QLName&#34;: &#34;阿里云&#34;,
+//青龙url
+&#34;QLurl&#34;: &#34;http://ip或者端口:5700&#34;,
+//青龙2,9 OpenApi Client ID
+&#34;QL_CLIENTID&#34;: &#34;&#34;,
+//青龙2,9 OpenApi Client Secret
+&#34;QL_SECRET&#34;: &#34;&#34;,
+//青龙面包最大ck容量
+&#34;QL_CAPACITY&#34;: 45,
+//消息推送二维码
+&#34;QRurl&#34;:&#34;&#34;
+},{
+//容器2
+//序号必须从1开始
+&#34;QLkey&#34;: 1,
+//服务器名称
+&#34;QLName&#34;: &#34;阿里云&#34;,
+//青龙url
+&#34;QLurl&#34;: &#34;http://ip或者端口:5700&#34;,
+//青龙2,9 OpenApi Client ID
+&#34;QL_CLIENTID&#34;: &#34;&#34;,
+//青龙2,9 OpenApi Client Secret
+&#34;QL_SECRET&#34;: &#34;&#34;,
+//青龙面包最大ck容量
+&#34;QL_CAPACITY&#34;: 45,
+//消息推送二维码
+&#34;QRurl&#34;:&#34;&#34;
+},{
+//容器3
+//序号必须从1开始
+&#34;QLkey&#34;: 1,
+//服务器名称
+&#34;QLName&#34;: &#34;阿里云&#34;,
+//青龙url
+&#34;QLurl&#34;: &#34;http://ip或者端口:5700&#34;,
+//青龙2,9 OpenApi Client ID
+&#34;QL_CLIENTID&#34;: &#34;&#34;,
+//青龙2,9 OpenApi Client Secret
+&#34;QL_SECRET&#34;: &#34;&#34;,
+//青龙面包最大ck容量
+&#34;QL_CAPACITY&#34;: 45,
+//消息推送二维码
+&#34;QRurl&#34;:&#34;&#34;
+}
+]
+
+}
+</code></pre><p>更新教程：</p>
+<p>1.. 删除容器 镜像</p>
+<pre tabindex="0"><code>##删除nolanjdc容器
+docker rm -f nolanjdc 
+##删除nolanhzy/nvjdc:0.3镜像 //注意：0.3 为版本号  按需更改
+docker rmi -f nolanhzy/nvjdc:0.3
+</code></pre><p>2..进入以前下载过浏览器 和JSON配置的文件夹中 如原来在 root 下 nolanjdc 文件夹中 下载的配置与浏览器</p>
+<pre tabindex="0"><code>2..进入以前下载过浏览器 和JSON配置的文件夹中 如原来在 root 下 nolanjdc 文件夹中 下载的配置与浏览器
+</code></pre><p>3.然后重新执行 拉取新版本镜像 拉取配置文件 和创建容器指令 指令看上面教程</p>
+<h1 id="青龙面板29傻妞机器人编译安装教程">青龙面板2.9傻妞机器人编译安装教程</h1>
+<pre tabindex="0"><code>  
+一键安装：s=sillyGirl;a=arm64;if [[ $(uname -a | grep &#34;x86_64&#34;) != &#34;&#34; ]];then a=amd64;fi ;if [ ! -d $s ];then mkdir $s;fi ;cd $s;wget https://mirror.ghproxy.com/https://github.com/cdle/${s}/releases/download/main/${s}_linux_$a -O $s &amp;&amp; chmod 777 $s;pkill -9 $s;$(pwd)/$s 
+国内用户先执行：set sillyGirl download_prefix https://ghproxy.com/
+芝士自愿开启：set jd_cookie enable_jd_cookie true
+一键安装版更新方法: 删除root/sillyGirl/sillyGirl文件，重新跑上面命令。
+</code></pre><h2 id="第一步-这里以linux-amd64为例去官网下载安装go语言安装包这里已经准备好下载指令-直接第二步开始">第一步. 这里以linux amd64为例，去官网下载安装go语言安装包(这里已经准备好下载指令 直接第二步开始）：</h2>
+<p><img src="/posts/blog/20220430231513/image-20220430232715621.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="第二步-输入下方指令-下载go1167linux-amd64targz包">第二步. 输入下方指令 下载go1.16.7.linux-amd64.tar.gz包</h2>
+<pre tabindex="0"><code>cd /usr/local &amp;&amp; wget https://golang.google.cn/dl/go1.16.7.linux-amd64.tar.gz -O go1.16.7.linux-amd64.tar.gz
+</code></pre><h2 id="第三步-解压-tar--xvzf-go1167linux-amd64targz-输入以下命令">第三步. 解压 tar -xvzf go1.16.7.linux-amd64.tar.gz 输入以下命令</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tar <span style="color:#000;font-weight:bold">-</span>xvzf go1<span style="color:#099">.16.7</span><span style="color:#000;font-weight:bold">.</span>linux<span style="color:#000;font-weight:bold">-</span>amd64<span style="color:#000;font-weight:bold">.</span>tar<span style="color:#000;font-weight:bold">.</span>gz
+</span></span></code></pre></div><h2 id="第四步-设置环境变量-输入指令vi-etcprofile-将下方框内文本复制到最后一行">第四步. 设置环境变量 输入指令：vi /etc/profile ,将下方框内文本复制到最后一行</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>export GO111MODULE<span style="color:#000;font-weight:bold">=</span>on
+</span></span><span style="display:flex;"><span>export GOPROXY<span style="color:#000;font-weight:bold">=</span>https:<span style="color:#000;font-weight:bold">//</span>goproxy<span style="color:#000;font-weight:bold">.</span>cn
+</span></span><span style="display:flex;"><span>export GOROOT<span style="color:#000;font-weight:bold">=/</span>usr<span style="color:#000;font-weight:bold">/</span>local<span style="color:#000;font-weight:bold">/</span>go
+</span></span><span style="display:flex;"><span>export GOPATH<span style="color:#000;font-weight:bold">=/</span>usr<span style="color:#000;font-weight:bold">/</span>local<span style="color:#000;font-weight:bold">/</span>go<span style="color:#000;font-weight:bold">/</span>path
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#000;font-weight:bold">=</span><span style="color:#a61717;background-color:#e3d2d2">$</span>PATH:<span style="color:#a61717;background-color:#e3d2d2">$</span>GOROOT<span style="color:#000;font-weight:bold">/</span><span style="color:#0086b3">bin</span>:<span style="color:#a61717;background-color:#e3d2d2">$</span>GOPATH<span style="color:#000;font-weight:bold">/</span><span style="color:#0086b3">bin</span>
+</span></span></code></pre></div><h3 id="保存文件后-输入指令">保存文件后 输入指令：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>source <span style="color:#000;font-weight:bold">/</span>etc<span style="color:#000;font-weight:bold">/</span>profile
+</span></span></code></pre></div><h3 id="如果要查看go安装好没有-输入指令go-env-输出如下图代表go安装好了">如果要查看go安装好没有 输入指令：go env 输出如下图代表go安装好了</h3>
+<p><img src="/posts/blog/20220430231513/image-20220430232737236.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="安装git如果安装过就不用安装">安装git：（如果安装过就不用安装）</h3>
+<p>下面3个命令挨个跑完就好了</p>
+<pre tabindex="0"><code>wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+rpm -ivh epel-release-latest-7.noarch.rpm
+
+yum install -y git
+</code></pre><h3 id="安装gcc-2个命令一个一个跑完-安装过的跳过">安装gcc 2个命令一个一个跑完 (安装过的跳过）</h3>
+<pre tabindex="0"><code class="language-none" data-lang="none">yum -y install gcc 
+
+yum -y install gcc-c++
+</code></pre><h2 id="第五步-拉库编译和安装傻妞一步一步执行">第五步. 拉库编译和安装傻妞(一步一步执行)</h2>
+<pre tabindex="0"><code class="language-none" data-lang="none">##返回到root目录
+cd ~ 
+
+##拉傻妞库 此时你的qinglong目录下会新增文件夹-sillyGirl
+git clone https://ghproxy.com/https://github.com/cdle/sillyGirl 
+
+
+##安装傻妞对青龙的扩展 
+cd sillyGirl/develop &amp;&amp; git clone https://ghproxy.com/https://github.com/ufuckee/jd_cookie
+
+
+##回到sillyGirl目录
+cd ..
+
+##在sillyGirl目录下新建文件 dev.go ##在dev.go内填写以下内容 （注意 qq 和 tg 插件 要放在后面）
+
+package main
+
+import (
+
+//青龙2.9机器人
+_&#34;github.com/cdle/sillyGirl/develop/qinglong&#34; 
+
+//京东账号
+_ &#34;github.com/cdle/sillyGirl/develop/jd_cookie&#34;
+
+//腾讯QQ
+_&#34;github.com/cdle/sillyGirl/im/qq&#34;
+
+//Te Legram
+_&#34;github.com/cdle/sillyGirl/im/tg&#34;
+
+//微信公众号
+_&#34;github.com/cdle/sillyGirl/im/wxmp&#34;
+
+//微信号
+_&#34;github.com/cdle/sillyGirl/im/wx&#34;
+)
+
+
+##在sillyGirl 目录下运行 go build 稍微等一下，让它跑一会儿
+go build 
+
+##给权限
+chmod 777 sillyGirl
+</code></pre><h3 id="然后在sillygirl文件夹里面运行一下指令-初始化并生成配置文件-等弹出二维码机器人qq扫码绑定机器人">然后在sillyGirl文件夹里面运行一下指令 ##初始化并生成配置文件 等弹出二维码机器人QQ扫码绑定机器人</h3>
+<pre tabindex="0"><code>./sillyGirl
+</code></pre><h3 id="扫码绑定后按住ctrl再按c退出然后输入下面的静默挂机挂机指令">扫码绑定后按住ctrl再按c退出，然后输入下面的静默挂机挂机指令</h3>
+<pre tabindex="0"><code>nohup ./sillyGirl 1&gt;/dev/null 2&gt;&amp;1 &amp; #AMD64
+</code></pre><h3 id="接下来去qq">接下来去QQ</h3>
+<p>第一步.接下来打开手机登录你的机器人QQ 给自己发 （机器人给机器人发送 填你需要管理机器人的QQ号 ）</p>
+<pre tabindex="0"><code class="language-none" data-lang="none">例如：set qq masters 123456789
+</code></pre><p>第二部. 现在你登录你管理机器人的QQ号慢慢发下面指令</p>
+<pre tabindex="0"><code class="language-none" data-lang="none">傻妞注销/更换qq命令 (注意执行需要去服务器重新运行机器人指令) 
+delete qq session.token
+傻妞机器人名
+set sillyGirl name 傻妞
+傻妞http服务端口
+set sillyGirl port 8080
+傻妞消息撤回等待时间，单位秒
+set sillyGirl duration 5
+傻妞自动升级是否通知
+set sillyGirl update_notify false
+是否开启傻妞自动更新
+set sillyGirl auto_update true
+傻妞内置赞赏码
+set sillyGirl appreciate https://gitee.com/aiancandle/sillyGirl/raw/main/appreciate.jpg
+是否启动http服务
+set sillyGirl enable_http_server false
+设置青龙openapi的client_id参数
+set qinglong client_id ?
+设置青龙openapi的client_secret参数
+set qinglong client_secret ?
+青龙是否开启自动隐藏重复任务功能
+set qinglong autoCronHideDuplicate true
+设置青龙面板地址
+set qinglong host http://127.0.0.1:5700
+设置qq登录账号
+set qq uin 10000
+设置qq登录密码
+set qq password 123456789
+设置qq临时消息默认群号
+set qq tempMessageGroupCode ?
+指定要监听的qq群
+set qq onGroups g1&amp;g2&amp;g3...
+设置自动同意好友请求
+set qq auto_friend true
+设置是否对监听自身消息
+set qq onself true
+设置qq管理员
+set qq masters q1&amp;q2&amp;q3...
+设置接受通知的qq账号
+set qq notifier q1&amp;q2&amp;q3...
+设置qq设备信息(自动生成)
+set qq device.json ?
+设置qq登录令牌(自动生成)
+set qq session.token ?
+设置telegram机器人token
+set tg token ?
+设置telegram机器人代理
+set tg http_proxy ?
+设置telegram机器人管理员
+set tg masters t1&amp;t2&amp;t3...
+设置接受通知的telegram账号
+set tg notifier t1&amp;t2&amp;t3...
+设置微信公众平台app_id
+set wxmp app_id ?
+设置微信公众平台app_secret
+set wxmp app_secret ?
+设置微信公众平台token
+set wxmp token ?
+设置微信公众平台encoding_aes_key
+set wxmp encoding_aes_key ?
+设置微信公众平台管理员
+set wxmp masters w1&amp;w2&amp;w3...
+傻妞内置微信插件，依赖于可爱猫和http-sdk
+傻妞远程处理接口 /wx/receive
+设置插件调用地址，确保傻妞可以访问可爱猫端口
+#set wx api_url ?
+设置图片转发模式，否则可能会出现此图片来自xx未经允许不得使用的提示
+#set wx relay_mode true
+设置指定转发地址，格式为 https://域名/relay?url=%s，不知道不用填
+#set wx relaier ?
+设置傻妞是否动态网络地址，适用于傻妞家庭宽带而可爱猫在云服务器的情况下
+set wx sillyGirl_dynamic_ip true
+设置可爱猫是否动态网络地址，适用于可爱猫家庭宽带而傻妞在云服务器的情况下
+#set wx keaimao_dynamic_ip true
+设置可爱猫端口
+#set wx keaimao_port ?
+</code></pre><h1 id="_新增配置文件并编译傻妞_"><em><strong>新增配置文件并编译傻妞</strong></em></h1>
+<p>新增sets.conf配置文件。</p>
+<pre tabindex="0"><code>cd /etc/sillyGirl
+touch sets.conf
+</code></pre><p>按键盘字母i进入编辑模式，输入下面的参数，并对应配置，然后按键盘esc退出编辑模式，输入命令<code>:wq</code>保存并退出。这里主要设置下青龙面板的地址和之前创建应用的参数，以及阿东面板的地址和坑位数。</p>
+<pre tabindex="0"><code># 傻妞机器人名
+set sillyGirl name 傻妞
+#傻妞http服务是否开启，默认false，开启改为true
+set sillyGirl enable_http_server true
+# 傻妞http服务端口
+set sillyGirl port 8080
+# 傻妞消息撤回等待时间，单位秒
+set sillyGirl duration 5
+# 傻妞自动升级是否通知
+set sillyGirl update_notify true
+#是否开启傻妞自动更新
+set sillyGirl auto_update true
+# 傻妞内置赞赏码
+#set sillyGirl appreciate 你的二维码
+# 设置青龙openapi的client_id参数
+set qinglong client_id U0Ea-0Ta47ug
+# 设置青龙openapi的client_secret参数
+set qinglong client_secret 1wrzipAo_HM77ZidkDZ3W87I
+# 青龙是否开启自动隐藏重复任务功能
+set qinglong autoCronHideDuplicate true
+# 设置青龙面板地址
+set qinglong host http://180.76.133.222:5700
+# 设置qq登录账号
+#set qq uin 10000 #这里建议注释，直接后台弹出二维码登陆
+# 设置qq登录密码
+#set qq password 123456789 #这里建议注释，直接后台弹出二维码登陆
+# 设置监听群聊号码，默认监听所有
+set qq groupCode 417497383
+# 设置是否自动同意好友请求
+set qq auto_friend true
+# 是否对自己发出的消息进行回复
+set qq onself true
+# 设置qq管理员
+set qq masters 2409741052
+# 设置接受通知的qq账号，默认管理员接受
+set qq notifier 2409741052
+# 设置qq设备信息(自动生成)
+#set qq device.json ?    #这里建议注释，直接后台弹出二维码登陆
+# 设置qq登录令牌(自动生成)
+#set qq session.token ?  #这里建议注释，直接后台弹出二维码登陆
+# 设置telegram机器人token
+#set tg token ?
+# 设置telegram机器人代理
+#set tg url ?
+# 设置telegram机器人管理员
+#set tg masters 2409741052
+# 设置接受通知的telegram账号，默认管理员接受
+#set tg notifier 2409741052
+# 设置微信公众平台app_id
+#set wxmp app_id wx954624d55c5f59f3
+# 设置微信公众平台app_secret
+#set wxmp app_secret 924274dc192eb2482aca8b00f048dc31
+# 设置微信公众平台token
+#set wxmp token ?
+# 设置微信公众平台encoding_aes_key
+#set wxmp encoding_aes_key ?
+# 设置微信公众平台管理员
+#set wxmp masters w1&amp;w2&amp;w3...
+
+#设置阿东登陆地址
+#set jd_cookie address http://180.76.133.222:5703
+#设置阿东登陆坑位数
+#set jd_cookie login_num 3
+
+#若兰配置
+set jd_cookie nolan_addr http://180.76.133.222:5800
+#芝士自愿开启：
+set jd_cookie enable_jd_cookie true
+</code></pre><p>需要主意的是，记得配置的地方，删除set前面的”#“，不然不生效。</p>
+<p><em><strong>4. 编译傻妞并运行</strong></em></p>
+<pre tabindex="0"><code>cd /etc/sillyGirl &amp;&amp; go build
+chmod 777 sillyGirl
+./sillyGirl
+</code></pre><h2 id="对接芝士命令">对接芝士命令</h2>
+<pre tabindex="0"><code class="language-none" data-lang="none">^jd\s+asset\s+(.+)$ ^查询 (\S+)$
+# 资产推送$
+资产推送 #会根据绑定的qq一对一推送
+# 资产推送定时
+九点例子： set jd_cookie asset_push 0 9 * * * ，包括失效提醒。
+# 查询资产 
+查询or查询 [序号] #命令&#34;查询&#34;绑定账号资产命令；命令&#34;查询 1&#34;，查询指定账号资产，注意空格，顺序为青龙的ck排序，支持匹配绑定的社交账号
+# 获取绑定的社交账号
+jd imOf [ck或pt_pin] 。
+# 查询今日豆子变化
+^jd\s+today\s+bean[(](\S+)[)]$
+# 查询昨日豆子变化
+^jd\s+yestoday\s+bean[(](\S+)[)]$
+# 查询豆子变化
+^jd\s+bean[(](\S+)[)]$
+# wskey转换
+更新狗东账号 #转换 wskey 到 cookie
+^jd\s+eueu\s+(.+)$
+^jd\s+find\s+(.+)$
+^jd\s+exchange\s+(\S+)\s+(.+)$
+^jd\s+enable\s+(.+)$
+^jd\s+disable\s+(.+)$
+^jd\s+remark\s+(\S+)\s+(.+)$
+# JD账号绑定qq号码
+set pinQQ pt_pin qq号码，?：set pinQQ jd_xxxxxx 123456
+# 取消JD账号绑定qq号码
+delete pinQQ pt_pin，?：delete pinQQ jd_xxxxxx
+# 解绑im账号 对应的所有京东账号：
+jd unbind im，?：jd unbind 10000
+# JD账号绑定TG账号（可由）
+set pinTG pt_pin TGID（找getmyid获取）
+# 取消JD账号绑定TG账号
+delete pinTG pt_pin
+# 设置wskey自动转cooke定时：
+set jdWSCK update 56 * * * *
+# 解绑京东账号
+jd unbind 可以解绑名下所有京东账号
+#给绑定该京东账号的社交账号发送消息
+jd send pt_pin msg ,pt_pin填all则发给所有。
+# ck提交
+pt_key=([^;=\s]+);\s*pt_pin=([^;=\s]+) 例：直接发抓到的ck，格式参考命令
+# wskey提交
+pin=([^;=\s]+);\s*wskey=([^;=\s]+) 例：直接发抓到的ck，格式参考命令
+# 限制查询频率
+set jd_cookie query_wait_time [限制秒数] 例:set jd_cookie query_wait_time 60
+# 设置阿东登录地址
+set jd_cookie adong_addr 阿东ip:端口
+# 设置阿东qq机器人账号
+set jd_cookie selfQid 机器人qq账号
+# 登录狗东账号
+登录或登陆 
+# 退出狗东登录
+q或退出登陆
+# 删除阿东地址 
+delete jd_cookie adong_addr 例：delete jd_cookie adong_addr 127.0.0.1:5701
+# 给绑定该京东账号的社交账号发送消息
+jd send pt_pin msg #pt_pin填all则发给所有。
+# 解锁内测功能
+申请内测 #打赏作者进内测群，请打出“申请内测”。需要set tg masters [myuid]。没有用tg的，请在/etc/sillyGirl/sets.conf加上一行命令。
+</code></pre><h2 id="重启傻妞教程">重启傻妞教程</h2>
+<pre tabindex="0"><code>ps -A|grep sillyGirl ##显示进程号
+</code></pre><pre tabindex="0"><code>kill -9 xxxxxx ##杀掉进程
+</code></pre><pre tabindex="0"><code>cd sillyGirl &amp;&amp; ./sillyGirl  ##运行机器人
+</code></pre><p>然后按Ctrl＋ C在输入一下静默挂机命令</p>
+<pre tabindex="0"><code>nohup ./sillyGirl 1&gt;/dev/null 2&gt;&amp;1 &amp; #AMD64
+</code></pre><p><strong>注意无法正常启动傻妞请手动更新启动并挂机输入一下命令</strong></p>
+<pre tabindex="0"><code>cd sillyGirl &amp;&amp;  git pull &amp;&amp; go build &amp;&amp; ./sillyGirl -d
+</code></pre><h2 id="相关问题">相关问题</h2>
+<p>1.QQ扫码请使用需要做机器人的QQ去扫码
+2.如果需要更换机器人，输入下方指令：
+sillyGirl注销qq命令：delete qq session.token，重新运行扫码扫描即可。</p>
+<p>2.提示链接不上青龙？
+上方命令，机器人QQ对自己发，设置好青龙的应用ID以及密匙，应用创建：青龙面板-系统设置-应用设置-添加应用-名称随意-权限全选-就可以看到ID以及密匙。
+然后重启傻妞即可对接青龙。</p>
+<p>3.目前傻妞不需要配置config.yaml，一切以上方命令为准。</p>
+<h1 id="nolanjdc对接傻妞教程">Nolanjdc对接傻妞教程</h1>
+<h2 id="要求">要求：</h2>
+<p>最新版傻妞 最新版Nolanjdc 即可对接傻妞
+<img src="/posts/blog/20220430231513/image-20220430232804228.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="第一步需要你安装了nolanjdc">第一步.需要你安装了Nolanjdc</h3>
+<p>安装了Nolanjdc不是最新版 更新Nolanjdc看下面教程（即安装了Nolanjdc，又是最新版的看第3）</p>
+<pre tabindex="0"><code class="language-none" data-lang="none">##删除nolanjdc容器
+docker rm -f nolanjdc 
+
+##删除nolanhzy/nvjdc:0.3镜像 //注意：0.3 为版本号  按需更改你是什么版本就改什么版本 
+docker rmi -f nolanhzy/nvjdc:0.3
+
+##进入nolanjdc文件夹
+cd /root/nolanjdc
+
+##拉取最新版镜像
+docker pull nolanhzy/nvjdc:1.0
+</code></pre><p>##然后创建新版镜像容器</p>
+<pre tabindex="0"><code>docker run   --name nolanjdc -p 5800:80 -d  -v  &#34;$(pwd)&#34;/Config.json:/app/Config/Config.json:ro \-v &#34;$(pwd)&#34;/.local-chromium:/app/.local-chromium  \-it --privileged=true  nolanhzy/nvjdc:1.0
+</code></pre><p>3.安装了Nolanjdc又是最新版的 请修改配置文件如下图（注意：请把配置改成下图 一模一样 要不然报错）</p>
+<p><img src="/posts/blog/20220430231513/image-20220430232822564.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>然后重启Nolanjdc容器</p>
+<pre tabindex="0"><code class="language-none" data-lang="none">docker restart nolanjdc
+</code></pre><h3 id="第二步傻妞机器人的安装更新">第二步.傻妞机器人的安装更新</h3>
+<p>2.安装了的 不是最新版傻妞机器人的请更新机器人（安装了傻妞又是最新版的看第3）</p>
+<pre tabindex="0"><code>##显示傻妞进程号
+ps -A|grep sillyGirl
+
+##杀掉傻妞进程  xxxxxx处写你查出来的进程号
+kill -9 xxxxxx
+
+##更新机器人指令
+a=arm64;if [[ $(uname -a | grep &#34;x86_64&#34;) != &#34;&#34; ]];then a=amd64;fi ;s=sillyGirl;cd;if [ ! -d $s ];then mkdir $s;fi ;cd $s;wget https://mirror.ghproxy.com/https://github.com/cdle/${s}/releases/download/main/${s}_linux_$a -O $s &amp;&amp; chmod 777 $s &amp;&amp;pkill -9 $s ; $(pwd)/$s
+</code></pre><p>3.已经是最新傻妞的 用管理员qq给机器人发送命令</p>
+<pre tabindex="0"><code class="language-none" data-lang="none">set jd_cookie nolan_addr http://你的jdc IP:你的jdc端口号 必须加 http://
+
+set qinglong client_id 青龙应用ID
+
+set qinglong client_secret 青龙应用secret(密钥)
+
+set qinglong host http://青龙IP:端口号
+</code></pre><p><img src="/posts/blog/20220430231513/image-20220430232839327.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="拉库">拉库</h1>
+<p>接下来青龙面板的定时任务里添加定时任务（拉库，建议可以同时拉Faker和青蛙的，默认你们都是国内服务器）</p>
+<h2 id="faker库">Faker库</h2>
+<p>名称Faker
+命令</p>
+<pre tabindex="0"><code>ql repo https://ghproxy.com/https://github.com/shufflewzc/faker2.git &#34;jd_|jx_|gua_|jddj_|getJDCookie&#34; &#34;activity|backUp&#34; &#34;^jd[^_]|USER|ZooFaker_Necklace.js|JDJRValidator_Pure|sign_graphics_validate&#34;
+</code></pre><p>定时规则0/10 1 * * * *</p>
+<h2 id="青蛙库"><strong>青蛙库</strong></h2>
+<p>名称青蛙
+命令</p>
+<pre tabindex="0"><code>ql repo https://github.com/smiek2121/scripts.git &#34;jd_|gua_&#34; &#34;&#34; &#34;^MovementFaker|^JDJRValidator|^ZooFaker|^sign&#34;
+</code></pre><p>定时规则0/20 1 * * * *</p>
+<h2 id="如何拉库">如何拉库：</h2>
+<pre tabindex="0"><code>ql repo &lt;repourl&gt; &lt;path&gt; &lt;blacklist&gt; &lt;dependence&gt; &lt;branch&gt;
+</code></pre><p>对应意思 “库地址” “拉哪些” “不拉哪些” “依赖文件” “分支”</p>
+<h2 id="拉取单个脚本">拉取单个脚本</h2>
+<pre tabindex="0"><code>ql raw &lt;fileurl&gt;
+</code></pre><h2 id="使用方法">使用方法：</h2>
+<p>一、添加库：进入面板-右上角“定时任务”-分别填入相关信息。提供个人设置，给大家参考。其中人物名、任务定时可自定义。<br>
+二、运行库任务添加脚本：分别点击每个库的运行按钮，稍等一下，让它飞一会儿。然后刷新页面，就能看到库的脚本了。</p>
+<h2 id="截止2021年9月21日目前还在维护的仓库">截止2021年9月21日目前还在维护的仓库</h2>
+<pre tabindex="0"><code>ccwav大佬的资产通知增强版和CK检测（推荐使用）
+不包含sendNotify:
+ql repo https://github.com/ccwav/QLScript.git &#34;jd_&#34; &#34;sendNotify.js&#34; &#34;ql.js&#34;
+包含sendNotify:
+ql repo https://github.com/ccwav/QLScript.git &#34;jd_&#34; &#34;&#34; &#34;ql.js|sendNotify.js&#34;
+wskey转换来源于Zy143L大佬（不上传，推荐）
+完美网络用户：ql repo https://github.com/Zy143L/wskey.git &#34;wskey&#34;
+国内网络用户：ql repo https://ghproxy.com/github.com/Zy143L/wskey.git &#34;wskey&#34;
+</code></pre><pre tabindex="0"><code>zero205大佬更新拉库命令（更新频繁，内置作者助力）
+ql repo https://github.com/zero205/JD_tencent_scf.git &#34;jd_|jx_|getJDCookie&#34; &#34;backUp|icon&#34; &#34;^jd[^_]|USER|sendNotify|sign_graphics_validate|JDJR&#34;&#34;main&#34;
+</code></pre><pre tabindex="0"><code>yuannian1112拉取仓库命令： 
+国内鸡 
+ql repo https://hub.fastgit.org/yuannian1112/jd_scripts.git &#34;jd_|jx_|getJDCookie&#34; &#34;activity|backUp&#34; &#34;^jd[^_]|USER|utils&#34; 
+国外鸡 
+ql repo https://github.com/yuannian1112/jd_scripts.git &#34;jd_|jx_|getJDCookie&#34; &#34;activity|backUp&#34; &#34;^jd[^_]|USER|utils&#34; 
+v4修改默认库为 
+https://hub.fastgit.org/yuannian1112/jd_scripts.git 
+分支修改为main
+</code></pre><pre tabindex="0"><code>## star261 更新燃动
+ql repo https://github.com/star261/jd.git &#34;scripts|jd&#34; &#34;&#34; &#34;&#34; &#34;main&#34;
+## chinnkarahoi 无维护，原版
+ql repo https://github.com/chinnkarahoi/jd_scripts.git &#34;jd_|jx_|getJDCookie&#34; &#34;activity|backUp|Coupon&#34; &#34;^jd[^_]|USER&#34;
+## JDHelloWorld 基本天天有更新,但是采用TS脚本让初学者不友好
+ql repo https://github.com/JDHelloWorld/jd_scripts.git &#34;jd_|jx_|getCookie&#34; &#34;activity|backUp|Coupon|enen|update&#34; &#34;^jd[^_]|USER|tools&#34;
+##柠檬panghu 已经跑路
+ql repo https://github.com/panghu999/jd_scripts.git &#34;jd_|jx_|getJDCookie&#34; &#34;activity|backUp|jd_delCoupon|format_&#34; &#34;^jd[^_]|USER&#34;
+## he1pu 有更新
+ql repo https://github.com/he1pu/JDHelp.git &#34;jd_|jx_|getJDCookie&#34; &#34;activity|backUp|jd_delCoupon&#34; &#34;^jd[^_]|USER&#34;
+## shufflewzc 集合目前能用的脚本有更新
+ql repo https://github.com/shufflewzc/faker2.git &#34;jd_|jx_|jddj_|getJDCookie&#34; &#34;activity|backUp&#34; &#34;^jd[^_]|USER|ZooFaker_Necklace|JDJRValidator_Pure|sign_graphics_validate&#34;
+##Annyoo2021 lxk最终版及搬运整理 集合目前能用的脚本 推荐
+ql repo https://github.com/Annyoo2021/scripts.git &#34;jd_|jx_|long_|getJDCookie&#34; &#34;activity|backUp&#34; &#34;^jd[^_]|USER|ZooFaker_Necklace|JDJRValidator_Pure|JDJRValidator&#34; &#34;main&#34;
+</code></pre><pre tabindex="0"><code>smiek2221仓库
+https://github.com/smiek2221/scripts
+Tsukasa007仓库
+https://github.com/Tsukasa007/my_script/tree/master
+同步上游各个大佬的仓库 相当于合集
+https://github.com/DovFork
+</code></pre><h1 id="京东青龙内部互助codesh安装使用教程">京东青龙内部互助code.sh安装使用教程</h1>
+<h3 id="前言-1">前言：</h3>
+<p>使用code.sh 实现内部ck互助 可以实现1.优先助力越前面的ck 2.均力助力等</p>
+<h3 id="脚本文件">脚本文件：</h3>
+<p><a class="link" href="/posts/blog/20220430231513/code.sh" >code.sh</a></p>
+<p><a class="link" href="/posts/blog/20220430231513/task_before.sh" >task_before.sh</a></p>
+<h3 id="安装教程">安装教程：</h3>
+<p>第一步.把 code.sh、task_before.sh 复制到青龙容器的 /ql/config/ 路径。<br>
+<img src="/posts/blog/20220430231513/image-20220430232910570.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>第二步.将 code.sh 设定定时任务。<br>
+名称：格式化更新互助码<br>
+命令：task /ql/config/code.sh<br>
+定时规则：10 * * * *<br>
+<img src="/posts/blog/20220430231513/image-20220430232930130.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>注意注：①表示每整点10分时运行。 ②自动静默安装或修复常用依赖功能可能带来脚本运行时间长，主机性能消耗较大的副作用，如果不需要该功能，请自行修改 code.sh 内容：FixDependType=”1″ 改成 FixDependType=””</p>
+<h3 id="第三步运行脚本-完成安装">第三步.运行脚本 完成安装</h3>
+<h1 id="京东羊毛非标准端口cdn加速隐藏ip和端口">京东羊毛非标准端口CDN加速隐藏ip和端口</h1>
+<h3 id="前言-2">前言：</h3>
+<p>这里以京东羊毛kingfeng前端为例5000端口 其他端口理论可以自己去试试<br>
+要求：<br>
+✔搭建好了青龙面板<br>
+✔搭建了kingfeng前端<br>
+✔有一个备案域名</p>
+<p>CDN加速的好处：</p>
+<p>✔可以隐藏你的服务器源ip 以防别人直接攻击<br>
+✔ 域名访问 列如不用cdn 你就是这样访问前端1.1.1.1:5700你用了cdn后就可以这样 xxx.baidu.xxx问</p>
+<p>注意：我也是小白 不懂原理 我只是负责分享我自己成功的案列 大神勿喷 大家可以自己去试试下面教程 有大神懂其中原理的我洗耳恭听。</p>
+<h2 id="教程-1">教程：</h2>
+<p>如果没有配置好青龙面板请看下面链接</p>
+<p><a class="link" href="/posts/blog/http://www.unke.ren/2021/10/11/%e5%ae%89%e8%a3%85%e9%9d%92%e9%be%99%e9%9d%a2%e6%9d%bf/"  target="_blank" rel="noopener"
+    >点击查看青龙安装教程</a></p>
+<p>如果没配置好kingfeng请看下面链接</p>
+<p><a class="link" href="/posts/blog/http://www.unke.ren/2021/10/16/%e9%9d%92%e9%be%99%e9%9d%a2%e6%9d%bf-%e4%ba%ac%e4%b8%9c%e5%89%8d%e7%ab%afkingfng%e5%ae%89%e8%a3%85%e6%95%99%e7%a8%8b/"  target="_blank" rel="noopener"
+    >点击查看kingfeng前端安装教程</a></p>
+<p>上面都完成了再做一下要步骤</p>
+<h3 id="第一步我百度了一下好多cdn都不支持非标准端口加速基本上都是80-443端口-我们今天用的是七牛的免费cdn-这里我不提供链接自己百度-注册好--登录控制台--然后点添加域名-看图片">第一步.我百度了一下好多cdn都不支持非标准端口加速基本上都是80 443端口 我们今天用的是七牛的免费cdn 这里我不提供链接自己百度 注册好 &gt; 登录控制台 &gt; 然后点添加域名 看图片</h3>
+<p><img src="/posts/blog/20220430231513/image-20220430233055481.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/blog/20220430231513/image-20220430233105976.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/blog/20220430231513/image-20220430233118703.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/blog/20220430231513/image-20220430233003747.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="第二步来到图4页面-看清楚我选的配置">第二步.来到图4页面 看清楚我选的配置</h3>
+<p><img src="/posts/blog/20220430231513/image-20220430233133664.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>这里特别说明一哈<br>
+源ip： 填你的服务器ip<br>
+端口：填你的 开放kingfeng端口<br>
+测试源站那里 ：测试资源名 你是安教程搭建的kingfeng前端 你就填 #/ 如果你加速其他你就自己找资源名 或者发出来。</p>
+<h3 id="第三步上面都配置完了后-你点确定哟-然后去你的域名服务商哪里解析cname记录">第三步.上面都配置完了后 你点确定哟 然后去你的域名服务商哪里解析CNAME记录</h3>
+<p>主机值： 你刚才在cdn添加二级域名前缀是什么你就填什么<br>
+解析类型：CNAME<br>
+记录值 ：你在七牛cdn配置完 他会给你的</p>
+<p>然后就完成了过几分钟去打开你的网站【可以不用加端口访问了】看看是不是可以正常访问 不能访问端口防火墙开没得 成功了的话 再去ping一哈看是不是隐藏了你的ip 用的服务商提供节点[咦][咦]</p>
+<p>这是我成功的案列我我没弄清楚什么原理 分享给大家 如果不行勿喷。</p>
+<p>演示站：<a class="link" href="/posts/blog/http://jd.unke.ren/"  target="_blank" rel="noopener"
+    >http://jd.unke.ren</a></p>
+<h1 id="青龙面板跑京喜欢乐砍价脚本和教程">青龙面板跑京喜欢乐砍价脚本和教程</h1>
+<h3 id="前言-3">前言：</h3>
+<p>脚本只会砍第一个ck需要砍的商品<br>
+<img src="/posts/blog/20220430231513/image-20220430233201670.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>活动入口：https://st.jingxi.com/sns/202103/20/jxhlk/list.html</p>
+<h3 id="第一步拉取脚本">第一步.拉取脚本</h3>
+<p>ql raw <a class="link" href="/posts/blog/https://github.com/shiunke/Scripts/blob/unke/jxhlk.py"  target="_blank" rel="noopener"
+    >https://github.com/shiunke/Scripts/blob/unke/jxhlk.py</a></p>
+<p><img src="/posts/blog/20220430231513/image-20220430233226778.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="第二步去京喜选择你要砍的东西">第二步.去京喜选择你要砍的东西</h3>
+<p>活动入口：https://st.jingxi.com/sns/202103/20/jxhlk/list.html</p>
+<h3 id="第三步运行脚本">第三步.运行脚本</h3>
+<h1 id="青龙面板-京东前端kingfng安装教程">青龙面板 京东前端kingfng安装教程</h1>
+<h2 id="说明">说明：</h2>
+<h3 id="kingfeng-仅支持-qinglong-29">KingFeng 仅支持 qinglong 2.9+</h3>
+<p>KingFeng支持的架构：</p>
+<p><img src="/posts/blog/20220430231513/image-20220430233245070.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="kingfeng">Kingfeng:</h3>
+<ul>
+<li> docker一键部署</li>
+<li> 支持wsck ptkey</li>
+<li> 用户添加/更新cookies 检测是否过期 添加备注</li>
+<li> 用户添加cookies 自动执行wskey转换任务</li>
+<li> 推送卡片 自定义公告 支持html语法</li>
+<li> 管理员在线登录修改配置</li>
+<li> 多节点支持</li>
+</ul>
+<h2 id="安装教程-1">安装教程：</h2>
+<h3 id="第一步如果你的青龙面板不是qinglong-29的-请在在ssh执行以下命令-如果是29的忽略这一步">第一步.如果你的青龙面板不是qinglong 2.9+的 请在在ssh执行以下命令 如果是2.9+的忽略这一步</h3>
+<p>docker exec -it qinglong bash  ##进入容器 注意qinglong位置改成你的容器名字</p>
+<p>ql update  ##将更新青龙到最新</p>
+<p>ql check  ##检查青龙状态是否正确</p>
+<h3 id="第二步复制粘贴到ssh执行下列命令-如出现无法拉取-请自行设置docker国内源">第二步.复制粘贴到ssh执行下列命令 如出现无法拉取 请自行设置docker国内源</h3>
+<p>docker pull ranqi03/kingfeng:latest</p>
+<h3 id="完成以上命令继续输入一下命令">完成以上命令继续输入一下命令</h3>
+<pre tabindex="0"><code>docker run -dit \
+   -v $PWD/kingfeng/:/app/config/ \
+   -p 5000:80 \
+   --name kingfeng \
+   --hostname kingfeng \
+   ranqi03/kingfeng:latest
+</code></pre><h3 id="第三步配置docker映射目录下的configyaml-默认地址-用户名kingfengconfigyaml">第三步.配置docker映射目录：下的config.yaml 默认地址： /用户名/kingfeng/config.yaml</h3>
+<p>这里教程使用FinalShell软件编辑 比较方便如下图  其他方法百度一哈 <strong>配置完记得保存</strong>
+<img src="/posts/blog/20220430231513/image-20220430233302474.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="单节点设置">单节点设置</h4>
+<p>Servers:
+-QL_Name:上海节点
+##设置你的节点名字 列入上海节点
+QL_URL:http://172.13.1.33:5700/
+##使用容器IP+青龙默认部署端口为5700 例如我容器IP是172.13.1.33 那我QL_URL地方就填http://172.13.1.33:5700/
+QL_Client_ID:xxxxxxx
+##这个需要在青龙面板 系统管理》应用设置》添加应用》名称kingfeng 权限给：环节变量 定时任务 任务日志 然后确定 将Client ID复制到这里
+QL_Client_Secret:xxxxxx
+##这个需要在青龙面板 系统管理》应用设置》添加应用》名称kingfeng 权限给：环节变量 定时任务 任务日志 然后确定 将Client Secret复制到这里
+MaxCount: 100<br>
+##你要设置的多少名额 这里是可以添加100个名额
+SecretKey: xxxxx<br>
+##这里是你登录kingfeng后台的管理密钥  ##管理员登录 选择任意节点 输入配置文件的密钥 登录即可
+WsKeyTaskFullName: wskey转换<br>
+#wskey转换任务名
+Notice: 你好,这里可以自定义公告<br>
+#用户自定义公告内容 支持html语法
+UserName: kingfeng
+#管理员名称
+PushImageUrl: <a class="link" href="/posts/blog/https://img2.baidu.com/it/u=1007188585,453085648&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg"  target="_blank" rel="noopener"
+    >https://img2.baidu.com/it/u=1007188585,453085648&fm=26&fmt=auto&gp=0.jpg</a><br>
+#推送图片 改成你的推送图片链接即可</p>
+<h4 id="多节点设置">多节点设置</h4>
+<p>Servers:
+-QL_Name:上海节点
+##设置你的节点名字 列如上海节点
+QL_URL:http://172.13.1.33:5700/
+##使用容器IP+青龙默认部署端口为5700 例如我容器IP是172.13.1.33 那我QL_URL地方就填http://172.13.1.33:5700/
+QL_Client_ID:xxxxxxx
+##这个需要在青龙面板 系统管理》应用设置》添加应用》名称可以随便填 权限给：环节变量 定时任务 任务日志 然后确定 将Client ID复制到这里
+QL_Client_Secret:xxxxxx
+##这个需要在青龙面板 系统管理》应用设置》添加应用》名称可以随便填 权限给：环节变量 定时任务 任务日志 然后确定 将Client Secret复制到这里
+MaxCount: 100<br>
+##你要设置的多少名额 这里是可以添加100个名额
+-QL_Name:广东节点
+##设置你的节点名字 列如广东节点
+QL_URL:http://172.13.1.33:5700/
+##使用容器IP+青龙默认部署端口为5700 例如我容器IP是172.13.1.33 那我QL_URL地方就填http://172.13.1.33:5700/
+QL_Client_ID:xxxxxxx
+##这个需要在青龙面板 系统管理》应用设置》添加应用》名称可以随便填 权限给：环节变量 定时任务 任务日志 然后确定 将Client ID复制到这里
+QL_Client_Secret:xxxxxx
+##这个需要在青龙面板 系统管理》应用设置》添加应用》名称可以随便填 权限给：环节变量 定时任务 任务日志 然后确定 将Client Secret复制到这里
+MaxCount: 100<br>
+##你要设置的多少名额 这里是可以添加100个名额
+SecretKey: xxxxx<br>
+##这里是你登录kingfeng后台的管理密钥  ##管理员登录 选择任意节点 输入配置文件的密钥 登录即可
+WsKeyTaskFullName: wskey转换<br>
+#wskey转换任务名
+Notice: 你好,这里可以自定义公告<br>
+#用户自定义公告内容 支持html语法
+UserName: kingfeng
+#管理员名称
+PushImageUrl: <a class="link" href="/posts/blog/https://img2.baidu.com/it/u=1007188585,453085648&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg"  target="_blank" rel="noopener"
+    >https://img2.baidu.com/it/u=1007188585,453085648&fm=26&fmt=auto&gp=0.jpg</a><br>
+#推送图片 改成你的推送图片链接即可</p>
+<h3 id="第四步就可以访问kingfeng前端了">第四步.就可以访问kingfeng前端了</h3>
+<p>访问链接：你的IP+端口5000 列如：http://172.13.1.33:5000/ （注意：如果你改过端口那访问链接就是 ip+你改的端口 按照上面教程的话就是5000端口
+<img src="/posts/blog/20220430231513/image-20220430233315519.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="更新教程">更新教程：</h3>
+<p>指令：docker kill kingfeng &amp;&amp; docker rmi kingfeng</p>
+<p>指令：docker pull ranqi03/kingfeng:latest</p>
+<p>指令：
+docker run -dit \
+-v $PWD/kingfeng/:/app/config/ \
+-p 5000:80 \
+&ndash;name kingfeng \
+&ndash;hostname kingfeng \
+ranqi03/kingfeng:latest</p>
+<p>注意：建议更新前先备份config.yaml</p>
+<h3 id="常见问题">常见问题</h3>
+<p>Q：配置填写正确但是节点加载不出来 A：请检查服务器CPU是否爆高,如未爆高请在青龙容器内执行<code>ql update</code>以及<code>ql check</code></p>
+<p>Q：是否支持内网端口？<br>
+A：支持公网IP 域名 以及容器IP 推荐容器IP(安全性略高,速度稍微快)。</p>
+<p>Q：为什么访问主页出现错误空提示？<br>
+A：一般为端口映射错误/失败，请自行检查配置文件。</p>
+<p>Q：是否支持N1 Arm架构？<br>
+A：不支持。</p>
+<h1 id="真正的内部互助喵咪库">真正的内部互助喵咪库</h1>
+<p>喵咪库
+ql repo <a class="link" href="/posts/blog/https://github.com/cdle/carry.git"  target="_blank" rel="noopener"
+    >https://github.com/cdle/carry.git</a> &ldquo;jd_&rdquo; &quot;&quot; &ldquo;jdCookie.js|sendNotify.js|share_code.js|USER_AGENTS.js&rdquo;</p>
+<p>ql cron run 喵咪库</p>
+<p>ql cron logs 喵咪库</p>
+<p>ql cron run cdle</p>
+
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.github.io/posts/java-web/20220430214595/">← HTML</a></div>
+    <div><a href="https://lovemjh.github.io/posts/java-2/20220430214272/">1.8新特性  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+        <script type="text/javascript">
+ 
+            !function () {
+                
+                function get_attribute(node, attr, default_value) {
+                    return node.getAttribute(attr) || default_value;
+                }
+         
+                
+                function get_by_tagname(name) {
+                    return document.getElementsByTagName(name);
+                }
+         
+                
+                function get_config_option() {
+                    var scripts = get_by_tagname("script"),
+                        script_len = scripts.length,
+                        script = scripts[script_len - 1]; 
+                    return {
+                        l: script_len, 
+                        z: get_attribute(script, "zIndex", -1), 
+                        o: get_attribute(script, "opacity", 0.8), 
+                        c: get_attribute(script, "color", "255,255,255"), 
+                        n: get_attribute(script, "count", 350) 
+                    };
+                }
+         
+                
+                function set_canvas_size() {
+                    canvas_width = the_canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                        canvas_height = the_canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                }
+         
+                
+                function draw_canvas() {
+                    context.clearRect(0, 0, canvas_width, canvas_height);
+                    
+                    var e, i, d, x_dist, y_dist, dist; 
+                    
+                    random_points.forEach(function (r, idx) {
+                        r.x += r.xa,
+                            r.y += r.ya, 
+                            r.xa *= r.x > canvas_width || r.x < 0 ? -1 : 1,
+                            r.ya *= r.y > canvas_height || r.y < 0 ? -1 : 1, 
+                            context.fillRect(r.x - 0.5, r.y - 0.5, 1, 1); 
+                        
+                        for (i = idx + 1; i < all_array.length; i++) {
+                            e = all_array[i];
+                            
+                            if (null !== e.x && null !== e.y) {
+                                x_dist = r.x - e.x; 
+                                y_dist = r.y - e.y; 
+                                dist = x_dist * x_dist + y_dist * y_dist; 
+         
+                                dist < e.max && (e === current_point && dist >= e.max / 2 && (r.x -= 0.03 * x_dist, r.y -= 0.03 * y_dist), 
+                                    d = (e.max - dist) / e.max,
+                                    context.beginPath(),
+                                    context.lineWidth = d / 2,
+                                    context.strokeStyle = "#000000",
+                                    context.moveTo(r.x, r.y),
+                                    context.lineTo(e.x, e.y),
+                                    context.stroke());
+                            }
+                        }
+                    }), frame_func(draw_canvas);
+                }
+         
+                
+                var the_canvas = document.createElement("canvas"), 
+                    config = get_config_option(), 
+                    canvas_id = "c_n" + config.l, 
+                    context = the_canvas.getContext("2d"), canvas_width, canvas_height,
+                    frame_func = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (func) {
+                        window.setTimeout(func, 1000 / 40);
+                    }, random = Math.random,
+                    current_point = {
+                        x: null, 
+                        y: null, 
+                        max: 20000 
+                    },
+                    all_array;
+                the_canvas.id = canvas_id;
+                the_canvas.style.cssText = "position:fixed;top:0;left:0;z-index:" + config.z + ";opacity:" + config.o;
+                get_by_tagname("body")[0].appendChild(the_canvas);
+         
+                
+                set_canvas_size();
+                window.onresize = set_canvas_size;
+                
+                window.onmousemove = function (e) {
+                    e = e || window.event;
+                    current_point.x = e.clientX;
+                    current_point.y = e.clientY;
+                }, window.onmouseout = function () {
+                    current_point.x = null;
+                    current_point.y = null;
+                };
+                
+                for (var random_points = [], i = 0; config.n > i; i++) {
+                    var x = random() * canvas_width, 
+                        y = random() * canvas_height,
+                        xa = 2 * random() - 1, 
+                        ya = 2 * random() - 1;
+                    
+                    random_points.push({
+                        x: x,
+                        y: y,
+                        xa: xa,
+                        ya: ya,
+                        max: 6000 
+                    });
+                }
+                all_array = random_points.concat([current_point]);
+                
+                setTimeout(function () {
+                    draw_canvas();
+                }, 100);
+            }();
+        </script>
+    </body>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="https://cdn.jsdelivr.net/gh/SGYZ0910/CDN@1.0.7/js/maodian.js"></script>
+</html>

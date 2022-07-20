@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="搜索解决方案-Elasticsearch - https://lovemjh.github.io/posts/project-0/20220527224880/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>搜索解决方案-Elasticsearch</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.github.io/style.min.a52a9deea50c044b5100529b926604dd4ba41319221e01484d0aefcc97c1619f.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            搜索解决方案-Elasticsearch
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2022-05-27&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2022-05-27&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            9081 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            19 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/project-0/20220527222325/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/project-0/20220527233134/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#学习目标">学习目标</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1docker镜像下载">(1)docker镜像下载</a></li>
+    <li><a href="#2安装es容器">(2)安装es容器</a></li>
+    <li><a href="#3开启远程连接及跨域配置">(3)开启远程连接及跨域配置</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#31--kibana下载安装">3.1  Kibana下载安装</a></li>
+        <li><a href="#32-kibana使用">3.2 Kibana使用</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#41-springdata-elasticsearch介绍">4.1 SpringData Elasticsearch介绍</a></li>
+        <li><a href="#42-搜索工程搭建">4.2 搜索工程搭建</a></li>
+        <li><a href="#43-数据导入">4.3 数据导入</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#51-服务层实现">5.1 服务层实现</a></li>
+        <li><a href="#52-控制层实现">5.2 控制层实现</a></li>
+        <li><a href="#53-测试">5.3 测试</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#61-分类统计分析">6.1 分类统计分析</a></li>
+        <li><a href="#62-分类分组统计实现">6.2 分类分组统计实现</a></li>
+        <li><a href="#63-测试">6.3 测试</a></li>
+        <li><a href="#64-代码优化">6.4 代码优化</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 align = "center">第六章</h1>
+<h1 align = "center">搜索解决方案-Elasticsearch</h1>
+<h3 align="center">优就业.JAVA教研室</h3>
+<h2 id="学习目标">学习目标</h2>
+<ul>
+<li>Elasticsearch、Kibana环境配置</li>
+<li>DSL语句讲解</li>
+<li>商品索引库导入讲解</li>
+<li>商品关键词搜索实现</li>
+<li>分类统计搜索</li>
+</ul>
+<h1 id="一elasticsearch-安装">一、Elasticsearch 安装</h1>
+<p>ElasticSearch是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTfulweb接口。ElasticSearch是用Java开发的，并作为Apache许可条款下的开放源码发布，是当前流行的企业级搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。构建在全文检索开源软件Lucene之上的Elasticsearch，不仅能对海量规模的数据完成分布式索引与检索，还能提供数据聚合分析。据国际权威的数据库产品评测机构DBEngines的统计，在2016年1月，Elasticsearch已超过Solr等，成为排名第一的搜索引擎类应用</p>
+<p>简之：ElasticSearch是基于Restfull乐准的高扩展高可用的实时数据分析的全文搜索工具。</p>
+<p>基本概念</p>
+<p><img src="/posts/project-0/20220527224880/image-20220527225257010.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>此处需要注意：关于类型type在不同版本是有所变化的</p>
+<p>Elasticsearch 官网提出的近期版本对 type 概念的演变情况如下：</p>
+<p>在 <strong>5.X</strong> 版本中，<strong>一个 index</strong> 下<strong>可以创建多个 type</strong>；</p>
+<p>在 <strong>6.X</strong> 版本中，<strong>一个 index</strong> 下<strong>只能存在一个 type</strong>；</p>
+<p>在 <strong>7.X</strong> 版本中，直接<strong>去除了 type</strong> 的概念，就是说 <strong>index 不再会有 type</strong>。</p>
+<p>主要目的就是 为了保持 Elasticsearch “<strong>一切为了搜索</strong>” 的宗旨</p>
+<p>由于我们之前已经使用过elasticsearch了，这里不再对它进行过多的介绍了，直接下载安装，本章节将采用Docker安装，不过在市面上还有很多采用linxu安装，关于linux安装，已经提供了安装手册，这里就不讲了。</p>
+<p>我们之前已经使用过elasticsearch了，这里不再对它进行介绍了，直接下载安装，本章节将采用Docker安装，不过在市面上还有很多采用linxu安装，关于linux安装，已经提供了安装手册，这里就不讲了。</p>
+<h2 id="1docker镜像下载">(1)docker镜像下载</h2>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker pull elasticsearch:7.7.0
+</code></pre><p>注意：建议还原镜像备份文件</p>
+<pre tabindex="0"><code>docker load -i elasticsearch7.7.tar
+</code></pre><h2 id="2安装es容器">(2)安装es容器</h2>
+<p>因为elasticsearch在启动的时候会进行一些检查，比如最多打开的文件的个数以及虚拟内存区域数量等等，所以我们需要先进行系统调优，需要在虚拟机下设置<code>max_map_count</code>，否则elasticsearch容器会启动不起来
+查看<code>max_map_count</code>的值 默认是65530</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /proc/sys/vm/max_map_count
+</span></span></code></pre></div><p>重新设置<code>max_map_count</code>的值</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sysctl -w vm.max_map_count<span style="color:#000;font-weight:bold">=</span><span style="color:#099">262144</span>
+</span></span></code></pre></div><p>然后执行运行容器命令，如下</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker run -di --name dym_es -p 9200:9200 -p 9300:9300 -e &#34;discovery.type=single-node&#34; -e &#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;  elasticsearch:7.7.0 
+</code></pre><p>命令解释：</p>
+<p>9200端口(Web管理平台端口)  9300(服务默认端口)</p>
+<p><code>-e ES_JAVA_OPTS=&quot;-Xms512m -Xmx512m&quot;</code>是设置占用内存大小，一般线上检索服务器-ES服务器32G，这里就小一点测试</p>
+<p><code>-e &quot;discovery.type=single-node&quot;</code>这个是设置单节点运行</p>
+<h2 id="3开启远程连接及跨域配置">(3)开启远程连接及跨域配置</h2>
+<p>将elasticsearch容器内部的/usr/share/elasticsearch/config/elasticsearch.yml配置文件拷贝到虚拟机的root目录下，编辑增加以下命令。</p>
+<p>拷贝命令：</p>
+<pre tabindex="0"><code>docker cp dym_es:/usr/share/elasticsearch/config/elasticsearch.yml /root/elasticsearch.yml
+</code></pre><p>编辑elasticsearch.yml</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">cluster.name: my-application
+http.cors.enabled: true
+http.cors.allow-origin: &#34;*&#34;
+network.host: 0.0.0.0
+</code></pre><p>其中：</p>
+<p>cluster.name：自定义集群名称。
+network.host：当前es节点绑定的ip地址，默认127.0.0.1，如果需要开放对外访问这个属性必须设置。http.cors.enabled: true：此步为允许elasticsearch跨域访问，默认是false。
+<code>http.cors.allow-origin: &quot;*&quot;</code>：表示跨域访问允许的域名地址（*表示任意）。</p>
+<p>删除之前的es容器，并重新执行运行容器命令</p>
+<pre tabindex="0"><code>docker rm -f dym_es
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -di --name dym_es -p 9200:9200 -p 9300:9300 -e <span style="color:#d14">&#34;discovery.type=single-node&#34;</span> -e <span style="color:#d14">&#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;</span> -v /root/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml elasticsearch:7.7.0
+</span></span></code></pre></div><p>浏览器输入地址访问：`http://192.168.188.128:9200/
+<img src="/posts/project-0/20220527224880/image-20220527230503925.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>小提示：如果想让容器开启重启，可以执行下面命令</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker update --restart=always dym_es
+</code></pre><h1 id="二ik分词器安装">二、IK分词器安装</h1>
+<p>(1)安装ik分词器</p>
+<p>IK分词器下载地址https://github.com/medcl/elasticsearch-analysis-ik/releases</p>
+<p>上传分词器压缩文件到linux服务器，拷贝文件到ES容器</p>
+<pre tabindex="0"><code>docker cp /root/elasticsearch-analysis-ik-7.7.0.zip   dym_es:/usr/share/elasticsearch/plugins/elasticsearch-analysis-ik-7.7.0.zip
+</code></pre><p>进入容器安装ik分词器</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker exec -it dym_es /bin/bash
+cd  /usr/share/elasticsearch/plugins/
+</code></pre><p>在plugins目录下安装ik分词器，ik分词器需要和es版本一致</p>
+<p>使用上传的插件压缩包安装：</p>
+<pre tabindex="0"><code>mkdir ik
+mv elasticsearch-analysis-ik-7.7.0.zip  ik/
+cd ik
+unzip elasticsearch-analysis-ik-7.7.0.zip
+</code></pre><p>也可以基于网络安装：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.7.0/elasticsearch-analysis-ik-7.7.0.zip
+</code></pre><p>退出容器并重启</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker restart dym_es
+</span></span></code></pre></div><p>测试安装成功，地址栏输入：</p>
+<p>http://192.168.188.128:9200/_cat/plugins
+<img src="/posts/project-0/20220527224880/image-20220527230518571.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>IK分词器有两种分词模式：ik_max_word和ik_smart模式。</p>
+<p>1、ik_max_word</p>
+<p>会将文本做最细粒度的拆分，比如会将“中华人民共和国人民大会堂”拆分为“中华人民、中华、华人、人民共和国、人民、共和国、大会堂、大会、会堂等词语。</p>
+<p>2、ik_smart
+会做最粗粒度的拆分，比如会将“中华人民共和国人民大会堂”拆分为中华人民共和国、人民大会堂。</p>
+<p>两种分词器使用的最佳实践是：索引时用ik_max_word，在搜索时用ik_smart。
+<strong>即：索引时最大化的将文章内容分词，搜索时更精确的搜索到想要的结果。</strong></p>
+<h1 id="三-kibana使用-掌握dsl语句">三、 Kibana使用-掌握DSL语句</h1>
+<p>我们这里需要一个更专业的工具实现对日志的实时分析，也就是我们接下来要讲的kibana。</p>
+<p>Kibana 是一款开源的数据分析和可视化平台，它是 Elastic Stack 成员之一，设计用于和 Elasticsearch 协作。您可以使用 Kibana 对 Elasticsearch 索引中的数据进行搜索、查看、交互操作。您可以很方便的利用图表、表格及地图对数据进行多元化的分析和呈现。</p>
+<p>Kibana 可以使大数据通俗易懂。它很简单，基于浏览器的界面便于您快速创建和分享动态数据仪表板来追踪 Elasticsearch 的实时数据变化。</p>
+<p>搭建 Kibana 非常简单。您可以分分钟完成 Kibana 的安装并开始探索 Elasticsearch 的索引数据 — 没有代码、不需要额外的基础设施。</p>
+<h3 id="31--kibana下载安装">3.1  Kibana下载安装</h3>
+<p>我们项目中不再使用linux，直接使用Docker，所有这里就不演示在windows的下载安装了。</p>
+<p>(1)镜像下载</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker pull kibana:7.7.0
+</code></pre><p>为了节省时间,建议还原虚拟机备份文件</p>
+<pre tabindex="0"><code>docker load -i kibana7.7.tar
+</code></pre><p>(2)安装kibana容器</p>
+<p>执行如下命令，开始安装kibana容器</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker run -di --link dym_es:elasticsearch --name kibana --restart=always -p 5601:5601 kibana:7.7.0
+</code></pre><p>restart=always:每次服务都会重启，也就是开启启动</p>
+<p>5601:5601:端口号</p>
+<p>(3)访问测试</p>
+<p>访问<code>http://192.168.188.128:5601</code>如下：
+<img src="/posts/project-0/20220527224880/image-20220527230531004.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="32-kibana使用">3.2 Kibana使用</h3>
+<h4 id="321-配置索引">3.2.1 配置索引</h4>
+<p>此处我们选择 图中所示：自己的数据
+<img src="/posts/project-0/20220527224880/image-20220527230538800.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>选择上图的设置图标</p>
+<p><img src="/posts/project-0/20220527224880/image-20220527230551964.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>接下来就可以和es进行交互了</p>
+<h4 id="322-索引管理">3.2.2 索引管理</h4>
+<p>要使用Kibana，您必须至少配置一个索引（但是要求Elasticsearch中要有数据）。索引用于标识Elasticsearch索引以运行搜索和分析。它们还用于配置字段等。下面我们看如何管理查看索引。</p>
+<p>点击 设置-选择D -Manager space</p>
+<p><img src="/posts/project-0/20220527224880/image-20220527230559697.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>选择 Index Patterns</p>
+<p><img src="/posts/project-0/20220527224880/image-20220527230612571.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>创建一个索引</p>
+<p><img src="/posts/project-0/20220527224880/image-20220527230621404.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>没有数据目前不能建立索引
+<img src="/posts/project-0/20220527224880/image-20220527230629462.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>后面添加过索引可以通过如下方法查看添加的索引</p>
+<p><img src="/posts/project-0/20220527224880/image-20220527230637812.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>输入索引规则，点击下一步
+<img src="/posts/project-0/20220527224880/image-20220527230648100.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击创建
+<img src="/posts/project-0/20220527224880/image-20220527230654594.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>域的每个标题选项分别代表如下意思：
+<img src="/posts/project-0/20220527224880/image-20220527230701373.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>也可以直接查看 选择 Elasticsearch-Index Managerment 查看创建的索引
+<img src="/posts/project-0/20220527224880/image-20220527230709653.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="323-dsl语句使用">3.2.3 DSL语句使用</h4>
+<h5 id="3231-query-dsl结构化查询介绍">3.2.3.1 Query DSL结构化查询介绍</h5>
+<p>Query DSL是一个Java开源框架用于构建类型安全的SQL查询语句。采用API代替传统的拼接字符串来构造查询语句。目前Querydsl支持的平台包括JPA,JDO，SQL，Java Collections，RDF，Lucene，Hibernate Search。elasticsearch提供了一整套基于JSON的查询DSL语言来定义查询。
+Query DSL当作是一系列的抽象的查询表达式树(AST)特定查询能够包含其它的查询，(如 bool ), 有些查询能够包含过滤器(如 constant_score), 还有的可以同时包含查询和过滤器 (如 filtered). 都能够从ES支持查询集合里面选择任意一个查询或者是从过滤器集合里面挑选出任意一个过滤器, 这样的话，我们就可以构造出任意复杂（maybe 非常有趣）的查询了。</p>
+<h5 id="3232-测试分词">3.2.3.2 测试分词</h5>
+<p>（1）ik_smart
+<img src="/posts/project-0/20220527224880/image-20220527230718701.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">POST</span> <span style="color:#a61717;background-color:#e3d2d2">_analyze</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#000080">&#34;analyzer&#34;</span>: <span style="color:#d14">&#34;ik_smart&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#000080">&#34;text&#34;</span>: <span style="color:#d14">&#34;中华人民共和国人民大会堂&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>(2) ik_max_word
+<img src="/posts/project-0/20220527224880/image-20220527230726538.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">POST</span> <span style="color:#a61717;background-color:#e3d2d2">_analyze</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#000080">&#34;analyzer&#34;</span>: <span style="color:#d14">&#34;ik_max_word&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#000080">&#34;text&#34;</span>: <span style="color:#d14">&#34;中华人民共和国人民大会堂&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="四数据导入es">四、数据导入ES</h1>
+<h3 id="41-springdata-elasticsearch介绍">4.1 SpringData Elasticsearch介绍</h3>
+<h4 id="411-springdata介绍">4.1.1 SpringData介绍</h4>
+<p>Spring Data是一个用于简化数据库访问，并支持云服务的开源框架。其主要目标是使得对数据的访问变得方便快捷，并支持map-reduce框架和云计算数据服务。 Spring Data可以极大的简化JPA的写法，可以在几乎不用写实现的情况下，实现对数据的访问和操作。除了CRUD外，还包括如分页、排序等一些常用的功能。</p>
+<p>Spring Data的官网：https://spring.io/projects/spring-data</p>
+<h4 id="412-springdata-es介绍">4.1.2 SpringData ES介绍</h4>
+<p>Spring Data ElasticSearch 基于 spring data API 简化 elasticSearch操作，将原始操作elasticSearch的客户端API 进行封装 。Spring Data为Elasticsearch项目提供集成搜索引擎。Spring Data Elasticsearch POJO的关键功能区域为中心的模型与Elastichsearch交互文档和轻松地编写一个存储库数据访问层。 官方网站：https://spring.io/projects/spring-data-elasticsearch</p>
+<h3 id="42-搜索工程搭建">4.2 搜索工程搭建</h3>
+<p>创建搜索微服务工程，dongyimai-search-service,该工程主要提供搜索服务以及索引数据的更新操作。</p>
+<p>(1)API工程搭建</p>
+<p>首先创建search的API工程,在dongyimai-service-api中创建dongyimai-search-service-api，如下图：
+<img src="/posts/project-0/20220527224880/image-20220527230738835.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>pom.xml如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;project</span> <span style="color:#008080">xmlns=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">xmlns:xsi=</span><span style="color:#d14">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">xsi:schemaLocation=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#000080">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;parent&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-service-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>0.0.1<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/parent&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;modelVersion&gt;</span>4.0.0<span style="color:#000080">&lt;/modelVersion&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-search-service-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;maven.compiler.source&gt;</span>8<span style="color:#000080">&lt;/maven.compiler.source&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;maven.compiler.target&gt;</span>8<span style="color:#000080">&lt;/maven.compiler.target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/properties&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">&lt;!--goods API依赖--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-sellergoods-serivce-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>1.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">&lt;!--SpringDataES依赖--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-data-elasticsearch<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/project&gt;</span>
+</span></span></code></pre></div><p>(2)搜索微服务搭建</p>
+<p>在dongyimai-service中搭建dongyimai-search-service微服务，并进行相关配置。</p>
+<p><strong>pom.xml配置</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;project</span> <span style="color:#008080">xmlns=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">xmlns:xsi=</span><span style="color:#d14">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">xsi:schemaLocation=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#000080">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;parent&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-service<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>0.0.1<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/parent&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;modelVersion&gt;</span>4.0.0<span style="color:#000080">&lt;/modelVersion&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-search-service<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;maven.compiler.source&gt;</span>8<span style="color:#000080">&lt;/maven.compiler.source&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;maven.compiler.target&gt;</span>8<span style="color:#000080">&lt;/maven.compiler.target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/properties&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-search-service-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>1.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/project&gt;</span>
+</span></span></code></pre></div><p><strong>application.yml配置</strong></p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
+  port: 9005
+spring:
+  application:
+    name: search
+  elasticsearch:
+    rest:
+      uris: 192.168.188.128:9200  #此处配置elasticsearch的访问地址  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+#超时配置
+ribbon:
+  ReadTimeout: 300000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+</code></pre><p>(3)启动类</p>
+<p>创建SearchApplication作为搜索微服务工程的启动类，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span><span style="color:#000;font-weight:bold">(</span>exclude <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>DruidDataSourceAutoConfigure<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span> DataSourceAutoConfiguration<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableEurekaClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SearchApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>SearchApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span>args<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>分别创建对应的包，dao、service、controller，如下图：
+<img src="/posts/project-0/20220527224880/image-20220527230750192.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="43-数据导入">4.3 数据导入</h3>
+<p>现在需要将数据从数据库中查询出来，然后将数据导入到ES中。
+<img src="/posts/project-0/20220527224880/image-20220527230758388.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>数据导入流程如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">1.请求search服务,调用数据导入地址
+2.根据注册中心中的注册的goods服务的地址，使用Feign方式查询所有已经审核的Sku
+3.使用SpringData Es将查询到的Sku集合导入到ES中
+</code></pre><h4 id="431-文档映射bean创建">4.3.1 文档映射Bean创建</h4>
+<p>搜索商品的时候，会根据如下属性搜索数据,并且不是所有的属性都需要分词搜索，我们创建JavaBean，将JavaBean数据存入到ES中要以搜索条件和搜索展示结果为依据，部分关键搜索条件分析如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">1.可能会根据商品名称搜索，而且可以搜索商品名称中的任意一个词语，所以需要分词
+2.可能会根据商品分类搜索，商品分类不需要分词
+3.可能会根据商品品牌搜索，商品品牌不需要分词
+4.可能会根据商品商家搜索，商品商家不需要分词
+5.可能根据规格进行搜索，规格时一个键值对结构，用Map
+</code></pre><p>根据上面的分析，我们可以在dongyimai-search-service-api工程中创建com.offcn.search.pojo.SkuInfo，如下</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Document</span><span style="color:#000;font-weight:bold">(</span>indexName <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;skuinfo&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SkuInfo</span> <span style="color:#000;font-weight:bold">implements</span> Serializable <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//商品id，同时也是商品编号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> Long id<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//SKU名称
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Field</span><span style="color:#000;font-weight:bold">(</span>type <span style="color:#000;font-weight:bold">=</span> FieldType<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">Text</span><span style="color:#000;font-weight:bold">,</span> analyzer <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;ik_smart&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String title<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//商品价格，单位为：元
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Field</span><span style="color:#000;font-weight:bold">(</span>type <span style="color:#000;font-weight:bold">=</span> FieldType<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">Double</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> BigDecimal price<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//库存数量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> Integer num<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//商品图片
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String image<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//商品状态，1-正常，2-下架，3-删除
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String status<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//创建时间
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> Date createTime<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//更新时间
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> Date updateTime<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//是否默认
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String isDefault<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//goodsId
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> Long goodsId<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//类目ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> Long categoryId<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//类目名称
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>   <span style="color:#998;font-style:italic">// @Field(type = FieldType.Keyword)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String category<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//品牌名称
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>   <span style="color:#998;font-style:italic">// @Field(type = FieldType.Keyword)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String brand<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//规格
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> String spec<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//规格参数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span>Object<span style="color:#000;font-weight:bold">&gt;</span> specMap<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//对应的get、set方法省略
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">....</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h4 id="432-搜索审核通过sku">4.3.2 搜索审核通过Sku</h4>
+<p>修改dongyimai-sellergoods-service微服务，添加搜索审核通过的Sku，供search微服务调用。</p>
+<p><strong>下面都是针对goods微服务的操作。</strong></p>
+<p>修改ItemService接口，添加根据状态查询Sku方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 根据状态查询SKU列表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span>  List<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">findByStatus</span><span style="color:#000;font-weight:bold">(</span>String status<span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><p>修改ItemServiceImpl，添加根据状态查询Sku实现方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> List<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">findByStatus</span><span style="color:#000;font-weight:bold">(</span>String status<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        QueryWrapper<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;</span> queryWrapper <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> QueryWrapper<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        queryWrapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">eq</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;status&#34;</span><span style="color:#000;font-weight:bold">,</span>status<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">list</span><span style="color:#000;font-weight:bold">(</span>queryWrapper<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>修改com.offcn.sellergoods.controller.ItemController，添加根据审核状态查询Sku方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 根据审核状态查询Sku
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param status
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/status/{status}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;&gt;</span> <span style="color:#900;font-weight:bold">findByStatus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3c5d5d;font-weight:bold">@PathVariable</span> String status<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;</span> list <span style="color:#000;font-weight:bold">=</span> itemService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">findByStatus</span><span style="color:#000;font-weight:bold">(</span>status<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;&gt;(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;查询成功&#34;</span><span style="color:#000;font-weight:bold">,</span>list<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>访问地址：http://localhost:9001/item/status/1
+<img src="/posts/project-0/20220527224880/image-20220527230811094.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="433-sku导入es实现">4.3.3 Sku导入ES实现</h4>
+<p>(1) Feign配置</p>
+<p>修改dongyimai-sellergoods-service-api工程，在com.offcn.sellergoods.feign.ItemFeign上添加findSkuList方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@FeignClient</span><span style="color:#000;font-weight:bold">(</span>value<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;dym-sellergoods&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">ItemFeign</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 根据审核状态查询Sku
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param status
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/item/status/{status}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;&gt;</span> <span style="color:#900;font-weight:bold">findByStatus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3c5d5d;font-weight:bold">@PathVariable</span> String status<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>(2) Dao创建</p>
+<p>修改dongyimai-search-service工程，创建com.dongyimai.search.dao.SkuEsMapper,该接口主要用于索引数据操作，主要使用它来实现将数据导入到ES索引库中，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">SkuEsMapper</span> <span style="color:#000;font-weight:bold">extends</span> ElasticsearchRepository<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">,</span>Long<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>(3) 服务层创建</p>
+<p>修改dongyimai-search-service工程，创建com.dongyimai.search.service.SkuService,代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">SkuService</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 导入SKU数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">importSku</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>修改dongyimai-search-service工程，创建com.offcn.search.service.impl.SkuServiceImpl,实现Sku数据导入到ES中，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SkuServiceImpl</span> <span style="color:#000;font-weight:bold">implements</span> SkuService <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> SkuEsMapper skuEsMapper<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> ItemFeign itemFeign<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">importSku</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//调用商品微服务，获取sku商品数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;&gt;</span> result <span style="color:#000;font-weight:bold">=</span> itemFeign<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">findByStatus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#998;font-style:italic">//把返回的结果返回搜索实体类数据集合(采用深克隆技术，把Item对象属性值复制到SkuInfo对象)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> skuInfoList <span style="color:#000;font-weight:bold">=</span> JSON<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">parseArray</span><span style="color:#000;font-weight:bold">(</span>JSON<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toJSONString</span><span style="color:#000;font-weight:bold">(</span>result<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getData</span><span style="color:#000;font-weight:bold">()),</span> SkuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//遍历sku集合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>SkuInfo skuInfo <span style="color:#000;font-weight:bold">:</span> skuInfoList<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//获取规格json字符串，转换为map对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>          Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span>Object<span style="color:#000;font-weight:bold">&gt;</span> map <span style="color:#000;font-weight:bold">=</span> JSON<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">parseObject</span><span style="color:#000;font-weight:bold">(</span>skuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSpec</span><span style="color:#000;font-weight:bold">(),</span> Map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#998;font-style:italic">//关联设置到specMap
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            skuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setSpecMap</span><span style="color:#000;font-weight:bold">(</span>specMap<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//保存sku集合数据到es
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        skuEsMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">saveAll</span><span style="color:#000;font-weight:bold">(</span>skuInfoList<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>(4)控制层配置</p>
+<p>修改dongyimai-search-service工程，在com.offcn.search.controller.SkuController类中添加如下方法调用上述导入方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RequestMapping</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/search&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@CrossOrigin</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SkuController</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> SkuService skuService<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 导入数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/import&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Result <span style="color:#900;font-weight:bold">search</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        skuService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">importSku</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span> StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;导入数据到索引库中成功！&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>(5)修改启动类</p>
+<p>启动类中需要开启Feign客户端，并且需要添加ES包扫描，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span><span style="color:#000;font-weight:bold">(</span>exclude<span style="color:#000;font-weight:bold">={</span>DataSourceAutoConfiguration<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableEurekaClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableFeignClients</span><span style="color:#000;font-weight:bold">(</span>basePackages <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;com.offcn.sellergoods.feign&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableElasticsearchRepositories</span><span style="color:#000;font-weight:bold">(</span>basePackages <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;com.offcn.search.dao&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SearchApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>SearchApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span>args<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>注意如果出现错误：
+<img src="/posts/project-0/20220527224880/image-20220527230823397.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>解决办法，修改application.yml增加如下配置：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">spring</span>:<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">main</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">allow-bean-definition-overriding</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>(6)测试</p>
+<p>调用http://localhost:9005/search/import进行测试</p>
+<p>打开Kibana可以看到如下数据：</p>
+<p><code>http://192.168.188.128:5601</code></p>
+<pre tabindex="0"><code>GET /skuinfo/_search
+</code></pre><p><img src="/posts/project-0/20220527224880/image-20220527230830310.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="五关键字搜索">五、关键字搜索</h1>
+<p><img src="/posts/project-0/20220527224880/image-20220527230835463.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>我们先使用SpringDataElasticsearch实现一个简单的搜索功能，先实现根据关键字搜索，从上面搜索图片可以看得到，每次搜索的时候，除了关键字外，还有可能有品牌、分类、规格等，后台接收搜索条件使用Map接收比较合适。</p>
+<h3 id="51-服务层实现">5.1 服务层实现</h3>
+<p>修改search服务的com.offcn.search.service.SkuService,添加搜索方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 搜索
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param searchMap
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span>Map <span style="color:#900;font-weight:bold">search</span><span style="color:#000;font-weight:bold">(</span>Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> searchMap<span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><p>修改search服务的com.dongyimai.search.service.impl.SkuServiceImpl,添加搜索实现方法,代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">private</span> ElasticsearchRestTemplate elasticsearchRestTemplate<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">search</span><span style="color:#000;font-weight:bold">(</span>Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> searchMap<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#998;font-style:italic">//1.获取关键字的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>   String keywords <span style="color:#000;font-weight:bold">=</span> searchMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;keywords&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>StringUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">isEmpty</span><span style="color:#000;font-weight:bold">(</span>keywords<span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        keywords <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;华为&#34;</span><span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">//赋值给一个默认的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#998;font-style:italic">//2.创建查询对象 的构建对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>      NativeSearchQueryBuilder nativeSearchQueryBuilder <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> NativeSearchQueryBuilder<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>         <span style="color:#998;font-style:italic">//3.设置查询的条件
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//使用：QueryBuilders.matchQuery(&#34;title&#34;, keywords) ，搜索华为 ---&gt; 华    为 二字可以拆分查询，
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//使用：QueryBuilders.matchPhraseQuery(&#34;title&#34;, keywords) 华为二字不拆分查询
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        nativeSearchQueryBuilder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">withQuery</span><span style="color:#000;font-weight:bold">(</span>QueryBuilders<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">matchQuery</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;title&#34;</span><span style="color:#000;font-weight:bold">,</span> keywords<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//4.构建查询对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        NativeSearchQuery query <span style="color:#000;font-weight:bold">=</span> nativeSearchQueryBuilder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//5.执行查询
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        SearchHits<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> searchHits <span style="color:#000;font-weight:bold">=</span> elasticsearchRestTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">search</span><span style="color:#000;font-weight:bold">(</span>query<span style="color:#000;font-weight:bold">,</span> SkuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//对搜索searchHits集合进行分页封装
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        SearchPage<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> skuPage <span style="color:#000;font-weight:bold">=</span> SearchHitSupport<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">searchPageFor</span><span style="color:#000;font-weight:bold">(</span>searchHits<span style="color:#000;font-weight:bold">,</span> query<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPageable</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//遍历取出查询的商品信息
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> skuList<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>SearchHit<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> searchHit <span style="color:#000;font-weight:bold">:</span>skuPage<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContent</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#998;font-style:italic">// 获取搜索到的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            SkuInfo content <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>SkuInfo<span style="color:#000;font-weight:bold">)</span> searchHit<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContent</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            SkuInfo skuInfo <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> SkuInfo<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//把一个对象属性值复制到另外一个对象：两个对象属性名称必须一致，属性类型必须相同
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            BeanUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">copyProperties</span><span style="color:#000;font-weight:bold">(</span>content<span style="color:#000;font-weight:bold">,</span> skuInfo<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            skuList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>skuInfo<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//6.返回结果
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Map resultMap <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;rows&#34;</span><span style="color:#000;font-weight:bold">,</span> skuList<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//获取所需SkuInfo集合数据内容
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;total&#34;</span><span style="color:#000;font-weight:bold">,</span>searchHits<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTotalHits</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//总记录数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;totalPages&#34;</span><span style="color:#000;font-weight:bold">,</span> skuPage<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTotalPages</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//总页数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">return</span> resultMap<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p><strong>注意</strong>: ElasticSearchTemplate更多是对ESRepository的补充，里面提供了一些更底层的方法,更加适用于查询数据</p>
+<h3 id="52-控制层实现">5.2 控制层实现</h3>
+<p>修改com.offcn.search.controller.SkuController，在控制层调用Service层即可，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 搜索
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param searchMap
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@PostMapping</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">search</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3c5d5d;font-weight:bold">@RequestBody</span><span style="color:#000;font-weight:bold">(</span>required <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span> Map searchMap<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span>  skuService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">search</span><span style="color:#000;font-weight:bold">(</span>searchMap<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="53-测试">5.3 测试</h3>
+<p>使用Postman工具，输入http://localhost:9005/search</p>
+<p>选中POST提交
+<img src="/posts/project-0/20220527224880/image-20220527230845070.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="六-分类统计">六、 分类统计</h1>
+<h3 id="61-分类统计分析">6.1 分类统计分析</h3>
+<p>看下面的SQL语句，我们在执行搜索的时候，第1条SQL语句是执行搜，第2条语句是根据分类名字分组查看有多少分类，大概执行了2个步骤就可以获取数据结果以及分类统计，我们可以发现他们的搜索条件完全一样。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 查询所有
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">SELECT</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">*</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">FROM</span><span style="color:#bbb"> </span>tb_item<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>title<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">LIKE</span><span style="color:#bbb"> </span><span style="color:#d14">&#39;%手机%&#39;</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic">-- 根据分类名字分组查询
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>category<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">FROM</span><span style="color:#bbb">  </span>tb_item<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>title<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">LIKE</span><span style="color:#bbb"> </span><span style="color:#d14">&#39;%手机%&#39;</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">BY</span><span style="color:#bbb"> </span>category;<span style="color:#bbb">
+</span></span></span></code></pre></div><p><img src="/posts/project-0/20220527224880/image-20220527230852516.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>我们每次执行搜索的时候，需要显示商品分类名称，这里要显示的分类名称其实就是符合搜素条件的所有商品的分类集合，我们可以按照上面的实现思路，使用ES根据分组名称做一次分组查询即可实现。</p>
+<h3 id="62-分类分组统计实现">6.2 分类分组统计实现</h3>
+<p>修改search微服务的com.offcn.search.service.impl.SkuServiceImpl类，整体代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">search</span><span style="color:#000;font-weight:bold">(</span>Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> searchMap<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//1.获取关键字的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String keywords <span style="color:#000;font-weight:bold">=</span> searchMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;keywords&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>StringUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">isEmpty</span><span style="color:#000;font-weight:bold">(</span>keywords<span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            keywords <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;华为&#34;</span><span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">//赋值给一个默认的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//2.创建查询对象 的构建对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        NativeSearchQueryBuilder nativeSearchQueryBuilder <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> NativeSearchQueryBuilder<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 设置分组的条件  terms后表示分组查询后的列名,注意搜索字段后面加.keyword
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        nativeSearchQueryBuilder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addAggregation</span><span style="color:#000;font-weight:bold">(</span>AggregationBuilders<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">terms</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;skuCategorygroup&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">field</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;category.keyword&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//3.设置查询的条件
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//使用：QueryBuilders.matchQuery(&#34;title&#34;, keywords) ，搜索华为 ---&gt; 华    为 二字可以拆分查询，
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//使用：QueryBuilders.matchPhraseQuery(&#34;title&#34;, keywords) 华为二字不拆分查询
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        nativeSearchQueryBuilder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">withQuery</span><span style="color:#000;font-weight:bold">(</span>QueryBuilders<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">matchQuery</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;title&#34;</span><span style="color:#000;font-weight:bold">,</span> keywords<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//4.构建查询对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        NativeSearchQuery query <span style="color:#000;font-weight:bold">=</span> nativeSearchQueryBuilder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//5.执行查询
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        SearchHits<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> searchHits <span style="color:#000;font-weight:bold">=</span> elasticsearchRestTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">search</span><span style="color:#000;font-weight:bold">(</span>query<span style="color:#000;font-weight:bold">,</span> SkuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//对搜索searchHits集合进行分页封装
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        SearchPage<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> skuPage <span style="color:#000;font-weight:bold">=</span> SearchHitSupport<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">searchPageFor</span><span style="color:#000;font-weight:bold">(</span>searchHits<span style="color:#000;font-weight:bold">,</span> query<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPageable</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//获取分组结果
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Terms terms <span style="color:#000;font-weight:bold">=</span> searchHits<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAggregations</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;skuCategorygroup&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 获取分类名称集合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> categoryList <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>terms <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Terms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">Bucket</span> bucket <span style="color:#000;font-weight:bold">:</span> terms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBuckets</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                String keyAsString <span style="color:#000;font-weight:bold">=</span> bucket<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getKeyAsString</span><span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">// 分组的值（分类名称）
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                categoryList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>keyAsString<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//遍历取出查询的商品信息
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> skuList<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>SearchHit<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> searchHit <span style="color:#000;font-weight:bold">:</span>skuPage<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContent</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#998;font-style:italic">// 获取搜索到的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            SkuInfo content <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>SkuInfo<span style="color:#000;font-weight:bold">)</span> searchHit<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContent</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            SkuInfo skuInfo <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> SkuInfo<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            BeanUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">copyProperties</span><span style="color:#000;font-weight:bold">(</span>content<span style="color:#000;font-weight:bold">,</span> skuInfo<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            skuList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>skuInfo<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//6.返回结果
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Map resultMap <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;rows&#34;</span><span style="color:#000;font-weight:bold">,</span> skuList<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//获取所需SkuInfo集合数据内容
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;total&#34;</span><span style="color:#000;font-weight:bold">,</span>searchHits<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTotalHits</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//总记录数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;totalPages&#34;</span><span style="color:#000;font-weight:bold">,</span> skuPage<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTotalPages</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//总页数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;categoryList&#34;</span><span style="color:#000;font-weight:bold">,</span>categoryList<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> resultMap<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>添加的代码如下:
+<img src="/posts/project-0/20220527224880/image-20220527230901579.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project-0/20220527224880/image-20220527230908138.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project-0/20220527224880/image-20220527230914696.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>注意分组搜索要加keyword，因为数据存储结构是keyword类型</p>
+<p>具体查看数据结构可以使用如下指令：</p>
+<pre tabindex="0"><code>GET /skuinfo/_mapping
+</code></pre><p><img src="/posts/project-0/20220527224880/image-20220527230921890.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="63-测试">6.3 测试</h3>
+<p>请求http://localhost:9005/search
+<img src="/posts/project-0/20220527224880/image-20220527230928474.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="64-代码优化">6.4 代码优化</h3>
+<p>如上,可以将获取分组的代码进行提取,如下代码所示:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 获取分类列表数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param terms
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     **/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">getStringsCategoryList</span><span style="color:#000;font-weight:bold">(</span>Terms terms<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> categoryList <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>terms <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Terms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">Bucket</span> bucket <span style="color:#000;font-weight:bold">:</span> terms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBuckets</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                String keyAsString <span style="color:#000;font-weight:bold">=</span> bucket<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getKeyAsString</span><span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">// 分组的值（分类名称）
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                categoryList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>keyAsString<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> categoryList<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>在search方法中进行调用:
+<img src="/posts/project-0/20220527224880/image-20220527230939376.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 获取分类名称集合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> categoryList <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getStringsCategoryList</span><span style="color:#000;font-weight:bold">(</span>terms<span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><p>整体代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.offcn.search.service.impl</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.alibaba.fastjson.JSON</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.offcn.entity.Result</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.offcn.search.dao.SkuEsMapper</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.offcn.search.pojo.SkuInfo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.offcn.search.service.SkuService</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.offcn.sellergoods.feign.SkuFeign</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.offcn.sellergoods.pojo.Item</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.apache.commons.lang.StringUtils</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.elasticsearch.index.query.QueryBuilders</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.elasticsearch.search.aggregations.AggregationBuilders</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.elasticsearch.search.aggregations.bucket.terms.Terms</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.beans.BeanUtils</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.beans.factory.annotation.Autowired</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.data.elasticsearch.core.*</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.data.elasticsearch.core.query.NativeSearchQuery</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.stereotype.Service</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.ArrayList</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.HashMap</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.List</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.Map</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SkuServiceImpl</span> <span style="color:#000;font-weight:bold">implements</span> SkuService <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> SkuEsMapper skuEsMapper<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> SkuFeign skuFeign<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 导入SKU数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">importSku</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//调用商品微服务，获取sku商品数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Item<span style="color:#000;font-weight:bold">&gt;&gt;</span> result <span style="color:#000;font-weight:bold">=</span> skuFeign<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">findByStatus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//把数据转换为搜索实体类数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> skuInfoList <span style="color:#000;font-weight:bold">=</span> JSON<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">parseArray</span><span style="color:#000;font-weight:bold">(</span>JSON<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toJSONString</span><span style="color:#000;font-weight:bold">(</span>result<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getData</span><span style="color:#000;font-weight:bold">()),</span> SkuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//遍历sku集合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>SkuInfo skuInfo <span style="color:#000;font-weight:bold">:</span> skuInfoList<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//获取规格
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> Object<span style="color:#000;font-weight:bold">&gt;</span> specMap <span style="color:#000;font-weight:bold">=</span> JSON<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">parseObject</span><span style="color:#000;font-weight:bold">(</span>skuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSpec</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//关联设置到specMap
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            skuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setSpecMap</span><span style="color:#000;font-weight:bold">(</span>specMap<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//保存sku集合数据到es
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        skuEsMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">saveAll</span><span style="color:#000;font-weight:bold">(</span>skuInfoList<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> ElasticsearchRestTemplate elasticsearchRestTemplate<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">search</span><span style="color:#000;font-weight:bold">(</span>Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> searchMap<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//1.获取关键字的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String keywords <span style="color:#000;font-weight:bold">=</span> searchMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;keywords&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>StringUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">isEmpty</span><span style="color:#000;font-weight:bold">(</span>keywords<span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            keywords <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;华为&#34;</span><span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">//赋值给一个默认的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//2.创建查询对象 的构建对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        NativeSearchQueryBuilder nativeSearchQueryBuilder <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> NativeSearchQueryBuilder<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 设置分组的条件  terms后表示分组查询后的列名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        nativeSearchQueryBuilder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addAggregation</span><span style="color:#000;font-weight:bold">(</span>AggregationBuilders<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">terms</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;skuCategorygroup&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">field</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;category.keyword&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//3.设置查询的条件
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//使用：QueryBuilders.matchQuery(&#34;title&#34;, keywords) ，搜索华为 ---&gt; 华    为 二字可以拆分查询，
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//使用：QueryBuilders.matchPhraseQuery(&#34;title&#34;, keywords) 华为二字不拆分查询
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        nativeSearchQueryBuilder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">withQuery</span><span style="color:#000;font-weight:bold">(</span>QueryBuilders<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">matchQuery</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;title&#34;</span><span style="color:#000;font-weight:bold">,</span> keywords<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//4.构建查询对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        NativeSearchQuery query <span style="color:#000;font-weight:bold">=</span> nativeSearchQueryBuilder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//5.执行查询
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        SearchHits<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> searchHits <span style="color:#000;font-weight:bold">=</span> elasticsearchRestTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">search</span><span style="color:#000;font-weight:bold">(</span>query<span style="color:#000;font-weight:bold">,</span> SkuInfo<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//对搜索searchHits集合进行分页封装
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        SearchPage<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> skuPage <span style="color:#000;font-weight:bold">=</span> SearchHitSupport<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">searchPageFor</span><span style="color:#000;font-weight:bold">(</span>searchHits<span style="color:#000;font-weight:bold">,</span> query<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPageable</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//获取分组结果
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Terms terms <span style="color:#000;font-weight:bold">=</span> searchHits<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAggregations</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;skuCategorygroup&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 获取分类名称集合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> categoryList <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getStringsCategoryList</span><span style="color:#000;font-weight:bold">(</span>terms<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//遍历取出查询的商品信息
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> skuList<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>SearchHit<span style="color:#000;font-weight:bold">&lt;</span>SkuInfo<span style="color:#000;font-weight:bold">&gt;</span> searchHit <span style="color:#000;font-weight:bold">:</span>skuPage<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContent</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#998;font-style:italic">// 获取搜索到的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            SkuInfo content <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>SkuInfo<span style="color:#000;font-weight:bold">)</span> searchHit<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContent</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            SkuInfo skuInfo <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> SkuInfo<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            BeanUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">copyProperties</span><span style="color:#000;font-weight:bold">(</span>content<span style="color:#000;font-weight:bold">,</span> skuInfo<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            skuList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>skuInfo<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//6.返回结果
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Map resultMap <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;rows&#34;</span><span style="color:#000;font-weight:bold">,</span> skuList<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//获取所需SkuInfo集合数据内容
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;total&#34;</span><span style="color:#000;font-weight:bold">,</span>searchHits<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTotalHits</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//总记录数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;totalPages&#34;</span><span style="color:#000;font-weight:bold">,</span> skuPage<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTotalPages</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//总页数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        resultMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;categoryList&#34;</span><span style="color:#000;font-weight:bold">,</span>categoryList<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> resultMap<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 获取分类列表数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param terms
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     **/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">getStringsCategoryList</span><span style="color:#000;font-weight:bold">(</span>Terms terms<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> categoryList <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>terms <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Terms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">Bucket</span> bucket <span style="color:#000;font-weight:bold">:</span> terms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBuckets</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                String keyAsString <span style="color:#000;font-weight:bold">=</span> bucket<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getKeyAsString</span><span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">// 分组的值（分类名称）
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                categoryList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>keyAsString<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> categoryList<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.github.io/posts/project-0/20220527222325/">← 广告管理与Lua、Canal实现广告缓存</a></div>
+    <div><a href="https://lovemjh.github.io/posts/project-0/20220527233134/">消息队列及短信发送平台  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+        <script type="text/javascript">
+ 
+            !function () {
+                
+                function get_attribute(node, attr, default_value) {
+                    return node.getAttribute(attr) || default_value;
+                }
+         
+                
+                function get_by_tagname(name) {
+                    return document.getElementsByTagName(name);
+                }
+         
+                
+                function get_config_option() {
+                    var scripts = get_by_tagname("script"),
+                        script_len = scripts.length,
+                        script = scripts[script_len - 1]; 
+                    return {
+                        l: script_len, 
+                        z: get_attribute(script, "zIndex", -1), 
+                        o: get_attribute(script, "opacity", 0.8), 
+                        c: get_attribute(script, "color", "255,255,255"), 
+                        n: get_attribute(script, "count", 350) 
+                    };
+                }
+         
+                
+                function set_canvas_size() {
+                    canvas_width = the_canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                        canvas_height = the_canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                }
+         
+                
+                function draw_canvas() {
+                    context.clearRect(0, 0, canvas_width, canvas_height);
+                    
+                    var e, i, d, x_dist, y_dist, dist; 
+                    
+                    random_points.forEach(function (r, idx) {
+                        r.x += r.xa,
+                            r.y += r.ya, 
+                            r.xa *= r.x > canvas_width || r.x < 0 ? -1 : 1,
+                            r.ya *= r.y > canvas_height || r.y < 0 ? -1 : 1, 
+                            context.fillRect(r.x - 0.5, r.y - 0.5, 1, 1); 
+                        
+                        for (i = idx + 1; i < all_array.length; i++) {
+                            e = all_array[i];
+                            
+                            if (null !== e.x && null !== e.y) {
+                                x_dist = r.x - e.x; 
+                                y_dist = r.y - e.y; 
+                                dist = x_dist * x_dist + y_dist * y_dist; 
+         
+                                dist < e.max && (e === current_point && dist >= e.max / 2 && (r.x -= 0.03 * x_dist, r.y -= 0.03 * y_dist), 
+                                    d = (e.max - dist) / e.max,
+                                    context.beginPath(),
+                                    context.lineWidth = d / 2,
+                                    context.strokeStyle = "#000000",
+                                    context.moveTo(r.x, r.y),
+                                    context.lineTo(e.x, e.y),
+                                    context.stroke());
+                            }
+                        }
+                    }), frame_func(draw_canvas);
+                }
+         
+                
+                var the_canvas = document.createElement("canvas"), 
+                    config = get_config_option(), 
+                    canvas_id = "c_n" + config.l, 
+                    context = the_canvas.getContext("2d"), canvas_width, canvas_height,
+                    frame_func = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (func) {
+                        window.setTimeout(func, 1000 / 40);
+                    }, random = Math.random,
+                    current_point = {
+                        x: null, 
+                        y: null, 
+                        max: 20000 
+                    },
+                    all_array;
+                the_canvas.id = canvas_id;
+                the_canvas.style.cssText = "position:fixed;top:0;left:0;z-index:" + config.z + ";opacity:" + config.o;
+                get_by_tagname("body")[0].appendChild(the_canvas);
+         
+                
+                set_canvas_size();
+                window.onresize = set_canvas_size;
+                
+                window.onmousemove = function (e) {
+                    e = e || window.event;
+                    current_point.x = e.clientX;
+                    current_point.y = e.clientY;
+                }, window.onmouseout = function () {
+                    current_point.x = null;
+                    current_point.y = null;
+                };
+                
+                for (var random_points = [], i = 0; config.n > i; i++) {
+                    var x = random() * canvas_width, 
+                        y = random() * canvas_height,
+                        xa = 2 * random() - 1, 
+                        ya = 2 * random() - 1;
+                    
+                    random_points.push({
+                        x: x,
+                        y: y,
+                        xa: xa,
+                        ya: ya,
+                        max: 6000 
+                    });
+                }
+                all_array = random_points.concat([current_point]);
+                
+                setTimeout(function () {
+                    draw_canvas();
+                }, 100);
+            }();
+        </script>
+    </body>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="https://cdn.jsdelivr.net/gh/SGYZ0910/CDN@1.0.7/js/maodian.js"></script>
+</html>

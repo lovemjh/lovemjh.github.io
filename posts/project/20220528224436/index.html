@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="tk-服务网关、Sentinel、Sleuth - https://lovemjh.github.io/posts/project/20220528224436/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>tk-服务网关、Sentinel、Sleuth</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.github.io/style.min.a52a9deea50c044b5100529b926604dd4ba41319221e01484d0aefcc97c1619f.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            tk-服务网关、Sentinel、Sleuth
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2022-05-28&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2022-05-28&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            11421 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            23 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/project/20220528222829/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/project/20220528231163/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#学习目标">学习目标</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#11-快速开始">1.1. 快速开始</a>
+      <ul>
+        <li><a href="#111-引入依赖">1.1.1. 引入依赖</a></li>
+        <li><a href="#112-编写路由规则">1.1.2. 编写路由规则</a></li>
+        <li><a href="#113-启动测试">1.1.3. 启动测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#12-路由规则详解">1.2. 路由规则详解</a>
+      <ul>
+        <li><a href="#121-断言工厂">1.2.1. 断言工厂</a></li>
+        <li><a href="#122-过滤器工厂">1.2.2. 过滤器工厂</a></li>
+      </ul>
+    </li>
+    <li><a href="#13-面向服务的路由">1.3. 面向服务的路由</a>
+      <ul>
+        <li><a href="#131-把网关服务注册到nacos">1.3.1. 把网关服务注册到nacos</a></li>
+        <li><a href="#132-修改配置通过服务名路由">1.3.2. 修改配置，通过服务名路由</a></li>
+      </ul>
+    </li>
+    <li><a href="#14-路由的java代码配置方式了解">1.4. 路由的java代码配置方式（了解）</a></li>
+    <li><a href="#15-网关全局过滤了解">1.5. 网关全局过滤（了解）</a>
+      <ul>
+        <li><a href="#151-过滤器生命周期">1.5.1 过滤器生命周期</a></li>
+        <li><a href="#152-创建全局过滤器">1.5.2 创建全局过滤器</a></li>
+        <li><a href="#153-测试全局过滤器">1.5.3 测试全局过滤器</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#21服务雪崩容错方案">2.1、服务雪崩、容错方案</a>
+      <ul>
+        <li><a href="#211服务雪崩">2.1.1、服务雪崩</a></li>
+        <li><a href="#212容错方案">2.1.2、容错方案</a></li>
+      </ul>
+    </li>
+    <li><a href="#22-sentinel-是什么">2.2. Sentinel 是什么？</a></li>
+    <li><a href="#23-基本概念及作用">2.3. 基本概念及作用</a></li>
+    <li><a href="#24-快速开始">2.4. 快速开始</a>
+      <ul>
+        <li><a href="#241-搭建dashboard控制台">2.4.1. 搭建Dashboard控制台</a></li>
+        <li><a href="#242-改造nacos-consumer">2.4.2. 改造nacos-consumer</a></li>
+      </ul>
+    </li>
+    <li><a href="#25-整合feign组件">2.5. 整合Feign组件</a></li>
+    <li><a href="#26-流量控制">2.6. 流量控制</a>
+      <ul>
+        <li><a href="#261-什么是流量控制">2.6.1. 什么是流量控制</a></li>
+        <li><a href="#262-qps流量控制">2.6.2. QPS流量控制</a></li>
+        <li><a href="#263-关联限流">2.6.3. 关联限流</a></li>
+        <li><a href="#264-链路限流">2.6.4. 链路限流</a></li>
+        <li><a href="#265-线程数限流">2.6.5. 线程数限流</a></li>
+      </ul>
+    </li>
+    <li><a href="#27-熔断降级">2.7. 熔断降级</a>
+      <ul>
+        <li><a href="#271-平均响应时间rt">2.7.1. 平均响应时间（RT）</a></li>
+        <li><a href="#272-异常比例">2.7.2. 异常比例</a></li>
+        <li><a href="#273-异常数">2.7.3. 异常数</a></li>
+      </ul>
+    </li>
+    <li><a href="#28-规则持久化">2.8. 规则持久化</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31-zipkin分布式监控客户端">3.1. zipkin分布式监控客户端</a></li>
+    <li><a href="#32-改造consumerprovider工程">3.2. 改造consumer/provider工程</a></li>
+    <li><a href="#33-基本概念">3.3. 基本概念</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 align = "center">第2章</h1>
+<h1 align = "center">服务网关、Sentinel、Sleuth</h1>
+<h3 align="center">优就业.JAVA教研室</h3>
+<h2 id="学习目标">学习目标</h2>
+<ul>
+<li>了解 SpringCloudGateWay</li>
+<li>理解 SpringCloudGateWay路由配置</li>
+<li>理解SpringCloudGateWay全局过滤</li>
+<li>理解Sentinel介绍</li>
+<li>掌握Sentinel快速开始</li>
+<li>掌握Sentinel整合Feign</li>
+<li>掌握Sentinel流量控制</li>
+<li>掌握Sentinel熔断降级</li>
+<li>掌握Sentinel规则持久化</li>
+<li>掌握Sleth介绍</li>
+<li>掌握Sleth基本使用</li>
+</ul>
+<h1 id="1-服务网关gateway">1. 服务网关Gateway</h1>
+<p>API 网关出现的原因是微服务架构的出现，不同的微服务一般会有不同的网络地址，而外部客户端可能需要调用多个服务的接口才能完成一个业务需求，如果让客户端直接与各个微服务通信，会有以下的问题：</p>
+<ol>
+<li>
+<p>破坏了服务无状态特点。</p>
+<p>为了保证对外服务的安全性，我们需要实现对服务访问的权限控制，而开放服务的权限控制机制将会贯穿并污染整个开放服务的业务逻辑，这会带来的最直接问题是，破坏了服务集群中REST API无状态的特点。</p>
+<pre><code> 从具体开发和测试的角度来说，在工作中除了要考虑实际的业务逻辑之外，还需要额外考虑对接口访问的控制处理。
+</code></pre>
+</li>
+<li>
+<p>无法直接复用既有接口。</p>
+<p>当我们需要对一个即有的集群内访问接口，实现外部服务访问时，我们不得不通过在原有接口上增加校验逻辑，或增加一个代理调用来实现权限控制，无法直接复用原有的接口。</p>
+</li>
+</ol>
+<p>以上这些问题可以借助 API 网关解决。API 网关是介于客户端和服务器端之间的中间层，所有的外部请求都会先经过 API 网关这一层。也就是说，API 的实现方面更多的考虑业务逻辑，而安全、性能、监控可以交由 API 网关来做，这样既提高业务灵活性又不缺安全性，典型的架构图如图所示：
+<img src="/posts/project/20220528224436/image-20220528224632921.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="11-快速开始">1.1. 快速开始</h2>
+<p>创建网关module：
+<img src="/posts/project/20220528224436/image-20220528224643473.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528224436/image-20220528224649999.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>完成后：
+<img src="/posts/project/20220528224436/image-20220528224657590.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="111-引入依赖">1.1.1. 引入依赖</h3>
+<p>已引入，如下。pom.xml中的依赖：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-gateway<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;scope&gt;</span>test<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;dependencyManagement&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-dependencies<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>Hoxton.SR2<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;type&gt;</span>pom<span style="color:#000080">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;scope&gt;</span>import<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependencyManagement&gt;</span>
+</span></span></code></pre></div><h3 id="112-编写路由规则">1.1.2. 编写路由规则</h3>
+<p>为了演示路由到不同服务，这里把消费者和生产者都配置在网关中</p>
+<p>application.yml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">18090</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">cloud</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">gateway</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">routes</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>nacos-consumer<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>http://127.0.0.1:18080<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/hi<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>nacos-provider<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>http://127.0.0.1:18070<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/hello<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="113-启动测试">1.1.3. 启动测试</h3>
+<p>通过网关路径访问消费者或者生产者。
+<img src="/posts/project/20220528224436/image-20220528224708096.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="12-路由规则详解">1.2. 路由规则详解</h2>
+<p><img src="/posts/project/20220528224436/image-20220528224713415.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>基本概念：</p>
+<ul>
+<li><strong>Route</strong>：路由网关的基本构建块。它由ID，目的URI，断言（Predicate）集合和过滤器（filter）集合组成。如果断言聚合为真，则匹配该路由。</li>
+<li><strong>Predicate</strong>：这是一个 Java 8函数式断言。允许开发人员匹配来自HTTP请求的任何内容，例如请求头或参数。</li>
+<li><strong>过滤器</strong>：可以在发送下游请求之前或之后修改请求和响应。</li>
+</ul>
+<p><strong>路由根据断言进行匹配，匹配成功就会转发请求给URI，在转发请求之前或者之后可以添加过滤器。</strong></p>
+<h3 id="121-断言工厂">1.2.1. 断言工厂</h3>
+<p>Spring Cloud Gateway包含许多内置的Route Predicate工厂。所有这些断言都匹配HTTP请求的不同属性。多路由断言工厂通过<code>and</code>组合。</p>
+<p>官方提供的路由工厂：
+<img src="/posts/project/20220528224436/image-20220528224720715.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>这些断言工厂的配置方式，参照官方文档：https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.RELEASE/single/spring-cloud-gateway.html
+<img src="/posts/project/20220528224436/image-20220528224727916.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528224436/image-20220528224735481.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>这里重点掌握请求路径路由断言的配置方式：
+<img src="/posts/project/20220528224436/image-20220528224740985.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">cloud</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">gateway</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">routes</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>host_route<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>http://example.org<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- Path=/foo/{segment},/bar/{segment}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>这个路由匹配以/foo或者/bar开头的路径，转发到http:example.org。例如 <code>/foo/1</code> or <code>/foo/bar</code> or <code>/bar/baz</code>.</p>
+<p>/foo/1 &mdash;&mdash;&gt;转发地址  <a class="link" href="/posts/project/http://example.org/foo/1"  target="_blank" rel="noopener"
+    >http://example.org/foo/1</a></p>
+<p>/foo/bar&mdash;&ndash;&gt;转发地址 <a class="link" href="/posts/project/http://example.org/foo/bar"  target="_blank" rel="noopener"
+    >http://example.org/foo/bar</a></p>
+<h3 id="122-过滤器工厂">1.2.2. 过滤器工厂</h3>
+<p>路由过滤器允许以某种方式修改传入的HTTP请求或传出的HTTP响应。路径过滤器的范围限定为特定路由。Spring Cloud Gateway包含许多内置的GatewayFilter工厂。
+<img src="/posts/project/20220528224436/image-20220528224748329.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>这些过滤器工厂的配置方式，同样参照官方文档：https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.RELEASE/single/spring-cloud-gateway.html
+<img src="/posts/project/20220528224436/image-20220528224754825.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>过滤器 有 20 多个 实现类,根据过滤器工厂的用途来划分，可以分为以下几种：Header、Parameter、Path、Body、Status、Session、Redirect、Retry、RateLimiter和Hystrix
+<img src="/posts/project/20220528224436/image-20220528224800921.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>这里重点掌握PrefixPath GatewayFilter Factory
+<img src="/posts/project/20220528224436/image-20220528224808553.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<pre tabindex="0"><code>上面的配置中，所有的`/foo/**`开始的路径都会命中配置的router，并执行过滤器的逻辑，在本案例中配置了RewritePath过滤器工厂，此工厂将`/foo/(?.*)`重写为{segment}，然后转发到http://example.org。比如在网页上请求localhost:8090/foo/forezp，此时会将请求转发到http://example.org/forezp的页面
+
+(?&lt;segment&gt;/?.*)：匹配 /任意字符，此处/出现0次或1次。将匹配到的结果捕获到名称为segment的组中
+$\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出现是由于避免yaml认为这是一个变量，在gateway进行解析时，会被替换为${segment}
+
+
+​		在开发中由于所有微服务的访问都要经过网关，为了区分不同的微服务，通常会在路径前加上一个标识，例如：访问服务提供方：`http://localhost:18090/provider/hello` ；访问服务消费方：`http://localhost:18090/consumer/hi`  如果不重写地址，直接转发的话，转发后的路径为：`http://localhost:18070/provider/hello`和`http://localhost:18080/consumer/hi`明显多了一个provider或者consumer，导致转发失败。
+</code></pre><p>这时，我们就用上了路径重写，配置如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">18090</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">cloud</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">gateway</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">routes</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>nacos-consumer<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>http://127.0.0.1:18080<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/consumer/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- RewritePath=/consumer/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>nacos-provider<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>http://127.0.0.1:18070<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/provider/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- RewritePath=/provider/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic">#           - StripPrefix=1</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p><strong>注意</strong>：<code>Path=/consumer/**</code>及<code>Path=/provider/**</code>的变化</p>
+<p>RewritePath可以实现原来的zuul的StripPrefix的效果，而且功能更强大!</p>
+<p>测试：
+<img src="/posts/project/20220528224436/image-20220528224916919.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="13-面向服务的路由">1.3. 面向服务的路由</h2>
+<p><img src="/posts/project/20220528224436/image-20220528224923282.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>如果要做到负载均衡，则必须把网关工程注册到nacos注册中心，然后通过服务名访问。</p>
+<h3 id="131-把网关服务注册到nacos">1.3.1. 把网关服务注册到nacos</h3>
+<ol>
+<li>
+<p>引入nacos的相关依赖：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!-- SpringCloud的依赖 --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;dependencyManagement&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-dependencies<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>Hoxton.SR2<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;type&gt;</span>pom<span style="color:#000080">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;scope&gt;</span>import<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">&lt;!-- 在依赖管理中加入springCloud-alibaba组件的依赖 --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-alibaba-dependencies<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>2.2.0.RELEASE<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;type&gt;</span>pom<span style="color:#000080">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;scope&gt;</span>import<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependencyManagement&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>配置nacos服务地址及服务名：
+<img src="/posts/project/20220528224436/image-20220528224932309.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>application.yml中的配置：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">18090</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">application</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>gateway<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">cloud</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">nacos</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">discovery</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">server-addr</span>:<span style="color:#bbb"> </span><span style="color:#099">127.0.0.1</span>:<span style="color:#099">8848</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">gateway</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">routes</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>nacos-consumer<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>http://127.0.0.1:18080<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/consumer/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- RewritePath=/consumer/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>nacos-provider<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>http://127.0.0.1:18070<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/provider/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- RewritePath=/provider/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
+<li>
+<p>把网关注入到nacos</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableDiscoveryClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">GatewayDemoApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>GatewayDemoApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span> args<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="132-修改配置通过服务名路由">1.3.2. 修改配置，通过服务名路由</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">18090</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">application</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>gateway<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">cloud</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">nacos</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">discovery</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">server-addr</span>:<span style="color:#bbb"> </span><span style="color:#099">127.0.0.1</span>:<span style="color:#099">8848</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">gateway</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">routes</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>nacos-consumer<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>lb://nacos-consumer<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/consumer/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- RewritePath=/consumer/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>nacos-provider<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>lb://nacos-provider<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/provider/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- RewritePath=/provider/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>语法：lb://服务名</p>
+<p>lb：LoadBalance，代表负载均衡的方式</p>
+<p>服务名取决于nacos的服务列表中的服务名
+<img src="/posts/project/20220528224436/image-20220528224944491.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="14-路由的java代码配置方式了解">1.4. 路由的java代码配置方式（了解）</h2>
+<p>参见官方文档：</p>
+<p><img src="/posts/project/20220528224436/image-20220528224953375.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">RouteLocatorConfig</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> RouteLocator <span style="color:#900;font-weight:bold">customRouteLocator</span><span style="color:#000;font-weight:bold">(</span>RouteLocatorBuilder builder<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> builder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">routes</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">route</span><span style="color:#000;font-weight:bold">(</span>r <span style="color:#000;font-weight:bold">-&gt;</span> r<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">path</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/api/hello/**&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">filters</span><span style="color:#000;font-weight:bold">(</span>f <span style="color:#000;font-weight:bold">-&gt;</span> f<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">stripPrefix</span><span style="color:#000;font-weight:bold">(</span>1<span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">uri</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;lb://nacos-provider&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">route</span><span style="color:#000;font-weight:bold">(</span>r <span style="color:#000;font-weight:bold">-&gt;</span> r<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">path</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/ujiuye/hello/**&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">filters</span><span style="color:#000;font-weight:bold">(</span>f <span style="color:#000;font-weight:bold">-&gt;</span> f<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">rewritePath</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/ujiuye/(?&lt;segment&gt;.*)&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;/${segment}&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">uri</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;lb://nacos-provider&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="15-网关全局过滤了解">1.5. 网关全局过滤（了解）</h2>
+<p>全局过滤器作用于所有的路由，不需要单独配置，我们可以用它来实现很多统一化处理的业务需求，比如权限认证，IP 访问限制等等。</p>
+<h3 id="151-过滤器生命周期">1.5.1 过滤器生命周期</h3>
+<p><img src="/posts/project/20220528224436/0.webp"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="152-创建全局过滤器">1.5.2 创建全局过滤器</h3>
+<p>实现 <code>GlobalFilter</code>, <code>Ordered</code> 接口并在类上增加 <code>@Component</code> 注解就可以使用过滤功能了，非常简单方便</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.offcn.filter</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.fasterxml.jackson.core.JsonProcessingException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.fasterxml.jackson.databind.ObjectMapper</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.google.common.collect.Maps</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.cloud.gateway.filter.GatewayFilterChain</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.cloud.gateway.filter.GlobalFilter</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.core.Ordered</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.core.io.buffer.DataBuffer</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.http.HttpStatus</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.http.server.reactive.ServerHttpResponse</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.stereotype.Component</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.web.server.ServerWebExchange</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">reactor.core.publisher.Mono</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.Map</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">AuthFilter</span> <span style="color:#000;font-weight:bold">implements</span> GlobalFilter<span style="color:#000;font-weight:bold">,</span> Ordered <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Mono<span style="color:#000;font-weight:bold">&lt;</span>Void<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">filter</span><span style="color:#000;font-weight:bold">(</span>ServerWebExchange exchange<span style="color:#000;font-weight:bold">,</span> GatewayFilterChain chain<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        String token <span style="color:#000;font-weight:bold">=</span> exchange<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequest</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getQueryParams</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getFirst</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;token&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>token <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span> <span style="color:#000;font-weight:bold">||</span> token<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">isEmpty</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            ServerHttpResponse response <span style="color:#000;font-weight:bold">=</span> exchange<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getResponse</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">// 封装错误信息
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> Object<span style="color:#000;font-weight:bold">&gt;</span> responseData <span style="color:#000;font-weight:bold">=</span> Maps<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">newHashMap</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            responseData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;code&#34;</span><span style="color:#000;font-weight:bold">,</span> 401<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            responseData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;message&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;非法请求&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            responseData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;cause&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;Token is empty&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#998;font-style:italic">// 将信息转换为 JSON
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                ObjectMapper objectMapper <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ObjectMapper<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> data <span style="color:#000;font-weight:bold">=</span> objectMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">writeValueAsBytes</span><span style="color:#000;font-weight:bold">(</span>responseData<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#998;font-style:italic">// 输出错误信息到页面
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                DataBuffer buffer <span style="color:#000;font-weight:bold">=</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">bufferFactory</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">wrap</span><span style="color:#000;font-weight:bold">(</span>data<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>                response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setStatusCode</span><span style="color:#000;font-weight:bold">(</span>HttpStatus<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">UNAUTHORIZED</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>                response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getHeaders</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Content-Type&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;application/json;charset=UTF-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">return</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">writeWith</span><span style="color:#000;font-weight:bold">(</span>Mono<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">just</span><span style="color:#000;font-weight:bold">(</span>buffer<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>JsonProcessingException e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> chain<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">filter</span><span style="color:#000;font-weight:bold">(</span>exchange<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">getOrder</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> 1<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="153-测试全局过滤器">1.5.3 测试全局过滤器</h3>
+<p>测试访问地址：http://localhost:18090/consumer/hi
+<img src="/posts/project/20220528224436/image-20220528225107797.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>增加token测试访问地址：http://localhost:18090/consumer/hi?token=aaaa
+<img src="/posts/project/20220528224436/image-20220528225116000.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="2-sentinel">2. Sentinel</h1>
+<p>分布式系统的流量防卫兵</p>
+<h2 id="21服务雪崩容错方案">2.1、服务雪崩、容错方案</h2>
+<p>分布式系统面临许多问题，其中服务雪崩、容错都是常问到的问题。</p>
+<hr>
+<p>分布式体系结构中的应用程序有很多依赖关系，每个依赖关系在某些时候将不可避免地失败。</p>
+<h3 id="211服务雪崩">2.1.1、服务雪崩</h3>
+<p><img src="/posts/project/20220528224436/image-20220528225124876.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>当服务A的流量突然增加，服务A扛得住请求，服务B和服务C未必能扛得住这突发的请求。</p>
+<p>如果服务C因为抗不住请求，变得不可用。那么服务B的请求也会阻塞，慢慢耗尽服务B的线程资源，服务B就会变得不可用。紧接着，服务 A也会不可用
+<img src="/posts/project/20220528224436/image-20220528225133321.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>一个服务失败，导致整条链路的服务都失败的情形，我们称之为<strong>服务雪崩</strong></p>
+<p>对于高流量的应用来说，单一的后端依赖可能会导致所有服务器上的所有资源都在几秒钟内饱和，为了对故障和延迟进行隔离和管理，以便单个依赖关系的失败，不能取消整个应用程序或系统。</p>
+<h3 id="212容错方案">2.1.2、容错方案</h3>
+<p>想要防止雪崩的扩散，就要做好服务的容错，容错说白了就是保护自己不被其他队友坑！那我们有哪些容错的思路呢？</p>
+<h4 id="1隔离方案">1）隔离方案</h4>
+<p>它是指将系统按照一定的原则划分为若干个服务模块，各个模块之间相互独立，无强依赖。当有故障发生时，能将问题和影响隔离在某个模块内部，而不扩散风险，不涉及其他模块，不影响整体的系统服务。常见的隔离方式有：<strong>线程隔离</strong> 和信号量隔离：</p>
+<p><img src="/posts/project/20220528224436/image-20220528225146200.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="2超时方案">2）超时方案</h4>
+<p>在上游服务调用下游服务的时候，设置一个最大响应时间，如果超过这个时间下游服务还没响应，那么就断开连接，释放掉线程</p>
+<p><img src="/posts/project/20220528224436/image-20220528225155959.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="3限流方案">3）限流方案</h4>
+<p>限流就是限制系统的输入和输出流量已达到保护系统的目的。为了保证系统的稳固运行，一旦达到需要限制的阈值，就需要限制流量并采用少量措施完成限制流量的目的</p>
+<p><img src="/posts/project/20220528224436/image-20220528225206798.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>限流策略有很多：稍后我们详细介绍！</p>
+<h4 id="4熔断方案">4）熔断方案</h4>
+<p>在互联网系统中，当下游服务因访问压力过大而相应变慢或失败的时候，上游服务为了保护系统整体的可用性，可以暂时切断对下游服务的调用。这种牺牲局部，保全整体的措施就叫做熔断</p>
+<p><img src="/posts/project/20220528224436/image-20220528225217730.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>其中熔断有分为三种状态：</p>
+<ul>
+<li>熔断关闭状态（Closed）</li>
+</ul>
+<p>服务没有故障时，熔断器所处的状态，对调用方的调用不做任何限制</p>
+<ul>
+<li>熔断开启状态（Open）</li>
+</ul>
+<p>后续对该服务接口的调用不再经过网络，直接执行本地的 <strong>fallback</strong> 方法</p>
+<ul>
+<li>半熔断状态（Half-Open）</li>
+</ul>
+<p>尝试恢复服务调用，允许有限的流量调用该服务，并监控成功率。如果成功率达到预期，则说明服务已经恢复，进入熔断关闭状态；如果成功率依然很低，则重新进入熔断关闭状态</p>
+<h4 id="5降级方案">5）降级方案</h4>
+<p>降级其实就是为服务提供一个 <strong>B计划</strong>，一旦服务无法正常，就启用 <strong>B计划</strong></p>
+<p><img src="/posts/project/20220528224436/image-20220528225254214.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>方案其实有很多，但是很难说明那种方案是最好的。在开发者的世界中，没有最好，只有最适合。那如果自己写一个容错方案往往是比较容易出错的（功力高深者除外），那么为了解决这个问题，我们不妨用第三方已经为我实现好的组件！</p>
+<h2 id="22-sentinel-是什么">2.2. Sentinel 是什么？</h2>
+<p>随着微服务的流行，服务和服务之间的稳定性变得越来越重要。Sentinel 以流量为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。</p>
+<p>Sentinel 的历史：</p>
+<ul>
+<li>2012 年，Sentinel 诞生，主要功能为入口流量控制。</li>
+<li>2013-2017 年，Sentinel 在阿里巴巴集团内部迅速发展，成为基础技术模块，覆盖了所有的核心场景。Sentinel 也因此积累了大量的流量归整场景以及生产实践。</li>
+<li>2018 年，Sentinel 开源，并持续演进。</li>
+<li>2019 年，Sentinel 朝着多语言扩展的方向不断探索，推出 C++ 原生版本，同时针对 Service Mesh 场景也推出了 Envoy 集群流量控制支持，以解决 Service Mesh 架构下多语言限流的问题。</li>
+<li>2020 年，推出 Sentinel Go 版本，继续朝着云原生方向演进。</li>
+</ul>
+<p>Sentinel 分为两个部分:</p>
+<ul>
+<li>核心库（Java 客户端）不依赖任何框架/库，能够运行于所有 Java 运行时环境，同时对 Dubbo / Spring Cloud 等框架也有较好的支持。</li>
+<li>控制台（Dashboard）基于 Spring Boot 开发，打包后可以直接运行，不需要额外的 Tomcat 等应用容器。</li>
+</ul>
+<p>Sentinel 可以简单的分为 Sentinel 核心库和 Dashboard。核心库不依赖 Dashboard，但是结合 Dashboard 可以取得最好的效果。</p>
+<h2 id="23-基本概念及作用">2.3. 基本概念及作用</h2>
+<p>基本概念：</p>
+<p><strong>资源</strong>：是 Sentinel 的关键概念。它可以是 Java 应用程序中的任何内容，例如，由应用程序提供的服务，或由应用程序调用的其它应用提供的服务，甚至可以是一段代码。在接下来的文档中，我们都会用资源来描述代码块。</p>
+<p>只要通过 Sentinel API 定义的代码，就是资源，能够被 Sentinel 保护起来。大部分情况下，可以使用方法签名，URL，甚至服务名称作为资源名来标示资源。</p>
+<p><strong>规则</strong>：围绕资源的实时状态设定的规则，可以包括流量控制规则、熔断降级规则以及系统保护规则。所有规则可以动态实时调整。</p>
+<p>主要作用：</p>
+<ol>
+<li>流量控制</li>
+<li>熔断降级</li>
+<li>系统负载保护</li>
+</ol>
+<p>我们说的资源，可以是任何东西，服务，服务里的方法，甚至是一段代码。使用 Sentinel 来进行资源保护，主要分为几个步骤:</p>
+<ol>
+<li>定义资源</li>
+<li>定义规则</li>
+<li>检验规则是否生效</li>
+</ol>
+<p>先把可能需要保护的资源定义好，之后再配置规则。也可以理解为，只要有了资源，我们就可以在任何时候灵活地定义各种流量控制规则。在编码的时候，只需要考虑这个代码是否需要保护，如果需要保护，就将之定义为一个资源。</p>
+<h2 id="24-快速开始">2.4. 快速开始</h2>
+<p>官方文档：https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel</p>
+<h3 id="241-搭建dashboard控制台">2.4.1. 搭建Dashboard控制台</h3>
+<p>您可以从 release 页面 下载最新版本的控制台 jar 包。</p>
+<p><a class="link" href="/posts/project/https://github.com/alibaba/Sentinel/releases"  target="_blank" rel="noopener"
+    >https://github.com/alibaba/Sentinel/releases</a></p>
+<p>下载的jar包（课前资料已下发），copy到一个没有空格或者中文的路径下，打开dos窗口切换到jar包所在目录。</p>
+<p>执行：java -jar sentinel-dashboard-xxx.jar</p>
+<p><img src="/posts/project/20220528224436/image-20220528225321956.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>在浏览器中访问sentinel控制台，默认端口号是8080。</p>
+<p>进入登录页面(http://localhost:8080/#/dashboard)，</p>
+<p>管理页面用户名和密码：sentinel/sentinel</p>
+<p><img src="/posts/project/20220528224436/image-20220528225412388.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>此时页面为空，这是因为还没有监控任何服务。另外，sentinel是懒加载的，如果服务没有被访问，也看不到该服务信息。</p>
+<h3 id="242-改造nacos-consumer">2.4.2. 改造nacos-consumer</h3>
+<ol>
+<li>引入 sentinel 依赖</li>
+</ol>
+<p>使用 group ID 为 <code>com.alibaba.cloud</code> 和 artifact ID 为 <code>spring-cloud-starter-alibaba-sentinel</code> 的 starter。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-sentinel<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><ol start="2">
+<li>在application.yml中添加配置</li>
+</ol>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
+  cloud:    
+    sentinel:
+      transport:
+        dashboard: 192.168.188.138:8080
+        port: 8719
+# 暴露/actuator/sentinel端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: &#39;*&#39;        
+</code></pre><p>注意：必须暴露 /actuator/sentinel端点；（http://localhost:8000/actuator/sentinel）</p>
+<p>重启nacos-consumer工程，在浏览器中反复访问：http://localhost:18080/hi</p>
+<p>再次查看sentinel控制台页面：</p>
+<p><img src="/posts/project/20220528224436/image-20220528225446243.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>了解一下控制台的使用原理：</p>
+<p><img src="/posts/project/20220528224436/image-20220528225459655.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>当 Sentinel应用启动后，我们需要将我们的微服务程序注册到控制台上，也就是在配置文件中指定控制台的地址，这个是肯定的。但是所谓用来跟控制台交流的端口，也就是我们每个服务都会通过这个端口跟控制台传递数据，控制台也可以通过此端口调用微服务中的监控程序来获取微服务的各种信息。</p>
+<h2 id="25-整合feign组件">2.5. 整合Feign组件</h2>
+<p>Sentinel 适配了 Feign 组件。使用分三步：</p>
+<ol>
+<li>引入依赖：</li>
+</ol>
+<p>引入feign及sentinel的依赖</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-sentinel<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-openfeign<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>注意：springCloud的版本兼容问题使用的是Hoxton.SR2  兼容的cloud alibaba版本是:2.2.0.RELEASE</p>
+<p>注意:spring-cloud-starter-openfeign  2.2.6RELEASE 最高不能超过</p>
+<ol>
+<li>开启sentinel监控功能</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">feign</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">sentinel</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">enabled</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span></code></pre></div><ol start="3">
+<li>代码实现
+<img src="/posts/project/20220528224436/image-20220528225705379.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></li>
+</ol>
+<p>添加feign接口的熔断类ProviderFallback：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ProviderFallback</span> <span style="color:#000;font-weight:bold">implements</span> ProviderClient <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> String <span style="color:#900;font-weight:bold">hello</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#34;现在服务器忙，请稍后再试！&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>在feign接口ProviderClient中指定熔断类：
+<img src="/posts/project/20220528224436/image-20220528225722495.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>测试之前，先在服务提供方的controller方法中添加异常：
+<img src="/posts/project/20220528224436/image-20220528225736337.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>再重启nacos-provider和nacos-consumer服务。在浏览器中地址栏访问消费方测试：
+<img src="/posts/project/20220528224436/image-20220528225744021.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="26-流量控制">2.6. 流量控制</h2>
+<h3 id="261-什么是流量控制">2.6.1. 什么是流量控制</h3>
+<p>流量控制在网络传输中是一个常用的概念，它用于调整网络包的发送数据。然而，从系统稳定性角度考虑，在处理请求的速度上，也有非常多的讲究。任意时间到来的请求往往是随机不可控的，而系统的处理能力是有限的。我们需要根据系统的处理能力对流量进行控制。Sentinel 作为一个调配器，可以根据需要把随机的请求调整成合适的形状，如下图所示：
+<img src="/posts/project/20220528224436/limitflow.gif"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+流量控制有以下几个角度:</p>
+<ul>
+<li>资源的调用关系，例如资源的调用链路，资源和资源之间的关系；</li>
+<li>运行指标，例如 QPS、线程数等；</li>
+<li>控制的效果，例如直接限流（快速失败）、冷启动（Warm Up）、匀速排队（排队等待）等。</li>
+</ul>
+<p>Sentinel 的设计理念是让您自由选择控制的角度，并进行灵活组合，从而达到想要的效果。</p>
+<p>配置如下：
+<img src="/posts/project/20220528224436/image-20220528225825213.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="262-qps流量控制">2.6.2. QPS流量控制</h3>
+<p>QPS：每秒钟处理请求次数.</p>
+<p>当 QPS 超过某个阈值的时候，则采取措施进行流量控制。流量控制的效果包括以下几种：<strong>直接拒绝</strong>、<strong>Warm Up</strong>、<strong>匀速排队</strong>。</p>
+<h4 id="2621-直接拒绝">2.6.2.1. 直接拒绝</h4>
+<p><strong>直接拒绝</strong>（<code>RuleConstant.CONTROL_BEHAVIOR_DEFAULT</code>）方式是默认的流量控制方式，当QPS超过任意规则的阈值后，新的请求就会被立即拒绝，拒绝方式为抛出<code>FlowException</code>。这种方式适用于对系统处理能力确切已知的情况下，比如通过压测确定了系统的准确水位时。</p>
+<p><img src="/posts/project/20220528224436/image-20220528225839893.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528224436/image-20220528225850724.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>这里做一个最简单的配置：</p>
+<p>​    阈值类型选择：QPS</p>
+<p>​    单机阈值：2</p>
+<p>综合起来的配置效果就是，该接口的限流策略是每秒最多允许2个请求进入。</p>
+<p>点击新增按钮之后，可以看到如下界面：
+<img src="/posts/project/20220528224436/image-20220528225902063.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>在浏览器访问：http://localhost:18080/hi，并疯狂刷新，出现如下信息：
+<img src="/posts/project/20220528224436/image-20220528225909623.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="2622-warm-up预热">2.6.2.2. Warm Up（预热）</h4>
+<p>Warm Up（<code>RuleConstant.CONTROL_BEHAVIOR_WARM_UP</code>）方式，即预热/冷启动方式。当系统长期处于低水位的情况下，当流量突然增加时，直接把系统拉升到高水位可能瞬间把系统压垮。通过&quot;冷启动&quot;，让通过的流量缓慢增加，在一定时间内逐渐增加到阈值上限，给冷系统一个预热的时间，避免冷系统被压垮。
+<img src="/posts/project/20220528224436/image-20220528225924720.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>疯狂访问：http://localhost:18080/hi
+<img src="/posts/project/20220528224436/warm_up.gif"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+可以发现前几秒会发生熔断，几秒钟之后就完全没有问题了
+<img src="/posts/project/20220528224436/image-20220528225942722.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="2623-匀速排队">2.6.2.3. 匀速排队</h4>
+<p>匀速排队（<code>RuleConstant.CONTROL_BEHAVIOR_RATE_LIMITER</code>）方式会严格控制请求通过的间隔时间，也即是让请求以均匀的速度通过，对应的是漏桶算法。</p>
+<p>测试配置如下：1s处理一个请求，排队等待，等待时间20s。</p>
+<p><img src="/posts/project/20220528224436/image-20220528230014350.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>在postman中，新建一个collection（这里collection名称是sentinel），并把一个请求添加到该collection</p>
+<p><img src="/posts/project/20220528224436/image-20220528230030090.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+<img src="/posts/project/20220528224436/image-20220528230042324.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>请求添加成功后，点击run按钮：</p>
+<p><img src="/posts/project/20220528224436/image-20220528230057200.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>配置每隔100ms发送一次请求，一共发送20个请求：
+<img src="/posts/project/20220528224436/image-20220528230119814.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击“run sentinel”按钮</p>
+<p><img src="/posts/project/20220528224436/image-20220528230130309.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>查看控制台，效果如下：可以看到基本每隔1s打印一次
+<img src="/posts/project/20220528224436/image-20220528230152865.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>注意，在消费者打印当前毫秒值。System.out.println(System.currentTimeMillis());</p>
+<h3 id="263-关联限流">2.6.3. 关联限流</h3>
+<p>关联限流：当关联的资源请求达到阈值时，就限流自己。</p>
+<p>配置如下：/hi2的关联资源/hi，并发数超过/hi的限流时，/hi2就限流自己
+<img src="/posts/project/20220528224436/image-20220528230200963.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528224436/image-20220528230207374.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>给消费者添加一个controller方法：</p>
+<p><img src="/posts/project/20220528224436/image-20220528230221374.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><em><strong>由于对/hi2的限流控制采用QPS<code>关联</code>，所以直接访问不会被限流，会发现一直刷新<code>/hi2</code>不会出现限流</strong></em></p>
+<p><em><strong>测试访问/hi，超过限流阀值，在浏览器访问/hi2发现限流了：</strong></em></p>
+<p>postman配置如下：每个400ms发送一次请求，一共发送50个。每秒钟超过了2次</p>
+<p><img src="/posts/project/20220528224436/image-20220528230231620.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>在浏览器中访问/hi2  已经被限流。
+<img src="/posts/project/20220528224436/image-20220528230242809.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="264-链路限流">2.6.4. 链路限流</h3>
+<p>一棵典型的调用树如下图所示：</p>
+<pre tabindex="0"><code>     	          machine-root
+                    /       \
+                   /         \
+             Entrance1     Entrance2
+                /             \
+               /               \
+      DefaultNode(nodeA)   DefaultNode(nodeA)
+</code></pre><p>上图中来自入口 <code>Entrance1</code> 和 <code>Entrance2</code> 的请求都调用到了资源 <code>NodeA</code>，Sentinel 允许只根据某个入口的统计信息对资源限流。</p>
+<p>配置如下：表示只针对Entrance1进来的请求做限流限制
+<img src="/posts/project/20220528224436/image-20220528230251440.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="265-线程数限流">2.6.5. 线程数限流</h3>
+<p>**并发线程数限流用于保护业务线程数不被耗尽。**例如，当应用所依赖的下游应用由于某种原因导致服务不稳定、响应延迟增加，对于调用者来说，意味着吞吐量下降和更多的线程数占用，极端情况下甚至导致线程池耗尽。为应对太多线程占用的情况，业内有使用隔离的方案，比如通过不同业务逻辑使用不同线程池来隔离业务自身之间的资源争抢（线程池隔离）。这种隔离方案虽然隔离性比较好，但是代价就是线程数目太多，线程上下文切换的 overhead 比较大，特别是对低延时的调用有比较大的影响。Sentinel 并发线程数限流不负责创建和管理线程池，而是简单统计当前请求上下文的线程数目，如果超出阈值，新的请求会被立即拒绝，效果类似于信号量隔离。</p>
+<p>配置如下：如果请求的并发数超过一个就限流
+<img src="/posts/project/20220528224436/image-20220528230300763.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>改造controller中的hi方法：
+<img src="/posts/project/20220528224436/image-20220528230314313.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><strong>测试</strong></p>
+<p>postmain配置如下：
+<img src="/posts/project/20220528224436/image-20220528230321130.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>同时在浏览器访问：</p>
+<p><img src="/posts/project/20220528224436/image-20220528230353346.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="27-熔断降级">2.7. 熔断降级</h2>
+<p>Sentinel除了流量控制以外，对调用链路中不稳定的资源进行熔断降级也是保障高可用的重要措施之一。</p>
+<p>Sentinel <strong>熔断降级</strong>会在调用链路中某个资源出现不稳定状态时（例如调用超时或异常比例升高），对这个资源的调用进行限制，让请求快速失败，避免影响到其它的资源而导致级联错误。当资源被降级后，在接下来的降级时间窗口之内，对该资源的调用都自动熔断（默认行为是抛出 <code>DegradeException</code>）。</p>
+<p>Sentinel 和 Hystrix 的原则是一致的: 当调用链路中某个资源出现不稳定，例如，表现为 timeout，异常比例升高的时候，则对这个资源的调用进行限制，并让请求快速失败，避免影响到其它的资源，最终产生雪崩的效果。</p>
+<p>限流降级指标有三个，如下图：</p>
+<ol>
+<li>
+<p>平均响应时间（RT）</p>
+</li>
+<li>
+<p>异常比例</p>
+</li>
+<li>
+<p>异常数
+<img src="/posts/project/20220528224436/image-20220528230439042.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+</li>
+</ol>
+<h3 id="271-平均响应时间rt">2.7.1. 平均响应时间（RT）</h3>
+<p><strong>平均响应时间</strong> (<code>DEGRADE_GRADE_RT</code>)：<strong>当资源的平均响应时间超过阈值</strong>（<code>DegradeRule</code> 中的 <code>count</code>，以 <strong>ms</strong> 为单位，默认上限是4900ms）之后，资源进入准降级状态。如果<strong>1s之内持续进入 5 个请求</strong>，它们的 RT 都持续超过这个阈值，那么在<strong>接下来的时间窗口</strong>（<code>DegradeRule</code> 中的 <code>timeWindow</code>，以 s 为单位）之内，对这个方法的调用都会自动地返回（抛出 <code>DegradeException</code>）。在下一个时间窗口到来时, 会接着再放入5个请求, 再重复上面的判断。</p>
+<p>配置如下：超时时间100ms，熔断时间10s</p>
+<p><img src="/posts/project/20220528224436/image-20220528230450969.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>代码中依然睡了1s</p>
+<p><img src="/posts/project/20220528224436/image-20220528230604936.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>也就是说请求肯定都会超时。</p>
+<p>先执行postmain，配置如下：</p>
+<p><img src="/posts/project/20220528224436/image-20220528230615102.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>再次见到了熟悉的界面：</p>
+<p><img src="/posts/project/20220528224436/image-20220528230623406.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>10s之内，都是熔断界面</p>
+<h3 id="272-异常比例">2.7.2. 异常比例</h3>
+<p><strong>异常比例</strong> (<code>DEGRADE_GRADE_EXCEPTION_RATIO</code>)：<strong>当资源的每秒请求量 &gt;= 5，且每秒异常总数占通过量的比值超过阈值</strong>（<code>DegradeRule</code> 中的 <code>count</code>）之后，资源进入降级状态，即在接下的时间窗口（<code>DegradeRule</code>中的 <code>timeWindow</code>，以 s 为单位）之内，对这个方法的调用都会自动地返回。异常比率的阈值范围是 <code>[0.0, 1.0]</code>，代表 0% - 100%。</p>
+<h3 id="273-异常数">2.7.3. 异常数</h3>
+<p><strong>异常数</strong> (<code>DEGRADE_GRADE_EXCEPTION_COUNT</code>)：当资源近 1 分钟的异常数目超过阈值之后会进行熔断。</p>
+<h2 id="28-规则持久化">2.8. 规则持久化</h2>
+<p>无论是通过硬编码的方式来更新规则，还是通过接入 Sentinel Dashboard 后，在页面上操作更新规则，都无法避免一个问题，那就是服务重启后，规则就丢失了，因为默认情况下规则是保存在内存中的。</p>
+<p>我们在 Dashboard 上为客户端配置好了规则，并推送给了客户端。这时由于一些因素客户端出现异常，服务不可用了，当客户端恢复正常再次连接上 Dashboard 后，这时所有的规则都丢失了，我们还需要重新配置一遍规则，这肯定不是我们想要的。</p>
+<p>持久化配置分以下3步：</p>
+<ol>
+<li>引入依赖</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.csp<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>sentinel-datasource-nacos<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><ol start="2">
+<li>添加配置：</li>
+</ol>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
+  cloud:    
+    sentinel:
+      transport:
+        dashboard: 192.168.188.138:8080
+        port: 8719
+      datasource:
+        consumer:
+          nacos:
+            server-addr: 192.168.188.138:8848
+            dataId: ${spring.application.name}-sentinel-rules
+            groupId: SENTINEL_GROUP
+            data-type: json
+            rule_type: flow
+</code></pre><ol start="3">
+<li>nacos中创建流控规则
+<img src="/posts/project/20220528224436/image-20220528230644314.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></li>
+</ol>
+<p>配置内容如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;resource&#34;</span>: <span style="color:#d14">&#34;/hi&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;limitApp&#34;</span>: <span style="color:#d14">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;grade&#34;</span>: <span style="color:#099">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;count&#34;</span>: <span style="color:#099">2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;strategy&#34;</span>: <span style="color:#099">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;controlBehavior&#34;</span>: <span style="color:#099">0</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;clusterMode&#34;</span>: <span style="color:#000;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>resource：资源名称</p>
+<p>limitApp：限流应用，就是用默认就可以</p>
+<p>grade：阈值类型，0表示线程数，1表示Qps</p>
+<p>count：单机阈值</p>
+<p>strategy：流控模式，0-直接，1-关联， 2-链路</p>
+<p>controlBehavior：流控效果。0-快速失败，1-warm up 2-排队等待</p>
+<p>clusterMode：是否集群</p>
+<p>重启consumser，并多次访问：http://localhost:18080/hi。</p>
+<p>查看sentinel客户端：就有了限流配置了</p>
+<p><img src="/posts/project/20220528224436/image-20220528230702298.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>现在你可以尝试测试一下限流配置了</p>
+<h1 id="3-sleuth">3. Sleuth</h1>
+<p>​		Spring Cloud Sleuth为springCloud实现了一个分布式链路追踪解决方案，大量借鉴了Dapper，Zipkin和HTrace等链路追踪技术。对于大多数用户而言，Sleuth应该是不可见的，并且您与外部系统的所有交互都应自动进行检测。您可以简单地在日志中捕获数据，也可以将其发送到远程收集器服务。</p>
+<p>​		随着分布式系统越来越复杂，你的一个请求发过发过去，各个微服务之间的跳转，有可能某个请求某一天压力太大了，一个请求过去没响应，一个请求下去依赖了三四个服务，但是你去不知道哪一个服务出来问题，这时候我是不是需要对微服务进行追踪呀？监控一个请求的发起，从服务之间传递之间的过程，我最好记录一下，记录每一个的耗时多久，一旦出了问题，我们就可以针对性的进行优化，是要增加节点，减轻压力，还是服务继续拆分，让逻辑更加简单点呢？这时候<strong>springcloud-sleuth集成zipkin</strong>能帮我们解决这些服务追踪问题。</p>
+<h2 id="31-zipkin分布式监控客户端">3.1. zipkin分布式监控客户端</h2>
+<p>Zipkin是一种分布式跟踪系统。它有助于收集解决微服务架构中的延迟问题所需的时序数据。它管理这些数据的收集和查找。Zipkin的设计基于Google Dapper论文。应用程序用于向Zipkin报告时序数据。Zipkin UI还提供了一个依赖关系图，显示了每个应用程序通过的跟踪请求数。如果要解决延迟问题或错误，可以根据应用程序，跟踪长度，注释或时间戳对所有跟踪进行筛选或排序。选择跟踪后，您可以看到每个跨度所需的总跟踪时间百分比，从而可以识别有问题的应用程序。</p>
+<p>通过docker安装：docker run -d -p 9411:9411 openzipkin/zipkin</p>
+<p>通过jar包安装：java -jar zipkin-server-*exec.jar</p>
+<p>jar包下载地址：https://search.maven.org/remote_content?g=io.zipkin&amp;a=zipkin-server&amp;v=LATEST&amp;c=exec</p>
+<p>课前资料有已下载的jar包</p>
+<p>在浏览器端访问：http://localhost:9411</p>
+<h2 id="32-改造consumerprovider工程">3.2. 改造consumer/provider工程</h2>
+<p>对consumer和provider工程分别做如下操作：</p>
+<ol>
+<li>引入sleuth的依赖</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-zipkin<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>zipkin的启动器包含了sleuth的依赖。</p>
+<ol start="2">
+<li>配置zipkin的相关信息</li>
+</ol>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:  
+  zipkin:
+    base-url: http://192.168.188.138:9411
+    discovery-client-enabled: false
+    sender:
+      type: web
+</code></pre><ol start="3">
+<li>重启consumer/provider服务后，访问消费者：http://localhost:18080/hi。查看zipkin客户端如下
+<img src="/posts/project/20220528224436/zipkin_client.gif"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+这时候我们可以在zipkin的ui控制界面看看效果，可以发现，服务之间的调用关系，服务名称已经清晰展现出来了，同时包括服务之间的调用时常等详细信息以及更细的信息都可以通过控制台看到。
+<img src="/posts/project/20220528224436/image-20220528230745389.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></li>
+</ol>
+<p>还可以查看调用关系图：
+<img src="/posts/project/20220528224436/image-20220528230751668.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="33-基本概念">3.3. 基本概念</h2>
+<p>Span：基本工作单元。发送一个远程请求就会产生一个span，span通过一个64位ID唯一标识，trace以另一个64位ID表示，span还有其他数据信息，比如摘要、时间戳事件、关键值注释(tags)、span的ID、以及进度ID(通常是IP地址)。span在不断的启动和停止，同时记录了时间信息，当你创建了一个span，你必须在未来的某个时刻停止它。</p>
+<p>Trace：一系列spans组成的一个树状结构。例如：发送一个请求，需要调用多个微服务，每调用一个微服务都会产生一个span，这些span组成一个trace</p>
+<p>Annotation：用来及时记录一个事件的存在，一些核心annotations用来定义一个请求的开始和结束</p>
+<ul>
+<li>cs - Client Sent -客户端发起一个请求，这个annotion描述了这个span的开始</li>
+<li>sr - Server Received -服务端获得请求并准备开始处理它，如果将其sr减去cs时间戳便可得到网络延迟</li>
+<li>ss - Server Sent -注解表明请求处理的完成(当请求返回客户端)，如果ss减去sr时间戳便可得到服务端需要的处理请求时间</li>
+<li>cr - Client Received -表明span的结束，客户端成功接收到服务端的回复，如果cr减去cs时间戳便可得到客户端从服务端获取回复的所有所需时间</li>
+</ul>
+<p>例如一个请求如下：
+<img src="/posts/project/20220528224436/image-20220528230800348.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>使用zipkin跟踪整个请求过程如下：
+<img src="/posts/project/20220528224436/12889335-49075b7a31bf4b4a.webp"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+上图表示一请求链路，一条链路通过<code>Trace Id</code>唯一标识，<code>Span</code>标识发起的请求信息，各<code>span</code>通过<code>parent id</code> 关联起来，如图
+<img src="/posts/project/20220528224436/image-20220528230817435.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.github.io/posts/project/20220528222829/">← tk-SpringCloudAlibaba</a></div>
+    <div><a href="https://lovemjh.github.io/posts/project/20220528231163/">tk-题库项目基本框架搭建  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+        <script type="text/javascript">
+ 
+            !function () {
+                
+                function get_attribute(node, attr, default_value) {
+                    return node.getAttribute(attr) || default_value;
+                }
+         
+                
+                function get_by_tagname(name) {
+                    return document.getElementsByTagName(name);
+                }
+         
+                
+                function get_config_option() {
+                    var scripts = get_by_tagname("script"),
+                        script_len = scripts.length,
+                        script = scripts[script_len - 1]; 
+                    return {
+                        l: script_len, 
+                        z: get_attribute(script, "zIndex", -1), 
+                        o: get_attribute(script, "opacity", 0.8), 
+                        c: get_attribute(script, "color", "255,255,255"), 
+                        n: get_attribute(script, "count", 350) 
+                    };
+                }
+         
+                
+                function set_canvas_size() {
+                    canvas_width = the_canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                        canvas_height = the_canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                }
+         
+                
+                function draw_canvas() {
+                    context.clearRect(0, 0, canvas_width, canvas_height);
+                    
+                    var e, i, d, x_dist, y_dist, dist; 
+                    
+                    random_points.forEach(function (r, idx) {
+                        r.x += r.xa,
+                            r.y += r.ya, 
+                            r.xa *= r.x > canvas_width || r.x < 0 ? -1 : 1,
+                            r.ya *= r.y > canvas_height || r.y < 0 ? -1 : 1, 
+                            context.fillRect(r.x - 0.5, r.y - 0.5, 1, 1); 
+                        
+                        for (i = idx + 1; i < all_array.length; i++) {
+                            e = all_array[i];
+                            
+                            if (null !== e.x && null !== e.y) {
+                                x_dist = r.x - e.x; 
+                                y_dist = r.y - e.y; 
+                                dist = x_dist * x_dist + y_dist * y_dist; 
+         
+                                dist < e.max && (e === current_point && dist >= e.max / 2 && (r.x -= 0.03 * x_dist, r.y -= 0.03 * y_dist), 
+                                    d = (e.max - dist) / e.max,
+                                    context.beginPath(),
+                                    context.lineWidth = d / 2,
+                                    context.strokeStyle = "#000000",
+                                    context.moveTo(r.x, r.y),
+                                    context.lineTo(e.x, e.y),
+                                    context.stroke());
+                            }
+                        }
+                    }), frame_func(draw_canvas);
+                }
+         
+                
+                var the_canvas = document.createElement("canvas"), 
+                    config = get_config_option(), 
+                    canvas_id = "c_n" + config.l, 
+                    context = the_canvas.getContext("2d"), canvas_width, canvas_height,
+                    frame_func = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (func) {
+                        window.setTimeout(func, 1000 / 40);
+                    }, random = Math.random,
+                    current_point = {
+                        x: null, 
+                        y: null, 
+                        max: 20000 
+                    },
+                    all_array;
+                the_canvas.id = canvas_id;
+                the_canvas.style.cssText = "position:fixed;top:0;left:0;z-index:" + config.z + ";opacity:" + config.o;
+                get_by_tagname("body")[0].appendChild(the_canvas);
+         
+                
+                set_canvas_size();
+                window.onresize = set_canvas_size;
+                
+                window.onmousemove = function (e) {
+                    e = e || window.event;
+                    current_point.x = e.clientX;
+                    current_point.y = e.clientY;
+                }, window.onmouseout = function () {
+                    current_point.x = null;
+                    current_point.y = null;
+                };
+                
+                for (var random_points = [], i = 0; config.n > i; i++) {
+                    var x = random() * canvas_width, 
+                        y = random() * canvas_height,
+                        xa = 2 * random() - 1, 
+                        ya = 2 * random() - 1;
+                    
+                    random_points.push({
+                        x: x,
+                        y: y,
+                        xa: xa,
+                        ya: ya,
+                        max: 6000 
+                    });
+                }
+                all_array = random_points.concat([current_point]);
+                
+                setTimeout(function () {
+                    draw_canvas();
+                }, 100);
+            }();
+        </script>
+    </body>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="https://cdn.jsdelivr.net/gh/SGYZ0910/CDN@1.0.7/js/maodian.js"></script>
+</html>

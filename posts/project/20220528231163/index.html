@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="tk-题库项目基本框架搭建 - https://lovemjh.github.io/posts/project/20220528231163/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>tk-题库项目基本框架搭建</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.github.io/style.min.a52a9deea50c044b5100529b926604dd4ba41319221e01484d0aefcc97c1619f.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            tk-题库项目基本框架搭建
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2022-05-28&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2022-05-28&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            4977 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            10 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/project/20220528224436/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/project/20220528232959/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#学习目标">学习目标</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#11-项目介绍">1.1 项目介绍</a></li>
+    <li><a href="#12-系统界面">1.2 系统界面</a>
+      <ul>
+        <li><a href="#1用户移动端">1、用户移动端</a></li>
+        <li><a href="#2系统管理端">2、系统管理端</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#21-项目结构说明">2.1 项目结构说明</a></li>
+    <li><a href="#22-数据准备">2.2 数据准备</a></li>
+    <li><a href="#23-git安装和配置">2.3. git安装和配置</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#23-使用gitee创建仓库">2.3. 使用gitee创建仓库</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#24-项目初始创建">2.4. 项目初始创建</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#25-创建项目模块">2.5. 创建项目模块</a>
+      <ul>
+        <li><a href="#251-创建广告内容服务模块">2.5.1. 创建广告内容服务模块</a></li>
+        <li><a href="#252-创建会员服务模块">2.5.2. 创建会员服务模块</a></li>
+        <li><a href="#253-创建题目服务模块">2.5.3. 创建题目服务模块</a></li>
+        <li><a href="#254-完整工程">2.5.4. 完整工程</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#31下载人人开源后台管理框架">3.1、下载人人开源后台管理框架</a></li>
+    <li><a href="#32添加人人开源管理后端代码到java项目">3.2、添加人人开源管理后端代码到java项目</a></li>
+    <li><a href="#33修改renren-fast-服务的配置文件">3.3、修改renren-fast 服务的配置文件</a></li>
+    <li><a href="#34启动renren-fast服务">3.4、启动renren-fast服务</a></li>
+    <li><a href="#35测试服务运行状态">3.5、测试服务运行状态</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#41下载代码生成器框架">4.1、下载代码生成器框架</a></li>
+    <li><a href="#42导入生成器代码到uxue项目">4.2、导入生成器代码到uxue项目</a></li>
+    <li><a href="#43逆向生成管理前后端代码">4.3、逆向生成管理前后端代码</a>
+      <ul>
+        <li><a href="#431-修改配置">4.3.1. 修改配置</a></li>
+        <li><a href="#432-启动逆向工程">4.3.2. 启动逆向工程</a></li>
+        <li><a href="#433-把文件copy到对应工程">4.3.3. 把文件copy到对应工程</a></li>
+      </ul>
+    </li>
+    <li><a href="#44添加common-模块">4.4、添加common 模块</a>
+      <ul>
+        <li><a href="#441修改u-common模块的依赖">4.4.1、修改u-common模块的依赖</a></li>
+        <li><a href="#442u-common模块添加工具类">4.4.2、u-common模块添加工具类</a></li>
+        <li><a href="#443u-context模块引入u-common依赖">4.4.3、u-context模块引入u-common依赖</a></li>
+        <li><a href="#444解决u-common编译错误">4.4.4、解决u-common编译错误</a></li>
+      </ul>
+    </li>
+    <li><a href="#45生成其他服务的代码">4.5、生成其他服务的代码</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#51配置依赖">5.1、配置依赖</a></li>
+    <li><a href="#52-工程参数配置">5.2、 工程参数配置</a></li>
+    <li><a href="#53在引导类上添加注解">5.3、在引导类上添加注解</a></li>
+    <li><a href="#54测试">5.4、测试</a></li>
+    <li><a href="#55-参照u-context完成其他模块">5.5、 参照u-context完成其他模块</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#61-启动nacos服务">6.1 启动nacos服务</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#71修改u-context服务的pomxml引入注册到nacos所需依赖包">7.1、修改u-context服务的pom.xml引入注册到Nacos所需依赖包</a></li>
+    <li><a href="#72修改配置文件applicationyml">7.2、修改配置文件application.yml</a></li>
+    <li><a href="#73修改主启动类添加注解">7.3、修改主启动类，添加注解</a></li>
+    <li><a href="#74启动主启动类查看nacos管理控制台成功注册">7.4、启动主启动类，查看nacos管理控制台，成功注册</a></li>
+    <li><a href="#75注册人人管理后台服务到nacos">7.5、注册人人管理后台服务到Nacos</a>
+      <ul>
+        <li><a href="#751引入nacos客户端依赖">7.5.1、引入nacos客户端依赖</a></li>
+        <li><a href="#752修改配置文件">7.5.2、修改配置文件</a></li>
+        <li><a href="#753修改主启动类renrenapplication增加允许注册发现注解">7.5.3、修改主启动类RenrenApplication，增加允许注册发现注解</a></li>
+        <li><a href="#754启动主启动类查看服务是否注册到nacos">7.5.4、启动主启动类，查看服务是否注册到nacos</a></li>
+      </ul>
+    </li>
+    <li><a href="#76注册其他微服务到nacos">7.6、注册其他微服务到Nacos</a></li>
+    <li><a href="#77注册到nacos失败">7.7、注册到nacos失败</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#81网关依赖配置文件pomxml">8.1、网关依赖配置文件pom.xml:</a></li>
+    <li><a href="#82applicationyml配置路由转发">8.2、application.yml配置路由转发：</a></li>
+    <li><a href="#83测试网关转发">8.3、测试网关转发</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 align = "center">第三章</h1>
+<h1 align = "center">优学题库项目基本框架搭建</h1>
+<h3 align="center">优就业.JAVA教研室</h3>
+<h2 id="学习目标">学习目标</h2>
+<ul>
+<li>了解优学题库项目介绍</li>
+<li>理解项目搭建</li>
+<li>理解搭建管理后台</li>
+<li>理解逆向生成代码</li>
+<li>掌握模块工程配置</li>
+<li>掌握搭建Nacos注册中心</li>
+<li>掌握注册各个微服务到Nacos</li>
+<li>掌握搭建网关服务</li>
+</ul>
+<h1 id="1-优学在线考试题库系统介绍">1. 优学在线考试题库系统介绍</h1>
+<h2 id="11-项目介绍">1.1 项目介绍</h2>
+<p>中公教育集团作为一家上市培训企业，每天服务于几千万学员，涉及题库类型丰富多样，具有海量的题目信息。</p>
+<p>优学题库项目正是基于这样的背景下诞生的一套题库系统，系统支持自定义题库类型，可以满足广大学员对于各类型题型的学习使用。优学题库系统采用SpringCloud Alibaba分布式架构体系，基于VUE前后端分离技术实现后台管理，基于微信小程序实现移动端应用。</p>
+<h2 id="12-系统界面">1.2 系统界面</h2>
+<h3 id="1用户移动端">1、用户移动端</h3>
+<p><img src="/posts/project/20220528231163/image-20220528231414878.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+<img src="/posts/project/20220528231163/image-20220528231426845.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528231440221.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+<img src="/posts/project/20220528231163/image-20220528231451074.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="2系统管理端">2、系统管理端</h3>
+<p><img src="/posts/project/20220528231163/image-20220528231459048.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528231508676.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528231516504.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528231522873.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="2-搭建项目">2. 搭建项目</h1>
+<p><strong>功能架构</strong>
+<img src="/posts/project/20220528231163/image-20220528231533307.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><strong>技术架构图</strong>
+<img src="/posts/project/20220528231163/image-20220528231541528.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="21-项目结构说明">2.1 项目结构说明</h2>
+<p>核心是microservice这块儿，它分两类微服务：</p>
+<ul>
+<li>
+<p>后台CRUD微服务</p>
+<ol>
+<li>
+<p>content：内容管理系统（product） 10001</p>
+</li>
+<li>
+<p>member：会员管理系统（user）10002</p>
+</li>
+<li>
+<p>question：题库管理系统（warehouse） 10003</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>后端采用:Springboot+SpringCloud GateWay+Mybatis plus+Nacos</p>
+<p>前端采用：Vue+Element ui+Node.js</p>
+<p>数据层：mysql、redis、rabbitmq、阿里OSS</p>
+<p>后台管理前端：uxue-admin（1000）</p>
+<p>网关：uxue-gateway（8888）</p>
+<h2 id="22-数据准备">2.2 数据准备</h2>
+<p>把课前资料中的数据文件导入数据库：
+<img src="/posts/project/20220528231163/image-20220528231552137.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>导入数据库之后：
+<img src="/posts/project/20220528231163/image-20220528231601829.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>uxue_admin:管理后台数据库</p>
+<p>uxue_cms:广告内容服务数据库</p>
+<p>uxue_qms:题目服务数据库</p>
+<p>uxue_ums:会员服务数据库</p>
+<p>注意数据库版本：5.7</p>
+<h2 id="23-git安装和配置">2.3. git安装和配置</h2>
+<h4 id="231-什么是git">2.3.1 什么是Git</h4>
+<p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
+Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
+<h4 id="232-git相关软件下载">2.3.2 Git相关软件下载</h4>
+<p>Git的下载页面：  <a class="link" href="/posts/project/https://git-scm.com/"  target="_blank" rel="noopener"
+    >https://git-scm.com/</a>       目前最新版：Git-2.13.0   注意下载对应操作系统位数的安装包。</p>
+<h4 id="233-git安装与配置">2.3.3 Git安装与配置</h4>
+<p>1、选中GIT安装包，Git-2.13.0-64-bit.exe  单击右键，弹出对话框，点击【解除锁定】。
+<img src="/posts/project/20220528231163/image-20220528231609956.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>2、双击GIT安装包，Git-2.13.0-64-bit.exe 开始安装（如有安全告警，点击运行）
+<img src="/posts/project/20220528231163/image-20220528231616732.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>3、出现授权信息页面，点击下一步即可
+<img src="/posts/project/20220528231163/image-20220528231624824.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>4、接下来逐步点击【Next】即可安装成功
+<img src="/posts/project/20220528231163/image-20220528231632123.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="234--git成功">2.3.4  git成功</h4>
+<p>在命令行输入命令</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git --version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>屏幕显示：git version 2.13.0.windows.1
+</span></span></code></pre></div><p>出现上面的版本号提示表示git安装成功。</p>
+<h4 id="235-git配置">2.3.5 Git配置</h4>
+<p>配置当前开发者名称、邮箱、默认推送方式</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git config --global user.name <span style="color:#d14">&#34;offcn-java&#34;</span>
+</span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#d14">&#34;myqq@qq.com&#34;</span>
+</span></span><span style="display:flex;"><span>git config --global push.default simple
+</span></span></code></pre></div><p>注意&ndash;global 参数 表示全局配置。</p>
+<p>查看配置是否生效：</p>
+<pre tabindex="0"><code>git config -l
+</code></pre><p>查看配置是否正确
+<img src="/posts/project/20220528231163/image-20220528231642571.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="23-使用gitee创建仓库">2.3. 使用gitee创建仓库</h2>
+<h4 id="231-申请gitee账号">2.3.1 申请gitee账号</h4>
+<p>访问地址：https://gitee.com/signup  注册账号
+<img src="/posts/project/20220528231163/image-20220528231649197.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="232登录gitee创建仓库">2.3.2.登录gitee创建仓库</h4>
+<p><img src="/posts/project/20220528231163/image-20220528231658448.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+<img src="/posts/project/20220528231163/image-20220528231711751.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528231719653.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="233-克隆项目到本地">2.3.3 克隆项目到本地：</h4>
+<p>找到项目克隆地址：
+<img src="/posts/project/20220528231163/image-20220528231730922.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>在命令执行命令克隆项目到本地:</p>
+<pre tabindex="0"><code>git clone https://gitee.com/hk109/uxue.git
+</code></pre><p><img src="/posts/project/20220528231163/image-20220528231737264.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="24-项目初始创建">2.4. 项目初始创建</h2>
+<p>把资料/基础工程中的文件
+<img src="/posts/project/20220528231163/image-20220528231747813.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>copy到 clone下来的uxue工程中
+<img src="/posts/project/20220528231163/image-20220528231753894.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>接下来在idea中导入uxue工程：
+<img src="/posts/project/20220528231163/image-20220528231801056.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528231808540.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击“OK”，一路下一步：项目成功导入到Idea
+<img src="/posts/project/20220528231163/image-20220528231816889.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="241-在idea的terminal窗口查看git状态">2.4.1 在idea的Terminal窗口，查看git状态：</h4>
+<pre tabindex="0"><code>git status
+</code></pre><p><img src="/posts/project/20220528231163/image-20220528231827734.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="242-把当前项目新增文件添加到待处理列表">2.4.2 把当前项目新增文件添加到待处理列表</h4>
+<pre tabindex="0"><code>git add .
+</code></pre><h4 id="243-提交当前项目到git本地仓库">2.4.3 提交当前项目到git本地仓库</h4>
+<pre tabindex="0"><code>git commit -m &#34;优学题库系统&#34;
+</code></pre><p><img src="/posts/project/20220528231163/image-20220528231840561.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="244-推送到远程仓库">2.4.4 推送到远程仓库：</h4>
+<pre tabindex="0"><code>git push origin master
+</code></pre><p><img src="/posts/project/20220528231163/image-20220528232101074.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>效果：</p>
+<p><img src="/posts/project/20220528231163/image-20220528232108988.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div style="page-break-after: always;"></div>
+<h2 id="25-创建项目模块">2.5. 创建项目模块</h2>
+<h3 id="251-创建广告内容服务模块">2.5.1. 创建广告内容服务模块</h3>
+<p><img src="/posts/project/20220528231163/image-20220528232117827.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528232123799.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528232130666.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528232137279.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>创建完成：
+<img src="/posts/project/20220528231163/image-20220528232143745.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>项目统一定义springCloud和spring cloud alibaba版本及初始化依赖：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;java.version&gt;</span>1.8<span style="color:#000080">&lt;/java.version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;spring-cloud-alibaba.version&gt;</span>2.2.0.RELEASE<span style="color:#000080">&lt;/spring-cloud-alibaba.version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;spring-cloud.version&gt;</span>Hoxton.RELEASE<span style="color:#000080">&lt;/spring-cloud.version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/properties&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-openfeign<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;scope&gt;</span>test<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;groupId&gt;</span>org.junit.vintage<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;artifactId&gt;</span>junit-vintage-engine<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;/exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependencyManagement&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-dependencies<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;version&gt;</span>${spring-cloud.version}<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;type&gt;</span>pom<span style="color:#000080">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;scope&gt;</span>import<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-alibaba-dependencies<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;version&gt;</span>${spring-cloud-alibaba.version}<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;type&gt;</span>pom<span style="color:#000080">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;scope&gt;</span>import<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencyManagement&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;build&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;plugins&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/plugins&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/build&gt;</span>
+</span></span></code></pre></div><h3 id="252-创建会员服务模块">2.5.2. 创建会员服务模块</h3>
+<p>新建模块：
+<img src="/posts/project/20220528231163/image-20220528232153845.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528232158804.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>其他项，参考广告内容服务模块。</p>
+<h3 id="253-创建题目服务模块">2.5.3. 创建题目服务模块</h3>
+<p><img src="/posts/project/20220528231163/image-20220528232206539.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528232214200.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>其他项参考广告内容服务模块</p>
+<h3 id="254-完整工程">2.5.4. 完整工程</h3>
+<p><img src="/posts/project/20220528231163/image-20220528232224539.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>设置uxue父工程管理相关子模块，修改pom.xml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;modules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;module&gt;</span>u-context<span style="color:#000080">&lt;/module&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;module&gt;</span>u-member<span style="color:#000080">&lt;/module&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;module&gt;</span>u-question<span style="color:#000080">&lt;/module&gt;</span>   
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/modules&gt;</span>
+</span></span></code></pre></div><p>修改后刷新maven
+<img src="/posts/project/20220528231163/image-20220528232232486.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>接下来把这些新模块push到gitee。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#d14">&#34;创建后台工程&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span></code></pre></div><p><img src="/posts/project/20220528231163/image-20220528232238099.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="3搭建管理后台">3、搭建管理后台</h1>
+<p>管理后台使用人人开源的后台管理框架，完成快速搭建。</p>
+<h2 id="31下载人人开源后台管理框架">3.1、下载人人开源后台管理框架</h2>
+<p>renren-fast 管理后台后端（服务端）
+<a class="link" href="/posts/project/https://gitee.com/renrenio/renren-fast.git"  target="_blank" rel="noopener"
+    >https://gitee.com/renrenio/renren-fast.git</a></p>
+<p>renren-fast-vue 管理后台前端（VUE前端界面）
+<a class="link" href="/posts/project/https://gitee.com/renrenio/renren-fast-vue.git"  target="_blank" rel="noopener"
+    >https://gitee.com/renrenio/renren-fast-vue.git</a></p>
+<h2 id="32添加人人开源管理后端代码到java项目">3.2、添加人人开源管理后端代码到java项目</h2>
+<p>拷贝文件夹renren-fast到uxue根目录
+<img src="/posts/project/20220528231163/image-20220528232246065.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>POM文件 添加模块管理</p>
+<pre tabindex="0"><code>&lt;module&gt;renren-fast&lt;/module&gt;
+</code></pre><p>刷新项目maven
+<img src="/posts/project/20220528231163/image-20220528232253791.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="33修改renren-fast-服务的配置文件">3.3、修改renren-fast 服务的配置文件</h2>
+<p>文件路径：src/main/resources/application-dev.yml</p>
+<p>修改数据库连接为自己的mysql数据库连接</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">datasource</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">type</span>:<span style="color:#bbb"> </span>com.alibaba.druid.pool.DruidDataSource<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">druid</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">driver-class-name</span>:<span style="color:#bbb"> </span>com.mysql.cj.jdbc.Driver<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">url</span>:<span style="color:#bbb"> </span>jdbc:mysql://localhost:3306/uxue_admin?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">username</span>:<span style="color:#bbb"> </span>root<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">password</span>:<span style="color:#bbb"> </span>root<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">initial-size</span>:<span style="color:#bbb"> </span><span style="color:#099">10</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">max-active</span>:<span style="color:#bbb"> </span><span style="color:#099">100</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">min-idle</span>:<span style="color:#bbb"> </span><span style="color:#099">10</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">max-wait</span>:<span style="color:#bbb"> </span><span style="color:#099">60000</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">pool-prepared-statements</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">max-pool-prepared-statement-per-connection-size</span>:<span style="color:#bbb"> </span><span style="color:#099">20</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">time-between-eviction-runs-millis</span>:<span style="color:#bbb"> </span><span style="color:#099">60000</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">min-evictable-idle-time-millis</span>:<span style="color:#bbb"> </span><span style="color:#099">300000</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#998;font-style:italic">#Oracle需要打开注释</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#998;font-style:italic">#validation-query: SELECT 1 FROM DUAL</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">test-while-idle</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">test-on-borrow</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">false</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">test-on-return</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">false</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">stat-view-servlet</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#000080">enabled</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#000080">url-pattern</span>:<span style="color:#bbb"> </span>/druid/*<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#998;font-style:italic">#login-username: admin</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#998;font-style:italic">#login-password: admin</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">filter</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#000080">stat</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#000080">log-slow-sql</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#000080">slow-sql-millis</span>:<span style="color:#bbb"> </span><span style="color:#099">1000</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#000080">merge-sql</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">false</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#000080">wall</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#000080">config</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span><span style="color:#000080">multi-statement-allow</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="34启动renren-fast服务">3.4、启动renren-fast服务</h2>
+<p>运行renren-fast后台
+<img src="/posts/project/20220528231163/image-20220528232301879.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>启动运行成功：
+<img src="/posts/project/20220528231163/image-20220528232308212.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="35测试服务运行状态">3.5、测试服务运行状态</h2>
+<p>浏览器输入：http://localhost:8080/renren-fast/</p>
+<p>显示结果：
+<img src="/posts/project/20220528231163/image-20220528232314470.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>结果如上所示，则表示服务运行正常。另外结果里面的invalid token说明权限不足，不是指服务不正常。</p>
+<h1 id="4-逆向工程生成代码">4. 逆向工程生成代码</h1>
+<h2 id="41下载代码生成器框架">4.1、下载代码生成器框架</h2>
+<pre tabindex="0"><code>git clone https://gitee.com/renrenio/renren-generator.git
+</code></pre><h2 id="42导入生成器代码到uxue项目">4.2、导入生成器代码到uxue项目</h2>
+<p>拷贝文件夹renren-fast到uxue项目根目录
+<img src="/posts/project/20220528231163/image-20220528232321171.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>POM文件 添加依赖</p>
+<pre tabindex="0"><code>&lt;module&gt;renren-generator&lt;/module&gt;
+</code></pre><p>最终uxue项目结构：
+<img src="/posts/project/20220528231163/image-20220528232328373.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="43逆向生成管理前后端代码">4.3、逆向生成管理前后端代码</h2>
+<p>下面以生成context广告内容服务的代码为例，其他模块操作类似！！！！！！！</p>
+<h3 id="431-修改配置">4.3.1. 修改配置</h3>
+<p>（1）、修改application.yml，把数据库及其连接信息改成广告的数据库：uxue_cms
+<img src="/posts/project/20220528231163/image-20220528232335628.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>（2）、修改generator.properties：
+<img src="/posts/project/20220528231163/image-20220528232340696.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>（3）、修改controller模板文件</p>
+<p>src/main/resources/template/Controller.java.vm</p>
+<p>暂时删除引入的包，后面再引入</p>
+<pre tabindex="0"><code>//import org.apache.shiro.authz.annotation.RequiresPermissions;
+</code></pre><p>注释RequiresPermissions注解，后面再引入</p>
+<pre tabindex="0"><code>//@RequiresPermissions(&#34;${moduleName}:${pathName}:list&#34;)
+</code></pre><h3 id="432-启动逆向工程">4.3.2. 启动逆向工程</h3>
+<p>启动RenrenApplication：
+<img src="/posts/project/20220528231163/image-20220528232352054.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>启动成功，监听端口号为80。浏览器访问，点击renren-fast,出现生成界面，可以看到数据表
+<img src="/posts/project/20220528231163/image-20220528232357719.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>选中全部表，点击生成代码按钮，即可生成一个压缩包，被下载下来：
+<img src="/posts/project/20220528231163/image-20220528232403217.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>找到压缩包。</p>
+<h3 id="433-把文件copy到对应工程">4.3.3. 把文件copy到对应工程</h3>
+<ol>
+<li>
+<p>打开压缩包，压缩包/main/java下的com目录，copy到u-context模块的src/main/java：
+<img src="/posts/project/20220528231163/image-20220528232409260.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>效果如下：</p>
+</li>
+</ol>
+<p><img src="/posts/project/20220528231163/image-20220528232457245.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<ol start="2">
+<li>
+<p>把压缩包/main/resources下的mapper目录，copy到ucontext模块的src/java/resources目录下：
+<img src="/posts/project/20220528231163/image-20220528232503662.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>如下：</p>
+</li>
+</ol>
+<p><img src="/posts/project/20220528231163/image-20220528232515100.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="44添加common-模块">4.4、添加common 模块</h2>
+<p>因为自动生成的代码引用了一些工具类，而我们的项目中没有，所以需要加个common模块添加一些工具类
+<img src="/posts/project/20220528231163/image-20220528232522852.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>在uxue项目新建子模块u-common</p>
+<p>New Module: 选择Maven
+<img src="/posts/project/20220528231163/image-20220528232536141.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528232543024.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528232549340.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220528231163/image-20220528232555938.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="441修改u-common模块的依赖">4.4.1、修改u-common模块的依赖</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!--mybatis-plus DAO层工具 https://mp.baomidou.com/--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>com.baomidou<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>mybatis-plus<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>3.3.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!--mybatis-plus整合springboot依赖包--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000080">&lt;groupId&gt;</span>com.baomidou<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000080">&lt;artifactId&gt;</span>mybatis-plus-boot-starter<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000080">&lt;version&gt;</span>3.4.2<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!--添加mysql驱动--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>mysql<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>mysql-connector-java<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;version&gt;</span>5.1.32<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!--lombok 不需要写getter,setter方法了--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>org.projectlombok<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>lombok<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>1.18.12<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!--httpcore 依赖--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>org.apache.httpcomponents<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>httpcore<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>4.4.12<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!--commons-lang 依赖 --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>commons-lang<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>commons-lang<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>2.6<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!--  导入servlet-api 依赖  --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>javax.servlet<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>servlet-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>2.5<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;scope&gt;</span>provided<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span></code></pre></div><h3 id="442u-common模块添加工具类">4.4.2、u-common模块添加工具类</h3>
+<p>添加包:com.offcn.common.utils</p>
+<p>从renren-fast项目copy文件:</p>
+<p>Constans.java、PageUtils.java、Query.java、R.java、RRException.java
+<img src="/posts/project/20220528231163/image-20220528232605717.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>添加包:com.offcn.common.xss</p>
+<p>从renren-fast项目copy文件: HTMLFilter.java、SQLFilter.java
+<img src="/posts/project/20220528231163/image-20220528232612819.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>修改SQLFilter引入的RRException类所在的包为common下的。</p>
+<pre tabindex="0"><code>import com.offcn.common.utils.RRException;
+</code></pre><p>修改类Query,把引入类SQLFilter,修改所在包为common下的：</p>
+<pre tabindex="0"><code>import com.offcn.common.xss.SQLFilter;
+</code></pre><p>最终u-common目录结构如下：
+<img src="/posts/project/20220528231163/image-20220528232624466.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="443u-context模块引入u-common依赖">4.4.3、u-context模块引入u-common依赖</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>u-common<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>1.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h3 id="444解决u-common编译错误">4.4.4、解决u-common编译错误</h3>
+<p>执行mvn install 出现下面的错误：
+<img src="/posts/project/20220528231163/image-20220528232631425.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>解决方案，修改模块pom.xml增加maven编译插件，指定jdk版本为1.8</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;build&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;plugins&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;groupId&gt;</span>org.apache.maven.plugins<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;artifactId&gt;</span>maven-compiler-plugin<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;version&gt;</span>3.7.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;source&gt;</span>1.8<span style="color:#000080">&lt;/source&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;target&gt;</span>1.8<span style="color:#000080">&lt;/target&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;encoding&gt;</span>UTF-8<span style="color:#000080">&lt;/encoding&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/plugins&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/build&gt;</span>
+</span></span></code></pre></div><h2 id="45生成其他服务的代码">4.5、生成其他服务的代码</h2>
+<p>参考u-context的代码生成方式，生成其他模块的代码</p>
+<table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>对应数据库名称</th>
+<th>模块名称</th>
+<th>监听端口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>广告内容服务</td>
+<td>uxue_cms</td>
+<td>u-context</td>
+<td>10001</td>
+</tr>
+<tr>
+<td>会员服务</td>
+<td>uxue_ums</td>
+<td>u-member</td>
+<td>10002</td>
+</tr>
+<tr>
+<td>题目服务</td>
+<td>uxue_qms</td>
+<td>u-question</td>
+<td>10003</td>
+</tr>
+</tbody>
+</table>
+<h1 id="5模块工程的配置">5、模块工程的配置</h1>
+<p>后台管理模块，每个工程的配置方式基本一样。下面还是以u-context工程为例：</p>
+<h2 id="51配置依赖">5.1、配置依赖</h2>
+<p>每个服务到要依赖u-common包</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span> <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>u-common<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>1.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h2 id="52-工程参数配置">5.2、 工程参数配置</h2>
+<p>application.yml配置文件：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">10001</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">datasource</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">url</span>:<span style="color:#bbb"> </span>jdbc:mysql://localhost:3306/uxue_cms?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">username</span>:<span style="color:#bbb"> </span>root<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">password</span>:<span style="color:#bbb"> </span>root<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">driver-class-name</span>:<span style="color:#bbb"> </span>com.mysql.jdbc.Driver<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">mybatis-plus</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">mapper-locations</span>:<span style="color:#bbb"> </span>classpath:/mapper/**/*.xml<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">global-config</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">db-config</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">id-type</span>:<span style="color:#bbb"> </span>auto<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="53在引导类上添加注解">5.3、在引导类上添加注解</h2>
+<p>在u-context工程的主启动类（UContextApplication）上添加注解：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@MapperScan</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;com.offcn.context.dao&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">UContextApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>UContextApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span> args<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="54测试">5.4、测试</h2>
+<p>启动主启动类，访问地址：http://localhost:10001/context/news/list
+<img src="/posts/project/20220528231163/image-20220528232645724.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="55-参照u-context完成其他模块">5.5、 参照u-context完成其他模块</h2>
+<p>其他模块都按照u-context的方式完成搭建。(其中学习服务和渠道服务省略)</p>
+<table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>对应数据库名称</th>
+<th>模块名称</th>
+<th>监听端口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>广告内容服务</td>
+<td>uxue_cms</td>
+<td>u-context</td>
+<td>10001</td>
+</tr>
+<tr>
+<td>会员服务</td>
+<td>uxue_ums</td>
+<td>u-member</td>
+<td>10002</td>
+</tr>
+<tr>
+<td>题目服务</td>
+<td>uxue_qms</td>
+<td>u-question</td>
+<td>10003</td>
+</tr>
+<tr>
+<td><img src="/posts/project/20220528231163/image-20220528232651484.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>全部服务测试地址：</p>
+<p>http://localhost:10001/context/banner/list
+http://localhost:10002/member/member/list
+http://localhost:10003/question/question/list</p>
+<h1 id="6搭建注册中心nacos">6、搭建注册中心Nacos</h1>
+<h2 id="61-启动nacos服务">6.1 启动nacos服务</h2>
+<p><strong>Linux/Unix/Mac</strong></p>
+<p>启动命令(standalone代表着单机模式运行，非集群模式):</p>
+<pre tabindex="0"><code>sh startup.sh -m standalone
+</code></pre><p><strong>Windows</strong></p>
+<p>启动命令：</p>
+<pre tabindex="0"><code>cmd startup.cmd -m standalone
+</code></pre><p>或者双击startup.cmd运行文件。</p>
+<p>访问：http://localhost:8848/nacos</p>
+<p>用户名密码：nacos/nacos
+<img src="/posts/project/20220528231163/image-20220528232658929.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="7注册各个微服务到nacos">7、注册各个微服务到Nacos</h1>
+<h2 id="71修改u-context服务的pomxml引入注册到nacos所需依赖包">7.1、修改u-context服务的pom.xml引入注册到Nacos所需依赖包</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h2 id="72修改配置文件applicationyml">7.2、修改配置文件application.yml</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>spring:
+</span></span><span style="display:flex;"><span>  application:
+</span></span><span style="display:flex;"><span>    name: u-context
+</span></span><span style="display:flex;"><span>  cloud:
+</span></span><span style="display:flex;"><span>    nacos:
+</span></span><span style="display:flex;"><span>      discovery:
+</span></span><span style="display:flex;"><span>        server-addr: localhost:8848
+</span></span></code></pre></div><h2 id="73修改主启动类添加注解">7.3、修改主启动类，添加注解</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@MapperScan</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;com.offcn.context.dao&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableDiscoveryClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">UContextApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>UContextApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span> args<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="74启动主启动类查看nacos管理控制台成功注册">7.4、启动主启动类，查看nacos管理控制台，成功注册</h2>
+<p><img src="/posts/project/20220528231163/image-20220528232706811.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="75注册人人管理后台服务到nacos">7.5、注册人人管理后台服务到Nacos</h2>
+<p>配置模块renren-fast模块注册到nacos</p>
+<h3 id="751引入nacos客户端依赖">7.5.1、引入nacos客户端依赖</h3>
+<p>修改模块renren-fast的pom.xml</p>
+<p>首先定义spring cloud alibaba的版本</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;properties&gt;</span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#000080">&lt;spring-cloud-alibaba.version&gt;</span>2.2.0.RELEASE<span style="color:#000080">&lt;/spring-cloud-alibaba.version&gt;</span>		
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/properties&gt;</span>
+</span></span></code></pre></div><p>引入spring cloud alibaba的依赖管理：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependencyManagement&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-alibaba-dependencies<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#000080">&lt;version&gt;</span>${spring-cloud-alibaba.version}<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#000080">&lt;type&gt;</span>pom<span style="color:#000080">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#000080">&lt;scope&gt;</span>import<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependencyManagement&gt;</span>
+</span></span></code></pre></div><p>最后引入springcloudalibaba 注册到nacos的客户端依赖包</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h3 id="752修改配置文件">7.5.2、修改配置文件</h3>
+<p>修改配置文件application.yml声明应用名称</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">application</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">       </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>renren-fast<span style="color:#bbb">
+</span></span></span></code></pre></div><p>修改配置文件application-dev.yml，指定nacos服务器地址</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">cloud</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">       </span><span style="color:#000080">nacos</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">           </span><span style="color:#000080">discovery</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">               </span><span style="color:#000080">server-addr</span>:<span style="color:#bbb"> </span>http://localhost:8848<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="753修改主启动类renrenapplication增加允许注册发现注解">7.5.3、修改主启动类RenrenApplication，增加允许注册发现注解</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableDiscoveryClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">RenrenApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>RenrenApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span> args<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="754启动主启动类查看服务是否注册到nacos">7.5.4、启动主启动类，查看服务是否注册到nacos</h3>
+<p><img src="/posts/project/20220528231163/image-20220528232716475.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="76注册其他微服务到nacos">7.6、注册其他微服务到Nacos</h2>
+<p>其他微服务和u-context服务一样的配置，全部注册到Nacos
+<img src="/posts/project/20220528231163/image-20220528232722565.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="77注册到nacos失败">7.7、注册到nacos失败</h2>
+<p>有的时候nacos服务器已经启动了，但是依然注册失败，</p>
+<p>访问http://localhost:8848/nacos/v1/ns/instance 地址 提示如下：
+<img src="/posts/project/20220528231163/image-20220528232727871.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>解决办法：把nacos服务器停掉，删除 nacos/data/protocol 目录
+<img src="/posts/project/20220528231163/image-20220528232732789.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>然后重启nacos即可</p>
+<h1 id="8-搭建网关服务">8、 搭建网关服务</h1>
+<p><strong>nacos容器内的所有服务，可以直接相互访问。nacos外的服务，为了保证安全，必须通过网关访问后台各个管理模块</strong>
+<img src="/posts/project/20220528231163/image-20220528232757159.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+<img src="/posts/project/20220528231163/image-20220528232806531.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+>
+<img src="/posts/project/20220528231163/image-20220528232813994.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="81网关依赖配置文件pomxml">8.1、网关依赖配置文件pom.xml:</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;project</span> <span style="color:#008080">xmlns=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#008080">xmlns:xsi=</span><span style="color:#d14">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">xsi:schemaLocation=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#000080">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;modelVersion&gt;</span>4.0.0<span style="color:#000080">&lt;/modelVersion&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;parent&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>2.3.7.RELEASE<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;relativePath/&gt;</span> <span style="color:#998;font-style:italic">&lt;!-- lookup parent from repository --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/parent&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>cloud-gateway<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;version&gt;</span>1.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;name&gt;</span>cloud-gateway<span style="color:#000080">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;description&gt;</span>Demo project for Spring Boot<span style="color:#000080">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;java.version&gt;</span>1.8<span style="color:#000080">&lt;/java.version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;spring-cloud.version&gt;</span>Hoxton.SR9<span style="color:#000080">&lt;/spring-cloud.version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;spring-cloud-alibaba.version&gt;</span>2.2.3.RELEASE<span style="color:#000080">&lt;/spring-cloud-alibaba.version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/properties&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-gateway<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;scope&gt;</span>test<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;groupId&gt;</span>org.junit.vintage<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;artifactId&gt;</span>junit-vintage-engine<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;/exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependencyManagement&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-dependencies<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;version&gt;</span>${spring-cloud.version}<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;type&gt;</span>pom<span style="color:#000080">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;scope&gt;</span>import<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-alibaba-dependencies<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;version&gt;</span>${spring-cloud-alibaba.version}<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;type&gt;</span>pom<span style="color:#000080">&lt;/type&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;scope&gt;</span>import<span style="color:#000080">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencyManagement&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;build&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;plugins&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/plugins&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/build&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/project&gt;</span>
+</span></span></code></pre></div><h2 id="82applicationyml配置路由转发">8.2、application.yml配置路由转发：</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">8888</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">cloud</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">nacos</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">discovery</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">server-addr</span>:<span style="color:#bbb"> </span>localhost:8848<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">gateway</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">routes</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>cms-route<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>lb://u-context<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/context/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- RewritePath=/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>qms-route<span style="color:#bbb"> </span><span style="color:#998;font-style:italic"># 题目微服务路由</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>lb://u-question<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">              </span>- Path=/question/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">              </span>- RewritePath=/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>ums-route<span style="color:#bbb"> </span><span style="color:#998;font-style:italic"># 用户微服务路由</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>lb://u-member<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>- Path=/member/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>- RewritePath=/(?&lt;segment&gt;.*),/$\{segment}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>renrenfast-route<span style="color:#bbb"> </span><span style="color:#998;font-style:italic"># 人人后台服务路由</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>lb://renren-fast<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>- Path=/renren-fast/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>- RewritePath=/renren-fast/(?&lt;segment&gt;.*),/renren-fast/$\{segment}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">application</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>gateway<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="83测试网关转发">8.3、测试网关转发</h2>
+<p><img src="/posts/project/20220528231163/image-20220528232829033.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>测试各个微服务经过网关转发调用是否正常</p>
+<table>
+<thead>
+<tr>
+<th>服务名称</th>
+<th>测试地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容微服务</td>
+<td>http://localhost:8888/context/banner/list</td>
+</tr>
+<tr>
+<td>题目微服务</td>
+<td>http://localhost:8888/question/question/list</td>
+</tr>
+<tr>
+<td>用户微服务</td>
+<td>http://localhost:8888/member/member/list</td>
+</tr>
+<tr>
+<td>人人后台服务</td>
+<td>http://localhost:8888/renren-fast/captcha.jpg?uuid=84d36089-07ae-4201-85c0-8217b032f21c</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.github.io/posts/project/20220528224436/">← tk-服务网关、Sentinel、Sleuth</a></div>
+    <div><a href="https://lovemjh.github.io/posts/project/20220528232959/">tk-题库项目开发2  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+        <script type="text/javascript">
+ 
+            !function () {
+                
+                function get_attribute(node, attr, default_value) {
+                    return node.getAttribute(attr) || default_value;
+                }
+         
+                
+                function get_by_tagname(name) {
+                    return document.getElementsByTagName(name);
+                }
+         
+                
+                function get_config_option() {
+                    var scripts = get_by_tagname("script"),
+                        script_len = scripts.length,
+                        script = scripts[script_len - 1]; 
+                    return {
+                        l: script_len, 
+                        z: get_attribute(script, "zIndex", -1), 
+                        o: get_attribute(script, "opacity", 0.8), 
+                        c: get_attribute(script, "color", "255,255,255"), 
+                        n: get_attribute(script, "count", 350) 
+                    };
+                }
+         
+                
+                function set_canvas_size() {
+                    canvas_width = the_canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                        canvas_height = the_canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                }
+         
+                
+                function draw_canvas() {
+                    context.clearRect(0, 0, canvas_width, canvas_height);
+                    
+                    var e, i, d, x_dist, y_dist, dist; 
+                    
+                    random_points.forEach(function (r, idx) {
+                        r.x += r.xa,
+                            r.y += r.ya, 
+                            r.xa *= r.x > canvas_width || r.x < 0 ? -1 : 1,
+                            r.ya *= r.y > canvas_height || r.y < 0 ? -1 : 1, 
+                            context.fillRect(r.x - 0.5, r.y - 0.5, 1, 1); 
+                        
+                        for (i = idx + 1; i < all_array.length; i++) {
+                            e = all_array[i];
+                            
+                            if (null !== e.x && null !== e.y) {
+                                x_dist = r.x - e.x; 
+                                y_dist = r.y - e.y; 
+                                dist = x_dist * x_dist + y_dist * y_dist; 
+         
+                                dist < e.max && (e === current_point && dist >= e.max / 2 && (r.x -= 0.03 * x_dist, r.y -= 0.03 * y_dist), 
+                                    d = (e.max - dist) / e.max,
+                                    context.beginPath(),
+                                    context.lineWidth = d / 2,
+                                    context.strokeStyle = "#000000",
+                                    context.moveTo(r.x, r.y),
+                                    context.lineTo(e.x, e.y),
+                                    context.stroke());
+                            }
+                        }
+                    }), frame_func(draw_canvas);
+                }
+         
+                
+                var the_canvas = document.createElement("canvas"), 
+                    config = get_config_option(), 
+                    canvas_id = "c_n" + config.l, 
+                    context = the_canvas.getContext("2d"), canvas_width, canvas_height,
+                    frame_func = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (func) {
+                        window.setTimeout(func, 1000 / 40);
+                    }, random = Math.random,
+                    current_point = {
+                        x: null, 
+                        y: null, 
+                        max: 20000 
+                    },
+                    all_array;
+                the_canvas.id = canvas_id;
+                the_canvas.style.cssText = "position:fixed;top:0;left:0;z-index:" + config.z + ";opacity:" + config.o;
+                get_by_tagname("body")[0].appendChild(the_canvas);
+         
+                
+                set_canvas_size();
+                window.onresize = set_canvas_size;
+                
+                window.onmousemove = function (e) {
+                    e = e || window.event;
+                    current_point.x = e.clientX;
+                    current_point.y = e.clientY;
+                }, window.onmouseout = function () {
+                    current_point.x = null;
+                    current_point.y = null;
+                };
+                
+                for (var random_points = [], i = 0; config.n > i; i++) {
+                    var x = random() * canvas_width, 
+                        y = random() * canvas_height,
+                        xa = 2 * random() - 1, 
+                        ya = 2 * random() - 1;
+                    
+                    random_points.push({
+                        x: x,
+                        y: y,
+                        xa: xa,
+                        ya: ya,
+                        max: 6000 
+                    });
+                }
+                all_array = random_points.concat([current_point]);
+                
+                setTimeout(function () {
+                    draw_canvas();
+                }, 100);
+            }();
+        </script>
+    </body>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="https://cdn.jsdelivr.net/gh/SGYZ0910/CDN@1.0.7/js/maodian.js"></script>
+</html>

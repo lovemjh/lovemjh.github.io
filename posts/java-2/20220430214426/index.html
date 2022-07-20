@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="网络编程 - https://lovemjh.github.io/posts/java-2/20220430214426/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>网络编程</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.github.io/style.min.a52a9deea50c044b5100529b926604dd4ba41319221e01484d0aefcc97c1619f.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            网络编程
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2021-11-07&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2021-11-07&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            4684 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            10 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/java-2/20220430222140/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.github.io/posts/java-2/20220430214372/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网络编程概述">网络编程概述</a>
+      <ul>
+        <li><a href="#网络">网络</a></li>
+        <li><a href="#网络三要素">网络三要素</a></li>
+        <li><a href="#网络的分层架构">网络的分层架构</a></li>
+        <li><a href="#ip地址">IP地址</a></li>
+        <li><a href="#java提供的ip地址">java提供的ip地址</a></li>
+        <li><a href="#代码">代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#udp">UDP</a>
+      <ul>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#java中提供的udp协议的类">java中提供的UDP协议的类</a></li>
+        <li><a href="#发送端">发送端</a></li>
+        <li><a href="#接收端">接收端</a></li>
+      </ul>
+    </li>
+    <li><a href="#简易聊天室">简易聊天室</a>
+      <ul>
+        <li><a href="#发送端代码">发送端代码</a></li>
+        <li><a href="#接收端代码">接收端代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#广播地址">广播地址</a>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#代码-3">代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#组播地址">组播地址</a>
+      <ul>
+        <li><a href="#概述-1">概述</a></li>
+        <li><a href="#发送端代码-1">发送端代码</a></li>
+        <li><a href="#接收端代码-1">接收端代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#tcp协议">TCP协议</a>
+      <ul>
+        <li><a href="#概述-2">概述</a></li>
+        <li><a href="#tcp协议客户端">TCP协议客户端</a></li>
+        <li><a href="#tcp协议服务器端">TCP协议服务器端</a></li>
+        <li><a href="#heading"></a></li>
+      </ul>
+    </li>
+    <li><a href="#tcp协议细节问题">TCP协议细节问题</a>
+      <ul>
+        <li><a href="#概述-3">概述</a></li>
+        <li><a href="#客户端代码">客户端代码</a></li>
+        <li><a href="#服务器端代码">服务器端代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#文件上传">文件上传</a>
+      <ul>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#客户端代码-1">客户端代码</a></li>
+        <li><a href="#服务器端代码-1">服务器端代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#文件上传的重名问题">文件上传的重名问题</a>
+      <ul>
+        <li><a href="#概述-4">概述</a></li>
+      </ul>
+    </li>
+    <li><a href="#多线程下的文件上传">多线程下的文件上传</a>
+      <ul>
+        <li><a href="#客户端代码-2">客户端代码</a></li>
+        <li><a href="#服务器端代码-2">服务器端代码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 id="网络编程">网络编程</h1>
+<h2 id="网络编程概述">网络编程概述</h2>
+<h3 id="网络">网络</h3>
+<p>计算机网络：计算机网络系统就是利用通信设备和线路将地理位置不同、功能独立的多个计算机系统互</p>
+<p>联起来，以功能完善的网络软件实现网络中资源共享和信息传递的系统</p>
+<h3 id="网络三要素">网络三要素</h3>
+<p>1.ip地址：标识计算机，是计算机在互联网上的唯一标识地址。</p>
+<p>2.端口号：标识计算机上的软件的。不同的软件有不同的端口号，端口号 2个字节，0~65535 一般建</p>
+<p>议使用8000之后。</p>
+<p>mysql 3306 tomcat 8080</p>
+<p>3.通信协议：双方应该遵循的规则。</p>
+<p>HTTP：超文本传输协议</p>
+<p>FTP: 文件传输协议</p>
+<p>TCP/IP:传输控制协议/网际协议</p>
+<p>UDP:用户数据包协议</p>
+<h3 id="网络的分层架构">网络的分层架构</h3>
+<p><img src="/posts/Java-2/20220430214426/image-20220430221918745.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="ip地址">IP地址</h3>
+<p>IP地址（Internet Protocol Address）是指互联网协议地址，又译为网际协议地址。标识计算机在互联网上的唯一地址。</p>
+<p>格式：</p>
+<p>ipV4:点分十进制，32位，由4个部分组成。例如： 192.168.0.1</p>
+<p>ipV6：冒分十六进行，128位，例如：x:x:x 一个IPv6地址中间可能包含很长的一段0，可以把连续的一段0压缩为“::”
+<img src="/posts/Java-2/20220430214426/image-20220430221928753.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>IP地址的分类： ABC DE特殊地址
+<img src="/posts/Java-2/20220430214426/image-20220430221932426.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>(***)组播地址 D类IP地址在历史上被叫做多播地址(multicast address)，即组播地址 224.0.0.0</p>
+<p>到239.255.255.255</p>
+<p>(<em><strong>)广播地址 255.255.255.255 (</strong></em>)</p>
+<p>本地回环地址 127.0.0.1 域名 localhost</p>
+<h3 id="java提供的ip地址">java提供的ip地址</h3>
+<p>InetAddress</p>
+<p>1.常用方法：</p>
+<p>① getByName(String host) 根据参数获取InetAdress对象</p>
+<p>② getHostName() 获取IP地址中域名的字符串形式</p>
+<p>③ getHostAddress() 获取ip地址的字符串形式</p>
+<p>④ getAllByName(String host)获取ip地址的数组</p>
+<p>⑤ getLocalHost() 返回本机的ip地址</p>
+<p>⑥ toString() 将ip地址转换为字符串。</p>
+<h3 id="代码">代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.InetAddress</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.UnknownHostException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.常用方法：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ① getByName(String host) 根据参数获取InetAdress对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ② getHostName() 获取IP地址中域名的字符串形式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ③ getHostAddress() 获取ip地址的字符串形式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ④ getAllByName(String host)获取ip地址的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ⑤ getLocalHost()  返回本机的ip地址
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ⑥ toString() 将ip地址转换为字符串。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">IP地址</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> UnknownHostException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*InetAddress ip = InetAddress.getByName(&#34;www.baidu.com&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(ip.getHostName());
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(ip.getHostAddress());*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//          ④ getAllByName(String host)获取ip地址的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>       <span style="color:#998;font-style:italic">/* InetAddress[] ips = InetAddress.getAllByName(&#34;www.baidu.com&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        for (InetAddress ip : ips) {
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">            System.out.println(ip);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        }*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//         ⑤ getLocalHost()  返回本机的ip地址
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        InetAddress ip1 <span style="color:#000;font-weight:bold">=</span> InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getLocalHost</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>ip1<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        InetAddress ip2 <span style="color:#000;font-weight:bold">=</span> InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>ip2<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="udp">UDP</h2>
+<h3 id="概念">概念</h3>
+<p>UDP：传输层协议。用户数据包协议（UDP，User Datagram Protocol）。</p>
+<p>无连接的传输协议。</p>
+<p>特点：</p>
+<p>无连接、不可靠、快速传输。数据报包进行传输，包最大不会超过64k</p>
+<p>使用场景：</p>
+<p>实时直播，视频，网游。</p>
+<h3 id="java中提供的udp协议的类">java中提供的UDP协议的类</h3>
+<p>DatagramSocket：发送端/接收端：此类表示用来发送和接收数据报包的套接字</p>
+<p>DatagramPacket：表示数据报包。实现无连接包投递服务
+<img src="/posts/Java-2/20220430214426/image-20220524204142941.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="发送端">发送端</h3>
+<p>发送端步骤</p>
+<p>1.发送端：</p>
+<p>① 发送端端点对象：</p>
+<p>DatagramSocket()</p>
+<p>② 打包数据</p>
+<p>DatagramPacket(byte[] buf, int length, InetAddress address, int port)</p>
+<p>③ 发送</p>
+<p>send(DatagramPacket p)</p>
+<p>④ 关闭资源</p>
+<p>close()</p>
+<h4 id="代码-1">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.udpdemo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.*</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.发送端：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     ① 发送端端点对象：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        DatagramSocket()
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     ② 打包数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        DatagramPacket(byte[] buf, int length, InetAddress address, int port)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     ③ 发送
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        send(DatagramPacket p)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     ④ 关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">       close()
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">发送端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        DatagramSocket  ds <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramSocket<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;你好&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        DatagramPacket dp <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>bt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">,</span> InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">),</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">send</span><span style="color:#000;font-weight:bold">(</span>dp<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//接收
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt1<span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        DatagramPacket dp1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt1<span style="color:#000;font-weight:bold">,</span>bt1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">receive</span><span style="color:#000;font-weight:bold">(</span>dp1<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;发送端接收到的数据&#34;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>dp1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getData</span><span style="color:#000;font-weight:bold">(),</span>0<span style="color:#000;font-weight:bold">,</span>dp1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getLength</span><span style="color:#000;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="接收端">接收端</h3>
+<p>① 接收端端点对象：DatagramSocket(int port)</p>
+<p>② 接收数据报包，先创建空数据报包 然后接收数据。</p>
+<p>DatagramPacket(byte[] buf, int length)</p>
+<p>③ 接收：</p>
+<p>receive(DatagramPacket p)</p>
+<p>④ 关闭资源</p>
+<p>close()</p>
+<p>3.DatagramPacket常用方法：</p>
+<p>① getLength() 获取数据报包中读取的数据的字节长度。</p>
+<p>② getAddress() 接收端获取的发送端的ip地址</p>
+<p>③ getPort() 接收端获取的发送端的端口号</p>
+<h4 id="代码-2">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.udpdemo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.DatagramPacket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.DatagramSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.SocketException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  2.接收端：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ① 接收端端点对象：DatagramSocket(int port)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ② 接收数据报包，先创建空数据报包 然后接收数据。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> DatagramPacket(byte[] buf, int length)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ③ 接收：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    receive(DatagramPacket p)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ④ 关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     close()
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  3.DatagramPacket常用方法：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     ① getLength() 获取数据报包中读取的数据的字节长度。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     ② getAddress() 接收端获取的发送端的ip地址
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     ③ getPort() 接收端获取的发送端的端口号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">接收端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        DatagramSocket  ds <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramSocket<span style="color:#000;font-weight:bold">(</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//数据报包的创建 空白
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        DatagramPacket dp <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>bt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//接收
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">receive</span><span style="color:#000;font-weight:bold">(</span>dp<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span>dp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getLength</span><span style="color:#000;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//发送
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;发送端你好&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//打数据报包
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        DatagramPacket dp1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt1<span style="color:#000;font-weight:bold">,</span> bt1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">,</span>dp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAddress</span><span style="color:#000;font-weight:bold">(),</span>dp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPort</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//接收端向发送端发送数据。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">send</span><span style="color:#000;font-weight:bold">(</span>dp1<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="简易聊天室">简易聊天室</h2>
+<h3 id="发送端代码">发送端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.*</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.Scanner</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">发送端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        DatagramSocket ds <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramSocket<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        Scanner sc <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Scanner<span style="color:#000;font-weight:bold">(</span>System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">in</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;请输入您要发送到接收端的数据:&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            String msg <span style="color:#000;font-weight:bold">=</span> sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">nextLine</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> msg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//打数据报包
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            DatagramPacket dp <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span> bt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">,</span> InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getLocalHost</span><span style="color:#000;font-weight:bold">(),</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//发送
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">send</span><span style="color:#000;font-weight:bold">(</span>dp<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//结束
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>msg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;exit&#34;</span><span style="color:#000;font-weight:bold">)){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//接收
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//空的数据报包进行接收
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            DatagramPacket dp1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt1<span style="color:#000;font-weight:bold">,</span> bt1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//接收
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">receive</span><span style="color:#000;font-weight:bold">(</span>dp1<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;从接收端接收的信息为：&#34;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>bt1<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span>dp1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getLength</span><span style="color:#000;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="接收端代码">接收端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.DatagramPacket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.DatagramSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.Scanner</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">接收端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        DatagramSocket ds <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramSocket<span style="color:#000;font-weight:bold">(</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        Scanner sc <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Scanner<span style="color:#000;font-weight:bold">(</span>System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">in</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//接收
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>            DatagramPacket dp  <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>bt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">receive</span><span style="color:#000;font-weight:bold">(</span>dp<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            String rec <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span> 0<span style="color:#000;font-weight:bold">,</span> dp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getLength</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;从发送端来的数据为：&#34;</span><span style="color:#000;font-weight:bold">+</span>rec<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//结束
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>rec<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;exit&#34;</span><span style="color:#000;font-weight:bold">)){</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//发送
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;请输入向发送端发送的数据:&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            String msg <span style="color:#000;font-weight:bold">=</span> sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">nextLine</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt1 <span style="color:#000;font-weight:bold">=</span> msg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            DatagramPacket dp1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt1<span style="color:#000;font-weight:bold">,</span>bt1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">,</span>dp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAddress</span><span style="color:#000;font-weight:bold">(),</span>dp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPort</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>            ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">send</span><span style="color:#000;font-weight:bold">(</span>dp1<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="广播地址">广播地址</h2>
+<h3 id="概述">概述</h3>
+<p>广播地址： 255.255.255.255 所有</p>
+<h3 id="代码-3">代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.DatagramPacket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.DatagramSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.InetAddress</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.广播地址： 255.255.255.255 所有。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">广播地址</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        DatagramSocket ds <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramSocket<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;大家注意听课了。。。。&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        DatagramPacket dp <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span> bt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">,</span> InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;255.255.255.255&#34;</span><span style="color:#000;font-weight:bold">),</span>9005 <span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">send</span><span style="color:#000;font-weight:bold">(</span>dp<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        ds<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="组播地址">组播地址</h2>
+<h3 id="概述-1">概述</h3>
+<p>1.组播地址 D类IP地址在历史上被叫做多播地址(multicast address)，即组播地址</p>
+<p>224.0.0.0到239.255.255.255</p>
+<p>2.组播 java提供的类： MulticastSocket</p>
+<p>3.注意：</p>
+<p>组播必须加入组播组 ，才能接受组播信息。</p>
+<p>joinGroup(InetAddress mcastaddr)</p>
+<h3 id="发送端代码-1">发送端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.DatagramPacket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.InetAddress</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.MulticastSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 1.组播地址 D类IP地址在历史上被叫做多播地址(multicast address)，即组播地址
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">   224.0.0.0到239.255.255.255
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 2.组播 java提供的类： MulticastSocket
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 3.注意：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     组播必须加入组播组 ，才能接受组播信息。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> joinGroup(InetAddress mcastaddr)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">组播地址发送端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        MulticastSocket ms <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> MulticastSocket<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;大家注意听课了。。。&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        DatagramPacket dp <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span> bt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;224.0.0.6&#34;</span><span style="color:#000;font-weight:bold">),</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        ms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">send</span><span style="color:#000;font-weight:bold">(</span>dp<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        ms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="接收端代码-1">接收端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.DatagramPacket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.InetAddress</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.MulticastSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">组播地址接收端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        MulticastSocket ms <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> MulticastSocket<span style="color:#000;font-weight:bold">(</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        DatagramPacket dp <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DatagramPacket<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span> bt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//加入组播
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        ms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">joinGroup</span><span style="color:#000;font-weight:bold">(</span>InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;224.0.0.6&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        ms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">receive</span><span style="color:#000;font-weight:bold">(</span>dp<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;从组播地址接收到的数据为：&#34;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span>dp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getLength</span><span style="color:#000;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>        ms<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="tcp协议">TCP协议</h2>
+<h3 id="概述-2">概述</h3>
+<p>TCP：传输控制协议（TCP，Transmission Control Protocol）是一种面向连接的、可靠的、基于</p>
+<p>字节流的传输层通信协议</p>
+<p>使用场景：</p>
+<p>文件传输 需要保证数据完整性
+<img src="/posts/Java-2/20220430214426/image-20220430221955709.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="tcp协议客户端">TCP协议客户端</h3>
+<p>1.步骤：</p>
+<p>① 创建客户端对象:</p>
+<p>Socket(InetAddress address, int port)</p>
+<p>② 发送/接收数据</p>
+<p>getInputStream() 读取</p>
+<p>getOutputStream()写入</p>
+<h4 id="代码-4">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.tcpdemo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.OutputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.InetAddress</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.Socket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.UnknownHostException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.步骤：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">   ① 创建客户端对象:
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> Socket(InetAddress address, int port)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">   ② 发送/接收数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> getInputStream() 读取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> getOutputStream()写入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">客户端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Socket sc <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Socket<span style="color:#000;font-weight:bold">(</span>InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">),</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//发送数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        OutputStream os <span style="color:#000;font-weight:bold">=</span> sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//写出
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        os<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;服务器您好&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关闭
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        os<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="tcp协议服务器端">TCP协议服务器端</h3>
+<p>1.步骤：</p>
+<p>① 创建服务器端对象：</p>
+<p>ServerSocket(int port)</p>
+<p>② 等待连接：</p>
+<p>accept() 侦听并接受到此套接字的连接。返回值就是连接到该服务器的客户端对象。</p>
+<p>③ 读取客户端发送的信息</p>
+<p>通过accept方法返回的Socket获取输入流。</p>
+<h4 id="代码-5">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.tcpdemo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.InputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.ServerSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.Socket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">   1.步骤：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ① 创建服务器端对象：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> ServerSocket(int port)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ② 等待连接：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> accept()  侦听并接受到此套接字的连接。返回值就是连接到该服务器的客户端对象。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ③ 读取客户端发送的信息
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     通过accept方法返回的Socket获取输入流。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">服务器端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        ServerSocket ss <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ServerSocket<span style="color:#000;font-weight:bold">(</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//等待并监听 该方法一旦执行成功，意味着三次握手已经结束。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Socket sc <span style="color:#000;font-weight:bold">=</span> ss<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">accept</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//读取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        InputStream in <span style="color:#000;font-weight:bold">=</span> sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int</span> value <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">((</span>value<span style="color:#000;font-weight:bold">=</span>in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">))!=-</span>1<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span>value<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关闭
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        ss<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="heading"></h3>
+<h2 id="tcp协议细节问题">TCP协议细节问题</h2>
+<h3 id="概述-3">概述</h3>
+<p>如果使用的是循环读取，由于写入必须到达流的末尾或文件的末尾才能取到-1，</p>
+<p>导致循环一直无法停止跳出，代码就没办法继续执行了。需要通过以下方法进行置为流的末尾。</p>
+<p>① shutdownInput()</p>
+<p>② shutdownOutput()</p>
+<h3 id="客户端代码">客户端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.tcpdemo1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.InputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.OutputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.InetAddress</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.Socket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.步骤：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">   ① 创建客户端对象:
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> Socket(InetAddress address, int port)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">   ② 发送/接收数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> getInputStream() 读取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> getOutputStream()写入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 2.细节问题：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    如果使用的是循环读取，由于写入必须到达流的末尾或文件的末尾才能取到-1，
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    导致循环一直无法停止跳出，代码就没办法继续执行了。需要通过以下方法进行置为流的末尾。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ① shutdownInput()
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ② shutdownOutput()
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">客户端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Socket sc <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Socket<span style="color:#000;font-weight:bold">(</span>InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">),</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//发送数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        OutputStream os <span style="color:#000;font-weight:bold">=</span> sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//写出
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        os<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;服务器您好&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//置于流的末尾
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">shutdownOutput</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//接收从服务器端发来的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        InputStream in <span style="color:#000;font-weight:bold">=</span> sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int</span> value <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">((</span>value <span style="color:#000;font-weight:bold">=</span> in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">))!=-</span>1<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span>value<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关闭
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        os<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="服务器端代码">服务器端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.tcpdemo1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.InputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.OutputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.ServerSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.Socket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">   1.步骤：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ① 创建服务器端对象：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> ServerSocket(int port)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ② 等待连接：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> accept()  侦听并接受到此套接字的连接。返回值就是连接到该服务器的客户端对象。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ③ 读取客户端发送的信息
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     通过accept方法返回的Socket获取输入流。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">服务器端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        ServerSocket ss <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ServerSocket<span style="color:#000;font-weight:bold">(</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//等待并监听 该方法一旦执行成功，意味着三次握手已经结束。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Socket sc <span style="color:#000;font-weight:bold">=</span> ss<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">accept</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//读取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        InputStream in <span style="color:#000;font-weight:bold">=</span> sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int</span> value <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">((</span>value<span style="color:#000;font-weight:bold">=</span>in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">))!=-</span>1<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span>value<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;=================&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//服务器端向客户端发送数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        OutputStream out <span style="color:#000;font-weight:bold">=</span> sc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        out<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;客户端您好&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关闭
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        out<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        ss<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="文件上传">文件上传</h2>
+<h3 id="原理">原理</h3>
+<p>从客户端的硬盘上读取文件到客户端的java程序，然后通过java程序写入到服务器端的java程序，通过服务器端的java程序，写入到服务器的硬盘上。
+<img src="/posts/Java-2/20220430214426/image-20220430222007354.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="客户端代码-1">客户端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.uploaddemo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.File</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.FileInputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.OutputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.InetAddress</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.Socket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.创建客户端对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 2. 读取硬盘上的文件，向服务器端写入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 3.关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">客户端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Socket s <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Socket<span style="color:#000;font-weight:bold">(</span>InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">),</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//文件输入流
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        FileInputStream fis <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> FileInputStream<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> File<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;C:\\Users\\Administrator\\Desktop\\成功的阶梯.jpg&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//向服务器写入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        OutputStream os <span style="color:#000;font-weight:bold">=</span> s<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//读取硬盘上的文件，向服务器端写入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> value <span style="color:#000;font-weight:bold">=</span>0<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">((</span>value <span style="color:#000;font-weight:bold">=</span> fis<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">))!=-</span>1<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            os<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span>value<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        os<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        fis<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        s<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="服务器端代码-1">服务器端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.uploaddemo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.File</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.FileOutputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.InputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.ServerSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.Socket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.创建服务器端的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  2.等待客户端的连接
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  3.接收从客户端来的文件，并且写入到服务器端的硬盘。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  4.关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">服务器端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        ServerSocket ss <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ServerSocket<span style="color:#000;font-weight:bold">(</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        Socket s <span style="color:#000;font-weight:bold">=</span> ss<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">accept</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//        Socket的输入流
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        InputStream in <span style="color:#000;font-weight:bold">=</span> s<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//文件输出流
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        FileOutputStream fos <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> FileOutputStream<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> File<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;day26b\\upload\\1.jpg&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//        3.接收从客户端来的文件，并且写入到服务器端的硬盘。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> value <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">((</span>value <span style="color:#000;font-weight:bold">=</span> in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">))!=-</span>1<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            fos<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span> value<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//        关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        fos<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        ss<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="文件上传的重名问题">文件上传的重名问题</h2>
+<h3 id="概述-4">概述</h3>
+<p>文件上传时，由于文件名称是相同的，新的上传的文件会覆盖原有的。解决的办法：</p>
+<p>① window系统重命名的方式
+<img src="/posts/Java-2/20220430214426/image-20220430222014192.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>② UUID</p>
+<p>全球唯一标识。</p>
+<p>randomUUID() 获取UUID
+<img src="/posts/Java-2/20220430214426/image-20220430222018251.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="多线程下的文件上传">多线程下的文件上传</h2>
+<h3 id="客户端代码-2">客户端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">uploaddemo1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.File</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.FileInputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.OutputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.InetAddress</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.Socket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.创建客户端对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 2. 读取硬盘上的文件，向服务器端写入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 3.关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">客户端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Socket s <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Socket<span style="color:#000;font-weight:bold">(</span>InetAddress<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getByName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">),</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//文件输入流
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        FileInputStream fis <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> FileInputStream<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> File<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;C:\\Users\\Administrator\\Desktop\\成功的阶梯.jpg&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//向服务器写入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        OutputStream os <span style="color:#000;font-weight:bold">=</span> s<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//读取硬盘上的文件，向服务器端写入
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> value <span style="color:#000;font-weight:bold">=</span>0<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">((</span>value <span style="color:#000;font-weight:bold">=</span> fis<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">))!=-</span>1<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            os<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span>value<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        os<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        fis<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        s<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="服务器端代码-2">服务器端代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">uploaddemo1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.File</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.FileOutputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.InputStream</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.ServerSocket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.net.Socket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.UUID</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  1.创建服务器端的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  2.等待客户端的连接
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  3.接收从客户端来的文件，并且写入到服务器端的硬盘。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">  4.关闭资源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">服务器端</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        ServerSocket ss <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ServerSocket<span style="color:#000;font-weight:bold">(</span>9000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">boolean</span> flag <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span>flag<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            Socket s <span style="color:#000;font-weight:bold">=</span> ss<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">accept</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">new</span> Thread<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> Runnable<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">run</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">try</span><span style="color:#000;font-weight:bold">(</span>InputStream in <span style="color:#000;font-weight:bold">=</span> s<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getInputStream</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>                        FileOutputStream fos <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> FileOutputStream<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> File<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;day27a\\upload\\&#34;</span><span style="color:#000;font-weight:bold">+</span> UUID<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">randomUUID</span><span style="color:#000;font-weight:bold">()+</span><span style="color:#d14">&#34;.jpg&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//                        3.接收从客户端来的文件，并且写入到服务器端的硬盘。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                        <span style="color:#458;font-weight:bold">int</span> value <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> bt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>1024<span style="color:#000;font-weight:bold">];</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">((</span>value <span style="color:#000;font-weight:bold">=</span> in<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">))!=-</span>1<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>                            fos<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span>bt<span style="color:#000;font-weight:bold">,</span>0<span style="color:#000;font-weight:bold">,</span> value<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>                            Thread<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">sleep</span><span style="color:#000;font-weight:bold">(</span>2000<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>Exception e<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>                        e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}).</span><span style="color:#008080">start</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        ss<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.github.io/posts/java-2/20220430222140/">← 反射</a></div>
+    <div><a href="https://lovemjh.github.io/posts/java-2/20220430214372/">多线程  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+        <script type="text/javascript">
+ 
+            !function () {
+                
+                function get_attribute(node, attr, default_value) {
+                    return node.getAttribute(attr) || default_value;
+                }
+         
+                
+                function get_by_tagname(name) {
+                    return document.getElementsByTagName(name);
+                }
+         
+                
+                function get_config_option() {
+                    var scripts = get_by_tagname("script"),
+                        script_len = scripts.length,
+                        script = scripts[script_len - 1]; 
+                    return {
+                        l: script_len, 
+                        z: get_attribute(script, "zIndex", -1), 
+                        o: get_attribute(script, "opacity", 0.8), 
+                        c: get_attribute(script, "color", "255,255,255"), 
+                        n: get_attribute(script, "count", 350) 
+                    };
+                }
+         
+                
+                function set_canvas_size() {
+                    canvas_width = the_canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                        canvas_height = the_canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                }
+         
+                
+                function draw_canvas() {
+                    context.clearRect(0, 0, canvas_width, canvas_height);
+                    
+                    var e, i, d, x_dist, y_dist, dist; 
+                    
+                    random_points.forEach(function (r, idx) {
+                        r.x += r.xa,
+                            r.y += r.ya, 
+                            r.xa *= r.x > canvas_width || r.x < 0 ? -1 : 1,
+                            r.ya *= r.y > canvas_height || r.y < 0 ? -1 : 1, 
+                            context.fillRect(r.x - 0.5, r.y - 0.5, 1, 1); 
+                        
+                        for (i = idx + 1; i < all_array.length; i++) {
+                            e = all_array[i];
+                            
+                            if (null !== e.x && null !== e.y) {
+                                x_dist = r.x - e.x; 
+                                y_dist = r.y - e.y; 
+                                dist = x_dist * x_dist + y_dist * y_dist; 
+         
+                                dist < e.max && (e === current_point && dist >= e.max / 2 && (r.x -= 0.03 * x_dist, r.y -= 0.03 * y_dist), 
+                                    d = (e.max - dist) / e.max,
+                                    context.beginPath(),
+                                    context.lineWidth = d / 2,
+                                    context.strokeStyle = "#000000",
+                                    context.moveTo(r.x, r.y),
+                                    context.lineTo(e.x, e.y),
+                                    context.stroke());
+                            }
+                        }
+                    }), frame_func(draw_canvas);
+                }
+         
+                
+                var the_canvas = document.createElement("canvas"), 
+                    config = get_config_option(), 
+                    canvas_id = "c_n" + config.l, 
+                    context = the_canvas.getContext("2d"), canvas_width, canvas_height,
+                    frame_func = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (func) {
+                        window.setTimeout(func, 1000 / 40);
+                    }, random = Math.random,
+                    current_point = {
+                        x: null, 
+                        y: null, 
+                        max: 20000 
+                    },
+                    all_array;
+                the_canvas.id = canvas_id;
+                the_canvas.style.cssText = "position:fixed;top:0;left:0;z-index:" + config.z + ";opacity:" + config.o;
+                get_by_tagname("body")[0].appendChild(the_canvas);
+         
+                
+                set_canvas_size();
+                window.onresize = set_canvas_size;
+                
+                window.onmousemove = function (e) {
+                    e = e || window.event;
+                    current_point.x = e.clientX;
+                    current_point.y = e.clientY;
+                }, window.onmouseout = function () {
+                    current_point.x = null;
+                    current_point.y = null;
+                };
+                
+                for (var random_points = [], i = 0; config.n > i; i++) {
+                    var x = random() * canvas_width, 
+                        y = random() * canvas_height,
+                        xa = 2 * random() - 1, 
+                        ya = 2 * random() - 1;
+                    
+                    random_points.push({
+                        x: x,
+                        y: y,
+                        xa: xa,
+                        ya: ya,
+                        max: 6000 
+                    });
+                }
+                all_array = random_points.concat([current_point]);
+                
+                setTimeout(function () {
+                    draw_canvas();
+                }, 100);
+            }();
+        </script>
+    </body>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.6/js/snow3.js"></script>
+
+<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+<script src="https://cdn.jsdelivr.net/gh/SGYZ0910/CDN@1.0.7/js/maodian.js"></script>
+</html>

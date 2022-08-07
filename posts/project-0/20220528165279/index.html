@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="SpringSecurity OAuth2.0用户认证 - https://lovemjh.vercel.app/posts/project-0/20220528165279/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>SpringSecurity OAuth2.0用户认证</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.vercel.app/style.min.ef012369a26adc2a21396230b3395dfcd5975a3082a65b82785cbc0b446f2a2c.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            SpringSecurity OAuth2.0用户认证
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2022-05-28&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2022-05-28&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            13272 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            27 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/project/_20220529000803/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/project/20220528222829/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#学习目标">学习目标</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-用户认证分析">1 用户认证分析</a>
+      <ul>
+        <li><a href="#11-认证与授权">1.1 认证与授权</a></li>
+        <li><a href="#12-单点登录">1.2 单点登录</a></li>
+        <li><a href="#13-第三方账号登录">1.3 第三方账号登录</a>
+          <ul>
+            <li><a href="#131-第三方登录介绍">1.3.1 第三方登录介绍</a></li>
+            <li><a href="#132-第三方登录优点">1.3.2 第三方登录优点</a></li>
+            <li><a href="#133-第三方认证">1.3.3 第三方认证</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2-认证技术方案">2 认证技术方案</a>
+      <ul>
+        <li><a href="#21-单点登录技术方案">2.1 单点登录技术方案</a></li>
+        <li><a href="#22-oauth2认证">2.2 Oauth2认证</a>
+          <ul>
+            <li><a href="#221-oauth2认证流程">2.2.1 Oauth2认证流程</a></li>
+            <li><a href="#222-oauth2在项目的应用">2.2.2 Oauth2在项目的应用</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-spring-security-oauth2认证解决方案">2.3 Spring security Oauth2认证解决方案</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-security-oauth20入门">3 Security Oauth2.0入门</a>
+      <ul>
+        <li><a href="#31-学习知识点说明">3.1 学习知识点说明</a></li>
+        <li><a href="#32-搭建认证服务器">3.2 搭建认证服务器</a>
+          <ul>
+            <li><a href="#321-创建认证模块">3.2.1 创建认证模块</a></li>
+            <li><a href="#322-pomxml配置">3.2.2 pom.xml配置</a></li>
+            <li><a href="#323-applicationyml配置">3.2.3 application.yml配置</a></li>
+            <li><a href="#324-编写springsecurity配置类websecurityconfig">3.2.4 编写SpringSecurity配置类WebSecurityConfig</a></li>
+            <li><a href="#325-编写springsecurityoauth2认证服务器配置类authorizationserverconfiguration">3.2.5 编写SpringSecurityOauth2认证服务器配置类AuthorizationServerConfiguration</a></li>
+            <li><a href="#326-编写主启动类">3.2.6 编写主启动类</a></li>
+            <li><a href="#327-启动授权认证服务">3.2.7 启动授权认证服务</a></li>
+          </ul>
+        </li>
+        <li><a href="#33-oauth2授权模式">3.3 Oauth2授权模式</a>
+          <ul>
+            <li><a href="#331-oauth2授权模式">3.3.1 Oauth2授权模式</a></li>
+            <li><a href="#332-授权码授权实现">3.3.2 授权码授权实现</a></li>
+            <li><a href="#333-密码授权实现">3.3.3 密码授权实现</a></li>
+            <li><a href="#334-客户端模式授权实现">3.3.4 客户端模式授权实现</a></li>
+            <li><a href="#335-隐式授权实现">3.3.5 隐式授权实现</a>
+              <ul>
+                <li><a href="#隐式授权模式适用场景">隐式授权模式适用场景</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-授权服务生成jwt令牌及资源服务授权流程">4 授权服务生成JWT令牌及资源服务授权流程</a>
+      <ul>
+        <li><a href="#41-资源服务授权流程">4.1 资源服务授权流程</a></li>
+        <li><a href="#42-公钥私钥">4.2 公钥私钥</a>
+          <ul>
+            <li><a href="#421-公钥私钥原理">4.2.1 公钥私钥原理</a></li>
+            <li><a href="#422-生成私钥公钥">4.2.2 生成私钥公钥</a></li>
+            <li><a href="#423-导出公钥">4.2.3 导出公钥</a></li>
+          </ul>
+        </li>
+        <li><a href="#43-使用私钥公钥生成解析jwt令牌">4.3 使用私钥公钥生成、解析JWT令牌</a></li>
+        <li><a href="#44配置oauth2认证服务器实现jwt令牌">4.4、配置Oauth2认证服务器实现JWT令牌</a>
+          <ul>
+            <li><a href="#441拷贝私钥到资源目录">4.4.1、拷贝私钥到资源目录</a></li>
+            <li><a href="#442修改配置文件applicationyml配置秘钥相关参数">4.4.2、修改配置文件application.yml配置秘钥相关参数</a></li>
+            <li><a href="#443修改配置类authorizationserverconfiguration">4.4.3、修改配置类AuthorizationServerConfiguration</a></li>
+            <li><a href="#444测试生成令牌">4.4.4、测试生成令牌</a></li>
+            <li><a href="#445配置获取公钥端点">4.4.5、配置获取公钥端点</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5-认证开发">5 认证开发</a>
+      <ul>
+        <li><a href="#51-需求分析">5.1 需求分析</a></li>
+        <li><a href="#52-认证服务">5.2 认证服务</a>
+          <ul>
+            <li><a href="#521-认证需求分析">5.2.1 认证需求分析</a></li>
+            <li><a href="#522-工具封装">5.2.2 工具封装</a></li>
+            <li><a href="#523--配置文件">5.2.3  配置文件</a></li>
+            <li><a href="#524--业务层">5.2.4  业务层</a></li>
+            <li><a href="#525--控制层">5.2.5  控制层</a></li>
+            <li><a href="#527-测试认证接口">5.2.7 测试认证接口</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 align = "center">第十一章</h1>
+<h1 align = "center">SpringSecurity OAuth2.0用户认证</h1>
+<h3 align="center">优就业.JAVA教研室</h3>
+<h2 id="学习目标">学习目标</h2>
+<ul>
+<li>
+<p>用户认证分析</p>
+</li>
+<li>
+<p>认证技术方案了解</p>
+</li>
+<li>
+<p>SpringSecurity Oauth2.0入门</p>
+</li>
+<li>
+<p>用户授权认证开发</p>
+</li>
+</ul>
+<h1 id="1-用户认证分析">1 用户认证分析</h1>
+<p><img src="/posts/project-0/20220528165279/image-20220528165358321.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>上面流程图描述了用户要操作的各个微服务，用户查看个人信息需要访问客户微服务，下单需要访问订单微服务，秒杀抢购商品需要访问秒杀微服务。每个服务都需要认证用户的身份，身份认证成功后，需要识别用户的角色然后授权访问对应的功能。</p>
+<h2 id="11-认证与授权">1.1 认证与授权</h2>
+<p><strong>身份认证</strong></p>
+<p>用户身份认证即用户去访问系统资源时系统要求验证用户的身份信息，身份合法方可继续访问。常见的用户身份认证表现形式有：用户名密码登录，指纹打卡等方式。说通俗点，就相当于校验用户账号密码是否正确。</p>
+<p><strong>用户授权</strong></p>
+<p>用户认证通过后去访问系统的资源，系统会判断用户是否拥有访问资源的权限，只允许访问有权限的系统资源，没有权限的资源将无法访问，这个过程叫用户授权。</p>
+<h2 id="12-单点登录">1.2 单点登录</h2>
+<p><img src="/posts/project-0/20220528165279/image-20220528165407469.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>用户访问的项目中，至少有3个微服务需要识别用户身份，如果用户访问每个微服务都登录一次就太麻烦了，为了提高用户的体验，我们需要实现让用户在一个系统中登录，其他任意受信任的系统都可以访问，这个功能就叫单点登录。</p>
+<p>单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。 SSO的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统</p>
+<h2 id="13-第三方账号登录">1.3 第三方账号登录</h2>
+<h3 id="131-第三方登录介绍">1.3.1 第三方登录介绍</h3>
+<p>随着国内及国外巨头们的平台开放战略以及移动互联网的发展，第三方登录已经不是一个陌生的产品设计概念了。 所谓的第三方登录，是说基于用户在第三方平台上已有的账号和密码来快速完成己方应用的登录或者注册的功能。而这里的第三方平台，一般是已经拥有大量用户的平台，国外的比如Facebook，Twitter等，国内的比如微博、微信、QQ等。
+<img src="/posts/project-0/20220528165279/image-20220528165414998.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="132-第三方登录优点">1.3.2 第三方登录优点</h3>
+<pre tabindex="0"><code>1.相比于本地注册，第三方登录一般来说比较方便、快捷，能够显著降低用户的注册和登录成本，方便用户实现快捷登录或注册。
+2.不用费尽心思地应付本地注册对账户名和密码的各种限制，如果不考虑昵称的重复性要求，几乎可以直接一个账号走遍天下，再也不用在大脑或者什么地方记住N多不同的网站或App的账号和密码，整个世界一下子清静了。
+3.在第一次绑定成功之后，之后用户便可以实现一键登录，使得后续的登录操作比起应用内的登录来容易了很多。
+4.对于某些喜欢社交，并希望将更多自己的生活内容展示给朋友的人来说，第三方登录可以实现把用户在应用内的活动同步到第三方平台上，省去了用户手动发布动态的麻烦。但对于某些比较注重个人隐私的用户来说，则会有一些担忧，所以这个优点是有前提的。
+5.因为降低了用户的注册或登录成本，从而减少由于本地注册的繁琐性而带来的隐形用户流失，最终提高注册转化率。
+6.对于某些应用来说，使用第三方登录完全可以满足自己的需要，因此不必要设计和开发一套自己的账户体系。
+7.通过授权，可以通过在第三方平台上分享用户在应用内的活动在第三方平台上宣传自己，从而增加产品知名度。
+8.通过授权，可以获得该用户在第三方平台上的好友或粉丝等社交信息，从而后续可以针对用户的社交关系网进行有目的性的营销宣传，为产品的市场推广提供另一种渠道。
+</code></pre><h3 id="133-第三方认证">1.3.3 第三方认证</h3>
+<p>当需要访问第三方系统的资源时需要首先通过第三方系统的认证（例如：微信认证），由第三方系统对用户认证通过，并授权资源的访问权限。
+<img src="/posts/project-0/20220528165279/image-20220528165423568.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="2-认证技术方案">2 认证技术方案</h1>
+<h2 id="21-单点登录技术方案">2.1 单点登录技术方案</h2>
+<p>分布式系统要实现单点登录，通常将认证系统独立抽取出来，并且将用户身份信息存储在单独的存储介质，比如： MySQL、Redis，考虑性能要求，通常存储在Redis中，如下图：
+<img src="/posts/project-0/20220528165279/image-20220528165436164.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>单点登录的特点是：</p>
+<pre tabindex="0"><code>1、认证系统为独立的系统。 
+2、各子系统通过Http或其它协议与认证系统通信，完成用户认证。 
+3、用户身份信息存储在Redis集群。
+</code></pre><p>Java中有很多用户认证的框架都可以实现单点登录：</p>
+<pre tabindex="0"><code> 1、Apache Shiro. 
+ 2、CAS 
+ 3、Spring security CAS    
+</code></pre><h2 id="22-oauth2认证">2.2 Oauth2认证</h2>
+<p>OAuth（开放授权）是一个开放标准，允许用户授权第三方移动应用访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码提供给第三方移动应用或分享他们数据的所有内容，OAuth2.0是OAuth协议的延续版本。</p>
+<h3 id="221-oauth2认证流程">2.2.1 Oauth2认证流程</h3>
+<p>第三方认证技术方案最主要是解决认证协议的通用标准 问题，因为要实现 跨系统认证，各系统之间要遵循一定的接口协议。
+OAUTH协议为用户资源的授权提供了一个安全的、开放而又简易的标准。同时，任何第三方都可以使用OAUTH认证服务，任何服务提供商都可以实现自身的OAUTH认证服务，因而OAUTH是开放的。业界提供了OAUTH的多种实现如PHP、JavaScript，Java，Ruby等各种语言开发包，大大节约了程序员的时间，因而OAUTH是简易的。互联网很多服务都Open API，很多大公司如Google，Yahoo，Microsoft等都提供了OAUTH认证服务，这些都足以说明OAUTH标准逐渐成为开放资源授权的标准。
+Oauth协议目前发展到2.0版本，1.0版本过于复杂，2.0版本已得到广泛应用。
+参考：https://baike.baidu.com/item/oAuth/7153134?fr=aladdin
+Oauth协议：https://tools.ietf.org/html/rfc6749
+下边分析一个Oauth2认证的例子，网站使用微信认证的过程：
+<img src="/posts/project-0/20220528165279/image-20220528165447243.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>1.客户端请求第三方授权</p>
+<p>用户进入登录页面，点击QQ的图标以微信账号登录系统，用户是自己在QQ信息的资源拥有者。
+<img src="/posts/project-0/20220528165279/image-20220528165455417.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击“用QQ账号登录”出现一个二维码，此时用户扫描二维码，开始给优就业官网授权。 <br>
+<img src="/posts/project-0/20220528165279/image-20220528165502304.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>2.资源拥有者同意给客户端授权</p>
+<p>资源拥有者扫描二维码表示资源拥有者同意给客户端授权，QQ会对资源拥有者的身份进行验证， 验证通过后，QQ会询问用户是否给授权优就业官网访问自己的QQ数据，用户点击“确认登录”表示同意授权，QQ认证服务器会 颁发一个授权码，并重定向到优就业官网。</p>
+<p>3.客户端获取到授权码，请求认证服务器申请令牌 此过程用户看不到，客户端应用程序请求认证服务器，请求携带授权码。</p>
+<p>4.认证服务器向客户端响应令牌 认证服务器验证了客户端请求的授权码，如果合法则给客户端颁发令牌，令牌是客户端访问资源的通行证。 此交互过程用户看不到，当客户端拿到令牌后，用户在优就业官网看到已经登录成功。</p>
+<p>5.客户端请求资源服务器的资源 客户端携带令牌访问资源服务器的资源。 优就业官网携带令牌请求访问微信服务器获取用户的基本信息。</p>
+<p>6.资源服务器返回受保护资源 资源服务器校验令牌的合法性，如果合法则向用户响应资源信息内容。 注意：资源服务器和认证服务器可以是一个服务也可以分开的服务，如果是分开的服务资源服务器通常要请求认证 服务器来校验令牌的合法性。</p>
+<p>Oauth2.0认证流程如下： 引自Oauth2.0协议rfc6749 <a class="link" href="/posts/project-0/https://tools.ietf.org/html/rfc6749"  target="_blank" rel="noopener"
+    >https://tools.ietf.org/html/rfc6749</a> <br>
+<img src="/posts/project-0/20220528165279/image-20220528165511527.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>Oauth2包括以下角色：</p>
+<p>1、客户端 本身不存储资源，需要通过资源拥有者的授权去请求资源服务器的资源，比如：东易买IOS客户端、东易买Web客户端（浏览器端）、微信客户端等。</p>
+<p>2、资源拥有者 通常为用户，也可以是应用程序，即该资源的拥有者。</p>
+<p>3、授权服务器（也称认证服务器） 用来对资源拥有的身份进行认证、对访问资源进行授权。客户端要想访问资源需要通过认证服务器由资源拥有者授 权后方可访问。</p>
+<p>4、资源服务器 存储资源的服务器，比如，东易买商城用户管理服务器存储了东易买的用户信息等。客户端最终访问资源服务器获取资源信息。</p>
+<h3 id="222-oauth2在项目的应用">2.2.2 Oauth2在项目的应用</h3>
+<p>Oauth2是一个标准的开放的授权协议，应用程序可以根据自己的要求去使用Oauth2，本项目使用Oauth2实现如 下目标：</p>
+<p>1、东易买访问第三方系统的资源</p>
+<p>2、外部系统访问东易买商城的资源</p>
+<p>3、东易买前端（客户端） 访问东易买微服务的资源。</p>
+<p>4、东易买微服务之间访问资源，例如：微服务A访问微服务B的资源，B访问A的资源。</p>
+<h2 id="23-spring-security-oauth2认证解决方案">2.3 Spring security Oauth2认证解决方案</h2>
+<p>本项目采用 Spring security + Oauth2完成用户认证及用户授权，Spring security 是一个强大的和高度可定制的身份验证和访问控制框架，Spring security 框架集成了Oauth2协议，下图是项目认证架构图： <br>
+<img src="/posts/project-0/20220528165279/image-20220528165524869.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>1、用户请求认证服务完成认证。</p>
+<p>2、认证服务下发用户身份令牌，拥有身份令牌表示身份合法。</p>
+<p>3、用户携带令牌请求资源服务，请求资源服务必先经过网关。</p>
+<p>4、网关校验用户身份令牌的合法，不合法表示用户没有登录，如果合法则放行继续访问。</p>
+<p>5、资源服务获取令牌，根据令牌完成授权。</p>
+<p>6、资源服务完成授权则响应资源信息。</p>
+<h1 id="3-security-oauth20入门">3 Security Oauth2.0入门</h1>
+<h2 id="31-学习知识点说明">3.1 学习知识点说明</h2>
+<p>本项目认证服务基于Spring Security Oauth2进行构建，并在其基础上作了一些扩展，采用JWT令牌机制，并自定义了用户身份信息的内容。 本教程的主要目标是学习在项目中集成Spring Security Oauth2的方法和流程，通过 spring Security Oauth2的研究需要达到以下目标：</p>
+<p>1、理解Oauth2的授权码认证流程及密码认证的流程。</p>
+<p>2、理解spring Security Oauth2的工作流程。</p>
+<p>3、掌握资源服务集成spring Security框架完成Oauth2认证的流程。</p>
+<h2 id="32-搭建认证服务器">3.2 搭建认证服务器</h2>
+<h3 id="321-创建认证模块">3.2.1 创建认证模块</h3>
+<p>创建认证服务器模块<code>dongyimai-user-oauth</code>的模块，如下图：
+<img src="/posts/project-0/20220528165279/image-20220528165533250.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="322-pomxml配置">3.2.2 pom.xml配置</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>&lt;dependencies&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>&lt;dependency&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>&lt;/dependency&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>&lt;dependency&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>&lt;artifactId&gt;spring-cloud-starter-oauth2&lt;/artifactId&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>&lt;/dependency&gt;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>&lt;/dependencies&gt;<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="323-applicationyml配置">3.2.3 application.yml配置</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">9100</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">application</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>user-auth <span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">eureka</span>:<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">client</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">service-url</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">defaultZone</span>:<span style="color:#bbb"> </span>http://localhost:8761/eureka<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="324-编写springsecurity配置类websecurityconfig">3.2.4 编写SpringSecurity配置类WebSecurityConfig</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.offcn.config</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableWebSecurity</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">WebSecurityConfig</span> <span style="color:#000;font-weight:bold">extends</span> WebSecurityConfigurerAdapter <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//配置springsecurity拦截规则
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">protected</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">configure</span><span style="color:#000;font-weight:bold">(</span>HttpSecurity http<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       http<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">requestMatchers</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">anyRequest</span><span style="color:#000;font-weight:bold">()</span><span style="color:#998;font-style:italic">//任何请求都要拦截
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>               <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">and</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">formLogin</span><span style="color:#000;font-weight:bold">()</span><span style="color:#998;font-style:italic">//登录界面
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>               <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">and</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">csrf</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">disable</span><span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">//跨站攻击防御禁用
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//认证管理器
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> AuthenticationManager <span style="color:#900;font-weight:bold">authenticationManagerBean</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">super</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">authenticationManagerBean</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//声明自定义认证对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span><span style="color:#000;font-weight:bold">(</span>name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;userDetailsService&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> UserDetailsService <span style="color:#900;font-weight:bold">userDetailsServiceBean</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">CreateUserDetailsService</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">protected</span> UserDetailsService <span style="color:#900;font-weight:bold">userDetailsService</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#998;font-style:italic">//启用自定义认证对象进行认证
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>     <span style="color:#000;font-weight:bold">return</span>   <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">CreateUserDetailsService</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//自定义认证，声明用户登录账号、密码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> UserDetailsService <span style="color:#900;font-weight:bold">CreateUserDetailsService</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#000;font-weight:bold">&lt;</span>UserDetails<span style="color:#000;font-weight:bold">&gt;</span> users<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        UserDetails adminUser <span style="color:#000;font-weight:bold">=</span> User<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">withUsername</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;admin&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">password</span><span style="color:#000;font-weight:bold">(</span>passwordEncoder<span style="color:#000;font-weight:bold">().</span><span style="color:#008080">encode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;123&#34;</span><span style="color:#000;font-weight:bold">)).</span><span style="color:#008080">authorities</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;ADMIN&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;USER&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        UserDetails OneUser <span style="color:#000;font-weight:bold">=</span> User<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">withUsername</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;user1&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">password</span><span style="color:#000;font-weight:bold">(</span>passwordEncoder<span style="color:#000;font-weight:bold">().</span><span style="color:#008080">encode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;123&#34;</span><span style="color:#000;font-weight:bold">)).</span><span style="color:#008080">authorities</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;ADMIN&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;USER&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        UserDetails TowUser <span style="color:#000;font-weight:bold">=</span> User<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">withUsername</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;user2&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">password</span><span style="color:#000;font-weight:bold">(</span>passwordEncoder<span style="color:#000;font-weight:bold">().</span><span style="color:#008080">encode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;456&#34;</span><span style="color:#000;font-weight:bold">)).</span><span style="color:#008080">authorities</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;USER&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        users<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>adminUser<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        users<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>OneUser<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        users<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>TowUser<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> InMemoryUserDetailsManager<span style="color:#000;font-weight:bold">(</span>users<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//声明密码加密器
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> PasswordEncoder <span style="color:#900;font-weight:bold">passwordEncoder</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> BCryptPasswordEncoder<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p><strong>注意</strong>：@EnableWebSecurity启用springSecurity</p>
+<h3 id="325-编写springsecurityoauth2认证服务器配置类authorizationserverconfiguration">3.2.5 编写SpringSecurityOauth2认证服务器配置类AuthorizationServerConfiguration</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.offcn.config</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableAuthorizationServer</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">AuthorizationServerConfiguration</span> <span style="color:#000;font-weight:bold">extends</span> AuthorizationServerConfigurerAdapter <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//注入密码加密器
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> PasswordEncoder passwordEncoder<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//注入自定义认证对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> UserDetailsService userDetailsService<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//注入认证管理器
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> AuthenticationManager authenticationManager<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//授权服务器端点访问权限验证方式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">configure</span><span style="color:#000;font-weight:bold">(</span>AuthorizationServerSecurityConfigurer security<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        security<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">allowFormAuthenticationForClients</span><span style="color:#000;font-weight:bold">()</span><span style="color:#998;font-style:italic">//访问服务器端点需要进行客户端身份验证
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">passwordEncoder</span><span style="color:#000;font-weight:bold">(</span>passwordEncoder<span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//设置客户端密码加密机制
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">tokenKeyAccess</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;permitAll()&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//开启token生成功能
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">checkTokenAccess</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;permitAll()&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//开启token校验功能
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//Spring Security OAuth2会公开了两个端点，用于检查令牌（/oauth/check_token和/oauth/token_key），这些端点默认受保护denyAll()。tokenKeyAccess（）和checkTokenAccess（）方法会打开这些端点以供使用。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//客户端账号配置
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">configure</span><span style="color:#000;font-weight:bold">(</span>ClientDetailsServiceConfigurer clients<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#998;font-style:italic">//在内存中创建账号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        clients<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">inMemory</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#998;font-style:italic">// admin，授权码认证、密码认证、客户端认证、简单认证、刷新token
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">withClient</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;admin&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#998;font-style:italic">//账号名称
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">secret</span><span style="color:#000;font-weight:bold">(</span>passwordEncoder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">encode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;admin&#34;</span><span style="color:#000;font-weight:bold">))</span><span style="color:#998;font-style:italic">//密码，要设置加密
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">resourceIds</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;oauth2-resource&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;dongyimai-user&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;dongyimai-goods&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//资源编号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">scopes</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;server&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//作用范围
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">authorizedGrantTypes</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;authorization_code&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;refresh_token&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;client_credentials&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;implicit&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//登录授权模式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">redirectUris</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;http://localhost&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//登录成功跳转地址
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//端点令牌存储方式、关联自定义认证对象、认证管理器
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">configure</span><span style="color:#000;font-weight:bold">(</span>AuthorizationServerEndpointsConfigurer endpoints<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        endpoints<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">tokenStore</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> InMemoryTokenStore<span style="color:#000;font-weight:bold">())</span> <span style="color:#998;font-style:italic">//令牌存储到内存
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                  <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">authenticationManager</span><span style="color:#000;font-weight:bold">(</span>authenticationManager<span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//认证管理器
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                  <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">userDetailsService</span><span style="color:#000;font-weight:bold">(</span>userDetailsService<span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//自定义认证类
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                  <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">allowedTokenEndpointRequestMethods</span><span style="color:#000;font-weight:bold">(</span>HttpMethod<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">GET</span><span style="color:#000;font-weight:bold">,</span>HttpMethod<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">POST</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//允许端点访问方法
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p><strong>注意</strong>：@EnableAuthorizationServer 启用OAuth2授权服务器</p>
+<p><strong>注意</strong>：资源编号需要填写默认的：oauth2-resource</p>
+<h3 id="326-编写主启动类">3.2.6 编写主启动类</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableDiscoveryClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">UserOauth2Application</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>UserOauth2Application<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span>args<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="327-启动授权认证服务">3.2.7 启动授权认证服务</h3>
+<p>启动之前，记得先启动eureka，再启动该授权认证工程。</p>
+<h2 id="33-oauth2授权模式">3.3 Oauth2授权模式</h2>
+<h3 id="331-oauth2授权模式">3.3.1 Oauth2授权模式</h3>
+<p>Oauth2有以下授权模式：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">1.授权码模式（Authorization Code）
+2.密码模式（Resource Owner Password Credentials）
+3.客户端模式（Client Credentials） 
+4.隐式授权模式（Implicit） 
+</code></pre><h3 id="332-授权码授权实现">3.3.2 授权码授权实现</h3>
+<p>上边例举的优就业官网使用QQ认证的过程就是授权码模式，流程如下：</p>
+<p>1、客户端请求第三方授权</p>
+<p>2、用户(资源拥有者)同意给客户端授权</p>
+<p>3、客户端获取到授权码，请求认证服务器申请 令牌</p>
+<p>4、认证服务器向客户端响应令牌</p>
+<p>5、客户端请求资源服务器的资源，资源服务校验令牌合法性，完成授权</p>
+<p>6、资源服务器返回受保护资源</p>
+<p><strong>(1)申请授权码</strong></p>
+<p>请求认证服务获取授权码：</p>
+<pre tabindex="0"><code>Get请求：
+http://localhost:9100/oauth/authorize?client_id=admin&amp;response_type=code&amp;scop=app&amp;redirect_uri=http://localhost
+</code></pre><p>参数列表如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">client_id：客户端id，和授权配置类中设置的客户端id一致。 
+response_type：授权码模式固定为code 
+scop：客户端范围，和授权配置类中设置的scop一致。 
+redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上code参数（授权码）
+</code></pre><p>首先跳转到登录页面：
+<img src="/posts/project-0/20220528165279/image-20220528165552836.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>输入账号和密码，点击Login。 Spring Security在WebSecurityConfig类的CreateUserDetailsService方法配置了用户和密码。
+<img src="/posts/project-0/20220528165279/image-20220528165557800.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>接下来进入授权页面：
+<img src="/posts/project-0/20220528165279/image-20220528165604352.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击Authorize,接下来返回授权码： 认证服务携带授权码跳转redirect_uri,code=Vi2KWa就是返回的授权码
+<img src="/posts/project-0/20220528165279/image-20220528165610361.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><strong>(2)申请令牌</strong></p>
+<p>拿到授权码后，申请令牌。 Post请求：http://localhost:9100/oauth/token 参数如下：</p>
+<pre tabindex="0"><code>grant_type：授权类型，填写authorization_code，表示授权码模式 
+code：授权码，就是刚刚获取的授权码，注意：授权码只使用一次就无效了，需要重新申请。 
+redirect_uri：申请授权码时的跳转url，一定和申请授权码时用的redirect_uri一致。 
+</code></pre><p>此链接需要使用 http Basic认证。 什么是http Basic认证？ http协议定义的一种认证方式，将客户端id和客户端密码按照“客户端ID:客户端密码”的格式拼接，并用base64编 码，放在header中请求服务端，一个例子： Authorization：Basic WGNXZWJBcHA6WGNXZWJBcHA=WGNXZWJBcHA6WGNXZWJBcHA= 是用户名:密码的base64编码。 认证失败服务端返回 401 Unauthorized。</p>
+<p>以上测试使用postman完成：</p>
+<p>http basic认证： <br>
+<img src="/posts/project-0/20220528165279/image-20220528165617452.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project-0/20220528165279/image-20220528165623879.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>body参数：</p>
+<p>grant_type: authorization_code</p>
+<p>code:y7o1pF                       //注意code值，从前面登录获取到的授权码获取</p>
+<p>redirect_uri: http://localhost</p>
+<p>点击发送： 申请令牌成功 <br>
+<img src="/posts/project-0/20220528165279/image-20220528165629179.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>返回信如下:</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">access_token：访问令牌，携带此令牌访问资源 
+token_type：有MAC Token与Bearer Token两种类型，两种的校验算法不同，RFC 6750建议Oauth2采用 Bearer Token（http://www.rfcreader.com/#rfc6750）。 
+refresh_token：刷新令牌，使用此令牌可以延长访问令牌的过期时间。 
+expires_in：过期时间，单位为秒。 
+scope：范围，与定义的客户端范围一致。    
+</code></pre><p><strong>(3)令牌校验</strong></p>
+<p>Spring Security Oauth2提供校验令牌的端点，如下：</p>
+<p>Get: http://localhost:9100/oauth/check_token?token= [access_token]</p>
+<p>参数：</p>
+<p>token：令牌</p>
+<p>使用postman测试如下:
+<img src="/posts/project-0/20220528165279/image-20220528165640240.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>如果令牌校验失败，会出现如下结果：
+<img src="/posts/project-0/20220528165279/image-20220528165645729.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>如果令牌过期了，会如下如下结果：
+<img src="/posts/project-0/20220528165279/image-20220528165651171.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><strong>(4)刷新令牌</strong></p>
+<p>刷新令牌是当令牌快过期时重新生成一个令牌，它于授权码授权和密码授权生成令牌不同，刷新令牌不需要授权码 也不需要账号和密码，只需要一个刷新令牌、客户端id和客户端密码。</p>
+<p>测试如下： Post：http://localhost:9100/oauth/token</p>
+<p>参数：</p>
+<p>grant_type： 固定为 refresh_token</p>
+<p>refresh_token：刷新令牌（注意值不是access_token，而是refresh_token） <br>
+<img src="/posts/project-0/20220528165279/image-20220528165659031.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project-0/20220528165279/image-20220528165703970.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="333-密码授权实现">3.3.3 密码授权实现</h3>
+<p><strong>(1)认证</strong></p>
+<p>密码模式（Resource Owner Password Credentials）与授权码模式的区别是申请令牌不再使用授权码，而是直接 通过用户名和密码即可申请令牌。</p>
+<p>测试如下：</p>
+<p>Post请求：http://localhost:9100/oauth/token</p>
+<p>参数：</p>
+<p>grant_type：密码模式授权填写password</p>
+<p>username：账号</p>
+<p>password：密码</p>
+<p>注意首先要设置http basic认证： <br>
+<img src="/posts/project-0/20220528165279/image-20220528165712564.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>然后在设置账号密码
+<img src="/posts/project-0/20220528165279/image-20220528165718035.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="334-客户端模式授权实现">3.3.4 客户端模式授权实现</h3>
+<p><strong>(1)认证</strong></p>
+<p>密码模式（Resource Owner Password Credentials）与授权码模式的区别是申请令牌不再使用授权码，而是直接 通过用户名和密码即可申请令牌。</p>
+<p>测试如下：</p>
+<p>Post请求：http://localhost:9100/oauth/token</p>
+<p>参数：</p>
+<p>grant_type：密码模式授权填写client_credentials</p>
+<p>注意首先要设置http basic认证： <br>
+<img src="/posts/project-0/20220528165279/image-20220528165725552.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project-0/20220528165279/image-20220528165730127.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="335-隐式授权实现">3.3.5 隐式授权实现</h3>
+<p>隐式授权模式要求：用户登录并对第三方应用进行授权，直接返回访问token，通过token访问资源</p>
+<p>相比授权码模式，它少了一次授权码的颁发与客户端使用授权码换取token的过程。</p>
+<h4 id="隐式授权模式适用场景">隐式授权模式适用场景</h4>
+<p>适用场景有以下几个条件：</p>
+<ul>
+<li>用户参与：使用隐式授权需要<strong>与用户交互</strong>，用户对授权服务器进行登录与授权</li>
+<li>单页应用：SPA前端，<strong>没有后端或者后端属于授权方</strong></li>
+<li>客户端密码：访问授权时，<strong>不需要</strong>带第三方应用secret，前提是资源服务校验token使用的client信息与客户端（第三方应用）不同，且配置了secret</li>
+<li>前端：<strong>必须要有前端</strong>，否则无法使用授权功能</li>
+<li>客户端后端：Options，仅当应用前后端不分离MVC场景</li>
+<li>资源所属方：授权方</li>
+</ul>
+<p><strong>获取token</strong></p>
+<p>请求认证服务获取授权码：</p>
+<pre tabindex="0"><code>Get请求：
+http://localhost:9100/oauth/authorize?client_id=admin&amp;redirect_uri=http://localhost&amp;response_type=token&amp;scope=app
+</code></pre><p>参数列表如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">client_id：客户端id，和授权配置类中设置的客户端id一致。 
+response_type：隐式模式固定为token
+scop：客户端范围，和授权配置类中设置的scop一致。 
+redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上access_token（令牌）
+</code></pre><p>首先跳转到登录页面：
+<img src="/posts/project-0/20220528165279/image-20220528165739449.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>输入账号和密码，点击Login。 Spring Security在WebSecurityConfig类的CreateUserDetailsService方法配置了用户和密码。</p>
+<p>接下来进入授权页面：
+<img src="/posts/project-0/20220528165279/image-20220528165744656.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击Authorize,接下来返回令牌
+<img src="/posts/project-0/20220528165279/image-20220528165750744.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="4-授权服务生成jwt令牌及资源服务授权流程">4 授权服务生成JWT令牌及资源服务授权流程</h1>
+<h2 id="41-资源服务授权流程">4.1 资源服务授权流程</h2>
+<p>(1)传统授权流程
+<img src="/posts/project-0/20220528165279/image-20220528165756500.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>资源服务器授权流程如上图，客户端先去授权服务器申请令牌，申请令牌后，携带令牌访问资源服务器，资源服务器访问授权服务校验令牌的合法性，授权服务会返回校验结果，如果校验成功会返回用户信息给资源服务器，资源服务器如果接收到的校验结果通过了，则返回资源给客户端。</p>
+<p>传统授权方法的问题是用户每次请求资源服务，资源服务都需要携带令牌访问认证服务去校验令牌的合法性，并根 据令牌获取用户的相关信息，性能低下。</p>
+<p>(2)公钥私钥授权流程
+<img src="/posts/project-0/20220528165279/image-20220528165803201.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>传统的授权模式性能低下，每次都需要请求授权服务校验令牌合法性，我们可以利用公钥私钥完成对令牌的加密，如果加密解密成功，则表示令牌合法，如果加密解密失败，则表示令牌无效不合法，合法则允许访问资源服务器的资源，解密失败，则不允许访问资源服务器资源。</p>
+<p>上图的业务流程如下:</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">1、客户端请求认证服务申请令牌
+2、认证服务生成令牌认证服务采用非对称加密算法，使用私钥生成令牌。
+3、客户端携带令牌访问资源服务客户端在Http header 中添加： Authorization：Bearer 令牌。
+4、资源服务请求认证服务校验令牌的有效性资源服务接收到令牌，使用公钥校验令牌的合法性。
+5、令牌有效，资源服务向客户端响应资源信息
+</code></pre><h2 id="42-公钥私钥">4.2 公钥私钥</h2>
+<p>在对称加密的时代，加密和解密用的是同一个密钥，这个密钥既用于加密，又用于解密。这样做有一个明显的缺点，如果两个人之间传输文件，两个人都要知道密钥，如果是三个人呢，五个人呢？于是就产生了非对称加密，用一个密钥进行加密（公钥），用另一个密钥进行解密（私钥）。</p>
+<h3 id="421-公钥私钥原理">4.2.1 公钥私钥原理</h3>
+<p>张三有两把钥匙，一把是公钥，另一把是私钥。
+<img src="/posts/project-0/20220528165279/image-20220528165812206.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>张三把公钥送给他的朋友们&mdash;-李四、王五、赵六&mdash;-每人一把。
+<img src="/posts/project-0/20220528165279/image-20220528165818173.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>李四要给张三写一封保密的信。她写完后用张三的公钥加密，就可以达到保密的效果。
+<img src="/posts/project-0/20220528165279/image-20220528165823463.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>张三收信后，用私钥解密，就看到了信件内容。这里要强调的是，只要张三的私钥不泄露，这封信就是安全的，即使落在别人手里，也无法解密。
+<img src="/posts/project-0/20220528165279/image-20220528165831047.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>张三给李四回信，决定采用&quot;数字签名&quot;。他写完后先用Hash函数，生成信件的摘要（digest）。张三将这个签名，附在信件下面，一起发给李四。
+<img src="/posts/project-0/20220528165279/image-20220528165836990.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>李四收信后，取下数字签名，用张三的公钥解密，得到信件的摘要。由此证明，这封信确实是张三发出的。李四再对信件本身使用Hash函数，将得到的结果，与上一步得到的摘要进行对比。如果两者一致，就证明这封信未被修改过。
+<img src="/posts/project-0/20220528165279/image-20220528165842418.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="422-生成私钥公钥">4.2.2 生成私钥公钥</h3>
+<p>Spring Security 提供对JWT的支持，本节我们使用Spring Security 提供的JwtHelper来创建JWT令牌，校验JWT令牌 等操作。 这里JWT令牌我们采用非对称算法进行加密，所以我们要先生成公钥和私钥。</p>
+<p>(1)生成密钥证书 下边命令生成密钥证书，采用RSA 算法每个证书包含公钥和私钥</p>
+<p>在Centos7服务器安装配置好JAVA环境：</p>
+<p>创建一个文件夹</p>
+<pre tabindex="0"><code>cd /root
+
+mkdir key
+cd key
+</code></pre><p>在该文件夹下执行如下命令行：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -genkeypair -alias dongyimai -keyalg RSA -keypass dongyimai -keystore dongyimai.jks -storepass dongyimai
+</code></pre><p>Keytool 是一个java提供的证书管理工具</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">-alias：密钥的别名 
+-keyalg：使用的hash算法 
+-keypass：密钥的访问密码 
+-keystore：密钥库文件名，xc.keystore保存了生成的证书 
+-storepass：密钥库的访问密码 
+</code></pre><p><img src="/posts/project-0/20220528165279/image-20220528165859534.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>(2)查询证书信息</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -list -keystore dongyimai.jks
+</code></pre><p><img src="/posts/project-0/20220528165279/image-20220528165905628.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>(3)删除别名</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -delete -alias dongyimai -keystore dongyimai.jks
+</code></pre><h3 id="423-导出公钥">4.2.3 导出公钥</h3>
+<p>openssl是一个加解密工具包，这里使用openssl来导出公钥信息。</p>
+<p>openssl：https://www.openssl.org/</p>
+<p>进入秘钥所在目录</p>
+<pre tabindex="0"><code>cd /root/key
+</code></pre><p>进入dongyimai.jks文件所在目录执行如下命令</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>keytool -list -rfc --keystore dongyimai.jks | openssl x509 -inform pem -pubkey
+</span></span></code></pre></div><p><img src="/posts/project-0/20220528165279/image-20220528165944281.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>下面段内容是公钥</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXKdA+tx5/MFq7iLbBPoc6C2Ol+o+wVJVmV3Y1QAYdyGYMWIOJpFwggc+T4CmZNlCDxKEwwdB0ic63URGhTz5vf9lUAcluGC+gu5O++cZLjnUrRQYRjJGNewx8BkAVIRNAZn1i3vTOzdkYhqD6Ev8PyCCI5NGO5E4pZ3vj6F7HvrTjj7FKcI3J5iaXwAF9OiXJYIJpbB1+EBaWksoFSF5MalbwbmE22RJ6fNtgHJYNxhQfzMVip/x5jSwL5fcAJyBS0wzcErTCHYJcWH2tlWctp4e6Tjq23c98bg42nf+i2eqko6o90sQIDAQAB
+-----END PUBLIC KEY-----
+</code></pre><p>将上边的公钥拷贝到文本public.key文件中，**注意：**合并为一行,可以将它放到需要实现授权认证的工程中。</p>
+<h2 id="43-使用私钥公钥生成解析jwt令牌">4.3 使用私钥公钥生成、解析JWT令牌</h2>
+<p>(1)创建令牌数据</p>
+<p>在dongyimai-user-oauth工程中创建测试类com.offcn.token.CreateJwtTest，使用它来创建令牌信息，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.dongyimai.oauth</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.alibaba.fastjson.JSON</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.thoughtworks.xstream.core.util.Base64Encoder</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.junit.jupiter.api.Test</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.core.io.ClassPathResource</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.security.jwt.Jwt</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.security.jwt.JwtHelper</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.security.jwt.crypto.sign.RsaSigner</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.security.rsa.crypto.KeyStoreKeyFactory</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.security.KeyPair</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.security.interfaces.RSAPrivateKey</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.security.interfaces.RSAPublicKey</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.Base64</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.HashMap</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.Map</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">CreateJwtTest</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 创建令牌测试
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">testCreateToken</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//证书文件路径
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String key_location<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;dongyimai.jks&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//秘钥库密码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String key_password<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;dongyimai&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//秘钥密码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String keypwd <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;dongyimai&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//秘钥别名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String alias <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;dongyimai&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//访问证书路径
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        ClassPathResource resource <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ClassPathResource<span style="color:#000;font-weight:bold">(</span>key_location<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//创建秘钥工厂
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        KeyStoreKeyFactory keyStoreKeyFactory <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> KeyStoreKeyFactory<span style="color:#000;font-weight:bold">(</span>resource<span style="color:#000;font-weight:bold">,</span>key_password<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toCharArray</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//读取指定别名秘钥对(公钥、私钥)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        KeyPair keyPair <span style="color:#000;font-weight:bold">=</span> keyStoreKeyFactory<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getKeyPair</span><span style="color:#000;font-weight:bold">(</span>alias<span style="color:#000;font-weight:bold">,</span>keypwd<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toCharArray</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//获取公钥
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>      <span style="color:#998;font-style:italic">//  RSAPublicKey rsaPublicKey= (RSAPublicKey) keyPair.getPublic();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>      <span style="color:#998;font-style:italic">//  Base64Encoder base64Encoder = new Base64Encoder();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>      <span style="color:#998;font-style:italic">//  String encode = base64Encoder.encode(rsaPublicKey.getEncoded());
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>      <span style="color:#998;font-style:italic">//  System.out.println(&#34;公钥:-----BEGIN PUBLIC KEY-----&#34;+encode+&#34;-----END PUBLIC KEY-----&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//获取私钥
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        RSAPrivateKey rsaPrivate <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>RSAPrivateKey<span style="color:#000;font-weight:bold">)</span> keyPair<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPrivate</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//定义Payload载荷
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> Object<span style="color:#000;font-weight:bold">&gt;</span> tokenMap <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        tokenMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;id&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        tokenMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;name&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;ujiuye&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        tokenMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;roles&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;ROLE_VIP,ROLE_USER&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//使用私钥生成Jwt令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Jwt jwt <span style="color:#000;font-weight:bold">=</span> JwtHelper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">encode</span><span style="color:#000;font-weight:bold">(</span>JSON<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toJSONString</span><span style="color:#000;font-weight:bold">(</span>tokenMap<span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">new</span> RsaSigner<span style="color:#000;font-weight:bold">(</span>rsaPrivate<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//取出令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String encoded <span style="color:#000;font-weight:bold">=</span> jwt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getEncoded</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;token:&#34;</span><span style="color:#000;font-weight:bold">+</span>encoded<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>运行后的结果如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">token:eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlJPTEVfVklQLFJPTEVfVVNFUiIsIm5hbWUiOiJ1aml1eWUiLCJpZCI6IjEifQ.G7hIUJV4a9PihurY4gfCdkqZqE0g9bRWU5l5PY0X1kv8LAt_-Otdi4ryLxgo2iM0FUI9GoT_LnggX3fSF-U3EaIu-pphyrvo2raz9kIWxEN_xLIW-Z3GHG05pOAhJE2OwF6Y-UYd3J1nGc3WMePdenuFRgLlJXw9d3fsalk5pC3fBBk4a6RKTRJveleRZxG58VP856XtrathNMl6HSfT37mwvMm-tTL1vzJgyyO5JM6Px38b9L4jpbsn5R1HX1JDve5RRFsbJHOgRycY2Crj_bm6jbWm-3jgj0w0N1MjA1JH86-DXEunciBgMjZ9BWRUDOe8Q8UhZjUwPVCKLzmcxw
+</code></pre><p>(2)解析令牌</p>
+<p>上面创建令牌后，我们可以对JWT令牌进行解析，这里解析需要用到公钥，我们可以将之前生成的公钥public.key拷贝出来用字符串变量token存储，然后通过公钥解密。</p>
+<p>在dongyimai-user-oauth创建测试类com.offcn.token.ParseJwtTest实现解析校验令牌数据，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ParseJwtTest</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 校验令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">testParseToken</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String token <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlJPTEVfVklQLFJPTEVfVVNFUiIsIm5hbWUiOiJpdGhlaW1hIiwiaWQiOiIxIn0.IR9Qu9ZqYZ2gU2qgAziyT38UhEeL4Oi69ko-dzC_P9-Vjz40hwZDqxl8wZ-W2WAw1eWGIHV1EYDjg0-eilogJZ5UikyWw1bewXCpvlM-ZRtYQQqHFTlfDiVcFetyTayaskwa-x_BVS4pTWAskiaIKbKR4KcME2E5o1rEek-3YPkqAiZ6WP1UOmpaCJDaaFSdninqG0gzSCuGvLuG40x0Ngpfk7mPOecsIi5cbJElpdYUsCr9oXc53ROyfvYpHjzV7c2D5eIZu3leUPXRvvVAPJFEcSBiisxUSEeiGpmuQhaFZd1g-yJ1WQrixFvehMeLX2XU6W1nlL5ARTpQf_Jjiw&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//公钥
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String publickey <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvFsEiaLvij9C1Mz+oyAmt47whAaRkRu/8kePM+X8760UGU0RMwGti6Z9y3LQ0RvK6I0brXmbGB/RsN38PVnhcP8ZfxGUH26kX0RK+tlrxcrG+HkPYOH4XPAL8Q1lu1n9x3tLcIPxq8ZZtuIyKYEmoLKyMsvTviG5flTpDprT25unWgE4md1kthRWXOnfWHATVY7Y/r4obiOL1mS5bEa/iNKotQNnvIAKtjBM4RlIDWMa6dmz+lHtLtqDD2LF1qwoiSIHI75LQZ/CNYaHCfZSxtOydpNKq8eb1/PGiLNolD4La2zf0/1dlcr5mkesV570NxRmU1tFm8Zd3MZlZmyv9QIDAQAB-----END PUBLIC KEY-----&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//校验Jwt
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Jwt jwt <span style="color:#000;font-weight:bold">=</span> JwtHelper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">decodeAndVerify</span><span style="color:#000;font-weight:bold">(</span>token<span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">new</span> RsaVerifier<span style="color:#000;font-weight:bold">(</span>publickey<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//获取Jwt原始令牌内容
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String claims <span style="color:#000;font-weight:bold">=</span> jwt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getClaims</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>claims<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//获取jwt令牌解码内容
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String encoded <span style="color:#000;font-weight:bold">=</span> jwt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getEncoded</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>encoded<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>运行结果：
+<img src="/posts/project-0/20220528165279/image-20220528170000772.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="44配置oauth2认证服务器实现jwt令牌">4.4、配置Oauth2认证服务器实现JWT令牌</h2>
+<h3 id="441拷贝私钥到资源目录">4.4.1、拷贝私钥到资源目录</h3>
+<p>拷贝私钥dongyimai.jks到resources目录
+<img src="/posts/project-0/20220528165279/image-20220528170007852.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="442修改配置文件applicationyml配置秘钥相关参数">4.4.2、修改配置文件application.yml配置秘钥相关参数</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">encrypt</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">key-store</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">location</span>:<span style="color:#bbb"> </span>classpath:dongyimai.jks <span style="color:#bbb"> </span><span style="color:#998;font-style:italic">#秘钥文件名</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">alias</span>:<span style="color:#bbb"> </span>dongyimai <span style="color:#bbb"> </span><span style="color:#998;font-style:italic">#别名</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">password</span>:<span style="color:#bbb"> </span>dongyimai <span style="color:#bbb"> </span><span style="color:#998;font-style:italic">#密码</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">secret</span>:<span style="color:#bbb"> </span>dongyimai  <span style="color:#bbb"> </span><span style="color:#998;font-style:italic">#密钥库的访问密码</span><span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="443修改配置类authorizationserverconfiguration">4.4.3、修改配置类AuthorizationServerConfiguration</h3>
+<p>秘钥证书读取方法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//创建证书读取工具类
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span><span style="color:#000;font-weight:bold">(</span>name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;keyProp&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> KeyProperties <span style="color:#900;font-weight:bold">keyProperties</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> KeyProperties<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//引用证书读取工具类，根据对象名引用避免引用其他的对象失败
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Resource</span><span style="color:#000;font-weight:bold">(</span>name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;keyProp&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> KeyProperties keyProperties<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//读取证书方法
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> KeyPair <span style="color:#900;font-weight:bold">keyPair</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> KeyStoreKeyFactory<span style="color:#000;font-weight:bold">(</span>keyProperties<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getKeyStore</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getLocation</span><span style="color:#000;font-weight:bold">(),</span>
+</span></span><span style="display:flex;"><span>                keyProperties<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getKeyStore</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getSecret</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">toCharArray</span><span style="color:#000;font-weight:bold">()).</span><span style="color:#008080">getKeyPair</span><span style="color:#000;font-weight:bold">(</span>keyProperties<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getKeyStore</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getAlias</span><span style="color:#000;font-weight:bold">(),</span>keyProperties<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getKeyStore</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getSecret</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">toCharArray</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>编写普通令牌转换成JWT格式令牌的转换方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">//创建JwtAccessTokenConverter用来生成JWT令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> JwtAccessTokenConverter <span style="color:#900;font-weight:bold">jwtAccessTokenConverter</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        JwtAccessTokenConverter jwtAccessTokenConverter <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> JwtAccessTokenConverter<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//关联私钥
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        jwtAccessTokenConverter<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setKeyPair</span><span style="color:#000;font-weight:bold">(</span>keyPair<span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> jwtAccessTokenConverter<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>修改配置方法public void configure(AuthorizationServerEndpointsConfigurer endpoints)指定令牌按照JWT令牌生成</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">//端点令牌存储方式、关联自定义认证对象、认证管理器
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">configure</span><span style="color:#000;font-weight:bold">(</span>AuthorizationServerEndpointsConfigurer endpoints<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> Exception <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        endpoints<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">tokenStore</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> JwtTokenStore<span style="color:#000;font-weight:bold">(</span>jwtAccessTokenConverter<span style="color:#000;font-weight:bold">()))</span> <span style="color:#998;font-style:italic">//令牌存储格式jwt
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>   <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">accessTokenConverter</span><span style="color:#000;font-weight:bold">(</span>jwtAccessTokenConverter<span style="color:#000;font-weight:bold">())</span><span style="color:#998;font-style:italic">//使用jwt令牌转换器处理请求令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                  <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">authenticationManager</span><span style="color:#000;font-weight:bold">(</span>authenticationManager<span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//认证管理器
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                  <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">userDetailsService</span><span style="color:#000;font-weight:bold">(</span>userDetailsService<span style="color:#000;font-weight:bold">)</span><span style="color:#998;font-style:italic">//自定义认证类
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>      <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">allowedTokenEndpointRequestMethods</span><span style="color:#000;font-weight:bold">(</span>HttpMethod<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">GET</span><span style="color:#000;font-weight:bold">,</span>HttpMethod<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">POST</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//允许端点访问方法
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="444测试生成令牌">4.4.4、测试生成令牌</h3>
+<p>生成令牌，就变成了JWT格式的了！
+<img src="/posts/project-0/20220528165279/image-20220528170018040.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="445配置获取公钥端点">4.4.5、配置获取公钥端点</h3>
+<p>修改配置类AuthorizationServerConfiguration,增加配置获取公钥的方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">//获取公钥的端点访问
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> TokenKeyEndpoint <span style="color:#900;font-weight:bold">tokenKeyEndpoint</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> TokenKeyEndpoint<span style="color:#000;font-weight:bold">(</span>jwtAccessTokenConverter<span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>测试获取公钥：</p>
+<p>访问地址：http://localhost:9100/oauth/token_key
+<img src="/posts/project-0/20220528165279/image-20220528170024353.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="5-认证开发">5 认证开发</h1>
+<h2 id="51-需求分析">5.1 需求分析</h2>
+<p>用户登录的流程图如下：
+<img src="/posts/project-0/20220528165279/image-20220528170030230.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>执行流程：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">1、用户登录，请求认证服务 
+2、认证服务认证通过，生成jwt令牌，将jwt令牌及相关信息写入cookie 
+3、用户访问资源页面，带着cookie到网关 
+4、网关从cookie获取token，如果存在token，则校验token合法性，如果不合法则拒绝访问，否则放行 
+5、用户退出，请求认证服务，删除cookie中的token 
+</code></pre><h2 id="52-认证服务">5.2 认证服务</h2>
+<h3 id="521-认证需求分析">5.2.1 认证需求分析</h3>
+<p>认证服务需要实现的功能如下：</p>
+<p>1、登录接口</p>
+<p>前端post提交账号、密码等，用户身份校验通过，生成令牌，并将令牌写入cookie。</p>
+<p>2、退出接口 校验当前用户的身份为合法并且为已登录状态。 将令牌从cookie中删除。 <br>
+<img src="/posts/project-0/20220528165279/image-20220528170038139.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="522-工具封装">5.2.2 工具封装</h3>
+<p>在dongyimai-user-oauth工程中添加如下工具对象，方便操作令牌信息。</p>
+<p>创建com.offcn.oauth.util.AuthToken类，存储用户令牌数据，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">AuthToken</span> <span style="color:#000;font-weight:bold">implements</span> Serializable<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//令牌信息
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    String accessToken<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//刷新token(refresh_token)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    String refreshToken<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//jwt短令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    String jti<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//...get...set
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>创建com.offcn.oauth.util.CookieUtil类，操作Cookie,代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.offcn.util</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">javax.servlet.http.Cookie</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">javax.servlet.http.HttpServletRequest</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">javax.servlet.http.HttpServletResponse</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.HashMap</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.Map</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">CookieUtil</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 设置cookie
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param response
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param name     cookie名字
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param value    cookie值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param maxAge   cookie生命周期 以秒为单位
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">addCookie</span><span style="color:#000;font-weight:bold">(</span>HttpServletResponse response<span style="color:#000;font-weight:bold">,</span> String domain<span style="color:#000;font-weight:bold">,</span> String path<span style="color:#000;font-weight:bold">,</span> String name<span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                                 String value<span style="color:#000;font-weight:bold">,</span> <span style="color:#458;font-weight:bold">int</span> maxAge<span style="color:#000;font-weight:bold">,</span> <span style="color:#458;font-weight:bold">boolean</span> httpOnly<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">,</span> value<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setDomain</span><span style="color:#000;font-weight:bold">(</span>domain<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPath</span><span style="color:#000;font-weight:bold">(</span>path<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setMaxAge</span><span style="color:#000;font-weight:bold">(</span>maxAge<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHttpOnly</span><span style="color:#000;font-weight:bold">(</span>httpOnly<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 根据cookie名称读取cookie
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param request
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return map&lt;cookieName,cookieValue&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span>String<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">readCookie</span><span style="color:#000;font-weight:bold">(</span>HttpServletRequest request<span style="color:#000;font-weight:bold">,</span> String <span style="color:#000;font-weight:bold">...</span> cookieNames<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span>String<span style="color:#000;font-weight:bold">&gt;</span> cookieMap <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span>String<span style="color:#000;font-weight:bold">&gt;();</span>
+</span></span><span style="display:flex;"><span>        Cookie<span style="color:#000;font-weight:bold">[]</span> cookies <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getCookies</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>cookies <span style="color:#000;font-weight:bold">!=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Cookie cookie <span style="color:#000;font-weight:bold">:</span> cookies<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                String cookieName <span style="color:#000;font-weight:bold">=</span> cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>                String cookieValue <span style="color:#000;font-weight:bold">=</span> cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> i<span style="color:#000;font-weight:bold">=</span>0<span style="color:#000;font-weight:bold">;</span>i<span style="color:#000;font-weight:bold">&lt;</span>cookieNames<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">;</span>i<span style="color:#000;font-weight:bold">++){</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>cookieNames<span style="color:#000;font-weight:bold">[</span>i<span style="color:#000;font-weight:bold">].</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>cookieName<span style="color:#000;font-weight:bold">)){</span>
+</span></span><span style="display:flex;"><span>                        cookieMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span>cookieName<span style="color:#000;font-weight:bold">,</span>cookieValue<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> cookieMap<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="523--配置文件">5.2.3  配置文件</h3>
+<p>修改配置文件application.yml增加认证相关配置</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">auth</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">ttl</span>:<span style="color:#bbb"> </span><span style="color:#099">3600</span><span style="color:#bbb">  </span><span style="color:#998;font-style:italic">#token过期时间</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">clientId</span>:<span style="color:#bbb"> </span>admin <span style="color:#bbb"> </span><span style="color:#998;font-style:italic">#客户端账号</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">clientSecret</span>:<span style="color:#bbb"> </span>admin<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">#客户端密码</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">cookieDomain</span>:<span style="color:#bbb"> </span>localhost<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">#cookie域名</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">cookieMaxAge</span>:<span style="color:#bbb"> </span>-<span style="color:#099">1</span><span style="color:#bbb">     </span><span style="color:#998;font-style:italic">#cookie有效期</span><span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="524--业务层">5.2.4  业务层</h3>
+<p><img src="/posts/project-0/20220528165279/image-20220528170047629.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>如上图，我们现在实现一个认证流程，用户从页面输入账号密码，到认证服务的Controller层，Controller层调用Service层，Service层调用OAuth2.0的认证地址，进行密码授权认证操作，如果账号密码正确了，就返回令牌信息给Service层，Service将令牌信息给Controller层，Controller层将数据存入到Cookie中，再响应用户。</p>
+<p>创建com.offcn.oauth.service.AuthService接口，并添加授权认证方法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">AuthService</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 授权认证方法
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    AuthToken <span style="color:#900;font-weight:bold">login</span><span style="color:#000;font-weight:bold">(</span>String username<span style="color:#000;font-weight:bold">,</span> String password<span style="color:#000;font-weight:bold">,</span> String clientId<span style="color:#000;font-weight:bold">,</span> String clientSecret<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>创建com.offcn.oauth.service.impl.AuthServiceImpl实现类，实现获取令牌数据，这里认证获取令牌采用的是密码授权模式，用的是RestTemplate向OAuth服务发起认证请求，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">AuthServiceImpl</span> <span style="color:#000;font-weight:bold">implements</span> AuthService <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> LoadBalancerClient loadBalancerClient<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> RestTemplate restTemplate<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 授权认证方法
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param username
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param password
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param clientId
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param clientSecret
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> AuthToken <span style="color:#900;font-weight:bold">login</span><span style="color:#000;font-weight:bold">(</span>String username<span style="color:#000;font-weight:bold">,</span> String password<span style="color:#000;font-weight:bold">,</span> String clientId<span style="color:#000;font-weight:bold">,</span> String clientSecret<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//申请令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        AuthToken authToken <span style="color:#000;font-weight:bold">=</span> applyToken<span style="color:#000;font-weight:bold">(</span>username<span style="color:#000;font-weight:bold">,</span>password<span style="color:#000;font-weight:bold">,</span>clientId<span style="color:#000;font-weight:bold">,</span> clientSecret<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>authToken <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">throw</span> <span style="color:#000;font-weight:bold">new</span> RuntimeException<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;申请令牌失败&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> authToken<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/****
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 认证方法
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param username:用户登录名字
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param password：用户密码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param clientId：配置文件中的客户端ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param clientSecret：配置文件中的秘钥
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> AuthToken <span style="color:#900;font-weight:bold">applyToken</span><span style="color:#000;font-weight:bold">(</span>String username<span style="color:#000;font-weight:bold">,</span> String password<span style="color:#000;font-weight:bold">,</span> String clientId<span style="color:#000;font-weight:bold">,</span> String clientSecret<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//选中认证服务的地址
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        ServiceInstance serviceInstance <span style="color:#000;font-weight:bold">=</span> loadBalancerClient<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">choose</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;USER-AUTH&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>serviceInstance <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">throw</span> <span style="color:#000;font-weight:bold">new</span> RuntimeException<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;找不到对应的服务&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//获取令牌的url
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String path <span style="color:#000;font-weight:bold">=</span> serviceInstance<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUri</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">toString</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;/oauth/token&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//定义body
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        MultiValueMap<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> formData <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> LinkedMultiValueMap<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//授权方式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        formData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;grant_type&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//账号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        formData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//密码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        formData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;password&#34;</span><span style="color:#000;font-weight:bold">,</span> password<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//定义头 必须声明为String，String泛型，要不然做Basic Auth会失败
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        MultiValueMap<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> header <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> LinkedMultiValueMap<span style="color:#000;font-weight:bold">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        header<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Authorization&#34;</span><span style="color:#000;font-weight:bold">,</span> httpbasic<span style="color:#000;font-weight:bold">(</span>clientId<span style="color:#000;font-weight:bold">,</span> clientSecret<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//指定 restTemplate当遇到400或401响应时候也不要抛出异常，也要正常返回值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//内部类重写快捷键 alt+insert
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        restTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setErrorHandler</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> DefaultResponseErrorHandler<span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">handleError</span><span style="color:#000;font-weight:bold">(</span>ClientHttpResponse response<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#998;font-style:italic">////当发生错误的时候只有状态码不是400或者401才返回错误,其他情况正常响应
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>                <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRawStatusCode</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">!=</span> 400 <span style="color:#000;font-weight:bold">&amp;&amp;</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRawStatusCode</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">!=</span> 401<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">super</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">handleError</span><span style="color:#000;font-weight:bold">(</span>response<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">});</span>
+</span></span><span style="display:flex;"><span>        Map map <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//http请求spring security的申请令牌接口
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            ResponseEntity<span style="color:#000;font-weight:bold">&lt;</span>Map<span style="color:#000;font-weight:bold">&gt;</span> mapResponseEntity <span style="color:#000;font-weight:bold">=</span> restTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">exchange</span><span style="color:#000;font-weight:bold">(</span>path<span style="color:#000;font-weight:bold">,</span> HttpMethod<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">POST</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000;font-weight:bold">new</span> HttpEntity<span style="color:#000;font-weight:bold">&lt;</span>MultiValueMap<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;&gt;(</span>formData<span style="color:#000;font-weight:bold">,</span> header<span style="color:#000;font-weight:bold">),</span> Map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//获取响应数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            map <span style="color:#000;font-weight:bold">=</span> mapResponseEntity<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBody</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>RestClientException e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">throw</span> <span style="color:#000;font-weight:bold">new</span> RuntimeException<span style="color:#000;font-weight:bold">(</span>e<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>map <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span> <span style="color:#000;font-weight:bold">||</span> map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;access_token&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span> <span style="color:#000;font-weight:bold">||</span> map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;refresh_token&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span> <span style="color:#000;font-weight:bold">||</span> map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;jti&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//jti是jwt令牌的唯一标识作为用户身份令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#000;font-weight:bold">throw</span> <span style="color:#000;font-weight:bold">new</span> RuntimeException<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;创建令牌失败！&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#998;font-style:italic">//将响应数据封装成AuthToken对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        AuthToken authToken <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> AuthToken<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        authToken<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAccessToken</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;access_token&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">toString</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        authToken<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setRefreshToken</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;refresh_token&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">toString</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        authToken<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setJti</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;jti&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">toString</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> authToken<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * base64编码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param clientId
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param clientSecret
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String <span style="color:#900;font-weight:bold">httpbasic</span><span style="color:#000;font-weight:bold">(</span>String clientId<span style="color:#000;font-weight:bold">,</span>String clientSecret<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//将客户端id和客户端密码拼接，按“客户端id:客户端密码”
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String string <span style="color:#000;font-weight:bold">=</span> clientId<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;:&#34;</span><span style="color:#000;font-weight:bold">+</span>clientSecret<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//进行base64编码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> encode <span style="color:#000;font-weight:bold">=</span> Base64Utils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">encode</span><span style="color:#000;font-weight:bold">(</span>string<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBytes</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#34;Basic &#34;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#000;font-weight:bold">new</span> String<span style="color:#000;font-weight:bold">(</span>encode<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>注意：HttpBasic协议验证规则 ,在请求头传递  Authorization  值为   Basic+半角空格+Base64Encode客户端id:客户端密码</p>
+<h3 id="525--控制层">5.2.5  控制层</h3>
+<p>创建控制层com.offcn.oauth.controller.AuthController，编写用户登录授权方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RequestMapping</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/user&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">AuthController</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//客户端ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${auth.clientId}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String clientId<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//秘钥
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${auth.clientSecret}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String clientSecret<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//Cookie存储的域名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${auth.cookieDomain}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String cookieDomain<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//Cookie生命周期
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${auth.cookieMaxAge}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> cookieMaxAge<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    AuthService authService<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//登录方法
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@PostMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;login&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Result <span style="color:#900;font-weight:bold">login</span><span style="color:#000;font-weight:bold">(</span>String username<span style="color:#000;font-weight:bold">,</span> String password<span style="color:#000;font-weight:bold">,</span> HttpServletResponse response<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//判断用户是否为空
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>StringUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">isEmpty</span><span style="color:#000;font-weight:bold">(</span>username<span style="color:#000;font-weight:bold">)){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">throw</span> <span style="color:#000;font-weight:bold">new</span> RuntimeException<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;用户名不能为空&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//判断密码是否为空
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>StringUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">isEmpty</span><span style="color:#000;font-weight:bold">(</span>password<span style="color:#000;font-weight:bold">)){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">throw</span> <span style="color:#000;font-weight:bold">new</span> RuntimeException<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;密码不能为空&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//调用服务，申请令牌
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//注意客户端id：clientId、客户端密码，从配置文件读取，一定要保持和数据库中的一致
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        AuthToken authToken <span style="color:#000;font-weight:bold">=</span> authService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">login</span><span style="color:#000;font-weight:bold">(</span>username<span style="color:#000;font-weight:bold">,</span> password<span style="color:#000;font-weight:bold">,</span> clientId<span style="color:#000;font-weight:bold">,</span> clientSecret<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//保存令牌到cookie
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        CookieUtil<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>response<span style="color:#000;font-weight:bold">,</span>cookieDomain<span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;/&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;Authorization&#34;</span><span style="color:#000;font-weight:bold">,</span>authToken<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAccessToken</span><span style="color:#000;font-weight:bold">(),</span>cookieMaxAge<span style="color:#000;font-weight:bold">,</span><span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span> StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;登录成功&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>修改主启动类，声明RestTemplate</p>
+<pre tabindex="0"><code> @Bean
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
+</code></pre><h3 id="527-测试认证接口">5.2.7 测试认证接口</h3>
+<p>使用postman测试：</p>
+<p>Post请求：http://localhost:9100/user/login <br>
+<img src="/posts/project-0/20220528165279/image-20220528170102492.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>可以看到本cookie已经写入了token</p>
+<p><img src="/posts/project-0/20220528165279/image-20220528170109368.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.vercel.app/posts/project/_20220529000803/">← 微信小程序开发入门</a></div>
+    <div><a href="https://lovemjh.vercel.app/posts/project/20220528222829/">tk-SpringCloudAlibaba  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+    </body>
+</html>

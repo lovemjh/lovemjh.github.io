@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="Java基础语法 - https://lovemjh.vercel.app/posts/java-1/20220430195346/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>Java基础语法</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.vercel.app/style.min.ef012369a26adc2a21396230b3395dfcd5975a3082a65b82785cbc0b446f2a2c.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            Java基础语法
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2021-10-15&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2021-10-15&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            7032 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            15 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/java-1/20220430200635/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/_java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#java基础语法">Java基础语法</a></li>
+        <li><a href="#关键字和标识符">关键字和标识符</a></li>
+        <li><a href="#注释">注释</a></li>
+        <li><a href="#权限修饰符">权限修饰符</a></li>
+        <li><a href="#变量-常量和数据类型">变量 、常量和数据类型</a>
+          <ul>
+            <li><a href="#常量">常量：</a></li>
+            <li><a href="#变量">变量：</a></li>
+            <li><a href="#java-基本数据类型">Java 基本数据类型：</a>
+              <ul>
+                <li><a href="#基本数据类型简单数据类型">基本数据类型(简单数据类型):</a>
+                  <ul>
+                    <li><a href="#整数类型">整数类型：</a>
+                      <ul>
+                        <li><a href="#byte">byte：</a></li>
+                        <li><a href="#short">short：</a></li>
+                        <li><a href="#int">int：</a></li>
+                        <li><a href="#long">long：</a></li>
+                        <li><a href="#代码">代码</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#浮点数类型--">浮点数类型  ：</a>
+                      <ul>
+                        <li><a href="#float">float：</a></li>
+                        <li><a href="#double">double：</a></li>
+                        <li><a href="#代码-1">代码</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#字符类型">字符类型：</a></li>
+                    <li><a href="#布尔类型">布尔类型：</a></li>
+                  </ul>
+                </li>
+                <li><a href="#引用数据类型复杂数据类型">引用数据类型(复杂数据类型)：</a></li>
+                <li><a href="#字节">字节:</a></li>
+                <li><a href="#变量和常量的声明">变量和常量的声明</a></li>
+                <li><a href="#变量和常量的赋值">变量和常量的赋值</a></li>
+                <li><a href="#声明与赋值的简写形式">声明与赋值的简写形式</a></li>
+                <li><a href="#代码-2">代码</a></li>
+              </ul>
+            </li>
+            <li><a href="#变量的作用域">变量的作用域</a>
+              <ul>
+                <li><a href="#变量的作用域-1">变量的作用域</a></li>
+                <li><a href="#代码-3">代码</a></li>
+              </ul>
+            </li>
+            <li><a href="#数据类型转换">数据类型转换</a>
+              <ul>
+                <li><a href="#数据类型转换-1">数据类型转换</a></li>
+                <li><a href="#代码-4">代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#算术运算符">算术运算符</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#算术运算符-1">算术运算符</a></li>
+                <li><a href="#代码-5">代码：</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#赋值运算符">赋值运算符</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#赋值运算符-1">赋值运算符</a></li>
+                <li><a href="#代码-6">代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#比较运算符">比较运算符</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#比较运算符-1">比较运算符</a></li>
+                <li><a href="#代码-7">代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#逻辑运算符">逻辑运算符</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#逻辑运算符-1">逻辑运算符</a></li>
+                <li><a href="#代码-8">代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#三元运算符">三元运算符</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#三元运算符-1">三元运算符</a></li>
+                <li><a href="#代码-9">代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#进制">进制</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#进制-1">进制</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#计算机中数据的存储">计算机中数据的存储</a>
+          <ul>
+            <li><a href="#概述">概述</a></li>
+            <li><a href="#从计算机中取出二进制的数据">从计算机中取出二进制的数据</a></li>
+            <li><a href="#总结">总结</a></li>
+          </ul>
+        </li>
+        <li><a href="#位运算">位运算</a>
+          <ul>
+            <li><a href="#概述-1">概述</a></li>
+            <li><a href="#heading">&laquo;</a></li>
+            <li><a href="#heading-1">&raquo;</a></li>
+            <li><a href="#heading-2">&raquo;&gt;</a></li>
+            <li><a href="#代码-10">代码</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h2 id="java基础语法">Java基础语法</h2>
+<h2 id="关键字和标识符">关键字和标识符</h2>
+<ul>
+<li>
+<p>关键字：java赋予了特殊含义的单词。</p>
+<p>例如:</p>
+<p>class类public公开的void无返回值</p>
+</li>
+<li>
+<p>关键字特点：</p>
+<p>一般都是小写。</p>
+</li>
+<li>
+<p>保留字:java暂时没用，但是不保证后面不用</p>
+<p>goto const</p>
+</li>
+</ul>
+<p><img src="/posts/Java-1/20220430195346/image-20220430205709890.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<ul>
+<li>
+<p>标识符:程序员为类、方法、变量等成员起的字符序列,用于区分不同的成员的,起标识作用的符号</p>
+</li>
+<li>
+<p>标识符起名规则:</p>
+<ol>
+<li>
+<p>字母 数字 _ $ 组成，并且数字不能开头</p>
+</li>
+<li>
+<p>支持中文，区分大小写。但是不建议用中文，也不建议通过大小写区分。</p>
+</li>
+<li>
+<p>见名之意</p>
+</li>
+<li>
+<p>驼峰原则</p>
+<p>大驼峰:从每个单词首字母大写.给类起名.例如:AxxBxx</p>
+<p>小驼峰:从第二个单词开始首字母大写.给变量、方法.例如:axxBxx</p>
+</li>
+<li>
+<p>不能用关键字。</p>
+</li>
+<li>
+<p>不能用java提供的类名。</p>
+</li>
+<li>
+<p>String</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="注释">注释</h2>
+<ol>
+<li>
+<p>注释作用：解释说明代码的.</p>
+</li>
+<li>
+<p><strong>分类</strong>:<img src="/posts/Java-1/20220430195346/image-20220430205759163.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<ol>
+<li>单行注释：对一行有效      //</li>
+<li>多行注释:对多行有效但是不能嵌套使用/*        */由于不能嵌套这个地方中间用了一个空格。</li>
+<li>文档注释:/**         */由于不能嵌套，这个地方中间用了一个空格。</li>
+</ol>
+</li>
+<li>
+<p>注释好处：</p>
+<ol>
+<li>解释说明</li>
+<li>排错</li>
+<li>梳理思路</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>
+<p>代码:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 1.注释作用：解释说明代码的.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 2.分类:
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    1&gt;单行注释：对一行有效//
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    2&gt;多行注释:对多行有效但是不能嵌套使用/*  */</span>由于不能嵌套<span style="color:#a61717;background-color:#e3d2d2">，</span>这个地方中间用了一个空格<span style="color:#a61717;background-color:#e3d2d2">。</span>
+</span></span><span style="display:flex;"><span>    3<span style="color:#000;font-weight:bold">&gt;</span>文档注释<span style="color:#000;font-weight:bold">:</span><span style="color:#998;font-style:italic">/** */</span>由于不能嵌套<span style="color:#a61717;background-color:#e3d2d2">，</span>这个地方中间用了一个空格<span style="color:#a61717;background-color:#e3d2d2">。</span>
+</span></span><span style="display:flex;"><span> 3<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">注释好处</span><span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">①</span>解释说明
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">②</span>排错
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">③</span>梳理思路
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">*/</span>
+</span></span></code></pre></div></li>
+</ul>
+<p>注释快捷键</p>
+<p>快捷键:</p>
+<p>注释：</p>
+<ol>
+<li>单行注释 // ctrl+ /</li>
+<li>多行注释 ctrl+shift +/</li>
+<li>文档注释</li>
+</ol>
+<h2 id="权限修饰符">权限修饰符</h2>
+<p><strong>权限修饰符</strong>：</p>
+<ul>
+<li>四种权限：</li>
+</ul>
+<ol>
+<li>public：公开的，在整个项目中都可以访问。</li>
+<li>protected：受保护的，当前包和其它包的子类。</li>
+<li>default/friendly 这种就是省略不                                                                       写，表示该种，没有权限修饰符的 专门词。 默认的 本包可以访问</li>
+<li>private 私有的 本类可以访问。</li>
+</ol>
+<h2 id="变量-常量和数据类型">变量 、常量和数据类型</h2>
+<h3 id="常量">常量：</h3>
+<ul>
+<li>
+<p>概念：内存中开辟的一块存储区域，该区域存储的值不能发生改变的，称为常量.</p>
+<p>例如：1 12.5 长虹 true</p>
+</li>
+<li>
+<p>常量的分类：</p>
+<p>字面值常量:例如：1 12.5 长虹 true</p>
+</li>
+<li>
+<p>整数常量 浮点数常量 字符常量 布尔常量</p>
+<ul>
+<li>符号常量: 例如： a b</li>
+</ul>
+</li>
+</ul>
+<h3 id="变量">变量：</h3>
+<ul>
+<li>概念：内存中开辟的一块存储区域，该区域存储的值可以改变，称为变量。</li>
+</ul>
+<h3 id="java-基本数据类型">Java 基本数据类型：</h3>
+<p>变量就是申请内存来存储值。也就是说，当创建变量的时候，需要在内存中申请空间。</p>
+<p>内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。
+<img src="/posts/Java-1/20220430195346/image-20220430205823286.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>因此，通过定义不同类型的变量，可以在内存中储存整数、小数或者字符。</p>
+<p>Java 的两大数据类型:</p>
+<ul>
+<li>内置数据类型</li>
+<li>引用数据类型</li>
+</ul>
+<h4 id="基本数据类型简单数据类型">基本数据类型(简单数据类型):</h4>
+<p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
+<h5 id="整数类型">整数类型：</h5>
+<h6 id="byte">byte：</h6>
+<p>byte 字节型 1个字节</p>
+<p>byte 数据类型是8位、有符号的，以二进制补码表示的整数；</p>
+<p>最小值是 <strong>-128（-2^7）</strong>；</p>
+<p>最大值是 <strong>127（2^7-1）</strong>；</p>
+<p>默认值是 <strong>0</strong>；</p>
+<p>byte 类型用在大型数组中节约空间，主要代替整数，因为 byte 变量占用的空间只有 int 类型的四分之一；</p>
+<p>例子：byte a = 100，byte b = -50。</p>
+<h6 id="short">short：</h6>
+<p>short 短整型 2个字节</p>
+<p>short 数据类型是 16 位、有符号的以二进制补码表示的整数</p>
+<p>最小值是 <strong>-32768（-2^15）</strong>；</p>
+<p>最大值是 <strong>32767（2^15 - 1）</strong>；</p>
+<p>Short 数据类型也可以像 byte 那样节省空间。一个short变量是int型变量所占空间的二分之一；</p>
+<p>默认值是 <strong>0</strong>；</p>
+<p>例子：short s = 1000，short r = -20000。</p>
+<h6 id="int">int：</h6>
+<p>int 整型 4个字节</p>
+<p>int 数据类型是32位、有符号的以二进制补码表示的整数；</p>
+<p>最小值是 <strong>-2,147,483,648（-2^31）</strong>；</p>
+<p>最大值是 <strong>2,147,483,647（2^31 - 1）</strong>；</p>
+<p>一般地整型变量默认为 int 类型；</p>
+<p>默认值是 <strong>0</strong> ；</p>
+<p>例子：int a = 100000, int b = -200000。</p>
+<h6 id="long">long：</h6>
+<p>long 长整型  8个字节</p>
+<p>long 数据类型是 64 位、有符号的以二进制补码表示的整数；</p>
+<p>最小值是 <strong>-9,223,372,036,854,775,808（-2^63）</strong>；</p>
+<p>最大值是 <strong>9,223,372,036,854,775,807（2^63 -1）</strong>；</p>
+<p>这种类型主要使用在需要比较大整数的系统上；</p>
+<p>默认值是 <strong>0L</strong>；</p>
+<p>例子： long a = 100000L，Long b = -200000L。
+&ldquo;L&quot;理论上不分大小写，但是若写成&quot;l&quot;容易与数字&quot;1&quot;混淆，不容易分辩。所以最好大写。</p>
+<h6 id="代码">代码</h6>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">整数类型</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//声明一个byte类型的变量，存储数据100
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*byte b = 100; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(b);*/</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//声明一个long类型的变量,存储数据1234567890123456 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//注意: 默认没有指定数据类型时，为int类型，那么会存在溢出问题，需要加l或L表示是 long类型。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">long</span> l <span style="color:#000;font-weight:bold">=</span> 1234567890123456l<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>l<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h5 id="浮点数类型--">浮点数类型  ：</h5>
+<h6 id="float">float：</h6>
+<p>float 单精度浮点型 4个字节</p>
+<p>float 数据类型是单精度、32位、符合IEEE 754标准的浮点数；</p>
+<p>float 在储存大型浮点数组的时候可节省内存空间；</p>
+<p>默认值是 <strong>0.0f</strong>；</p>
+<p>浮点数不能用来表示精确的值，如货币；</p>
+<p>例子：float f1 = 234.5f。</p>
+<h6 id="double">double：</h6>
+<p>double 双精度浮点型 8 个字节</p>
+<p>double 数据类型是双精度、64 位、符合 IEEE 754 标准的浮点数；</p>
+<p>浮点数的默认类型为 double 类型；</p>
+<p>double类型同样不能表示精确的值，如货币；</p>
+<p>默认值是 <strong>0.0d</strong>；</p>
+<p>默认没有指定数据类型时，double为默认类型。</p>
+<p>浮点型在使用的时候，都会有精度损失问题。是一个近似值。在银行等要求精度高的项目中， 使用BigDecimal类来计算。</p>
+<h6 id="代码-1">代码</h6>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.math.BigDecimal</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">浮点数类型</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//声明一个double类型的变量，并且赋值为12.5 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">double</span> d <span style="color:#000;font-weight:bold">=</span> 12<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">51</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>d<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        BigDecimal bg <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> BigDecimal<span style="color:#000;font-weight:bold">(</span>d<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>bg<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//声明一个float类型的变量,并且赋值为12.51 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//注意:为float类型数据赋值时，必须指定为float类型，可以通过加f或F表示
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">float</span> f <span style="color:#000;font-weight:bold">=</span> 12<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">51f</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        BigDecimal bg1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> BigDecimal<span style="color:#000;font-weight:bold">(</span>f<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>bg1<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h5 id="字符类型">字符类型：</h5>
+<ul>
+<li>
+<p>字符类型:char 2个字节 0-65535</p>
+<ul>
+<li>
+<p>① 常见写法:</p>
+<ul>
+<li>
+<p>格式：</p>
+<p>&lsquo;&lsquo;引起来的单个字符</p>
+<p>例如：&lsquo;a&rsquo;</p>
+</li>
+</ul>
+</li>
+<li>
+<p>② 数字</p>
+</li>
+<li>
+<p>③ unicode码的形式:</p>
+<ul>
+<li>格式:&rsquo;\u0000&rsquo;</li>
+</ul>
+</li>
+<li>
+<p>④ (***)转义字符：</p>
+<ul>
+<li>
+<p>格式：</p>
+<p>&lsquo;\t&rsquo;制表符 表示8个位置的空格</p>
+<p>&lsquo;\r&rsquo;回车</p>
+<p>&lsquo;\n&rsquo;换行</p>
+<p>在window系统下 \r\n连用</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>代码</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">字符</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// ① 常见写法: 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//声明一个变量 赋值为&#39;a&#39; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*char m = &#39;我&#39;; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(m);*/</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// ② 数字 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//声明一个变量，赋值为97 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*char m1 = 97; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        // m1 = m1 + 3; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(m1);*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//③ unicode码的形式: 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*char m2 = &#39;\u4e50&#39;; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(m2);*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*④ 转义字符：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        格式：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        	&#39;\t&#39;制表符 表示8个位置的空格
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">            &#39;\r&#39;回车 &#39;\n&#39;换行
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">         */</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*System.out.print(&#34;aaa&#34;); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.print(&#39;\t&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(&#34;bbb&#34;);*/</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;\&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h5 id="布尔类型">布尔类型：</h5>
+<p><strong>boolean：</strong></p>
+<ul>
+<li>
+<p>boolean数据类型表示一位的信息；</p>
+</li>
+<li>
+<p>只有两个取值：true 和 false；</p>
+</li>
+<li>
+<p>这种类型只作为一种标志来记录 true/false 情况；</p>
+</li>
+<li>
+<p>默认值是 <strong>false</strong>；</p>
+</li>
+<li>
+<p>例子：boolean one = true。</p>
+</li>
+<li>
+<p>boolean 表示 值只有true或false 没有其他的值。</p>
+</li>
+<li>
+<p>代码</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">布尔类型</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//声明一个布尔类型的变量 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">boolean</span> flag <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span> <span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">boolean</span> flag1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h4 id="引用数据类型复杂数据类型">引用数据类型(复杂数据类型)：</h4>
+<p>数组</p>
+<p>类： String (不是基本数据类型)</p>
+<p>接口:</p>
+<h4 id="字节">字节:</h4>
+<p>bit ：比特。计算机中存储的都是0或者1 ，一个0或者1表示一位，称为比特。</p>
+<p>byte：8个0或者1表示一个字节。用B表示。</p>
+<p>1KB = 1024 B</p>
+<p>K M G T</p>
+<h4 id="变量和常量的声明">变量和常量的声明</h4>
+<p>变量格式：</p>
+<p>​	数据类型 变量的名称(标识符)</p>
+<p>注意：</p>
+<p>​	不能多次声明，但是可以多次赋值，对于变量来说。</p>
+<p>常量格式:</p>
+<p>​	final 数据类型 常量的名称</p>
+<p>注意:</p>
+<p>​	常量的名称 往往都大写</p>
+<h4 id="变量和常量的赋值">变量和常量的赋值</h4>
+<p>变量的名称 = 数据值</p>
+<p>注意:</p>
+<p>​	= 在java上有个专业术语 称为赋值符号，该符号将右侧的数据值赋值给左侧。</p>
+<h4 id="声明与赋值的简写形式">声明与赋值的简写形式</h4>
+<p>数据类型 变量的名称 = 数据值</p>
+<p>final 数据类型 常量的名称 = 数据值</p>
+<h4 id="代码-2">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">1.变量的声明和赋值：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">① 声明: 数据类型 变量名称 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">② 赋值: 变量名称 = 数据值 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">变量</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//声明一个int类型的变量，并且存储数据为15 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//常量声明需要加final，变量不需要 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*final*/</span> <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//赋值 a = 15 ; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        a <span style="color:#000;font-weight:bold">=</span> 20<span style="color:#000;font-weight:bold">;</span> System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//声明一个常量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">final</span> <span style="color:#458;font-weight:bold">int</span> B <span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="变量的作用域">变量的作用域</h3>
+<h4 id="变量的作用域-1">变量的作用域</h4>
+<p>1.变量的作用域：</p>
+<ul>
+<li>变量的使用范围.</li>
+</ul>
+<p>2.常见作用域:(位置)</p>
+<ul>
+<li>
+<p>1&gt; 全局变量: 类中方法外</p>
+<ul>
+<li>作用域：整个类中，类中所有的方法都可以使用该变量</li>
+</ul>
+</li>
+<li>
+<p>2&gt; 局部变量: 方法中</p>
+<ul>
+<li>作用域: 方法中，出了该方法，就不能被使用。</li>
+</ul>
+</li>
+</ul>
+<p>3.全局变量与局部变量区别：</p>
+<ul>
+<li>
+<p>1&gt; 局部变量要先声明赋值然后再使用。</p>
+<ul>
+<li>全局变量一旦声明后，就有默认值。</li>
+</ul>
+</li>
+<li>
+<p>2&gt; 当全局变量与局部变量重名时，就近原则，局部优先。</p>
+</li>
+</ul>
+<p>4.全局变量的默认值.</p>
+<ul>
+<li>
+<p>1&gt; (***)基本数据类型：</p>
+<ul>
+<li>整数类型： byte short int long 默认值 0</li>
+<li>浮点数类型: float double 默认值0.0</li>
+<li>布尔类型: boolean 默认值false</li>
+<li>字符类型： char 默认值 &lsquo;\u0000&rsquo;</li>
+</ul>
+</li>
+<li>
+<p>2&gt; (***)引用数据类型:</p>
+<ul>
+<li>String    默认值:null</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码-3">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">变量的作用域</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">int</span> b <span style="color:#000;font-weight:bold">=</span> 20<span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">//全局变量 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">int</span> c <span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">byte</span> b1<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">short</span> b2<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">double</span> d<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">char</span> c1<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">boolean</span> b3<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> String s<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//声明一个int类型的变量 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span> 10<span style="color:#000;font-weight:bold">;</span> <span style="color:#998;font-style:italic">//局部变量 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// 1&gt; 局部变量要先声明赋值然后再使用。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> m <span style="color:#000;font-weight:bold">=</span> 5<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//System.out.println(m);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*System.out.println(&#34;c=&#34;+c);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(&#34;b1=&#34;+b1);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(&#34;b2=&#34;+b2);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(&#34;d=&#34;+d);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(&#34;c1=&#34;+c1);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(&#34;b3=&#34;+b3);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(&#34;s=&#34;+s);*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//重名问题 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> b <span style="color:#000;font-weight:bold">=</span> 30<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>b<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">add</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>c<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="数据类型转换">数据类型转换</h3>
+<h4 id="数据类型转换-1">数据类型转换</h4>
+<p>1.数据的运算 25 + 13</p>
+<p>2.操作数据，数据的运算原则:</p>
+<p>​	同种数据类型进行运算,如果数据类型不同，要转换成相同数据类型才能运算。</p>
+<p>​	并且运算结果也是同种数据类型。</p>
+<p>3.数据类型转换分类：</p>
+<p>​	1》自动类型提升：从小的空间转换成大的空间。</p>
+<p>​		byte short char -&gt; int-&gt; long -&gt; float -&gt; double</p>
+<p>​	注意：</p>
+<p>​		byte short char但凡运算，都会转成int类型。</p>
+<p>​	2》强制类型转换: 从大的空间转换成小的空间。</p>
+<p>​	格式：</p>
+<p>​		(要转换成的数据类型) 要转换的变量/数据</p>
+<p>​	注意：</p>
+<p>​		强制类型转换可能会发生精度损失问题</p>
+<h4 id="代码-4">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">数据类型转换</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//1》自动类型提升
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*System.out.println( 25 + 13 ); //25 int 13 int ==&gt; int
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println( 25 + 13.0 );//25 int 13 double ==&gt; 25 double 13 double ==》double 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println( 25 / 13 );// 25 int 13 int ==&gt; int
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println( 25/13.0 );*/</span><span style="color:#998;font-style:italic">//25 int 13 double ==&gt; 25 double 13 double ==》double 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//2》自动类型提升需要注意的事项,byte short char 都会自动转int类型，才运算。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">byte</span> a <span style="color:#000;font-weight:bold">=</span> 127<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span> b <span style="color:#000;font-weight:bold">=</span> 1<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*byte c = a + b ;*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//3》 强制类型转换 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//将上述的数据 存储到byte类型的c中 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">byte</span> c <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">)(</span>a <span style="color:#000;font-weight:bold">+</span> b<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//System.out.println(c); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">char</span> c1 <span style="color:#000;font-weight:bold">=</span> 97 <span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        c1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">char</span><span style="color:#000;font-weight:bold">)(</span>c1 <span style="color:#000;font-weight:bold">+</span> 3<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>c1<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="算术运算符">算术运算符</h2>
+<h4 id="算术运算符-1">算术运算符</h4>
+<p>1.算术运算符:</p>
+<p><code>+ - * / ``%</code></p>
+<p>加  减  乘  除  取余/模</p>
+<p>2.<code>++ /--</code></p>
+<p>自增 / 自减</p>
+<p>在变量原有基础上加1 然后赋值给变量.</p>
+<p>格式:</p>
+<p>a++:变量在前 ,先取变量的值，然后自身加1</p>
+<p>++a:变量在后,先自身加1，然后再去变量的值</p>
+<p>3.加号的用法：</p>
+<p>① 加法：</p>
+<p>② 正号（正数）:+5 -5</p>
+<p>③ 表示字符串的拼接：</p>
+<p>但凡有一侧有字符串，表示字符串的拼接，如果两侧都是数字，表示加法运算</p>
+<h4 id="代码-5">代码：</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">算术运算符</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*System.out.println( 5 % 2 );
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println( 5 / 2 );*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//自增 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span> 5<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//a++ ; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//++a;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//int b = a++; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//int b = ++a; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//int b = (++a)+(a++)+(++a); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int</span> b <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">--)</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">(++</span>a<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">(--</span>a<span style="color:#000;font-weight:bold">)+</span> <span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">++);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*System.out.println(a);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(b);*/</span> 
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//③ 表示字符串的拼接： 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String s <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;abc&#34;</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span> 123 <span style="color:#000;font-weight:bold">+</span> 45 <span style="color:#000;font-weight:bold">+</span> s<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="赋值运算符">赋值运算符</h2>
+<h4 id="赋值运算符-1">赋值运算符</h4>
+<p>用来给变量赋值</p>
+<p>1.赋值运算符 :</p>
+<p>基本赋值运算符: <code>=</code></p>
+<p>扩展赋值运算符: <code>+= 、 -= 、 *= 、 /= 、 %= </code></p>
+<p>2.作用：</p>
+<p>① 简化书写。</p>
+<p>② 自动类型转换。</p>
+<p>注意：</p>
+<p>可能会有精度损失问题。</p>
+<h4 id="代码-6">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">赋值运算符</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span> 5<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int</span> b <span style="color:#000;font-weight:bold">=</span> 7 <span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        b <span style="color:#000;font-weight:bold">=</span> b <span style="color:#000;font-weight:bold">+</span> a<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//简写 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        b <span style="color:#000;font-weight:bold">+=</span> a<span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">// b = b+a 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span> m <span style="color:#000;font-weight:bold">=</span> 10<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">byte</span> k <span style="color:#000;font-weight:bold">=</span> 15<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//笔试简单题:以下两种方式，哪种可以编译成功。第一种可以编译成功，第二种不行， 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//不行的原因在于，对于数据类型运算来说，byte类型的数据需要转换成int才能运算， 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//不能放置在byte类型的空间里，如果要放,必须要强制类型转换，而第一种，可以自动类 型转换。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//k -= m; 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        k <span style="color:#000;font-weight:bold">=</span> k<span style="color:#000;font-weight:bold">-</span>m <span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="比较运算符">比较运算符</h2>
+<h4 id="比较运算符-1">比较运算符</h4>
+<p>1.比较运算符:</p>
+<p><code>&gt; &lt; &gt;= &lt;=</code></p>
+<p><code>== </code>等于</p>
+<p><code>!=</code>不等于</p>
+<p>运算结果：都是布尔类型的值 true/false</p>
+<p>注意:</p>
+<p><code>a &lt; b &lt; c </code></p>
+<p>在java中不允许，java中比较运算只有一个运算符。</p>
+<p>如果非要用这种形式，可以通过逻辑运算符进行连接。</p>
+<h4 id="代码-7">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">比较运算符</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span> 2 <span style="color:#000;font-weight:bold">&gt;</span> 3<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>2 <span style="color:#000;font-weight:bold">==</span> 5 <span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>3 <span style="color:#000;font-weight:bold">!=</span> 5<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="逻辑运算符">逻辑运算符</h2>
+<h4 id="逻辑运算符-1">逻辑运算符</h4>
+<p>\1. 逻辑运算符</p>
+<p>​	<code>&amp;   &amp;&amp;   |   ||   ^   ! </code></p>
+<p>与    逻辑与   或    逻辑或    异或       非</p>
+<p>\2. &amp; 与：集合中的交集</p>
+<p>​	true &amp; true &ndash;》 true</p>
+<p>​	true &amp; false &ndash;》 false</p>
+<p>​	false &amp; true &ndash;》 false</p>
+<p>​	false &amp; false &ndash;》 false</p>
+<p>3.&amp;&amp;与&amp;的区别：</p>
+<p>​	&amp;&amp; 称为短路与，一般用于逻辑运算。当第一个表达式结果为false的情况下，第二个表达式不再执行。</p>
+<p>​	&amp; 一般用于位运算，不参与逻辑运算。</p>
+<p>4.| 或： 集合中的并集</p>
+<p>​	true | true &ndash;》 true</p>
+<p>​	true | false &ndash;》 true</p>
+<p>​	false | true &ndash;》 true</p>
+<p>​	false | false &ndash;》 false</p>
+<p>\5. (***)||与|的区别</p>
+<p>​	|| 称为短路或，一般用于逻辑运算。当第一个表达式结果为true的情况下，第二个表达式不再执行。</p>
+<p>​	| 一般用于位运算，不参与逻辑运算。</p>
+<p>6.^ 异或 :相同为false 相异为true</p>
+<p>7.! 非 ，取反</p>
+<h4 id="代码-8">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">逻辑运算符</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//a&lt;b&lt;c b大于2 小于10 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">int</span> b <span style="color:#000;font-weight:bold">=</span> 5<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*System.out.println(2 &lt; b || (++b) &lt; 10); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(b);*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//^ 异或 :相同为false 相异为true
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//System.out.println(true ^ false ); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// 7.! 非
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(!</span><span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="三元运算符">三元运算符</h2>
+<h4 id="三元运算符-1">三元运算符</h4>
+<p>1.三元运算符 ： 三目运算符</p>
+<p>格式：</p>
+<p>​	结果为true或false</p>
+<p><code>表达式 ? 表达式1(true) : 表达式2 (false) </code></p>
+<p>注意：</p>
+<p>​	其中 表达式1 和2 ，数据类型其实可以不一致，但是建议一致。</p>
+<h4 id="代码-9">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">三元运算符</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span> 5<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">&gt;</span>7 <span style="color:#000;font-weight:bold">?</span> 1 <span style="color:#000;font-weight:bold">:</span> 2<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//String b = a&gt;7 ? &#34;1&#34; :2;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">&gt;</span>7 <span style="color:#000;font-weight:bold">?</span> <span style="color:#d14">&#34;1&#34;</span> <span style="color:#000;font-weight:bold">:</span>2<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="进制">进制</h2>
+<h4 id="进制-1">进制</h4>
+<ul>
+<li>
+<p>常见进制</p>
+<p>​	① 二进制：组成0 1 ，前缀0b</p>
+<p>​	② 八进制：组成0-7， 前缀0</p>
+<p>③ 十进制：组成 0-9</p>
+<p>④ 十六进制：组成0-9 abcdef 10-15用字符来表示,前缀0x</p>
+</li>
+<li>
+<p>计算机的进制：二进制</p>
+<p>① 数的进制：逢?进一</p>
+<p>二进制: 0 1</p>
+<p>八进制: 0-7</p>
+<p>十进制: 0-9</p>
+<p>十六进制: 0-9 a-f a 10 b 11 c 12 d 13 e 14 f 15</p>
+<p>② 写法：</p>
+<p>15 默认为十进制。</p>
+<p>二进制前缀 0b</p>
+<p>八进制 0</p>
+<p>十六进制 0x</p>
+<p>③ 进制的转换:</p>
+</li>
+<li>
+<p>十进制与二进制之间的转换:</p>
+</li>
+</ul>
+<p>将十进制转换成二进制: 除商取余倒序输出</p>
+<p>转换成二进制：除以2，直到商为0，将余数倒序输出。</p>
+<p>例如：</p>
+<p>13</p>
+<p>转成二进制：</p>
+<p>1101
+<img src="/posts/Java-1/20220430195346/image-20220430205922912.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<ul>
+<li>
+<p>十进制转其它进制</p>
+<p>除商取余倒序输出，转几进制就除以几，直到商为0，倒序输出余数</p>
+</li>
+<li>
+<p>将二进制转换成十进制: 位权法</p>
+<p>位权:每一位上代表的基数值</p>
+<p>位权指数制中每一固定位置对应的单位值</p>
+</li>
+</ul>
+<p>例如 ：十进制 1025 &ndash;》 1 表示千位 位权 10^3 2 表示十位 位权 10^1</p>
+<p>二进制 1101 &ndash;》
+<img src="/posts/Java-1/20220430195346/image-20220430205935667.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<ul>
+<li>
+<p>任意进制转换成十进制</p>
+<p>位权法： 系数乘以该进制的位权之和。</p>
+</li>
+<li>
+<p>二进制与八 、十六进制转换</p>
+</li>
+</ul>
+<p>三个二进制位表示一个八进制位，四个二进制位表示一个十六进制位。</p>
+<p>例如：</p>
+<p>015</p>
+<p>转二进制</p>
+<p>00001101</p>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**1.常见进制: 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">① 二进制：组成0 1 ，前缀0b 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">② 八进制：组成0-7， 前缀0 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">③ 十进制：组成 0-9
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">④ 十六进制：组成0-9 abcdef 10-15用字符来表示,前缀0x 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">2.进制转换：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">① 十进制与二进制转换。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">进制</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>0b11<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>23<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>023<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>0x23<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="计算机中数据的存储">计算机中数据的存储</h2>
+<h3 id="概述">概述</h3>
+<p>1.计算机中数据存储都是以二进制的形式进行存储。</p>
+<p>(***)2.数据存放以二进制补码的形式进行存放。</p>
+<p>3.一个字节为例：</p>
+<p>+0 0000 0000</p>
+<p>-0 1000 0000</p>
+<p>4.计算机中正数 表示时，最高位，表示符号位，如果为0 表示正数。如果为1，表示负数。</p>
+<p>5.补码形式：</p>
+<p>1》 原码： 符号位 + 该数的绝对值的表示形式</p>
+<p>2》 反码： 除了符号位之外，按位取反。</p>
+<p>3》 补码： 反码 + 1</p>
+<p>6.其中，正数的补码与原码相同，负数的补码等于 反码+1</p>
+<p>例如：</p>
+<p>一个字节为例：</p>
+<p>13</p>
+<p>原码： 0000 1101</p>
+<p>补码： 0000 1101</p>
+<p>-13</p>
+<p>原码： 1000 1101</p>
+<p>反码： 1111 0010 反码+1</p>
+<p>补码： 1111 0011</p>
+<p>两个字节：</p>
+<p>-13</p>
+<p>原码: 1000 0000 0000 1101</p>
+<p>反码： 1111 1111 1111 0010</p>
+<p>补码： 1111 1111 1111 0011</p>
+<p>例如：</p>
+<p>一个字节：</p>
+<p>25</p>
+<p>原码： 0001 1001</p>
+<p>补码： 0001 1001</p>
+<p>- 25</p>
+<p>原码： 1001 1001</p>
+<p>反码： 1110 0110</p>
+<p>补码： 1110 0111</p>
+<h3 id="从计算机中取出二进制的数据">从计算机中取出二进制的数据</h3>
+<p>byte a= 127 :0000 0000 0000 0000 0000 0000 0111 1111</p>
+<p>byte b =1 :0000 0000 0000 0000 0000 0000 0000 0001</p>
+<p>+ ======&gt; 0000 0000 0000 0000 0000 0000 1000 0000</p>
+<p>+= ======&gt; 1000 0000 计算机 该数由于最高位为1 表示就是负数</p>
+<p>补码：1000 0000</p>
+<p>反码：1111 1111 补码-1</p>
+<p>原码：1000 0000</p>
+<p>例如：</p>
+<p>一个字节：</p>
+<p>10010011</p>
+<p>该数 在计算机中表示补码。</p>
+<p>该数由于是一个字节，最高位1，该数表示的负数。反码 &ndash;》 原码</p>
+<p>反码： 1001 0010</p>
+<p>原码： 1110 1101</p>
+<p>- 109</p>
+<p>二个字节：</p>
+<p>该数在计算机中表示正数，补码与原码相同。</p>
+<h3 id="总结">总结</h3>
+<p>计算机数据的存储：</p>
+<p>① 将数据存储到计算机：其它进制转二进制。数据存储 以补码形式存放。正数原码与补码相同，负</p>
+<p>数以补码形式存储。</p>
+<p>正数最高位为0 ，负数最高位为1.</p>
+<p>② 从计算机中取出：</p>
+<p>根据字节数判断最高位是多少，最高位为0 表示该数是正数，最高位为1 表示该数是负数。</p>
+<h2 id="位运算">位运算</h2>
+<h3 id="概述-1">概述</h3>
+<p>&laquo; &raquo; &raquo;&gt; ^ &amp; |</p>
+<h3 id="heading">&laquo;</h3>
+<p>1.&laquo; 左移：按位向左侧移动，左移后，空位全补0</p>
+<p>格式：</p>
+<p>操作数 &laquo; 左移的位数</p>
+<p>规律(一般规律，会有特殊情况)：</p>
+<p>左移多少位，就相当于操作数乘以2的多少次幂</p>
+<p>例如：</p>
+<p>5 &laquo; 1</p>
+<p>以一个字节为例：</p>
+<p>5的二进制： 0000 0101</p>
+<p>0000 1010</p>
+<p>**<img src="/posts/Java-1/20220430195346/image-20220430210000693.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="heading-1">&raquo;</h3>
+<p>\2. &raquo; 右移：又称有符号右移，按位向右侧移动，右移后，空位按最高位补，最高位为1补1 最高位</p>
+<p>为0 补0</p>
+<p>格式：</p>
+<p>操作数 &raquo; 右移的位数</p>
+<p>规律(正数一般规律,会有特殊情况:)</p>
+<p>右移多少位，相当于操作数除以2的多少次幂</p>
+<p>例如：</p>
+<p>5 &raquo; 1</p>
+<p><img src="/posts/Java-1/20220430195346/image-20220430210018390.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="heading-2">&raquo;&gt;</h3>
+<p>3.&raquo;&gt; 右移 ：又称无符号右移，按位向右侧移动。 右移后，空位全部补0.</p>
+<p>格式：</p>
+<p>操作数 &raquo;&gt; 右移的位数</p>
+<p>4.&amp; | ^</p>
+<p>&amp; 按位于</p>
+<p>| 按位或</p>
+<p>^ 按位异或 ： 相同为0 不同为1</p>
+<p>~ 取反</p>
+<h3 id="代码-10">代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">1.&lt;&lt; 左移：按位向左侧移动，左移后，空位全补0 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">格式：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	操作数 &lt;&lt; 左移的位数 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">规律(一般规律，会有特殊情况)：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	左移多少位，就相当于操作数乘以2的多少次幂
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">2. &gt;&gt; 右移：又称有符号右移，按位向右侧移动，右移后，空位按最高位补，最高位为1补1 最高位 为0 补0 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	格式：操作数 &gt;&gt; 右移的位数 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">规律(正数一般规律,会有特殊情况:) 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	右移多少位，相当于操作数除以2的多少次幂。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">3.&gt;&gt;&gt; 右移 ：又称无符号右移，按位向右侧移动。 右移后，空位全部补0. 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	格式：操作数 &gt;&gt;&gt; 右移的位数 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">4.&amp; | ^ 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">&amp; 按位于 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">| 按位或
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">^ 按位异或 ： 相同为0 不同为1 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">~ 取反 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">位运算</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 1.&lt;&lt; 左移 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*System.out.println(5 &lt;&lt; 1);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(5 &lt;&lt; 2); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(5 &lt;&lt; 3); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(5 &lt;&lt; 4);*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 2.&gt;&gt; 右移 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*System.out.println(5 &gt;&gt; 1); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(5 &gt;&gt; 2); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(5 &gt;&gt; 3); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println( -5 &gt;&gt; 1); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println( -5 &gt;&gt; 2); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println( -5 &gt;&gt; 3);*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//3.&gt;&gt;&gt; 无符号右移 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*System.out.println(-5 &gt;&gt;&gt; 1); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(-5 &gt;&gt;&gt; 2); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(-5 &gt;&gt;&gt; 3); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(-5 &gt;&gt; 1); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(-5 &gt;&gt; 2); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(-5 &gt;&gt; 3);*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 4.&amp; | ^ 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/*System.out.println(2 &amp; 3); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(2 | 3); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(2 ^ 3);*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//异或 既可以做位运算也可以做逻辑运算 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//System.out.println(true ^ false); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(~</span>2<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.vercel.app/posts/java-1/20220430200635/">← 流程控制语句</a></div>
+    <div><a href="https://lovemjh.vercel.app/posts/_java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/">java基础总结  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+    </body>
+</html>

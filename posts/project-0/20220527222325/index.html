@@ -1,0 +1,2211 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="广告管理与Lua、Canal实现广告缓存 - https://lovemjh.vercel.app/posts/project-0/20220527222325/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>广告管理与Lua、Canal实现广告缓存</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.vercel.app/style.min.ef012369a26adc2a21396230b3395dfcd5975a3082a65b82785cbc0b446f2a2c.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            广告管理与Lua、Canal实现广告缓存
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2022-05-27&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2022-05-27&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            14282 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            29 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/project-0/20220527231000/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/project-0/20220527224880/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#学习目标">学习目标</a></li>
+      </ul>
+    </li>
+    <li><a href="#一网站首页分析">一、网站首页分析</a>
+      <ul>
+        <li><a href="#11网站首页广告">1.1网站首页广告</a></li>
+        <li><a href="#12数据库表结构分析">1.2数据库表结构分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#二-首页广告架构设计分析">二、 首页广告架构设计分析</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#21-传统实现思路">2.1 传统实现思路</a></li>
+            <li><a href="#22-高并发架构设计">2.2 高并发架构设计</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#三lua了解">三、Lua(了解)</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#31-lua是什么">3.1 Lua是什么</a></li>
+            <li><a href="#32-特性">3.2 特性</a></li>
+            <li><a href="#33-应用场景">3.3 应用场景</a></li>
+            <li><a href="#34-lua的安装">3.4 lua的安装</a></li>
+            <li><a href="#35-入门程序">3.5 入门程序</a></li>
+            <li><a href="#36-lua的基本语法了解">3.6 LUA的基本语法(了解)</a>
+              <ul>
+                <li><a href="#361-注释">3.6.1 注释</a></li>
+                <li><a href="#362-定义变量">3.6.2 定义变量</a></li>
+                <li><a href="#363-lua中的数据类型">3.6.3 Lua中的数据类型</a></li>
+                <li><a href="#364-流程控制">3.6.4 流程控制</a></li>
+                <li><a href="#365-循环">3.6.5 循环</a></li>
+                <li><a href="#366-函数">3.6.6 函数</a></li>
+                <li><a href="#367-表">3.6.7 表</a></li>
+                <li><a href="#368-模块">3.6.8 模块</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#四openresty介绍">四、OpenResty介绍</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#41-安装openresty">4.1 安装openresty</a></li>
+            <li><a href="#42-配置nginx">4.2 配置nginx</a></li>
+            <li><a href="#43启动openresty">4.3、启动openresty</a></li>
+            <li><a href="#44停止openresty">4.4、停止openresty</a></li>
+            <li><a href="#45重启openresty">4.5、重启openresty</a></li>
+            <li><a href="#46-测试访问">4.6 测试访问</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#五广告缓存的载入与读取">五、广告缓存的载入与读取</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#51-需求分析">5.1 需求分析</a></li>
+            <li><a href="#52-luanginx配置">5.2 Lua+Nginx配置</a>
+              <ul>
+                <li><a href="#1实现思路-查询数据放入redis中">(1)实现思路-查询数据放入redis中</a></li>
+                <li><a href="#2实现思路-从redis中获取数据">(2)实现思路-从redis中获取数据</a></li>
+                <li><a href="#3加入openresty本地缓存">(3)加入openresty本地缓存</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#六网站首页前台工程广告轮播图展示">六、网站首页前台工程广告轮播图展示</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#61-网站首页工程搭建">6.1 网站首页工程搭建</a></li>
+            <li><a href="#62-网站首页开发">6.2 网站首页开发</a></li>
+            <li><a href="#63-部署页面">6.3 部署页面</a></li>
+            <li><a href="#64-访问测试">6.4 访问测试</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#七nginx限流">七、nginx限流</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#71-生活中限流对比">7.1 生活中限流对比</a></li>
+            <li><a href="#72-nginx的限流">7.2 nginx的限流</a>
+              <ul>
+                <li><a href="#721-控制速率">7.2.1 控制速率</a>
+                  <ul>
+                    <li><a href="#1漏桶算法实现控制速率限流">(1)漏桶算法实现控制速率限流</a></li>
+                    <li><a href="#2处理突发流量">(2)处理突发流量</a></li>
+                  </ul>
+                </li>
+                <li><a href="#722-控制并发量连接数">7.2.2 控制并发量（连接数）</a>
+                  <ul>
+                    <li><a href="#1配置限制固定连接数">(1)配置限制固定连接数</a></li>
+                    <li><a href="#2限制每个客户端ip与服务器的连接数同时限制与虚拟服务器的连接总数了解">(2)限制每个客户端IP与服务器的连接数，同时限制与虚拟服务器的连接总数。(了解)</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#八canal同步广告">八、canal同步广告</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#81-canal工作原理">8.1 Canal工作原理</a></li>
+            <li><a href="#82使用docker创建数据库容器">8.2、使用docker创建数据库容器</a></li>
+            <li><a href="#83-开启binlog模式">8.3 开启binlog模式</a></li>
+            <li><a href="#84-canal容器安装">8.4 canal容器安装</a></li>
+            <li><a href="#85-canal微服务搭建">8.5 canal微服务搭建</a></li>
+            <li><a href="#86-广告同步作业">8.6 广告同步(作业)</a>
+              <ul>
+                <li><a href="#861-content微服务搭建">8.6.1 content微服务搭建</a>
+                  <ul>
+                    <li><a href="#8611构建工程">8.6.1.1、构建工程</a></li>
+                    <li><a href="#8612生成代码拷贝到工程">8.6.1.2、生成代码、拷贝到工程</a></li>
+                    <li><a href="#8613创建配置文件">8.6.1.3、创建配置文件</a></li>
+                    <li><a href="#8614编写swagger文档配置类mybatisplus分页插件配置类">8.6.1.4、编写swagger文档配置类、MyBatisPlus分页插件配置类</a></li>
+                    <li><a href="#8615编写主启动类">8.6.1.5、编写主启动类</a></li>
+                  </ul>
+                </li>
+                <li><a href="#862启动测试">8.6.2、启动测试</a>
+                  <ul>
+                    <li><a href="#8621运行主启动类contentapplication启动项目">8.6.2.1、运行主启动类ContentApplication，启动项目</a></li>
+                    <li><a href="#8622访问swagger测试接口">8.6.2.2、访问Swagger测试接口</a></li>
+                  </ul>
+                </li>
+                <li><a href="#863-广告查询">8.6.3 广告查询</a></li>
+                <li><a href="#864-同步实现">8.6.4 同步实现</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 align = "center">第五章</h1>
+<h1 align = "center">广告管理与Lua、Canal实现广告缓存</h1>
+<h3 align="center">优就业.JAVA教研室</h3>
+<h2 id="学习目标">学习目标</h2>
+<ul>
+<li>了解网站首页页面以及广告相关表结构</li>
+<li>后台广告微服务开发</li>
+<li>首页广告架构设计分析</li>
+<li>Lua脚本</li>
+<li>OpenResty介绍</li>
+<li>广告缓存的载入与读取</li>
+<li>完成网站首页前台工程广告轮播图展示</li>
+<li>Nginx高并发限流讲解</li>
+<li>Canal binlog增量数据实时同步</li>
+<li>Canal实现广告实时缓存同步</li>
+</ul>
+<h1 id="一网站首页分析">一、网站首页分析</h1>
+<p>首页门户系统需要展示各种各样的广告数据。如图，以jd为例：
+<img src="/posts/project-0/20220527222325/image-20220527222457528.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="11网站首页广告">1.1网站首页广告</h2>
+<p>（1）首页海报（轮播图）</p>
+<p>（2）今日推荐</p>
+<p>（3）猜你喜欢</p>
+<p>（4）楼层广告</p>
+<h2 id="12数据库表结构分析">1.2数据库表结构分析</h2>
+<p>tb_content_category 广告分类表</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>长度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Bigint</td>
+<td></td>
+<td>主键</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Varchar</td>
+<td>255</td>
+<td>广告分类名称</td>
+</tr>
+</tbody>
+</table>
+<p>tb_content 广告表</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>长度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Bigint</td>
+<td></td>
+<td>主键</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>Bigint</td>
+<td></td>
+<td>广告分类ID</td>
+</tr>
+<tr>
+<td>title</td>
+<td>varchar</td>
+<td>200</td>
+<td>广告标题</td>
+</tr>
+<tr>
+<td>url</td>
+<td>varchar</td>
+<td>500</td>
+<td>广告链接</td>
+</tr>
+<tr>
+<td>pic</td>
+<td>varchar</td>
+<td>300</td>
+<td>图片地址</td>
+</tr>
+<tr>
+<td>status</td>
+<td>varchar</td>
+<td>1</td>
+<td>状态 0不显示 1显示</td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td></td>
+<td>排序</td>
+</tr>
+</tbody>
+</table>
+<h1 id="二-首页广告架构设计分析">二、 首页广告架构设计分析</h1>
+<h3 id="21-传统实现思路">2.1 传统实现思路</h3>
+<p><img src="/posts/project-0/20220527222325/image-20220527222509871.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>如上图此种方式 简单，直接通过数据库查询数据展示给用户即可，但是通常情况下，首页（门户系统的流量一般非常的高）不适合直接通过mysql数据库直接访问的方式来获取展示。</p>
+<h3 id="22-高并发架构设计">2.2 高并发架构设计</h3>
+<p>1.首先访问nginx ，我们可以采用缓存的方式，先从nginx本地缓存中获取，获取到直接响应</p>
+<p>2.如果nginx没有获取到，再次访问redis，我们可以从redis中获取数据，如果有 则返回，并缓存到nginx中</p>
+<p>3.如果redis没有获取到,再次访问mysql,我们从mysql中获取数据，再将数据存储到redis中，返回。</p>
+<p>而这里面，我们都可以使用LUA脚本嵌入到程序中执行这些查询相关的业务。
+<img src="/posts/project-0/20220527222325/image-20220527222517043.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="三lua了解">三、Lua(了解)</h1>
+<h3 id="31-lua是什么">3.1 Lua是什么</h3>
+<p>Lua [1]  是一个小巧的<a class="link" href="/posts/project-0/https://baike.baidu.com/item/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80"  target="_blank" rel="noopener"
+    >脚本语言</a>。它是巴西里约热内卢天主教大学（Pontifical Catholic University of Rio de Janeiro）里的一个由Roberto Ierusalimschy、Waldemar Celes 和 Luiz Henrique de Figueiredo三人所组成的研究小组于1993年开发的。 其设计目的是为了通过灵活嵌入应用程序中从而为应用程序提供灵活的扩展和定制功能。Lua由标准C编写而成，几乎在所有操作系统和平台上都可以编译，运行。Lua并没有提供强大的库，这是由它的定位决定的。所以Lua不适合作为开发独立应用程序的语言。Lua 有一个同时进行的JIT项目，提供在特定平台上的即时编译功能。</p>
+<p>简单来说：</p>
+<p>Lua 是一种轻量小巧的脚本语言，用标准C语言编写并以源代码形式开放， 其设计目的是为了嵌入应用程序中，从而为应用程序提供灵活的扩展和定制功能。</p>
+<h3 id="32-特性">3.2 特性</h3>
+<ul>
+<li>支持面向过程(procedure-oriented)编程和函数式编程(functional programming)；</li>
+<li>自动内存管理；只提供了一种通用类型的表（table），用它可以实现数组，哈希表，集合，对象；</li>
+<li>语言内置模式匹配；闭包(closure)；函数也可以看做一个值；提供多线程（协同进程，并非操作系统所支持的线程）支持；</li>
+<li>通过闭包和table可以很方便地支持面向对象编程所需要的一些关键机制，比如数据抽象，虚函数，继承和重载等。</li>
+</ul>
+<h3 id="33-应用场景">3.3 应用场景</h3>
+<ul>
+<li>游戏开发</li>
+<li>独立应用脚本</li>
+<li>Web 应用脚本</li>
+<li>扩展和数据库插件如：MySQL Proxy 和 MySQL WorkBench</li>
+<li>安全系统，如入侵检测系统</li>
+<li>redis中嵌套调用实现类似事务的功能</li>
+<li>web容器中应用处理一些过滤 缓存等等的逻辑，例如nginx。</li>
+</ul>
+<h3 id="34-lua的安装">3.4 lua的安装</h3>
+<p>有linux版本的安装也有mac版本的安装。。我们采用linux版本的安装，首先我们准备一个linux虚拟机。</p>
+<p>安装步骤,在linux系统中执行下面的命令。</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
+tar zxf lua-5.3.5.tar.gz
+cd lua-5.3.5
+make linux test
+</code></pre><p>注意：此时安装，有可能会出现如下错误：
+<img src="/posts/project-0/20220527222325/image-20220527222530431.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>此时需要安装lua相关依赖库的支持，执行如下命令即可：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">yum install gcc libtermcap-devel ncurses-devel libevent-devel readline-devel -y
+</code></pre><p>重新编译lua</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">make linux test
+</code></pre><p>安装lua</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">make install
+</code></pre><p>删除老版本lua,关联新版本lua</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">cd /usr/bin
+rm -rf lua luac
+
+ln -s /usr/local/bin/lua /usr/bin/lua
+ln -s /usr/local/bin/luac /usr/bin/luac
+</code></pre><p>此时再执行lua测试看lua是否安装成功</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">[root@localhost ~]# lua
+Lua 5.3.5  Copyright (C) 1994-2018 Lua.org, PUC-Rio
+</code></pre><h3 id="35-入门程序">3.5 入门程序</h3>
+<p>在线脚本测试：https://www.lua.org/cgi-bin/demo</p>
+<p>创建hello.lua文件，内容为</p>
+<p>编辑文件hello.lua</p>
+<pre tabindex="0"><code>vi hello.lua
+</code></pre><p>在文件中输入：</p>
+<pre tabindex="0"><code>print(&#34;hello&#34;);
+</code></pre><p>保存并退出。</p>
+<p>执行命令</p>
+<pre tabindex="0"><code>lua hello.lua
+</code></pre><p>输出为：</p>
+<pre tabindex="0"><code>Hello
+</code></pre><p>效果如下：
+<img src="/posts/project-0/20220527222325/image-20220527222736718.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="36-lua的基本语法了解">3.6 LUA的基本语法(了解)</h3>
+<p>lua有交互式编程和脚本式编程。</p>
+<p>交互式编程就是直接输入语法，就能执行。</p>
+<p>脚本式编程需要编写脚本，然后再执行命令 执行脚本才可以。</p>
+<p>一般采用脚本式编程。（例如：编写一个hello.lua的文件，输入文件内容，并执行lua hell.lua即可）</p>
+<p>(1)交互式编程</p>
+<p>Lua 提供了交互式编程模式。我们可以在命令行中输入程序并立即查看效果。</p>
+<p>Lua 交互式编程模式可以通过命令 lua -i 或 lua 来启用：</p>
+<pre tabindex="0"><code>lua -i
+</code></pre><p>如下图：
+<img src="/posts/project-0/20220527222325/image-20220527222844340.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>(2)脚本式编程</p>
+<p>我们可以将 Lua 程序代码保持到一个以 lua 结尾的文件，并执行，该模式称为脚本式编程，例如上面入门程序中将lua语法写到hello.lua文件中。</p>
+<h4 id="361-注释">3.6.1 注释</h4>
+<p>一行注释：两个减号是单行注释:</p>
+<pre tabindex="0"><code>--
+</code></pre><p>多行注释：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#998;font-style:italic">--[[
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 多行注释
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> 多行注释
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> --]]</span>
+</span></span></code></pre></div><h4 id="362-定义变量">3.6.2 定义变量</h4>
+<p>全局变量，默认的情况下，定义一个变量都是全局变量，</p>
+<p>如果要用局部变量 需要声明为local.例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 全局变量赋值</span>
+</span></span><span style="display:flex;"><span>a<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 局部变量赋值</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> b<span style="color:#000;font-weight:bold">=</span><span style="color:#099">2</span> 
+</span></span></code></pre></div><p>如果变量没有初始化：则 它的值为nil 这和java中的null不同。</p>
+<p>如下图案例：
+<img src="/posts/project-0/20220527222325/image-20220527222912404.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="363-lua中的数据类型">3.6.3 Lua中的数据类型</h4>
+<p>Lua 是动态类型语言，变量不要类型定义,只需要为变量赋值。 值可以存储在变量中，作为参数传递或结果返回。</p>
+<p>Lua 中有 8 个基本类型分别为：nil、boolean、number、string、userdata、function、thread 和 table。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nil</td>
+<td>这个最简单，只有值nil属于该类，表示一个无效值（在条件表达式中相当于false）。</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>包含两个值：false和true。</td>
+</tr>
+<tr>
+<td>number</td>
+<td>表示双精度类型的实浮点数</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串由一对双引号或单引号来表示</td>
+</tr>
+<tr>
+<td>function</td>
+<td>由 C 或 Lua 编写的函数</td>
+</tr>
+<tr>
+<td>userdata</td>
+<td>表示任意存储在变量中的C数据结构</td>
+</tr>
+<tr>
+<td>thread</td>
+<td>表示执行的独立线路，用于执行协同程序</td>
+</tr>
+<tr>
+<td>table</td>
+<td>Lua 中的表（table）其实是一个&quot;关联数组&quot;（associative arrays），数组的索引可以是数字、字符串或表类型。在 Lua 里，table 的创建是通过&quot;构造表达式&quot;来完成，最简单构造表达式是{}，用来创建一个空表。</td>
+</tr>
+</tbody>
+</table>
+<p>实例：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">print(type(&#34;Hello world&#34;))      --&gt; string
+print(type(10.4*3))             --&gt; number
+print(type(print))              --&gt; function
+print(type(type))               --&gt; function
+print(type(true))               --&gt; boolean
+print(type(nil))                --&gt; nil
+</code></pre><h4 id="364-流程控制">3.6.4 流程控制</h4>
+<p>(1)if语句</p>
+<p>Lua <strong>if 语句</strong> 由一个布尔表达式作为条件判断，其后紧跟其他语句组成。</p>
+<p>语法：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">if(布尔表达式)
+then
+   --[ 在布尔表达式为 true 时执行的语句 --]
+end
+</code></pre><p>实例：
+<img src="/posts/project-0/20220527222325/image-20220527222925177.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#998;font-style:italic">--定义变量</span>
+</span></span><span style="display:flex;"><span>num<span style="color:#000;font-weight:bold">=</span><span style="color:#099">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--使用if语句判断</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> num<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#099">10</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  print(<span style="color:#d14">&#34;5&lt;10&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><p>(2)if..else语句</p>
+<p>Lua if 语句可以与 else 语句搭配使用, 在 if 条件表达式为 false 时执行 else 语句代码块。</p>
+<p>语法：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">if(布尔表达式)
+then
+   --[ 布尔表达式为 true 时执行该语句块 --]
+else
+   --[ 布尔表达式为 false 时执行该语句块 --]
+end
+</code></pre><p>实例：
+<img src="/posts/project-0/20220527222325/image-20220527222931577.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#998;font-style:italic">--定义变量</span>
+</span></span><span style="display:flex;"><span>a<span style="color:#000;font-weight:bold">=</span><span style="color:#099">100</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> (a<span style="color:#000;font-weight:bold">&lt;</span><span style="color:#099">20</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>  print(<span style="color:#d14">&#39;a&lt;20&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>  print(<span style="color:#d14">&#39;a&gt;20&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>  
+</span></span></code></pre></div><h4 id="365-循环">3.6.5 循环</h4>
+<p>学员完成</p>
+<p>(1)while循环[==满足条件就循环==]</p>
+<p>Lua 编程语言中 while 循环语句在判断条件为 true 时会重复执行循环体语句。
+语法：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">while(condition)
+do
+   statements
+end
+</code></pre><p>实例：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">a=10
+while( a &lt; 20 )
+do
+   print(&#34;a value:&#34;, a)
+   a = a+1
+end
+</code></pre><p>效果如下：
+<img src="/posts/project-0/20220527222325/image-20220527222940225.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>(2)for循环</p>
+<p>Lua 编程语言中 for 循环语句可以重复执行指定语句，重复次数可在 for 语句中控制。</p>
+<p>语法：  1-&gt;10  1:exp1  10:exp2  2:exp3:递增的数量</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">for var=exp1,exp2,exp3 
+do  
+    &lt;执行体&gt;  
+end  
+</code></pre><p>var 从 exp1 变化到 exp2，每次变化以 exp3 为步长递增 var，并执行一次 <strong>&ldquo;执行体&rdquo;</strong>。exp3 是可选的，如果不指定，默认为1。</p>
+<p>例子：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">for i=1,9,2
+do
+   print(i)
+end
+</code></pre><p><code>for i=1,9,2</code>:i=1从1开始循环，9循环数据到9结束，2每次递增2
+<img src="/posts/project-0/20220527222325/image-20220527222948884.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>(3)repeat&hellip;until语句[==满足条件结束==]</p>
+<p>Lua 编程语言中 repeat&hellip;until 循环语句不同于 for 和 while循环，for 和 while 循环的条件语句在当前循环执行开始时判断，而 repeat&hellip;until 循环的条件语句在当前循环结束后判断。</p>
+<p>语法：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">repeat
+   statements
+until( condition )
+</code></pre><p>案例：
+<img src="/posts/project-0/20220527222325/image-20220527222955917.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>num<span style="color:#000;font-weight:bold">=</span><span style="color:#099">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">repeat</span>
+</span></span><span style="display:flex;"><span>print(num)
+</span></span><span style="display:flex;"><span>num<span style="color:#000;font-weight:bold">=</span>num<span style="color:#000;font-weight:bold">+</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">until</span>(num<span style="color:#000;font-weight:bold">&gt;</span><span style="color:#099">15</span>)
+</span></span></code></pre></div><h4 id="366-函数">3.6.6 函数</h4>
+<p>lua中也可以定义函数，类似于java中的方法。例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#998;font-style:italic">--[[ 函数返回两个值的最大值 --]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">function</span> <span style="color:#900;font-weight:bold">max</span>(num1, num2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">if</span> (num1 <span style="color:#000;font-weight:bold">&gt;</span> num2) <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>      result <span style="color:#000;font-weight:bold">=</span> num1;
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>      result <span style="color:#000;font-weight:bold">=</span> num2;
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">return</span> result;
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 调用函数</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#d14">&#34;两值比较最大值为 &#34;</span>,max(<span style="color:#099">10</span>,<span style="color:#099">4</span>))
+</span></span><span style="display:flex;"><span>print(<span style="color:#d14">&#34;两值比较最大值为 &#34;</span>,max(<span style="color:#099">5</span>,<span style="color:#099">6</span>))
+</span></span></code></pre></div><p>执行之后的结果：</p>
+<pre tabindex="0"><code>两值比较最大值为     10
+两值比较最大值为     6
+</code></pre><p>注意函数需要在lua脚本文件编写，不要采用交互模式</p>
+<pre tabindex="0"><code>vi test.lua
+
+编写内容
+
+运行lua
+lua test.lua
+
+输出结果：
+两值比较最大值为 	10
+</code></pre><h4 id="367-表">3.6.7 表</h4>
+<p>table 是 Lua 的一种数据结构用来帮助我们创建不同的数据类型，如：数组、字典等。</p>
+<p>Lua也是通过table来解决模块（module）、包（package）和对象（Object）的。</p>
+<p>案例：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">-- 初始化表
+mytable = {}
+
+-- 指定值
+mytable[1]= &#34;Lua&#34;
+print(&#34;mytable:&#34;,mytable[1])
+
+-- 移除引用
+mytable = nil
+</code></pre><h4 id="368-模块">3.6.8 模块</h4>
+<p>(1)模块定义</p>
+<p>模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。</p>
+<p>创建一个文件叫module.lua，在module.lua中创建一个独立的模块，代码如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">-- 文件名为 module.lua
+-- 定义一个名为 module 的模块
+module = {}
+ 
+-- 定义一个常量
+module.constant = &#34;这是一个常量&#34;
+ 
+-- 定义一个函数
+function module.func1()
+    print(&#34;这是一个公有函数&#34;)
+end
+ 
+local function func2()
+    print(&#34;这是一个私有函数！&#34;)
+end
+ 
+function module.func3()
+    func2()
+end
+ 
+return module
+</code></pre><p>由上可知，模块的结构就是一个 table 的结构，因此可以像操作调用 table 里的元素那样来操作调用模块里的常量或函数。</p>
+<p>上面的 func2 声明为程序块的局部变量，即表示一个私有函数，因此是不能从外部访问模块里的这个私有函数，必须通过模块里的公有函数来调用.</p>
+<p>(2)require 函数</p>
+<p>require 用于 引入其他的模块，类似于java中的类要引用别的类的效果。</p>
+<p>用法：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">require(&#34;&lt;模块名&gt;&#34;)
+</code></pre><pre tabindex="0"><code class="language-properties" data-lang="properties">require &#34;&lt;模块名&gt;&#34;
+</code></pre><p>两种都可以。</p>
+<p>我们可以将上面定义的module模块引入使用,创建一个test_module.lua文件，代码如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">-- test_module.lua 文件
+-- module 模块为上文提到到 module.lua
+require(&#34;module&#34;)
+
+print(module.constant)
+
+module.func3()
+</code></pre><h1 id="四openresty介绍">四、OpenResty介绍</h1>
+<p>OpenResty(又称：ngx_openresty) 是一个基于 nginx的可伸缩的 Web 平台，由中国人章亦春发起，提供了很多高质量的第三方模块。</p>
+<p>OpenResty 是一个强大的 Web 应用服务器，Web 开发人员可以使用 Lua 脚本语言调动 Nginx 支持的各种 C 以及 Lua 模块,更主要的是在性能方面，OpenResty可以 快速构造出足以胜任 10W以上并发连接响应的超高性能 Web 应用系统。</p>
+<p>360，UPYUN，阿里云，新浪，腾讯网，去哪儿网，酷狗音乐等都是 OpenResty 的深度用户。</p>
+<p>OpenResty 简单理解成 就相当于封装了nginx,并且集成了LUA脚本，开发人员只需要简单的其提供了模块就可以实现相关的逻辑，而不再像之前，还需要在nginx中自己编写lua的脚本，再进行调用了。</p>
+<h3 id="41-安装openresty">4.1 安装openresty</h3>
+<p>linux安装openresty:</p>
+<p>1.添加仓库执行命令</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> yum install yum-utils
+</span></span><span style="display:flex;"><span> yum-config-manager --add-repo https://openresty.org/package/centos/openresty.repo
+</span></span></code></pre></div><p>2.执行安装</p>
+<pre tabindex="0"><code>yum install openresty -y
+</code></pre><p>3.安装成功后 会在默认的目录如下：</p>
+<pre tabindex="0"><code>/usr/local/openresty
+</code></pre><h3 id="42-配置nginx">4.2 配置nginx</h3>
+<p>默认已经安装好了nginx,在目录：/usr/local/openresty/nginx 下。</p>
+<p>修改/usr/local/openresty/nginx/conf/nginx.conf,将配置文件使用的根设置为root,目的就是将来要使用lua脚本的时候 ，直接可以加载在root下的lua脚本。</p>
+<pre tabindex="0"><code>cd /usr/local/openresty/nginx/conf
+vi nginx.conf
+</code></pre><p>修改代码如下：
+<img src="/posts/project-0/20220527222325/image-20220527223055080.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="43启动openresty">4.3、启动openresty</h3>
+<pre tabindex="0"><code>cd /usr/local/openresty/nginx/sbin
+
+./nginx
+</code></pre><h3 id="44停止openresty">4.4、停止openresty</h3>
+<pre tabindex="0"><code>./nginx -s stop
+</code></pre><h3 id="45重启openresty">4.5、重启openresty</h3>
+<pre tabindex="0"><code>./nginx -s reload
+</code></pre><h3 id="46-测试访问">4.6 测试访问</h3>
+<p>重启下centos虚拟机，然后访问测试Nginx</p>
+<p>访问地址：<code>http://192.168.188.128/</code>
+<img src="/posts/project-0/20220527222325/image-20220527223109855.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>注意：linux防火墙要打开80端口</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>firewall-cmd --add-port<span style="color:#000;font-weight:bold">=</span>80/tcp --permanent
+</span></span><span style="display:flex;"><span>firewall-cmd --reload
+</span></span></code></pre></div><h1 id="五广告缓存的载入与读取">五、广告缓存的载入与读取</h1>
+<h3 id="51-需求分析">5.1 需求分析</h3>
+<p>需要在页面上显示广告的信息。</p>
+<h3 id="52-luanginx配置">5.2 Lua+Nginx配置</h3>
+<h4 id="1实现思路-查询数据放入redis中">(1)实现思路-查询数据放入redis中</h4>
+<p>实现思路：</p>
+<p>定义请求：用于查询数据库中的数据更新到redis中。</p>
+<p>a.连接mysql ，按照广告分类ID读取广告列表，转换为json字符串。</p>
+<p>b.连接redis，将广告列表json字符串存入redis 。</p>
+<p>定义请求：</p>
+<pre tabindex="0"><code>请求：
+	/update_content
+参数：
+	id  --指定广告分类的id
+返回值：
+	json
+</code></pre><p>请求地址：<code>&lt;http://192.168.188.128/update_content?id=1&gt;</code></p>
+<p>创建/root/lua目录，在该目录下创建update_content.lua： 目的就是连接mysql  查询数据 并存储到redis中。
+<img src="/posts/project-0/20220527222325/image-20220527223119952.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>上图代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#998;font-style:italic">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--- Created by Administrator.</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--- DateTime: 2021/2/3 15:45</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 设置nginx响应数据类型json</span>
+</span></span><span style="display:flex;"><span>ngx.header.content_type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;application/json;charset=utf8&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 引入json的操作类库</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> cjson<span style="color:#000;font-weight:bold">=</span> require(<span style="color:#d14">&#39;cjson&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 引入连接数据库的类库</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> mysql<span style="color:#000;font-weight:bold">=</span> require(<span style="color:#d14">&#39;resty.mysql&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 引入捕获nginx url路径参数类库</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> uri_args <span style="color:#000;font-weight:bold">=</span> ngx.req.get_uri_args()
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 获取传递进来广告分类id</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> categoryid<span style="color:#000;font-weight:bold">=</span>uri_args[<span style="color:#d14">&#34;id&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 连接到数据库</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span>  db<span style="color:#000;font-weight:bold">=</span>mysql:new()
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 连接到数据库超时时间 单位是毫秒</span>
+</span></span><span style="display:flex;"><span>db:set_timeout(<span style="color:#099">50000</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 设置连接到数据库参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> props<span style="color:#000;font-weight:bold">=</span>{
+</span></span><span style="display:flex;"><span>    host<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;192.168.188.150&#34;</span>,
+</span></span><span style="display:flex;"><span>    port<span style="color:#000;font-weight:bold">=</span><span style="color:#099">3306</span>,
+</span></span><span style="display:flex;"><span>    database<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;dongyimaidb&#34;</span>,
+</span></span><span style="display:flex;"><span>    user<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;root&#34;</span>,
+</span></span><span style="display:flex;"><span>    password<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;root&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 使用连接参数建立连接</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> res<span style="color:#000;font-weight:bold">=</span>db:connect(props)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 准备一条sql语句</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> sql<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;SELECT url,pic FROM tb_content WHERE status=1 and category_id=&#34;</span><span style="color:#000;font-weight:bold">..</span>categoryid
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 执行sql进行查询</span>
+</span></span><span style="display:flex;"><span>res<span style="color:#000;font-weight:bold">=</span>db:query(sql)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--关闭数据库连接</span>
+</span></span><span style="display:flex;"><span>db:close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 引入redis操作类库</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> redis<span style="color:#000;font-weight:bold">=</span>require(<span style="color:#d14">&#39;resty.redis&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 创建一个redis客户端对象</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> red<span style="color:#000;font-weight:bold">=</span>redis:new()
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 设置redis连接的超时时间</span>
+</span></span><span style="display:flex;"><span>red:set_timeout(<span style="color:#099">50000</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 指定redis服务器 ip、端口</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> ip<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;192.168.188.150&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> port<span style="color:#000;font-weight:bold">=</span><span style="color:#099">6379</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- redis客户端连接到指定redis服务器</span>
+</span></span><span style="display:flex;"><span>red:connect(ip,port)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 把从数据库读取到数据写入到redis  要把从数据库读取到结果转换为json字符串</span>
+</span></span><span style="display:flex;"><span>red:set(<span style="color:#d14">&#34;content_&#34;</span><span style="color:#000;font-weight:bold">..</span>categoryid,cjson.encode(res))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">-- 关闭redis连接</span>
+</span></span><span style="display:flex;"><span>red:close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--提示给nginx用户写入成功</span>
+</span></span><span style="display:flex;"><span>ngx.say(<span style="color:#d14">&#34;{flag:true}&#34;</span>)
+</span></span></code></pre></div><p><strong>注意</strong> .. 表示拼接变量</p>
+<p>连接数据库的超时时间可以适当设置长一些，避免出现连接超时情况。</p>
+<p>创建redis容器：</p>
+<pre tabindex="0"><code>docker run -d --name redis1  --net=host redis:4.0.8
+</code></pre><p>修改/usr/local/openresty/nginx/conf/nginx.conf文件： 添加头信息，和 location信息
+<img src="/posts/project-0/20220527222325/image-20220527223129471.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">listen</span>       <span style="color:#099">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">server_name</span>  <span style="color:#d14">localhost</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/update_content</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/update_content.lua</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>重启Nginx</p>
+<pre tabindex="0"><code>./Nginx -s reload
+</code></pre><p>测试地址：http://192.168.188.128/update_content?id=1</p>
+<p>此时会将分类ID=1的所有广告查询出来，并存入到Redis缓存。
+<img src="/posts/project-0/20220527222325/image-20220527223137026.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="2实现思路-从redis中获取数据">(2)实现思路-从redis中获取数据</h4>
+<p>实现思路：</p>
+<p>定义请求，用户根据广告分类的ID 获取广告的列表。通过lua脚本直接从redis中获取数据即可。</p>
+<p>定义请求：</p>
+<pre tabindex="0"><code>请求:/read_content
+参数：id
+返回值：json
+</code></pre><p>在/root/lua目录下创建read_content.lua:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#998;font-style:italic">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--- Created by Administrator.</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--- DateTime: 2021/2/3 15:45</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">---</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--设置响应头类型</span>
+</span></span><span style="display:flex;"><span>ngx.header.content_type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;application/json;charset=utf8&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--获取请求中的参数ID</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> uri_args <span style="color:#000;font-weight:bold">=</span> ngx.req.get_uri_args();
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> id <span style="color:#000;font-weight:bold">=</span> uri_args[<span style="color:#d14">&#34;id&#34;</span>];
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--引入redis库</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> redis <span style="color:#000;font-weight:bold">=</span> require(<span style="color:#d14">&#34;resty.redis&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--创建redis对象</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> red <span style="color:#000;font-weight:bold">=</span> redis:new()
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--设置超时时间</span>
+</span></span><span style="display:flex;"><span>red:set_timeout(<span style="color:#099">2000</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--连接</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> ok, err <span style="color:#000;font-weight:bold">=</span> red:connect(<span style="color:#d14">&#34;192.168.188.128&#34;</span>, <span style="color:#099">6379</span>)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--获取key的值</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> rescontent<span style="color:#000;font-weight:bold">=</span>red:get(<span style="color:#d14">&#34;content_&#34;</span><span style="color:#000;font-weight:bold">..</span>id)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--输出到返回响应中</span>
+</span></span><span style="display:flex;"><span>ngx.say(rescontent)
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--关闭连接</span>
+</span></span><span style="display:flex;"><span>red:close()
+</span></span></code></pre></div><p>在/usr/local/openresty/nginx/conf/nginx.conf中配置如下：</p>
+<p>如图：
+<img src="/posts/project-0/20220527222325/image-20220527223145236.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/read_content</span> {
+</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/read_content.lua</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>重启Nginx</p>
+<p>测试地址：http://192.168.188.128/read_content?id=1</p>
+<p>此时会将分类ID=1的所有广告查询出来。
+<img src="/posts/project-0/20220527222325/image-20220527223152379.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="3加入openresty本地缓存">(3)加入openresty本地缓存</h4>
+<p>如上的方式没有问题，但是如果请求都到redis，redis压力也很大，所以我们一般采用多级缓存的方式来减少下游系统的服务压力。参考基本思路图的实现。</p>
+<p>先查询openresty本地缓存 如果 没有</p>
+<p>再查询redis中的数据，如果没有</p>
+<p>再查询mysql中的数据，但凡有数据 则返回即可。</p>
+<p>修改read_content.lua文件，代码如下：
+<img src="/posts/project-0/20220527222325/image-20220527223159835.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>上图代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#998;font-style:italic">--- 设置nginx响应头数据类型</span>
+</span></span><span style="display:flex;"><span>ngx.header.content_type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;application/json;charset=utf8&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--获取请求中的参数ID</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> uri_args <span style="color:#000;font-weight:bold">=</span> ngx.req.get_uri_args();
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> id <span style="color:#000;font-weight:bold">=</span> uri_args[<span style="color:#d14">&#34;id&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--获取nginx本地缓存</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> cache_ngx <span style="color:#000;font-weight:bold">=</span> ngx.shared.dis_cache;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--尝试从ngnx缓存读取广告轮播图数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">local</span> contentCache<span style="color:#000;font-weight:bold">=</span>cache_ngx:get(<span style="color:#d14">&#39;content_cache_&#39;</span><span style="color:#000;font-weight:bold">..</span>id)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">--判断从nginx缓存是否读取到内容</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">if</span> contentCache <span style="color:#000;font-weight:bold">==</span><span style="color:#000;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">or</span> contentCache <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">-- 从redis读取缓存数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">-- 引入redis类库</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">local</span> redis<span style="color:#000;font-weight:bold">=</span>require(<span style="color:#d14">&#39;resty.redis&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">-- 创建redis连接对象</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">local</span> red<span style="color:#000;font-weight:bold">=</span>redis:new()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">--设置连接超时时间</span>
+</span></span><span style="display:flex;"><span>    red:set_timeout(<span style="color:#099">30000</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">--建立连接</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">local</span> ok,error<span style="color:#000;font-weight:bold">=</span>red:connect(<span style="color:#d14">&#39;192.168.188.144&#39;</span>,<span style="color:#099">6379</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">--根据指定key去redis读取数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">local</span> response_context<span style="color:#000;font-weight:bold">=</span>red:get(<span style="color:#d14">&#39;content_&#39;</span><span style="color:#000;font-weight:bold">..</span>id)
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">--判断从redis是否读取到广告轮播图的数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span> ngx.null <span style="color:#000;font-weight:bold">==</span> response_context
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">-- 从数据库读取数据库</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">local</span> mysql<span style="color:#000;font-weight:bold">=</span>require(<span style="color:#d14">&#39;resty.mysql&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">-- 创建数据库对象</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">local</span> db<span style="color:#000;font-weight:bold">=</span> mysql:new()
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">-- 设置数据库连接属性</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">local</span> props<span style="color:#000;font-weight:bold">=</span>{
+</span></span><span style="display:flex;"><span>            host<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;192.168.188.1&#34;</span>,
+</span></span><span style="display:flex;"><span>            port<span style="color:#000;font-weight:bold">=</span><span style="color:#099">3306</span>,
+</span></span><span style="display:flex;"><span>            database<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;dongyimai-db&#34;</span>,
+</span></span><span style="display:flex;"><span>            user<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;root&#34;</span>,
+</span></span><span style="display:flex;"><span>            password<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;root&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">-- 设置连接超时时间</span>
+</span></span><span style="display:flex;"><span>        db:set_timeout(<span style="color:#099">40000</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">-- 和mysql数据库建立连接</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">local</span>  res<span style="color:#000;font-weight:bold">=</span>db:connect(props);
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">-- 定义sql语句</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">local</span> sql<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;SELECT	* FROM tb_content WHERE STATUS=&#39;1&#39; AND category_id=&#34;</span><span style="color:#000;font-weight:bold">..</span>id
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">--执行sql查询</span>
+</span></span><span style="display:flex;"><span>        res<span style="color:#000;font-weight:bold">=</span>db:query(sql)
+</span></span><span style="display:flex;"><span>      <span style="color:#998;font-style:italic">--   ngx.say(&#39;form mysql----&#39;)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">--引入json的类库</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">local</span> cjson<span style="color:#000;font-weight:bold">=</span>require(<span style="color:#d14">&#39;cjson&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">--把读取到数据转换为json对象，存储到redis</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">local</span> response_json<span style="color:#000;font-weight:bold">=</span>  cjson.encode(res)
+</span></span><span style="display:flex;"><span>        red:set(<span style="color:#d14">&#39;content_&#39;</span><span style="color:#000;font-weight:bold">..</span>id,response_json)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">--关闭redis连接</span>
+</span></span><span style="display:flex;"><span>        red:close()
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">--写入到nginx缓存一份  缓存有效期 单位是秒</span>
+</span></span><span style="display:flex;"><span>        cache_ngx:set(<span style="color:#d14">&#39;content_cache_&#39;</span><span style="color:#000;font-weight:bold">..</span>id,response_json,<span style="color:#099">60</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">--响应给nginx展示用户</span>
+</span></span><span style="display:flex;"><span>        ngx.say(response_json)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">--关闭数据库连接</span>
+</span></span><span style="display:flex;"><span>        db:close()
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">-- 如果redis缓存存在数据写入数据到nginx缓存</span>
+</span></span><span style="display:flex;"><span>        cache_ngx:set(<span style="color:#d14">&#39;content_cache_&#39;</span><span style="color:#000;font-weight:bold">..</span>id,response_context,<span style="color:#099">60</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">-- 响应nginx给浏览器</span>
+</span></span><span style="display:flex;"><span>        ngx.say(response_context)
+</span></span><span style="display:flex;"><span>      <span style="color:#998;font-style:italic">--  ngx.say(&#39;form redis cache----&#39;)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">end</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">-- 从nginx缓存能够读取到数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">--直接把读取到数据响应给浏览器</span>
+</span></span><span style="display:flex;"><span>    ngx.say(contentCache)
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">--  ngx.say(&#39;form nginx cache----&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">end</span>
+</span></span></code></pre></div><p><strong>注意</strong>：判断从redis是否读取到广告轮播图的数据</p>
+<pre tabindex="0"><code>if ngx.null == response_context
+</code></pre><p>定义lua缓存命名空间，修改nginx.conf，添加如下代码即可：
+<img src="/posts/project-0/20220527222325/image-20220527223209560.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>代码如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">lua_shared_dict dis_cache 128m;
+</code></pre><p>测试地址：http://192.168.188.128/read_content?id=1</p>
+<p>此时会获取分类ID=1的所有广告信息。</p>
+<p>此时手动清空redis中的数据，发现依然可以访问到信息。
+<img src="/posts/project-0/20220527222325/image-20220527223222180.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="六网站首页前台工程广告轮播图展示">六、网站首页前台工程广告轮播图展示</h1>
+<h3 id="61-网站首页工程搭建">6.1 网站首页工程搭建</h3>
+<p>1、创建静态web工程
+<img src="/posts/project-0/20220527222325/image-20220527223229603.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>2、拷贝网站首页静态资源
+<img src="/posts/project-0/20220527222325/image-20220527223237499.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>3、把用到的vue\axios类库拷贝过来
+<img src="/posts/project-0/20220527222325/image-20220527223244526.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="62-网站首页开发">6.2 网站首页开发</h3>
+<p>编辑index.html</p>
+<p>(1)、引入vue、axios类库到当前页面</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">script</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span>&gt;&lt;/<span style="color:#000080">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">script</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/axios.min.js&#34;</span>&gt;&lt;/<span style="color:#000080">script</span>&gt;
+</span></span></code></pre></div><p>（2）、在页面添加vue识别div</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">div</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>......原有网页内容，注意里面不能包含javascript
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">div</span>&gt;
+</span></span></code></pre></div><p>(3)、编写vue代码，当页面加载的时候，从服务器端获取广告轮播图数据</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>script type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text/javascript&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">//生成一个Vue实例
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	<span style="color:#000;font-weight:bold">var</span> app<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span> Vue({
+</span></span><span style="display:flex;"><span>		el<span style="color:#000;font-weight:bold">:</span><span style="color:#d14">&#34;#app&#34;</span>,<span style="color:#998;font-style:italic">//el ,即是element。要渲染的页面元素
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		data<span style="color:#000;font-weight:bold">:</span>{<span style="color:#998;font-style:italic">//数据			
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			contentList<span style="color:#000;font-weight:bold">:</span>[]
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		created(){
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">let</span> th<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">this</span>;
+</span></span><span style="display:flex;"><span>			axios.get(<span style="color:#d14">&#39;/read_content&#39;</span>,{       <span style="color:#998;font-style:italic">// 还可以直接把参数拼接在url后边
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				params<span style="color:#000;font-weight:bold">:</span>{
+</span></span><span style="display:flex;"><span>					id<span style="color:#000;font-weight:bold">:</span><span style="color:#099">1</span>
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}).then(<span style="color:#000;font-weight:bold">function</span>(res){
+</span></span><span style="display:flex;"><span>				th.contentList <span style="color:#000;font-weight:bold">=</span> res.data;
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//console.log(th.contentList)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			}).<span style="color:#000;font-weight:bold">catch</span>(<span style="color:#000;font-weight:bold">function</span> (error) {
+</span></span><span style="display:flex;"><span>				console.log(error);
+</span></span><span style="display:flex;"><span>			});
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span><span style="color:#a61717;background-color:#e3d2d2">/script&gt;</span>
+</span></span></code></pre></div><p>（4）、修改index.html循环显示轮播图</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;yui3-u Center banerArea&#34;</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!--banner轮播--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">div</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;myCarousel&#34;</span> <span style="color:#008080">data-ride</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;carousel&#34;</span> <span style="color:#008080">data-interval</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;4000&#34;</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;sui-carousel slide&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#000080">ol</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;carousel-indicators&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#000080">li</span> <span style="color:#008080">data-target</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;#myCarousel&#34;</span> <span style="color:#008080">v-for</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;(content,index) in contentList&#34;</span> <span style="color:#008080">:data-slide-to</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;index&#34;</span> <span style="color:#008080">:class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;index==0?&#39;active&#39;:&#39;&#39;&#34;</span> &gt;&lt;/<span style="color:#000080">li</span>&gt;				 
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#000080">ol</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;carousel-inner&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#000080">div</span> <span style="color:#008080">v-for</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;(content,index) in contentList&#34;</span> <span style="color:#008080">:class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;index==0?&#39;active item&#39;:&#39;item&#39;&#34;</span> &gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#000080">a</span> <span style="color:#008080">:href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;content.url&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#000080">img</span> <span style="color:#008080">:src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;content.pic&#34;</span> <span style="color:#008080">style</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width:730px;height:454px&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#000080">a</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#000080">div</span>&gt;					  
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;#myCarousel&#34;</span> <span style="color:#008080">data-slide</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;prev&#34;</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;carousel-control left&#34;</span>&gt;‹&lt;/<span style="color:#000080">a</span>&gt;&lt;<span style="color:#000080">a</span> <span style="color:#008080">href</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;#myCarousel&#34;</span> <span style="color:#008080">data-slide</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;next&#34;</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;carousel-control right&#34;</span>&gt;›&lt;/<span style="color:#000080">a</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">div</span>&gt;
+</span></span></code></pre></div><h3 id="63-部署页面">6.3 部署页面</h3>
+<p>上传首页相关文件到nginx目录：/usr/local/openresty/nginx/html
+<img src="/posts/project-0/20220527222325/image-20220527223256245.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="64-访问测试">6.4 访问测试</h3>
+<p>访问地址: http://192.168.188.128/
+<img src="/posts/project-0/20220527222325/image-20220527223302273.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="七nginx限流">七、nginx限流</h1>
+<p>一般情况下，首页的并发量是比较大的，即使 有了多级缓存，当用户不停的刷新页面的时候，也是没有必要的，另外如果有恶意的请求 大量达到，也会对系统造成影响。</p>
+<p>而限流就是保护措施之一。</p>
+<h3 id="71-生活中限流对比">7.1 生活中限流对比</h3>
+<ul>
+<li>
+<p>水坝泄洪，通过闸口限制洪水流量（控制流量速度）。</p>
+</li>
+<li>
+<p>办理银行业务：所有人先领号，各窗口叫号处理。每个窗口处理速度根据客户具体业务而定，所有人排队等待叫号即可。若快下班时，告知客户明日再来(拒绝流量)</p>
+</li>
+<li>
+<p>火车站排队买票安检，通过排队 的方式依次放入。（缓存带处理任务）</p>
+</li>
+</ul>
+<h3 id="72-nginx的限流">7.2 nginx的限流</h3>
+<p>nginx提供两种限流的方式：</p>
+<ul>
+<li>
+<p>一是控制速率</p>
+</li>
+<li>
+<p>二是控制并发连接数</p>
+</li>
+</ul>
+<h4 id="721-控制速率">7.2.1 控制速率</h4>
+<p>控制速率的方式之一就是采用漏桶算法。</p>
+<h5 id="1漏桶算法实现控制速率限流">(1)漏桶算法实现控制速率限流</h5>
+<p>漏桶(Leaky Bucket)算法思路很简单,水(请求)先进入到漏桶里,漏桶以一定的速度出水(接口有响应速率),当水流入速度过大会直接溢出(访问频率超过接口响应速率),然后就拒绝请求,可以看出漏桶算法能强行限制数据的传输速率.示意图如下:
+<img src="/posts/project-0/20220527222325/image-20220527223314282.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>nginx的配置</p>
+<p>配置示意图如下：
+<img src="/posts/project-0/20220527222325/image-20220527223319461.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>修改/usr/local/openresty/nginx/conf/nginx.conf:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">user</span>  <span style="color:#d14">root</span> <span style="color:#d14">root</span>;
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">worker_processes</span>  <span style="color:#099">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">events</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">worker_connections</span>  <span style="color:#099">1024</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">http</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">include</span>       <span style="color:#d14">mime.types</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">default_type</span>  <span style="color:#d14">application/octet-stream</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#cache
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">lua_shared_dict</span> <span style="color:#d14">dis_cache</span> <span style="color:#099">128m</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#限流设置  QPS
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">limit_req_zone</span> <span style="color:#008080">$binary_remote_addr</span> <span style="color:#d14">zone=contentRateLimit:10m</span> <span style="color:#d14">rate=2r/s</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">sendfile</span>        <span style="color:#008080">on</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#tcp_nopush     on;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#keepalive_timeout  0;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">keepalive_timeout</span>  <span style="color:#099">65</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#gzip  on;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">server</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">listen</span>       <span style="color:#099">80</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">server_name</span>  <span style="color:#d14">localhost</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/update_content</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/update_content.lua</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/read_content</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">#使用限流配置
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#000;font-weight:bold">limit_req</span> <span style="color:#d14">zone=contentRateLimit</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/read_content.lua</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>配置说明：</p>
+<pre tabindex="0"><code>binary_remote_addr 是一种key，表示基于 remote_addr(客户端IP) 来做限流，binary_ 的目的是压缩内存占用量。
+zone：定义共享内存区来存储访问信息， contentRateLimit:10m 表示一个大小为10M，名字为contentRateLimit的内存区域。1M能存储16000 IP地址的访问信息，10M可以存储16W IP地址访问信息。
+rate 用于设置最大访问速率，rate=10r/s 表示每秒最多处理10个请求。Nginx 实际上以毫秒为粒度来跟踪请求信息，因此 10r/s 实际上是限制：每100毫秒处理一个请求。这意味着，自上一个请求处理完后，若后续100毫秒内又有请求到达，将拒绝处理该请求.我们这里设置成2个请求 方便测试。
+</code></pre><p>测试：</p>
+<p>重新加载配置文件</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">cd /usr/local/openresty/nginx/sbin
+
+./nginx -s reload
+</code></pre><p>访问页面：<code>http://192.168.188.128/read_content?id=1</code> ,连续刷新会直接报错。
+<img src="/posts/project-0/20220527222325/image-20220527223330586.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h5 id="2处理突发流量">(2)处理突发流量</h5>
+<p>上面例子限制 2r/s，如果有时正常流量突然增大，超出的请求将被拒绝，无法处理突发流量，可以结合 <strong>burst</strong> 参数使用来解决该问题。</p>
+<p>例如，如下配置表示：
+<img src="/posts/project-0/20220527222325/image-20220527223359450.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>上图代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">listen</span>       <span style="color:#099">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">server_name</span>  <span style="color:#d14">localhost</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/update_content</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/update_content.lua</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/read_content</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">limit_req</span> <span style="color:#d14">zone=contentRateLimit</span> <span style="color:#d14">burst=4</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/read_content.lua</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>burst 译为突发、爆发，表示在超过设定的处理速率后能额外处理的请求数,当 rate=10r/s 时，将1s拆成10份，即每100ms可处理1个请求。</p>
+<p>此处，**burst=4 **，若同时有4个请求到达，Nginx 会处理第一个请求，剩余3个请求将放入队列，然后每隔500ms从队列中获取一个请求进行处理。若请求数大于4，将拒绝处理多余的请求，直接返回503.</p>
+<p>不过，单独使用 burst 参数并不实用。假设 burst=50 ，rate依然为10r/s，排队中的50个请求虽然每100ms会处理一个，但第50个请求却需要等待 50 * 100ms即 5s，这么长的处理时间自然难以接受。</p>
+<p>因此，burst 往往结合 nodelay 一起使用。</p>
+<p>例如：如下配置：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">listen</span>       <span style="color:#099">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">server_name</span>  <span style="color:#d14">localhost</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/update_content</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/update_content.lua</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/read_content</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">limit_req</span> <span style="color:#d14">zone=contentRateLimit</span> <span style="color:#d14">burst=4</span> <span style="color:#d14">nodelay</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/read_content.lua</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>如上表示：</p>
+<p>平均每秒允许不超过2个请求，突发不超过4个请求，并且处理突发4个请求的时候，没有延迟，等到完成之后，按照正常的速率处理。</p>
+<p>如上两种配置结合就达到了速率稳定，但突然流量也能正常处理的效果。完整配置代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">user</span>  <span style="color:#d14">root</span> <span style="color:#d14">root</span>;
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">worker_processes</span>  <span style="color:#099">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">events</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">worker_connections</span>  <span style="color:#099">1024</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">http</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">include</span>       <span style="color:#d14">mime.types</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">default_type</span>  <span style="color:#d14">application/octet-stream</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#cache
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">lua_shared_dict</span> <span style="color:#d14">dis_cache</span> <span style="color:#099">128m</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#限流设置
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">limit_req_zone</span> <span style="color:#008080">$binary_remote_addr</span> <span style="color:#d14">zone=contentRateLimit:10m</span> <span style="color:#d14">rate=2r/s</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">sendfile</span>        <span style="color:#008080">on</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#tcp_nopush     on;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#keepalive_timeout  0;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">keepalive_timeout</span>  <span style="color:#099">65</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#gzip  on;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">server</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">listen</span>       <span style="color:#099">80</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">server_name</span>  <span style="color:#d14">localhost</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/update_content</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/update_content.lua</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/read_content</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">limit_req</span> <span style="color:#d14">zone=contentRateLimit</span> <span style="color:#d14">burst=4</span> <span style="color:#d14">nodelay</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/read_content.lua</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>测试：如下图 在1秒钟之内可以刷新4次，正常处理。
+<img src="/posts/project-0/20220527222325/image-20220527223441473.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>但是超过之后，连续刷新5次，抛出异常。
+<img src="/posts/project-0/20220527222325/image-20220527223446937.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="722-控制并发量连接数">7.2.2 控制并发量（连接数）</h4>
+<p>ngx_http_limit_conn_module  提供了限制连接数的能力。主要是利用limit_conn_zone和limit_conn两个指令。</p>
+<p>利用连接数限制 某一个用户的ip连接的数量来控制流量。</p>
+<p>注意：并非所有连接都被计算在内 只有当服务器正在处理请求并且已经读取了整个请求头时，才会计算有效连接。此处忽略测试。</p>
+<p>配置语法：</p>
+<pre tabindex="0"><code>Syntax:	limit_conn zone number;
+Default: —;
+Context: http, server, location;
+</code></pre><h5 id="1配置限制固定连接数">(1)配置限制固定连接数</h5>
+<p>如下，配置如下：
+<img src="/posts/project-0/20220527222325/image-20220527223500079.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>上图配置如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">http</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">include</span>       <span style="color:#d14">mime.types</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">default_type</span>  <span style="color:#d14">application/octet-stream</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#cache
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">lua_shared_dict</span> <span style="color:#d14">dis_cache</span> <span style="color:#099">128m</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#限流设置
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">limit_req_zone</span> <span style="color:#008080">$binary_remote_addr</span> <span style="color:#d14">zone=contentRateLimit:10m</span> <span style="color:#d14">rate=2r/s</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#根据IP地址来限制，存储内存大小1M
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">limit_conn_zone</span> <span style="color:#008080">$binary_remote_addr</span> <span style="color:#d14">zone=addr:1m</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">sendfile</span>        <span style="color:#008080">on</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#tcp_nopush     on;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#keepalive_timeout  0;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">keepalive_timeout</span>  <span style="color:#099">65</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">#gzip  on;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">server</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">listen</span>       <span style="color:#099">80</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">server_name</span>  <span style="color:#d14">localhost</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">#所有以brand开始的请求，访问本地dongyimai-content-service微服务
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/brand</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">limit_conn</span> <span style="color:#d14">addr</span> <span style="color:#099">2</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">proxy_pass</span> <span style="color:#d14">http://192.168.188.1:9001/brand</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/update_content</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/update_content.lua</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/read_content</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">limit_req</span> <span style="color:#d14">zone=contentRateLimit</span> <span style="color:#d14">burst=4</span> <span style="color:#d14">nodelay</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">content_by_lua_file</span> <span style="color:#d14">/root/lua/read_content.lua</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>表示：</p>
+<pre tabindex="0"><code>limit_conn_zone $binary_remote_addr zone=addr:10m;  表示限制根据用户的IP地址来显示，设置存储地址为的内存大小10M
+
+limit_conn addr 2;   表示 限制每个IP只能发起2个连接。
+</code></pre><p>测试：</p>
+<p>此时开3个线程，测试的时候会发生异常，开2个就不会有异常
+<img src="/posts/project-0/20220527222325/image-20220527223513044.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project-0/20220527222325/image-20220527223521293.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h5 id="2限制每个客户端ip与服务器的连接数同时限制与虚拟服务器的连接总数了解">(2)限制每个客户端IP与服务器的连接数，同时限制与虚拟服务器的连接总数。(了解)</h5>
+<p>如下配置：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">limit_conn_zone</span> <span style="color:#008080">$binary_remote_addr</span> <span style="color:#d14">zone=perip:10m</span>;
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">limit_conn_zone</span> <span style="color:#008080">$server_name</span> <span style="color:#d14">zone=perserver:10m</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">server</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">listen</span>       <span style="color:#099">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">server_name</span>  <span style="color:#d14">localhost</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">charset</span> <span style="color:#d14">utf-8</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">location</span> <span style="color:#d14">/</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">limit_conn</span> <span style="color:#d14">perip</span> <span style="color:#099">10</span>;<span style="color:#998;font-style:italic">#单个客户端ip与服务器的连接数．
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">limit_conn</span> <span style="color:#d14">perserver</span> <span style="color:#099">100</span>; <span style="color:#000;font-weight:bold">＃限制与服务器的总连接数</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d14">root</span>   <span style="color:#d14">html</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">index</span>  <span style="color:#d14">index.html</span> <span style="color:#d14">index.htm</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="八canal同步广告">八、canal同步广告</h1>
+<p>canal可以用来监控数据库数据的变化，从而获得新增数据，或者修改的数据。</p>
+<p>canal是应阿里巴巴存在杭州和美国的双机房部署，存在跨机房同步的业务需求而提出的。</p>
+<p>阿里系公司开始逐步的尝试基于数据库的日志解析，获取增量变更进行同步，由此衍生出了增量订阅&amp;消费的业务。</p>
+<h3 id="81-canal工作原理">8.1 Canal工作原理</h3>
+<p><img src="/posts/project-0/20220527222325/image-20220527223529682.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>原理相对比较简单：</p>
+<ol>
+<li>canal模拟mysql slave的交互协议，伪装自己为mysql slave，向mysql master发送dump协议</li>
+<li>mysql master收到dump请求，开始推送binary log给slave(也就是canal)</li>
+<li>canal解析binary log对象(原始为byte流)</li>
+</ol>
+<p>canal需要使用到mysql，我们需要先安装mysql,给大家发的虚拟机中已经安装了mysql容器，但canal是基于mysql的主从模式实现的，所以必须先开启binlog.</p>
+<h3 id="82使用docker创建数据库容器">8.2、使用docker创建数据库容器</h3>
+<p>（1）、上传mysql数据库配置文件mysqld.cnf</p>
+<p>到服务器的/root目录下</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[mysqld]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">character-set-server</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">utf8</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">collation-server</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">utf8_general_ci</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">pid-file</span>        <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">/var/run/mysqld/mysqld.pid</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">socket</span>          <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">/var/run/mysqld/mysqld.sock</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">datadir</span>         <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">/var/lib/mysql</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#log-error      = /var/log/mysql/error.log</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># By default we only accept connections from localhost</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#bind-address   = 127.0.0.1</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">symbolic-links</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">0</span>
+</span></span></code></pre></div><p>（2）、上传数据库初始化脚本到 dongyimaidb.sql</p>
+<p>到服务器的/root目录下</p>
+<p>（3）、创建mysql容器</p>
+<pre tabindex="0"><code>docker run -d  --name=mysql  -v /root/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf -v /root/db.sql:/docker-entrypoint-initdb.d/mysql.sql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=dongyimai-db --net=host  mysql:5.7
+</code></pre><p><strong>注意</strong>：设置 网络模式为 host共享主机ip</p>
+<h3 id="83-开启binlog模式">8.3 开启binlog模式</h3>
+<p>先使用docker 创建mysql容器,此处不再演示.</p>
+<p>(1) 连接到mysql容器中,并修改/etc/mysql/mysql.conf.d/mysqld.cnf  需要开启主 从模式，开启binlog模式。</p>
+<p>执行如下命令，编辑mysql配置文件
+<img src="/posts/project-0/20220527222325/image-20220527223546857.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>命令行如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker exec -it mysql /bin/bash
+cd /etc/mysql/mysql.conf.d
+vi mysqld.cnf
+</code></pre><p>修改mysqld.cnf配置文件，添加如下配置：
+<img src="/posts/project-0/20220527222325/image-20220527223553071.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>上图配置如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">log-bin=/var/lib/mysql/mysql-bin
+server-id=12345
+</code></pre><p>(2) 通过客户端创建账号 用于测试使用,</p>
+<p>使用root账号创建用户并授予权限</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">create user canal@&#39;%&#39; IDENTIFIED by &#39;canal&#39;;
+GRANT SELECT, REPLICATION SLAVE, REPLICATION CLIENT,SUPER ON *.* TO &#39;canal&#39;@&#39;%&#39;;
+FLUSH PRIVILEGES;
+</code></pre><p>(3)重启mysql容器</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker restart mysql
+</code></pre><h3 id="84-canal容器安装">8.4 canal容器安装</h3>
+<p>下载镜像：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker pull docker.io/canal/canal-server
+</code></pre><p>容器安装</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker run   --name canal -d --net=host docker.io/canal/canal-server
+</code></pre><p>进入容器,修改核心配置canal.properties 和instance.properties，canal.properties 是canal自身的配置，instance.properties是需要同步数据的数据库连接配置。</p>
+<p>执行代码如下:</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker exec -it canal /bin/bash
+cd canal-server/conf/example
+vi instance.properties
+</code></pre><p>修改instance.properties,配置数据库连接地址:</p>
+<p>注意ip填写mysql绑定的主机ip：192.168.188.128(每个人都不一样)
+<img src="/posts/project-0/20220527222325/image-20220527223636376.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>因为当前mysql容器采用了host共享主机ip模式，所以，监听ip写宿主机的ip就可以
+<img src="/posts/project-0/20220527222325/image-20220527223644877.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>这里的<code>canal.instance.filter.regex</code>有多种配置，如下：</p>
+<p>可以参考地址如下:</p>
+<pre tabindex="0"><code>https://github.com/alibaba/canal/wiki/AdminGuide
+</code></pre><pre tabindex="0"><code class="language-properties" data-lang="properties">mysql 数据解析关注的表，Perl正则表达式.
+多个正则之间以逗号(,)分隔，转义符需要双斜杠(\\) 
+常见例子：
+1.  所有表：.*   or  .*\\..*
+2.  canal schema下所有表： canal\\..*
+3.  canal下的以canal打头的表：canal\\.canal.*
+4.  canal schema下的一张表：canal.test1
+5.  多个规则组合使用：canal\\..*,mysql.test1,mysql.test2 (逗号分隔)
+注意：此过滤条件只针对row模式的数据有效(ps. mixed/statement因为不解析sql，所以无法准确提取tableName进行过滤)
+</code></pre><p>配置完成后，设置开机启动，并记得重启canal。</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">docker update --restart=always canal
+docker restart canal
+</code></pre><p>开启cancal的防火墙端口：</p>
+<pre tabindex="0"><code>firewall-cmd --add-port=11111/tcp --permanent
+firewall-cmd --reload
+</code></pre><h3 id="85-canal微服务搭建">8.5 canal微服务搭建</h3>
+<p>当用户执行 数据库的操作的时候，binlog 日志会被canal捕获到，并解析出数据。我们就可以将解析出来的数据进行同步到redis中即可。</p>
+<p>思路：创建一个独立的程序，并监控canal服务器，获取binlog日志，解析数据，将数据更新到redis中。这样广告的数据就更新了。</p>
+<p>(1)安装辅助jar包</p>
+<p>在<code>源码\spring-boot-starter-canal-master</code>中有一个工程<code>starter-canal</code>，它主要提供了SpringBoot环境下<code>canal</code>的支持，我们需要先安装该工程，在<code>starter-canal</code>目录下执行<code>mvn install</code>，如下图：
+<img src="/posts/project-0/20220527222325/image-20220527223655805.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>(2)canal微服务工程搭建</p>
+<p>在dongyimai-service下创建dongyimai-canal-service工程，并引入相关配置。</p>
+<p>pom.xml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;project</span> <span style="color:#008080">xmlns=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">xmlns:xsi=</span><span style="color:#d14">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">xsi:schemaLocation=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#000080">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;parent&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-service<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>0.0.1<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/parent&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;modelVersion&gt;</span>4.0.0<span style="color:#000080">&lt;/modelVersion&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-canal-service<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;maven.compiler.source&gt;</span>8<span style="color:#000080">&lt;/maven.compiler.source&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;maven.compiler.target&gt;</span>8<span style="color:#000080">&lt;/maven.compiler.target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/properties&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!--canal依赖--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>com.xpand<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>starter-canal<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>0.0.1-SNAPSHOT<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-netflix-eureka-client<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-openfeign<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-content-service-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>0.0.1<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/project&gt;</span>
+</span></span></code></pre></div><p>application.yml配置</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
+  port: 9003
+spring:
+  application:
+    name: canal
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+#hystrix 配置
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          #如果enabled设置为false，则请求超时交给ribbon控制
+          enabled: true
+        isolation:
+          strategy: SEMAPHORE
+#canal配置
+canal:
+  client:
+    instances:
+      example:
+        host: 192.168.188.128
+        port: 11111
+</code></pre><p>注意：开启canal服务器的端口防火墙</p>
+<pre tabindex="0"><code>firewall-cmd --add-port=11111/tcp --permanent
+firewall-cmd --add-port=3306/tcp --permanent
+firewall-cmd --reload
+</code></pre><p>(3)监听创建</p>
+<p>创建一个CanalDataEventListener类，实现对表增删改操作的监听，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.offcn.canal.listener</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.alibaba.otter.canal.protocol.CanalEntry</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.xpand.starter.canal.annotation.*</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@CanalEventListener</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">CanalDataEventListener</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 增加数据监听
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param eventType
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param rowData
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@InsertListenPoint</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">onEventInsert</span><span style="color:#000;font-weight:bold">(</span>CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span> eventType<span style="color:#000;font-weight:bold">,</span> CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">RowData</span> rowData<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        rowData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAfterColumnsList</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">forEach</span><span style="color:#000;font-weight:bold">((</span>c<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">-&gt;</span> System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;By--Annotation: &#34;</span> <span style="color:#000;font-weight:bold">+</span> c<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; ::   &#34;</span> <span style="color:#000;font-weight:bold">+</span> c<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 修改数据监听
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param rowData
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@UpdateListenPoint</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">onEventUpdate</span><span style="color:#000;font-weight:bold">(</span>CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">RowData</span> rowData<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;UpdateListenPoint&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        rowData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAfterColumnsList</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">forEach</span><span style="color:#000;font-weight:bold">((</span>c<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">-&gt;</span> System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;By--Annotation: &#34;</span> <span style="color:#000;font-weight:bold">+</span> c<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; ::   &#34;</span> <span style="color:#000;font-weight:bold">+</span> c<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 删除数据监听
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param eventType
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@DeleteListenPoint</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">onEventDelete</span><span style="color:#000;font-weight:bold">(</span>CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span> eventType<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;DeleteListenPoint&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 自定义数据修改监听
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param eventType
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param rowData
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@ListenPoint</span><span style="color:#000;font-weight:bold">(</span>destination <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;example&#34;</span><span style="color:#000;font-weight:bold">,</span> schema <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;dongyimaidb&#34;</span><span style="color:#000;font-weight:bold">,</span> table <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#d14">&#34;tb_content_category&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;tb_content&#34;</span><span style="color:#000;font-weight:bold">},</span> eventType <span style="color:#000;font-weight:bold">=</span> CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">UPDATE</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">onEventCustomUpdate</span><span style="color:#000;font-weight:bold">(</span>CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span> eventType<span style="color:#000;font-weight:bold">,</span> CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">RowData</span> rowData<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">err</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;CustomUpdateListenPoint&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        rowData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAfterColumnsList</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">forEach</span><span style="color:#000;font-weight:bold">((</span>c<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">-&gt;</span> System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;By--Annotation: &#34;</span> <span style="color:#000;font-weight:bold">+</span> c<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34; ::   &#34;</span> <span style="color:#000;font-weight:bold">+</span> c<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">()));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>(4)启动类创建</p>
+<p>在com.offcn.canal中创建启动类，代码如下：</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+@EnableEurekaClient
+@EnableCanalClient
+public class CanalApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(CanalApplication.class,args);
+    }
+}
+</code></pre><p>(5)测试</p>
+<p>启动canal微服务，然后修改任意数据库的表数据，canal微服务后台输出如下：
+<img src="/posts/project-0/20220527222325/image-20220527223709777.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="86-广告同步作业">8.6 广告同步(作业)</h3>
+<p><img src="/posts/project-0/20220527222325/image-20220527223719678.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>如上图，每次执行广告操作的时候，会记录操作日志到，然后将操作日志发送给canal，canal将操作记录发送给canal微服务，canal微服务根据修改的分类ID调用content微服务查询分类对应的所有广告，canal微服务再将所有广告存入到Redis缓存。</p>
+<h4 id="861-content微服务搭建">8.6.1 content微服务搭建</h4>
+<p>在dongyimai-service中搭建dongyimai-content-servic微服务，对应的dao、service、controller、pojo、feign由代码生成器生成。</p>
+<h5 id="8611构建工程">8.6.1.1、构建工程</h5>
+<p>创建模块：</p>
+<p>（1）、dongyimai-content-service-api
+<img src="/posts/project-0/20220527222325/image-20220527223734068.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>模块继承父工程：dongyimai-service-api</p>
+<p>新建包:com.offcn.content.pojo</p>
+<p>（2）、dongyimai-content-service
+<img src="/posts/project-0/20220527222325/image-20220527223743712.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>模块继承父工程：dongyimai-service</p>
+<p>新建包:com.offcn.content</p>
+<p>引入依赖：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-content-service-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000080">&lt;version&gt;</span>0.0.1<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h5 id="8612生成代码拷贝到工程">8.6.1.2、生成代码、拷贝到工程</h5>
+<p>（1）、dongyimai-content-service-api模块中拷贝生成的pojo实体类、feign调用接口
+<img src="/posts/project-0/20220527222325/image-20220527223752254.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>（2）、dongyimai-content-service模块中拷贝生成的dao、service、controller代码
+<img src="/posts/project-0/20220527222325/image-20220527223800524.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h5 id="8613创建配置文件">8.6.1.3、创建配置文件</h5>
+<p>在模块dongyimai-content-service下 src/main/resources目录下创建配置文件:application.yml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">9004</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">application</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>content<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">datasource</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">driver-class-name</span>:<span style="color:#bbb"> </span>com.mysql.jdbc.Driver<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">url</span>:<span style="color:#bbb"> </span>jdbc:mysql://localhost:3306/dongyimaidb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">username</span>:<span style="color:#bbb"> </span>root<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">password</span>:<span style="color:#bbb"> </span>root<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">type</span>:<span style="color:#bbb"> </span>com.alibaba.druid.pool.DruidDataSource    <span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">eureka</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">client</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">service-url</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">defaultZone</span>:<span style="color:#bbb"> </span>http://localhost:8761/eureka  <span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">feign</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">hystrix</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">enabled</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic">#设定Hystrix熔断超时时间</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">hystrix</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">command</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">default</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">execution</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">isolation</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">thread</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">timeoutInMilliseconds</span>:<span style="color:#bbb"> </span><span style="color:#099">6000</span><span style="color:#bbb">    
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">mybatis</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">configuration</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">map-underscore-to-camel-case</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">  </span><span style="color:#998;font-style:italic">#开启驼峰式编写规范</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">type-aliases-package</span>:<span style="color:#bbb"> </span>com.offcn.content.pojo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic"># 配置sql打印日志</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">logging</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">level</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">com.offcn.content</span>:<span style="color:#bbb"> </span>debug<span style="color:#bbb">
+</span></span></span></code></pre></div><h5 id="8614编写swagger文档配置类mybatisplus分页插件配置类">8.6.1.4、编写swagger文档配置类、MyBatisPlus分页插件配置类</h5>
+<p>AppSwggerConfig.java</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.offcn.content.config</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.context.annotation.Bean</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.context.annotation.Configuration</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">springfox.documentation.builders.ApiInfoBuilder</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">springfox.documentation.builders.PathSelectors</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">springfox.documentation.builders.RequestHandlerSelectors</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">springfox.documentation.service.ApiInfo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">springfox.documentation.spi.DocumentationType</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">springfox.documentation.spring.web.plugins.Docket</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">springfox.documentation.swagger2.annotations.EnableSwagger2</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableSwagger2</span> <span style="color:#998;font-style:italic">//开启swagger2自动生成api文档的功能
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">AppSwggerConfig</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Docket <span style="color:#900;font-weight:bold">createRestApi</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Docket<span style="color:#000;font-weight:bold">(</span>DocumentationType<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">SWAGGER_2</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">groupName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;webApi&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">apiInfo</span><span style="color:#000;font-weight:bold">(</span>apiInfo<span style="color:#000;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">select</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">apis</span><span style="color:#000;font-weight:bold">(</span>RequestHandlerSelectors<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">basePackage</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;com.offcn.content.controller&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">paths</span><span style="color:#000;font-weight:bold">(</span>PathSelectors<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">any</span><span style="color:#000;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> ApiInfo <span style="color:#900;font-weight:bold">apiInfo</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> ApiInfoBuilder<span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">title</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;广告微服务-接口文档&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">description</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;提供广告模块的文档&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">termsOfServiceUrl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;http://www.ujiuye.com/&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">version</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;1.0&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>PageConfig.java</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.offcn.content.config</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.baomidou.mybatisplus.annotation.DbType</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.context.annotation.Bean</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">org.springframework.context.annotation.Configuration</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @Auther: lhq
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @Date: 2021/1/25 10:41
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @Description:
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">PageConfig</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> MybatisPlusInterceptor <span style="color:#900;font-weight:bold">mybatisPlusInterceptor</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        MybatisPlusInterceptor interceptor <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> MybatisPlusInterceptor<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        interceptor<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addInnerInterceptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> PaginationInnerInterceptor<span style="color:#000;font-weight:bold">(</span>DbType<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">MYSQL</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> interceptor<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h5 id="8615编写主启动类">8.6.1.5、编写主启动类</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableDiscoveryClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@MapperScan</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;com.offcn.content.dao&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ContentApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>ContentApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span>args<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h4 id="862启动测试">8.6.2、启动测试</h4>
+<h5 id="8621运行主启动类contentapplication启动项目">8.6.2.1、运行主启动类ContentApplication，启动项目</h5>
+<p><img src="/posts/project-0/20220527222325/image-20220527223814254.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h5 id="8622访问swagger测试接口">8.6.2.2、访问Swagger测试接口</h5>
+<p>访问地址:http://localhost:9003/swagger-ui.html
+<img src="/posts/project-0/20220527222325/image-20220527223820172.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>swagger小bug解决：</p>
+<p>使用swagger文档的时候，在后台出现错误如下：
+<img src="/posts/project-0/20220527222325/image-20220527223825134.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>解决bug方法，修改dongyimai-parent的依赖配置文件pom.xml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">&lt;!--swagger--&gt;</span>       
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>io.springfox<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>springfox-swagger2<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>${swagger.version}<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;groupId&gt;</span>io.swagger<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;artifactId&gt;</span>swagger-models<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;/exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>io.swagger<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>swagger-models<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>1.5.21<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>       
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>io.springfox<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>springfox-swagger-ui<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>${swagger.version}<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>把springfox-swagger2所依赖的swagger-models排除掉，引入1.5.21版本的swagger-models。</p>
+<p>广告微服务开发完成，具体管理页面，和web前端进行对接实现！</p>
+<h4 id="863-广告查询">8.6.3 广告查询</h4>
+<p>在content微服务中，添加根据分类查询广告。</p>
+<p>(1)业务层</p>
+<p>修改dongyimai-content-service的com.offcn.content.service.ContentService接口，添加根据分类ID查询广告数据，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 根据categoryId查询广告集合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param id
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span>List<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">findByCategory</span><span style="color:#000;font-weight:bold">(</span>Long id<span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><p>修改dongyimai-content-service的com.offcn.content.service.impl.ContentServiceImpl接口实现类，添加根据分类ID查询广告数据，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> List<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">findByCategory</span><span style="color:#000;font-weight:bold">(</span>Long id<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//创建查询条件数据封装对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Content content <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Content<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//设置广告分类id查询条件
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        content<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setCategoryId</span><span style="color:#000;font-weight:bold">(</span>id<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//设置广告状态为 1 可用
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        content<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setStatus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//构建查询条件
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        QueryWrapper<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;</span> queryWrapper <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">createQueryWrapper</span><span style="color:#000;font-weight:bold">(</span>content<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//设置按照排序字段升序进行排序
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        queryWrapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">orderByAsc</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;sort_order&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//发出查询
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">list</span><span style="color:#000;font-weight:bold">(</span>queryWrapper<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>(2)控制层</p>
+<p>修改dongyimai-content-service的com.offcn.content.controller.ContentController,添加根据分类ID查询广告数据，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 根据categoryId查询广告集合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param content
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@ApiOperation</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;根据categoryId查询广告集合&#34;</span><span style="color:#000;font-weight:bold">,</span>notes <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;根据categoryId查询广告集合&#34;</span><span style="color:#000;font-weight:bold">,</span>tags <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#d14">&#34;ContentController&#34;</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@ApiImplicitParam</span><span style="color:#000;font-weight:bold">(</span>paramType <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;path&#34;</span><span style="color:#000;font-weight:bold">,</span> name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;id&#34;</span><span style="color:#000;font-weight:bold">,</span> value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;分类id&#34;</span><span style="color:#000;font-weight:bold">,</span> required <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span> dataType <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Long&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/list/category/{id}&#34;</span> <span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;&gt;</span> <span style="color:#900;font-weight:bold">findByCategory</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3c5d5d;font-weight:bold">@PathVariable</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;id&#34;</span><span style="color:#000;font-weight:bold">)</span> Long id<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//调用ContentService实现条件查询Content
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        List<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;</span> list <span style="color:#000;font-weight:bold">=</span> contentService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">findByCategory</span><span style="color:#000;font-weight:bold">(</span>id<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;&gt;(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;查询成功&#34;</span><span style="color:#000;font-weight:bold">,</span>list<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>(3)feign配置</p>
+<p>在dongyimai-content-service-api工程中ContentFeign添加获取指定分类id广告数据方法调用，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@FeignClient</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;content&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RequestMapping</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/content&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">ContentFeign</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 根据分类ID查询所有广告
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/list/category/{id}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;&gt;</span> <span style="color:#900;font-weight:bold">findByCategory</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3c5d5d;font-weight:bold">@PathVariable</span> Long id<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h4 id="864-同步实现">8.6.4 同步实现</h4>
+<p>在canal微服务中修改如下:</p>
+<p>(1)配置redis</p>
+<p>修改application.yml配置文件，添加redis配置，如下代码：
+<img src="/posts/project-0/20220527222325/image-20220527223844163.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>（2）、配置熔断超时时间</p>
+<p>修改application.yml配置文件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">feign</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">hystrix</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">enabled</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic">#设定Hystrix熔断超时时间</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">hystrix</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">command</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">default</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">execution</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">isolation</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">thread</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#000080">timeoutInMilliseconds</span>:<span style="color:#bbb"> </span><span style="color:#099">6000</span><span style="color:#bbb"> 
+</span></span></span></code></pre></div><p>(3)启动类中开启feign</p>
+<p>修改CanalApplication，添加<code>@EnableFeignClients</code>注解，代码如下：
+<img src="/posts/project-0/20220527222325/image-20220527223851183.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>错误：出现连接数据失败错误，修改主启动类排除数据库自动配置</p>
+<p>(3)同步实现</p>
+<p>修改监听类CanalDataEventListener，实现监听广告的增删改，并根据增删改的数据使用feign查询对应分类的所有广告，将广告存入到Redis中，代码如下：</p>
+<p>上图代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@CanalEventListener</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">CanalDataEventListener</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> ContentFeign contentFeign<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> StringRedisTemplate stringRedisTemplate<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//自定义数据库的 操作来监听
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">//destination = &#34;example&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#3c5d5d;font-weight:bold">@ListenPoint</span><span style="color:#000;font-weight:bold">(</span>destination <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;example&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            schema <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;dongyimaidb&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            table <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#d14">&#34;tb_content&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;tb_content_category&#34;</span><span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            eventType <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">UPDATE</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">DELETE</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">INSERT</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">onEventCustomUpdate</span><span style="color:#000;font-weight:bold">(</span>CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span> eventType<span style="color:#000;font-weight:bold">,</span> CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">RowData</span> rowData<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//1.获取列名 为category_id的值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String categoryId <span style="color:#000;font-weight:bold">=</span> getColumnValue<span style="color:#000;font-weight:bold">(</span>eventType<span style="color:#000;font-weight:bold">,</span> rowData<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//2.调用feign 获取该分类下的所有的广告集合
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Result<span style="color:#000;font-weight:bold">&lt;</span>List<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;&gt;</span> categoryresut <span style="color:#000;font-weight:bold">=</span> contentFeign<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">findByCategory</span><span style="color:#000;font-weight:bold">(</span>Long<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">valueOf</span><span style="color:#000;font-weight:bold">(</span>categoryId<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#000;font-weight:bold">&lt;</span>Content<span style="color:#000;font-weight:bold">&gt;</span> data <span style="color:#000;font-weight:bold">=</span> categoryresut<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getData</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//3.使用redisTemplate存储到redis中
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        stringRedisTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">boundValueOps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;content_&#34;</span> <span style="color:#000;font-weight:bold">+</span> categoryId<span style="color:#000;font-weight:bold">).</span><span style="color:#008080">set</span><span style="color:#000;font-weight:bold">(</span>JSON<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toJSONString</span><span style="color:#000;font-weight:bold">(</span>data<span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String <span style="color:#900;font-weight:bold">getColumnValue</span><span style="color:#000;font-weight:bold">(</span>CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span> eventType<span style="color:#000;font-weight:bold">,</span> CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">RowData</span> rowData<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        String categoryId <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//判断 如果是删除  则获取beforlist
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>eventType <span style="color:#000;font-weight:bold">==</span> CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">EventType</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">DELETE</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">Column</span> column <span style="color:#000;font-weight:bold">:</span> rowData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBeforeColumnsList</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>column<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">equalsIgnoreCase</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;category_id&#34;</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    categoryId <span style="color:#000;font-weight:bold">=</span> column<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">return</span> categoryId<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//判断 如果是添加 或者是更新 获取afterlist
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>CanalEntry<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">Column</span> column <span style="color:#000;font-weight:bold">:</span> rowData<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAfterColumnsList</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>column<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">equalsIgnoreCase</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;category_id&#34;</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    categoryId <span style="color:#000;font-weight:bold">=</span> column<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">return</span> categoryId<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> categoryId<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>测试：</p>
+<p>修改数据库数据，可以看到Redis中的缓存跟着一起变化
+<img src="/posts/project-0/20220527222325/image-20220527223900287.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.vercel.app/posts/project-0/20220527231000/">← 商品搜索</a></div>
+    <div><a href="https://lovemjh.vercel.app/posts/project-0/20220527224880/">搜索解决方案-Elasticsearch  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+    </body>
+</html>

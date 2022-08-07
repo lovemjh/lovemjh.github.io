@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="VUE - https://lovemjh.vercel.app/posts/java-web/20220430215026/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>VUE</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.vercel.app/style.min.ef012369a26adc2a21396230b3395dfcd5975a3082a65b82785cbc0b446f2a2c.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            VUE
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2021-12-15&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2021-12-15&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            3812 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            8 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/java-web/20220430225784/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/blog/20220430231595/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#一es6">一、ES6</a>
+              <ul>
+                <li><a href="#1-理解">1. 理解</a></li>
+                <li><a href="#2-新特性">2. 新特性</a>
+                  <ul>
+                    <li><a href="#-声明变量">① 声明变量</a></li>
+                    <li><a href="#-常量的声明">② 常量的声明</a></li>
+                    <li><a href="#-解构赋值">③ 解构赋值</a></li>
+                    <li><a href="#-模板字符串">④ 模板字符串</a></li>
+                    <li><a href="#-对象声明简化">⑤ 对象声明简化</a></li>
+                    <li><a href="#-声明函数简化">⑥ 声明函数简化</a></li>
+                    <li><a href="#-函数默认值参数">⑦ 函数默认值参数</a></li>
+                    <li><a href="#-函数的不定参数">⑧ 函数的不定参数</a></li>
+                    <li><a href="#-箭头函数">⑨ 箭头函数</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#二vue">二、Vue</a>
+              <ul>
+                <li><a href="#1-理解-1">1. 理解</a></li>
+                <li><a href="#2-作用">2. 作用</a></li>
+                <li><a href="#3-使用">3. 使用</a></li>
+                <li><a href="#4-vue的指令">4. Vue的指令</a>
+                  <ul>
+                    <li><a href="#41-v-html和v-text">4.1 v-html和v-text</a></li>
+                    <li><a href="#42-v-if-和-v-show">4.2 v-if 和 v-show</a></li>
+                    <li><a href="#43-v-on">4.3 v-on</a></li>
+                    <li><a href="#44-v-for">4.4 v-for</a></li>
+                    <li><a href="#45-v-bind">4.5 v-bind</a></li>
+                    <li><a href="#46-v-model">4.6 v-model</a></li>
+                  </ul>
+                </li>
+                <li><a href="#5-vue的选项">5. Vue的选项</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h3 id="一es6">一、ES6</h3>
+<h4 id="1-理解">1. 理解</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>	ECMAScript 6<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">0</span> 是JavaScript新的语法<span style="color:#a61717;background-color:#e3d2d2">，</span>给JS补充了一些新语法<span style="color:#a61717;background-color:#e3d2d2">。</span>Vue基于ES6的新语法<span style="color:#a61717;background-color:#e3d2d2">。</span>
+</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215026/image-20220430224203160.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="2-新特性">2. 新特性</h4>
+<h5 id="-声明变量">① 声明变量</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>语法<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    let 变量名 <span style="color:#000;font-weight:bold">=</span> 初始值<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>特点<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> let声明的变量提供了局部作用域
+</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">.</span> let声明变量的名字 只能声明一次
+</span></span><span style="display:flex;"><span>    3<span style="color:#000;font-weight:bold">.</span> let声明变量必须给初始值
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 1. 声明变量 var 声明的变量没有局部作用域
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        var i <span style="color:#000;font-weight:bold">=</span> 10
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 2. es6  let声明的变量提供了局部作用域
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        let j <span style="color:#000;font-weight:bold">=</span> 10
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>j<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;----------------------&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            var n <span style="color:#000;font-weight:bold">=</span> 11
+</span></span><span style="display:flex;"><span>            let m <span style="color:#000;font-weight:bold">=</span> 12
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>n<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// console.log(m)  // Uncaught ReferenceError: m is not defined
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;---------------&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// let声明变量的名字 只能声明一次
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        var i <span style="color:#000;font-weight:bold">=</span> 19
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// let j = 20  
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>i<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// console.log(j) // Uncaught SyntaxError: Identifier &#39;j&#39; has already been declared
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;---------------------&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>xx<span style="color:#000;font-weight:bold">);</span>  <span style="color:#998;font-style:italic">// undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        var xx <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// let声明变量必须给初始值
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>yy<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        let yy <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;apps&#34;</span>  <span style="color:#998;font-style:italic">// Uncaught ReferenceError: Cannot access &#39;yy&#39; before initialization
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><h5 id="-常量的声明">② 常量的声明</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>格式<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">const</span> 常量名 <span style="color:#000;font-weight:bold">=</span> 初始值
+</span></span><span style="display:flex;"><span>特点<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> 常量一经定义 不能改变值 否则报错
+</span></span><span style="display:flex;"><span>   	2<span style="color:#000;font-weight:bold">.</span> 常量必须给初始值  否则报错
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// es6 声明常量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">const</span> PI <span style="color:#000;font-weight:bold">=</span> 3<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">1415926</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// PI = 3.14 // Uncaught TypeError: Assignment to constant variable.
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>PI<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">const</span> P  <span style="color:#998;font-style:italic">// Uncaught SyntaxError: Missing initializer in const declaration
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>p<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><h5 id="-解构赋值">③ 解构赋值</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> 理解
+</span></span><span style="display:flex;"><span>	解构赋值对赋值运算符的扩展<span style="color:#a61717;background-color:#e3d2d2">，</span>主要对数组和对象中的变量匹配赋值<span style="color:#a61717;background-color:#e3d2d2">。</span>更加简单易读<span style="color:#a61717;background-color:#e3d2d2">，</span>语义更加清晰
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">// 传统方式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>var i<span style="color:#000;font-weight:bold">=</span>1<span style="color:#000;font-weight:bold">,</span> j<span style="color:#000;font-weight:bold">=</span>2<span style="color:#000;font-weight:bold">,</span> a<span style="color:#000;font-weight:bold">=</span>3
+</span></span><span style="display:flex;"><span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>i<span style="color:#000;font-weight:bold">,</span> j<span style="color:#000;font-weight:bold">,</span> a<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// es6
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    let<span style="color:#000;font-weight:bold">[</span>b<span style="color:#000;font-weight:bold">,</span> c<span style="color:#000;font-weight:bold">,</span> d<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span>2<span style="color:#000;font-weight:bold">,</span> 3<span style="color:#000;font-weight:bold">,</span> 4<span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>b<span style="color:#000;font-weight:bold">,</span> c<span style="color:#000;font-weight:bold">,</span> d<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    var user <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>name<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;huahua&#34;</span><span style="color:#000;font-weight:bold">,</span> age<span style="color:#000;font-weight:bold">:</span> 18<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 传统
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>var username <span style="color:#000;font-weight:bold">=</span> user<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">name</span>
+</span></span><span style="display:flex;"><span>    var age1 <span style="color:#000;font-weight:bold">=</span> user<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">age</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>username<span style="color:#000;font-weight:bold">,</span> age1<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// es6
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    let<span style="color:#000;font-weight:bold">{</span>name<span style="color:#000;font-weight:bold">,</span> age<span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">=</span> user
+</span></span><span style="display:flex;"><span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">,</span> age<span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h5 id="-模板字符串">④ 模板字符串</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> 理解
+</span></span><span style="display:flex;"><span>    模板字符串相当于加强版的字符串<span style="color:#a61717;background-color:#e3d2d2">，</span>使用<span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#000;font-weight:bold">(</span>反引号<span style="color:#000;font-weight:bold">)</span><span style="color:#a61717;background-color:#e3d2d2">，</span>可以获取普通字符<span style="color:#a61717;background-color:#e3d2d2">、</span>变量和表达式的值
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>var num <span style="color:#000;font-weight:bold">=</span> 10
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 传统
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        var name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;翠花&#34;</span>
+</span></span><span style="display:flex;"><span>        var str <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;hi, &#34;</span><span style="color:#000;font-weight:bold">+</span>name<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;。 你好&#34;</span>
+</span></span><span style="display:flex;"><span>        var ss <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;hi, &#34;</span><span style="color:#000;font-weight:bold">+</span>name<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;。&#34;</span><span style="color:#000;font-weight:bold">+</span>say<span style="color:#000;font-weight:bold">()+(</span>num<span style="color:#000;font-weight:bold">+</span>1<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>ss<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// es6
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        var str1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#a61717;background-color:#e3d2d2">`</span>hi<span style="color:#000;font-weight:bold">,</span> $<span style="color:#000;font-weight:bold">{</span>name<span style="color:#000;font-weight:bold">}</span><span style="color:#a61717;background-color:#e3d2d2">。</span>你好啊<span style="color:#a61717;background-color:#e3d2d2">`</span>
+</span></span><span style="display:flex;"><span>        var sss <span style="color:#000;font-weight:bold">=</span> <span style="color:#a61717;background-color:#e3d2d2">`</span>hi<span style="color:#000;font-weight:bold">,</span> $<span style="color:#000;font-weight:bold">{</span>name<span style="color:#000;font-weight:bold">}</span><span style="color:#a61717;background-color:#e3d2d2">。</span>$<span style="color:#000;font-weight:bold">{</span>say<span style="color:#000;font-weight:bold">()}</span> $<span style="color:#000;font-weight:bold">{</span>num<span style="color:#000;font-weight:bold">+</span>1<span style="color:#000;font-weight:bold">}</span><span style="color:#a61717;background-color:#e3d2d2">`</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>sss<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        function <span style="color:#900;font-weight:bold">say</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#34;么么哒&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h5 id="-对象声明简化">⑤ 对象声明简化</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 传统 对象声明
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>var name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;xx&#34;</span>
+</span></span><span style="display:flex;"><span>    var age <span style="color:#000;font-weight:bold">=</span> 18
+</span></span><span style="display:flex;"><span>    var p <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>name<span style="color:#000;font-weight:bold">:</span> name<span style="color:#000;font-weight:bold">,</span> age<span style="color:#000;font-weight:bold">:</span> age<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>p<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// es6 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    let pp <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>name<span style="color:#000;font-weight:bold">,</span> age<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>pp<span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h5 id="-声明函数简化">⑥ 声明函数简化</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// 传统
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>var user1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;aa&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    age<span style="color:#000;font-weight:bold">:</span> 19<span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    say<span style="color:#000;font-weight:bold">:</span> function<span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;.......&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>user1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">say</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// es6
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    var user2 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;aa&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    age<span style="color:#000;font-weight:bold">:</span> 19<span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    say<span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;...es6....&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>user2<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">say</span><span style="color:#000;font-weight:bold">()</span>
+</span></span></code></pre></div><h5 id="-函数默认值参数">⑦ 函数默认值参数</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">//es6 默认值参数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>function <span style="color:#900;font-weight:bold">sayHi</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">,</span> age<span style="color:#000;font-weight:bold">=</span>18<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;::&#34;</span><span style="color:#000;font-weight:bold">+</span>age<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sayHi<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;xx&#34;</span><span style="color:#000;font-weight:bold">,</span> 22<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    sayHi<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;xx&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    sayHi<span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;xx&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h5 id="-函数的不定参数">⑧ 函数的不定参数</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">// es6 函数不定参数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        function <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">(...</span><span style="color:#008080">v</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>v<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">length</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        eat<span style="color:#000;font-weight:bold">(</span>1<span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;哈哈&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span> 3<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">14</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h5 id="-箭头函数">⑨ 箭头函数</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>箭头函数就是函数简洁的一种写法
+</span></span><span style="display:flex;"><span>特点<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> <span style="color:#900;font-weight:bold">函数中无参或者多参数</span>  <span style="color:#000;font-weight:bold">()</span>不能省略
+</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">.</span> 函数体中如果只有 <span style="color:#000;font-weight:bold">return</span> 或者 只有一句话 <span style="color:#000;font-weight:bold">{}</span>可以省略  否则不可以
+</span></span><span style="display:flex;"><span>   
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">// 传统方式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        var func1 <span style="color:#000;font-weight:bold">=</span> function <span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        var func3 <span style="color:#000;font-weight:bold">=</span> function<span style="color:#000;font-weight:bold">(</span>b<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> b
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// es6  类似lambda表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        var func2 <span style="color:#000;font-weight:bold">=</span> a <span style="color:#000;font-weight:bold">=&gt;</span> console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>a<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        func2<span style="color:#000;font-weight:bold">(</span>10<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        var func4 <span style="color:#000;font-weight:bold">=</span> b <span style="color:#000;font-weight:bold">=&gt;</span> b
+</span></span><span style="display:flex;"><span>        console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>func4<span style="color:#000;font-weight:bold">(</span>11<span style="color:#000;font-weight:bold">))</span>
+</span></span></code></pre></div><h3 id="二vue">二、Vue</h3>
+<h4 id="1-理解-1">1. 理解</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> 	Vue 渐进式框架 Vue只关注视图层<span style="color:#a61717;background-color:#e3d2d2">，</span>将dom封装起来<span style="color:#a61717;background-color:#e3d2d2">，</span>提供简单的API 实现视图和数据的绑定<span style="color:#a61717;background-color:#e3d2d2">，</span>最大程度上释放了dom操作<span style="color:#a61717;background-color:#e3d2d2">，</span>vue是JavaScript的一个优秀框架
+</span></span></code></pre></div><h4 id="2-作用">2. 作用</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>M<span style="color:#000;font-weight:bold">-</span>V<span style="color:#000;font-weight:bold">-</span>VM模式
+</span></span><span style="display:flex;"><span>    M Model 模型 数据模型 
+</span></span><span style="display:flex;"><span>    V View  视图 将数据页面渲染的结果
+</span></span><span style="display:flex;"><span>    VM View<span style="color:#000;font-weight:bold">-</span>Model 视图和模型的双向绑定
+</span></span></code></pre></div><h4 id="3-使用">3. 使用</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">①</span> 下载 vue<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">js文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">②</span> 引入页面中  <span style="color:#000;font-weight:bold">&lt;</span>script src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">③</span> 编码
+</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> 创建vue对象
+</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">.</span> 配置Vue的选项 如<span style="color:#a61717;background-color:#e3d2d2">：</span>el data methods <span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>    	el<span style="color:#000;font-weight:bold">:</span> <span style="color:#998;font-style:italic">// element, vue中模型数据要渲染的页面
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	    data<span style="color:#a61717;background-color:#e3d2d2">：</span> <span style="color:#998;font-style:italic">// 要渲染页面中的数据   后台获取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>         methods<span style="color:#a61717;background-color:#e3d2d2">：</span><span style="color:#998;font-style:italic">// vue中需要使用的函数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    3<span style="color:#000;font-weight:bold">.</span> 定义组件 去渲染数据
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span> 渲染 <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    4<span style="color:#000;font-weight:bold">.</span> 使用插值表达式 渲染data中数据  字符串数据
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{{</span>data的属性名<span style="color:#000;font-weight:bold">}}</span>
+</span></span></code></pre></div><h4 id="4-vue的指令">4. Vue的指令</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> 	指令是带 v<span style="color:#000;font-weight:bold">-</span>前缀 的特殊的属性<span style="color:#a61717;background-color:#e3d2d2">，</span>如<span style="color:#a61717;background-color:#e3d2d2">：</span>v<span style="color:#000;font-weight:bold">-</span>html v<span style="color:#000;font-weight:bold">-</span>show v<span style="color:#000;font-weight:bold">-</span><span style="color:#000;font-weight:bold">for</span> v<span style="color:#000;font-weight:bold">-</span><span style="color:#000;font-weight:bold">if</span><span style="color:#a61717;background-color:#e3d2d2">，</span>Vue框架扩展的语法 取代dom操作 渲染vue中data的数据
+</span></span></code></pre></div><h5 id="41-v-html和v-text">4.1 v-html和v-text</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>类型 innerHTML 和 innerText
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>p v<span style="color:#000;font-weight:bold">-</span>html<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;h&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>p<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>p v<span style="color:#000;font-weight:bold">-</span>text<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;t&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>p<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        let app <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Vue<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>            el<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;#app&#34;</span><span style="color:#000;font-weight:bold">,</span> 
+</span></span><span style="display:flex;"><span>            data<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                h<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;&lt;font color=&#39;red&#39;&gt;嘿嘿&lt;/font&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                t<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;哈哈&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><h5 id="42-v-if-和-v-show">4.2 v-if 和 v-show</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> v<span style="color:#000;font-weight:bold">-</span><span style="color:#000;font-weight:bold">if</span> 值为true显示该组件  为false移出该组件  和 v<span style="color:#000;font-weight:bold">-</span><span style="color:#000;font-weight:bold">else</span> 
+</span></span><span style="display:flex;"><span> v<span style="color:#000;font-weight:bold">-</span>show 值为true 显示组件   为false 设置display属性为none 不能 v<span style="color:#000;font-weight:bold">-</span>else使用
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>h2 v<span style="color:#000;font-weight:bold">-</span><span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;b&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>欢迎<span style="color:#000;font-weight:bold">:</span> xx<span style="color:#000;font-weight:bold">&lt;/</span>h2<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>h2 v<span style="color:#000;font-weight:bold">-</span><span style="color:#000;font-weight:bold">else</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>请登录<span style="color:#000;font-weight:bold">&lt;/</span>h2<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>h2 v<span style="color:#000;font-weight:bold">-</span>show<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;b&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>哈哈<span style="color:#000;font-weight:bold">&lt;/</span>h2<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        let v <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Vue<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>            el<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;#app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            data<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                b<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>  
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>     
+</span></span></code></pre></div><h5 id="43-v-on">4.3 v-on</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>作用<span style="color:#a61717;background-color:#e3d2d2">：</span>利用v<span style="color:#000;font-weight:bold">-</span>on绑定dom事件 当事件触发时执行v<span style="color:#000;font-weight:bold">-</span>on的js代码
+</span></span><span style="display:flex;"><span>语法<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    v<span style="color:#000;font-weight:bold">-</span>on<span style="color:#000;font-weight:bold">:</span>事件名 <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;</span> 或 <span style="color:#3c5d5d;font-weight:bold">@事件名</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>button v<span style="color:#000;font-weight:bold">-</span>on<span style="color:#000;font-weight:bold">:</span>click<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;num++&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>点击<span style="color:#000;font-weight:bold">{{</span>num<span style="color:#000;font-weight:bold">}}&lt;/</span>button<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>button v<span style="color:#000;font-weight:bold">-</span>on<span style="color:#000;font-weight:bold">:</span>click<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;func1()&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>点击<span style="color:#000;font-weight:bold">{{</span>num<span style="color:#000;font-weight:bold">}}&lt;/</span>button<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>button <span style="color:#3c5d5d;font-weight:bold">@click</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;func2(num)&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>点我干啥<span style="color:#000;font-weight:bold">&lt;/</span>button<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        let v <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Vue<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>            el<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;#app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            data<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                num<span style="color:#000;font-weight:bold">:</span> 0
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            methods<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                func1<span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>                    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;点击触发了：&#34;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">num</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">num</span> <span style="color:#000;font-weight:bold">++</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                func2<span style="color:#000;font-weight:bold">(</span>n<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>                    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;func2调用了, &#34;</span><span style="color:#000;font-weight:bold">+</span>n<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><h5 id="44-v-for">4.4 v-for</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>作用<span style="color:#a61717;background-color:#e3d2d2">：</span>页面渲染列表是遍历
+</span></span><span style="display:flex;"><span>格式<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> <span style="color:#000;font-weight:bold">(</span>item<span style="color:#000;font-weight:bold">,</span> index<span style="color:#000;font-weight:bold">)</span> in 数组或集合
+</span></span><span style="display:flex;"><span>    	item 集合或数组中每一个元素
+</span></span><span style="display:flex;"><span>    	index 集合或数组的索引
+</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">.</span> <span style="color:#000;font-weight:bold">(</span>value<span style="color:#000;font-weight:bold">,</span> key<span style="color:#000;font-weight:bold">,</span> index<span style="color:#000;font-weight:bold">)</span> in 对象
+</span></span><span style="display:flex;"><span>    	value 对象中对应的属性值值
+</span></span><span style="display:flex;"><span>    	key   对象的属性名
+</span></span><span style="display:flex;"><span>    	index 对象的属性对应的索引
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>table border<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1&#34;</span> cellspacing<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;0&#34;</span> width<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;500&#34;</span> align<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;center&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;</span>tr<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>th<span style="color:#000;font-weight:bold">&gt;</span>索引<span style="color:#000;font-weight:bold">&lt;/</span>th<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>th<span style="color:#000;font-weight:bold">&gt;</span>学号<span style="color:#000;font-weight:bold">&lt;/</span>th<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>th<span style="color:#000;font-weight:bold">&gt;</span>姓名<span style="color:#000;font-weight:bold">&lt;/</span>th<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>th<span style="color:#000;font-weight:bold">&gt;</span>性别<span style="color:#000;font-weight:bold">&lt;/</span>th<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;/</span>tr<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#000;font-weight:bold">&lt;!--</span>  1<span style="color:#000;font-weight:bold">.</span> 遍历集合 <span style="color:#000;font-weight:bold">--&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;</span>tr v<span style="color:#000;font-weight:bold">-</span><span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;(item, index) in stuList&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>td<span style="color:#000;font-weight:bold">&gt;{{</span>index<span style="color:#000;font-weight:bold">}}&lt;/</span>td<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>td<span style="color:#000;font-weight:bold">&gt;{{</span>item<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">sid</span><span style="color:#000;font-weight:bold">}}&lt;/</span>td<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>td<span style="color:#000;font-weight:bold">&gt;{{</span>item<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">username</span><span style="color:#000;font-weight:bold">}}&lt;/</span>td<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>td<span style="color:#000;font-weight:bold">&gt;{{</span>item<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">sex</span><span style="color:#000;font-weight:bold">}}&lt;/</span>td<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;/</span>tr<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;/</span>table<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>form action<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;&#34;</span> method<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;</span>table border<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;1&#34;</span> cellspacing<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;0&#34;</span> width<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;500&#34;</span> align<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;center&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;!--</span> 2<span style="color:#000;font-weight:bold">.</span> 对象的遍历 <span style="color:#000;font-weight:bold">--&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;</span>tr v<span style="color:#000;font-weight:bold">-</span><span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;(v, key, index) in stu&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">&lt;</span>td<span style="color:#000;font-weight:bold">&gt;{{</span>index<span style="color:#000;font-weight:bold">}}--{{</span>key<span style="color:#000;font-weight:bold">}}&lt;/</span>td<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">&lt;</span>td<span style="color:#000;font-weight:bold">&gt;&lt;</span>input type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span> v<span style="color:#000;font-weight:bold">-</span>bind<span style="color:#000;font-weight:bold">:</span>name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;key&#34;</span> v<span style="color:#000;font-weight:bold">-</span>model<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;stu[key]&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>td<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">&lt;/</span>tr<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">&lt;/</span>table<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;/</span>form<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        let v <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Vue<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>            el<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;#app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            data<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                stuList<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">{</span>sid<span style="color:#000;font-weight:bold">:</span> 101<span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小坤坤&#34;</span><span style="color:#000;font-weight:bold">,</span> sex<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;男&#34;</span><span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">{</span>sid<span style="color:#000;font-weight:bold">:</span> 102<span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小冲冲&#34;</span><span style="color:#000;font-weight:bold">,</span> sex<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;未知&#34;</span><span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">{</span>sid<span style="color:#000;font-weight:bold">:</span> 103<span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小一一&#34;</span><span style="color:#000;font-weight:bold">,</span> sex<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;男&#34;</span><span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">{</span>sid<span style="color:#000;font-weight:bold">:</span> 104<span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小航航&#34;</span><span style="color:#000;font-weight:bold">,</span> sex<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;女&#34;</span><span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">{</span>sid<span style="color:#000;font-weight:bold">:</span> 105<span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小龙龙&#34;</span><span style="color:#000;font-weight:bold">,</span> sex<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;男&#34;</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>                stu<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>sid<span style="color:#000;font-weight:bold">:</span> 106<span style="color:#000;font-weight:bold">,</span> username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小涛涛&#34;</span><span style="color:#000;font-weight:bold">,</span> sex<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;女&#34;</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><h5 id="45-v-bind">4.5 v-bind</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>作用<span style="color:#a61717;background-color:#e3d2d2">：</span>绑定标签的属性值
+</span></span><span style="display:flex;"><span>格式<span style="color:#a61717;background-color:#e3d2d2">：</span>v<span style="color:#000;font-weight:bold">-</span>bind<span style="color:#000;font-weight:bold">:</span>属性名<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;&#34;</span>  或 <span style="color:#000;font-weight:bold">:</span>属性名<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>img v<span style="color:#000;font-weight:bold">-</span>bind<span style="color:#000;font-weight:bold">:</span>src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;src&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>img <span style="color:#000;font-weight:bold">:</span>src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;src&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>input type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span> name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;username&#34;</span> <span style="color:#000;font-weight:bold">:</span>value<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>input type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span> <span style="color:#000;font-weight:bold">:</span>value<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        let v<span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Vue<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>            el<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;#app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            data<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                src<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;img/mv.png&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                username<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小美女&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><h5 id="46-v-model">4.6 v-model</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>作用<span style="color:#a61717;background-color:#e3d2d2">：</span>表单数据的双向绑定
+</span></span><span style="display:flex;"><span>特点<span style="color:#a61717;background-color:#e3d2d2">：</span>双向绑定
+</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> vue中数据发生变化 会更新到页面
+</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">.</span> 页面数据变化也会更新vue中的数据
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>input type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span> v<span style="color:#000;font-weight:bold">-</span>model<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;xx&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>input type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span> v<span style="color:#000;font-weight:bold">-</span>model<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;xx&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        let v <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Vue<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>            el<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;#app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            data<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                xx<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小明明&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><h4 id="5-vue的选项">5. Vue的选项</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">el:</span> <span style="color:#998;font-style:italic">// element, vue中模型数据要渲染的页面
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>data<span style="color:#a61717;background-color:#e3d2d2">：</span> <span style="color:#998;font-style:italic">// 要渲染页面中的数据   后台获取
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>methods<span style="color:#a61717;background-color:#e3d2d2">：</span><span style="color:#998;font-style:italic">// vue中需要使用的函数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#900;font-weight:bold">computed:</span> <span style="color:#998;font-style:italic">// 计算属性
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#900;font-weight:bold">watch:</span> <span style="color:#998;font-style:italic">// 监控一个值发生变化 做出相应的处理
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>计算属性<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>p<span style="color:#000;font-weight:bold">&gt;{{</span>birthday<span style="color:#000;font-weight:bold">}}&lt;/</span>p<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        没有使用计算属性<span style="color:#a61717;background-color:#e3d2d2">：</span><span style="color:#000;font-weight:bold">&lt;</span>p<span style="color:#000;font-weight:bold">&gt;{{</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">(</span>birthday<span style="color:#000;font-weight:bold">).</span><span style="color:#008080">getFullYear</span><span style="color:#000;font-weight:bold">()+</span><span style="color:#d14">&#39;年&#39;</span><span style="color:#000;font-weight:bold">+(</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">(</span>birthday<span style="color:#000;font-weight:bold">).</span><span style="color:#008080">getMonth</span><span style="color:#000;font-weight:bold">()+</span>1<span style="color:#000;font-weight:bold">)+</span><span style="color:#d14">&#39;月&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">(</span>birthday<span style="color:#000;font-weight:bold">).</span><span style="color:#008080">getDate</span><span style="color:#000;font-weight:bold">()+</span><span style="color:#d14">&#39;日&#39;</span><span style="color:#000;font-weight:bold">}}&lt;/</span>p<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        计算属性<span style="color:#a61717;background-color:#e3d2d2">：</span><span style="color:#000;font-weight:bold">&lt;</span>p<span style="color:#000;font-weight:bold">&gt;{{</span>getBirthday<span style="color:#000;font-weight:bold">}}&lt;/</span>p<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        let v <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Vue<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>            el<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;#app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            data<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                xx<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小明明&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                birthday<span style="color:#000;font-weight:bold">:</span> 1610669793429
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            computed<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                getBirthday<span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">birthday</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">getFullYear</span><span style="color:#000;font-weight:bold">()+</span><span style="color:#d14">&#39;年&#39;</span><span style="color:#000;font-weight:bold">+(</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">birthday</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">getMonth</span><span style="color:#000;font-weight:bold">()+</span>1<span style="color:#000;font-weight:bold">)+</span><span style="color:#d14">&#39;月&#39;</span><span style="color:#000;font-weight:bold">+</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">birthday</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">getDate</span><span style="color:#000;font-weight:bold">()+</span><span style="color:#d14">&#39;日&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>监听<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;!</span>DOCTYPE html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>html lang<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;en&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta charset<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;UTF-8&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta http<span style="color:#000;font-weight:bold">-</span>equiv<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;X-UA-Compatible&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;IE=edge&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>meta name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;viewport&#34;</span> content<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>title<span style="color:#000;font-weight:bold">&gt;</span>Document<span style="color:#000;font-weight:bold">&lt;/</span>title<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script src<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;js/vue.js&#34;</span><span style="color:#000;font-weight:bold">&gt;&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>head<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>div id<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;app&#34;</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">&lt;</span>input type<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;text&#34;</span> v<span style="color:#000;font-weight:bold">-</span>model<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;name&#34;</span> <span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>div<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        let v <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Vue<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>            el<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;#app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            data<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                name<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;小坤坤&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            watch<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                name<span style="color:#000;font-weight:bold">(</span>newVal<span style="color:#000;font-weight:bold">,</span> oldVal<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>                    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>newVal<span style="color:#000;font-weight:bold">,</span> oldVal<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>           
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">&lt;/</span>script<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>body<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">&lt;/</span>html<span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><p>####6. axios</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>vue发送网络请求的一种方式<span style="color:#a61717;background-color:#e3d2d2">，</span>类似ajax
+</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215026/image-20220430224234939.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>跨域问题<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    由于浏览器提供安全性<span style="color:#a61717;background-color:#e3d2d2">，</span>同源策略<span style="color:#000;font-weight:bold">(</span>相同的协议<span style="color:#a61717;background-color:#e3d2d2">、</span>相同域名<span style="color:#a61717;background-color:#e3d2d2">、</span>相同的端口号<span style="color:#000;font-weight:bold">)</span><span style="color:#a61717;background-color:#e3d2d2">，</span>如果其中一个不同产生跨域问题<span style="color:#a61717;background-color:#e3d2d2">。</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>解决跨域问题<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    配置一个跨域过滤器
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.ujiuye.web.filter</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">javax.servlet.*</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">javax.servlet.annotation.WebFilter</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">javax.servlet.http.HttpServletRequest</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">javax.servlet.http.HttpServletResponse</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.io.IOException</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 解决请求跨域问题
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@WebFilter</span><span style="color:#000;font-weight:bold">(</span>filterName <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Filter01&#34;</span><span style="color:#000;font-weight:bold">,</span> urlPatterns <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/*&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Filter01</span> <span style="color:#000;font-weight:bold">implements</span> Filter <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">destroy</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">doFilter</span><span style="color:#000;font-weight:bold">(</span>ServletRequest req<span style="color:#000;font-weight:bold">,</span> ServletResponse resp<span style="color:#000;font-weight:bold">,</span> FilterChain chain<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException<span style="color:#000;font-weight:bold">,</span> IOException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        HttpServletResponse response <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>HttpServletResponse<span style="color:#000;font-weight:bold">)</span> resp<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        HttpServletRequest request <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>HttpServletRequest<span style="color:#000;font-weight:bold">)</span> req<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 不使用*，自动适配跨域域名，避免携带Cookie时失效
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String origin <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Origin&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Access-Control-Allow-Origin&#34;</span><span style="color:#000;font-weight:bold">,</span> origin<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 自适应所有自定义头
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String headers <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Access-Control-Request-Headers&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Access-Control-Allow-Headers&#34;</span><span style="color:#000;font-weight:bold">,</span> headers<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Access-Control-Expose-Headers&#34;</span><span style="color:#000;font-weight:bold">,</span> headers<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 允许跨域的请求方法类型
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Access-Control-Allow-Methods&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;*&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 预检命令（OPTIONS）缓存时间，单位：秒
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Access-Control-Max-Age&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;3600&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 明确许可客户端发送Cookie，不允许删除字段即可
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Access-Control-Allow-Credentials&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;true&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        chain<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">doFilter</span><span style="color:#000;font-weight:bold">(</span>request<span style="color:#000;font-weight:bold">,</span> response<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">init</span><span style="color:#000;font-weight:bold">(</span>FilterConfig config<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">throws</span> ServletException <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>方式1<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#998;font-style:italic">// 发送axios请求
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    let p <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> URLSearchParams<span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>    p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;username&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;xx&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    p<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;age&#34;</span><span style="color:#000;font-weight:bold">,</span> 18<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    axios<span style="color:#000;font-weight:bold">({</span>
+</span></span><span style="display:flex;"><span>        method<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;post&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#998;font-style:italic">// 请求方式
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        url<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;http://localhost:8080/JavaWeb_day18_axios_war_exploded/axiosTest&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#998;font-style:italic">// 请求路径
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        data<span style="color:#000;font-weight:bold">:</span> p<span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        responseType<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}).</span><span style="color:#008080">then</span><span style="color:#000;font-weight:bold">(</span>resp <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 请求成功 获取返回结果 resp
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>resp<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">data</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}).</span><span style="color:#008080">catch</span><span style="color:#000;font-weight:bold">(</span>error <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 请求失败 打印错误信息
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>error<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>注意<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> 页面和后台部署的不是同一台服务器 发送ajax请求会产生跨域问题
+</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">.</span> axios发送请求携带参数时 可以封装到URLSearchParams<span style="color:#000;font-weight:bold">/</span>FormData 中发送
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>方式2<span style="color:#a61717;background-color:#e3d2d2">：</span>
+</span></span><span style="display:flex;"><span>    axios<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>    axios<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">post</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/* axios.get(&#34;http://localhost:8080/JavaWeb_day18_axios_war_exploded/axiosTest?username=root&amp;age=20&#34;).then(resp =&gt; {
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     console.log(resp)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">}).catch(error =&gt; {
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     console.log(error)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">}) */</span>
+</span></span><span style="display:flex;"><span>                    axios<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">post</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;http://localhost:8080/JavaWeb_day18_axios_war_exploded/axiosTest&#34;</span><span style="color:#000;font-weight:bold">,</span> p<span style="color:#000;font-weight:bold">).</span><span style="color:#008080">then</span><span style="color:#000;font-weight:bold">(</span>resp <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>resp<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}).</span><span style="color:#008080">catch</span><span style="color:#000;font-weight:bold">(</span>error <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">log</span><span style="color:#000;font-weight:bold">(</span>error<span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">})</span>
+</span></span></code></pre></div><p>####7. 生命周期</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>	钩子函数<span style="color:#a61717;background-color:#e3d2d2">：</span>vue的生命周期的过程中 自动触发的函数<span style="color:#a61717;background-color:#e3d2d2">。</span>如果开发想要在某个时机执行一些操作<span style="color:#a61717;background-color:#e3d2d2">，</span>可以指定该时机下的钩子函数
+</span></span><span style="display:flex;"><span>        beforeCreate  Vue未初始化之前执行
+</span></span><span style="display:flex;"><span>        created     Vue属性初始化之后执行  加载页面之前获取数据一般在此时机
+</span></span><span style="display:flex;"><span>        beforeMount  dom操作之前执行
+</span></span><span style="display:flex;"><span>        mounted      dom加载之后执行
+</span></span><span style="display:flex;"><span>        beforeUpdate  修改dom之前执行
+</span></span><span style="display:flex;"><span>        updated     修改dom之后执行
+</span></span><span style="display:flex;"><span>        beforeDestroy vue销毁之前
+</span></span><span style="display:flex;"><span>        destroyed    vue销毁之后执行
+</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215026/image-20220430224242266.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.vercel.app/posts/java-web/20220430225784/">← ElementUI</a></div>
+    <div><a href="https://lovemjh.vercel.app/posts/blog/20220430231595/">Hexo Gitee Pages 自动部署站点  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+    </body>
+</html>

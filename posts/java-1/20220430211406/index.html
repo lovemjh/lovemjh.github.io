@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="面向对象的特征 - https://lovemjh.vercel.app/posts/java-1/20220430211406/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>面向对象的特征</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.vercel.app/style.min.ef012369a26adc2a21396230b3395dfcd5975a3082a65b82785cbc0b446f2a2c.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            面向对象的特征
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2021-10-21&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2021-10-21&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            8769 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            18 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/java-1/20220430212064/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/java-1/20220430211218/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#面向对象的特征">面向对象的特征</a>
+      <ul>
+        <li><a href="#封装">封装</a>
+          <ul>
+            <li><a href="#封装的好处">封装的好处</a></li>
+            <li><a href="#封装的体现">封装的体现</a></li>
+            <li><a href="#代码">代码</a></li>
+            <li><a href="#setter与getter方法快捷键">setter与getter方法快捷键</a></li>
+          </ul>
+        </li>
+        <li><a href="#继承">继承</a>
+          <ul>
+            <li><a href="#继承的实现">继承的实现</a></li>
+            <li><a href="#继承的好处">继承的好处</a></li>
+            <li><a href="#继承的特点">继承的特点(***)</a></li>
+            <li><a href="#继承的细节问题">继承的细节问题</a></li>
+            <li><a href="#代码-1">代码</a></li>
+            <li><a href="#继承的成员">继承的成员</a></li>
+            <li><a href="#方法的重写">方法的重写</a>
+              <ul>
+                <li><a href="#代码-2">代码</a></li>
+                <li><a href="#方法的重写注意">方法的重写注意：</a></li>
+              </ul>
+            </li>
+            <li><a href="#this与super的用法">this与super的用法</a>
+              <ul>
+                <li><a href="#代码-3">代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#多态">多态</a>
+          <ul>
+            <li><a href="#概念">概念</a></li>
+            <li><a href="#多态的好处">多态的好处</a></li>
+            <li><a href="#多态的分类">多态的分类</a></li>
+            <li><a href="#多态向上转型弊端">多态向上转型弊端:</a>
+              <ul>
+                <li><a href="#代码-4">代码</a></li>
+              </ul>
+            </li>
+            <li><a href="#类与类之间的关系">类与类之间的关系</a></li>
+            <li><a href="#向上转型里氏代换">向上转型/里氏代换</a>
+              <ul>
+                <li><a href="#概念-1">概念</a></li>
+              </ul>
+            </li>
+            <li><a href="#多态的向下转型"><strong>多态的向下转型</strong></a>
+              <ul>
+                <li><a href="#原因">原因</a></li>
+                <li><a href="#细节">细节</a></li>
+                <li><a href="#代码-5">代码：</a></li>
+              </ul>
+            </li>
+            <li><a href="#多态成员之间的调用问题"><strong>多态成员之间的调用问题</strong></a>
+              <ul>
+                <li><a href="#方法绑定">方法绑定</a></li>
+                <li><a href="#方法绑定的分类">方法绑定的分类</a></li>
+                <li><a href="#成员">成员</a></li>
+                <li><a href="#总结">总结</a></li>
+                <li><a href="#代码-6">代码：</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#代码块">代码块</a>
+          <ul>
+            <li><a href="#概述">概述</a></li>
+            <li><a href="#代码-7">代码：</a></li>
+          </ul>
+        </li>
+        <li><a href="#对象的加载顺序问题">对象的加载顺序问题</a>
+          <ul>
+            <li><a href="#类的成员">类的成员</a></li>
+            <li><a href="#代码-8">代码：</a>
+              <ul>
+                <li><a href="#执行步骤">执行步骤</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#抽象类">抽象类</a>
+          <ul>
+            <li><a href="#抽象概念">抽象概念</a></li>
+            <li><a href="#关键字abstract">关键字：abstract</a></li>
+            <li><a href="#抽象方法">抽象方法</a></li>
+            <li><a href="#抽象类的特点">抽象类的特点</a></li>
+            <li><a href="#代码-9">代码：</a></li>
+            <li><a href="#抽象类与一般类的区别">抽象类与一般类的区别？</a></li>
+          </ul>
+        </li>
+        <li><a href="#模板设计模式">模板设计模式</a>
+          <ul>
+            <li><a href="#设计模式">设计模式</a></li>
+            <li><a href="#常见的设计模式">常见的设计模式</a></li>
+            <li><a href="#代码-10">代码：</a></li>
+          </ul>
+        </li>
+        <li><a href="#构造方法与sette方法的区别">构造方法与sette方法的区别</a></li>
+        <li><a href="#final用法">final用法</a>
+          <ul>
+            <li><a href="#final"><strong>final</strong></a></li>
+            <li><a href="#代码-11">代码：</a></li>
+          </ul>
+        </li>
+        <li><a href="#final-finally-finalize区别">final finally finalize区别</a></li>
+        <li><a href="#接口">接口</a>
+          <ul>
+            <li><a href="#概念-2">概念</a></li>
+            <li><a href="#接口的声明">接口的声明</a></li>
+            <li><a href="#接口的对象的创建">接口的对象的创建</a></li>
+            <li><a href="#代码-12">代码：</a></li>
+            <li><a href="#接口的细节问题">接口的细节问题</a></li>
+          </ul>
+        </li>
+        <li><a href="#包">包</a>
+          <ul>
+            <li><a href="#概述-1">概述</a></li>
+            <li><a href="#代码-13">代码：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 id="面向对象的特征">面向对象的特征</h1>
+<p>三大基本特征：</p>
+<p>​	封装 继承 多态</p>
+<p>特征：四个</p>
+<p>​	封装 继承 多态 抽象</p>
+<h2 id="封装">封装</h2>
+<p>对外隐藏事物的实现细节，只提供接口供外界访问</p>
+<h3 id="封装的好处">封装的好处</h3>
+<p>1.提高程序的安全性。</p>
+<p>2.提高代码的复用性。</p>
+<h3 id="封装的体现">封装的体现</h3>
+<p>类：封装体</p>
+<p>方法：</p>
+<p>​	最大的体现：</p>
+<p>​	私有的属性 公有的方法。</p>
+<p>1.private：</p>
+<p>​	私有的属性 表示通过private进行修饰的属性。</p>
+<p>2.公有的方法：</p>
+<p>​	格式：</p>
+<p>​	① 设置 setter</p>
+<p>​	<code>public void set属性的名称(参数){ </code></p>
+<p>​	<code>this.属性 = 参数的名称 </code></p>
+<p>​	<code>}</code></p>
+<p>注意：</p>
+<p>​	set属性名称 ，该属性名称第一个字母必须大写，遵循小驼峰原则。</p>
+<p>② 获取 getter</p>
+<p>​	<code>public 返回值类型 get属性的名称(){ </code></p>
+<p>​	<code>return 属性; </code></p>
+<p>​	<code>}</code></p>
+<h3 id="代码">代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">1.封装概述
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">2.private :权限修饰符，私有的，只有本类能使用。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">封装概述</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Student st <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Student<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//st.age = -100;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        st<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAge</span><span style="color:#000;font-weight:bold">(-</span>100<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>st<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getAge</span><span style="color:#000;font-weight:bold">());</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Student</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//私有的属性
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> age<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//公有的方法 设置属性
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">setAge</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> age<span style="color:#000;font-weight:bold">){</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>age <span style="color:#000;font-weight:bold">&gt;=</span>0 <span style="color:#000;font-weight:bold">&amp;&amp;</span> age <span style="color:#000;font-weight:bold">&lt;=</span>120<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">this</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">age</span> <span style="color:#000;font-weight:bold">=</span> age<span style="color:#000;font-weight:bold">;</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;年龄不合法&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//公有的方法 获取属性 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">getAge</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> age<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="setter与getter方法快捷键">setter与getter方法快捷键</h3>
+<p>格式：</p>
+<p>​	① 设置 setter</p>
+<p>​		<code>public void set属性的名称(参数){ </code></p>
+<p>​		<code>this.属性 = 参数的名称 </code></p>
+<p>​		<code>}</code></p>
+<p>​	注意：</p>
+<p>​		set属性名称 ，该属性名称第一个字母必须大写，遵循小驼峰原则。</p>
+<p>​	② 获取 getter</p>
+<p>​		<code>public 返回值类型 get属性的名称(){ </code></p>
+<p>​		<code>return 属性; </code></p>
+<p>​		<code>}</code></p>
+<p>快捷键：</p>
+<p>​	alt + insert
+<img src="/posts/Java-1/20220430211406/image-20220430211516930.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="继承">继承</h2>
+<p>子类拥有父类的属性和方法，具有父类的特征</p>
+<h3 id="继承的实现">继承的实现</h3>
+<p>① 关键字 extends</p>
+<p>​	class 子类 extends 父类</p>
+<p>​	父类： superclass 超类</p>
+<p>​	子类: subclass</p>
+<p>​	一般可以写继承关系的 要求本质上是同一类事物
+<img src="/posts/Java-1/20220430211406/image-20220430211552419.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="继承的好处">继承的好处</h3>
+<p>① 提高代码的复用性。</p>
+<p>② 提高代码的扩展性</p>
+<h3 id="继承的特点">继承的特点(***)</h3>
+<p>① 单继承：extends关键字后只能有一个父类，继承的直系父类只有一个。</p>
+<p>② 多重继承
+<img src="/posts/Java-1/20220430211406/image-20220430211558812.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="继承的细节问题">继承的细节问题</h3>
+<p>对于父类与子类属性同名时，由于就近原则，如果是子类对象调用该属性，则使用的子类的属性。想使用父类的同名属性，</p>
+<p>关键字：</p>
+<p>​	super:指代当前对象的父类部分。</p>
+<p>​	用法同this:</p>
+<p>格式：</p>
+<p>​	<code>super. 属性名称 	</code></p>
+<p>注意：</p>
+<p>​	无论是this还是super 不能直接在静态方法中使用。</p>
+<h3 id="代码-1">代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">1.学生对象、工人对象 老师对象 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">继承</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Student st <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Student<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*st.study(); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        st.sleep();*/</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/* LittleStudent lt = new LittleStudent(); lt.study();*/</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>st<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">name</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        st<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">show</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Person</span><span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    String name <span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;张三&#34;</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">int</span> age<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">sleep</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;睡觉&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//单继承 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Student</span> <span style="color:#000;font-weight:bold">extends</span> Person<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    String name <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;李思&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">study</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;goodgoodstudy&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">show</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">super</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">name</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>多重继承
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">LittleStudent</span> <span style="color:#000;font-weight:bold">extends</span> Student <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Worker</span><span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    String name<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">int</span> age<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">sleep</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;睡觉&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">working</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;打工。。。&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Teacher</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    String name<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">int</span> age<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">sleep</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;睡觉&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">teaching</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;教java。。。。。。。。。。。。&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="继承的成员">继承的成员</h3>
+<p>1.继承的成员可以都继承，除了以下两种：</p>
+<p>​	① 成员用private修饰。</p>
+<p>​	② 构造方法不能被继承。</p>
+<h3 id="方法的重写">方法的重写</h3>
+<p>1.方法的重载: overload 在同一个类中，方法名称相同，参数列表不同(个数，顺序，类型)，与返回值无关。</p>
+<p>2.方法的重写的原因：</p>
+<p>​	父类的方法不适合子类的使用。</p>
+<p>3.方法的重写: override</p>
+<p>​	在具有继承关系的子类中，如果父类的方法不满足子类的需求，子类需要重写父类方法，重写时，</p>
+<p>​		1》方法名称相同</p>
+<p>​		2》参数列表相同</p>
+<p>​		3》目前，返回值类型也相同(多态之前可以这样认为)，</p>
+<p>​		4》权限修饰符大于等于父类。</p>
+<p>4.如果子类中要想调用父类的同名方法，需要通过super来调用：</p>
+<p>​	格式：</p>
+<p>​		<code>super.方法名称(参数) </code>
+<img src="/posts/Java-1/20220430211406/image-20220430211628733.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>4.方法重写的校验：</p>
+<p>​	① 可以通过上图进行校验。</p>
+<p>​	② 注解@Override检测
+<img src="/posts/Java-1/20220430211406/image-20220430211634240.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="代码-2">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.exec</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">1.描述手机的来电显示功能 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">phoneI : 来电显示: 电话号码。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">phoneII: 来电显示: 地区 大头贴 铃声 电话号码。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Topic1</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        PhoneII pii <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> PhoneII<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        pii<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">display</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">PhoneI</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">display</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;电话号码&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">PhoneII</span> <span style="color:#000;font-weight:bold">extends</span> PhoneI<span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">display</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//调用父类的同名方法 super.display(); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;铃声&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;大头贴&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h4 id="方法的重写注意">方法的重写注意：</h4>
+<p>① 重写要求必须是子父类之间，在子类中重写。</p>
+<p>② 静态方法是不能被重写的。</p>
+<p>③ 可以重写的方法都是非静态方法。通过对象调用，主要是为多态做准备。</p>
+<h3 id="this与super的用法">this与super的用法</h3>
+<p>① this/super 指代对象</p>
+<p>​	this 表示当前类的当前对象</p>
+<p>​	super 表示当前类的当前对象的属于父类部分的引用。</p>
+<p>注意：</p>
+<p>​		this与super可以想象在子类对象中，一旦具有继承关系，就相当于子类对象创建时，由两部分组成，一部分属于继承父类super，另外一部分属于子类特有，称为this。</p>
+<p>​		当查找时，this从本类开始进行查找。遇到第一个为止。super从父类开始查找，遇到第一个为止。
+<img src="/posts/Java-1/20220430211406/image-20220430211642638.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>② this与super指代构造方法。</p>
+<p>​		this指代本类的构造方法</p>
+<p>​		super指代父类的构造方法。</p>
+<p>格式:</p>
+<p>​		<code>this/super(参数) </code></p>
+<p>注意：</p>
+<p>1.默认如果一个子类的构造方法中没有显式的调用父类的构造方法，默认会有一个super() 默认的父类的无参空构造被调用。这种现象被称为隐式三步第一步.</p>
+<p>2.如果父类构造中在有显式声明构造方法后，这些声明的构造方法中没有无参构造方法，此时，建议添加无参构造。</p>
+<p>原因：</p>
+<p>​	子类在进行构造方法的声明时，会在第一行默认调用父类无参构造方法。super()，如果类没有，就报错。</p>
+<p>解决：</p>
+<p>​	① 建议添加无参构造</p>
+<p>​	② 也可以在构造方法第一行指定调用的是父类哪个构造方法。(不建议)</p>
+<p>总结：</p>
+<p>​	this与super的用法：</p>
+<p>​	① 指代对象：</p>
+<p>​			格式：</p>
+<p>​				 <code>this/super.方法(参数)/属性 </code></p>
+<p>​	② 指代构造方法</p>
+<p>​			格式：</p>
+<p>​				<code>this/super(参数)</code></p>
+<h4 id="代码-3">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">注意：1.默认如果一个子类的构造方法中没有显式的调用父类的构造方法，默认会 有一个super() 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">默认的父类的无参空构造被调用。这种现象被称为隐式三步第一步. 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">2.如果父类构造中在有显式声明构造方法后，这些声明的构造方法中没有无参构造方法，此时， 建议添加无参构造。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">原因：子类在进行构造方法的声明时，会在第一行默认调用父类无参构造方法。super()，如果父 类没有，就报错。 解决：① 建议添加无参构造 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">② 也可以在构造方法第一行指定调用的是父类哪个构造方法。(不建议) 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">总结：this与super的用法： 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">① 指代对象： 格式： this/super.方法(参数)/属性 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">② 指代构造方法 格式：this/super(参数) 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Super指代构造方法</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        ZiK zk <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ZiK<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ZK</span><span style="color:#000;font-weight:bold">{</span> <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">ZK</span><span style="color:#000;font-weight:bold">(</span>String s<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是ZK类的无参构造方法。。。1&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ZiK</span> <span style="color:#000;font-weight:bold">extends</span> ZK<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">ZiK</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// 隐式三步：第一步 super()
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">super</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;abc&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是ZiK的无参构造方法。。。2&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="多态">多态</h2>
+<h3 id="概念">概念</h3>
+<p>多态是同一个行为具有多个不同表现形式或形态的能力</p>
+<h3 id="多态的好处">多态的好处</h3>
+<p>提高了代码的扩展性</p>
+<p>提高了代码的复用性</p>
+<h3 id="多态的分类">多态的分类</h3>
+<p>多态的类型：</p>
+<p>向上转型:</p>
+<p>​		父类引用指向子类对象。</p>
+<p>向下转型：</p>
+<p>​		解决多态向上转型的弊端。</p>
+<h3 id="多态向上转型弊端">多态向上转型弊端:</h3>
+<p>一旦发生了向上转型之后，由于对外是父类数据类型，不能调用子类特有的属性和方法。</p>
+<h4 id="代码-4">代码</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">1.多态： 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">2.小女孩养宠物: 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">猫
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">哈士奇 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">老虎 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">多态</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        LittleGirl lg <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> LittleGirl<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        Cat c <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cat<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        lg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">feed</span><span style="color:#000;font-weight:bold">(</span>c<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">// Animal c = new Cat() 多态的向上转型 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Dog d <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Dog<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        lg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">feed</span><span style="color:#000;font-weight:bold">(</span>d<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        Tiger t <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Tiger<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        lg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">feed</span><span style="color:#000;font-weight:bold">(</span>t<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        Bird b <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Bird<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        lg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">feed</span><span style="color:#000;font-weight:bold">(</span>b<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        Animal c1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cat<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//一旦发生了向上转型之后，由于对外是父类数据类型，不能调用子类特有的属性和方法。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//c1.catchMouse();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">LittleGirl</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    public void feed(Cat c){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        c.eat(); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    public void feed(Dog c){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        c.eat();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    public void feed(Tiger c){
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        c.eat(); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">feed</span><span style="color:#000;font-weight:bold">(</span>Animal c<span style="color:#000;font-weight:bold">){</span> 
+</span></span><span style="display:flex;"><span>        c<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">eat</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Animal</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">(){}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Cat</span> <span style="color:#000;font-weight:bold">extends</span> Animal <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;猫吃鱼&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">catchMouse</span><span style="color:#000;font-weight:bold">(){}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Dog</span> <span style="color:#000;font-weight:bold">extends</span> Animal<span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;哈士奇吃猫&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Tiger</span> <span style="color:#000;font-weight:bold">extends</span> Animal<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;老虎吃哈士奇&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Bird</span> <span style="color:#000;font-weight:bold">extends</span> Animal<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;鸟吃虫&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="类与类之间的关系">类与类之间的关系</h3>
+<p>分类</p>
+<p>​		① 继承关系:本质是同一类事物 。 动物 &ndash;》猫</p>
+<p>​		② 聚合关系： 整体和部分，可以分开。</p>
+<p>​		③ 组合关系： 整体和部分，不可分割。</p>
+<h3 id="向上转型里氏代换">向上转型/里氏代换</h3>
+<h4 id="概念-1">概念</h4>
+<p>任何基类可以出现的地方，子类一定可以出现</p>
+<h3 id="多态的向下转型"><strong>多态的向下转型</strong></h3>
+<h4 id="原因">原因</h4>
+<p>解决多态向上转型的弊端。</p>
+<h4 id="细节">细节</h4>
+<p>1.多态向下转型:</p>
+<p>​		格式：</p>
+<p>​			强制类型转换</p>
+<p>​			(要转换的类型)要转换的变量</p>
+<p>2.向下转型弊端：</p>
+<p>​			如果真实对象不是要转换的数据类型的对象，会报ClassCastException类型转换异常。</p>
+<p>3.解决向下转型的弊端：</p>
+<p>​		关键字:</p>
+<p>​			<code>instanceof </code></p>
+<p>​		格式：</p>
+<p>​				要转换的变量 instanceof 要转换成的数据类型</p>
+<p>​				返回值为布尔类型。如果是对应的数据类型 ，返回true 否则 返回false。</p>
+<p>​		注意：</p>
+<p>​				instanceof后面的数据类型必须写精确，要转换成哪个类型就是哪个类型。不能使用父类。</p>
+<h4 id="代码-5">代码：</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">1.多态向下转型: 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	格式：强制类型转换 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	(要转换的类型)要转换的变量 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">2.向下转型弊端： 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	如果真实对象不是要转换的数据类型的对象，会报ClassCastException类型转换异常。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">3.解决向下转型的弊端： 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	关键字: 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">		instanceof 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	格式：要转换的变量 instanceof 要转换成的数据类型 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	返回值为布尔类型。如果是对应的数据类型 ，返回true 否则 返回false。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	注意：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">		instanceof后面的数据类型必须写精确，要转换成哪个类型就是哪个类型。不能使用父 类。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">多态向下转型</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        Animal a <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Dog<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//向下转型 强制类型转换 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/* if (a instanceof Cat) { 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        	Cat c = (Cat) a;
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">            c.catchMouse();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">            }
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">         */</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>a <span style="color:#000;font-weight:bold">instanceof</span> Animal<span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Animal</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">(){}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Cat</span> <span style="color:#000;font-weight:bold">extends</span> Animal<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;猫吃鱼&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">catchMouse</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;猫抓老鼠&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Dog</span> <span style="color:#000;font-weight:bold">extends</span> Animal<span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;狗吃肉&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">keepDoor</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;看门&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="多态成员之间的调用问题"><strong>多态成员之间的调用问题</strong></h3>
+<h4 id="方法绑定">方法绑定</h4>
+<p>绑定指的是一个方法的调用与方法所在的类(方法主体)关联起来</p>
+<h4 id="方法绑定的分类">方法绑定的分类</h4>
+<p>1.静态绑定/前期绑定/编译期绑定：在编译时 就能确定执行哪个类的哪个方法。</p>
+<p>2.动态绑定/后期绑定/运行期绑定: 在运行时，才能确定执行哪个类的哪个方法。</p>
+<h4 id="成员">成员</h4>
+<p>1.编译期绑定： 属性(静态 或 非静态 ) 、静态方法、</p>
+<p>2.运行期绑定： 非静态方法。</p>
+<h4 id="总结">总结</h4>
+<p>编译看左 ： 属性 和静态方法</p>
+<p>运行先看左后看右： 非静态</p>
+<p>先看赋值符号左侧的数据类型，确定要执行的方法，运行时，看右侧真实对象，决定是调用父类还是子类的重写方法。</p>
+<p>编译看左 ： 属性 和静态方法</p>
+<p>运行先看左后看右： 非静态</p>
+<p>先看赋值符号左侧的数据类型，确定要执行的方法，运行时，看右侧真实对象，决定是调用父类还是子类的重写方法。</p>
+<h4 id="代码-6">代码：</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	1.编译期绑定： 属性(静态 或 非静态 ) 、静态方法、 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	2.运行期绑定： 非静态方法。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">多态成员之间的调用问题</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        F f <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> F<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        ZiF z <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ZiF<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//向上转型 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        10:20 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        30:40 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        10:20 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        */</span> 
+</span></span><span style="display:flex;"><span>        F zif <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ZiF<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/* 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(f.a + &#34;:&#34; + f.b);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(z.a + &#34;:&#34; + z.b); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        System.out.println(zif.a + &#34;:&#34; + zif.b);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        */</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*f.sfun(); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        z.sfun(); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        zif.sfun();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        */</span>
+</span></span><span style="display:flex;"><span>        f<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">show</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        z<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">show</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        zif<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">show</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">F</span><span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span> 10<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">int</span> b <span style="color:#000;font-weight:bold">=</span> 20<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">show</span> <span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是父类的非静态方法。。。。。1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">sfun</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是父类的静态方法。。。。。。。。2&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ZiF</span> <span style="color:#000;font-weight:bold">extends</span> F<span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span> 30<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">int</span> b <span style="color:#000;font-weight:bold">=</span> 40<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">show</span> <span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是子类的非静态方法。。。。。3&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">sfun</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是子类的静态方法。。。。。。。。4&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="代码块">代码块</h2>
+<h3 id="概述">概述</h3>
+<p>1.代码块：<code>{}</code></p>
+<p>2.常见代码块:</p>
+<p>​		<code>static {} 静态代码块 类中 方法外 </code></p>
+<p>​		<code>{} 构造代码块 类中 方法外 </code></p>
+<p>​		<code>{} 局部代码块 方法中 </code></p>
+<p>3.特性：</p>
+<p>静态代码块： 随着类的加载而加载，并且只加载一次。多个之间 按照代码执行顺序，顺序加载，适用场景：类存在就需要使用的代码。</p>
+<p>构造代码块：随着构造方法的执行而执行，并且每执行一次构造方法，都会执行一次代码块。并且在构造方法中的代码执行之前执行。多个也是按照代码执行顺序顺序执行。适用场景：当多个构造方法中有共性代码时，可以提取到构造代码块中执行。</p>
+<p>局部代码块：位于方法中，主要是用来限定变量的作用域。</p>
+<h3 id="代码-7">代码：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	1.代码块： {} 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	2.常见代码块: 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">		static {} 静态代码块 类中 方法外 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">		{} 构造代码块 类中 方法外 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">		{} 局部代码块 方法中
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    3.特性：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    静态代码块： 随着类的加载而加载，并且只加载一次。多个之间 按照代码执行顺序，顺序加 载，适用场景：类存在就需要使用的代码。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    构造代码块：随着构造方法的执行而执行，并且每执行一次构造方法，都会执行一次代码块。 并且在构造方法中的代码执行之前执行。 多个也是按照代码执行顺序顺序执行。适用场景：当多个构造方法中有共性代码 时，可以提取到构造代码块中执行。 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    局部代码块：位于方法中，主要是用来限定变量的作用域。
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">代码块</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">int</span> a<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//静态代码块 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">static</span><span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        a <span style="color:#000;font-weight:bold">=</span> 10<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是静态代码块。。。。2&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//构造代码块
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是一个构造代码块...1&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是一个构造代码块...5&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// System.out.println(a);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// new 代码块(); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// new 代码块(5);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        fun<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">fun</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//局部代码块
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>            <span style="color:#458;font-weight:bold">int</span> b <span style="color:#000;font-weight:bold">=</span> 5<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>b<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;========&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// System.out.println(b+&#34;...&#34;); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">代码块</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是无参构造方法。。。。3&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">代码块</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> a<span style="color:#000;font-weight:bold">){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是有参构造方法。。。。4&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="对象的加载顺序问题">对象的加载顺序问题</h2>
+<h3 id="类的成员">类的成员</h3>
+<p>属性</p>
+<p>方法</p>
+<p>构造方法</p>
+<p>代码块
+<img src="/posts/Java-1/20220430211406/image-20220430211708548.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="代码-8">代码：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">对象的加载顺序</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">new</span> F<span style="color:#000;font-weight:bold">().</span><span style="color:#008080">fun</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">F</span><span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">static</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是F类的静态代码块。。。。5&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是F类的构造代码块。。。。6&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span> setA<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">setA</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是f类的显式初始化。。。4&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> 0<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">fun</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是F类的非静态方法。。。1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">F</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是F类的无参构造方法。。。。2&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">F</span><span style="color:#000;font-weight:bold">(</span><span style="color:#458;font-weight:bold">int</span> a<span style="color:#000;font-weight:bold">){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是F类的有参构造方法。。。。3&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h4 id="执行步骤">执行步骤</h4>
+<p>1.判断对象的加载顺序该类是否存在在方法区中，存在，直接使用，不存在，向硬盘上进行加载到方法区。</p>
+<p>2.查找到main方法 压栈执行。</p>
+<p>3.判断F类是否在方法区存在，存在，直接使用，不存在，向硬盘上进行加载到方法区。</p>
+<p>4.由于有new关键字，在堆中开辟F类的对象空间，并且对属性a进行默认初始化。</p>
+<p>5.根据构造方法，选择构造方法进行执行。</p>
+<p>6.在执行构造方法中的代码之前，<strong>该位置需要执行隐式三步</strong>：</p>
+<p>​		① super(参数)</p>
+<p>​		② 构造代码块</p>
+<p>​		③ 属性显式初始化</p>
+<p>​		其中 ，②③根据程序的书写顺序，顺序执行。</p>
+<p>7.隐式三步执行完毕之后，才会执行构造方法里面的代码。</p>
+<p>8.如果有方法调用，此时再执行方法。没有不执行。</p>
+<p>总结：</p>
+<p>​		1》 先加载类：考虑继承 ，先父后子。 静态方法 静态属性 静态代码块，静态方法不调用 不执行。静态属性 静态代码块 顺序执行。</p>
+<p>​		2》 对象：构造方法的执行：</p>
+<p>​				① 隐式三步：super(参数) 考虑 继承 构造代码块 属性的显式初始化 顺序执行。</p>
+<p>​				② 构造方法的代码的执行。</p>
+<p>​				③ 有方法调用才会执行。</p>
+<h2 id="抽象类">抽象类</h2>
+<h3 id="抽象概念">抽象概念</h3>
+<p>不具体 共性的特征。</p>
+<h3 id="关键字abstract">关键字：abstract</h3>
+<p>abstract 表示抽象</p>
+<h3 id="抽象方法">抽象方法</h3>
+<p>声明格式：</p>
+<p><code>[权限修饰符]abstract 返回值类型 方法名称(参数列表); </code>
+<img src="/posts/Java-1/20220430211406/image-20220430211719215.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>抽象类</p>
+<p>当一个类中拥有抽象方法时，该类也必须是抽象的。类的前面加关键字 abstract</p>
+<p>抽象类声明格式：</p>
+<p><code>[权限修饰符] abstract class 类名{ }</code>
+<img src="/posts/Java-1/20220430211406/image-20220430211740935.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="抽象类的特点">抽象类的特点</h3>
+<p>① 抽象类也是类，拥有的类的特点。可以有 属性 方法 构造方法
+<img src="/posts/Java-1/20220430211406/image-20220430211754797.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>② 抽象类不能直接创建对象的。要创建对象，必须通过子类实现抽象类中的抽象方法，才能创建子类对象。</p>
+<p>③ 一个类中如果有抽象方法，该类必须是一个抽象类，如果一个类是抽象类，未必有抽象方法。只要加关键字 abstract在类上就可以。</p>
+<h3 id="代码-9">代码：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">抽象类</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        Animal a <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cat<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        a<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">fun</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        a<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">eat</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        Animal a1 <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Dog<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        a1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">eat</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">abstract</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Animal</span><span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">abstract</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">fun</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是一个fun方法。。。1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span> 5<span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#900;font-weight:bold">Animal</span><span style="color:#000;font-weight:bold">(){}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Cat</span> <span style="color:#000;font-weight:bold">extends</span> Animal<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;猫吃鱼&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Dog</span> <span style="color:#000;font-weight:bold">extends</span> Animal<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;狗吃肉&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="抽象类与一般类的区别">抽象类与一般类的区别？</h3>
+<p>1.写法：</p>
+<p>​		抽象类 abstract class</p>
+<p>​		类 class</p>
+<p>2.组成成员：</p>
+<p>​		抽象类： 属性 方法 抽象方法 构造方法</p>
+<p>​		类： 除了抽象方法。</p>
+<p>3.创建对象：</p>
+<p>​		抽象类： 不能创建对象</p>
+<p>​		类： 可以直接创建对象。</p>
+<p>4.对于方法的实现：</p>
+<p>​		抽象类：如果有抽象方法，必须要重写。</p>
+<p>​		类： 继承自父类的方法，可以重写也可以不重写。</p>
+<h2 id="模板设计模式">模板设计模式</h2>
+<h3 id="设计模式">设计模式</h3>
+<p>是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性、程序的重用性。</p>
+<h3 id="常见的设计模式">常见的设计模式</h3>
+<p>23种 。</p>
+<p>模板设计模式：</p>
+<p>在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式</p>
+<h3 id="代码-10">代码：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	学生一天的生活:
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ① 吃 ② 睡 ③ 学习 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">模板设计模式</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Student st <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> LittleStudent<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/*st.eat();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        st.sleep();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        st.study();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        */</span> 
+</span></span><span style="display:flex;"><span>        st<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">life</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        Student mt <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> MiddelStudent<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">/* 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        mt.eat();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        mt.sleep(); 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        mt.study();
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">        */</span> 
+</span></span><span style="display:flex;"><span>        mt<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">life</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">abstract</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Student</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">abstract</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">abstract</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">sleep</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">abstract</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">study</span><span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">life</span><span style="color:#000;font-weight:bold">(){</span> 
+</span></span><span style="display:flex;"><span>        eat<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        sleep<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        study<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">LittleStudent</span> <span style="color:#000;font-weight:bold">extends</span> Student<span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;小学生吃零食&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">sleep</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;小学生很晚睡。。。&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">study</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;小学生天天玩耍&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">MiddelStudent</span> <span style="color:#000;font-weight:bold">extends</span> Student<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">eat</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;初中生边吃边学&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">sleep</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;初中生边睡边读书&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">study</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;初中生边学边睡。。&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="构造方法与sette方法的区别">构造方法与sette方法的区别</h2>
+<p>属性赋值</p>
+<p>​	1.直接赋值：</p>
+<p>​		<code>对象.属性名 = 值 </code></p>
+<p>​	2.构造方法：</p>
+<p>​		对于属性赋值，只能赋值一次，并且是在创建对象时 赋值一次。</p>
+<p>​	3.setter方法</p>
+<p>​		创建对象后，需要修改属性的值。</p>
+<h2 id="final用法">final用法</h2>
+<h3 id="final"><strong>final</strong></h3>
+<p>final用法：</p>
+<p>​	① 修饰变量&ndash;》常量</p>
+<p>​	② 修饰方法&ndash;》不能被重写</p>
+<p>​	③ 修饰类 &ndash;》 不能被继承</p>
+<h3 id="代码-11">代码：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	1.final用法： 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	① 修饰变量--》常量 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	② 修饰方法--》不能被重写
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    ③ 修饰类 --》 不能被继承 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">    String 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Final用法</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">abstract</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">A</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#998;font-style:italic">/*final*/</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">fun</span><span style="color:#000;font-weight:bold">(){}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//public abstract final void f1(); 注意 final 与abstract不能连用 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ZiA</span> <span style="color:#000;font-weight:bold">extends</span> A<span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">fun</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">super</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">fun</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="final-finally-finalize区别">final finally finalize区别</h2>
+<p>1.final 用法</p>
+<p>2.finally 异常 ： 无论执行try还是执行catch最终都会执行 finally里面的内容。
+<img src="/posts/Java-1/20220430211406/image-20220430211900587.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>3.finalize() 用于垃圾回收的方法。</p>
+<h2 id="接口">接口</h2>
+<h3 id="概念-2">概念</h3>
+<p>接口： 协议 约定。</p>
+<p>​		一系列的规范和约定，目前，接口中所有的方法都是抽象方法。(1.8之前 不包括)</p>
+<h3 id="接口的声明">接口的声明</h3>
+<p>格式：</p>
+<p>​	关键字 interface</p>
+<p>​		<code>[权限修饰符] interface 接口的名称{ </code></p>
+<p>​		<code>}</code></p>
+<p>1.接口中的方法的声明：</p>
+<p>​	接口中的方法都是抽象方法，一般会省略abstract不写。</p>
+<p>2.接口中的属性的声明：</p>
+<p>​	接口中的属性都是静态常量，一般会省略public static final不写。</p>
+<h3 id="接口的对象的创建">接口的对象的创建</h3>
+<p>1.接口中的方法都是抽象方法，所以接口不能直接创建对象。</p>
+<p>2.要想创建对象，必须要实现接口中的抽象方法。</p>
+<p>3.要使用子类创建对象。</p>
+<p>​	关键字：</p>
+<p>​		implements</p>
+<p>​	格式：</p>
+<p>​		<code>class 子类 implements 父接口1,父接口2{ </code></p>
+<p>​		<code>} </code></p>
+<h3 id="代码-12">代码：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">接口的声明</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        T t <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> ZiT<span style="color:#000;font-weight:bold">();</span> 
+</span></span><span style="display:flex;"><span>        t<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">fun</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//接口
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">T</span><span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">fun</span><span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">//不写 也有abstract 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">int</span> a <span style="color:#000;font-weight:bold">=</span>10<span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">// 省略了 public static final 也是 静态常量
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//子类 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ZiT</span> <span style="color:#000;font-weight:bold">implements</span> T<span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">fun</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;这是接口中的子类。。。。&#34;</span><span style="color:#000;font-weight:bold">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>     
+</span></span></code></pre></div><h3 id="接口的细节问题">接口的细节问题</h3>
+<p>1.接口的特点：</p>
+<p>​	① 接口可以多实现：
+<img src="/posts/Java-1/20220430211406/image-20220430211915734.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>​	② 接口可以多继承
+<img src="/posts/Java-1/20220430211406/image-20220430211920739.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>​	③ 接口可以多重继承</p>
+<p>2.<strong>接口与抽象类的区别与联系</strong>：</p>
+<p>​	区别：</p>
+<p>​		1》 写法：</p>
+<p>​				抽象类： abstract class</p>
+<p>​				接口： interface</p>
+<p>​		2》 成员：</p>
+<p>​				抽象类： 属性 方法 抽象方法 构造方法 代码块</p>
+<p>​				接口： 抽象方法 静态常量 没有构造方法 代码块</p>
+<p>​		3》 子类实现：</p>
+<p>​				抽象类： extends</p>
+<p>​				接口: implements</p>
+<p>​		4》 特点：</p>
+<p>​				抽象类： 继承 ：单继承 多重继承</p>
+<p>​				接口： 继承 ： 多继承 多重继承 多实现</p>
+<p>​		5》 用途：</p>
+<p>​				抽象类： 同一种事物的共性的特征</p>
+<p>​				接口： 不同事物之间的相同功能</p>
+<p>联系:</p>
+<p>把接口看成是特殊的抽象类，该类中所有的方法都是抽象方法的抽象类。</p>
+<h2 id="包">包</h2>
+<h3 id="概述-1">概述</h3>
+<p>包 ：package</p>
+<p>① 功能：分类管理java的文件。</p>
+<p>② 包的命名规则：</p>
+<p>​		原则：<strong>全球唯一</strong>。</p>
+<p>​				公司域名的倒置 + 项目名称 + 模块名称 + 包的功能名称</p>
+<p>​				如：<code>cn.com.baidu.studentmanager.crud.add </code></p>
+<p>③ 包的分隔符：</p>
+<p>​	用点进行分隔，每一个点表示一层。</p>
+<p>④ 包的声明：表明该类在哪个包下。如果没有package声明，在src下。</p>
+<p>​	package 包的路径;</p>
+<p>​	注意：</p>
+<p>​		包的声明只有一个，并且在第一行。</p>
+<p>⑤ 导包：指名该类在哪个包下。</p>
+<p>​		import 类的路径</p>
+<p>注意：</p>
+<p>​		导包可以是多个，位于package下面。</p>
+<h3 id="代码-13">代码：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">package</span> <span style="color:#555">com.demo</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">java.util.Scanner</span><span style="color:#000;font-weight:bold">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">包</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//类的完全限定名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// java.util.Scanner sc = new java.util.Scanner(System.in);
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.vercel.app/posts/java-1/20220430212064/">← 内部类</a></div>
+    <div><a href="https://lovemjh.vercel.app/posts/java-1/20220430211218/">面向对象  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+    </body>
+</html>

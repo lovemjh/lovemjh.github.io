@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="Zookeeper - https://lovemjh.vercel.app/posts/tool/20220526205691/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>Zookeeper</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.vercel.app/style.min.ef012369a26adc2a21396230b3395dfcd5975a3082a65b82785cbc0b446f2a2c.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            Zookeeper
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2022-05-26&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2022-05-26&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            6528 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            14 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/java-frame/20220526162071/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/java-frame/20220430215722/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#zookeeper">Zookeeper</a>
+      <ul>
+        <li><a href="#一zookeeper的介绍">一、Zookeeper的介绍</a>
+          <ul>
+            <li><a href="#一zookeeper概述">（一）Zookeeper概述</a></li>
+            <li><a href="#二zookeeper的特点">（二）Zookeeper的特点</a></li>
+            <li><a href="#三zookeeper的数据结构">（三）Zookeeper的数据结构</a></li>
+            <li><a href="#四zookeeper企业应用场景">（四）Zookeeper企业应用场景</a></li>
+          </ul>
+        </li>
+        <li><a href="#二zookeeper的安装与配置">二、Zookeeper的安装与配置</a>
+          <ul>
+            <li><a href="#一zookeeper下载安装">（一）Zookeeper下载安装</a></li>
+            <li><a href="#二配置参数解读">（二）配置参数解读</a></li>
+          </ul>
+        </li>
+        <li><a href="#三zookeeper的内部原理">三、Zookeeper的内部原理</a>
+          <ul>
+            <li><a href="#一选举机制">（一）选举机制</a></li>
+            <li><a href="#二节点类型">（二）节点类型</a></li>
+            <li><a href="#三zookeepr写和读数据流程-读写机制">（三）Zookeepr写和读数据流程 （读写机制）</a></li>
+          </ul>
+        </li>
+        <li><a href="#二zookeeper分布式安装部署">二、Zookeeper分布式安装部署</a>
+          <ul>
+            <li><a href="#一集群规划">（一）集群规划</a></li>
+            <li><a href="#二集群中的角色和作用">（二）集群中的角色和作用</a></li>
+            <li><a href="#三解压安装">（三）解压安装</a></li>
+            <li><a href="#四配置服务器编号">（四）配置服务器编号</a></li>
+            <li><a href="#五配置zoocfg文件">（五）配置zoo.cfg文件</a></li>
+            <li><a href="#六集群操作">（六）集群操作</a></li>
+            <li><a href="#伪分布式">伪分布式</a>
+              <ul>
+                <li><a href="#第一台zookeeper配置">第一台zookeeper配置</a></li>
+                <li><a href="#第二台zookeeper配置">第二台zookeeper配置</a></li>
+                <li><a href="#第三台zookeeper配置">第三台zookeeper配置</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#一zookeeper的常用命令">一、Zookeeper的常用命令</a></li>
+        <li><a href="#二zookeeper的api应用">二、Zookeeper的API应用</a>
+          <ul>
+            <li><a href="#一创建一个maven工程">（一）．创建一个Maven工程</a></li>
+            <li><a href="#二添加pom文件">（二）．添加pom文件</a></li>
+            <li><a href="#三log4jproperties文件">（三）．log4j.properties文件</a></li>
+            <li><a href="#四创建zookeeper客户端">（四）.创建ZooKeeper客户端</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 id="zookeeper">Zookeeper</h1>
+<h2 id="一zookeeper的介绍">一、Zookeeper的介绍</h2>
+<h3 id="一zookeeper概述">（一）Zookeeper概述</h3>
+<pre tabindex="0"><code>1.介绍
+Zookeeper是一个开源的分布式的，为分布式应用提供协调服务的Apache项目。它是一种集中式服务，用于维护配置信息，命名，提供分布式同步和提供组服务。所有这些类型的服务都以分布式应用程序的某种形式使用。每次实施它们都需要做很多工作来修复不可避免的错误和竞争条件。由于难以实现这些类型的服务，应用程序最初通常会吝啬它们，这使得它们在变化的情况下变得脆弱并且难以管理。即使正确完成，这些服务的不同实现也会在部署应用程序时导致管理复杂性。
+2.工作机制
+基于观察者模式设计的分布式服务管理框架。
+</code></pre><h3 id="二zookeeper的特点">（二）Zookeeper的特点</h3>
+<pre tabindex="0"><code>Zookeeper官方架构图
+</code></pre><p><img src="/posts/tool/20220526205691/image-20220526205856519.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<pre tabindex="0"><code>1.Zookeeper：一个领导级别的存在，监测和管理多个服务。
+2.集群中只要有半数以上节点存活，Zookeeper集群就能正常服务。
+3.数据一致性：从同一客户端发起的事务请求，最终将会严格地按照顺序被应用到 ZooKeeper 中去。
+4.更新请求顺序进行：来自同一个Client的更新请求按照其发送顺序依次执行。
+5.原子性：所有事务请求的处理结果在整个集群中所有机器上的应用情况是一致的，也就是说，要么整个集群中   所有的机器都成功应用了某一个事务，要么都没有应用。
+6.实时性：在一定时间范围，Client能读到最新的数据。
+</code></pre><h3 id="三zookeeper的数据结构">（三）Zookeeper的数据结构</h3>
+<pre tabindex="0"><code>Zookeeper数据模型的结构与Unix文件系统很类似，都是树结构。树上有若干个节点，每个节点能够存储1MB的数据，同时每个节点都是通过其路径可以唯一标识的。
+</code></pre><p><img src="/posts/tool/20220526205691/image-20220526205918610.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="四zookeeper企业应用场景">（四）Zookeeper企业应用场景</h3>
+<pre tabindex="0"><code>Zookeeper服务包括：统一命名服务、统一配置管理、统一集群管理、软负载均衡等。
+1.统一命名服务
+命名服务是分布式系统中较为常见的一类场景，分布式系统中，被命名的实体通常可以是集群中的机器、提供的服务地址或远程对象等。通过命名服务，客户端可以根据指定名字来获取资源的实体、服务地址和提供者信息。例如一般用户都是通过域名来访问应用而不是IP。阿里开源分布式服务框架Dubbo中使用zookeeper来作为其命名服务，维护全局的服务列表。
+</code></pre><pre tabindex="0"><code>2.统一配置管理
+（1）配置文件同步，集群中所有配置文件的信息都是一致的，对配置文件修改后，快速同步到各个节点上。
+（2）Zookeeper实现配置管理。将配置信息写入到Zookeeper上的节点，然后各个客户端服务器监听这个节点，一但节点中的数据发生变化，Zookeeper将通知到各个客户端服务器。
+</code></pre><pre tabindex="0"><code>3.统一集群管理
+ zookeeper的两大特性：节点特性和watcher机制
+（1）分布式环境中实时掌握每个节点的状态，并根据节点实时状态做出一定的调整。
+（2）在实时监测到节点变化后，将节点的信息写入到Zookeeper上的节点，通过监听该节点来获取它的实时状态变化。
+</code></pre><pre tabindex="0"><code>4.负载均衡
+zookeeperk实现负载均衡就是通过watcher机制和临时节点判断哪些节点宕机来获取可用的节点来实现的,
+zookeeperk会维护一个树形的数据结构，类似于window的资源管理器目录，其中 EPHEMERAL(临时）节点会随着创建它的客户端端口而被删除，利用这个特性很容易实现软负载均衡。
+</code></pre><pre tabindex="0"><code>5.服务器动态上下线
+</code></pre><p><img src="/posts/tool/20220526205691/image-20220526210319925.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="二zookeeper的安装与配置">二、Zookeeper的安装与配置</h2>
+<h3 id="一zookeeper下载安装">（一）Zookeeper下载安装</h3>
+<pre tabindex="0"><code>1、Zookeeper下载
+下载地址：https://zookeeper.apache.org/releases.html#download
+</code></pre><p><img src="/posts/tool/20220526205691/image-20220526210340393.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<pre tabindex="0"><code>2．安装前准备
+（1）安装Jdk
+（2）拷贝Zookeeper安装包到Linux系统下
+（3）解压到指定目录
+    tar -zxvf apache-zookeeper-3.4.10-bin.tar.gz -C /opt/pro/zk
+
+3．配置修改
+（1）将/opt/pro/zk/apache-zookeeper-3.4.10-bin/conf这个路径下的zoo_sample.cfg修改为zoo.cfg；
+mv zoo_sample.cfg zoo.cfg
+（2）打开zoo.cfg文件，修改dataDir路径：
+    vim zoo.cfg
+    修改如下内容：
+    dataDir=/opt/pro/zk/apache-zookeeper-3.4.10-bin/zkData
+（3）在/opt/pro/zk/apache-zookeeper-3.4.10-bin这个目录上创建zkData文件夹
+     mkdir zkData
+
+4．操作Zookeeper
+（1）启动Zookeeper
+     在/opt/pro/zk/apache-zookeeper-3.4.10-bin目录下执行
+     bin/zkServer.sh start
+（2）jps查看进程是否启动
+    4020 Jps
+    4001 QuorumPeerMain
+（3）查看状态：
+    在/opt/pro/zk/apache-zookeeper-3.4.10-bin目录下执行
+    bin/zkServer.sh status
+    显示状态：
+    ZooKeeper JMX enabled by default
+    Using config: /opt/pro/zk/apache-zookeeper-3.4.10-bin/bin/../conf/zoo.cfg
+    Mode: standalone
+（4）启动客户端：
+    在/opt/pro/zk/apache-zookeeper-3.4.10-bin目录下执行
+    bin/zkCli.sh
+（5）quit退出客户端：
+（6）停止Zookeeper
+    在/opt/pro/zk/apache-zookeeper-3.4.10-bin目录下执行
+    bin/zkServer.sh stop
+</code></pre><h3 id="二配置参数解读">（二）配置参数解读</h3>
+<pre tabindex="0"><code>Zookeeper中的配置文件zoo.cfg中参数含义解读如下
+
+1．tickTime =2000：通信心跳数，Zookeeper服务器与客户端心跳时间，单位毫秒
+Zookeeper使用的基本时间，服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个tickTime时间就会发送一个心跳，时间单位为毫秒。
+它用于心跳机制，并且设置最小的session超时时间为两倍心跳时间。(session的最小超时时间是2*tickTime)
+
+2．initLimit =10：LF初始通信时限
+集群中的Follower跟随者服务器与Leader领导者服务器之间初始连接时能容忍的最多心跳数（tickTime的数量），用它来限定集群中的Zookeeper服务器连接到Leader的时限。
+
+3．syncLimit =5：LF同步通信时限
+集群中Leader与Follower之间的最大响应时间单位，假如响应超过syncLimit * tickTime，Leader认为Follwer死掉，从服务器列表中删除Follwer。
+
+4．dataDir：数据文件目录+数据持久化路径
+主要用于保存Zookeeper中的数据。
+
+5．clientPort =2181：客户端连接端口
+监听客户端连接的端口。
+</code></pre><h2 id="三zookeeper的内部原理">三、Zookeeper的内部原理</h2>
+<h3 id="一选举机制">（一）选举机制</h3>
+<pre tabindex="0"><code>1）半数机制：集群中半数以上机器存活，集群可用。所以Zookeeper适合安装奇数台服务器。
+2）Zookeeper虽然在配置文件中并没有指定Master和Slave。但是，Zookeeper工作时，是有一个节点为Leader，其他则为Follower，Leader是通过内部的选举机制临时产生的。
+3）以一个简单的例子来说明整个选举的过程。
+假设有五台服务器组成的Zookeeper集群，它们的id从1-5，同时它们都是最新启动的，也就是没有历史数据，在存放数据量这一点上，都是一样的。假设这些服务器依序启动，来看看会发生什么，如图所示。
+</code></pre><p><img src="/posts/tool/20220526205691/image-20220526210408881.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<pre tabindex="0"><code>图中Zookeeper的选举机制
+（1）服务器1启动，此时只有它一台服务器启动了，它发出去的报文没有任何响应，所以它的选举状态一直是LOOKING状态。
+（2）服务器2启动，它与最开始启动的服务器1进行通信，互相交换自己的选举结果，由于两者都没有历史数据，所以id值较大的服务器2胜出，但是由于没有达到超过半数以上的服务器都同意选举它(这个例子中的半数以上是3)，所以服务器1、2还是继续保持LOOKING状态。
+（3）服务器3启动，根据前面的理论分析，服务器3成为服务器1、2、3中的老大，而与上面不同的是，此时有三台服务器选举了它，所以它成为了这次选举的Leader。
+（4）服务器4启动，根据前面的分析，理论上服务器4应该是服务器1、2、3、4中最大的，但是由于前面已经有半数以上的服务器选举了服务器3，所以它只能接收当小弟的命了。
+（5）服务器5启动，同4一样当小弟。
+</code></pre><h3 id="二节点类型">（二）节点类型</h3>
+<pre tabindex="0"><code>1.持久节点（Persistent）：服务端和客户端断开连接后，创建的节点不删除；
+  持久化目录节点：服务端和客户端断开连接后，该节点仍然存在；
+  持久化顺序编号目录节点：服务端和客户端断开连接后，该节点仍然存在；只是zook给该节点名称进行顺序编号。
+
+2.短暂节点(Ephemeral)：服务端和客户端断开连接后，创建的节点自己删除；
+  临时目录节点：客户端与Zookeeper断开连接后，该节点被删除
+  临时顺序编号目录节点：客户端与Zookeeper断开连接后，该节点被删除，只是zook给该节点名称进行顺序编号。
+</code></pre><p><img src="/posts/tool/20220526205691/image-20220526210433278.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<pre tabindex="0"><code>注意：在分布式系统中，顺序号可以被用于为为所有的事件进行全局排序，这样客户端可以通过顺序号推断事件的顺序。节点上的顺序号是一个单调递增的计数器，由父节点维护。
+</code></pre><h3 id="三zookeepr写和读数据流程-读写机制">（三）Zookeepr写和读数据流程 （读写机制）</h3>
+<p><img src="/posts/tool/20220526205691/image-20220526210606895.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<pre tabindex="0"><code>1.写数据流程
+以3台服务器的Zookeeper集群为例，一个Leader，两个Follower即server1和server2。
+（1）Client向Zookeeper的server1发送一个写请求，客户端写数据到服务器1上；
+（2）如果server1不是Leader，那么server1会把接收到的写请求转发给Leader；然后Leader会将写请求转发     给每个server；
+    server1和server2负责写数据，并且两个Follower的写入数据是一致的，保存相同的数据副本；
+    server1和server2写数据成功后，通知Leader;
+
+（3）当Leader收到集群半数以上的节点写成功的消息后，说明该写操作执行成功；
+    例如：这里是3台服务器，只要2台Follower服务器写成功就ok
+    因为client访问的是server1，所以Leader会告知server1集群中数据写成功；
+    
+（4）被访问的server1进一步通知client数据写成功，这时，客户端就知道整个写操作成功了。
+2.读数据
+    相比写数据流程，读数据流程就简单得多；因为每台server中数据一致性都一样，所以随便访问哪台server   读数据就行；没有写数据流程中请求转发、数据同步、成功通知这些步骤。
+</code></pre><h2 id="二zookeeper分布式安装部署">二、Zookeeper分布式安装部署</h2>
+<h3 id="一集群规划">（一）集群规划</h3>
+<pre tabindex="0"><code> 在zk01、zk02和zk04三个节点上部署Zookeeper。
+</code></pre><h3 id="二集群中的角色和作用">（二）集群中的角色和作用</h3>
+<pre tabindex="0"><code>a.Leader角色
+Leader服务器是整个zookeeper集群的核心，主要的工作任务有两项 
+1. 事物请求的唯一调度和处理者，保证集群事物处理的顺序性 
+2. 集群内部各服务器的调度者
+
+b.Follower角色
+Follower角色的主要职责是 
+1. 处理客户端非事物请求、转发事物请求给leader服务器 
+2. 参与事物请求Proposal 的投票（需要半数以上服务器 通过才能通知leader commit数据;Leader发起的提案， 要求Follower投票） 
+3. 参与Leader选举的投票
+
+c.Observer角色
+Observer 是 zookeeper3.3 开始引入的一个全新的服务器 角色，从字面来理解，该角色充当了观察者的角色。 观察zookeeper集群中的最新状态变化并将这些状态变化 同步到 observer 服务器上。Observer的工作原理与follower角色基本一致，而它和follower角色唯一的不同在于observer 不参与任何形式的投票，包括事物请求 Proposal的投票和leader选举的投票。简单来说，observe服务器只提供非事物请求服务，通常在于不影响集群事物 处理能力的前下提升集群非事物处理的能力.
+</code></pre><h3 id="三解压安装">（三）解压安装</h3>
+<pre tabindex="0"><code>（1）解压Zookeeper安装包到/opt/pro/zk目录下
+      tar -zxvf apache-zookeeper-3.6.2-bin.tar.gz -C /opt/pro/zk
+（2）拷贝/opt/pro/zk/apache-zookeeper-3.6.2-bin目录内容到另外两台服务器。
+</code></pre><h3 id="四配置服务器编号">（四）配置服务器编号</h3>
+<pre tabindex="0"><code> （1）在/opt/pro/zk/apache-zookeeper-3.6.2-bin这个目录下创建zkData
+       mkdir -p zkData
+ （2）在/opt/pro/zk/apache-zookeeper-3.6.2-bin/zkData目录下创建一个myid的文件
+       touch myid
+       添加myid文件，注意一定要在linux里面创建，在notepad++里面很可能乱码
+ （3）编辑myid文件
+       vi myid
+       在文件中添加与server对应的编号2：
+ （4）在其他两台服务器上分别创建zkData目录，并在目录中创建myid文件，myid文件中内容为3、4
+</code></pre><h3 id="五配置zoocfg文件">（五）配置zoo.cfg文件</h3>
+<pre tabindex="0"><code>（1）在三台服务器上重命名/opt/pro/zk/apache-zookeeper-3.6.2-bin/conf这个目录下的zoo_sample.cfg为zoo.cfg
+    mv zoo_sample.cfg zoo.cfg
+（2）打开zoo.cfg文件
+    vim zoo.cfg
+    修改数据存储路径配置
+    dataDir=/opt/pro/zk/apache-zookeeper-3.6.2-bin/zkData
+    增加如下配置
+   #######################cluster##########################
+     server.2=192.168.164.136:2888:3888
+     server.3=192.168.164.137:2888:3888
+     server.4=192.168.164.138:2888:3888
+（3）其他两台服务器同样完成以上两步关于zoo.cfg配置文件的操作
+       
+</code></pre><h3 id="六集群操作">（六）集群操作</h3>
+<pre tabindex="0"><code>（1）分别启动Zookeeper
+    bin/zkServer.sh start
+（2）查看状态
+    bin/zkServer.sh status
+</code></pre><h3 id="伪分布式">伪分布式</h3>
+<p>此处以伪集群为例搭建集群过程。</p>
+<h4 id="第一台zookeeper配置">第一台zookeeper配置</h4>
+<pre tabindex="0"><code>1. 把zookeeper进行解压缩命令名为zk01
+
+2. 在zk01下创建一个data目录
+
+Mkdir data
+
+3. 在data目录下创建一个myid文件,在文件输入1
+
+4. 修改zoo.cfg
+
+ clientPort=2181
+
+ dataDir=/usr/local/zkcluster/zk01/data
+
+ server.1=192.168.18.201:2881:3881
+
+server.2=192.168.18.201:2882:3882
+
+server.3=192.168.18.201:2883:3883
+</code></pre><h4 id="第二台zookeeper配置">第二台zookeeper配置</h4>
+<pre tabindex="0"><code>1. 把zookeeper进行解压缩命令名为zk02
+
+2. 在zk02下创建一个data目录
+
+Mkdir data
+
+3. 在data目录下创建一个myid文件,在文件输入2
+
+4. 修改zoo.cfg
+
+ clientPort=2182
+
+ dataDir=/usr/local/zkcluster/zk02/data
+
+ server.1=192.168.18.201:2881:3881
+
+server.2=192.168.18.201:2882:3882
+
+server.3=192.168.18.201:2883:3883
+</code></pre><h4 id="第三台zookeeper配置">第三台zookeeper配置</h4>
+<pre tabindex="0"><code>5. 把zookeeper进行解压缩命令名为zk03
+
+6. 在zk03下创建一个data目录
+
+Mkdir data
+
+7. 在data目录下创建一个myid文件,在文件输入3
+
+8. 修改zoo.cfg
+
+ clientPort=2183
+
+ dataDir=/usr/local/zkcluster/zk03/data
+
+ server.1=192.168.18.201:2881:3881
+
+server.2=192.168.18.201:2882:3882
+
+server.3=192.168.18.201:2883:3883
+</code></pre><h2 id="一zookeeper的常用命令">一、Zookeeper的常用命令</h2>
+<pre tabindex="0"><code>1．启动客户端
+bin /zkCli.sh
+2．显示所有操作命令
+help
+3．查看当前znode中所包含的内容
+ls /
+4．查看当前节点详细数据
+ls –s /
+5．分别创建2个普通节点
+create /shuihu &#34;songjiang&#34;
+create /shuihu/liangshan &#34;liubei&#34;
+6．获得节点的值
+get /shuihu    
+7．创建短暂节点
+ create -e /shuihu/liangshan &#34;likui&#34;
+（1）在当前客户端是能查看到的
+  ls /shuihu 
+（2）退出当前客户端然后再重启客户端
+ quit:退出
+ bin/zkCli.sh重新进入
+（3）再次查看根目录下短暂节点已经删除
+  ls /shuihu
+8．创建带序号的节点
+（1）先创建一个普通的根节点/shuihu/liangshan
+    create /shuihu/liangshan/daxia &#34;yanqing&#34;
+    Created /shuihu/liangshan/daxia
+（2）创建带序号的节点
+    create -s /shuihu/laingshan/yishi &#34;lujunyi&#34;
+如果原来没有序号节点，序号从0开始依次递增。如果原节点下已有2个节点，则再排序时从2开始，以此类推。
+9．修改节点数据值
+   set /shuihu/liangshan &#34;lishishi&#34;
+10．节点的值变化监听
+   （1）在hadoop104主机上注册监听/shuihu节点数据变化
+      get /shuhui watch
+    （2）在hadoop103主机上修改/shuihu节点的数据
+      set /shuihu &#34;huangdi&#34;
+	（3）观察hadoop104主机收到数据变化的监听
+    WATCHER::
+    WatchedEvent state:SyncConnected type:NodeDataChanged path:/shuihu
+11．节点的子节点变化监听（路径变化）
+	（1）在hadoop104主机上注册监听/sanguo节点的子节点变化
+      ls /liangshan watch
+	（2）在hadoop103主机/liangshan节点上创建子节点
+      create /shuihu/chaoting &#34;huarong&#34;
+	（3）观察hadoop104主机收到子节点变化的监听
+        WATCHER::
+        WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/shuihu
+12．删除节点
+ delete /shuihu/chaoting
+13．递归删除节点
+ deleteall /shuihu/liangshan
+14．查看节点状态
+stat /shuihu
+</code></pre><h2 id="二zookeeper的api应用">二、Zookeeper的API应用</h2>
+<h3 id="一创建一个maven工程">（一）．创建一个Maven工程</h3>
+<h3 id="二添加pom文件">（二）．添加pom文件</h3>
+<pre tabindex="0"><code>&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;junit&lt;/groupId&gt;
+			&lt;artifactId&gt;junit&lt;/artifactId&gt;
+			&lt;version&gt;RELEASE&lt;/version&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+			&lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+			&lt;version&gt;2.8.2&lt;/version&gt;
+		&lt;/dependency&gt;
+		&lt;!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.apache.zookeeper&lt;/groupId&gt;
+			&lt;artifactId&gt;zookeeper&lt;/artifactId&gt;
+			&lt;version&gt;3.6.2&lt;/version&gt;
+		&lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre><h3 id="三log4jproperties文件">（三）．log4j.properties文件</h3>
+<p>需要在项目的src/main/resources目录下，新建一个文件，命名为“log4j.properties”，在文件中填入。</p>
+<pre tabindex="0"><code>log4j.rootLogger=INFO, stdout  
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender  
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout  
+log4j.appender.stdout.layout.ConversionPattern=%d %p [%c] - %m%n  
+log4j.appender.logfile=org.apache.log4j.FileAppender  
+log4j.appender.logfile.File=target/spring.log  
+log4j.appender.logfile.layout=org.apache.log4j.PatternLayout  
+log4j.appender.logfile.layout.ConversionPattern=%d %p [%c] - %m%n  
+</code></pre><h3 id="四创建zookeeper客户端">（四）.创建ZooKeeper客户端</h3>
+<p>4.1定义实例化Zookeeper</p>
+<pre tabindex="0"><code>    private static String connectString =
+            &#34;192.168.164.136:2181,192.168.164.137:2181,192.168.164.138:2181&#34;;
+    private static int sessionTimeout = 60000;
+    private ZooKeeper zkClient = null;
+
+    @Before
+    public void init() throws Exception {
+
+        zkClient = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
+
+            public void process(WatchedEvent event) {
+
+                // 收到事件通知后的回调函数（用户的业务逻辑）
+                System.out.println(event.getType() + &#34;--&#34; + event.getPath());
+
+                // 再次启动监听
+                try {
+                    zkClient.getChildren(&#34;/&#34;, true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+</code></pre><p>4.2 创建子节点</p>
+<pre tabindex="0"><code>    // 创建子节点
+    @Test
+    public void create(){
+        // 参数1：要创建的节点的路径； 参数2：节点数据 ； 参数3：节点权限 ；参数4：节点的类型
+        try {
+            String nodeCreated = zkClient.create(&#34;/offcn&#34;, &#34;youjiuye&#34;.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        } catch (KeeperException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+</code></pre><p>4.3获取子节点并监听节点变化</p>
+<pre tabindex="0"><code>    // 获取子节点
+    @Test
+    public void getChildren() throws Exception {
+
+        List&lt;String&gt; children = zkClient.getChildren(&#34;/&#34;, true);
+
+        for (String child : children) {
+            System.out.println(child);
+        }
+
+        // 延时阻塞
+        Thread.sleep(Long.MAX_VALUE);
+    }
+</code></pre><p>4.4 判断Znode是否存在</p>
+<pre tabindex="0"><code>    // 判断znode是否存在
+    @Test
+    public void exist() throws Exception {
+
+        Stat stat = zkClient.exists(&#34;/shuihu&#34;, false);
+
+        System.out.println(stat == null ? &#34;not exist&#34; : &#34;exist&#34;);
+    }
+</code></pre>
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.vercel.app/posts/java-frame/20220526162071/">← SSM整合</a></div>
+    <div><a href="https://lovemjh.vercel.app/posts/java-frame/20220430215722/">mybatis-3  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+    </body>
+</html>

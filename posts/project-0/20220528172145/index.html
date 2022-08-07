@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="支付宝支付 - https://lovemjh.vercel.app/posts/project-0/20220528172145/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>支付宝支付</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.vercel.app/style.min.ef012369a26adc2a21396230b3395dfcd5975a3082a65b82785cbc0b446f2a2c.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            支付宝支付
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2022-05-28&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2022-05-28&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            9743 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            20 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/project-0/20220528171137/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/project-0/20220528172837/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#学习目标">学习目标</a></li>
+      </ul>
+    </li>
+    <li><a href="#一二维码">一、二维码</a>
+      <ul>
+        <li><a href="#1-什么是二维码">1 什么是二维码</a></li>
+        <li><a href="#2-二维码优势">2 二维码优势</a></li>
+        <li><a href="#3-二维码容错级别">3 二维码容错级别</a></li>
+        <li><a href="#4-二维码生成插件qrious">4 二维码生成插件qrious</a></li>
+      </ul>
+    </li>
+    <li><a href="#二支付宝扫码支付业务介绍及开发环境配置流程">二、支付宝扫码支付业务介绍及开发、环境配置流程</a>
+      <ul>
+        <li><a href="#1-支付宝扫码支付业务流程">1 支付宝扫码支付业务流程</a></li>
+        <li><a href="#2-扫码支付具体申请配置流程">2 扫码支付具体申请配置流程</a>
+          <ul>
+            <li><a href="#21登录支付宝开发者平台">2.1、登录支付宝开发者平台</a></li>
+            <li><a href="#22登录开发者平台界面">2.2、登录开发者平台界面</a></li>
+            <li><a href="#23进入研发服务中心---沙箱环境">2.3、进入研发服务中心&mdash;》沙箱环境</a></li>
+            <li><a href="#24配置沙箱环境配置rsa2公钥">2.4、配置沙箱环境,配置RSA2公钥</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-支付宝支付sdk">3 支付宝支付SDK</a></li>
+        <li><a href="#4-工程搭建与准备工作">4 工程搭建与准备工作</a></li>
+      </ul>
+    </li>
+    <li><a href="#三-东易买-支付宝支付二维码生成">三 东易买-支付宝支付二维码生成</a>
+      <ul>
+        <li><a href="#1-需求分析与实现思路">1 需求分析与实现思路</a>
+          <ul>
+            <li><a href="#11需求分析">1.1需求分析</a></li>
+            <li><a href="#12实现思路">1.2实现思路</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-代码实现">2 代码实现</a>
+          <ul>
+            <li><a href="#21服务接口层">2.1服务接口层</a></li>
+            <li><a href="#22服务实现层">2.2服务实现层</a></li>
+            <li><a href="#23控制层">2.3控制层</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#四-东易买-检测支付状态">四 东易买-检测支付状态</a>
+      <ul>
+        <li><a href="#1-需求分析及实现思路">1 需求分析及实现思路</a>
+          <ul>
+            <li><a href="#11-需求分析">1.1 需求分析</a></li>
+            <li><a href="#12-实现思路">1.2 实现思路</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-检测支付状态-后端代码">2 检测支付状态-后端代码</a>
+          <ul>
+            <li><a href="#21-服务接口层">2.1 服务接口层</a></li>
+            <li><a href="#22-服务实现层">2.2 服务实现层</a></li>
+            <li><a href="#23-控制层">2.3 控制层</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-查询时间限制">3 查询时间限制</a>
+          <ul>
+            <li><a href="#31问题分析">3.1问题分析</a></li>
+            <li><a href="#32代码完善">3.2代码完善</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#五-支付日志">五 支付日志</a>
+      <ul>
+        <li><a href="#1-需求分析">1 需求分析</a></li>
+        <li><a href="#2-表结构分析">2 表结构分析</a></li>
+        <li><a href="#3-逆向工程">3 逆向工程</a></li>
+        <li><a href="#4-插入日志记录">4 插入日志记录</a></li>
+        <li><a href="#5-读取支付日志">5 读取支付日志</a>
+          <ul>
+            <li><a href="#51服务接口层">5.1服务接口层</a></li>
+            <li><a href="#52服务实现层">5.2服务实现层</a></li>
+            <li><a href="#53控制层paylogcontroller">5.3控制层PayLogController</a></li>
+            <li><a href="#54修改paylogfegin">5.4修改PayLogFegin</a></li>
+            <li><a href="#55引入依赖">5.5引入依赖</a></li>
+            <li><a href="#56修改启动类">5.6修改启动类</a></li>
+            <li><a href="#57-修改控制器paycontroller">5.7 修改控制器PayController</a></li>
+          </ul>
+        </li>
+        <li><a href="#6-修改订单状态">6 修改订单状态</a>
+          <ul>
+            <li><a href="#61服务接口层">6.1服务接口层</a></li>
+            <li><a href="#62服务实现层">6.2服务实现层</a></li>
+            <li><a href="#63控制层ordercontroller">6.3控制层OrderController</a></li>
+            <li><a href="#64修改orderfeign">6.4修改OrderFeign</a></li>
+            <li><a href="#65修改paycontroller">6.5修改PayController</a></li>
+          </ul>
+        </li>
+        <li><a href="#7dongyimai-pay-service集成springsecurity环境及网关配置">7.dongyimai-pay-service集成SpringSecurity环境及网关配置</a>
+          <ul>
+            <li><a href="#71-pomxml加入如下依赖">7.1 pom.xml加入如下依赖</a></li>
+            <li><a href="#72-引入公钥和验证文件">7.2 引入公钥和验证文件</a></li>
+            <li><a href="#73-引入feigninterceptor">7.3 引入FeignInterceptor</a></li>
+            <li><a href="#74修改网关配置路由转发到支付微服务">7.4、修改网关配置，路由转发到支付微服务</a></li>
+          </ul>
+        </li>
+        <li><a href="#8测试">8.测试</a>
+          <ul>
+            <li><a href="#81用户登录">8.1用户登录</a></li>
+            <li><a href="#82-添加购物车">8.2 添加购物车</a></li>
+            <li><a href="#83查询购物车">8.3查询购物车</a></li>
+            <li><a href="#84提交订单">8.4提交订单</a></li>
+            <li><a href="#85-查询redis">8.5 查询redis</a></li>
+            <li><a href="#86查询数据库">8.6查询数据库</a></li>
+            <li><a href="#87-预下单">8.7 预下单</a></li>
+            <li><a href="#88生成二维码">8.8生成二维码</a></li>
+            <li><a href="#89-扫描支付并查询交易状态">8.9 扫描支付并查询交易状态</a></li>
+            <li><a href="#810查看数据库">8.10查看数据库：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#六-支付日志显示学员实现">六 支付日志显示（学员实现）</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 align = "center">第十四章</h1>
+<h1 align = "center">支付宝支付</h1>
+<h3 align="center">优就业.JAVA教研室</h3>
+<h2 id="学习目标">学习目标</h2>
+<p>目标1：掌握二维码生成插件qrious的使用</p>
+<p>目标2：能够说出支付宝支付开发的整体思路</p>
+<p>目标3：能够调用支付宝支付接口（预下单）生成支付二维码</p>
+<p>目标4：能够调用支付宝支付接口（查询订单）查询支付状态</p>
+<p>目标5：实现支付日志的生成与订单状态的修改</p>
+<h1 id="一二维码">一、二维码</h1>
+<h2 id="1-什么是二维码">1 什么是二维码</h2>
+<p>二维码又称QR Code，QR全称Quick Response，是一个近几年来移动设备上超流行的一种编码方式，它比传统的Bar Code条形码能存更多的信息，也能表示更多的数据类型。</p>
+<p>二维条码/二维码（2-dimensional bar code）是用某种特定的几何图形按一定规律在平面（二维方向上）分布的黑白相间的图形记录数据符号信息的；在代码编制上巧妙地利用构成计算机内部逻辑基础的“0”、“1”比特流的概念，使用若干个与二进制相对应的几何形体来表示文字数值信息，通过图象输入设备或光电扫描设备自动识读以实现信息自动处理：它具有条码技术的一些共性：每种码制有其特定的字符集；每个字符占有一定的宽度；具有一定的校验功能等。同时还具有对不同行的信息自动识别功能、及处理图形旋转变化点。
+<img src="/posts/project-0/20220528172145/image-20220528172251356.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="2-二维码优势">2 二维码优势</h2>
+<ul>
+<li>信息容量大, 可以容纳多达1850个大写字母或2710个数字或500多个汉字</li>
+<li>应用范围广, 支持文字,声音,图片,指纹等等&hellip;</li>
+<li>容错能力强, 即使图片出现部分破损也能使用</li>
+<li>成本低, 容易制作</li>
+</ul>
+<h2 id="3-二维码容错级别">3 二维码容错级别</h2>
+<p>L级（低） 7％的码字可以被恢复。</p>
+<p>M级（中） 的码字的15％可以被恢复。</p>
+<p>Q级（四分）的码字的25％可以被恢复。</p>
+<p>H级（高） 的码字的30％可以被恢复。</p>
+<h2 id="4-二维码生成插件qrious">4 二维码生成插件qrious</h2>
+<p>qrious是一款基于HTML5 Canvas的纯JS二维码生成插件。通过qrious.js可以快速生成各种二维码，你可以控制二维码的尺寸颜色，还可以将生成的二维码进行Base64编码。</p>
+<p>官网地址：https://github.com/neocotic/qrious</p>
+<p>qrious.js二维码插件的可用配置参数如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>background</td>
+<td>String</td>
+<td>&ldquo;white&rdquo;</td>
+<td>二维码的背景颜色。</td>
+</tr>
+<tr>
+<td>foreground</td>
+<td>String</td>
+<td>&ldquo;black&rdquo;</td>
+<td>二维码的前景颜色。</td>
+</tr>
+<tr>
+<td>level</td>
+<td>String</td>
+<td>&ldquo;L&rdquo;</td>
+<td>二维码的误差校正级别(L, M, Q, H)。</td>
+</tr>
+<tr>
+<td>mime</td>
+<td>String</td>
+<td>&ldquo;image/png&rdquo;</td>
+<td>二维码输出为图片时的MIME类型。</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Number</td>
+<td>100</td>
+<td>二维码的尺寸，单位像素。</td>
+</tr>
+<tr>
+<td>value</td>
+<td>String</td>
+<td>&quot;&quot;</td>
+<td>需要编码为二维码的值</td>
+</tr>
+</tbody>
+</table>
+<p>下面的代码即可生成一张二维码</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">html</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">title</span>&gt;二维码入门小demo&lt;/<span style="color:#000080">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">img</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;qrious&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">script</span> <span style="color:#008080">src</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;qrious.min.js&#34;</span>&gt;&lt;/<span style="color:#000080">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">script</span>&gt;
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">var</span> qr <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> QRious({
+</span></span><span style="display:flex;"><span>	   element<span style="color:#000;font-weight:bold">:</span><span style="color:#0086b3">document</span>.getElementById(<span style="color:#d14">&#39;qrious&#39;</span>),
+</span></span><span style="display:flex;"><span>	   size<span style="color:#000;font-weight:bold">:</span><span style="color:#099">250</span>,
+</span></span><span style="display:flex;"><span>level<span style="color:#000;font-weight:bold">:</span><span style="color:#d14">&#39;H&#39;</span>,	
+</span></span><span style="display:flex;"><span>value<span style="color:#000;font-weight:bold">:</span><span style="color:#d14">&#39;http://www.ujiuye.com&#39;</span>
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">html</span>&gt;
+</span></span></code></pre></div><p>运行效果：</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172302874.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>大家掏出手机，扫一下看看是否会看到优就业的官网呢？</p>
+<h1 id="二支付宝扫码支付业务介绍及开发环境配置流程">二、支付宝扫码支付业务介绍及开发、环境配置流程</h1>
+<h2 id="1-支付宝扫码支付业务流程">1 支付宝扫码支付业务流程</h2>
+<p>支付宝扫码支付是商户系统按支付宝支付协议生成支付二维码，用户再用支付宝“扫一扫”完成支付的模式。该模式适用于PC网站支付、实体店单品或订单支付、媒体广告支付等场景。</p>
+<p>具体操作步骤：（了解）</p>
+<p><strong>第一步：创建应用</strong></p>
+<p>接入扫码支付能力，需要在开放平台创建一个应用，通过该应用来接入各种能力。</p>
+<p>点击如下链接即可开始创建应用:https://openhome.alipay.com/platform/appManage.htm</p>
+<p><strong>第二步：添加应用功能</strong></p>
+<p>开发者在开发过程中，可以添加自己需要的功能到待申请功能列表。</p>
+<p>给应用添加当面付功能，这样就可以在你的应用里使用扫码支付能力。</p>
+<p><strong>第三步：配置秘钥</strong></p>
+<p>为了保证交易双方的身份和数据安全，需要配置双方密钥。</p>
+<p><strong>第四步：沙箱环境调试使用</strong></p>
+<p>支付能力直接涉及到交易与资金，为了方便开放者调试支付能力，支付宝已经准备好沙箱环境，包括沙箱环境账号和沙箱版支付宝钱包，这样就可以在沙箱环境调试了。</p>
+<p><strong>第五步：签约</strong></p>
+<p>在正式使用这些能力的时候，需要在开放平台里进行签约，这时候约定的合同就生效了。也可以代替商户签约。</p>
+<p><strong>第六步：上线应用</strong></p>
+<p>上线：商户本身应用上线时候，也要把支付宝开放平台的应用上线。</p>
+<p>验收：为了确保应用质量，开放平台提供了云验收平台，可以在线验收应用。</p>
+<p><strong>第七步：监控应用</strong></p>
+<p>在开放平台监控交易情况</p>
+<p>应用上线后还可以在开放平台，查看应用运行情况以及交易状态。</p>
+<h2 id="2-扫码支付具体申请配置流程">2 扫码支付具体申请配置流程</h2>
+<h3 id="21登录支付宝开发者平台">2.1、登录支付宝开发者平台</h3>
+<p>打开支付宝官网：https://open.alipay.com</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172312372.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>选择我是开发者</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172318032.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>【注意】用自己的支付宝，扫描右边的扫码登录，在支付宝确认登录，即可登录支付宝开发者平台。初次登录进行身份验证</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172324306.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>选择：自研开发者</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172329688.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>同意协议，点击确定</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172333879.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="22登录开发者平台界面">2.2、登录开发者平台界面</h3>
+<p><img src="/posts/project-0/20220528172145/image-20220528172339093.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>选择研发服务</p>
+<h3 id="23进入研发服务中心---沙箱环境">2.3、进入研发服务中心&mdash;》沙箱环境</h3>
+<p><img src="/posts/project-0/20220528172145/image-20220528172343632.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>沙箱环境(Beta)是协助开发者进行接口功能开发及主要功能联调的模拟环境。</p>
+<p>作为开发者使用沙箱完全可以用来入门学习如何对接扫码支付接口。</p>
+<p>Appid是应用的id，后续再开发应用时要用到，请保存好！</p>
+<p>支付宝网关：https://openapi.alipaydev.com/gateway.do</p>
+<h3 id="24配置沙箱环境配置rsa2公钥">2.4、配置沙箱环境,配置RSA2公钥</h3>
+<p>(1)鼠标移动到设置<img src="/posts/project-0/20220528172145/image-20220528172401252.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>处在弹出的文字介绍中，点击 <strong>生成方法</strong></p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172409392.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>(2)根据操作系统进行选择进行下载。</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172421119.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>在线生成：https://miniu.alipay.com/keytool/create</p>
+<p>下载成功后，直接点击安装</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172426280.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>安装成功</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172430581.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>双击打开程序</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172437823.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>依照图示选择</p>
+<p>​         密码长度为 <strong>RSA2</strong></p>
+<p>​         密码格式为 <strong>PKCS8(Java适用)</strong></p>
+<p>然后点击<strong>生成密钥</strong>， 后 点击<strong>打开密钥文件路径</strong></p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172449287.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>回到沙箱配置界面，点击 <strong>查看</strong></p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172454669.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击更换应用公钥：</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172500902.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>选择公钥，打开刚才我们生成的应用公钥，拷贝粘贴到文本框中</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172505140.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击保存设置既可以把我们的公钥配置上去。</p>
+<h2 id="3-支付宝支付sdk">3 支付宝支付SDK</h2>
+<p>支付宝支付提供了SDK，使用支付宝支付SDK,在maven工程中引入依赖</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!-- 支付宝支付所需类库包 --&gt;</span>  
+</span></span><span style="display:flex;"><span>       <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.alipay.sdk<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>alipay-sdk-java<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;version&gt;</span>4.3.0.ALL<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;groupId&gt;</span>org.bouncycastle<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000080">&lt;artifactId&gt;</span>bcprov-jdk15on<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;/exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h2 id="4-工程搭建与准备工作">4 工程搭建与准备工作</h2>
+<p>（1）建立支付服务实现模块dongyimai-pay-service</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172511482.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>（2）dongyimai-pay-service下创建application.yml，配置文件代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000080">server</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">9009</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">spring</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">application</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">name</span>:<span style="color:#bbb"> </span>pay<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">redis</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">host</span>:<span style="color:#bbb"> </span><span style="color:#099">192.168.188.128</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">port</span>:<span style="color:#bbb"> </span><span style="color:#099">6379</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">main</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">allow-bean-definition-overriding</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">eureka</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">client</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">service-url</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">defaultZone</span>:<span style="color:#bbb"> </span>http://127.0.0.1:8761/eureka<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">instance</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">prefer-ip-address</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">feign</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">hystrix</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">enabled</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic"># 配置sql打印日志</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">logging</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">level</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">com</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">offcn</span>:<span style="color:#bbb"> </span>debug<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic">#hystrix 配置</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">hystrix</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">command</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#000080">default</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#000080">execution</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">timeout</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#998;font-style:italic">#如果enabled设置为false，则请求超时交给ribbon控制</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">enabled</span>:<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">true</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#000080">isolation</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">strategy</span>:<span style="color:#bbb"> </span>SEMAPHORE<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#998;font-style:italic">#支付宝支付信息配置</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000080">alipay</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">serverUrl</span>:<span style="color:#bbb"> </span>https://openapi.alipaydev.com/gateway.do<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">appId</span>:<span style="color:#bbb"> </span><span style="color:#099">2016102600767650</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">privateKey</span>:<span style="color:#bbb"> </span>用户私钥<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">format</span>:<span style="color:#bbb"> </span>json<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">charset</span>:<span style="color:#bbb"> </span>utf-8<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">alipayPublicKey</span>:<span style="color:#bbb"> </span>阿里公钥<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000080">signType</span>:<span style="color:#bbb"> </span>RSA2<span style="color:#bbb">
+</span></span></span></code></pre></div><p>AlipayClient创建关键参数说明：</p>
+<table>
+<thead>
+<tr>
+<th><strong>配置参数</strong></th>
+<th><strong>示例值解释</strong></th>
+<th><strong>获取方式/示例值</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td>支付宝网关（固定）</td>
+<td><a class="link" href="/posts/project-0/https://openapi.alipay.com/gateway.do"  target="_blank" rel="noopener"
+    >https://openapi.alipay.com/gateway.do</a></td>
+</tr>
+<tr>
+<td>APP_ID</td>
+<td>APPID即创建应用后生成</td>
+<td>获取见上面<a class="link" href="/posts/project-0/https://docs.open.alipay.com/#s0"  target="_blank" rel="noopener"
+    >创建应用并获取APPID</a></td>
+</tr>
+<tr>
+<td>APP_PRIVATE_KEY</td>
+<td>开发者应用私钥，由开发者自己生成</td>
+<td>获取见上面<a class="link" href="/posts/project-0/https://docs.open.alipay.com/#s1"  target="_blank" rel="noopener"
+    >配置密钥</a></td>
+</tr>
+<tr>
+<td>FORMAT</td>
+<td>参数返回格式，只支持json</td>
+<td>json（固定）</td>
+</tr>
+<tr>
+<td>CHARSET</td>
+<td>请求和签名使用的字符编码格式，支持GBK和UTF-8</td>
+<td>开发者根据实际工程编码配置</td>
+</tr>
+<tr>
+<td>ALIPAY_PUBLIC_KEY</td>
+<td>支付宝公钥，由支付宝生成</td>
+<td>获取详见上面<a class="link" href="/posts/project-0/https://docs.open.alipay.com/#s1"  target="_blank" rel="noopener"
+    >配置密钥</a></td>
+</tr>
+<tr>
+<td>SIGN_TYPE</td>
+<td>商户生成签名字符串所使用的签名算法类型，目前支持RSA2和RSA，推荐使用RSA2</td>
+<td>RSA2</td>
+</tr>
+</tbody>
+</table>
+<p>接下来，就可以用alipayClient来调用具体的API了。alipayClient只需要初始化一次，后续调用不同的API都可以使用同一个alipayClient对象。</p>
+<p>（4）在<code>com.offcn.pay.config</code>包下，创建AliPayConfig，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">AliPayConfig</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${alipay.appId}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String appId<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${alipay.serverUrl}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String serverUrl<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${alipay.privateKey}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String privateKey<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${alipay.alipayPublicKey}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String alipayPublicKey<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${alipay.format}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String format<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${alipay.charset}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String charset<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Value</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;${alipay.signType}&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> String signType<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> AlipayClient <span style="color:#900;font-weight:bold">getPayClient</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> DefaultAlipayClient<span style="color:#000;font-weight:bold">(</span>serverUrl<span style="color:#000;font-weight:bold">,</span> appId<span style="color:#000;font-weight:bold">,</span> privateKey<span style="color:#000;font-weight:bold">,</span> format<span style="color:#000;font-weight:bold">,</span> charset<span style="color:#000;font-weight:bold">,</span> alipayPublicKey<span style="color:#000;font-weight:bold">,</span> signType<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>（5）启动类创建</p>
+<p>在<code>dongyimai-pay-service</code>中创建<code>com.offcn.pay.PayApplication</code>，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span><span style="color:#000;font-weight:bold">(</span>exclude<span style="color:#000;font-weight:bold">={</span>DataSourceAutoConfiguration<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableEurekaClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">PayApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>PayApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>pom.xml引入如下依赖</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependencies&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">&lt;!-- 支付宝支付所需类库包 --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>com.alipay.sdk<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>alipay-sdk-java<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>4.3.0.ALL<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;groupId&gt;</span>org.bouncycastle<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000080">&lt;artifactId&gt;</span>bcprov-jdk15on<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;/exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-common<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;version&gt;</span>1.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependencies&gt;</span>
+</span></span></code></pre></div><h1 id="三-东易买-支付宝支付二维码生成">三 东易买-支付宝支付二维码生成</h1>
+<h2 id="1-需求分析与实现思路">1 需求分析与实现思路</h2>
+<h3 id="11需求分析">1.1需求分析</h3>
+<p>在支付页面上生成支付二维码，并显示订单号和金额</p>
+<p>用户拿出手机,打开支付宝扫描页面上的二维码,然后在支付宝中完成支付
+<img src="/posts/project-0/20220528172145/image-20220528172521558.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="12实现思路">1.2实现思路</h3>
+<p>商户系统通过AlipayClient调用支付宝预下单接口alipay.trade.precreate，获得该订单二维码图片地址。</p>
+<p>构建参数发送给预下单接口 ，返回的信息中有支付url，根据url生成二维码，显示的订单号和金额也在返回的信息中。</p>
+<p><strong>重要入参说明</strong></p>
+<ul>
+<li>out_trade_no：商户订单号，需要保证商家系统不重复。</li>
+<li>total_amount：订单金额。(单位：元)</li>
+<li>subject：商品的标题/交易标题/订单标题/订单关键字等。不可使用特殊字符，如 /,=,&amp; 等。</li>
+<li>store_id：商户门店编号。</li>
+<li>timeout_express：交易超时时间。</li>
+</ul>
+<p><strong>重要出参说明</strong></p>
+<ul>
+<li>qr_code：订单二维码（有效时间 2 小时）以字符串的格式返回，开发者需要自己使用工具根据内容生成二维码图片。</li>
+</ul>
+<h2 id="2-代码实现">2 代码实现</h2>
+<h3 id="21服务接口层">2.1服务接口层</h3>
+<p>（1）在dongyimai-pay-service创建包com.offcn.pay.service ，包下建立接口</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">AliPayService</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 生成支付宝支付二维码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param out_trade_no 订单号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param total_fee 金额(分)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">createNative</span><span style="color:#000;font-weight:bold">(</span>String out_trade_no<span style="color:#000;font-weight:bold">,</span> String total_fee<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="22服务实现层">2.2服务实现层</h3>
+<p>dongyimai-pay-service创建com.offcn.pay.service.impl包，新建类</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">AliPayServiceImpl</span> <span style="color:#000;font-weight:bold">implements</span> AliPayService <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> AlipayClient alipayClient<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 生成支付宝支付二维码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param out_trade_no 订单号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param total_fee    金额(分)
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">createNative</span><span style="color:#000;font-weight:bold">(</span>String out_trade_no<span style="color:#000;font-weight:bold">,</span> String total_fee<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> map <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//创建预下单请求对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        AlipayTradePrecreateRequest request <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> AlipayTradePrecreateRequest<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">//转换下单金额按照元
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">long</span> total <span style="color:#000;font-weight:bold">=</span> Long<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">parseLong</span><span style="color:#000;font-weight:bold">(</span>total_fee<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        BigDecimal bigTotal <span style="color:#000;font-weight:bold">=</span> BigDecimal<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">valueOf</span><span style="color:#000;font-weight:bold">(</span>total<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        BigDecimal cs <span style="color:#000;font-weight:bold">=</span> BigDecimal<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">valueOf</span><span style="color:#000;font-weight:bold">(</span>100d<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        BigDecimal bigYuan <span style="color:#000;font-weight:bold">=</span> bigTotal<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">divide</span><span style="color:#000;font-weight:bold">(</span>cs<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;预下单金额:&#34;</span> <span style="color:#000;font-weight:bold">+</span> bigYuan<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">doubleValue</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setBizContent</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;{&#34;</span> <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d14">&#34;    \&#34;out_trade_no\&#34;:\&#34;&#34;</span> <span style="color:#000;font-weight:bold">+</span> out_trade_no <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;\&#34;,&#34;</span> <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d14">&#34;    \&#34;total_amount\&#34;:\&#34;&#34;</span> <span style="color:#000;font-weight:bold">+</span> bigYuan<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">doubleValue</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;\&#34;,&#34;</span> <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d14">&#34;    \&#34;subject\&#34;:\&#34;测试购买商品001\&#34;,&#34;</span> <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d14">&#34;    \&#34;store_id\&#34;:\&#34;xa_001\&#34;,&#34;</span> <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d14">&#34;    \&#34;timeout_express\&#34;:\&#34;90m\&#34;}&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//设置业务参数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//发出预下单业务请求
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            AlipayTradePrecreateResponse response <span style="color:#000;font-weight:bold">=</span> alipayClient<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">execute</span><span style="color:#000;font-weight:bold">(</span>request<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//从相应对象读取相应结果
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            String code <span style="color:#000;font-weight:bold">=</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getCode</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;响应码:&#34;</span> <span style="color:#000;font-weight:bold">+</span> code<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//全部的响应结果
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            String body <span style="color:#000;font-weight:bold">=</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBody</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;返回结果:&#34;</span> <span style="color:#000;font-weight:bold">+</span> body<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span>code<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;10000&#34;</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;qrcode&#34;</span><span style="color:#000;font-weight:bold">,</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getQrCode</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>                map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;out_trade_no&#34;</span><span style="color:#000;font-weight:bold">,</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutTradeNo</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>                map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;total_fee&#34;</span><span style="color:#000;font-weight:bold">,</span> total_fee<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>                System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;qrcode:&#34;</span> <span style="color:#000;font-weight:bold">+</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getQrCode</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>                System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;out_trade_no:&#34;</span> <span style="color:#000;font-weight:bold">+</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutTradeNo</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>                System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;total_fee:&#34;</span> <span style="color:#000;font-weight:bold">+</span> total_fee<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;预下单接口调用失败:&#34;</span> <span style="color:#000;font-weight:bold">+</span> body<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>AlipayApiException e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> map<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="23控制层">2.3控制层</h3>
+<p>dongyimai-pay-service创建com.offcn.pay.controller.PayController.java</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RequestMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/pay&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">PayController</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> AliPayService aliPayService<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 生成二维码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/createNative&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">createNative</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        IdWorker idworker <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> IdWorker<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> aliPayService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">createNative</span><span style="color:#000;font-weight:bold">(</span>idworker<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">nextId</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>这里我们订单号通过分布式ID生成器生成，金额暂时写死，后续开发我们再对接业务系统得到订单号和金额</p>
+<p>浏览器测试 http://localhost:9009/pay/createNative</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172532601.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>打开支付页面/pay.html，修改value路径，然后打开，会出现二维码，可以扫码试试
+<img src="/posts/project-0/20220528172145/image-20220528172537551.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>打开手机沙箱版支付宝，使用沙箱账号进行扫描。出现如下支付页面。</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172542392.jpeg"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="四-东易买-检测支付状态">四 东易买-检测支付状态</h1>
+<h2 id="1-需求分析及实现思路">1 需求分析及实现思路</h2>
+<h3 id="11-需求分析">1.1 需求分析</h3>
+<p>当用户支付成功后跳转到成功页面
+<img src="/posts/project-0/20220528172145/image-20220528172549694.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>当返回异常时跳转到错误页面
+<img src="/posts/project-0/20220528172145/image-20220528172559543.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="12-实现思路">1.2 实现思路</h3>
+<p>我们通过AlipayClient实现对交易查询接口（alipay.trade.query）的调用。</p>
+<p>交易查询接口具体参数：</p>
+<p>关键入参：</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数名称</strong></th>
+<th><strong>参数说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out_trade_no</td>
+<td>支付时传入的商户订单号，与trade_no必填一个</td>
+</tr>
+<tr>
+<td>trade_no</td>
+<td>支付时返回的支付宝交易号，与out_trade_no必填一个</td>
+</tr>
+</tbody>
+</table>
+<p>关键出参：</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数名称</strong></th>
+<th><strong>参数说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>trade_no</td>
+<td>支付宝28位交易号</td>
+</tr>
+<tr>
+<td>out_trade_no</td>
+<td>支付时传入的商户订单号</td>
+</tr>
+<tr>
+<td>trade_status</td>
+<td>交易当前状态</td>
+</tr>
+</tbody>
+</table>
+<p>我们在controller方法中轮询调用交易查询指定订单号（间隔3秒），当返回状态为success时，我们会在controller方法返回结果。前端代码收到结果后跳转到成功页面。</p>
+<h2 id="2-检测支付状态-后端代码">2 检测支付状态-后端代码</h2>
+<h3 id="21-服务接口层">2.1 服务接口层</h3>
+<p>在dongyimai-pay-service的AliPayService.java中新增方法定义</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>	<span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	 * 查询支付状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	 * @param out_trade_no
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	 */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">queryPayStatus</span><span style="color:#000;font-weight:bold">(</span>String out_trade_no<span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><h3 id="22-服务实现层">2.2 服务实现层</h3>
+<p>在dongyimai-pay-service的AliPayServiceImpl.java中实现方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	 * 交易查询接口alipay.trade.query：
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	 * 获取指定订单编号的，交易状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	 * @throws AlipayApiException 
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">	 */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">public</span>  Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span>String<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">queryPayStatus</span><span style="color:#000;font-weight:bold">(</span>String out_trade_no<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>		Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span>String<span style="color:#000;font-weight:bold">&gt;</span> map<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;();</span>
+</span></span><span style="display:flex;"><span>		AlipayTradeQueryRequest request <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> AlipayTradeQueryRequest<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>		request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setBizContent</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;{&#34;</span> <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#d14">&#34;    \&#34;out_trade_no\&#34;:\&#34;&#34;</span><span style="color:#000;font-weight:bold">+</span>out_trade_no<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;\&#34;,&#34;</span> <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#d14">&#34;    \&#34;trade_no\&#34;:\&#34;\&#34;}&#34;</span><span style="color:#000;font-weight:bold">);</span> <span style="color:#998;font-style:italic">//设置业务参数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#998;font-style:italic">//发出请求
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>		<span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>			AlipayTradeQueryResponse response <span style="color:#000;font-weight:bold">=</span> alipayClient<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">execute</span><span style="color:#000;font-weight:bold">(</span>request<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>			String code<span style="color:#000;font-weight:bold">=</span>response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getCode</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>			System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;返回值1:&#34;</span><span style="color:#000;font-weight:bold">+</span>response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getBody</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>code<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;10000&#34;</span><span style="color:#000;font-weight:bold">)){</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#998;font-style:italic">//System.out.println(&#34;返回值2:&#34;+response.getBody());
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>				map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;out_trade_no&#34;</span><span style="color:#000;font-weight:bold">,</span> out_trade_no<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>				map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">,</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTradeStatus</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>                 map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;trade_no&#34;</span><span style="color:#000;font-weight:bold">,</span>response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTradeNo</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">}</span>			
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>AlipayApiException e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>			e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> map<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="23-控制层">2.3 控制层</h3>
+<p>在dongyimai-pay-service的PayController.java新增方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 查询支付状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param out_trade_no
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RequestMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/queryPayStatus&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> Result <span style="color:#900;font-weight:bold">queryPayStatus</span><span style="color:#000;font-weight:bold">(</span>String out_trade_no<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>    Result result<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//调用查询接口
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> map <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            map <span style="color:#000;font-weight:bold">=</span> aliPayService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">queryPayStatus</span><span style="color:#000;font-weight:bold">(</span>out_trade_no<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>Exception e1<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">/*e1.printStackTrace();*/</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;调用查询服务出错&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">==</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">){</span><span style="color:#998;font-style:italic">//出错
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            result<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span>  Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span> StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">ERROR</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;支付出错&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">)!=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">&amp;&amp;</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;TRADE_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">)){</span><span style="color:#998;font-style:italic">//如果成功
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            result<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span>  Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;支付成功&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">)!=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">&amp;&amp;</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;TRADE_CLOSED&#34;</span><span style="color:#000;font-weight:bold">)){</span><span style="color:#998;font-style:italic">//如果成功
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            result<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span>  Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span> StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;未付款交易超时关闭，或支付完成后全额退款&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">)!=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">&amp;&amp;</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;TRADE_FINISHED&#34;</span><span style="color:#000;font-weight:bold">)){</span><span style="color:#998;font-style:italic">//如果成功
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            result<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span>  Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;交易结束，不可退款&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            Thread<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">sleep</span><span style="color:#000;font-weight:bold">(</span>3000<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//间隔三秒
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>InterruptedException e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> result<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="3-查询时间限制">3 查询时间限制</h2>
+<h3 id="31问题分析">3.1问题分析</h3>
+<p>如果用户到了二维码页面一直未支付，或是关掉了支付页面，我们的代码会一直循环调用支付宝接口，这样会对程序造成很大的压力。所以我们要加一个时间限制或是循环次数限制，当超过时间或次数时，跳出循环。</p>
+<h3 id="32代码完善">3.2代码完善</h3>
+<p>（1）修改dongyimai-pay-service工程PayController.java的queryPayStatus方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>	<span style="color:#3c5d5d;font-weight:bold">@RequestMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/queryPayStatus&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">public</span> Result <span style="color:#900;font-weight:bold">queryPayStatus</span><span style="color:#000;font-weight:bold">(</span>String out_trade_no<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>		Result result<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">;</span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#458;font-weight:bold">int</span> x<span style="color:#000;font-weight:bold">=</span>0<span style="color:#000;font-weight:bold">;</span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//调用查询接口
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">.......</span>		
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>				Thread<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">sleep</span><span style="color:#000;font-weight:bold">(</span>3000<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//间隔三秒
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			<span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>InterruptedException e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>				e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">}</span>	
+</span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">//为了不让循环无休止地运行，我们定义一个循环变量，如果这个变量超过了这个值则退出循环，设置时间为5分钟
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>			x<span style="color:#000;font-weight:bold">++;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>x<span style="color:#000;font-weight:bold">&gt;=</span>100<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>				result<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span>  Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span> StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">ERROR</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;二维码超时&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">return</span> result<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>访问：http://localhost:9009/pay/queryPayStatus?out_trade_no=1394204936316682240，并扫描预下单时生成的二维码，进行支付。返回支付成功</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172615222.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>长时间没有返回结果返回二维码超时：
+<img src="/posts/project-0/20220528172145/image-20220528172621024.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="五-支付日志">五 支付日志</h1>
+<h2 id="1-需求分析">1 需求分析</h2>
+<p>我们现在系统还有个问题需要解决：系统中无法查询到支付记录，支付后订单状态没有改变</p>
+<p>我们现在就来解决这两个问题。</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">1.在用户下订单时，判断如果为支付宝支付，就向支付日志表添加一条记录，信息包括支付总金额、订单ID（多个）、用户ID 、下单时间等信息，支付状态为0（未支付）
+2.生成的支付日志对象放入redis中，以用户ID作为key，这样在生成支付二维码时就可以从redis中提取支付日志对象中的金额和订单号。
+3.当用户支付成功后，修改支付日志的支付状态为1（已支付），并记录支付宝传递给我们的交易流水号。根据订单ID（多个）修改订单的状态为2（已付款）。
+</code></pre><h2 id="2-表结构分析">2 表结构分析</h2>
+<p><strong>tb_paylog</strong>  支付日志表</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>长度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>out_trade_no</td>
+<td>varchar</td>
+<td>30</td>
+<td>支付订单号</td>
+</tr>
+<tr>
+<td>create_time</td>
+<td>datatime</td>
+<td></td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>pay_time</td>
+<td>datatime</td>
+<td></td>
+<td>支付完成时间</td>
+</tr>
+<tr>
+<td>total_fee</td>
+<td>bigint</td>
+<td></td>
+<td>支付金额（分）</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>varchar</td>
+<td>30</td>
+<td>交易流水号</td>
+</tr>
+<tr>
+<td>trade_state</td>
+<td>varchar</td>
+<td>1</td>
+<td>交易状态</td>
+</tr>
+<tr>
+<td>pay_type</td>
+<td>varchar</td>
+<td>1</td>
+<td>支付类型：1:支付宝2:微信3:网银</td>
+</tr>
+<tr>
+<td>order_list</td>
+<td>varchar</td>
+<td>200</td>
+<td>订单表ID串，用逗号分隔</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-逆向工程">3 逆向工程</h2>
+<p>拷贝逆向工程中的相关日志的pojo、Feign到dongyimai-order-service-api，拷贝 dao、service、controller到dongyimai-order-service中。
+<img src="/posts/project-0/20220528172145/image-20220528172627888.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172632310.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="4-插入日志记录">4 插入日志记录</h2>
+<p>修改<code>dongyimai-order-service</code>工程<code>com.offcn.order.service.impl.OrderServiceImpl</code> 的add方法。</p>
+<p>内容：判断如果支付方式为支付宝支付，向数据库插入支付日志记录，并放入redis存储</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172638046.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>完整代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">private</span> PayLogMapper payLogMapper<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @author zdy
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 增加Order
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 金额校验:后台校验
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param order
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">add</span><span style="color:#000;font-weight:bold">(</span>Order order<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 得到购物车数据
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    List<span style="color:#000;font-weight:bold">&lt;</span>Cart<span style="color:#000;font-weight:bold">&gt;</span> cartList <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>List<span style="color:#000;font-weight:bold">&lt;</span>Cart<span style="color:#000;font-weight:bold">&gt;)</span> redisTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">boundHashOps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;cartList&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUserId</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    List<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> orderIdList<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span> ArrayList<span style="color:#000;font-weight:bold">&lt;&gt;();</span><span style="color:#998;font-style:italic">//订单ID列表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">double</span> total_money<span style="color:#000;font-weight:bold">=</span>0<span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">//总金额 （元）
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Cart cart <span style="color:#000;font-weight:bold">:</span> cartList<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">long</span> orderId <span style="color:#000;font-weight:bold">=</span> idWorker<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">nextId</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;sellerId:&#34;</span> <span style="color:#000;font-weight:bold">+</span> cart<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSellerId</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;orderId:&#34;</span> <span style="color:#000;font-weight:bold">+</span> orderId<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        Order tborder <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Order<span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">// 新创建订单对象
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setOrderId</span><span style="color:#000;font-weight:bold">(</span>orderId<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">// 订单ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setUserId</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUserId</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 用户名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPaymentType</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPaymentType</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 支付类型
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setStatus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">// 状态：未付款
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setCreateTime</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 订单创建日期
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setUpdateTime</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 订单更新日期
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setReceiverAreaName</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getReceiverAreaName</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 地址
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setReceiverMobile</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getReceiverMobile</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 手机号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setReceiver</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getReceiver</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 收货人
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setSourceType</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSourceType</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 订单来源
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setSellerId</span><span style="color:#000;font-weight:bold">(</span>cart<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSellerId</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 商家ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// 循环购物车明细
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">double</span> money <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>OrderItem orderItem <span style="color:#000;font-weight:bold">:</span> cart<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOrderItemList</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            orderItem<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setId</span><span style="color:#000;font-weight:bold">(</span>idWorker<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">nextId</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>            orderItem<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setOrderId</span><span style="color:#000;font-weight:bold">(</span>orderId<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">// 订单ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            orderItem<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setSellerId</span><span style="color:#000;font-weight:bold">(</span>cart<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getSellerId</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>            money <span style="color:#000;font-weight:bold">+=</span> Double<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">parseDouble</span><span style="color:#000;font-weight:bold">(</span>orderItem<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTotalFee</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">// 金额累加
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;orderItem.getId():&#34;</span><span style="color:#000;font-weight:bold">+</span>orderItem<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getId</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//减少库存  调用goods 微服务的 feign 减少库存
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            itemFeign<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">decrCount</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUserId</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#998;font-style:italic">//保存订单明细到数据库中
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>            orderItemMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">insert</span><span style="color:#000;font-weight:bold">(</span>orderItem<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        orderIdList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">add</span><span style="color:#000;font-weight:bold">(</span>orderId<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//添加到订单列表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        total_money<span style="color:#000;font-weight:bold">+=</span>money<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        tborder<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPayment</span><span style="color:#000;font-weight:bold">(</span>money<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        orderMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">insert</span><span style="color:#000;font-weight:bold">(</span>tborder<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//线上支付，记录订单
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPaymentType</span><span style="color:#000;font-weight:bold">()))</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#998;font-style:italic">//如果是支付宝支付
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        PayLog payLog <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> PayLog<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        String outTradeNo <span style="color:#000;font-weight:bold">=</span> idWorker<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">nextId</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">;</span><span style="color:#998;font-style:italic">//支付订单号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setOutTradeNo</span><span style="color:#000;font-weight:bold">(</span>outTradeNo<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//支付订单号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setCreateTime</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//创建时间
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//订单号列表，逗号分隔
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String ids <span style="color:#000;font-weight:bold">=</span> orderIdList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toString</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;[&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;]&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34; &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setOrderList</span><span style="color:#000;font-weight:bold">(</span>ids<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//订单号列表，逗号分隔
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPayType</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getPaymentType</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//支付类型
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">//把元转换成分
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;合计金额:&#34;</span> <span style="color:#000;font-weight:bold">+</span> total_money<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        BigDecimal total_money1 <span style="color:#000;font-weight:bold">=</span> BigDecimal<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">valueOf</span><span style="color:#000;font-weight:bold">(</span>total_money<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        BigDecimal cj <span style="color:#000;font-weight:bold">=</span> BigDecimal<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">valueOf</span><span style="color:#000;font-weight:bold">(</span>100d<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//高精度乘法 推荐使用
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        BigDecimal bigDecimal <span style="color:#000;font-weight:bold">=</span> total_money1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">multiply</span><span style="color:#000;font-weight:bold">(</span>cj<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//低精度计算方式，不推荐使用
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#458;font-weight:bold">double</span> hj <span style="color:#000;font-weight:bold">=</span> total_money <span style="color:#000;font-weight:bold">*</span> 100<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;合计:&#34;</span> <span style="color:#000;font-weight:bold">+</span> hj<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;高精度处理:&#34;</span> <span style="color:#000;font-weight:bold">+</span> bigDecimal<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toBigInteger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">longValue</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>        payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setTotalFee</span><span style="color:#000;font-weight:bold">(</span>bigDecimal<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">toBigInteger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">longValue</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setTradeState</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;0&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//支付状态  0 未支付 1已经支付
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setUserId</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUserId</span><span style="color:#000;font-weight:bold">());</span><span style="color:#998;font-style:italic">//用户ID
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        payLogMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">insert</span><span style="color:#000;font-weight:bold">(</span>payLog<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//插入到支付日志表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        redisTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">boundHashOps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;payLog&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">put</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUserId</span><span style="color:#000;font-weight:bold">(),</span> payLog<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//放入缓存
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//增加积分，调用用户微服务的userFeign 增加积分
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    userFeign<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addPoints</span><span style="color:#000;font-weight:bold">(</span>10<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    redisTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">boundHashOps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;cartList&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">delete</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUserId</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>修改PayLog.java中主键生成的方式为外界输入</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172647199.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="5-读取支付日志">5 读取支付日志</h2>
+<h3 id="51服务接口层">5.1服务接口层</h3>
+<p>在dongyimai-order-service 工程中创建PayLogService.java, 新增方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 根据用户查询payLog
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param userId
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> PayLog <span style="color:#900;font-weight:bold">searchPayLogFromRedis</span><span style="color:#000;font-weight:bold">(</span>String userId<span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><h3 id="52服务实现层">5.2服务实现层</h3>
+<p>dongyimai-order-service的PayLogServiceImpl.java实现方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 根据用户查询payLog
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @param userId
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> PayLog <span style="color:#900;font-weight:bold">searchPayLogFromRedis</span><span style="color:#000;font-weight:bold">(</span>String userId<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">(</span>PayLog<span style="color:#000;font-weight:bold">)</span> redisTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">boundHashOps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;payLog&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span>userId<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="53控制层paylogcontroller">5.3控制层PayLogController</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 查询用户的支付日志
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@ApiOperation</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;根据登录用户从redis中查询支付日志&#34;</span><span style="color:#000;font-weight:bold">,</span>notes <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;查询用户支付日志&#34;</span><span style="color:#000;font-weight:bold">,</span>tags <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#d14">&#34;OrderController&#34;</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/searchPayLogFromRedis&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Result<span style="color:#000;font-weight:bold">&lt;</span>PayLog<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">searchPayLogFromRedis</span><span style="color:#000;font-weight:bold">(</span>String userId<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        PayLog payLog <span style="color:#000;font-weight:bold">=</span> orderService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">searchPayLogFromRedis</span><span style="color:#000;font-weight:bold">(</span>userId<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Result<span style="color:#000;font-weight:bold">&lt;</span>PayLog<span style="color:#000;font-weight:bold">&gt;(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span> StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;查询成功&#34;</span><span style="color:#000;font-weight:bold">,</span>payLog<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="54修改paylogfegin">5.4修改PayLogFegin</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@FeignClient</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;ORDER&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">interface</span> <span style="color:#458;font-weight:bold">PayLogFeign</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     查询用户的支付日志
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/payLog/searchPayLogFromRedis&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Result<span style="color:#000;font-weight:bold">&lt;</span>PayLog<span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#900;font-weight:bold">searchPayLogFromRedis</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3c5d5d;font-weight:bold">@RequestParam</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;userId&#34;</span><span style="color:#000;font-weight:bold">)</span> String userId<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">....</span>
+</span></span></code></pre></div><h3 id="55引入依赖">5.5引入依赖</h3>
+<p>在dongyimai-pay-service中引入dongyimai-order-service-api的依赖</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-order-service-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;version&gt;</span>1.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>druid-spring-boot-starter<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/exclusions&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h3 id="56修改启动类">5.6修改启动类</h3>
+<p>修改dongyimai-pay-service启动类 PayApplication.java</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span><span style="color:#000;font-weight:bold">(</span>exclude<span style="color:#000;font-weight:bold">={</span>DataSourceAutoConfiguration<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableFeignClients</span><span style="color:#000;font-weight:bold">(</span>basePackages <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#d14">&#34;com.offcn.order.feign&#34;</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableEurekaClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">PayApplication</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        SpringApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">run</span><span style="color:#000;font-weight:bold">(</span>PayApplication<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="57-修改控制器paycontroller">5.7 修改控制器PayController</h3>
+<p>修改dongyimai-pay-service工程PayController.java的createNative方法</p>
+<p>实现思路：调用获取支付日志对象的方法，得到订单号和金额</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">private</span> PayLogFeign payLogFeign<span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 生成二维码
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@GetMapping</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;/createNative&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> Map <span style="color:#900;font-weight:bold">createNative</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//获取用户名
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">&gt;</span> userMap <span style="color:#000;font-weight:bold">=</span> tokenDecode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUserInfo</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        String username <span style="color:#000;font-weight:bold">=</span> userMap<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;user_name&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;当前登录用户:&#34;</span><span style="color:#000;font-weight:bold">+</span>username<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//到redis查询支付日志
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        Result<span style="color:#000;font-weight:bold">&lt;</span>PayLog<span style="color:#000;font-weight:bold">&gt;</span> payLogResult <span style="color:#000;font-weight:bold">=</span> payLogFeign<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">searchPayLogFromRedis</span><span style="color:#000;font-weight:bold">(</span>username<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        PayLog payLog <span style="color:#000;font-weight:bold">=</span> payLogResult<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getData</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">//判断支付日志存在
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>payLog<span style="color:#000;font-weight:bold">!=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> aliPayService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">createNative</span><span style="color:#000;font-weight:bold">(</span>payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutTradeNo</span><span style="color:#000;font-weight:bold">(),</span>payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getTotalFee</span><span style="color:#000;font-weight:bold">()+</span><span style="color:#d14">&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">else</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> HashMap<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="6-修改订单状态">6 修改订单状态</h2>
+<p>订单支付成功后，需要修改日志记录支付交易流水号并持久化到数据库，并且修改订单的支付状态，然后将Redis中的订单删除：</p>
+<h3 id="61服务接口层">6.1服务接口层</h3>
+<p>修改com.offcn.order.service.OrderService，添加修改订单状态方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 根据订单ID修改订单状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param transactionid 交易流水号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param orderId
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">updateStatus</span><span style="color:#000;font-weight:bold">(</span>String out_trade_no<span style="color:#000;font-weight:bold">,</span>String transactionid<span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><h3 id="62服务实现层">6.2服务实现层</h3>
+<p>修改com.offcn.order.service.impl.OrderServiceImpl，添加修改订单状态实现方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 修改订单状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param out_trade_no   支付订单号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param transaction_id 支付宝返回的交易流水号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">updateStatus</span><span style="color:#000;font-weight:bold">(</span>String out_trade_no<span style="color:#000;font-weight:bold">,</span> String transaction_id<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//1.修改支付日志状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    PayLog payLog <span style="color:#000;font-weight:bold">=</span> payLogMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">selectById</span><span style="color:#000;font-weight:bold">(</span>out_trade_no<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPayTime</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">new</span> Date<span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>    payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setTradeState</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;1&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//已支付
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setTransactionId</span><span style="color:#000;font-weight:bold">(</span>transaction_id<span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//交易号
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    payLogMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">updateById</span><span style="color:#000;font-weight:bold">(</span>payLog<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//2.修改订单状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    String orderList <span style="color:#000;font-weight:bold">=</span> payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOrderList</span><span style="color:#000;font-weight:bold">();</span><span style="color:#998;font-style:italic">//获取订单号列表
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    String<span style="color:#000;font-weight:bold">[]</span> orderIds <span style="color:#000;font-weight:bold">=</span> orderList<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;,&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//获取订单号数组
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">for</span><span style="color:#000;font-weight:bold">(</span>String orderId<span style="color:#000;font-weight:bold">:</span>orderIds<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        Order order <span style="color:#000;font-weight:bold">=</span> orderMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">selectById</span><span style="color:#000;font-weight:bold">(</span> Long<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">parseLong</span><span style="color:#000;font-weight:bold">(</span>orderId<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">!=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>            order<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setStatus</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;2&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#998;font-style:italic">//已付款
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>            orderMapper<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">updateById</span><span style="color:#000;font-weight:bold">(</span>order<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//3、清除redis缓存数据		
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    redisTemplate<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">boundHashOps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;payLog&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">delete</span><span style="color:#000;font-weight:bold">(</span>payLog<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getUserId</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="63控制层ordercontroller">6.3控制层OrderController</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 修改订单的状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param out_trade_no
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param transaction_id
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@ApiOperation</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;修改订单的状态&#34;</span><span style="color:#000;font-weight:bold">,</span>notes <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;修改订单的状态&#34;</span><span style="color:#000;font-weight:bold">,</span>tags <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#d14">&#34;OrderController&#34;</span><span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RequestMapping</span><span style="color:#000;font-weight:bold">(</span>value<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;/updateOrderStatus&#34;</span><span style="color:#000;font-weight:bold">,</span>method <span style="color:#000;font-weight:bold">=</span> RequestMethod<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">GET</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> Result <span style="color:#900;font-weight:bold">updateOrderStatus</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@RequestParam</span><span style="color:#000;font-weight:bold">(</span>value<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;out_trade_no&#34;</span><span style="color:#000;font-weight:bold">)</span>  String out_trade_no<span style="color:#000;font-weight:bold">,</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@RequestParam</span><span style="color:#000;font-weight:bold">(</span>value<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;transaction_id&#34;</span><span style="color:#000;font-weight:bold">)</span> String transaction_id<span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        orderService<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">updateStatus</span><span style="color:#000;font-weight:bold">(</span>out_trade_no<span style="color:#000;font-weight:bold">,</span>transaction_id<span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;修改成功&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span>Exception e<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        e<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">printStackTrace</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">ERROR</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;修改失败&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="64修改orderfeign">6.4修改OrderFeign</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 修改订单状态
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param out_trade_no
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @param transaction_id
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RequestMapping</span><span style="color:#000;font-weight:bold">(</span>value <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;/updateOrderStatus&#34;</span><span style="color:#000;font-weight:bold">,</span>method <span style="color:#000;font-weight:bold">=</span> RequestMethod<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">GET</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> Result <span style="color:#900;font-weight:bold">updateStatus</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@RequestParam</span><span style="color:#000;font-weight:bold">(</span>value<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;out_trade_no&#34;</span><span style="color:#000;font-weight:bold">)</span>  String out_trade_no<span style="color:#000;font-weight:bold">,</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@RequestParam</span><span style="color:#000;font-weight:bold">(</span>value<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;transaction_id&#34;</span><span style="color:#000;font-weight:bold">)</span> String transaction_id<span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><h3 id="65修改paycontroller">6.5修改PayController</h3>
+<p>修改com.offcn.pay.controller.PayController中查询交易状态的方法queryPayStatus，
+支付成功调用orderFeign修改订单的状态以及日志信息，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">)!=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">&amp;&amp;</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;tradestatus&#34;</span><span style="color:#000;font-weight:bold">).</span><span style="color:#008080">equals</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;TRADE_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">)){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//如果成功
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    result<span style="color:#000;font-weight:bold">=</span><span style="color:#000;font-weight:bold">new</span>  Result<span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>StatusCode<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">OK</span><span style="color:#000;font-weight:bold">,</span><span style="color:#d14">&#34;支付成功&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    orderFeign<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">updateStatus</span><span style="color:#000;font-weight:bold">(</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;out_trade_no&#34;</span><span style="color:#000;font-weight:bold">),</span>map<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;trade_no&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="7dongyimai-pay-service集成springsecurity环境及网关配置">7.dongyimai-pay-service集成SpringSecurity环境及网关配置</h2>
+<h3 id="71-pomxml加入如下依赖">7.1 pom.xml加入如下依赖</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>com.offcn<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>dongyimai-order-service-api<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;version&gt;</span>1.0<span style="color:#000080">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;exclusions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000080">&lt;artifactId&gt;</span>druid-spring-boot-starter<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&lt;/exclusion&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/exclusions&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!--oauth依赖--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.cloud<span style="color:#000080">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;artifactId&gt;</span>spring-cloud-starter-oauth2<span style="color:#000080">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h3 id="72-引入公钥和验证文件">7.2 引入公钥和验证文件</h3>
+<p>将public.key和文件ResourceServerConfig拷贝到dongyimai-pay-service中，参考其他项目</p>
+<h3 id="73-引入feigninterceptor">7.3 引入FeignInterceptor</h3>
+<p>在PayController引入FeignInterceptor</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> FeignInterceptor <span style="color:#900;font-weight:bold">feignInterceptor</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> FeignInterceptor<span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="74修改网关配置路由转发到支付微服务">7.4、修改网关配置，路由转发到支付微服务</h3>
+<p>application.yml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#000080">id</span>:<span style="color:#bbb"> </span>dongyimai_pay_route<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">#支付微服务</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">uri</span>:<span style="color:#bbb"> </span>lb://PAY<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">predicates</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- Path=/api/pay/**<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#000080">filters</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>- StripPrefix=1<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="8测试">8.测试</h2>
+<h3 id="81用户登录">8.1用户登录</h3>
+<p><img src="/posts/project-0/20220528172145/image-20220528172704393.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="82-添加购物车">8.2 添加购物车</h3>
+<p>http://localhost:8001/api/cart/addGoodsToCartList?itemId=1324601&amp;num=5</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172709159.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="83查询购物车">8.3查询购物车</h3>
+<p>http://localhost:8001/api/cart/findCartList</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172714248.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="84提交订单">8.4提交订单</h3>
+<p>http://localhost:8001/api/order/</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172720605.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="85-查询redis">8.5 查询redis</h3>
+<p><img src="/posts/project-0/20220528172145/image-20220528172730564.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="86查询数据库">8.6查询数据库</h3>
+<p><img src="/posts/project-0/20220528172145/image-20220528172735524.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="87-预下单">8.7 预下单</h3>
+<p>http://localhost:8001/api/pay/createNative</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172740117.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="88生成二维码">8.8生成二维码</h3>
+<p><img src="/posts/project-0/20220528172145/image-20220528172745729.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="89-扫描支付并查询交易状态">8.9 扫描支付并查询交易状态</h3>
+<p><img src="/posts/project-0/20220528172145/image-20220528172754703.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="810查看数据库">8.10查看数据库：</h3>
+<p><img src="/posts/project-0/20220528172145/image-20220528172804970.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>订单状态也已经被修改为1</p>
+<p><img src="/posts/project-0/20220528172145/image-20220528172810738.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="六-支付日志显示学员实现">六 支付日志显示（学员实现）</h1>
+<p>需求：在运营商后台中，显示支付日志列表，实现按日期、状态、用户进行查询。</p>
+<p>学员实现。</p>
+
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.vercel.app/posts/project-0/20220528171137/">← 提交订单</a></div>
+    <div><a href="https://lovemjh.vercel.app/posts/project-0/20220528172837/">秒杀1  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+    </body>
+</html>

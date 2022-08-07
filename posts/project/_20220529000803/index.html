@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="微信小程序开发入门 - https://lovemjh.vercel.app/posts/project/_20220529000803/">
+    
+    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
+    <title>微信小程序开发入门</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="https://lovemjh.vercel.app/style.min.ef012369a26adc2a21396230b3395dfcd5975a3082a65b82785cbc0b446f2a2c.css">
+    
+    <script type="text/javascript" src="/main.js" defer></script>
+    
+</head>
+<body class="active-animate cool">
+        <div id="header"><div class="container-header">
+    <div id="vars" class="container-vars" style="display: none;">
+	{
+		"hasFoldAllCodeBlocks": false,
+		"svgColor": "#6c757d",
+		"en": false,
+		"dark": false
+	}
+</div>
+    <h1 class="title">
+        
+            微信小程序开发入门
+            
+        
+    </h1>
+
+    <div class="container-breadcrumb-nav">
+    
+    <div class="breadcrumb-nav-bar">
+        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
+        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
+        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
+        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
+        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
+        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
+        
+    </div>
+
+    
+</div>
+
+            <div id="toc">📜</div>
+        
+    
+    
+</div>
+</div>
+        <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-main 
+     container-page 
+">
+
+    <div class="desc">
+        
+        <span>
+            
+            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            2022-05-29&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            2022-05-29&nbsp;&nbsp;&nbsp;
+        </span>
+        <span>
+            
+            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+            7114 字</span>&nbsp;
+        <span>
+            
+            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+            15 分钟</span><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+			<a href="/categories/"></a>
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
+    </div>
+    
+    <div class="toc">
+        
+        <div class="page-operation">
+            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/project/20220529001925/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
+            <div><a href="https://lovemjh.vercel.app/posts/project-0/20220528165279/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
+        </div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#学习目标">学习目标</a></li>
+      </ul>
+    </li>
+    <li><a href="#一微信小程序介绍">一、微信小程序介绍</a>
+      <ul>
+        <li><a href="#11-什么是微信小程序">1.1 什么是微信小程序？</a></li>
+        <li><a href="#12小程序和移动应用的区别">1.2、小程序和移动应用的区别</a>
+          <ul>
+            <li><a href="#一下载">一、下载</a></li>
+            <li><a href="#二安装">二、安装</a></li>
+            <li><a href="#三占用空间">三、占用空间</a></li>
+            <li><a href="#四广告推送">四、广告推送</a></li>
+            <li><a href="#五机会">五、机会</a></li>
+            <li><a href="#六开发">六、开发</a></li>
+            <li><a href="#七发布">七、发布</a></li>
+            <li><a href="#八用户群">八、用户群</a></li>
+            <li><a href="#九开发周期">九、开发周期</a></li>
+            <li><a href="#十功能">十、功能</a></li>
+          </ul>
+        </li>
+        <li><a href="#13-什么样的app适合用微信小程序开发">1.3 什么样的app适合用微信小程序开发？</a></li>
+        <li><a href="#14微信小程序用到的技术点">1.4、微信小程序用到的技术点</a>
+          <ul>
+            <li><a href="#a并不是html5css3技术实现">a、并不是HTML5/CSS3技术实现</a></li>
+            <li><a href="#b抛弃了臃肿的webview">b、抛弃了臃肿的WebView</a></li>
+            <li><a href="#c采用了javascriptcore动态解析">c、采用了JavaScriptCore动态解析</a></li>
+            <li><a href="#d大量借鉴reactjs--reactnativejs思想">d、大量借鉴React.js + ReactNative.js思想</a></li>
+          </ul>
+        </li>
+        <li><a href="#15小程序开发的api">1.5、小程序开发的API</a></li>
+      </ul>
+    </li>
+    <li><a href="#二微信小程序的开发准备">二、微信小程序的开发准备</a>
+      <ul>
+        <li><a href="#21注册微信小程序账号">2.1、注册微信小程序账号</a></li>
+        <li><a href="#22开发工具使用">2.2、开发工具使用</a>
+          <ul>
+            <li><a href="#221微信小程序开发工具下载地址">2.2.1、微信小程序开发工具下载地址</a></li>
+            <li><a href="#222开发工具使用">2.2.2、开发工具使用</a></li>
+            <li><a href="#223-项目的结构如下">2.2.3、 项目的结构如下</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#三第一个入门程序helloword">三、第一个入门程序（HelloWord）</a>
+      <ul>
+        <li><a href="#1新建项目">1、新建项目</a></li>
+        <li><a href="#2删除生成的全部项目文件">2、删除生成的全部项目文件</a></li>
+        <li><a href="#3新建文件夹在项目下创建src目录在src下创建pages目录pages目录下创建index目录">3、新建文件夹在项目下创建src目录，在src下创建pages目录，pages目录下创建index目录</a></li>
+        <li><a href="#4在项目根目录下创建2个文件">4、在项目根目录下创建2个文件</a></li>
+        <li><a href="#5然后编译调试">5、然后编译调试</a></li>
+      </ul>
+    </li>
+    <li><a href="#四微信小程序的配置文件">四、微信小程序的配置文件</a>
+      <ul>
+        <li><a href="#41appjson">4.1、app.json</a>
+          <ul>
+            <li><a href="#411pages">4.1.1、pages</a></li>
+            <li><a href="#412window">4.1.2、window</a></li>
+            <li><a href="#413tabbar">4.1.3、tabBar</a></li>
+            <li><a href="#414networktimeout">4.1.4、networkTimeout</a></li>
+            <li><a href="#415dubug">4.1.5、dubug</a></li>
+          </ul>
+        </li>
+        <li><a href="#42pagejson">4.2、page.json</a></li>
+      </ul>
+    </li>
+    <li><a href="#五视图与渲染">五、视图与渲染</a>
+      <ul>
+        <li><a href="#1组件的基本使用">1、组件的基本使用</a></li>
+        <li><a href="#2数据绑定">2、数据绑定</a>
+          <ul>
+            <li><a href="#21绑定数据">2.1、{{}}绑定数据</a></li>
+          </ul>
+        </li>
+        <li><a href="#3渲染标签">3、渲染标签</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#31条件标签">3.1、条件标签</a></li>
+                <li><a href="#32循环标签">3.2、循环标签</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#4模板的使用">4、模板的使用</a>
+          <ul>
+            <li><a href="#41通过include引入">4.1、通过include引入</a></li>
+            <li><a href="#42通过import引入">4.2、通过import引入</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#六微信小程序事件">六、微信小程序事件</a>
+      <ul>
+        <li><a href="#1什么是事件">1、什么是事件</a></li>
+        <li><a href="#2事件的类别">2、事件的类别</a>
+          <ul>
+            <li><a href="#21点击事件-tap">2.1、点击事件 tap</a></li>
+            <li><a href="#22长按事件longpress手指触摸后超过350ms离开">2.2、长按事件longpress（手指触摸后，超过350ms离开）</a></li>
+            <li><a href="#23触摸事件">2.3、触摸事件</a>
+              <ul>
+                <li><a href="#231touchstart-开始触摸">2.3.1、touchstart 开始触摸</a></li>
+                <li><a href="#232touchmove-手指触摸后移动">2.3.2、touchmove 手指触摸后移动</a></li>
+                <li><a href="#233touchcansce取消触摸只能在真机模拟在开发工具中没有效果">2.3.3、touchcansce：取消触摸（只能在真机模拟，在开发工具中没有效果）</a></li>
+                <li><a href="#234touchend触摸结束">2.3.4、touchend：触摸结束</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#3事件冒泡">3、事件冒泡</a>
+          <ul>
+            <li><a href="#31什么是事件冒泡">3.1、什么是事件冒泡</a></li>
+            <li><a href="#32如何防止事件冒泡">3.2、如何防止事件冒泡</a>
+              <ul>
+                <li><a href="#321bind绑定">3.2.1、bind绑定；</a></li>
+                <li><a href="#322catch绑定能阻止事件冒泡">3.2.2、catch绑定；（能阻止事件冒泡）</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#七微信小程序多页面">七、微信小程序多页面</a>
+      <ul>
+        <li><a href="#71编辑项目文件appjson">7.1、编辑项目文件app.json</a></li>
+        <li><a href="#72编辑test1wxml">7.2、编辑test1.wxml</a></li>
+        <li><a href="#73在首页加入跳转连接">7.3、在首页加入跳转连接</a></li>
+        <li><a href="#74设置页面标题">7.4、设置页面标题</a></li>
+      </ul>
+    </li>
+    <li><a href="#八微信小程序底部导航栏">八、微信小程序底部导航栏</a>
+      <ul>
+        <li><a href="#81图标准备">8.1、图标准备</a></li>
+        <li><a href="#82添加底部导航栏配置文件">8.2、添加底部导航栏配置文件</a></li>
+        <li><a href="#83测试效果如下">8.3、测试效果如下</a></li>
+      </ul>
+    </li>
+    <li><a href="#九微信小程序页面跳转及传递参数">九、微信小程序页面跳转及传递参数</a>
+      <ul>
+        <li><a href="#1navigator-跳转时传参">1、navigator 跳转时传参</a></li>
+        <li><a href="#2在js代码里navigator-跳转时">2、在js代码里navigator 跳转时</a></li>
+        <li><a href="#3在js代码里redirectto跳转时">3、在js代码里redirectTo跳转时</a></li>
+        <li><a href="#4带有tagbar的页面跳转">4、带有tagbar的页面跳转</a></li>
+        <li><a href="#5使用全局变量共享参数">5、使用全局变量共享参数</a></li>
+        <li><a href="#6列表index下标取值">6、列表index下标取值</a></li>
+      </ul>
+    </li>
+    <li><a href="#十微信小程序发出网络请求">十、微信小程序发出网络请求</a>
+      <ul>
+        <li><a href="#1网络请求对象wxrequest">1、网络请求对象wx.request</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div class='content  content '>
+        <h1 align = "center">第六章</h1>
+<h1 align = "center">微信小程序开发入门</h1>
+<h3 align="center">优就业.JAVA教研室</h3>
+<h2 id="学习目标">学习目标</h2>
+<ul>
+<li>了解 微信小程序介绍</li>
+<li>掌握微信小程序开发环境准备</li>
+<li>掌握微信小程序入门</li>
+<li>掌握微信小程序配置文件</li>
+<li>掌握微信小程序视图及渲染</li>
+<li>掌握微信小程序事件</li>
+<li>掌握微信小程序多页面</li>
+<li>掌握微信小程序底部导航栏</li>
+<li>掌握微信小程序页面跳转及传递参数</li>
+</ul>
+<h1 id="一微信小程序介绍">一、微信小程序介绍</h1>
+<h2 id="11-什么是微信小程序">1.1 什么是微信小程序？</h2>
+<p><img src="/posts/project/20220529000803/image-20220529001003414.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="12小程序和移动应用的区别">1.2、小程序和移动应用的区别</h2>
+<h3 id="一下载">一、下载</h3>
+<p>App 从应用商店（如 App Store）里下载；小程序 通过微信（扫描二维码、搜索）直接获得；</p>
+<h3 id="二安装">二、安装</h3>
+<p>App 安装在手机内存中，就像自己买了辆车放在车库里随时开；小程序不需要安装，就像免费用嘀嘀打车，召之即来用完拜拜；</p>
+<h3 id="三占用空间">三、占用空间</h3>
+<p>App 会一直存在手机中占用空间，太多的 App 可能会导致内存不足；小程序因为不需要安装，占用内存空间忽略不计；</p>
+<h3 id="四广告推送">四、广告推送</h3>
+<p>App 会隔三差五给用户推送广告，太多未读提示会逼死强迫症；小程序不允许主动给用户发送广告，仅能回复模版消息；</p>
+<h3 id="五机会">五、机会</h3>
+<p>App市场已经饱和，几乎所有的领域都已经被覆盖；小程序是一片蓝海，在新的使用场景下有很多瓜分蛋糕的好机会；</p>
+<h3 id="六开发">六、开发</h3>
+<p>App 需要适配市场上很多款的主流手机，开发成本大；小程序 一次开发就可以自动适配所有手机；</p>
+<h3 id="七发布">七、发布</h3>
+<p>App 需要向十几个应用商店提交审核，且每个应用商店要求的资料都不一样，非常繁琐；小程序 只需要提交到微信公众平台审核 ；</p>
+<h3 id="八用户群">八、用户群</h3>
+<p>App 面向所有智能手机用户，截止2015年约19亿台；小程序面向所有微信用户，约8亿人 ；</p>
+<h3 id="九开发周期">九、开发周期</h3>
+<p>一款完善的双平台 App 平均的开发周期约3个月；小程序 平均开发周期约2周，仅为App的六分之一；</p>
+<h3 id="十功能">十、功能</h3>
+<p>App 可以实现完整功能 ；小程序 仅限微信提供的接口功能；</p>
+<h2 id="13-什么样的app适合用微信小程序开发">1.3 什么样的app适合用微信小程序开发？</h2>
+<p><img src="/posts/project/20220529000803/image-20220529001015255.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>a、使用频率高而且还很重要不适合用微信小程序，应该用原生的app开发
+b、使用频率低而且很重要应该用微信小程序开发
+c、使用频率高但是不重要应该用小程序为入口导向原生app
+d、使用频率不高也不重要优选小程序开发</p>
+<h2 id="14微信小程序用到的技术点">1.4、微信小程序用到的技术点</h2>
+<h3 id="a并不是html5css3技术实现">a、并不是HTML5/CSS3技术实现</h3>
+<h3 id="b抛弃了臃肿的webview">b、抛弃了臃肿的WebView</h3>
+<h3 id="c采用了javascriptcore动态解析">c、采用了JavaScriptCore动态解析</h3>
+<h3 id="d大量借鉴reactjs--reactnativejs思想">d、大量借鉴React.js + ReactNative.js思想</h3>
+<h2 id="15小程序开发的api">1.5、小程序开发的API</h2>
+<p><a class="link" href="/posts/project/https://developers.weixin.qq.com/miniprogram/dev/api/"  target="_blank" rel="noopener"
+    >https://developers.weixin.qq.com/miniprogram/dev/api/</a>
+<img src="/posts/project/20220529000803/image-20220529001021942.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="二微信小程序的开发准备">二、微信小程序的开发准备</h1>
+<h2 id="21注册微信小程序账号">2.1、注册微信小程序账号</h2>
+<p>访问https://mp.weixin.qq.com/cgi-bin/wx进入微信公众平台，点击前往注册
+<img src="/posts/project/20220529000803/image-20220529001029469.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>然后根据提示，依次完成以下操作，就注册成功了。注意：一个邮箱只能注册一个小程序。</p>
+<p>1、激活邮箱</p>
+<p>2、信息登记</p>
+<p>3、登录小程序管理后台</p>
+<p>4、完善小程序信息</p>
+<p>5、绑定开发者</p>
+<h2 id="22开发工具使用">2.2、开发工具使用</h2>
+<h3 id="221微信小程序开发工具下载地址">2.2.1、微信小程序开发工具下载地址</h3>
+<p><a class="link" href="/posts/project/https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html"  target="_blank" rel="noopener"
+    >https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a>
+<img src="/posts/project/20220529000803/image-20220529001035695.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>下载完成以后直接安装即可使用，使用时需要用微信扫描二维码
+<img src="/posts/project/20220529000803/image-20220529001041543.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="222开发工具使用">2.2.2、开发工具使用</h3>
+<p>打开工具后选择小程序开发，然后点击添加项目，会出现如下页面
+<img src="/posts/project/20220529000803/image-20220529001046617.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击 + 号，新建小程序
+<img src="/posts/project/20220529000803/image-20220529001051893.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击 新建按钮，即可新建一个小程序项目
+<img src="/posts/project/20220529000803/image-20220529001057678.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="223-项目的结构如下">2.2.3、 项目的结构如下</h3>
+<p><img src="/posts/project/20220529000803/image-20220529001102616.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>pages/index文件夹下三个文件之间交互（文件夹下的文件要同名)
+<img src="/posts/project/20220529000803/image-20220529001108365.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>index.js和index.wxml交互
+<img src="/posts/project/20220529000803/image-20220529001113325.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="三第一个入门程序helloword">三、第一个入门程序（HelloWord）</h1>
+<h2 id="1新建项目">1、新建项目</h2>
+<p><img src="/posts/project/20220529000803/image-20220529001121063.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="2删除生成的全部项目文件">2、删除生成的全部项目文件</h2>
+<h2 id="3新建文件夹在项目下创建src目录在src下创建pages目录pages目录下创建index目录">3、新建文件夹在项目下创建src目录，在src下创建pages目录，pages目录下创建index目录</h2>
+<p>src/pages/index</p>
+<p>在该目录下依次创建4个文件</p>
+<p>index.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">Page(</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">d</span>  <span style="color:#a61717;background-color:#e3d2d2">ata:{</span>}<span style="color:#a61717;background-color:#e3d2d2">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">onLoad:function(options)</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//页面初始化调用本方法 options为页面跳转所带来的参数
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#a61717;background-color:#e3d2d2">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">onReady:function()</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//页面渲染完成
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>  }<span style="color:#a61717;background-color:#e3d2d2">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">onShow:function()</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//页面显示
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>  }<span style="color:#a61717;background-color:#e3d2d2">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">onHide:function()</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//页面隐藏
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>  }<span style="color:#a61717;background-color:#e3d2d2">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">onUnload:function()</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//页面关闭调用
+</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>  }
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">})</span>
+</span></span></code></pre></div><p>index.json</p>
+<pre tabindex="0"><code>{}
+</code></pre><p>index.wxml</p>
+<pre tabindex="0"><code>Hello World!
+</code></pre><p>index.wxss</p>
+<pre tabindex="0"><code>/* index.wxss */
+</code></pre><h2 id="4在项目根目录下创建2个文件">4、在项目根目录下创建2个文件</h2>
+<p>app.js</p>
+<pre tabindex="0"><code>// app.js
+</code></pre><p>app.json</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#000080">&#34;pages&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#34;src/pages/index/index&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="5然后编译调试">5、然后编译调试</h2>
+<p><img src="/posts/project/20220529000803/image-20220529001134127.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="四微信小程序的配置文件">四、微信小程序的配置文件</h1>
+<h2 id="41appjson">4.1、app.json</h2>
+<p>app.json文件用来对微信小程序进行全局配置，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等。以下是一个包含了所有配置选项的app.json<img src="/posts/project/20220529000803/image-20220529001142703.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>app.json配置项列表：
+<img src="/posts/project/20220529000803/image-20220529001149255.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="411pages">4.1.1、pages</h3>
+<p>pages接受一个数组，每一项都是字符串，来指定小程序由哪些页面组成。每一项代表对应页面的【路径+文件名】信息，数组的第一项代表小程序的初始页面。小程序中新增/减少页面，都需要对pages数组进行修改。
+文件名不需要写文件后缀，因为框架会自动去寻找路径下.json、.js、.wxml、.wxss四个文件进行整合。在创建新页面时，不需要手动新建页面，只需要在pages配置项中新建配置项即可。</p>
+<p>注意：</p>
+<ol>
+<li>新建页面时，在pages项中添加新建页面配置项，将会自动创建页面。小程序页面文件夹名与文件名相同。</li>
+<li>app.json配置文件中不可以使用单引号，必须用双引号。</li>
+<li>配置文件中不能写注释，只能是代码。</li>
+</ol>
+<h3 id="412window">4.1.2、window</h3>
+<p>用于设置小程序的状态栏、导航条、标题、窗口背景色<img src="/posts/project/20220529000803/image-20220529001155826.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="413tabbar">4.1.3、tabBar</h3>
+<p>如果小程序是一个多 tab 应用（客户端窗口的底部或顶部有 tab 栏可以切换页面），可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。</p>
+<p>Tip：
+当设置 position 为 top 时，将不会显示 icon
+tabBar 中的 list 是一个数组，只能配置最少2个、最多5个 tab，tab 按数组的顺序排序。</p>
+<p>属性说明：
+<img src="/posts/project/20220529000803/image-20220529001201302.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>其中list接收一个数组，数组中的每个项都是一个对象，属性如下：
+<img src="/posts/project/20220529000803/image-20220529001207462.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="414networktimeout">4.1.4、networkTimeout</h3>
+<p>可以设置各种网络请求的超时时间
+属性说明：
+<img src="/posts/project/20220529000803/image-20220529001214390.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="415dubug">4.1.5、dubug</h3>
+<p>可以在开发者工具中开启 debug 模式，在开发者工具的控制台面板，调试信息以 info 的形式给出，其信息有Page的注册，页面路由，数据更新，事件触发 。 可以帮助开发者快速定位一些常见的问题</p>
+<h2 id="42pagejson">4.2、page.json</h2>
+<p>每一个小程序页面也可以使用.json文件来对本页面的窗口表现进行配置。 页面的配置比app.json全局配置简单得多，只是设置 app.json 中的 window 配置项的内容，页面中配置项会覆盖 app.json 的 window 中相同的配置项。
+页面的.json只能设置 window 相关的配置项，以决定本页面的窗口表现，所以无需写 window 这个键。例如：
+<img src="/posts/project/20220529000803/image-20220529001220581.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="五视图与渲染">五、视图与渲染</h1>
+<h2 id="1组件的基本使用">1、组件的基本使用</h2>
+<p>简单的添加button组件实例，在wxml中添加button组件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!-- 白色按钮--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;default&#34;</span> <span style="color:#008080">hover-class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;test&#34;</span>&gt;default&lt;/<span style="color:#000080">button</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!-- 绿色按钮--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;primary&#34;</span>&gt;primary&lt;/<span style="color:#000080">button</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!-- 红色按钮--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;warn&#34;</span> &gt;warn&lt;/<span style="color:#000080">button</span>&gt;
+</span></span></code></pre></div><p>效果：
+<img src="/posts/project/20220529000803/image-20220529001226574.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="2数据绑定">2、数据绑定</h2>
+<h3 id="21绑定数据">2.1、{{}}绑定数据</h3>
+<p>数据是通过{{}}来绑定的，在index.js中定义数据</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">Page(</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">data:{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">text:</span><span style="color:#000080">&#34;这里是内容&#34;</span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#a61717;background-color:#e3d2d2">,</span>
+</span></span></code></pre></div><p>然后在index.wxml中获取数据</p>
+<pre tabindex="0"><code>&lt;text&gt;{{text}}&lt;/text&gt;
+</code></pre><p>获取数据的效果
+<img src="/posts/project/20220529000803/image-20220529001232799.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="3渲染标签">3、渲染标签</h2>
+<p>微信小程序为我们提供了两种类型的渲染标签，一种是条件标签，一种是循环标签</p>
+<h4 id="31条件标签">3.1、条件标签</h4>
+<p>1、定义if标签</p>
+<p>index.wxml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">view</span> <span style="color:#008080">wx:if</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;{{show}}&#34;</span>&gt;{{textif}}&lt;/<span style="color:#000080">view</span>&gt;
+</span></span></code></pre></div><p>index.js</p>
+<pre tabindex="0"><code>Page({
+  data:{
+    text:&#34;这里是内容&#34;,
+    textif:&#34;if判断&#34;,
+    show:true
+  },
+</code></pre><p>当show的值为true，显示
+<img src="/posts/project/20220529000803/image-20220529001240371.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>，为fasle不显示
+<img src="/posts/project/20220529000803/image-20220529001245506.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h4 id="32循环标签">3.2、循环标签</h4>
+<p>1、创建数组数据</p>
+<p>编辑index.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">data:</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">text:</span><span style="color:#000080">&#34;这里是内容&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">textif:</span><span style="color:#000080">&#34;if判断&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">show:false,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">news:</span> <span style="color:#a61717;background-color:#e3d2d2">[&#39;aaa&#39;,&#39;bbb&#39;,&#39;ccc&#39;,&#39;ddd&#39;]</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>2、循环遍历显示数据</p>
+<p>编辑index.wxml</p>
+<pre tabindex="0"><code>&lt;view wx:for=&#34;{{news}}&#34;&gt;这是循环的内容&lt;/view&gt;
+</code></pre><p>3、最终效果
+<img src="/posts/project/20220529000803/image-20220529001251428.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>4、如果需要显示for中的内容</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#000080">&lt;view</span> <span style="color:#008080">wx:for=</span><span style="color:#d14">&#34;{{news}}&#34;</span> <span style="color:#008080">wx:for-item=</span><span style="color:#d14">&#34;item&#34;</span><span style="color:#000080">&gt;</span>
+</span></span><span style="display:flex;"><span>  这是循环的内容
+</span></span><span style="display:flex;"><span>  {{item}}--{{index}}
+</span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/view&gt;</span>
+</span></span></code></pre></div><p>通过：wx:for-item 获取遍历的各个节点元素，通过index获取索引</p>
+<p>显示效果：
+<img src="/posts/project/20220529000803/image-20220529001256721.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="4模板的使用">4、模板的使用</h2>
+<p>我们的小程序中，可能很多页面都是使用同一个顶部与同一个底部，这一部分的代码就可以被很多页面所共用，这种情况下，我们就可以把这部分内容单独提取成一个模板，每个页面都将其加载进来即可。
+在Pages目录下新建一个目录名为template，在其下新建一个wxml文件，我们在这个文件里写我们的模板。模板的使用有两种方式</p>
+<h3 id="41通过include引入">4.1、通过include引入</h3>
+<p>1、在pages下新建template文件，然后在template中创建header.wxml</p>
+<pre tabindex="0"><code>&lt;text&gt;这是头布局&lt;/text&gt;
+</code></pre><p>2、然后在index.wxml中引入</p>
+<pre tabindex="0"><code>&lt;include src=&#34;../template/header.wxml&#34;/&gt;
+</code></pre><p>3、效果
+<img src="/posts/project/20220529000803/image-20220529001304039.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="42通过import引入">4.2、通过import引入</h3>
+<p>1、在template下创建footer.wxml文件</p>
+<pre tabindex="0"><code>&lt;template name=&#34;footer&#34;&gt;这是底部布局&lt;/template&gt;
+&lt;template name=&#34;head&#34;&gt;这是底部布局&lt;/template&gt;
+</code></pre><p>2、在index.wxml中引入</p>
+<pre tabindex="0"><code>&lt;import src=&#34;../template/footer.wxml&#34;/&gt;
+&lt;template is=&#34;footer&#34;/&gt;
+&lt;template is=&#34;head&#34;/&gt;
+</code></pre><p>3、效果
+<img src="/posts/project/20220529000803/image-20220529001313230.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="六微信小程序事件">六、微信小程序事件</h1>
+<h2 id="1什么是事件">1、什么是事件</h2>
+<p>事件是视图层到逻辑层的通讯方式。
+事件可以将用户的行为反馈到逻辑层进行处理。
+事件可以绑定在组件上，当达到触发事件，就会执行逻辑层中对应的事件处理函数。
+事件对象可以携带额外信息，如id, dataset, touches。</p>
+<h2 id="2事件的类别">2、事件的类别</h2>
+<h3 id="21点击事件-tap">2.1、点击事件 tap</h3>
+<p>定义单击事件</p>
+<p>修改index.wxml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;primary&#34;</span> <span style="color:#008080">bindtap</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;tapClick&#34;</span>&gt;点击事件&lt;/<span style="color:#000080">button</span>&gt;
+</span></span></code></pre></div><p>修改index.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>  tapClick<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#d14">&#39;响应点击事件&#39;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>点击按钮效果：
+<img src="/posts/project/20220529000803/image-20220529001323160.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="22长按事件longpress手指触摸后超过350ms离开">2.2、长按事件longpress（手指触摸后，超过350ms离开）</h3>
+<p>定义长按事件</p>
+<p>修改index.wxml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;primary&#34;</span> <span style="color:#008080">bindlongpress</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;longClick&#34;</span>&gt;长按事件&lt;/<span style="color:#000080">button</span>&gt;
+</span></span></code></pre></div><p>修改index.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>longClick<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#d14">&#39;长按事件&#39;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>效果：
+<img src="/posts/project/20220529000803/image-20220529001329694.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="23触摸事件">2.3、触摸事件</h3>
+<h4 id="231touchstart-开始触摸">2.3.1、touchstart 开始触摸</h4>
+<h4 id="232touchmove-手指触摸后移动">2.3.2、touchmove 手指触摸后移动</h4>
+<h4 id="233touchcansce取消触摸只能在真机模拟在开发工具中没有效果">2.3.3、touchcansce：取消触摸（只能在真机模拟，在开发工具中没有效果）</h4>
+<h4 id="234touchend触摸结束">2.3.4、touchend：触摸结束</h4>
+<p>修改index.wxml定义触摸事件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;primary&#34;</span> <span style="color:#008080">bindtouchstart</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;touchstartClick&#34;</span>&gt;开始触摸&lt;/<span style="color:#000080">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;primary&#34;</span> <span style="color:#008080">bindtouchmove</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;touchmoveClick&#34;</span>&gt;触摸后移动&lt;/<span style="color:#000080">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;primary&#34;</span> <span style="color:#008080">bindtouchcancel</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;touchcancelClick&#34;</span>&gt;取消触摸&lt;/<span style="color:#000080">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">button</span> <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;primary&#34;</span> <span style="color:#008080">bindtouchend</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;touchendClick&#34;</span>&gt;触摸结束&lt;/<span style="color:#000080">button</span>&gt;
+</span></span></code></pre></div><p>修改index.js增加对应触摸事件处理方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> touchstartClick<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#d14">&#39;开始触摸&#39;</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  touchmoveClick<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#d14">&#39;触摸后移动&#39;</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  touchcancelClick<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#d14">&#39;取消触摸&#39;</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  touchendClick<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#d14">&#39;触摸结束&#39;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>运行效果：
+<img src="/posts/project/20220529000803/image-20220529001336667.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="3事件冒泡">3、事件冒泡</h2>
+<h3 id="31什么是事件冒泡">3.1、什么是事件冒泡</h3>
+<p>点击、长按、触摸都属于冒泡事件，冒泡事件的触发是从子级依次向父级传递</p>
+<p>新建页面:demo2.wxml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">view</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;parent&#34;</span> <span style="color:#008080">bindtap</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;parentFn&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">view</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;child&#34;</span> <span style="color:#008080">bindtap</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;childFn&#34;</span>&gt;&lt;/<span style="color:#000080">view</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">view</span>&gt;
+</span></span></code></pre></div><p>js文件demo2.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">/* 父级触发*/</span>
+</span></span><span style="display:flex;"><span>parentFn(event){
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#d14">&#39;父级被调用&#39;</span>)
+</span></span><span style="display:flex;"><span> },
+</span></span><span style="display:flex;"><span> <span style="color:#998;font-style:italic">/* 子级触发 */</span>
+</span></span><span style="display:flex;"><span> childFn(event){
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#d14">&#39;子级被调用&#39;</span>)
+</span></span><span style="display:flex;"><span> },
+</span></span></code></pre></div><p>样式文件demo2.wxss</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/* src/pages/demo2/demo2.wxss */</span>
+</span></span><span style="display:flex;"><span>#<span style="color:#555">parent</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">width</span>: <span style="color:#099">200</span>rpx;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">height</span>:<span style="color:#099">200</span>rpx;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">background</span>: <span style="color:#000;font-weight:bold">red</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> #<span style="color:#555">child</span>{
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">width</span>: <span style="color:#099">100</span>rpx;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">height</span>:<span style="color:#099">100</span>rpx;
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">background</span>: <span style="color:#000;font-weight:bold">blue</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>测试运行：</p>
+<p>点击红色区域，只会调用父级方法
+<img src="/posts/project/20220529000803/image-20220529001343790.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击蓝色区域，子级和父级方法都被调用
+<img src="/posts/project/20220529000803/image-20220529001349590.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h3 id="32如何防止事件冒泡">3.2、如何防止事件冒泡</h3>
+<p>bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡</p>
+<h4 id="321bind绑定">3.2.1、bind绑定；</h4>
+<p>bindtap  bindlongtap   bingtouchstart  bindtouchmove  bindtouchcansce<br>
+bindtouchend</p>
+<h4 id="322catch绑定能阻止事件冒泡">3.2.2、catch绑定；（能阻止事件冒泡）</h4>
+<p>catchtap  catchlongtap  catchtouchstart  catchtouchmove  catchtouchcansce  catchtouchend</p>
+<p>修改文件demo2.wxml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">view</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;parent&#34;</span> <span style="color:#008080">bindtap</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;parentFn&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#000080">view</span> <span style="color:#008080">id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;child&#34;</span> <span style="color:#008080">catchtap</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;childFn&#34;</span>&gt;&lt;/<span style="color:#000080">view</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">view</span>&gt;
+</span></span></code></pre></div><p>再次测试运行，点击蓝色区域，只会触发调用子级方法
+<img src="/posts/project/20220529000803/image-20220529001356047.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="七微信小程序多页面">七、微信小程序多页面</h1>
+<h2 id="71编辑项目文件appjson">7.1、编辑项目文件app.json</h2>
+<p>新增一个页面test1：</p>
+<pre tabindex="0"><code>{
+  &#34;pages&#34;:[
+    &#34;pages/index/index&#34;,
+    &#34;pages/test1/test1&#34;,
+    &#34;pages/logs/logs&#34;
+  ],
+</code></pre><p>保存文件，自动在pages目录下生成test1目录，下面创建了对应的页面和js样式的相关文件
+<img src="/posts/project/20220529000803/image-20220529001613737.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="72编辑test1wxml">7.2、编辑test1.wxml</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!--pages/test1/test1.wxml--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#000080">view</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;container&#34;</span>&gt;  
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#000080">text</span>&gt;这是我的test页面哦哦！！！&lt;/<span style="color:#000080">text</span>&gt;  
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#000080">view</span>&gt;  
+</span></span></code></pre></div><h2 id="73在首页加入跳转连接">7.3、在首页加入跳转连接</h2>
+<pre tabindex="0"><code class="language-php+HTML" data-lang="php+HTML">&lt;view class=&#34;btn-area&#34;&gt;  
+   &lt;navigator url=&#34;/pages/test1/test1&#34; hover-class=&#34;navigator-hover&#34;&gt;跳转test页面&lt;/navigator&gt;  
+ &lt;/view&gt;  
+</code></pre><p>点击 跳转test页面，即可跳转到test页面
+<img src="/posts/project/20220529000803/image-20220529001624991.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="74设置页面标题">7.4、设置页面标题</h2>
+<p>设置页面标题 ，是非常简单的一个步骤哦，找到所在页面的目录，找到对应的test1.json</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#000080">&#34;navigationBarTitleText&#34;</span>: <span style="color:#d14">&#34;详情页&#34;</span>  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>navigationBarTitleText属性值及时页面标题
+<img src="/posts/project/20220529000803/image-20220529001632784.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="八微信小程序底部导航栏">八、微信小程序底部导航栏</h1>
+<p>底部导航栏，即点击底部的导航，会实现不同对应页面之间的切换。</p>
+<p>我们先来看个我们要实现的底部导航栏的效果图：（三个导航图标示例，微信小程序最多能加5个）
+<img src="/posts/project/20220529000803/image-20220529001638799.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="81图标准备">8.1、图标准备</h2>
+<p>阿里图标库 <a class="link" href="/posts/project/http://www.iconfont.cn/collections/show/29"  target="_blank" rel="noopener"
+    >http://www.iconfont.cn/collections/show/29</a></p>
+<p>在这个网站上下载一些自己要用到的图标，比如人员头像，home主页等一些常用的图标，直接点击下载保存到本地，修改一下命名。也可以使用UI准备好的图标。</p>
+<p>回到项目里，新建一个images文件夹，将刚刚下载好的图标放在文件夹底下备用，将上述起好名字的图标 保存到 小程序 项目目录中 新创建的 images 文件夹中，准备工作就做好了。
+<img src="/posts/project/20220529000803/image-20220529001643048.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="82添加底部导航栏配置文件">8.2、添加底部导航栏配置文件</h2>
+<p>我们找到项目根目录中的配置文件 app.json 加入如下配置信息</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#d14">&#34;tabBar&#34;</span><span style="color:#a61717;background-color:#e3d2d2">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;color&#34;</span>: <span style="color:#d14">&#34;#a9b7b7&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;selectedColor&#34;</span>: <span style="color:#d14">&#34;#11cd6e&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;borderStyle&#34;</span>: <span style="color:#d14">&#34;white&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;list&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;selectedIconPath&#34;</span>: <span style="color:#d14">&#34;images/0.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;iconPath&#34;</span>: <span style="color:#d14">&#34;images/0.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;pagePath&#34;</span>: <span style="color:#d14">&#34;pages/index/index&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;text&#34;</span>: <span style="color:#d14">&#34;首页&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;selectedIconPath&#34;</span>: <span style="color:#d14">&#34;images/1.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;iconPath&#34;</span>: <span style="color:#d14">&#34;images/1.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;pagePath&#34;</span>: <span style="color:#d14">&#34;pages/logs/logs&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;text&#34;</span>: <span style="color:#d14">&#34;日志&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;selectedIconPath&#34;</span>: <span style="color:#d14">&#34;images/2.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;iconPath&#34;</span>: <span style="color:#d14">&#34;images/2.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;pagePath&#34;</span>: <span style="color:#d14">&#34;pages/test1/test1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;text&#34;</span>: <span style="color:#d14">&#34;测试&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }<span style="color:#a61717;background-color:#e3d2d2">,</span>
+</span></span></code></pre></div><h2 id="83测试效果如下">8.3、测试效果如下</h2>
+<p><img src="/posts/project/20220529000803/image-20220529001649666.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>点击各个图标，即可切换到各个页面
+<img src="/posts/project/20220529000803/image-20220529001656068.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220529000803/image-20220529001703256.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>注意添加了tabBar原理的页面链接跳转，需要增加设置tabBar属性</p>
+<pre tabindex="0"><code> &lt;view class=&#34;btn-area&#34;&gt;  
+   &lt;navigator url=&#34;/pages/test1/test1&#34;   open-type=&#34;switchTab&#34; hover-class=&#34;navigator-hover&#34;&gt;跳转test页面&lt;/navigator&gt;  
+</code></pre><p>设置属性：open-type=&ldquo;switchTab&rdquo; 表示是tabBar切换</p>
+<h1 id="九微信小程序页面跳转及传递参数">九、微信小程序页面跳转及传递参数</h1>
+<h2 id="1navigator-跳转时传参">1、navigator 跳转时传参</h2>
+<p>在wxml页面跳转时候，可以在跳转地址后，传递参数：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#000080">view</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;btn-area&#34;</span>&gt;  
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#000080">navigator</span> <span style="color:#008080">url</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;/pages/test2/test2?id=1001&amp;name=张三&#34;</span>   <span style="color:#008080">hover-class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;navigator-hover&#34;</span>&gt;跳转test页面&lt;/<span style="color:#000080">navigator</span>&gt;  
+</span></span><span style="display:flex;"><span> &lt;/<span style="color:#000080">view</span>&gt;  
+</span></span></code></pre></div><p>注意：不能tabBar地址传参</p>
+<p>在对应跳转到的页面的test2.js的</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> onLoad<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">function</span> (options) {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">var</span> id<span style="color:#000;font-weight:bold">=</span>options.id
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">var</span> name<span style="color:#000;font-weight:bold">=</span>options.name
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#d14">&#39;id:&#39;</span><span style="color:#000;font-weight:bold">+</span>id<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34; name:&#34;</span><span style="color:#000;font-weight:bold">+</span>name)
+</span></span><span style="display:flex;"><span>  },
+</span></span></code></pre></div><p>演示效果：
+<img src="/posts/project/20220529000803/image-20220529001714127.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="2在js代码里navigator-跳转时">2、在js代码里navigator 跳转时</h2>
+<p>修改index.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> toTest2<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    wx.navigateTo({
+</span></span><span style="display:flex;"><span>      url<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;../test2/test2?id=1001&amp;name=张三&#39;</span>,
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>修改index.wxml</p>
+<pre tabindex="0"><code> &lt;view&gt;
+   &lt;button bindtap=&#34;toTest2&#34;&gt;点击跳转&lt;/button&gt;
+ &lt;/view&gt;
+</code></pre><p>对应test.js接收参数</p>
+<pre tabindex="0"><code> onLoad: function (options) {
+    var id=options.id
+    var name=options.name
+    console.log(&#39;id:&#39;+id+&#34; name:&#34;+name)
+  },
+</code></pre><p>测试效果：
+<img src="/posts/project/20220529000803/image-20220529001722624.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p><img src="/posts/project/20220529000803/image-20220529001727808.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="3在js代码里redirectto跳转时">3、在js代码里redirectTo跳转时</h2>
+<p>修改index.wxml</p>
+<pre tabindex="0"><code>&lt;view&gt;
+   &lt;button bindtap=&#34;toTest22&#34;&gt;点击跳转2&lt;/button&gt;
+ &lt;/view&gt;
+</code></pre><p>修改index.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> toTest22<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    wx.redirectTo({
+</span></span><span style="display:flex;"><span>      url<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;../test2/test2?id=1001&amp;name=张三&#39;</span>,
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>测试效果：
+<img src="/posts/project/20220529000803/image-20220529001733678.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="4带有tagbar的页面跳转">4、带有tagbar的页面跳转</h2>
+<p>需要用到switchTab(object)来实现</p>
+<p>修改index.wxml</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span> &lt;<span style="color:#000080">view</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#000080">button</span> <span style="color:#008080">bindtap</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;toLog&#34;</span>&gt;点击跳转tagbar查看日志&lt;/<span style="color:#000080">button</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;/<span style="color:#000080">view</span>&gt;
+</span></span></code></pre></div><p>修改index.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> toLog<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>    wx.switchTab({
+</span></span><span style="display:flex;"><span>      url<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;../logs/logs&#39;</span>,
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  },
+</span></span></code></pre></div><p>注意需要配置app.json配置对应的tagBar</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#d14">&#34;tabBar&#34;</span><span style="color:#a61717;background-color:#e3d2d2">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;color&#34;</span>: <span style="color:#d14">&#34;#a9b7b7&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;selectedColor&#34;</span>: <span style="color:#d14">&#34;#11cd6e&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;borderStyle&#34;</span>: <span style="color:#d14">&#34;white&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">&#34;list&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;selectedIconPath&#34;</span>: <span style="color:#d14">&#34;images/0.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;iconPath&#34;</span>: <span style="color:#d14">&#34;images/0.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;pagePath&#34;</span>: <span style="color:#d14">&#34;pages/index/index&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;text&#34;</span>: <span style="color:#d14">&#34;首页&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;selectedIconPath&#34;</span>: <span style="color:#d14">&#34;images/1.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;iconPath&#34;</span>: <span style="color:#d14">&#34;images/1.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;pagePath&#34;</span>: <span style="color:#d14">&#34;pages/logs/logs&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;text&#34;</span>: <span style="color:#d14">&#34;日志&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;selectedIconPath&#34;</span>: <span style="color:#d14">&#34;images/2.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;iconPath&#34;</span>: <span style="color:#d14">&#34;images/2.png&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;pagePath&#34;</span>: <span style="color:#d14">&#34;pages/test1/test1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#000080">&#34;text&#34;</span>: <span style="color:#d14">&#34;测试&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }<span style="color:#a61717;background-color:#e3d2d2">,</span>
+</span></span></code></pre></div><h2 id="5使用全局变量共享参数">5、使用全局变量共享参数</h2>
+<p>修改app.js</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">App(</span>{  
+</span></span><span style="display:flex;"><span>  <span style="color:#a61717;background-color:#e3d2d2">globalData:</span> <span style="color:#a61717;background-color:#e3d2d2">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">userInfo:</span> <span style="color:#a61717;background-color:#e3d2d2">null,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">id:</span> <span style="color:#a61717;background-color:#e3d2d2">null</span> 
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">})</span>
+</span></span></code></pre></div><p>在js里面可以给全局变量赋值：</p>
+<p>修改index.js 在onLoad方法中增加给全局变量赋值代码：</p>
+<pre tabindex="0"><code>var app = getApp();
+app.globalData.id = 2
+</code></pre><p>修改test2.js获取全局变量的值</p>
+<pre tabindex="0"><code>var app = getApp();
+//获取全局变量
+console.log(&#34;全局变量id:&#34;+app.globalData.id)
+</code></pre><p>演示：
+<img src="/posts/project/20220529000803/image-20220529001744640.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h2 id="6列表index下标取值">6、列表index下标取值</h2>
+<p>修改页面index.wxml</p>
+<pre tabindex="0"><code> &lt;view&gt;
+  &lt;button bindtap=&#39;clickMe&#39; data-id=&#39;1&#39;&gt;点击&lt;/button&gt;
+ &lt;/view&gt;
+</code></pre><p>注意：通过wxml设置data-[参数名]传递参数，[参数名]只能是小写，不能有大写</p>
+<p>修改index.js</p>
+<pre tabindex="0"><code> clickMe: function(e){
+     var id = e.currentTarget.dataset.id
+    console.log(&#34;获取到传递参数:&#34;+id);
+  }
+</code></pre><p>演示效果：
+<img src="/posts/project/20220529000803/image-20220529001759206.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<h1 id="十微信小程序发出网络请求">十、微信小程序发出网络请求</h1>
+<h2 id="1网络请求对象wxrequest">1、网络请求对象wx.request</h2>
+<p>wx.request（OBJECT）发起的是https请求。一个微信小程序，同时只能有5个网络请求连接。
+OBJECT参数说明：
+<img src="/posts/project/20220529000803/image-20220529001805842.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>wx.request({
+</span></span><span style="display:flex;"><span>  url<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;http://192.168.1.137:80/app/guanggao&#39;</span>,
+</span></span><span style="display:flex;"><span>  method<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>  data<span style="color:#000;font-weight:bold">:</span> {
+</span></span><span style="display:flex;"><span>     type<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  header<span style="color:#000;font-weight:bold">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#d14">&#39;Accept&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;application/json&#39;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  success<span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">function</span> (res) {
+</span></span><span style="display:flex;"><span>    that.setData({
+</span></span><span style="display:flex;"><span>      images<span style="color:#000;font-weight:bold">:</span> res.data.data.guanggao
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  fail<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(err){
+</span></span><span style="display:flex;"><span>    console.log(err)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>上面的代码会发送一个http get请求，其中的参数也比较容易理解。</p>
+<ul>
+<li>url 服务器的url地址</li>
+<li>data 请求的参数可以采用String data:”xxx=xxx&amp;xxx=xxx”的形式或者Object data:{“userId”:1}的形式</li>
+<li>header 设置请求的header</li>
+<li>method http的方法,默认为GET请求</li>
+<li>success 接口成功的回调</li>
+<li>fail 接口失败的回调</li>
+</ul>
+<p>注意首先配置本地微信开发工具，不校验合法域名</p>
+<p><img src="/posts/project/20220529000803/image-20220529001813342.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+<p>在页面增加一个按钮：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span> <span style="color:#998;font-style:italic">&lt;!-- 发出网络请求 --&gt;</span>
+</span></span><span style="display:flex;"><span> &lt;<span style="color:#000080">view</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#000080">button</span> <span style="color:#008080">bindtap</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;clicknetwork&#34;</span>&gt;点我发出网络请求&lt;/<span style="color:#000080">button</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;/<span style="color:#000080">view</span>&gt;
+</span></span></code></pre></div><p>编写请求方法：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> clicknetwork<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(){
+</span></span><span style="display:flex;"><span>   wx.request({
+</span></span><span style="display:flex;"><span>     url<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;http://localhost:10001/context/banner/list&#39;</span>,
+</span></span><span style="display:flex;"><span>     method<span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;POST&#39;</span>,
+</span></span><span style="display:flex;"><span>     success<span style="color:#000;font-weight:bold">:</span><span style="color:#000;font-weight:bold">function</span>(res){
+</span></span><span style="display:flex;"><span>         console.log(res)
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>   })
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>测试结果：
+<img src="/posts/project/20220529000803/image-20220529001822448.png"
+    
+    
+    
+    loading="lazy"
+    
+    
+></p>
+
+    </div>
+
+    
+
+    
+
+
+    <div class="container-prevnext">
+    <div><a href="https://lovemjh.vercel.app/posts/project/20220529001925/">← tk-题库微信小程序端功能开发</a></div>
+    <div><a href="https://lovemjh.vercel.app/posts/project-0/20220528165279/">SpringSecurity OAuth2.0用户认证  →</a></div>
+</div>
+</div>
+
+        </div>
+        <div id="footer"><div class="container-footer">
+    
+    <a href="//beian.miit.gov.cn" target="_blank">
+        
+        豫ICP备2022002918号
+        
+    </a>
+    <a id="s" href="/secrets">&nbsp;</a>
+</div></div>
+    </body>
+</html>

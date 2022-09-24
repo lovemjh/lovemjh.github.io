@@ -265,10 +265,10 @@
 <p><strong>2. 一致性(Consistency)</strong>：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。一致状态是指数据库中的数据应满足完整性约束。除此之外，一致性还有另外一层语义，就是事务的中间状态不能被观察到(这层语义也有说应该属于原子性)。</p>
 <p><strong>3. 隔离性(Isolation)</strong>：多个事务并发执行时，一个事务的执行不应影响其他事务的执行，如同只有这一个操作在被数据库所执行一样。</p>
 <p>​	全局修改，修改mysql.ini配置文件，在最后加上</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1 可选参数有：READ-UNCOMMITTED, READ-COMMITTED, REPEATABLE-READ, SERIALIZABLE.
-2 [mysqld]
-3 transaction-isolation = REPEATABLE-READ	
-</code></pre><p>这里全局默认是REPEATABLE-READ,其实MySQL本来默认也是这个级别。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">1</span> <span style="color:#d14">可选参数有：READ-UNCOMMITTED, READ-COMMITTED, REPEATABLE-READ, SERIALIZABLE.</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">2</span> <span style="color:#d14">[mysqld]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">3</span> <span style="color:#d14">transaction-isolation = REPEATABLE-READ	</span>
+</span></span></code></pre></div><p>这里全局默认是REPEATABLE-READ,其实MySQL本来默认也是这个级别。</p>
 <p>​	<strong>Read Uncommitted  (读取未提交内容)</strong></p>
 <p>​	等级是最低等级，也可以认为，事务之间完全不隔离</p>
 <p>​	eg. 事务A开始一个事务，接着事务B开始，事务B对数据C继续update，这时候，A读取了B未提交（commit）的数据，这种情况叫做脏读（dirty read）。这个时候要是事务B遇到错误必须rollback，那么A读取的数据就完全是错的。</p>
@@ -473,12 +473,12 @@
 1、首先在 Try 阶段，要先调用远程接口把 B和 A的钱给冻结起来。 
 2、在 Confirm 阶段，执行远程调用的转账的操作，转账成功进行解冻。 
 3、如果第2步执行成功，那么转账成功，如果第二步执行失败，则调用远程冻结接口对应的解冻方法 (Cancel)。 
-</code></pre><pre tabindex="0"><code class="language-properties" data-lang="properties">假设用户user表中有两个字段：可用余额(available_money)、冻结余额(frozen_money)
-A扣钱对应服务A(ServiceA)
-B加钱对应服务B(ServiceB)
-转账订单服务(OrderService)
-业务转账方法服务(BusinessService)
-</code></pre><p>ServiceA，ServiceB，OrderService都需分别实现try()，confirm()，cancle()方法，方法对应业务逻辑如下</p>
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">假设用户user表中有两个字段：可用余额(available_money)、冻结余额(frozen_money)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">A扣钱对应服务A(ServiceA)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">B加钱对应服务B(ServiceB)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">转账订单服务(OrderService)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">业务转账方法服务(BusinessService)</span>
+</span></span></code></pre></div><p>ServiceA，ServiceB，OrderService都需分别实现try()，confirm()，cancle()方法，方法对应业务逻辑如下</p>
 <table>
 <thead>
 <tr>
@@ -891,37 +891,37 @@ OrderService.try()</p>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>(6)application.yml</p>
 <p>创建applicatin.yml,配置如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9001
-spring:
-  application:
-    name: item
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/fescar-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC
-    username: root
-    password: 123456
-  main:
-    allow-bean-definition-overriding: true
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-#hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-          strategy: SEMAPHORE
-</code></pre><h4 id="324-用户微服务">3.2.4 用户微服务</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9001</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">item</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">datasource</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">driver-class-name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.mysql.jdbc.Driver</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">url</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">jdbc:mysql://localhost:3306/fescar-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">123456</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">main</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">allow-bean-definition-overriding</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://127.0.0.1:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">prefer-ip-address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#hystrix 配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">thread</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">timeoutInMilliseconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10000</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">strategy</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SEMAPHORE</span>
+</span></span></code></pre></div><h4 id="324-用户微服务">3.2.4 用户微服务</h4>
 <p>创建<code>fescar-user</code>微服务，并引入公共工程依赖。</p>
 <p>(1)pom.xml</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
@@ -1016,37 +1016,37 @@ hystrix:
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>(6)application.yml</p>
 <p>创建application.yml配置如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9002
-spring:
-  application:
-    name: user
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/fescar-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC
-    username: root
-    password: 123456
-  main:
-    allow-bean-definition-overriding: true
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-#hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-          strategy: SEMAPHORE
-</code></pre><h4 id="325-订单微服务">3.2.5 订单微服务</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9002</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">user</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">datasource</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">driver-class-name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.mysql.jdbc.Driver</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">url</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">jdbc:mysql://localhost:3306/fescar-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">123456</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">main</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">allow-bean-definition-overriding</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://127.0.0.1:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">prefer-ip-address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#hystrix 配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">thread</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">timeoutInMilliseconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10000</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">strategy</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SEMAPHORE</span>
+</span></span></code></pre></div><h4 id="325-订单微服务">3.2.5 订单微服务</h4>
 <p>在订单微服务中实现调用商品微服务递减库存。</p>
 <p>(1)pom.xml</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
@@ -1151,37 +1151,37 @@ hystrix:
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>(5)application.yml配置</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9003
-spring:
-  application:
-    name: order
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/fescar-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC
-    username: root
-    password: 123456
-  main:
-    allow-bean-definition-overriding: true
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-#hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-          strategy: SEMAPHORE
-</code></pre><h4 id="326-业务微服务">3.2.6 业务微服务</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9003</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">order</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">datasource</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">driver-class-name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.mysql.jdbc.Driver</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">url</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">jdbc:mysql://localhost:3306/fescar-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">123456</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">main</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">allow-bean-definition-overriding</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://127.0.0.1:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">prefer-ip-address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#hystrix 配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">thread</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">timeoutInMilliseconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10000</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">strategy</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SEMAPHORE</span>
+</span></span></code></pre></div><h4 id="326-业务微服务">3.2.6 业务微服务</h4>
 <p>创建<code>fescar-business</code>业务微服务，在该微服务中实现分布式事务控制，下单入口从这里开始。</p>
 <p>（1）pom.xml</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
@@ -1294,41 +1294,41 @@ hystrix:
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>(6)application.yml配置</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9004
-spring:
-  application:
-    name: business
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/fescar-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC
-    username: root
-    password: 123456
-  main:
-    allow-bean-definition-overriding: true
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-
-#读取超时设置
-ribbon:
-  ReadTimeout: 30000
-#hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-          strategy: SEMAPHORE
-</code></pre><p>测试调用:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9004</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">business</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">datasource</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">driver-class-name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.mysql.jdbc.Driver</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">url</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">jdbc:mysql://localhost:3306/fescar-item?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">123456</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">main</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">allow-bean-definition-overriding</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://127.0.0.1:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">prefer-ip-address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#读取超时设置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ribbon</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ReadTimeout</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">30000</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#hystrix 配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">thread</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">timeoutInMilliseconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10000</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">strategy</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SEMAPHORE</span>
+</span></span></code></pre></div><p>测试调用:</p>
 <p>http://localhost:9004/business/addorder</p>
 <p>查看各个微服务，控制台输出。</p>
 <h3 id="33-分布式事务抽取">3.3 分布式事务抽取</h3>
@@ -1382,11 +1382,11 @@ hystrix:
     
 ></p>
 <p>相关概念讲解</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">XID：全局事务的唯一标识，由 ip:port:sequence 组成；
-Transaction Coordinator (TC)：事务协调器，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚；
-Transaction Manager (TM )：控制全局事务的边界，负责开启一个全局事务，并最终发起全局提交或全局回滚的决议；
-Resource Manager (RM)：控制分支事务，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交和回滚；
-</code></pre><p>Fescar 使用 XID 表示一个分布式事务，XID 需要在一次分布式事务请求所涉的系统中进行传递，从而向 feacar-server 发送分支事务的处理情况，以及接收 feacar-server 的 commit、rollback 指令。
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">XID：全局事务的唯一标识，由</span> <span style="color:#d14">ip:port:sequence 组成；</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Transaction</span> <span style="color:#d14">Coordinator (TC)：事务协调器，维护全局事务的运行状态，负责协调并驱动全局事务的提交或回滚；</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Transaction</span> <span style="color:#d14">Manager (TM )：控制全局事务的边界，负责开启一个全局事务，并最终发起全局提交或全局回滚的决议；</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Resource</span> <span style="color:#d14">Manager (RM)：控制分支事务，负责分支注册、状态汇报，并接收事务协调器的指令，驱动分支（本地）事务的提交和回滚；</span>
+</span></span></code></pre></div><p>Fescar 使用 XID 表示一个分布式事务，XID 需要在一次分布式事务请求所涉的系统中进行传递，从而向 feacar-server 发送分支事务的处理情况，以及接收 feacar-server 的 commit、rollback 指令。
 <img src="/posts/project-0/20220528174166/image-20220528174509308.png"
     
     
@@ -1400,19 +1400,19 @@ Resource Manager (RM)：控制分支事务，负责分支注册、状态汇报�
 <p>在 <code>registry</code> 中可以指定具体配置的形式，默认使用 file 类型，在 file.conf 中有 3 部分配置内容：</p>
 <p>transport transport :用于定义 Netty 相关的参数，TM、RM 与 fescar-server 之间使用 Netty 进行通信。</p>
 <p>service:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">service {
-  #vgroup-&gt;rgroup
-  vgroup_mapping.my_test_tx_group = &#34;default&#34;
-  #only support single node 配置Client连接TC的地址
-  default.grouplist = &#34;127.0.0.1:8091&#34;
-  #degrade current not support
-  enableDegrade = false
-  #disable
-  disable = false
-  #是否启用Seata分布式事务
-  disableGlobalTransaction = false
-}
-</code></pre><p>client:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">service</span> <span style="color:#d14">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">#vgroup-&gt;rgroup</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">vgroup_mapping.my_test_tx_group</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">#only support single node 配置Client连接TC的地址</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">default.grouplist</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;127.0.0.1:8091&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">#degrade current not support</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">enableDegrade</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">#disable</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">disable</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#998;font-style:italic">#是否启用Seata分布式事务</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">disableGlobalTransaction</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">}</span>
+</span></span></code></pre></div><p>client:</p>
 <pre tabindex="0"><code>client {
   #RM接收TC的commit通知缓冲上限
   async.commit.buffer.limit = 10000

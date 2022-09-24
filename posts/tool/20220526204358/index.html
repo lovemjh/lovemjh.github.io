@@ -604,15 +604,15 @@ application.properties：Spring Boot应用的配置文件；可以修改一些�
 <h4 id="1properties语法">1、properties语法</h4>
 <pre tabindex="0"><code>以KEY=VALue键值对的方式设置值
 </code></pre><h5 id="1字面量普通的值数字字符串布尔">（1）字面量：普通的值（数字，字符串，布尔）</h5>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">name=张三
-</code></pre><h5 id="2对象map属性和值键值对">（2）对象、Map（属性和值）（键值对)</h5>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">person.name=张三
-person.age=12
-maps.key1=value1
-maps.key2=value2
-</code></pre><h5 id="3数组listset">（3）数组（List,Set）</h5>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">hobbies=singing,dancing,running
-</code></pre><h4 id="2配置文件值的注入-1">2、配置文件值的注入</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">张三</span>
+</span></span></code></pre></div><h5 id="2对象map属性和值键值对">（2）对象、Map（属性和值）（键值对)</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">person.name</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">张三</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.age</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">12</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">maps.key1</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">value1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">maps.key2</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">value2</span>
+</span></span></code></pre></div><h5 id="3数组listset">（3）数组（List,Set）</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">hobbies</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">singing,dancing,running</span>
+</span></span></code></pre></div><h4 id="2配置文件值的注入-1">2、配置文件值的注入</h4>
 <h5 id="1构建bean对象-1">（1）构建bean对象</h5>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">//只有spring容器中的对象才能自动进行数据绑定
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span><span style="color:#3c5d5d;font-weight:bold">@Component</span>
@@ -630,16 +630,16 @@ maps.key2=value2
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">private</span> List<span style="color:#000;font-weight:bold">&lt;</span>Object<span style="color:#000;font-weight:bold">&gt;</span> lists<span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><h5 id="2构建配置文件-1">（2）构建配置文件</h5>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">person.pname=张三
-person.age=12
-person.birth=2019/12/12
-person.success=true
-person.car.cname=宝马
-person.car.cprice=100.0
-person.lists=唱歌,跳舞,跑步
-person.maps.k1=value1
-person.maps.k2=value2
-</code></pre><h5 id="3执行单元测试查看person对象的值-1">（3）执行单元测试查看person对象的值</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">person.pname</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">张三</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.age</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">12</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.birth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">2019/12/12</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.success</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.car.cname</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">宝马</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.car.cprice</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">100.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.lists</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">唱歌,跳舞,跑步</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.maps.k1</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">value1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.maps.k2</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">value2</span>
+</span></span></code></pre></div><h5 id="3执行单元测试查看person对象的值-1">（3）执行单元测试查看person对象的值</h5>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootTest</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SpringbootApplicationTests</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Autowired</span>
@@ -696,17 +696,17 @@ person.maps.k2=value2
 </span></span><span style="display:flex;"><span>2、springboot全局配置文件中可以使用占位符
 </span></span><span style="display:flex;"><span>通过${属性名}获取已经在配置文件中加载过的属性值；
 </span></span><span style="display:flex;"><span>通过${属性名:默认值}来指定找不到属性时的默认值；
-</span></span></code></pre></div><pre tabindex="0"><code class="language-properties" data-lang="properties">案例：
-person.pname=张三
-person.age=${random.int}
-person.success=true
-person.birth=2012/12/12
-person.car.cname=${car.cname:奔驰}
-person.car.cprice=200.0
-person.map.key1=value1
-person.map.key2=value2
-person.hobbies=唱歌,跳舞,跑步
-</code></pre><h3 id="四多环境支持">（四）多环境支持</h3>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">案例：</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.pname</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">张三</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.age</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">${random.int}</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.success</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.birth</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">2012/12/12</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.car.cname</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">${car.cname:奔驰}</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.car.cprice</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">200.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.map.key1</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">value1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.map.key2</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">value2</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">person.hobbies</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">唱歌,跳舞,跑步</span>
+</span></span></code></pre></div><h3 id="四多环境支持">（四）多环境支持</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>Profile是Spring对不同环境提供不同配置功能的支持，可以通过激活、指定参数等方式快速切换环境；<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#099">1</span>、多文件多环境形式：<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>格式：application-{profile}.properties/yml<span style="color:#bbb">

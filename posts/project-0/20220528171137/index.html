@@ -756,16 +756,16 @@
 <p><code>where num&gt;=#{num}</code>即可。</p>
 <h4 id="332-代码实现">3.3.2 代码实现</h4>
 <p>要调用其他微服务，需要将头文件中的令牌数据携带到其他微服务中取，所以我们不能使用hystrix的多线程模式，修改dongyimai-sellergoods&ndash;service的applicatin.yml配置，代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">#hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-          strategy: SEMAPHORE    #使用Seamphore，你创建了多少线程，实际就会有多少线程进行执行，只是可同时执行的线程数量会受到限制
-</code></pre><p>每次还需要使用拦截器添加头文件信息</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#hystrix 配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">thread</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">timeoutInMilliseconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10000</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">strategy</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SEMAPHORE    #使用Seamphore，你创建了多少线程，实际就会有多少线程进行执行，只是可同时执行的线程数量会受到限制</span>
+</span></span></code></pre></div><p>每次还需要使用拦截器添加头文件信息</p>
 <p>修改配置类com.offcn.SellergoodsApplication添加Feign请求拦截器，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">public</span> FeignInterceptor <span style="color:#900;font-weight:bold">feignInterceptor</span><span style="color:#000;font-weight:bold">(){</span>

@@ -431,11 +431,11 @@
 <h3 id="34-lua的安装">3.4 lua的安装</h3>
 <p>有linux版本的安装也有mac版本的安装。。我们采用linux版本的安装，首先我们准备一个linux虚拟机。</p>
 <p>安装步骤,在linux系统中执行下面的命令。</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz
-tar zxf lua-5.3.5.tar.gz
-cd lua-5.3.5
-make linux test
-</code></pre><p>注意：此时安装，有可能会出现如下错误：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">curl</span> <span style="color:#d14">-R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">tar</span> <span style="color:#d14">zxf lua-5.3.5.tar.gz</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">cd</span> <span style="color:#d14">lua-5.3.5</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">make</span> <span style="color:#d14">linux test</span>
+</span></span></code></pre></div><p>注意：此时安装，有可能会出现如下错误：
 <img src="/posts/project-0/20220527222325/image-20220527222530431.png"
     
     
@@ -445,21 +445,21 @@ make linux test
     
 ></p>
 <p>此时需要安装lua相关依赖库的支持，执行如下命令即可：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">yum install gcc libtermcap-devel ncurses-devel libevent-devel readline-devel -y
-</code></pre><p>重新编译lua</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">make linux test
-</code></pre><p>安装lua</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">make install
-</code></pre><p>删除老版本lua,关联新版本lua</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">cd /usr/bin
-rm -rf lua luac
-
-ln -s /usr/local/bin/lua /usr/bin/lua
-ln -s /usr/local/bin/luac /usr/bin/luac
-</code></pre><p>此时再执行lua测试看lua是否安装成功</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">[root@localhost ~]# lua
-Lua 5.3.5  Copyright (C) 1994-2018 Lua.org, PUC-Rio
-</code></pre><h3 id="35-入门程序">3.5 入门程序</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">yum</span> <span style="color:#d14">install gcc libtermcap-devel ncurses-devel libevent-devel readline-devel -y</span>
+</span></span></code></pre></div><p>重新编译lua</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">make</span> <span style="color:#d14">linux test</span>
+</span></span></code></pre></div><p>安装lua</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">make</span> <span style="color:#d14">install</span>
+</span></span></code></pre></div><p>删除老版本lua,关联新版本lua</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">cd</span> <span style="color:#d14">/usr/bin</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">rm</span> <span style="color:#d14">-rf lua luac</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ln</span> <span style="color:#d14">-s /usr/local/bin/lua /usr/bin/lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ln</span> <span style="color:#d14">-s /usr/local/bin/luac /usr/bin/luac</span>
+</span></span></code></pre></div><p>此时再执行lua测试看lua是否安装成功</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">[root@localhost</span> <span style="color:#d14">~]# lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">Lua</span> <span style="color:#d14">5.3.5  Copyright (C) 1994-2018 Lua.org, PUC-Rio</span>
+</span></span></code></pre></div><h3 id="35-入门程序">3.5 入门程序</h3>
 <p>在线脚本测试：https://www.lua.org/cgi-bin/demo</p>
 <p>创建hello.lua文件，内容为</p>
 <p>编辑文件hello.lua</p>
@@ -571,21 +571,21 @@ Lua 5.3.5  Copyright (C) 1994-2018 Lua.org, PUC-Rio
 </tbody>
 </table>
 <p>实例：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">print(type(&#34;Hello world&#34;))      --&gt; string
-print(type(10.4*3))             --&gt; number
-print(type(print))              --&gt; function
-print(type(type))               --&gt; function
-print(type(true))               --&gt; boolean
-print(type(nil))                --&gt; nil
-</code></pre><h4 id="364-流程控制">3.6.4 流程控制</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">print(type(&#34;Hello</span> <span style="color:#d14">world&#34;))      --&gt; string</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">print(type(10.4*3))</span>             <span style="color:#d14">--&gt; number</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">print(type(print))</span>              <span style="color:#d14">--&gt; function</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">print(type(type))</span>               <span style="color:#d14">--&gt; function</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">print(type(true))</span>               <span style="color:#d14">--&gt; boolean</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">print(type(nil))</span>                <span style="color:#d14">--&gt; nil</span>
+</span></span></code></pre></div><h4 id="364-流程控制">3.6.4 流程控制</h4>
 <p>(1)if语句</p>
 <p>Lua <strong>if 语句</strong> 由一个布尔表达式作为条件判断，其后紧跟其他语句组成。</p>
 <p>语法：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">if(布尔表达式)
-then
-   --[ 在布尔表达式为 true 时执行的语句 --]
-end
-</code></pre><p>实例：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">if(布尔表达式)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">then</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008080">--[</span> <span style="color:#d14">在布尔表达式为 true 时执行的语句 --]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>
+</span></span></code></pre></div><p>实例：
 <img src="/posts/project-0/20220527222325/image-20220527222925177.png"
     
     
@@ -604,13 +604,13 @@ end
 </span></span></code></pre></div><p>(2)if..else语句</p>
 <p>Lua if 语句可以与 else 语句搭配使用, 在 if 条件表达式为 false 时执行 else 语句代码块。</p>
 <p>语法：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">if(布尔表达式)
-then
-   --[ 布尔表达式为 true 时执行该语句块 --]
-else
-   --[ 布尔表达式为 false 时执行该语句块 --]
-end
-</code></pre><p>实例：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">if(布尔表达式)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">then</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008080">--[</span> <span style="color:#d14">布尔表达式为 true 时执行该语句块 --]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">else</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008080">--[</span> <span style="color:#d14">布尔表达式为 false 时执行该语句块 --]</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>
+</span></span></code></pre></div><p>实例：
 <img src="/posts/project-0/20220527222325/image-20220527222931577.png"
     
     
@@ -632,18 +632,18 @@ end
 <p>(1)while循环[==满足条件就循环==]</p>
 <p>Lua 编程语言中 while 循环语句在判断条件为 true 时会重复执行循环体语句。
 语法：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">while(condition)
-do
-   statements
-end
-</code></pre><p>实例：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">a=10
-while( a &lt; 20 )
-do
-   print(&#34;a value:&#34;, a)
-   a = a+1
-end
-</code></pre><p>效果如下：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">while(condition)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008080">statements</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>
+</span></span></code></pre></div><p>实例：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">a</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">while(</span> <span style="color:#d14">a &lt; 20 )</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">do</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008080">print(&#34;a</span> <span style="color:#d14">value:&#34;, a)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008080">a</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">a+1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>
+</span></span></code></pre></div><p>效果如下：
 <img src="/posts/project-0/20220527222325/image-20220527222940225.png"
     
     
@@ -655,17 +655,17 @@ end
 <p>(2)for循环</p>
 <p>Lua 编程语言中 for 循环语句可以重复执行指定语句，重复次数可在 for 语句中控制。</p>
 <p>语法：  1-&gt;10  1:exp1  10:exp2  2:exp3:递增的数量</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">for var=exp1,exp2,exp3 
-do  
-    &lt;执行体&gt;  
-end  
-</code></pre><p>var 从 exp1 变化到 exp2，每次变化以 exp3 为步长递增 var，并执行一次 <strong>&ldquo;执行体&rdquo;</strong>。exp3 是可选的，如果不指定，默认为1。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">for</span> <span style="color:#d14">var=exp1,exp2,exp3 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">do</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">&lt;执行体&gt;</span>  
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>  
+</span></span></code></pre></div><p>var 从 exp1 变化到 exp2，每次变化以 exp3 为步长递增 var，并执行一次 <strong>&ldquo;执行体&rdquo;</strong>。exp3 是可选的，如果不指定，默认为1。</p>
 <p>例子：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">for i=1,9,2
-do
-   print(i)
-end
-</code></pre><p><code>for i=1,9,2</code>:i=1从1开始循环，9循环数据到9结束，2每次递增2
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">for</span> <span style="color:#d14">i=1,9,2</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">do</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">   print(i)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>
+</span></span></code></pre></div><p><code>for i=1,9,2</code>:i=1从1开始循环，9循环数据到9结束，2每次递增2
 <img src="/posts/project-0/20220527222325/image-20220527222948884.png"
     
     
@@ -677,10 +677,10 @@ end
 <p>(3)repeat&hellip;until语句[==满足条件结束==]</p>
 <p>Lua 编程语言中 repeat&hellip;until 循环语句不同于 for 和 while循环，for 和 while 循环的条件语句在当前循环执行开始时判断，而 repeat&hellip;until 循环的条件语句在当前循环结束后判断。</p>
 <p>语法：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">repeat
-   statements
-until( condition )
-</code></pre><p>案例：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">repeat</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008080">statements</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">until(</span> <span style="color:#d14">condition )</span>
+</span></span></code></pre></div><p>案例：
 <img src="/posts/project-0/20220527222325/image-20220527222955917.png"
     
     
@@ -727,57 +727,57 @@ lua test.lua
 <p>table 是 Lua 的一种数据结构用来帮助我们创建不同的数据类型，如：数组、字典等。</p>
 <p>Lua也是通过table来解决模块（module）、包（package）和对象（Object）的。</p>
 <p>案例：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">-- 初始化表
-mytable = {}
-
--- 指定值
-mytable[1]= &#34;Lua&#34;
-print(&#34;mytable:&#34;,mytable[1])
-
--- 移除引用
-mytable = nil
-</code></pre><h4 id="368-模块">3.6.8 模块</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">初始化表</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">mytable</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">指定值</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">mytable[1]</span><span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;Lua&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">print(&#34;mytable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">&#34;,mytable[1])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">移除引用</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">mytable</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">nil</span>
+</span></span></code></pre></div><h4 id="368-模块">3.6.8 模块</h4>
 <p>(1)模块定义</p>
 <p>模块类似于一个封装库，从 Lua 5.1 开始，Lua 加入了标准的模块管理机制，可以把一些公用的代码放在一个文件里，以 API 接口的形式在其他地方调用，有利于代码的重用和降低代码耦合度。</p>
 <p>创建一个文件叫module.lua，在module.lua中创建一个独立的模块，代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">-- 文件名为 module.lua
--- 定义一个名为 module 的模块
-module = {}
- 
--- 定义一个常量
-module.constant = &#34;这是一个常量&#34;
- 
--- 定义一个函数
-function module.func1()
-    print(&#34;这是一个公有函数&#34;)
-end
- 
-local function func2()
-    print(&#34;这是一个私有函数！&#34;)
-end
- 
-function module.func3()
-    func2()
-end
- 
-return module
-</code></pre><p>由上可知，模块的结构就是一个 table 的结构，因此可以像操作调用 table 里的元素那样来操作调用模块里的常量或函数。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">文件名为 module.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">定义一个名为 module 的模块</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">module</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2"> </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">定义一个常量</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">module.constant</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;这是一个常量&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2"> </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">定义一个函数</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">function</span> <span style="color:#d14">module.func1()</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">    print(&#34;这是一个公有函数&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2"> </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">local</span> <span style="color:#d14">function func2()</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">    print(&#34;这是一个私有函数！&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2"> </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">function</span> <span style="color:#d14">module.func3()</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">    func2()</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2"> </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">return</span> <span style="color:#d14">module</span>
+</span></span></code></pre></div><p>由上可知，模块的结构就是一个 table 的结构，因此可以像操作调用 table 里的元素那样来操作调用模块里的常量或函数。</p>
 <p>上面的 func2 声明为程序块的局部变量，即表示一个私有函数，因此是不能从外部访问模块里的这个私有函数，必须通过模块里的公有函数来调用.</p>
 <p>(2)require 函数</p>
 <p>require 用于 引入其他的模块，类似于java中的类要引用别的类的效果。</p>
 <p>用法：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">require(&#34;&lt;模块名&gt;&#34;)
-</code></pre><pre tabindex="0"><code class="language-properties" data-lang="properties">require &#34;&lt;模块名&gt;&#34;
-</code></pre><p>两种都可以。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">require(&#34;&lt;模块名&gt;&#34;)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">require</span> <span style="color:#d14">&#34;&lt;模块名&gt;&#34;</span>
+</span></span></code></pre></div><p>两种都可以。</p>
 <p>我们可以将上面定义的module模块引入使用,创建一个test_module.lua文件，代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">-- test_module.lua 文件
--- module 模块为上文提到到 module.lua
-require(&#34;module&#34;)
-
-print(module.constant)
-
-module.func3()
-</code></pre><h1 id="四openresty介绍">四、OpenResty介绍</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">test_module.lua 文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">--</span> <span style="color:#d14">module 模块为上文提到到 module.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">require(&#34;module&#34;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">print(module.constant)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">module.func3()</span>
+</span></span></code></pre></div><h1 id="四openresty介绍">四、OpenResty介绍</h1>
 <p>OpenResty(又称：ngx_openresty) 是一个基于 nginx的可伸缩的 Web 平台，由中国人章亦春发起，提供了很多高质量的第三方模块。</p>
 <p>OpenResty 是一个强大的 Web 应用服务器，Web 开发人员可以使用 Lua 脚本语言调动 Nginx 支持的各种 C 以及 Lua 模块,更主要的是在性能方面，OpenResty可以 快速构造出足以胜任 10W以上并发连接响应的超高性能 Web 应用系统。</p>
 <p>360，UPYUN，阿里云，新浪，腾讯网，去哪儿网，酷狗音乐等都是 OpenResty 的深度用户。</p>
@@ -1111,8 +1111,8 @@ vi nginx.conf
     
 ></p>
 <p>代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">lua_shared_dict dis_cache 128m;
-</code></pre><p>测试地址：http://192.168.188.128/read_content?id=1</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">lua_shared_dict</span> <span style="color:#d14">dis_cache 128m;</span>
+</span></span></code></pre></div><p>测试地址：http://192.168.188.128/read_content?id=1</p>
 <p>此时会获取分类ID=1的所有广告信息。</p>
 <p>此时手动清空redis中的数据，发现依然可以访问到信息。
 <img src="/posts/project-0/20220527222325/image-20220527223222180.png"
@@ -1317,10 +1317,10 @@ zone：定义共享内存区来存储访问信息， contentRateLimit:10m 表示
 rate 用于设置最大访问速率，rate=10r/s 表示每秒最多处理10个请求。Nginx 实际上以毫秒为粒度来跟踪请求信息，因此 10r/s 实际上是限制：每100毫秒处理一个请求。这意味着，自上一个请求处理完后，若后续100毫秒内又有请求到达，将拒绝处理该请求.我们这里设置成2个请求 方便测试。
 </code></pre><p>测试：</p>
 <p>重新加载配置文件</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">cd /usr/local/openresty/nginx/sbin
-
-./nginx -s reload
-</code></pre><p>访问页面：<code>http://192.168.188.128/read_content?id=1</code> ,连续刷新会直接报错。
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">cd</span> <span style="color:#d14">/usr/local/openresty/nginx/sbin</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">./nginx</span> <span style="color:#d14">-s reload</span>
+</span></span></code></pre></div><p>访问页面：<code>http://192.168.188.128/read_content?id=1</code> ,连续刷新会直接报错。
 <img src="/posts/project-0/20220527222325/image-20220527223330586.png"
     
     
@@ -1576,10 +1576,10 @@ limit_conn addr 2;   表示 限制每个IP只能发起2个连接。
     
 ></p>
 <p>命令行如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker exec -it mysql /bin/bash
-cd /etc/mysql/mysql.conf.d
-vi mysqld.cnf
-</code></pre><p>修改mysqld.cnf配置文件，添加如下配置：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">exec -it mysql /bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">cd</span> <span style="color:#d14">/etc/mysql/mysql.conf.d</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">vi</span> <span style="color:#d14">mysqld.cnf</span>
+</span></span></code></pre></div><p>修改mysqld.cnf配置文件，添加如下配置：
 <img src="/posts/project-0/20220527222325/image-20220527223553071.png"
     
     
@@ -1589,26 +1589,26 @@ vi mysqld.cnf
     
 ></p>
 <p>上图配置如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">log-bin=/var/lib/mysql/mysql-bin
-server-id=12345
-</code></pre><p>(2) 通过客户端创建账号 用于测试使用,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">log-bin</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">/var/lib/mysql/mysql-bin</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">server-id</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">12345</span>
+</span></span></code></pre></div><p>(2) 通过客户端创建账号 用于测试使用,</p>
 <p>使用root账号创建用户并授予权限</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">create user canal@&#39;%&#39; IDENTIFIED by &#39;canal&#39;;
-GRANT SELECT, REPLICATION SLAVE, REPLICATION CLIENT,SUPER ON *.* TO &#39;canal&#39;@&#39;%&#39;;
-FLUSH PRIVILEGES;
-</code></pre><p>(3)重启mysql容器</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker restart mysql
-</code></pre><h3 id="84-canal容器安装">8.4 canal容器安装</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">create</span> <span style="color:#d14">user canal@&#39;%&#39; IDENTIFIED by &#39;canal&#39;;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">GRANT</span> <span style="color:#d14">SELECT, REPLICATION SLAVE, REPLICATION CLIENT,SUPER ON *.* TO &#39;canal&#39;@&#39;%&#39;;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">FLUSH</span> <span style="color:#d14">PRIVILEGES;</span>
+</span></span></code></pre></div><p>(3)重启mysql容器</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">restart mysql</span>
+</span></span></code></pre></div><h3 id="84-canal容器安装">8.4 canal容器安装</h3>
 <p>下载镜像：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker pull docker.io/canal/canal-server
-</code></pre><p>容器安装</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker run   --name canal -d --net=host docker.io/canal/canal-server
-</code></pre><p>进入容器,修改核心配置canal.properties 和instance.properties，canal.properties 是canal自身的配置，instance.properties是需要同步数据的数据库连接配置。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">pull docker.io/canal/canal-server</span>
+</span></span></code></pre></div><p>容器安装</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">run   --name canal -d --net=host docker.io/canal/canal-server</span>
+</span></span></code></pre></div><p>进入容器,修改核心配置canal.properties 和instance.properties，canal.properties 是canal自身的配置，instance.properties是需要同步数据的数据库连接配置。</p>
 <p>执行代码如下:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker exec -it canal /bin/bash
-cd canal-server/conf/example
-vi instance.properties
-</code></pre><p>修改instance.properties,配置数据库连接地址:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">exec -it canal /bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">cd</span> <span style="color:#d14">canal-server/conf/example</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">vi</span> <span style="color:#d14">instance.properties</span>
+</span></span></code></pre></div><p>修改instance.properties,配置数据库连接地址:</p>
 <p>注意ip填写mysql绑定的主机ip：192.168.188.128(每个人都不一样)
 <img src="/posts/project-0/20220527222325/image-20220527223636376.png"
     
@@ -1630,19 +1630,19 @@ vi instance.properties
 <p>这里的<code>canal.instance.filter.regex</code>有多种配置，如下：</p>
 <p>可以参考地址如下:</p>
 <pre tabindex="0"><code>https://github.com/alibaba/canal/wiki/AdminGuide
-</code></pre><pre tabindex="0"><code class="language-properties" data-lang="properties">mysql 数据解析关注的表，Perl正则表达式.
-多个正则之间以逗号(,)分隔，转义符需要双斜杠(\\) 
-常见例子：
-1.  所有表：.*   or  .*\\..*
-2.  canal schema下所有表： canal\\..*
-3.  canal下的以canal打头的表：canal\\.canal.*
-4.  canal schema下的一张表：canal.test1
-5.  多个规则组合使用：canal\\..*,mysql.test1,mysql.test2 (逗号分隔)
-注意：此过滤条件只针对row模式的数据有效(ps. mixed/statement因为不解析sql，所以无法准确提取tableName进行过滤)
-</code></pre><p>配置完成后，设置开机启动，并记得重启canal。</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker update --restart=always canal
-docker restart canal
-</code></pre><p>开启cancal的防火墙端口：</p>
+</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">mysql</span> <span style="color:#d14">数据解析关注的表，Perl正则表达式.</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">多个正则之间以逗号(,)分隔，转义符需要双斜杠(\\)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">常见例子：</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">1.</span>  <span style="color:#d14">所有表：.*   or  .*\\..*</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">2.</span>  <span style="color:#d14">canal schema下所有表： canal\\..*</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">3.</span>  <span style="color:#d14">canal下的以canal打头的表：canal\\.canal.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">4.</span>  <span style="color:#d14">canal schema下的一张表：canal.test1</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">5.</span>  <span style="color:#d14">多个规则组合使用：canal\\..*,mysql.test1,mysql.test2 (逗号分隔)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">注意：此过滤条件只针对row模式的数据有效(ps.</span> <span style="color:#d14">mixed/statement因为不解析sql，所以无法准确提取tableName进行过滤)</span>
+</span></span></code></pre></div><p>配置完成后，设置开机启动，并记得重启canal。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">update --restart=always canal</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">restart canal</span>
+</span></span></code></pre></div><p>开启cancal的防火墙端口：</p>
 <pre tabindex="0"><code>firewall-cmd --add-port=11111/tcp --permanent
 firewall-cmd --reload
 </code></pre><h3 id="85-canal微服务搭建">8.5 canal微服务搭建</h3>
@@ -1705,38 +1705,38 @@ firewall-cmd --reload
 </span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/dependencies&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/project&gt;</span>
 </span></span></code></pre></div><p>application.yml配置</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9003
-spring:
-  application:
-    name: canal
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-#hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        timeout:
-          #如果enabled设置为false，则请求超时交给ribbon控制
-          enabled: true
-        isolation:
-          strategy: SEMAPHORE
-#canal配置
-canal:
-  client:
-    instances:
-      example:
-        host: 192.168.188.128
-        port: 11111
-</code></pre><p>注意：开启canal服务器的端口防火墙</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9003</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">canal</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://127.0.0.1:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">prefer-ip-address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#hystrix 配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">timeout</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#998;font-style:italic">#如果enabled设置为false，则请求超时交给ribbon控制</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">strategy</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SEMAPHORE</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#canal配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">canal</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">instances</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">example</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">host</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.128</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">11111</span>
+</span></span></code></pre></div><p>注意：开启canal服务器的端口防火墙</p>
 <pre tabindex="0"><code>firewall-cmd --add-port=11111/tcp --permanent
 firewall-cmd --add-port=3306/tcp --permanent
 firewall-cmd --reload
@@ -1790,16 +1790,16 @@ firewall-cmd --reload
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>(4)启动类创建</p>
 <p>在com.offcn.canal中创建启动类，代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
-@EnableEurekaClient
-@EnableCanalClient
-public class CanalApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(CanalApplication.class,args);
-    }
-}
-</code></pre><p>(5)测试</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">@SpringBootApplication(exclude</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">{DataSourceAutoConfiguration.class})</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">@EnableEurekaClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">@EnableCanalClient</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">public</span> <span style="color:#d14">class CanalApplication {</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">public</span> <span style="color:#d14">static void main(String[] args) {</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">        SpringApplication.run(CanalApplication.class,args);</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">    }</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">}</span>
+</span></span></code></pre></div><p>(5)测试</p>
 <p>启动canal微服务，然后修改任意数据库的表数据，canal微服务后台输出如下：
 <img src="/posts/project-0/20220527222325/image-20220527223709777.png"
     

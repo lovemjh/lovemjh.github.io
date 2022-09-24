@@ -1065,10 +1065,10 @@
 <h2 id="1-需求分析">1 需求分析</h2>
 <p>我们现在系统还有个问题需要解决：系统中无法查询到支付记录，支付后订单状态没有改变</p>
 <p>我们现在就来解决这两个问题。</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.在用户下订单时，判断如果为支付宝支付，就向支付日志表添加一条记录，信息包括支付总金额、订单ID（多个）、用户ID 、下单时间等信息，支付状态为0（未支付）
-2.生成的支付日志对象放入redis中，以用户ID作为key，这样在生成支付二维码时就可以从redis中提取支付日志对象中的金额和订单号。
-3.当用户支付成功后，修改支付日志的支付状态为1（已支付），并记录支付宝传递给我们的交易流水号。根据订单ID（多个）修改订单的状态为2（已付款）。
-</code></pre><h2 id="2-表结构分析">2 表结构分析</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">1.在用户下订单时，判断如果为支付宝支付，就向支付日志表添加一条记录，信息包括支付总金额、订单ID（多个）、用户ID</span> <span style="color:#d14">、下单时间等信息，支付状态为0（未支付）</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.生成的支付日志对象放入redis中，以用户ID作为key，这样在生成支付二维码时就可以从redis中提取支付日志对象中的金额和订单号。</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">3.当用户支付成功后，修改支付日志的支付状态为1（已支付），并记录支付宝传递给我们的交易流水号。根据订单ID（多个）修改订单的状态为2（已付款）。</span>
+</span></span></code></pre></div><h2 id="2-表结构分析">2 表结构分析</h2>
 <p><strong>tb_paylog</strong>  支付日志表</p>
 <table>
 <thead>

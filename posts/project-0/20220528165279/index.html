@@ -559,11 +559,11 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
 <h2 id="33-oauth2授权模式">3.3 Oauth2授权模式</h2>
 <h3 id="331-oauth2授权模式">3.3.1 Oauth2授权模式</h3>
 <p>Oauth2有以下授权模式：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.授权码模式（Authorization Code）
-2.密码模式（Resource Owner Password Credentials）
-3.客户端模式（Client Credentials） 
-4.隐式授权模式（Implicit） 
-</code></pre><h3 id="332-授权码授权实现">3.3.2 授权码授权实现</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">1.授权码模式（Authorization</span> <span style="color:#d14">Code）</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">2.密码模式（Resource</span> <span style="color:#d14">Owner Password Credentials）</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">3.客户端模式（Client</span> <span style="color:#d14">Credentials） </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">4.隐式授权模式（Implicit）</span> 
+</span></span></code></pre></div><h3 id="332-授权码授权实现">3.3.2 授权码授权实现</h3>
 <p>上边例举的优就业官网使用QQ认证的过程就是授权码模式，流程如下：</p>
 <p>1、客户端请求第三方授权</p>
 <p>2、用户(资源拥有者)同意给客户端授权</p>
@@ -576,11 +576,11 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
 <pre tabindex="0"><code>Get请求：
 http://localhost:9100/oauth/authorize?client_id=admin&amp;response_type=code&amp;scop=app&amp;redirect_uri=http://localhost
 </code></pre><p>参数列表如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">client_id：客户端id，和授权配置类中设置的客户端id一致。 
-response_type：授权码模式固定为code 
-scop：客户端范围，和授权配置类中设置的scop一致。 
-redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上code参数（授权码）
-</code></pre><p>首先跳转到登录页面：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">client_id：客户端id，和授权配置类中设置的客户端id一致。</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">response_type：授权码模式固定为code</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">scop：客户端范围，和授权配置类中设置的scop一致。</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上code参数（授权码）</span>
+</span></span></code></pre></div><p>首先跳转到登录页面：
 <img src="/posts/project-0/20220528165279/image-20220528165552836.png"
     
     
@@ -654,12 +654,12 @@ redirect_uri：申请授权码时的跳转url，一定和申请授权码时用�
     
 ></p>
 <p>返回信如下:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">access_token：访问令牌，携带此令牌访问资源 
-token_type：有MAC Token与Bearer Token两种类型，两种的校验算法不同，RFC 6750建议Oauth2采用 Bearer Token（http://www.rfcreader.com/#rfc6750）。 
-refresh_token：刷新令牌，使用此令牌可以延长访问令牌的过期时间。 
-expires_in：过期时间，单位为秒。 
-scope：范围，与定义的客户端范围一致。    
-</code></pre><p><strong>(3)令牌校验</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">access_token：访问令牌，携带此令牌访问资源</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">token_type：有MAC</span> <span style="color:#d14">Token与Bearer Token两种类型，两种的校验算法不同，RFC 6750建议Oauth2采用 Bearer Token（http://www.rfcreader.com/#rfc6750）。 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">refresh_token：刷新令牌，使用此令牌可以延长访问令牌的过期时间。</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">expires_in：过期时间，单位为秒。</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">scope：范围，与定义的客户端范围一致。</span>    
+</span></span></code></pre></div><p><strong>(3)令牌校验</strong></p>
 <p>Spring Security Oauth2提供校验令牌的端点，如下：</p>
 <p>Get: http://localhost:9100/oauth/check_token?token= [access_token]</p>
 <p>参数：</p>
@@ -782,11 +782,11 @@ scope：范围，与定义的客户端范围一致。
 <pre tabindex="0"><code>Get请求：
 http://localhost:9100/oauth/authorize?client_id=admin&amp;redirect_uri=http://localhost&amp;response_type=token&amp;scope=app
 </code></pre><p>参数列表如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">client_id：客户端id，和授权配置类中设置的客户端id一致。 
-response_type：隐式模式固定为token
-scop：客户端范围，和授权配置类中设置的scop一致。 
-redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上access_token（令牌）
-</code></pre><p>首先跳转到登录页面：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">client_id：客户端id，和授权配置类中设置的客户端id一致。</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">response_type：隐式模式固定为token</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">scop：客户端范围，和授权配置类中设置的scop一致。</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上access_token（令牌）</span>
+</span></span></code></pre></div><p>首先跳转到登录页面：
 <img src="/posts/project-0/20220528165279/image-20220528165739449.png"
     
     
@@ -838,12 +838,12 @@ redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，�
 ></p>
 <p>传统的授权模式性能低下，每次都需要请求授权服务校验令牌合法性，我们可以利用公钥私钥完成对令牌的加密，如果加密解密成功，则表示令牌合法，如果加密解密失败，则表示令牌无效不合法，合法则允许访问资源服务器的资源，解密失败，则不允许访问资源服务器资源。</p>
 <p>上图的业务流程如下:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1、客户端请求认证服务申请令牌
-2、认证服务生成令牌认证服务采用非对称加密算法，使用私钥生成令牌。
-3、客户端携带令牌访问资源服务客户端在Http header 中添加： Authorization：Bearer 令牌。
-4、资源服务请求认证服务校验令牌的有效性资源服务接收到令牌，使用公钥校验令牌的合法性。
-5、令牌有效，资源服务向客户端响应资源信息
-</code></pre><h2 id="42-公钥私钥">4.2 公钥私钥</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1、客户端请求认证服务申请令牌</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2、认证服务生成令牌认证服务采用非对称加密算法，使用私钥生成令牌。</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">3、客户端携带令牌访问资源服务客户端在Http</span> <span style="color:#d14">header 中添加： Authorization：Bearer 令牌。</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">4、资源服务请求认证服务校验令牌的有效性资源服务接收到令牌，使用公钥校验令牌的合法性。</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">5、令牌有效，资源服务向客户端响应资源信息</span>
+</span></span></code></pre></div><h2 id="42-公钥私钥">4.2 公钥私钥</h2>
 <p>在对称加密的时代，加密和解密用的是同一个密钥，这个密钥既用于加密，又用于解密。这样做有一个明显的缺点，如果两个人之间传输文件，两个人都要知道密钥，如果是三个人呢，五个人呢？于是就产生了非对称加密，用一个密钥进行加密（公钥），用另一个密钥进行解密（私钥）。</p>
 <h3 id="421-公钥私钥原理">4.2.1 公钥私钥原理</h3>
 <p>张三有两把钥匙，一把是公钥，另一把是私钥。
@@ -910,14 +910,14 @@ redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，�
 mkdir key
 cd key
 </code></pre><p>在该文件夹下执行如下命令行：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -genkeypair -alias dongyimai -keyalg RSA -keypass dongyimai -keystore dongyimai.jks -storepass dongyimai
-</code></pre><p>Keytool 是一个java提供的证书管理工具</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">-alias：密钥的别名 
--keyalg：使用的hash算法 
--keypass：密钥的访问密码 
--keystore：密钥库文件名，xc.keystore保存了生成的证书 
--storepass：密钥库的访问密码 
-</code></pre><p><img src="/posts/project-0/20220528165279/image-20220528165859534.png"
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">keytool</span> <span style="color:#d14">-genkeypair -alias dongyimai -keyalg RSA -keypass dongyimai -keystore dongyimai.jks -storepass dongyimai</span>
+</span></span></code></pre></div><p>Keytool 是一个java提供的证书管理工具</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">-alias：密钥的别名</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">-keyalg：使用的hash算法</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">-keypass：密钥的访问密码</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">-keystore：密钥库文件名，xc.keystore保存了生成的证书</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">-storepass：密钥库的访问密码</span> 
+</span></span></code></pre></div><p><img src="/posts/project-0/20220528165279/image-20220528165859534.png"
     
     
     
@@ -926,8 +926,8 @@ cd key
     
 ></p>
 <p>(2)查询证书信息</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -list -keystore dongyimai.jks
-</code></pre><p><img src="/posts/project-0/20220528165279/image-20220528165905628.png"
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">keytool</span> <span style="color:#d14">-list -keystore dongyimai.jks</span>
+</span></span></code></pre></div><p><img src="/posts/project-0/20220528165279/image-20220528165905628.png"
     
     
     
@@ -936,8 +936,8 @@ cd key
     
 ></p>
 <p>(3)删除别名</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -delete -alias dongyimai -keystore dongyimai.jks
-</code></pre><h3 id="423-导出公钥">4.2.3 导出公钥</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">keytool</span> <span style="color:#d14">-delete -alias dongyimai -keystore dongyimai.jks</span>
+</span></span></code></pre></div><h3 id="423-导出公钥">4.2.3 导出公钥</h3>
 <p>openssl是一个加解密工具包，这里使用openssl来导出公钥信息。</p>
 <p>openssl：https://www.openssl.org/</p>
 <p>进入秘钥所在目录</p>
@@ -953,10 +953,10 @@ cd key
     
 ></p>
 <p>下面段内容是公钥</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXKdA+tx5/MFq7iLbBPoc6C2Ol+o+wVJVmV3Y1QAYdyGYMWIOJpFwggc+T4CmZNlCDxKEwwdB0ic63URGhTz5vf9lUAcluGC+gu5O++cZLjnUrRQYRjJGNewx8BkAVIRNAZn1i3vTOzdkYhqD6Ev8PyCCI5NGO5E4pZ3vj6F7HvrTjj7FKcI3J5iaXwAF9OiXJYIJpbB1+EBaWksoFSF5MalbwbmE22RJ6fNtgHJYNxhQfzMVip/x5jSwL5fcAJyBS0wzcErTCHYJcWH2tlWctp4e6Tjq23c98bg42nf+i2eqko6o90sQIDAQAB
------END PUBLIC KEY-----
-</code></pre><p>将上边的公钥拷贝到文本public.key文件中，**注意：**合并为一行,可以将它放到需要实现授权认证的工程中。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">-----BEGIN</span> <span style="color:#d14">PUBLIC KEY-----</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXKdA+tx5/MFq7iLbBPoc6C2Ol+o+wVJVmV3Y1QAYdyGYMWIOJpFwggc+T4CmZNlCDxKEwwdB0ic63URGhTz5vf9lUAcluGC+gu5O++cZLjnUrRQYRjJGNewx8BkAVIRNAZn1i3vTOzdkYhqD6Ev8PyCCI5NGO5E4pZ3vj6F7HvrTjj7FKcI3J5iaXwAF9OiXJYIJpbB1+EBaWksoFSF5MalbwbmE22RJ6fNtgHJYNxhQfzMVip/x5jSwL5fcAJyBS0wzcErTCHYJcWH2tlWctp4e6Tjq23c98bg42nf+i2eqko6o90sQIDAQAB</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">-----END</span> <span style="color:#d14">PUBLIC KEY-----</span>
+</span></span></code></pre></div><p>将上边的公钥拷贝到文本public.key文件中，**注意：**合并为一行,可以将它放到需要实现授权认证的工程中。</p>
 <h2 id="43-使用私钥公钥生成解析jwt令牌">4.3 使用私钥公钥生成、解析JWT令牌</h2>
 <p>(1)创建令牌数据</p>
 <p>在dongyimai-user-oauth工程中创建测试类com.offcn.token.CreateJwtTest，使用它来创建令牌信息，代码如下：</p>
@@ -1030,8 +1030,8 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span style="display:flex;"><span>   
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>运行后的结果如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">token:eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlJPTEVfVklQLFJPTEVfVVNFUiIsIm5hbWUiOiJ1aml1eWUiLCJpZCI6IjEifQ.G7hIUJV4a9PihurY4gfCdkqZqE0g9bRWU5l5PY0X1kv8LAt_-Otdi4ryLxgo2iM0FUI9GoT_LnggX3fSF-U3EaIu-pphyrvo2raz9kIWxEN_xLIW-Z3GHG05pOAhJE2OwF6Y-UYd3J1nGc3WMePdenuFRgLlJXw9d3fsalk5pC3fBBk4a6RKTRJveleRZxG58VP856XtrathNMl6HSfT37mwvMm-tTL1vzJgyyO5JM6Px38b9L4jpbsn5R1HX1JDve5RRFsbJHOgRycY2Crj_bm6jbWm-3jgj0w0N1MjA1JH86-DXEunciBgMjZ9BWRUDOe8Q8UhZjUwPVCKLzmcxw
-</code></pre><p>(2)解析令牌</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">token</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlJPTEVfVklQLFJPTEVfVVNFUiIsIm5hbWUiOiJ1aml1eWUiLCJpZCI6IjEifQ.G7hIUJV4a9PihurY4gfCdkqZqE0g9bRWU5l5PY0X1kv8LAt_-Otdi4ryLxgo2iM0FUI9GoT_LnggX3fSF-U3EaIu-pphyrvo2raz9kIWxEN_xLIW-Z3GHG05pOAhJE2OwF6Y-UYd3J1nGc3WMePdenuFRgLlJXw9d3fsalk5pC3fBBk4a6RKTRJveleRZxG58VP856XtrathNMl6HSfT37mwvMm-tTL1vzJgyyO5JM6Px38b9L4jpbsn5R1HX1JDve5RRFsbJHOgRycY2Crj_bm6jbWm-3jgj0w0N1MjA1JH86-DXEunciBgMjZ9BWRUDOe8Q8UhZjUwPVCKLzmcxw</span>
+</span></span></code></pre></div><p>(2)解析令牌</p>
 <p>上面创建令牌后，我们可以对JWT令牌进行解析，这里解析需要用到公钥，我们可以将之前生成的公钥public.key拷贝出来用字符串变量token存储，然后通过公钥解密。</p>
 <p>在dongyimai-user-oauth创建测试类com.offcn.token.ParseJwtTest实现解析校验令牌数据，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ParseJwtTest</span> <span style="color:#000;font-weight:bold">{</span>
@@ -1162,12 +1162,12 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
     
 ></p>
 <p>执行流程：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1、用户登录，请求认证服务 
-2、认证服务认证通过，生成jwt令牌，将jwt令牌及相关信息写入cookie 
-3、用户访问资源页面，带着cookie到网关 
-4、网关从cookie获取token，如果存在token，则校验token合法性，如果不合法则拒绝访问，否则放行 
-5、用户退出，请求认证服务，删除cookie中的token 
-</code></pre><h2 id="52-认证服务">5.2 认证服务</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">1、用户登录，请求认证服务</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">2、认证服务认证通过，生成jwt令牌，将jwt令牌及相关信息写入cookie</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">3、用户访问资源页面，带着cookie到网关</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">4、网关从cookie获取token，如果存在token，则校验token合法性，如果不合法则拒绝访问，否则放行</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">5、用户退出，请求认证服务，删除cookie中的token</span> 
+</span></span></code></pre></div><h2 id="52-认证服务">5.2 认证服务</h2>
 <h3 id="521-认证需求分析">5.2.1 认证需求分析</h3>
 <p>认证服务需要实现的功能如下：</p>
 <p>1、登录接口</p>

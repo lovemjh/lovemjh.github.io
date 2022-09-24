@@ -224,12 +224,12 @@
 <p>所谓“秒杀”，就是网络卖家发布一些超低价格的商品，所有买家在同一时间网上抢购的一种销售方式。通俗一点讲就是网络商家为促销等目的组织的网上限时抢购活动。由于商品价格低廉，往往一上架就被抢购一空，有时只用一秒钟。</p>
 <p>秒杀商品通常有两种限制：库存限制、时间限制。</p>
 <p>需求：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">（1）录入秒杀商品数据，主要包括：商品标题、原价、秒杀价、商品图片、介绍、秒杀时段等信息
-（2）秒杀频道首页列出秒杀商品（进行中的）点击秒杀商品图片跳转到秒杀商品详细页。
-（3）商品详细页显示秒杀商品信息，点击立即抢购实现秒杀下单，下单时扣减库存。当库存为0或不在活动期范围内时无法秒杀。
-（4）秒杀下单成功，直接跳转到支付页面（扫码），支付成功，跳转到成功页，填写收货地址、电话、收件人等信息，完成订单。
-（5）当用户秒杀下单5分钟内未支付，取消预订单，调用支付的关闭订单接口，恢复库存。
-</code></pre><h3 id="12-表结构说明">1.2 表结构说明</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">（1）录入秒杀商品数据，主要包括：商品标题、原价、秒杀价、商品图片、介绍、秒杀时段等信息</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">（2）秒杀频道首页列出秒杀商品（进行中的）点击秒杀商品图片跳转到秒杀商品详细页。</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">（3）商品详细页显示秒杀商品信息，点击立即抢购实现秒杀下单，下单时扣减库存。当库存为0或不在活动期范围内时无法秒杀。</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">（4）秒杀下单成功，直接跳转到支付页面（扫码），支付成功，跳转到成功页，填写收货地址、电话、收件人等信息，完成订单。</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">（5）当用户秒杀下单5分钟内未支付，取消预订单，调用支付的关闭订单接口，恢复库存。</span>
+</span></span></code></pre></div><h3 id="12-表结构说明">1.2 表结构说明</h3>
 <p><strong>秒杀商品信息表</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">TABLE</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">`</span>tb_seckill_goods<span style="color:#000;font-weight:bold">`</span><span style="color:#bbb"> </span>(<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000;font-weight:bold">`</span>id<span style="color:#000;font-weight:bold">`</span><span style="color:#bbb"> </span><span style="color:#0086b3">bigint</span>(<span style="color:#099">20</span>)<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">NOT</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">NULL</span><span style="color:#bbb"> </span>AUTO_INCREMENT,<span style="color:#bbb">
@@ -290,14 +290,14 @@
 <p>秒杀商品详情，可以通过redisTemplate.boundHashOps(key).get(key)获取详情。</p>
 <h3 id="21-秒杀服务工程">2.1 秒杀服务工程</h3>
 <p>我们将商品数据压入到Reids缓存，可以在秒杀工程的服务工程中完成，可以按照如下步骤实现：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.查询活动没结束的所有秒杀商品
-	1)状态必须为审核通过 status=1
-	2)商品库存个数&gt;0
-	3)活动没有结束  endTime&gt;=now()
-	4)在Redis中没有该商品的缓存
-	5)执行查询获取对应的结果集
-2.将活动没有结束的秒杀商品入库
-</code></pre><p>我们首先搭建一个秒杀服务工程，然后按照上面步骤实现。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.查询活动没结束的所有秒杀商品</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#008080">1)状态必须为审核通过</span> <span style="color:#d14">status=1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">	2)商品库存个数&gt;0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#008080">3)活动没有结束</span>  <span style="color:#d14">endTime&gt;=now()</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">	4)在Redis中没有该商品的缓存</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">	5)执行查询获取对应的结果集</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.将活动没有结束的秒杀商品入库</span>
+</span></span></code></pre></div><p>我们首先搭建一个秒杀服务工程，然后按照上面步骤实现。</p>
 <p>搭建dongyimai-seckill-service，作为秒杀工程的服务提供工程。</p>
 <p>(1)pom.xml依赖</p>
 <p>pom.xml</p>
@@ -329,44 +329,44 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/project&gt;</span>
 </span></span></code></pre></div><p>(2) application.yml配置</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9005
-spring:
-  application:
-    name: seckill
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.188.1:3306/dongyimaidb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC
-    username: root
-    password: root
-  rabbitmq:
-    host: 192.168.188.128 #mq的服务器地址
-    username: guest #账号
-    password: guest #密码
-  main:
-    allow-bean-definition-overriding: true
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-#hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        timeout:
-        #如果enabled设置为false，则请求超时交给ribbon控制
-          enabled: true
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-          strategy: SEMAPHORE
-</code></pre><p>(3) 导入生成文件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9005</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">seckill</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">datasource</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">driver-class-name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.mysql.jdbc.Driver</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">url</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">jdbc:mysql://192.168.188.1:3306/dongyimaidb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">rabbitmq</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">host</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.128 #mq的服务器地址</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">guest #账号</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">guest #密码</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">main</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">allow-bean-definition-overriding</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://127.0.0.1:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">prefer-ip-address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#hystrix 配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">timeout</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">#如果enabled设置为false，则请求超时交给ribbon控制</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">thread</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">timeoutInMilliseconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10000</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">strategy</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SEMAPHORE</span>
+</span></span></code></pre></div><p>(3) 导入生成文件</p>
 <p>将生成的Dao文件和Pojo文件导入到工程中，如下图：
 <img src="/posts/project-0/20220528172837/image-20220528173005196.png"
     
@@ -405,9 +405,9 @@ hystrix:
 </span></span></code></pre></div><h3 id="22-定时任务">2.2 定时任务</h3>
 <p>一会儿我们采用Spring的定时任务定时将符合参与秒杀的商品查询出来再存入到Redis缓存，所以这里需要使用到定时任务。</p>
 <p>这里我们了解下定时任务相关的配置,配置步骤如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1)在定时任务类的指定方法上加上@Scheduled开启定时任务
-2)定时任务表达式：使用cron属性来配置定时任务执行时间
-</code></pre><h4 id="221-定时任务方法配置">2.2.1 定时任务方法配置</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1)在定时任务类的指定方法上加上@Scheduled开启定时任务</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2)定时任务表达式：使用cron属性来配置定时任务执行时间</span>
+</span></span></code></pre></div><h4 id="221-定时任务方法配置">2.2.1 定时任务方法配置</h4>
 <p>创建com.offcn.seckill.timer.SeckillGoodsPushTask类，并在类中加上定时任务执行方法，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Component</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SeckillGoodsPushTask</span> <span style="color:#000;font-weight:bold">{</span>
@@ -485,56 +485,56 @@ hystrix:
 </tbody>
 </table>
 <p>使用说明：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">通配符说明:
-* 表示所有值. 例如:在分的字段上设置 &#34;*&#34;,表示每一分钟都会触发。
-
-? 表示不指定值。使用的场景为不需要关心当前设置这个字段的值。
-
-例如:要在每月的10号触发一个操作，但不关心是周几，所以需要周位置的那个字段设置为&#34;?&#34; 具体设置为 0 0 0 10 * ?
-
-- 表示区间。例如 在小时上设置 &#34;10-12&#34;,表示 10,11,12点都会触发。
-
-, 表示指定多个值，例如在周字段上设置 &#34;MON,WED,FRI&#34; 表示周一，周三和周五触发  12,14,19
-
-/ 用于递增触发。如在秒上面设置&#34;5/15&#34; 表示从5秒开始，每增15秒触发(5,20,35,50)。 在月字段上设置&#39;1/3&#39;所示每月1号开始，每隔三天触发一次。
-
-L 表示最后的意思。在日字段设置上，表示当月的最后一天(依据当前月份，如果是二月还会依据是否是润年[leap]), 在周字段上表示星期六，相当于&#34;7&#34;或&#34;SAT&#34;。如果在&#34;L&#34;前加上数字，则表示该数据的最后一个。例如在周字段上设置&#34;6L&#34;这样的格式,则表示“本月最后一个星期五&#34;
-
-W 表示离指定日期的最近那个工作日(周一至周五). 例如在日字段上设置&#34;15W&#34;，表示离每月15号最近的那个工作日触发。如果15号正好是周六，则找最近的周五(14号)触发, 如果15号是周未，则找最近的下周一(16号)触发.如果15号正好在工作日(周一至周五)，则就在该天触发。如果指定格式为 &#34;1W&#34;,它则表示每月1号往后最近的工作日触发。如果1号正是周六，则将在3号下周一触发。(注，&#34;W&#34;前只能设置具体的数字,不允许区间&#34;-&#34;).
-
-# 序号(表示每月的第几个周几)，例如在周字段上设置&#34;6#3&#34;表示在每月的第三个周六.注意如果指定&#34;#5&#34;,正好第五周没有周六，则不会触发该配置(用在母亲节和父亲节再合适不过了) ；
-</code></pre><p>常用表达式</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">0 0 10,14,16 * * ? 每天上午10点，下午2点，4点 
-0 0/30 9-17 * * ? 朝九晚五工作时间内每半小时 
-0 0 12 ? * WED 表示每个星期三中午12点 
-&#34;0 0 12 * * ?&#34; 每天中午12点触发 
-&#34;0 15 10 ? * *&#34; 每天上午10:15触发 
-&#34;0 15 10 * * ?&#34; 每天上午10:15触发 
-&#34;0 15 10 * * ? *&#34; 每天上午10:15触发 
-&#34;0 15 10 * * ? 2005&#34; 2005年的每天上午10:15触发 
-&#34;0 * 14 * * ?&#34; 在每天下午2点到下午2:59期间的每1分钟触发 
-&#34;0 0/5 14 * * ?&#34; 在每天下午2点到下午2:55期间的每5分钟触发 
-&#34;0 0/5 14,18 * * ?&#34; 在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发 
-&#34;0 0-5 14 * * ?&#34; 在每天下午2点到下午2:05期间的每1分钟触发 
-&#34;0 10,44 14 ? 3 WED&#34; 每年三月的星期三的下午2:10和2:44触发 
-&#34;0 15 10 ? * MON-FRI&#34; 周一至周五的上午10:15触发 
-&#34;0 15 10 15 * ?&#34; 每月15日上午10:15触发 
-&#34;0 15 10 L * ?&#34; 每月最后一日的上午10:15触发 
-&#34;0 15 10 ? * 6L&#34; 每月的最后一个星期五上午10:15触发 
-&#34;0 15 10 ? * 6L 2002-2005&#34; 2002年至2005年的每月的最后一个星期五上午10:15触发 
-&#34;0 15 10 ? * 6#3&#34; 每月的第三个星期五上午10:15触发
-</code></pre><h3 id="23-秒杀商品压入缓存实现">2.3 秒杀商品压入缓存实现</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">通配符说明</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">*</span> <span style="color:#d14">表示所有值. 例如:在分的字段上设置 &#34;*&#34;,表示每一分钟都会触发。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">?</span> <span style="color:#d14">表示不指定值。使用的场景为不需要关心当前设置这个字段的值。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">例如</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">要在每月的10号触发一个操作，但不关心是周几，所以需要周位置的那个字段设置为&#34;?&#34; 具体设置为 0 0 0 10 * ?</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">-</span> <span style="color:#d14">表示区间。例如 在小时上设置 &#34;10-12&#34;,表示 10,11,12点都会触发。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">,</span> <span style="color:#d14">表示指定多个值，例如在周字段上设置 &#34;MON,WED,FRI&#34; 表示周一，周三和周五触发  12,14,19</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">/</span> <span style="color:#d14">用于递增触发。如在秒上面设置&#34;5/15&#34; 表示从5秒开始，每增15秒触发(5,20,35,50)。 在月字段上设置&#39;1/3&#39;所示每月1号开始，每隔三天触发一次。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">L</span> <span style="color:#d14">表示最后的意思。在日字段设置上，表示当月的最后一天(依据当前月份，如果是二月还会依据是否是润年[leap]), 在周字段上表示星期六，相当于&#34;7&#34;或&#34;SAT&#34;。如果在&#34;L&#34;前加上数字，则表示该数据的最后一个。例如在周字段上设置&#34;6L&#34;这样的格式,则表示“本月最后一个星期五&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">W</span> <span style="color:#d14">表示离指定日期的最近那个工作日(周一至周五). 例如在日字段上设置&#34;15W&#34;，表示离每月15号最近的那个工作日触发。如果15号正好是周六，则找最近的周五(14号)触发, 如果15号是周未，则找最近的下周一(16号)触发.如果15号正好在工作日(周一至周五)，则就在该天触发。如果指定格式为 &#34;1W&#34;,它则表示每月1号往后最近的工作日触发。如果1号正是周六，则将在3号下周一触发。(注，&#34;W&#34;前只能设置具体的数字,不允许区间&#34;-&#34;).</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 序号(表示每月的第几个周几)，例如在周字段上设置&#34;6#3&#34;表示在每月的第三个周六.注意如果指定&#34;#5&#34;,正好第五周没有周六，则不会触发该配置(用在母亲节和父亲节再合适不过了) ；</span>
+</span></span></code></pre></div><p>常用表达式</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">0</span> <span style="color:#d14">0 10,14,16 * * ? 每天上午10点，下午2点，4点 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">0</span> <span style="color:#d14">0/30 9-17 * * ? 朝九晚五工作时间内每半小时 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">0</span> <span style="color:#d14">0 12 ? * WED 表示每个星期三中午12点 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">0 12 * * ?&#34; 每天中午12点触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 ? * *&#34; 每天上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 * * ?&#34; 每天上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 * * ? *&#34; 每天上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 * * ? 2005&#34; 2005年的每天上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">* 14 * * ?&#34; 在每天下午2点到下午2:59期间的每1分钟触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">0/5 14 * * ?&#34; 在每天下午2点到下午2:55期间的每5分钟触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">0/5 14,18 * * ?&#34; 在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">0-5 14 * * ?&#34; 在每天下午2点到下午2:05期间的每1分钟触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">10,44 14 ? 3 WED&#34; 每年三月的星期三的下午2:10和2:44触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 ? * MON-FRI&#34; 周一至周五的上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 15 * ?&#34; 每月15日上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 L * ?&#34; 每月最后一日的上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 ? * 6L&#34; 每月的最后一个星期五上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 ? * 6L 2002-2005&#34; 2002年至2005年的每月的最后一个星期五上午10:15触发 </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">&#34;0</span> <span style="color:#d14">15 10 ? * 6#3&#34; 每月的第三个星期五上午10:15触发</span>
+</span></span></code></pre></div><h3 id="23-秒杀商品压入缓存实现">2.3 秒杀商品压入缓存实现</h3>
 <h4 id="231-数据检索条件分析">2.3.1 数据检索条件分析</h4>
 <p>按照2.1中的几个步骤实现将秒杀商品从数据库中查询出来，并存入到Redis缓存</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.查询活动没结束的所有秒杀商品
-	1)计算秒杀时间段
-	2)状态必须为审核通过 status=1
-	3)商品库存个数&gt;0
-	4)活动没有结束  endTime&gt;now()
-	5)在Redis中没有该商品的缓存
-	6)执行查询获取对应的结果集
-2.将活动没有结束的秒杀商品入库
-</code></pre><p>上面这里会涉及到时间操作，所以这里提前准备了一个时间工具包DateUtil。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.查询活动没结束的所有秒杀商品</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">	1)计算秒杀时间段</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#008080">2)状态必须为审核通过</span> <span style="color:#d14">status=1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">	3)商品库存个数&gt;0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#008080">4)活动没有结束</span>  <span style="color:#d14">endTime&gt;now()</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">	5)在Redis中没有该商品的缓存</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">	6)执行查询获取对应的结果集</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.将活动没有结束的秒杀商品入库</span>
+</span></span></code></pre></div><p>上面这里会涉及到时间操作，所以这里提前准备了一个时间工具包DateUtil。</p>
 <h4 id="232-时间菜单分析">2.3.2 时间菜单分析</h4>
 <p><img src="/posts/project-0/20220528172837/image-20220528173024909.png"
     
@@ -546,19 +546,19 @@ W 表示离指定日期的最近那个工作日(周一至周五). 例如在日�
 ></p>
 <p>我们将商品数据从数据库中查询出来，并存入Redis缓存，但页面每次显示的时候，只显示当前正在秒杀以及往后延时2个小时、4个小时、6个小时、8个小时的秒杀商品数据。我们要做的第一个事是计算出秒杀时间菜单，这个菜单是从后台获取的。</p>
 <p>这个时间菜单的计算我们来分析下，可以先求出当前时间的凌晨，然后每2个小时后作为下一个抢购的开始时间，这样可以分出12个抢购时间段,如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">00:00-02:00
-02:00-04:00
-04:00-06:00
-06:00-08:00
-08:00-10:00
-10:00-12:00
-12:00-14:00
-14:00-16:00
-16:00-18:00
-18:00-20:00
-20:00-22:00
-22:00-00:00
-</code></pre><p>而现实的菜单只需要计算出当前时间在哪个时间段范围，该时间段范围就属于正在秒杀的时间段，而后面即将开始的秒杀时间段的计算也就出来了，可以在当前时间段基础之上+2小时、+4小时、+6小时、+8小时。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">00</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-02:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">02</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-04:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">04</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-06:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">06</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-08:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">08</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-10:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">10</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-12:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">12</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-14:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">14</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-16:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">16</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-18:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">18</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-20:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">20</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-22:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">22</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">00-00:00</span>
+</span></span></code></pre></div><p>而现实的菜单只需要计算出当前时间在哪个时间段范围，该时间段范围就属于正在秒杀的时间段，而后面即将开始的秒杀时间段的计算也就出来了，可以在当前时间段基础之上+2小时、+4小时、+6小时、+8小时。</p>
 <p>关于时间菜单的运算，在给出的DateUtil包里已经实现，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">DateUtil</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>

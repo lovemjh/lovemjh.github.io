@@ -877,19 +877,19 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 </span></span></code></pre></div><ol start="2">
 <li>在application.yml中添加配置</li>
 </ol>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
-  cloud:    
-    sentinel:
-      transport:
-        dashboard: 192.168.188.138:8080
-        port: 8719
-# 暴露/actuator/sentinel端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: &#39;*&#39;        
-</code></pre><p>注意：必须暴露 /actuator/sentinel端点；（http://localhost:8000/actuator/sentinel）</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">cloud</span><span style="color:#000;font-weight:bold">:</span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">sentinel</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">transport</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">dashboard</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.138:8080</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">8719</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 暴露/actuator/sentinel端点</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">management</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">endpoints</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">web</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">exposure</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">include</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#39;*&#39;        </span>
+</span></span></code></pre></div><p>注意：必须暴露 /actuator/sentinel端点；（http://localhost:8000/actuator/sentinel）</p>
 <p>重启nacos-consumer工程，在浏览器中反复访问：http://localhost:18080/hi</p>
 <p>再次查看sentinel控制台页面：</p>
 <p><img src="/posts/project/20220528224436/image-20220528225446243.png"
@@ -1331,21 +1331,21 @@ management:
 </span></span></code></pre></div><ol start="2">
 <li>添加配置：</li>
 </ol>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
-  cloud:    
-    sentinel:
-      transport:
-        dashboard: 192.168.188.138:8080
-        port: 8719
-      datasource:
-        consumer:
-          nacos:
-            server-addr: 192.168.188.138:8848
-            dataId: ${spring.application.name}-sentinel-rules
-            groupId: SENTINEL_GROUP
-            data-type: json
-            rule_type: flow
-</code></pre><ol start="3">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">cloud</span><span style="color:#000;font-weight:bold">:</span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">sentinel</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">transport</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">dashboard</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.138:8080</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">8719</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">datasource</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">consumer</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">nacos</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">server-addr</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.138:8848</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">dataId</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">${spring.application.name}-sentinel-rules</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">groupId</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SENTINEL_GROUP</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">data-type</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">json</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">rule_type</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">flow</span>
+</span></span></code></pre></div><ol start="3">
 <li>nacos中创建流控规则
 <img src="/posts/project/20220528224436/image-20220528230644314.png"
     
@@ -1409,13 +1409,13 @@ management:
 <ol start="2">
 <li>配置zipkin的相关信息</li>
 </ol>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:  
-  zipkin:
-    base-url: http://192.168.188.138:9411
-    discovery-client-enabled: false
-    sender:
-      type: web
-</code></pre><ol start="3">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">zipkin</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">base-url</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://192.168.188.138:9411</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">discovery-client-enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">sender</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">web</span>
+</span></span></code></pre></div><ol start="3">
 <li>重启consumer/provider服务后，访问消费者：http://localhost:18080/hi。查看zipkin客户端如下
 <img src="/posts/project/20220528224436/zipkin_client.gif"
     

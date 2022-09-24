@@ -682,25 +682,25 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>(7)application.yml配置文件</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9101
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-spring:
-  thymeleaf:
-    cache: false
-  application:
-    name: search-web
-  main:
-    allow-bean-definition-overriding: true  
-</code></pre><p>(8)项目完整结构
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9101</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://127.0.0.1:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">prefer-ip-address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">thymeleaf</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">cache</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">search-web</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">main</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">allow-bean-definition-overriding</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true  </span>
+</span></span></code></pre></div><p>(8)项目完整结构
 <img src="/posts/project-0/20220527231757/image-20220527232412682.png"
     
     
@@ -727,18 +727,18 @@ spring:
 ></p>
 <h3 id="22-搜索数据填充">2.2 搜索数据填充</h3>
 <p>后端搜索到数据后，前端页面进行数据显示，显示的数据分为3部分</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1)搜索的数据结果
-2)筛选出的数据搜索条件
-3)用户已经勾选的数据条件
-</code></pre><h3 id="23-关键字搜索">2.3 关键字搜索</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1)搜索的数据结果</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2)筛选出的数据搜索条件</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">3)用户已经勾选的数据条件</span>
+</span></span></code></pre></div><h3 id="23-关键字搜索">2.3 关键字搜索</h3>
 <p>用户每次输入关键字的时候，直接根据关键字搜索，关键字搜索的数据会存储到<code>result.rows</code>中，页面每次根据result获取rows，然后循环输出即可,同时页面的搜索框每次需要回显搜索的关键词。</p>
 <p>实现思路</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.前端表单提交搜索的关键词
-2.后端根据关键词进行搜索
-3.将搜索条件存储到Model中
-4.页面循环迭代输出数据
-5.搜索表单回显搜索的关键词
-</code></pre><p>(1)后台搜索实现</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.前端表单提交搜索的关键词</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.后端根据关键词进行搜索</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">3.将搜索条件存储到Model中</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">4.页面循环迭代输出数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">5.搜索表单回显搜索的关键词</span>
+</span></span></code></pre></div><p>(1)后台搜索实现</p>
 <p>修改SkuController的search方法，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"> * 搜索
@@ -950,9 +950,9 @@ spring:
 </span></span><span style="display:flex;"><span>			&lt;/<span style="color:#000080">div</span>&gt;
 </span></span><span style="display:flex;"><span>			<span style="color:#998;font-style:italic">&lt;!--details--&gt;</span>
 </span></span></code></pre></div><p>解释：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">th:unless:条件不满足时，才显示
-${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
-</code></pre><p>测试：访问：http://localhost:9101/search/list 输入 关键字 黑色</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">th</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">unless:条件不满足时，才显示</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">${#maps.containsKey(result,&#39;brandList&#39;)}</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">map中包含某个key</span>
+</span></span></code></pre></div><p>测试：访问：http://localhost:9101/search/list 输入 关键字 黑色</p>
 <p><img src="/posts/project-0/20220527231757/image-20220527232513672.png"
     
     
@@ -1148,9 +1148,9 @@ ${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
 </span></span><span style="display:flex;"><span>            &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;clearfix&#34;</span>&gt;&lt;/<span style="color:#000080">div</span>&gt;
 </span></span><span style="display:flex;"><span>        &lt;/<span style="color:#000080">div</span>&gt;
 </span></span></code></pre></div><p>解释：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">${#strings.startsWith(spec.key,&#39;spec_&#39;)}:表示以spec_开始的key
-${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的spec_替换成空
-</code></pre><p>(2)移除搜索条件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">${#strings.startsWith(spec.key,&#39;spec_&#39;)}</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">表示以spec_开始的key</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">表示将spec.key中的spec_替换成空</span>
+</span></span></code></pre></div><p>(2)移除搜索条件</p>
 <p>修改search.html，移除分类、品牌、价格、规格搜索条件，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!--bread--&gt;</span>
 </span></span><span style="display:flex;"><span>        &lt;<span style="color:#000080">div</span> <span style="color:#008080">class</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;bread&#34;</span>&gt;

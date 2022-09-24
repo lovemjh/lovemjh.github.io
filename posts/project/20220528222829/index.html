@@ -638,14 +638,14 @@
 <p>在 <strong><code>bootstrap.yml</code></strong> 中配置 Nacos server 的地址和应用名</p>
 </li>
 </ol>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">   spring:
-     cloud:
-       nacos:
-         config:
-           server-addr: 127.0.0.1:8848       
-     application:
-       name: nacos-provider
-</code></pre><p>说明：之所以需要配置 <code>spring.application.name</code> ，是因为它是构成 Nacos 配置管理 <code>dataId</code>字段的一部分。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span>   <span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#008080">cloud</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#008080">nacos</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008080">config</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#008080">server-addr</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">127.0.0.1:8848       </span>
+</span></span><span style="display:flex;"><span>     <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">nacos-provider</span>
+</span></span></code></pre></div><p>说明：之所以需要配置 <code>spring.application.name</code> ，是因为它是构成 Nacos 配置管理 <code>dataId</code>字段的一部分。</p>
 <p>在springboot工程中，bootstrap.yml的加载优先级更高。</p>
 <ol start="3">
 <li>
@@ -725,13 +725,13 @@
     
 ></p>
 <p>在服务提供方nacos-provider中切换命名空间，修改bootstrap.yml添加如下配置</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.188.138:8848      
-        namespace: dd56a978-fb42-45c7-9e3d-31d9fbb35815
-</code></pre><p>namespace的值为：
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">cloud</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">nacos</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">config</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">server-addr</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.138:8848      </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">namespace</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">dd56a978-fb42-45c7-9e3d-31d9fbb35815</span>
+</span></span></code></pre></div><p>namespace的值为：
 <img src="/posts/project/20220528222829/image-20220528224026083.png"
     
     
@@ -760,26 +760,26 @@
     
 ></p>
 <p>jdbc.properties:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">jdbc.url=xxxxxx
-</code></pre><p>redis.properties:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">redis.url=yyyy
-</code></pre><p>nacos-provider.properties默认加载，怎么加载另外两个配置文件？</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">jdbc.url</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">xxxxxx</span>
+</span></span></code></pre></div><p>redis.properties:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">redis.url</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">yyyy</span>
+</span></span></code></pre></div><p>nacos-provider.properties默认加载，怎么加载另外两个配置文件？</p>
 <p>在bootstrap.yml文件中添加如下配置：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.188.138:8848
-        namespace: dd56a978-fb42-45c7-9e3d-31d9fbb35815
-        extension-configs[0]:         
-          data-id: redis.properties
-          refresh: true
-        extension-configs[1]:
-          data-id: jdbc.properties
-          refresh: true
-  application:
-    name: nacos-provider
-</code></pre><p>注意老版本：是用ext-config</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">cloud</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">nacos</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">config</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">server-addr</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.138:8848</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">namespace</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">dd56a978-fb42-45c7-9e3d-31d9fbb35815</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">extension-configs[0]</span><span style="color:#000;font-weight:bold">:</span>         
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">data-id</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">redis.properties</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">refresh</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">extension-configs[1]</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">data-id</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">jdbc.properties</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">refresh</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">nacos-provider</span>
+</span></span></code></pre></div><p>注意老版本：是用ext-config</p>
 <p>修改ProviderController使用redis.properties和jdbc.properties配置文件中的参数：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RestController</span>
 </span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@RefreshScope</span>
@@ -826,18 +826,18 @@
 ></p>
 <p>现在开发环境中有两个redis.propertis配置文件，一个是默认分组（DEFAULT_GROUP），一个是provider组</p>
 <p>默认情况下从DEFAULT_GROUP分组中读取redis.properties，如果要切换到provider分组下的redis.properties，需要添加如下配置：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties"># 指定分组
-spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.188.138:8848
-        namespace: dd56a978-fb42-45c7-9e3d-31d9fbb35815
-        extension-configs[0]:
-          group: provider
-          data-id: redis.properties
-          refresh: true
-</code></pre><p>缺点：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 指定分组</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">cloud</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">nacos</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">config</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">server-addr</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.138:8848</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">namespace</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">dd56a978-fb42-45c7-9e3d-31d9fbb35815</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">extension-configs[0]</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">group</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">provider</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">data-id</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">redis.properties</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">refresh</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span></code></pre></div><p>缺点：</p>
 <p>​		将来每个分组下会有太多的配置文件，不利于维护。</p>
 <p>最佳实践：</p>
 <p>​		<strong>命名空间区分业务功能，分组区分环境。</strong></p>

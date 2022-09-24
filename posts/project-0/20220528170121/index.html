@@ -430,11 +430,11 @@
     
 ></p>
 <p>用户每次访问微服务的时候，先去oauth2.0服务登录，登录后再访问微服务网关，微服务网关将请求转发给其他微服务处理。</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.用户登录成功后，会将令牌信息存入到cookie中(一般建议存入到头文件中)
-2.用户携带Cookie中的令牌访问微服务网关
-3.微服务网关先获取头文件中的令牌信息，如果Header中没有Authorization令牌信息，则从参数中找，参数中如果没有，则取Cookie中找Authorization，最后将令牌信息封装到Header中，并调用其他微服务
-4.其他微服务会获取头文件中的Authorization令牌信息，然后匹配令牌数据是否能使用公钥解密，如果解密成功说明用户已登录，解密失败，说明用户未登录
-</code></pre><h3 id="11-令牌加入到header中">1.1 令牌加入到Header中</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.用户登录成功后，会将令牌信息存入到cookie中(一般建议存入到头文件中)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.用户携带Cookie中的令牌访问微服务网关</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">3.微服务网关先获取头文件中的令牌信息，如果Header中没有Authorization令牌信息，则从参数中找，参数中如果没有，则取Cookie中找Authorization，最后将令牌信息封装到Header中，并调用其他微服务</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">4.其他微服务会获取头文件中的Authorization令牌信息，然后匹配令牌数据是否能使用公钥解密，如果解密成功说明用户已登录，解密失败，说明用户未登录</span>
+</span></span></code></pre></div><h3 id="11-令牌加入到header中">1.1 令牌加入到Header中</h3>
 <p>修改dongyimai-gateway-web的全局过滤器com.offcn.filter.AuthorizeFilter，实现将令牌信息添加到头文件中，代码如下：
 <img src="/posts/project-0/20220528170121/image-20220528170339101.png"
     
@@ -612,14 +612,14 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#000;font-weight:bold">PRIMARY</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">KEY</span><span style="color:#bbb"> </span>(<span style="color:#000;font-weight:bold">`</span>client_id<span style="color:#000;font-weight:bold">`</span>)<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>)<span style="color:#bbb"> </span>ENGINE<span style="color:#000;font-weight:bold">=</span>InnoDB<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">DEFAULT</span><span style="color:#bbb"> </span>CHARSET<span style="color:#000;font-weight:bold">=</span>utf8;<span style="color:#bbb">
 </span></span></span></code></pre></div><p>字段说明：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">client_id：客户端id 
-resource_ids：资源id（暂时不用） 
-client_secret：客户端秘钥 
-scope：范围 
-access_token_validity：访问token的有效期（秒） 
-refresh_token_validity：刷新token的有效期（秒） 
-authorized_grant_type：授权类型:authorization_code,password,refresh_token,client_credentials    
-</code></pre><p>导入2条记录到表中，SQL如下：数据中密文为123</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">client_id：客户端id</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">resource_ids：资源id（暂时不用）</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">client_secret：客户端秘钥</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">scope：范围</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">access_token_validity：访问token的有效期（秒）</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">refresh_token_validity：刷新token的有效期（秒）</span> 
+</span></span><span style="display:flex;"><span><span style="color:#008080">authorized_grant_type：授权类型</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">authorization_code,password,refresh_token,client_credentials    </span>
+</span></span></code></pre></div><p>导入2条记录到表中，SQL如下：数据中密文为123</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">INTO</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">`</span>oauth_client_details<span style="color:#000;font-weight:bold">`</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#d14">&#39;dongyimai&#39;</span>,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">null</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;$2a$10$8DclUiu2LEG99cTGXdpzVOwoqbJY.IZ7qXClQ.uOM8Gq9fDx/eXhO&#39;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;app&#39;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;authorization_code,password,refresh_token,client_credentials&#39;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;http://localhost&#39;</span>,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">null</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;432000000&#39;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;432000000&#39;</span>,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">null</span>,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">null</span>);<span style="color:#bbb">
 </span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#000;font-weight:bold">INSERT</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">INTO</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">`</span>oauth_client_details<span style="color:#000;font-weight:bold">`</span><span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">VALUES</span><span style="color:#bbb"> </span>(<span style="color:#d14">&#39;ujiuye&#39;</span>,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">null</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;$2a$10$8DclUiu2LEG99cTGXdpzVOwoqbJY.IZ7qXClQ.uOM8Gq9fDx/eXhO&#39;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;app&#39;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;authorization_code,password,refresh_token,client_credentials&#39;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;http://localhost&#39;</span>,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">null</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;432000000&#39;</span>,<span style="color:#bbb"> </span><span style="color:#d14">&#39;432000000&#39;</span>,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">null</span>,<span style="color:#bbb"> </span><span style="color:#000;font-weight:bold">null</span>);<span style="color:#bbb">
 </span></span></span></code></pre></div><p>上述表结构属于SpringSecurity Oauth2.0所需的一个认证表结构，不能随意更改。相关操作在其他类中有所体现，如：<code>org.springframework.security.oauth2.provider.client.JdbcClientDetailsService</code>中的片段代码如下：
@@ -653,15 +653,15 @@ authorized_grant_type：授权类型:authorization_code,password,refresh_token,c
     
 ></p>
 <p>上图代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
-  application:
-    name: oauth2
-  datasource:
-    url: jdbc:mysql://localhost:3306/dongyimaidb
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-</code></pre><p>(3)修改客户端加载源</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">oauth2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">datasource</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">url</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">jdbc:mysql://localhost:3306/dongyimaidb</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">driver-class-name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.mysql.cj.jdbc.Driver</span>
+</span></span></code></pre></div><p>(3)修改客户端加载源</p>
 <p>修改dongyimai-user-oauth的com.offcn.oauth.config.AuthorizationServerConfig类的configure方法，将之前静态的客户端数据变成从数据库加载，修改如下：</p>
 <p><strong>修改前：</strong>
 <img src="/posts/project-0/20220528170121/image-20220528170452866.png"
@@ -1032,41 +1032,41 @@ authorized_grant_type：授权类型:authorization_code,password,refresh_token,c
 ></p>
 <p>(2)application.yml配置</p>
 <p>在dongyimai-service-order的resources中添加application.yml配置文件，代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9008
-spring:
-  application:
-    name: order
-  datasource:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/dongyimaidb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8
-      username: root
-      password: root
-      type: com.alibaba.druid.pool.DruidDataSource
-  redis:
-    host: 192.168.188.138
-    port: 6379
-  main:
-    allow-bean-definition-overriding: true
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
-    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期    
-feign:
-  hystrix:
-    enabled: true
-mybatis-plus:
-  configuration:
-    map-underscore-to-camel-case: true  #开启驼峰式编写规范
-  type-aliases-package: com.offcn.order.pojo
-# 配置sql打印日志
-logging:
-  level:
-    com.offcn: debug
-</code></pre><p>(3)创建启动类</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9008</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">order</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">datasource</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">driver-class-name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.mysql.cj.jdbc.Driver</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">url</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">jdbc:mysql://localhost:3306/dongyimaidb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">type</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.alibaba.druid.pool.DruidDataSource</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">redis</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">host</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.138</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">6379</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">main</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">allow-bean-definition-overriding</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://localhost:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">lease-renewal-interval-in-seconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">5 # 每隔5秒发送一次心跳</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">lease-expiration-duration-in-seconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10 # 10秒不发送就过期    </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">mybatis-plus</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">configuration</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">map-underscore-to-camel-case</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true  #开启驼峰式编写规范</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">type-aliases-package</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">com.offcn.order.pojo</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"># 配置sql打印日志</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">logging</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">level</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">com.offcn</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">debug</span>
+</span></span></code></pre></div><p>(3)创建启动类</p>
 <p>在dongyimai-service-order的<code>com.offcn.order</code>中创建启动类，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span>
 </span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableDiscoveryClient</span>
@@ -1546,16 +1546,16 @@ logging:
 <p>我们发现ServletRequestAttributes始终为空，原因是RequestContextHolder.getRequestAttributes()该方法是从ThreadLocal变量里面取得相应信息的，当hystrix断路器的隔离策略为THREAD时，是无法取得ThreadLocal中的值。</p>
 <p>解决方案：开启熔断，并将hystrix隔离策略换为SEMAPHORE</p>
 <p>修改dongyimai-order-service的application.yml配置文件，在application.yml中添加如下代码，代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">#hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-          strategy: SEMAPHORE
-</code></pre><p>再次测试(注意要重新登陆、使用生成的令牌进行访问)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#hystrix 配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">thread</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">timeoutInMilliseconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10000</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">strategy</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">SEMAPHORE</span>
+</span></span></code></pre></div><p>再次测试(注意要重新登陆、使用生成的令牌进行访问)</p>
 <p><img src="/posts/project-0/20220528170121/image-20220528170911280.png"
     
     
@@ -1589,14 +1589,14 @@ hystrix:
     
 ></p>
 <p>上图代码如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">#购物车微服务
-      - id: dongyimai_order_route
-        uri: lb://ORDER
-        predicates:
-          - Path=/api/cart/**,/api/order/**,/api/orderItem/**
-        filters:
-          - StripPrefix=1
-</code></pre><p>这里注意使用的是yml格式，所以上面代码中的空格也一并记得拷贝到application.yml文件中。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#购物车微服务</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">-</span> <span style="color:#d14">id: dongyimai_order_route</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">uri</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">lb://ORDER</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">predicates</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">-</span> <span style="color:#d14">Path=/api/cart/**,/api/order/**,/api/orderItem/**</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">filters</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">-</span> <span style="color:#d14">StripPrefix=1</span>
+</span></span></code></pre></div><p>这里注意使用的是yml格式，所以上面代码中的空格也一并记得拷贝到application.yml文件中。</p>
 <p>(2)过滤配置</p>
 <p>在微服务网关<code>dongyimai-gateway-web</code>中添加<code>com.offcn.filter.URLFilter</code>过滤类，用于过滤需要用户登录的地址，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">URLFilter</span> <span style="color:#000;font-weight:bold">{</span>

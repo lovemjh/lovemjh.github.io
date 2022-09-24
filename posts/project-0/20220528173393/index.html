@@ -782,19 +782,19 @@
     
 ></p>
 <p>如上图，步骤分析如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.用户抢单，经过秒杀系统实现抢单，下单后会将向MQ发送一个延时队列消息，包含抢单信息，延时半小时后才能监听到
-2.秒杀系统同时启用延时消息监听，一旦监听到订单抢单信息，判断Redis缓存中是否存在订单信息，如果存在，则回滚
-3.秒杀系统还启动支付回调信息监听，如果支付完成，则将订单持久化到MySQL，如果没完成，清理排队信息回滚库存
-4.每次秒杀下单后调用支付系统，创建二维码，如果用户支付成功了，支付宝平台会将支付信息发送给支付系统指定的回调地址，支付系统收到信息后，将信息发送给MQ，第3个步骤就可以监听到消息了。
-</code></pre><h3 id="34-支付回调更新">3.4 支付回调更新</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.用户抢单，经过秒杀系统实现抢单，下单后会将向MQ发送一个延时队列消息，包含抢单信息，延时半小时后才能监听到</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.秒杀系统同时启用延时消息监听，一旦监听到订单抢单信息，判断Redis缓存中是否存在订单信息，如果存在，则回滚</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">3.秒杀系统还启动支付回调信息监听，如果支付完成，则将订单持久化到MySQL，如果没完成，清理排队信息回滚库存</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">4.每次秒杀下单后调用支付系统，创建二维码，如果用户支付成功了，支付宝平台会将支付信息发送给支付系统指定的回调地址，支付系统收到信息后，将信息发送给MQ，第3个步骤就可以监听到消息了。</span>
+</span></span></code></pre></div><h3 id="34-支付回调更新">3.4 支付回调更新</h3>
 <p>支付回调这一块代码已经实现了，但之前实现的是订单信息的回调数据发送给MQ，指定了对应的队列，不过现在需要实现的是秒杀信息发送给指定队列，所以之前的代码那块需要动态指定队列。</p>
 <h4 id="341-支付回调队列指定">3.4.1 支付回调队列指定</h4>
 <p>关于指定队列如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.创建支付二维码需要指定队列
-2.回调地址回调的时候，获取支付二维码指定的队列，将支付信息发送到指定队列中
-</code></pre><p>在支付宝支付统一下单API中，有一个附加参数,如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">body:附加数据,String(127)，在查询API和支付通知中原样返回，可作为自定义参数使用。
-</code></pre><p>我们可以在创建二维码的时候，指定该参数，该参数用于指定回调支付信息的对应队列，每次回调的时候，会获取该参数，然后将回调信息发送到该参数对应的队列去。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.创建支付二维码需要指定队列</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.回调地址回调的时候，获取支付二维码指定的队列，将支付信息发送到指定队列中</span>
+</span></span></code></pre></div><p>在支付宝支付统一下单API中，有一个附加参数,如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">body</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">附加数据,String(127)，在查询API和支付通知中原样返回，可作为自定义参数使用。</span>
+</span></span></code></pre></div><p>我们可以在创建二维码的时候，指定该参数，该参数用于指定回调支付信息的对应队列，每次回调的时候，会获取该参数，然后将回调信息发送到该参数对应的队列去。</p>
 <h5 id="3411-在预下单时传递队列信息">3.4.1.1 在预下单时传递队列信息</h5>
 <p>修改支付微服务的PayServiceImpl的createNative方法，代码如下：</p>
 <p><img src="/posts/project-0/20220528173393/image-20220528173753655.png"
@@ -846,13 +846,13 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">return</span> map<span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>我们创建二维码的时候，需要将下面几个参数传递过去</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">username:用户名,可以根据用户名查询用户排队信息
-out_trade_no：商户订单号，下单必须
-total_fee：支付金额，支付必须
-queue：队列名字，回调的时候，可以知道将支付信息发送到哪个队列
-routingkey:路由的名称
-exchange：交换机名称
-</code></pre><p>修改主启动类PayApplication，添加对应队列以及对应交换机绑定，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">用户名,可以根据用户名查询用户排队信息</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">out_trade_no：商户订单号，下单必须</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">total_fee：支付金额，支付必须</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">queue：队列名字，回调的时候，可以知道将支付信息发送到哪个队列</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">routingkey</span><span style="color:#000;font-weight:bold">:</span><span style="color:#d14">路由的名称</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">exchange：交换机名称</span>
+</span></span></code></pre></div><p>修改主启动类PayApplication，添加对应队列以及对应交换机绑定，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span><span style="color:#000;font-weight:bold">(</span>exclude <span style="color:#000;font-weight:bold">=</span> DataSourceAutoConfiguration<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableEurekaClient</span>
@@ -887,16 +887,16 @@ exchange：交换机名称
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>修改application.yml，添加如下配置</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">#位置支付交换机和队列
-mq:
-  pay:
-    exchange:     
-      seckillorder: exchange.seckillorder
-    queue:     
-      seckillorder: queue.seckillorder
-    routing:     
-      seckillkey: queue.seckillorder
-</code></pre><h5 id="3412-测试">3.4.1.2 测试</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#位置支付交换机和队列</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">mq</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">pay</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">exchange</span><span style="color:#000;font-weight:bold">:</span>     
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillorder</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">exchange.seckillorder</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">queue</span><span style="color:#000;font-weight:bold">:</span>     
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillorder</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillorder</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">routing</span><span style="color:#000;font-weight:bold">:</span>     
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillkey</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillorder</span>
+</span></span></code></pre></div><h5 id="3412-测试">3.4.1.2 测试</h5>
 <p>使用Postman创建二维码测试</p>
 <p>http://localhost:9006/pay/create/native?username=test001&amp;out_trade_no=1132510782836314121&amp;total_fee=1&amp;queue=queue.seckillorder&amp;routingkey=queue.seckillorder&amp;exchange=exchange.seckillorder</p>
 <p><img src="/posts/project-0/20220528173393/image-20220528173803950.png"
@@ -1074,16 +1074,16 @@ mq:
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>修改application.yml文件，添加如下配置：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">#位置支付交换机和队列
-mq:
-  pay:
-    exchange:     
-      seckillorder: exchange.seckillorder
-    queue:     
-      seckillorder: queue.seckillorder
-    routing:     
-      seckillkey: queue.seckillorder
-</code></pre><h4 id="343-修改订单状态">3.4.3 修改订单状态</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#位置支付交换机和队列</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">mq</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">pay</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">exchange</span><span style="color:#000;font-weight:bold">:</span>     
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillorder</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">exchange.seckillorder</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">queue</span><span style="color:#000;font-weight:bold">:</span>     
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillorder</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillorder</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">routing</span><span style="color:#000;font-weight:bold">:</span>     
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillkey</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillorder</span>
+</span></span></code></pre></div><h4 id="343-修改订单状态">3.4.3 修改订单状态</h4>
 <p>监听到支付信息后，根据支付信息判断，如果用户支付成功，则修改订单信息，并将订单入库，删除用户排队信息，如果用户支付失败，则删除订单信息，回滚库存，删除用户排队信息。</p>
 <h5 id="3431-业务层">3.4.3.1 业务层</h5>
 <p>修改SeckillOrderService，添加修改订单方法，代码如下</p>
@@ -1419,15 +1419,15 @@ x-dead-letter-exchange：出现dead letter之后将dead letter重新发送到指
 </span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;/dependencies&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/project&gt;</span>
 </span></span></code></pre></div><p>application.yml配置</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
-  application:
-    name: springboot-demo
-  rabbitmq:
-    host: 192.168.188.128
-    port: 5672
-    password: guest
-    username: guest
-</code></pre><h5 id="4232-队列创建">4.2.3.2 队列创建</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">springboot-demo</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">rabbitmq</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">host</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.128</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">5672</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">password</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">guest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">username</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">guest</span>
+</span></span></code></pre></div><h5 id="4232-队列创建">4.2.3.2 队列创建</h5>
 <p>创建2个队列，用于接收消息的叫延时队列queue.message.delay，用于转发消息的队列叫queue.message，同时创建一个交换机，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Configuration</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">QueueConfig</span> <span style="color:#000;font-weight:bold">{</span>
@@ -1575,11 +1575,11 @@ x-dead-letter-exchange：出现dead letter之后将dead letter重新发送到指
     
 ></p>
 <p>如上图，步骤分析如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.用户抢单，经过秒杀系统实现抢单，下单后会将向MQ发送一个延时队列消息，包含抢单信息，延时半小时后才能监听到
-2.秒杀系统同时启用延时消息监听，一旦监听到订单抢单信息，判断Redis缓存中是否存在订单信息，如果存在，则回滚
-3.秒杀系统还启动支付回调信息监听，如果支付完成，则将订单持久化到MySQL，如果没完成，清理排队信息回滚库存
-4.每次秒杀下单后调用支付系统，创建二维码，如果用户支付成功了，支付宝平台会将支付信息发送给支付系统指定的回调地址，支付系统收到信息后，将信息发送给MQ，第3个步骤就可以监听到消息了。
-</code></pre><p>延时队列实现订单关闭回滚库存：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.用户抢单，经过秒杀系统实现抢单，下单后会将向MQ发送一个延时队列消息，包含抢单信息，延时半小时后才能监听到</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.秒杀系统同时启用延时消息监听，一旦监听到订单抢单信息，判断Redis缓存中是否存在订单信息，如果存在，则回滚</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">3.秒杀系统还启动支付回调信息监听，如果支付完成，则将订单持久化到MySQL，如果没完成，清理排队信息回滚库存</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">4.每次秒杀下单后调用支付系统，创建二维码，如果用户支付成功了，支付宝平台会将支付信息发送给支付系统指定的回调地址，支付系统收到信息后，将信息发送给MQ，第3个步骤就可以监听到消息了。</span>
+</span></span></code></pre></div><p>延时队列实现订单关闭回滚库存：</p>
 <pre tabindex="0"><code>1.创建一个过期队列  Queue1
 2.接收消息的队列    Queue2
 3.中转交换机
@@ -1656,20 +1656,20 @@ x-dead-letter-exchange：出现dead letter之后将dead letter重新发送到指
 <h3 id="53-关闭订单回滚库存">5.3 关闭订单回滚库存</h3>
 <h4 id="531-配置延时队列">5.3.1 配置延时队列</h4>
 <p>在application.yml文件中引入队列信息配置，如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">#位置支付交换机和队列
-mq:
-  pay:
-    exchange:
-      seckillorder: exchange.seckillorder
-      seckillordertimer: exchange.seckillordertimer
-    queue:
-      seckillorder: queue.seckillorder
-      seckillordertimer: queue.seckillordertimer
-      seckillordertimerdelay: queue.seckillordertimerdelay
-    routing:
-      seckillkey: queue.seckillorder
-      seckillordertimerkey: queue.seckillordertime
-</code></pre><p>配置队列与交换机,在SeckillApplication中添加如下方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#998;font-style:italic">#位置支付交换机和队列</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">mq</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">pay</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">exchange</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillorder</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">exchange.seckillorder</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillordertimer</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">exchange.seckillordertimer</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">queue</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillorder</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillorder</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillordertimer</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillordertimer</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillordertimerdelay</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillordertimerdelay</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">routing</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillkey</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillorder</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">seckillordertimerkey</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">queue.seckillordertime</span>
+</span></span></code></pre></div><p>配置队列与交换机,在SeckillApplication中添加如下方法</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#998;font-style:italic">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * 到期数据队列
 </span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">     * @return

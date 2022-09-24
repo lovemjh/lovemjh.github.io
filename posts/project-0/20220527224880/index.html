@@ -233,8 +233,8 @@
 <p>由于我们之前已经使用过elasticsearch了，这里不再对它进行过多的介绍了，直接下载安装，本章节将采用Docker安装，不过在市面上还有很多采用linxu安装，关于linux安装，已经提供了安装手册，这里就不讲了。</p>
 <p>我们之前已经使用过elasticsearch了，这里不再对它进行介绍了，直接下载安装，本章节将采用Docker安装，不过在市面上还有很多采用linxu安装，关于linux安装，已经提供了安装手册，这里就不讲了。</p>
 <h2 id="1docker镜像下载">(1)docker镜像下载</h2>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker pull elasticsearch:7.7.0
-</code></pre><p>注意：建议还原镜像备份文件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">pull elasticsearch:7.7.0</span>
+</span></span></code></pre></div><p>注意：建议还原镜像备份文件</p>
 <pre tabindex="0"><code>docker load -i elasticsearch7.7.tar
 </code></pre><h2 id="2安装es容器">(2)安装es容器</h2>
 <p>因为elasticsearch在启动的时候会进行一些检查，比如最多打开的文件的个数以及虚拟内存区域数量等等，所以我们需要先进行系统调优，需要在虚拟机下设置<code>max_map_count</code>，否则elasticsearch容器会启动不起来
@@ -243,8 +243,8 @@
 </span></span></code></pre></div><p>重新设置<code>max_map_count</code>的值</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sysctl -w vm.max_map_count<span style="color:#000;font-weight:bold">=</span><span style="color:#099">262144</span>
 </span></span></code></pre></div><p>然后执行运行容器命令，如下</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker run -di --name dym_es -p 9200:9200 -p 9300:9300 -e &#34;discovery.type=single-node&#34; -e &#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;  elasticsearch:7.7.0 
-</code></pre><p>命令解释：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">run -di --name dym_es -p 9200:9200 -p 9300:9300 -e &#34;discovery.type=single-node&#34; -e &#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34;  elasticsearch:7.7.0 </span>
+</span></span></code></pre></div><p>命令解释：</p>
 <p>9200端口(Web管理平台端口)  9300(服务默认端口)</p>
 <p><code>-e ES_JAVA_OPTS=&quot;-Xms512m -Xmx512m&quot;</code>是设置占用内存大小，一般线上检索服务器-ES服务器32G，这里就小一点测试</p>
 <p><code>-e &quot;discovery.type=single-node&quot;</code>这个是设置单节点运行</p>
@@ -253,11 +253,11 @@
 <p>拷贝命令：</p>
 <pre tabindex="0"><code>docker cp dym_es:/usr/share/elasticsearch/config/elasticsearch.yml /root/elasticsearch.yml
 </code></pre><p>编辑elasticsearch.yml</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">cluster.name: my-application
-http.cors.enabled: true
-http.cors.allow-origin: &#34;*&#34;
-network.host: 0.0.0.0
-</code></pre><p>其中：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">cluster.name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">my-application</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">http.cors.enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">http.cors.allow-origin</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">network.host</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">0.0.0.0</span>
+</span></span></code></pre></div><p>其中：</p>
 <p>cluster.name：自定义集群名称。
 network.host：当前es节点绑定的ip地址，默认127.0.0.1，如果需要开放对外访问这个属性必须设置。http.cors.enabled: true：此步为允许elasticsearch跨域访问，默认是false。
 <code>http.cors.allow-origin: &quot;*&quot;</code>：表示跨域访问允许的域名地址（*表示任意）。</p>
@@ -274,24 +274,24 @@ network.host：当前es节点绑定的ip地址，默认127.0.0.1，如果需要�
     
 ></p>
 <p>小提示：如果想让容器开启重启，可以执行下面命令</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker update --restart=always dym_es
-</code></pre><h1 id="二ik分词器安装">二、IK分词器安装</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">update --restart=always dym_es</span>
+</span></span></code></pre></div><h1 id="二ik分词器安装">二、IK分词器安装</h1>
 <p>(1)安装ik分词器</p>
 <p>IK分词器下载地址https://github.com/medcl/elasticsearch-analysis-ik/releases</p>
 <p>上传分词器压缩文件到linux服务器，拷贝文件到ES容器</p>
 <pre tabindex="0"><code>docker cp /root/elasticsearch-analysis-ik-7.7.0.zip   dym_es:/usr/share/elasticsearch/plugins/elasticsearch-analysis-ik-7.7.0.zip
 </code></pre><p>进入容器安装ik分词器</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker exec -it dym_es /bin/bash
-cd  /usr/share/elasticsearch/plugins/
-</code></pre><p>在plugins目录下安装ik分词器，ik分词器需要和es版本一致</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">exec -it dym_es /bin/bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">cd</span>  <span style="color:#d14">/usr/share/elasticsearch/plugins/</span>
+</span></span></code></pre></div><p>在plugins目录下安装ik分词器，ik分词器需要和es版本一致</p>
 <p>使用上传的插件压缩包安装：</p>
 <pre tabindex="0"><code>mkdir ik
 mv elasticsearch-analysis-ik-7.7.0.zip  ik/
 cd ik
 unzip elasticsearch-analysis-ik-7.7.0.zip
 </code></pre><p>也可以基于网络安装：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.7.0/elasticsearch-analysis-ik-7.7.0.zip
-</code></pre><p>退出容器并重启</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">elasticsearch-plugin</span> <span style="color:#d14">install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.7.0/elasticsearch-analysis-ik-7.7.0.zip</span>
+</span></span></code></pre></div><p>退出容器并重启</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker restart dym_es
 </span></span></code></pre></div><p>测试安装成功，地址栏输入：</p>
 <p>http://192.168.188.128:9200/_cat/plugins
@@ -318,13 +318,13 @@ unzip elasticsearch-analysis-ik-7.7.0.zip
 <h3 id="31--kibana下载安装">3.1  Kibana下载安装</h3>
 <p>我们项目中不再使用linux，直接使用Docker，所有这里就不演示在windows的下载安装了。</p>
 <p>(1)镜像下载</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker pull kibana:7.7.0
-</code></pre><p>为了节省时间,建议还原虚拟机备份文件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">pull kibana:7.7.0</span>
+</span></span></code></pre></div><p>为了节省时间,建议还原虚拟机备份文件</p>
 <pre tabindex="0"><code>docker load -i kibana7.7.tar
 </code></pre><p>(2)安装kibana容器</p>
 <p>执行如下命令，开始安装kibana容器</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker run -di --link dym_es:elasticsearch --name kibana --restart=always -p 5601:5601 kibana:7.7.0
-</code></pre><p>restart=always:每次服务都会重启，也就是开启启动</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">docker</span> <span style="color:#d14">run -di --link dym_es:elasticsearch --name kibana --restart=always -p 5601:5601 kibana:7.7.0</span>
+</span></span></code></pre></div><p>restart=always:每次服务都会重启，也就是开启启动</p>
 <p>5601:5601:端口号</p>
 <p>(3)访问测试</p>
 <p>访问<code>http://192.168.188.128:5601</code>如下：
@@ -556,35 +556,35 @@ Query DSL当作是一系列的抽象的查询表达式树(AST)特定查询能够
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000080">&lt;/project&gt;</span>
 </span></span></code></pre></div><p><strong>application.yml配置</strong></p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9005
-spring:
-  application:
-    name: search
-  elasticsearch:
-    rest:
-      uris: 192.168.188.128:9200  #此处配置elasticsearch的访问地址  
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-#超时配置
-ribbon:
-  ReadTimeout: 300000
-
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
-</code></pre><p>(3)启动类</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">server</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">port</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">9005</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">spring</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">application</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">search</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">elasticsearch</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">rest</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">uris</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">192.168.188.128:9200  #此处配置elasticsearch的访问地址  </span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">eureka</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">client</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">service-url</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">defaultZone</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">http://127.0.0.1:8761/eureka</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">instance</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">prefer-ip-address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">feign</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">enabled</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic">#超时配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">ribbon</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">ReadTimeout</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">300000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">hystrix</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008080">command</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008080">default</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008080">execution</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008080">isolation</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008080">thread</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008080">timeoutInMilliseconds</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#d14">10000</span>
+</span></span></code></pre></div><p>(3)启动类</p>
 <p>创建SearchApplication作为搜索微服务工程的启动类，代码如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@SpringBootApplication</span><span style="color:#000;font-weight:bold">(</span>exclude <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>DruidDataSourceAutoConfigure<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">,</span> DataSourceAutoConfiguration<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@EnableEurekaClient</span>
@@ -614,17 +614,17 @@ hystrix:
     
 ></p>
 <p>数据导入流程如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.请求search服务,调用数据导入地址
-2.根据注册中心中的注册的goods服务的地址，使用Feign方式查询所有已经审核的Sku
-3.使用SpringData Es将查询到的Sku集合导入到ES中
-</code></pre><h4 id="431-文档映射bean创建">4.3.1 文档映射Bean创建</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.请求search服务,调用数据导入地址</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.根据注册中心中的注册的goods服务的地址，使用Feign方式查询所有已经审核的Sku</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">3.使用SpringData</span> <span style="color:#d14">Es将查询到的Sku集合导入到ES中</span>
+</span></span></code></pre></div><h4 id="431-文档映射bean创建">4.3.1 文档映射Bean创建</h4>
 <p>搜索商品的时候，会根据如下属性搜索数据,并且不是所有的属性都需要分词搜索，我们创建JavaBean，将JavaBean数据存入到ES中要以搜索条件和搜索展示结果为依据，部分关键搜索条件分析如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.可能会根据商品名称搜索，而且可以搜索商品名称中的任意一个词语，所以需要分词
-2.可能会根据商品分类搜索，商品分类不需要分词
-3.可能会根据商品品牌搜索，商品品牌不需要分词
-4.可能会根据商品商家搜索，商品商家不需要分词
-5.可能根据规格进行搜索，规格时一个键值对结构，用Map
-</code></pre><p>根据上面的分析，我们可以在dongyimai-search-service-api工程中创建com.offcn.search.pojo.SkuInfo，如下</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">1.可能会根据商品名称搜索，而且可以搜索商品名称中的任意一个词语，所以需要分词</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">2.可能会根据商品分类搜索，商品分类不需要分词</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">3.可能会根据商品品牌搜索，商品品牌不需要分词</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">4.可能会根据商品商家搜索，商品商家不需要分词</span>
+</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">5.可能根据规格进行搜索，规格时一个键值对结构，用Map</span>
+</span></span></code></pre></div><p>根据上面的分析，我们可以在dongyimai-search-service-api工程中创建com.offcn.search.pojo.SkuInfo，如下</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#3c5d5d;font-weight:bold">@Document</span><span style="color:#000;font-weight:bold">(</span>indexName <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;skuinfo&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SkuInfo</span> <span style="color:#000;font-weight:bold">implements</span> Serializable <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">//商品id，同时也是商品编号

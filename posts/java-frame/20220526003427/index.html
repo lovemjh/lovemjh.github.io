@@ -1512,11 +1512,11 @@ Spring提供了ioc容器，管理jdbc操作数据库的过程中需要的数据�
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><h3 id="六创建并编写配置文件配置容器管理对象">（六）创建并编写配置文件：配置容器管理对象</h3>
 <p>将数据库的连接信息抽取到外部配置文件中，和spring的配置文件分离开，有利于后期维护</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">jdbc.driver=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://localhost:3306/test
-jdbc.username=root
-jdbc.password=root
-</code></pre><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!--数据源对象--&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#008080">jdbc.driver</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">com.mysql.jdbc.Driver</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">jdbc.url</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">jdbc:mysql://localhost:3306/test</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">jdbc.username</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">root</span>
+</span></span><span style="display:flex;"><span><span style="color:#008080">jdbc.password</span><span style="color:#000;font-weight:bold">=</span><span style="color:#d14">root</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#998;font-style:italic">&lt;!--数据源对象--&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000080">&lt;bean</span> <span style="color:#008080">id=</span><span style="color:#d14">&#34;dataSource&#34;</span> <span style="color:#008080">class=</span><span style="color:#d14">&#34;com.mchange.v2.c3p0.ComboPooledDataSource&#34;</span><span style="color:#000080">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;property</span> <span style="color:#008080">name=</span><span style="color:#d14">&#34;driverClass&#34;</span> <span style="color:#008080">value=</span><span style="color:#d14">&#34;${jdbc.driver}&#34;</span><span style="color:#000080">/&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000080">&lt;property</span> <span style="color:#008080">name=</span><span style="color:#d14">&#34;jdbcUrl&#34;</span> <span style="color:#008080">value=</span><span style="color:#d14">&#34;${jdbc.url}&#34;</span><span style="color:#000080">/&gt;</span>

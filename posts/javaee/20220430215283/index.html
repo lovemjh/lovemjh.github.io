@@ -1,99 +1,521 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="description" content="Servlet - https://lovemjh.github.io/posts/javaee/20220430215283/">
+<html><head>
+  
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <title>Servlet</title>
+  <meta name="description" content="MJH Blog & MEET HTML Theme">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <script type="text/javascript">
+    if (!!window.ActiveXObject || "ActiveXObject" in window) { 
+      alert('朋友，上古浏览器不支持呢~');
+    }
+  </script>
+  <style>
+    .page-list {
+      height: 18em;
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 20px;
+      margin-bottom: 2em;
+      box-shadow: 2px 4px 6px #000;
+      display: flex;
+    }
+
+    .page-img {
+      float: left;
+      display: block;
+      width: 40%;
+      height: 100%;
+      border-radius: 20px 0px 0px 20px;
+      background-color: yellow;
+      background-image: url(https://api.ixiaowai.cn/api/api.php);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      -moz-background-size: 100% 100%;
+    }
+
+    .page-mian {
+      float: left;
+      display: block;
+      width: 60%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0);
+       
+      padding: 0% 2% 0% 2%;
+    }
+
+    .page-Title a {
+      text-decoration: none;
+      font-size: 22px;
+      color: rgb(0, 0, 0);
+    }
+
+    .page-Content a {
+      text-decoration: none;
+      font-size: 16px;
+      color: rgb(0, 0, 0);
+    }
+
+
+    .ull {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.263);
+      height: 50px;
+      margin: 0px;
+    }
+
+    .ull a {
+      text-decoration: none;
+      font-size: 22px;
+      color: rgb(255, 255, 255);
+    }
+
+    .lii {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    .btn {
+      width: 120px;
+      height: 40px;
+      background: linear-gradient(315deg, #a4d8fa 0%, #5eb1e9 74%);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: smaller;
+      color: #fff;
+      box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+      outline: none;
+      position: relative;
+      z-index: 0;
+    }
+
+    .btn::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      background: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      top: 0;
+      height: 100%;
+    }
+
+    .btn:active {
+      top: 2px;
+    }
+
+
+
+
+
+
+
+
+
+
+    @media screen and (max-width: 1080px) {
+
+       
+      .navigation {
+        display: none;
+      }
+
+      .page-list {
+        height: 25em;
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 20px;
+        margin-bottom: 2em;
+        box-shadow: 2px 4px 6px #000;
+        display: block;
+      }
+
+      .page-img {
+        width: 100%;
+        height: 40%;
+        border-radius: 20px 20px 0px 0px;
+        background-color: yellow;
+        background-image: url(https://api.ixiaowai.cn/api/api.php);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+      }
+
+      .page-mian {
+        width: 100%;
+        height: 60%;
+        background-color: rgba(0, 0, 0, 0);
+         
+        padding: 0% 2% 0% 2%;
+      }
+      
+    }
+  </style>
+
+
+
+
+  <style>
+    a.toc-link {
+        color: currentColor;
+        height: auto;
+      }
+
+     
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 6px
+    }
+
+     
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em
+    }
+
+     
+    ::-webkit-scrollbar-thumb {
+      background-color: #30B07F;
+      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 100%, transparent 100%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em
+    }
+  </style>
+  <style>
+    .sidebar {
+      z-index: 998;
+      position: fixed;
+      left: -200px;
+      width: 200px;
+      height: 100%;
+      background: #ffffff;
+      transition: all .5s ease;
+    }
+
+    .sidebar .top {
+      font-size: 22px;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      height: 60px;
+      line-height: 60px;
+      background-color: rgb(255, 255, 255);
+      user-select: none;
+
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      line-height: 45px;
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      box-sizing: border-box;
+      border-top: 1px solid rgb(255, 0, 0);
+      border-bottom: 1px solid rgb(0, 17, 255);
+      transition: .4s;
+    }
+
+    ul li:hover a {
+      padding-left: 30px;
+      color: #7c4242;
+      border-left: 5px solid #ffffff;
+      transition: all 0.5s;
+    }
+
+    .sidebar ul a i {
+      margin-right: 16px;
+    }
+
+    #check {
+      display: none;
+    }
+
+    label #btn,
+    label #cancel {
+      position: fixed;
+      cursor: pointer;
+      background-color: #000000;
+      border-radius: 3px;
+    }
+
+    label #btn {
+      left: 5px;
+      top: 7px;
+      font-size: 25px;
+      color: #fff;
+      padding: 6px 10px;
+      transition: all .5s;
+      z-index: 999;
+    }
+
+    label #cancel {
+      z-index: 999;
+      left: -145px;
+      top: 10px;
+      font-size: 25px;
+      color: rgb(255, 255, 255);
+      padding: 4px 9px;
+      transition: all .5s ease;
+    }
+
+    #check:checked~.sidebar {
+      left: 0;
+    }
+
+    #check:checked~label #btn {
+      left: 10px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #check:checked~label #cancel {
+      left: 150px;
+    }
+
+     
+    .navigation {
+      width: 100%;
+      height: 50px;
+      background-color: rgba(208, 240, 121, 0.184);
+      position: fixed;
+      left: 0;
+      top: 0;
+      text-align: center;
+      transition: top 0.5s;
+      z-index: 999;
+    }
+
+     
+    .hide {
+      top: -60px;
+    }
+  </style>
+</head><body style="background-image:url(https://api.ixiaowai.cn/api/api.php); 
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-attachment:fixed"><input type="checkbox" id="check">
+<label for="check">
+  <i class="fa fa-bars" id="btn"></i>
+  <i class="fa fa-times" id="cancel"></i>
+</label>
+<div class="sidebar">
+  <div class="top">Hi~</div>
+  <ul>
     
-    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
-    <title>Servlet</title>
-    <link rel="icon" type="image/png" href="/favicon.ico">
+    <li class="lii">
+      <a href="/">
+        <div class="burger-item">
+          <i class='fa fa-home'></i> Home
+        </div>
+      </a>
+    </li>
     
-    <link rel="stylesheet" href="https://lovemjh.github.io/style.min.824365c118b34524ce845ac2a294220354719cca11af5b27a81b04c173bbba57.css">
+    <li class="lii">
+      <a href="/posts">
+        <div class="burger-item">
+          <i class='fa fa-book'></i> Posts
+        </div>
+      </a>
+    </li>
     
-    <script type="text/javascript" src="/main.js" defer></script>
+    <li class="lii">
+      <a href="/archive">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> Archive
+        </div>
+      </a>
+    </li>
     
-</head>
-<body class="active-animate cool">
-        <div id="header"><div class="container-header">
-    <div id="vars" class="container-vars" style="display: none;">
-	{
-		"hasFoldAllCodeBlocks": false,
-		"svgColor": "#6c757d",
-		"en": false,
-		"dark": false
-	}
+    <li class="lii">
+      <a href="/categories">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> Categories
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/tags">
+        <div class="burger-item">
+          <i class='fa fa-tags'></i> Tags
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/about">
+        <div class="burger-item">
+          <i class='fa fa-info-circle'></i> About
+        </div>
+      </a>
+    </li>
+    
+  </ul>
 </div>
-    <h1 class="title">
+<div id="body-wrap content"><nav class="navigation">
+  <ul class="ull">
+    
+    <li class="lii">
+      <a href="/">
+        <div class="burger-item">
+          <i class='fa fa-home'></i> Home
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/posts">
+        <div class="burger-item">
+          <i class='fa fa-book'></i> Posts
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/archive">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> Archive
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/categories">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> Categories
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/tags">
+        <div class="burger-item">
+          <i class='fa fa-tags'></i> Tags
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/about">
+        <div class="burger-item">
+          <i class='fa fa-info-circle'></i> About
+        </div>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+  <div style="width: 100%; height: 60vh;">
+    <div id="page_site-info">
+      <div id="site-title">
+        <input type="checkbox" id="check">
+        <br>
+        <span class="blogtitle"></span>
         
-            Servlet
+        
+        <div class="post-header">
+          <span>
             
-        
-    </h1>
-
-    <div class="container-breadcrumb-nav">
-    
-    <div class="breadcrumb-nav-bar">
-        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
-        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
-        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
-        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
-        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
-        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
-        
-    </div>
-
-    
-</div>
-
-            <div id="toc">📜</div>
-        
-    
-    
-</div>
-</div>
-        <div id="content">
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container-main 
-     container-page 
-">
-
-    <div class="desc">
-        
-        <span>
-            
-            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            <i class="fa fa-calendar"></i>
             2021-12-05&nbsp;
-        </span>
-        <span>
+          </span>
+          <span>
             
-            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            <i class="fa fa-calendar-check-o"></i>
             2021-12-05&nbsp;&nbsp;&nbsp;
-        </span>
-        <span>
+          </span>
+          <span>
             
-            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-            3398 字</span>&nbsp;
-        <span>
+            <i class="fa fa-edit"></i>
+            3637 字
+          </span>&nbsp;
+          <span>
             
-            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-            7 分钟</span><div class="container-ctgtag">
+            <i class="fa fa-paper-plane"></i>
+            8 分钟
+          </span>
+        </div>
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+        <script>
+          var typed = new Typed(".blogtitle", {
+            strings: ['Servlet'],
+            startDelay: 300,
+            typeSpeed: 100,
+            loop: true,
+            backSpeed: 50,
+            showCursor: true
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  
+<main id="content-outer">
+    <div class="layout_page" id="content-inner">
+        <article id="page" style="margin-right: 10px;">
+            <div class="cover-content post">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">/posts/javaee/20220430215283/ </a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Servlet</li>
+                  </ol>
+                </nav>
+                
+                <div class="post-header">
+                  <span>
+                    
+                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+                    2021-12-05&nbsp;
+                </span>
+                <span>
+                    
+                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+                    2021-12-05&nbsp;&nbsp;&nbsp;
+                </span>
+                <span>
+                    
+                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
+                    3637 字</span>&nbsp;
+                <span>
+                    
+                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
+                    8 分钟</span>
+                </div><div class="container-ctgtag">
 	<div class="taxonomy">
 		
 		<div class="ctg">
 			
-			
-			<a href="/categories/"></a>
 			
 		</div>
 		<div class="tag">
@@ -104,87 +526,9 @@
 			
 		</div>
 	</div>
-</div>
-    </div>
-    
-    <div class="toc">
-        
-        <div class="page-operation">
-            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
-            <div><a href="https://lovemjh.github.io/posts/javaee/20220430215286/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
-            <div><a href="https://lovemjh.github.io/posts/java-2/20220430214396/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
-        </div>
-        
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#请求与响应">请求与响应</a>
-      <ul>
-        <li><a href="#一请求">一、请求</a>
-          <ul>
-            <li><a href="#1-理解">1. 理解</a></li>
-            <li><a href="#2-作用">2. 作用</a></li>
-            <li><a href="#3-使用">3. 使用</a></li>
-          </ul>
-        </li>
-        <li><a href="#二响应">二、响应</a>
-          <ul>
-            <li><a href="#1-理解-1">1. 理解</a></li>
-            <li><a href="#2-作用-1">2. 作用</a></li>
-            <li><a href="#3-使用-1">3. 使用</a>
-              <ul>
-                <li><a href="#-文本">① 文本</a></li>
-                <li><a href="#-字节">② 字节</a></li>
-              </ul>
-            </li>
-            <li><a href="#4-重定向">4. 重定向</a></li>
-          </ul>
-        </li>
-        <li><a href="#三转发和重定向区别">三、转发和重定向区别</a></li>
-        <li><a href="#四作业">四、作业</a></li>
-      </ul>
-    </li>
-    <li><a href="#共享域">共享域</a>
-      <ul>
-        <li><a href="#1-理解-2">1. 理解</a></li>
-        <li><a href="#2-分类">2. 分类</a></li>
-        <li><a href="#3-作用">3. 作用</a></li>
-        <li><a href="#4-使用">4. 使用</a></li>
-      </ul>
-    </li>
-    <li><a href="#cookie-和-session">Cookie 和 session</a>
-      <ul>
-        <li><a href="#一会话">一、会话</a>
-          <ul>
-            <li><a href="#1理解">1.理解</a></li>
-            <li><a href="#2-作用-2">2. 作用</a></li>
-            <li><a href="#3-会话技术">3. 会话技术</a></li>
-          </ul>
-        </li>
-        <li><a href="#二cookie">二、Cookie</a>
-          <ul>
-            <li><a href="#1-理解-3">1. 理解</a></li>
-            <li><a href="#2-使用">2. 使用</a></li>
-            <li><a href="#3-场景">3. 场景</a></li>
-            <li><a href="#4-特点">4. 特点</a></li>
-          </ul>
-        </li>
-        <li><a href="#三session">三、session</a>
-          <ul>
-            <li><a href="#1-理解-4">1. 理解</a></li>
-            <li><a href="#2-使用-1">2. 使用</a></li>
-            <li><a href="#3-场景-1">3. 场景</a></li>
-            <li><a href="#4-特点-1">4. 特点</a></li>
-            <li><a href="#5-总结">5. 总结</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
-
-    <div class='content  content '>
-        <h1 id="请求与响应">请求与响应</h1>
+</div></div>
+            <div class="js-toc-content">
+                <h1 id="请求与响应">请求与响应</h1>
 <h2 id="一请求">一、请求</h2>
 <h3 id="1-理解">1. 理解</h3>
 <pre tabindex="0"><code>ServletRequest接口  ----&gt; HttpServletRequest子接口 ----&gt;HttpServletRequestWrapper 实现类
@@ -193,79 +537,162 @@
     ③ 在核心方法中直接使用
     定义将客户端请求信息提供给某个 servlet 的对象。servlet 容器创建 ServletRequest 对象，并将该对象作为参数传递给该 servlet 的 service 方法。
 </code></pre><h3 id="2-作用">2. 作用</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>作用<span style="color:#a61717;background-color:#e3d2d2">：</span>获取请求信息<span style="color:#a61717;background-color:#e3d2d2">：</span> 请求行  请求头 请求正文
-</span></span></code></pre></div><h3 id="3-使用">3. 使用</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> 获取请求行信息
-</span></span><span style="display:flex;"><span>        String scheme <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getScheme</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;协议：&#34;</span><span style="color:#000;font-weight:bold">+</span>scheme<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        String serverName <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getServerName</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;主机名：&#34;</span><span style="color:#000;font-weight:bold">+</span>serverName<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#458;font-weight:bold">int</span> serverPort <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getServerPort</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;端口号：&#34;</span><span style="color:#000;font-weight:bold">+</span>serverPort<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        String contextPath <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getContextPath</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;项目名：&#34;</span><span style="color:#000;font-weight:bold">+</span>contextPath<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        String method <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getMethod</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;请求方式：&#34;</span><span style="color:#000;font-weight:bold">+</span>method<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        StringBuffer requestURL <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequestURL</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;请求URL：&#34;</span><span style="color:#000;font-weight:bold">+</span>requestURL<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>2<span style="color:#000;font-weight:bold">.</span> 获取请求头信息
-</span></span><span style="display:flex;"><span>        String accept <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Accept&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;accept：&#34;</span><span style="color:#000;font-weight:bold">+</span>accept<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;------------------------------------------&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>        Enumeration<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> headerNames <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getHeaderNames</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span>headerNames<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">hasMoreElements</span><span style="color:#000;font-weight:bold">()){</span>
-</span></span><span style="display:flex;"><span>            String name <span style="color:#000;font-weight:bold">=</span> headerNames<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">nextElement</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>            String value <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getHeader</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;：&#34;</span><span style="color:#000;font-weight:bold">+</span>value<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>3<span style="color:#000;font-weight:bold">.</span> <span style="color:#900;font-weight:bold">获取请求正文</span><span style="color:#000;font-weight:bold">(</span>重点<span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">·</span> 获取URL拼接参数
-</span></span><span style="display:flex;"><span>    	<span style="color:#998;font-style:italic">//① 根据一个name获取一个value
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    	String value <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;name&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a61717;background-color:#e3d2d2">·</span> 获取表单数据
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// ② 获取一个name对应多个value
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>        String<span style="color:#000;font-weight:bold">[]</span> values <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameterValues</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;name&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>		
-</span></span><span style="display:flex;"><span>        <span style="color:#998;font-style:italic">// ③ 获取表单中所有的name 
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	   Enumeration<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">&gt;</span> names <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameterNames</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	   <span style="color:#998;font-style:italic">// ④ 获取全部的name和 value
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	   Map<span style="color:#000;font-weight:bold">&lt;</span>String<span style="color:#000;font-weight:bold">,</span> String<span style="color:#000;font-weight:bold">[]&gt;</span> map <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameterMap</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>4<span style="color:#000;font-weight:bold">.</span> BeanUtils实现map映射实体类对象
-</span></span><span style="display:flex;"><span>     <span style="color:#a61717;background-color:#e3d2d2">①</span> 下载导包 commons<span style="color:#000;font-weight:bold">-</span>beanutils<span style="color:#000;font-weight:bold">-</span>1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">8</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">3</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">jar</span> commons<span style="color:#000;font-weight:bold">-</span>logging<span style="color:#000;font-weight:bold">-</span>1<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">jar</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#a61717;background-color:#e3d2d2">②</span> 使用
-</span></span><span style="display:flex;"><span>    	BeanUtils<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">populate</span><span style="color:#000;font-weight:bold">(</span>要映射对象<span style="color:#000;font-weight:bold">,</span> map数据<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>		要求<span style="color:#a61717;background-color:#e3d2d2">：</span>表单的name值 和 实体类的属性名 一致
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>5<span style="color:#000;font-weight:bold">.</span> 请求中文乱码
-</span></span><span style="display:flex;"><span>        request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setCharacterEncoding</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;utf-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>6<span style="color:#000;font-weight:bold">.</span> 案例<span style="color:#a61717;background-color:#e3d2d2">：</span>注册案例
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>7<span style="color:#000;font-weight:bold">.</span> 转发
-</span></span><span style="display:flex;"><span>    理解<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    	客户端请求资源ServletA时<span style="color:#a61717;background-color:#e3d2d2">，</span>ServletA资源不足或者没有<span style="color:#a61717;background-color:#e3d2d2">，</span>请求其他的资源<span style="color:#000;font-weight:bold">(</span>页面<span style="color:#a61717;background-color:#e3d2d2">、</span>Servlet<span style="color:#000;font-weight:bold">),</span>再响应给客户端<span style="color:#a61717;background-color:#e3d2d2">。</span>请求其他的资源的过程叫做转发
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    使用<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>   	<span style="color:#998;font-style:italic">// 1. 获取转发器
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>     RequestDispatcher rd <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getRequestDispatcher</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;要转发资源的路径&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span> 	<span style="color:#998;font-style:italic">// 2. 请求转发
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	rd<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">forward</span><span style="color:#000;font-weight:bold">(</span>request<span style="color:#000;font-weight:bold">,</span> response<span style="color:#000;font-weight:bold">);</span> <span style="color:#998;font-style:italic">// 完全转发
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>	rd<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">include</span><span style="color:#000;font-weight:bold">(</span>request<span style="color:#000;font-weight:bold">,</span> response<span style="color:#000;font-weight:bold">);</span> <span style="color:#998;font-style:italic">// 部分转发
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>  使用场景<span style="color:#a61717;background-color:#e3d2d2">：</span>跳转页面 如<span style="color:#a61717;background-color:#e3d2d2">：</span>注册成功跳转登录页
-</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225032891.png"
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">作用</span><span class="err">：</span><span class="n">获取请求信息</span><span class="err">：</span> <span class="n">请求行</span>  <span class="n">请求头</span> <span class="n">请求正文</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-使用">3. 使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">获取请求行信息</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">scheme</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getScheme</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;协议：&#34;</span><span class="o">+</span><span class="n">scheme</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">serverName</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getServerName</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;主机名：&#34;</span><span class="o">+</span><span class="n">serverName</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">serverPort</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getServerPort</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;端口号：&#34;</span><span class="o">+</span><span class="n">serverPort</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">contextPath</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getContextPath</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;项目名：&#34;</span><span class="o">+</span><span class="n">contextPath</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getMethod</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;请求方式：&#34;</span><span class="o">+</span><span class="n">method</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">StringBuffer</span> <span class="n">requestURL</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestURL</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;请求URL：&#34;</span><span class="o">+</span><span class="n">requestURL</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">获取请求头信息</span>
+</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">accept</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getHeader</span><span class="o">(</span><span class="s">&#34;Accept&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;accept：&#34;</span><span class="o">+</span><span class="n">accept</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;------------------------------------------&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">headerNames</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getHeaderNames</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="o">(</span><span class="n">headerNames</span><span class="o">.</span><span class="na">hasMoreElements</span><span class="o">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">headerNames</span><span class="o">.</span><span class="na">nextElement</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getHeader</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;：&#34;</span><span class="o">+</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="nf">获取请求正文</span><span class="o">(</span><span class="n">重点</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">获取URL拼接参数</span>
+</span></span><span class="line"><span class="cl">    	<span class="c1">//① 根据一个name获取一个value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    	<span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">获取表单数据</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// ② 获取一个name对应多个value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameterValues</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">        <span class="c1">// ③ 获取表单中所有的name 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	   <span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameterNames</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	   <span class="c1">// ④ 获取全部的name和 value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	   <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">[]&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameterMap</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">BeanUtils实现map映射实体类对象</span>
+</span></span><span class="line"><span class="cl">     <span class="err">①</span> <span class="n">下载导包</span> <span class="n">commons</span><span class="o">-</span><span class="n">beanutils</span><span class="o">-</span><span class="n">1</span><span class="o">.</span><span class="na">8</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">jar</span> <span class="n">commons</span><span class="o">-</span><span class="n">logging</span><span class="o">-</span><span class="n">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">jar</span>
+</span></span><span class="line"><span class="cl">     <span class="err">②</span> <span class="n">使用</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">BeanUtils</span><span class="o">.</span><span class="na">populate</span><span class="o">(</span><span class="n">要映射对象</span><span class="o">,</span> <span class="n">map数据</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">要求</span><span class="err">：</span><span class="n">表单的name值</span> <span class="n">和</span> <span class="n">实体类的属性名</span> <span class="n">一致</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">请求中文乱码</span>
+</span></span><span class="line"><span class="cl">        <span class="n">request</span><span class="o">.</span><span class="na">setCharacterEncoding</span><span class="o">(</span><span class="s">&#34;utf-8&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">6</span><span class="o">.</span> <span class="n">案例</span><span class="err">：</span><span class="n">注册案例</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">7</span><span class="o">.</span> <span class="n">转发</span>
+</span></span><span class="line"><span class="cl">    <span class="n">理解</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">客户端请求资源ServletA时</span><span class="err">，</span><span class="n">ServletA资源不足或者没有</span><span class="err">，</span><span class="n">请求其他的资源</span><span class="o">(</span><span class="n">页面</span><span class="err">、</span><span class="n">Servlet</span><span class="o">),</span><span class="n">再响应给客户端</span><span class="err">。</span><span class="n">请求其他的资源的过程叫做转发</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">使用</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">   	<span class="c1">// 1. 获取转发器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">RequestDispatcher</span> <span class="n">rd</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="s">&#34;要转发资源的路径&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 	<span class="c1">// 2. 请求转发
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">rd</span><span class="o">.</span><span class="na">forward</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span> <span class="c1">// 完全转发
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">rd</span><span class="o">.</span><span class="na">include</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span> <span class="c1">// 部分转发
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="n">使用场景</span><span class="err">：</span><span class="n">跳转页面</span> <span class="n">如</span><span class="err">：</span><span class="n">注册成功跳转登录页</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/posts/JavaEE/20220430215283/image-20220430225032891.png"
     
     
     
@@ -275,62 +702,142 @@
 ></p>
 <h2 id="二响应">二、响应</h2>
 <h3 id="1-理解-1">1. 理解</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>	定义辅助 servlet 将响应发送到客户端的对象<span style="color:#a61717;background-color:#e3d2d2">。</span>servlet 容器创建 ServletResponse 对象<span style="color:#a61717;background-color:#e3d2d2">，</span>并将它作为参数传递给 servlet 的 service 方法<span style="color:#a61717;background-color:#e3d2d2">。</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a61717;background-color:#e3d2d2">①</span> 是Servlet中处理响应的对象
-</span></span><span style="display:flex;"><span>      <span style="color:#a61717;background-color:#e3d2d2">②</span> 是Servlet容器 创建的
-</span></span><span style="display:flex;"><span>      <span style="color:#a61717;background-color:#e3d2d2">③</span> 作为核心方法的参数 开发者只需要在核心方法中使用
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>   ServletResponse接口 <span style="color:#000;font-weight:bold">----&gt;</span> HttpServletResponse子接口 <span style="color:#000;font-weight:bold">----&gt;</span> HttpServletResponseWrapper 实现了
-</span></span></code></pre></div><h3 id="2-作用-1">2. 作用</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Servlet中处理响应客户端的对象<span style="color:#a61717;background-color:#e3d2d2">。</span>可以响应文本<span style="color:#a61717;background-color:#e3d2d2">，</span>也可以响应字节
-</span></span></code></pre></div><h3 id="3-使用-1">3. 使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">定义辅助</span> <span class="n">servlet</span> <span class="n">将响应发送到客户端的对象</span><span class="err">。</span><span class="n">servlet</span> <span class="n">容器创建</span> <span class="n">ServletResponse</span> <span class="n">对象</span><span class="err">，</span><span class="n">并将它作为参数传递给</span> <span class="n">servlet</span> <span class="n">的</span> <span class="n">service</span> <span class="n">方法</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">      <span class="err">①</span> <span class="n">是Servlet中处理响应的对象</span>
+</span></span><span class="line"><span class="cl">      <span class="err">②</span> <span class="n">是Servlet容器</span> <span class="n">创建的</span>
+</span></span><span class="line"><span class="cl">      <span class="err">③</span> <span class="n">作为核心方法的参数</span> <span class="n">开发者只需要在核心方法中使用</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">   <span class="n">ServletResponse接口</span> <span class="o">----&gt;</span> <span class="n">HttpServletResponse子接口</span> <span class="o">----&gt;</span> <span class="n">HttpServletResponseWrapper</span> <span class="n">实现了</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-作用-1">2. 作用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Servlet中处理响应客户端的对象</span><span class="err">。</span><span class="n">可以响应文本</span><span class="err">，</span><span class="n">也可以响应字节</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-使用-1">3. 使用</h3>
 <h4 id="-文本">① 文本</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>响应文本<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    PrintWriter writer <span style="color:#000;font-weight:bold">=</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getWriter</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>    writer<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;I am server, 这是文本信息&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>中文乱码问题解决<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setContentType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;text/html; charset=utf-8&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span></code></pre></div><h4 id="-字节">② 字节</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>响应字节<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    ServletOutputStream sos <span style="color:#000;font-weight:bold">=</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutputStream</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>文件下载案例<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    文件从服务器 <span style="color:#000;font-weight:bold">----&gt;</span> 客户端 <span style="color:#000;font-weight:bold">----&gt;</span> 下载到本地磁盘
-</span></span><span style="display:flex;"><span>     <span style="color:#998;font-style:italic">// 1. 获取请求信息
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>     String filename <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getParameter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;filename&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 2. 实现下载：读入到内存  然后写出到客户端  再由客户端下载到本地
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 3. 读入内存
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// 3.1 获取web目录下资源的真实路径
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    String realPath <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getServletContext</span><span style="color:#000;font-weight:bold">().</span><span style="color:#008080">getRealPath</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;img/&#34;</span> <span style="color:#000;font-weight:bold">+</span> filename<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// System.out.println(realPath);
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>    FileInputStream fis <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> FileInputStream<span style="color:#000;font-weight:bold">(</span>realPath<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 告诉浏览器 该文件需要下载
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setHeader</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Content-Disposition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#d14">&#34;attchment;filename=&#34;</span><span style="color:#000;font-weight:bold">+</span>filename<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 4. 写出到客户端 
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    ServletOutputStream sos <span style="color:#000;font-weight:bold">=</span> response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getOutputStream</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 5. 边读边写
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[]</span> buff <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">byte</span><span style="color:#000;font-weight:bold">[</span>2<span style="color:#000;font-weight:bold">*</span>1024<span style="color:#000;font-weight:bold">];</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#458;font-weight:bold">int</span> len <span style="color:#000;font-weight:bold">=</span> 0<span style="color:#000;font-weight:bold">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">while</span><span style="color:#000;font-weight:bold">((</span>len<span style="color:#000;font-weight:bold">=</span>fis<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">read</span><span style="color:#000;font-weight:bold">(</span>buff<span style="color:#000;font-weight:bold">))!=-</span>1<span style="color:#000;font-weight:bold">){</span>
-</span></span><span style="display:flex;"><span>        sos<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">flush</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>        sos<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">write</span><span style="color:#000;font-weight:bold">(</span>buff<span style="color:#000;font-weight:bold">,</span> 0<span style="color:#000;font-weight:bold">,</span> len<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#998;font-style:italic">// 6. 关闭
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>    sos<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>    fis<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">close</span><span style="color:#000;font-weight:bold">();</span>
-</span></span></code></pre></div><h3 id="4-重定向">4. 重定向</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>理解<span style="color:#a61717;background-color:#e3d2d2">：</span>	
-</span></span><span style="display:flex;"><span>	客户端请求ServletA资源<span style="color:#a61717;background-color:#e3d2d2">，</span>ServletA没有资源ServletA响应客户端携带302状态码和重定向的url地址<span style="color:#a61717;background-color:#e3d2d2">。</span>客户端立刻对重定向的地址发送请求<span style="color:#a61717;background-color:#e3d2d2">。</span>这个过程称为重定向
-</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225040929.png"
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应文本</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">PrintWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writer</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&#34;I am server, 这是文本信息&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">中文乱码问题解决</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">&#34;text/html; charset=utf-8&#34;</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="-字节">② 字节</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应字节</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ServletOutputStream</span> <span class="n">sos</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">文件下载案例</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">文件从服务器</span> <span class="o">----&gt;</span> <span class="n">客户端</span> <span class="o">----&gt;</span> <span class="n">下载到本地磁盘</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// 1. 获取请求信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&#34;filename&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 2. 实现下载：读入到内存  然后写出到客户端  再由客户端下载到本地
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 3. 读入内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 3.1 获取web目录下资源的真实路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span> <span class="n">realPath</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getServletContext</span><span class="o">().</span><span class="na">getRealPath</span><span class="o">(</span><span class="s">&#34;img/&#34;</span> <span class="o">+</span> <span class="n">filename</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// System.out.println(realPath);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">realPath</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 告诉浏览器 该文件需要下载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">response</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&#34;Content-Disposition&#34;</span><span class="o">,</span> <span class="s">&#34;attchment;filename=&#34;</span><span class="o">+</span><span class="n">filename</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 4. 写出到客户端 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ServletOutputStream</span> <span class="n">sos</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 5. 边读边写
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">byte</span><span class="o">[]</span> <span class="n">buff</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">2</span><span class="o">*</span><span class="n">1024</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="o">((</span><span class="n">len</span><span class="o">=</span><span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buff</span><span class="o">))!=-</span><span class="n">1</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sos</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">buff</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">len</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 6. 关闭
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">sos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-重定向">4. 重定向</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span>	
+</span></span><span class="line"><span class="cl">	<span class="n">客户端请求ServletA资源</span><span class="err">，</span><span class="n">ServletA没有资源ServletA响应客户端携带302状态码和重定向的url地址</span><span class="err">。</span><span class="n">客户端立刻对重定向的地址发送请求</span><span class="err">。</span><span class="n">这个过程称为重定向</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/posts/JavaEE/20220430215283/image-20220430225040929.png"
     
     
     
@@ -338,55 +845,151 @@
     
     
 ></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>实现<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">sendRedirect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;重定向地址&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>使用场景<span style="color:#a61717;background-color:#e3d2d2">：</span>跳转页面 如<span style="color:#a61717;background-color:#e3d2d2">：</span>登录成功跳转首页
-</span></span></code></pre></div><h2 id="三转发和重定向区别">三、转发和重定向区别</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>转发特点<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> 转发是由请求发起的
-</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">.</span> 发生在服务器内部
-</span></span><span style="display:flex;"><span>    3<span style="color:#000;font-weight:bold">.</span> 转发过程中请求地址不变 
-</span></span><span style="display:flex;"><span>    4<span style="color:#000;font-weight:bold">.</span> 转发只能转发内部资源
-</span></span><span style="display:flex;"><span>    5<span style="color:#000;font-weight:bold">.</span> 转发可以转发WEB<span style="color:#000;font-weight:bold">-</span>INF中的资源
-</span></span><span style="display:flex;"><span>    6<span style="color:#000;font-weight:bold">.</span> 表单提交完成之后转发不可以刷新当前页面
-</span></span><span style="display:flex;"><span>重定向特点<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    1<span style="color:#000;font-weight:bold">.</span> 重定向是由响应发起的
-</span></span><span style="display:flex;"><span>    2<span style="color:#000;font-weight:bold">.</span> 发生在客户端与服务器之间
-</span></span><span style="display:flex;"><span>    3<span style="color:#000;font-weight:bold">.</span> 重定向过程请求地址发生变化
-</span></span><span style="display:flex;"><span>    4<span style="color:#000;font-weight:bold">.</span> 重定向既可以重定向内部资源 也可以重定向外部资源
-</span></span><span style="display:flex;"><span>    5<span style="color:#000;font-weight:bold">.</span> 重定向不可以重定向WEB<span style="color:#000;font-weight:bold">-</span>INF下的资源
-</span></span><span style="display:flex;"><span>    6<span style="color:#000;font-weight:bold">.</span> 表单提交完成之后重定向可以刷新当前页面
-</span></span></code></pre></div><h2 id="四作业">四、作业</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>实现登录和注册功能
-</span></span></code></pre></div><h1 id="共享域">共享域</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">(</span><span class="s">&#34;重定向地址&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">使用场景</span><span class="err">：</span><span class="n">跳转页面</span> <span class="n">如</span><span class="err">：</span><span class="n">登录成功跳转首页</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="三转发和重定向区别">三、转发和重定向区别</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">转发特点</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">转发是由请求发起的</span>
+</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">发生在服务器内部</span>
+</span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">转发过程中请求地址不变</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">4</span><span class="o">.</span> <span class="n">转发只能转发内部资源</span>
+</span></span><span class="line"><span class="cl">    <span class="n">5</span><span class="o">.</span> <span class="n">转发可以转发WEB</span><span class="o">-</span><span class="n">INF中的资源</span>
+</span></span><span class="line"><span class="cl">    <span class="n">6</span><span class="o">.</span> <span class="n">表单提交完成之后转发不可以刷新当前页面</span>
+</span></span><span class="line"><span class="cl"><span class="n">重定向特点</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">重定向是由响应发起的</span>
+</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">发生在客户端与服务器之间</span>
+</span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">重定向过程请求地址发生变化</span>
+</span></span><span class="line"><span class="cl">    <span class="n">4</span><span class="o">.</span> <span class="n">重定向既可以重定向内部资源</span> <span class="n">也可以重定向外部资源</span>
+</span></span><span class="line"><span class="cl">    <span class="n">5</span><span class="o">.</span> <span class="n">重定向不可以重定向WEB</span><span class="o">-</span><span class="n">INF下的资源</span>
+</span></span><span class="line"><span class="cl">    <span class="n">6</span><span class="o">.</span> <span class="n">表单提交完成之后重定向可以刷新当前页面</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="四作业">四、作业</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现登录和注册功能</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="共享域">共享域</h1>
 <h2 id="1-理解-2">1. 理解</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> 在Servlet可以实现数据共享的对象<span style="color:#a61717;background-color:#e3d2d2">。</span>  
-</span></span></code></pre></div><h2 id="2-分类">2. 分类</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">①</span> ServletContext 范围最大 可以在项目的任何地方实现数据的共享
-</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">②</span> session   范围 一次会话中 实现数据的共享
-</span></span><span style="display:flex;"><span><span style="color:#a61717;background-color:#e3d2d2">③</span> request   范围 一次请求中 实现数据的共享
-</span></span></code></pre></div><h2 id="3-作用">3. 作用</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>实现Servlet与Servlet之间 或者 Servlet与页面之间  数据的共享
-</span></span></code></pre></div><h2 id="4-使用">4. 使用</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>保存数据到共享域<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    setAttribute<span style="color:#000;font-weight:bold">(</span>String name<span style="color:#000;font-weight:bold">,</span> Object value<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>取共享域数据<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    getAttribute<span style="color:#000;font-weight:bold">(</span>String name<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>删除共享域数据
-</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">removeAttribute</span><span style="color:#000;font-weight:bold">(</span>String name<span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><h1 id="cookie-和-session">Cookie 和 session</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">在Servlet可以实现数据共享的对象</span><span class="err">。</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2-分类">2. 分类</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">ServletContext</span> <span class="n">范围最大</span> <span class="n">可以在项目的任何地方实现数据的共享</span>
+</span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="n">session</span>   <span class="n">范围</span> <span class="n">一次会话中</span> <span class="n">实现数据的共享</span>
+</span></span><span class="line"><span class="cl"><span class="err">③</span> <span class="n">request</span>   <span class="n">范围</span> <span class="n">一次请求中</span> <span class="n">实现数据的共享</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-作用">3. 作用</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现Servlet与Servlet之间</span> <span class="n">或者</span> <span class="n">Servlet与页面之间</span>  <span class="n">数据的共享</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4-使用">4. 使用</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">保存数据到共享域</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Object</span> <span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">取共享域数据</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">getAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">删除共享域数据</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">removeAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="cookie-和-session">Cookie 和 session</h1>
 <h2 id="一会话">一、会话</h2>
 <h3 id="1理解">1.理解</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> 	客户端发送请求到服务器<span style="color:#a61717;background-color:#e3d2d2">，</span>连接成功会话开始<span style="color:#a61717;background-color:#e3d2d2">，</span>只有连接不断开整个过程就属于一次会话<span style="color:#a61717;background-color:#e3d2d2">。</span>从连接成功开始 到 服务器或者客户端断开结束<span style="color:#a61717;background-color:#e3d2d2">。</span>在此期间的任何请求 任何资源都属于该次会话<span style="color:#a61717;background-color:#e3d2d2">。</span>
-</span></span></code></pre></div><h3 id="2-作用-2">2. 作用</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> 	由于HTTP协议<span style="color:#a61717;background-color:#e3d2d2">，</span>无状态的特点<span style="color:#a61717;background-color:#e3d2d2">。</span>每次请求都是一次新的会话<span style="color:#a61717;background-color:#e3d2d2">，</span>有时候需要重复验证<span style="color:#a61717;background-color:#e3d2d2">。</span>所以用户体验太差<span style="color:#a61717;background-color:#e3d2d2">，</span>要解决这种问题 使用会话技术<span style="color:#a61717;background-color:#e3d2d2">。</span>
-</span></span></code></pre></div><h3 id="3-会话技术">3. 会话技术</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Cookie  客户端会话
-</span></span><span style="display:flex;"><span>session 服务器端会话
-</span></span></code></pre></div><h2 id="二cookie">二、Cookie</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">客户端发送请求到服务器</span><span class="err">，</span><span class="n">连接成功会话开始</span><span class="err">，</span><span class="n">只有连接不断开整个过程就属于一次会话</span><span class="err">。</span><span class="n">从连接成功开始</span> <span class="n">到</span> <span class="n">服务器或者客户端断开结束</span><span class="err">。</span><span class="n">在此期间的任何请求</span> <span class="n">任何资源都属于该次会话</span><span class="err">。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-作用-2">2. 作用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">由于HTTP协议</span><span class="err">，</span><span class="n">无状态的特点</span><span class="err">。</span><span class="n">每次请求都是一次新的会话</span><span class="err">，</span><span class="n">有时候需要重复验证</span><span class="err">。</span><span class="n">所以用户体验太差</span><span class="err">，</span><span class="n">要解决这种问题</span> <span class="n">使用会话技术</span><span class="err">。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-会话技术">3. 会话技术</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cookie</span>  <span class="n">客户端会话</span>
+</span></span><span class="line"><span class="cl"><span class="n">session</span> <span class="n">服务器端会话</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="二cookie">二、Cookie</h2>
 <h3 id="1-理解-3">1. 理解</h3>
 <pre tabindex="0"><code>	创建一个 cookie，cookie 是 servlet 发送到 Web 浏览器的少量信息，这些信息由浏览器保存，然后发送回服务器。cookie 的值可以唯一地标识客户端，因此 cookie 常用于会话管理。
     
@@ -402,48 +1005,109 @@
     
 ></p>
 <h3 id="2-使用">2. 使用</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> 创建cookie
-</span></span><span style="display:flex;"><span>    Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span>String name<span style="color:#000;font-weight:bold">,</span> String value<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>2<span style="color:#000;font-weight:bold">.</span> 响应客户端
-</span></span><span style="display:flex;"><span>    response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>3<span style="color:#000;font-weight:bold">.</span> 获取cookie 
-</span></span><span style="display:flex;"><span>    Cookie<span style="color:#000;font-weight:bold">[]</span> cookies <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getCookies</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>cookies<span style="color:#000;font-weight:bold">!=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Cookie cookie <span style="color:#000;font-weight:bold">:</span> cookies<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                String name <span style="color:#000;font-weight:bold">=</span> cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>                String value <span style="color:#000;font-weight:bold">=</span> cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>                System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;==&#34;</span><span style="color:#000;font-weight:bold">+</span>value<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">else</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;没有cookie.....&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>4<span style="color:#000;font-weight:bold">.</span> 过期时间 和浏览器无关
-</span></span><span style="display:flex;"><span>    cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setMaxAge</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#998;font-style:italic">// 单位：m   +秒数 -默认浏览器会话结束  0立即销毁
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>5<span style="color:#000;font-weight:bold">.</span> 有效路径<span style="color:#a61717;background-color:#e3d2d2">：</span>只在当前的有效路径下 生效
-</span></span><span style="display:flex;"><span>    默认当前创建cookie的Servlet访问路径的上一层
-</span></span><span style="display:flex;"><span>    cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPath</span><span style="color:#000;font-weight:bold">(</span>路径<span style="color:#000;font-weight:bold">);</span> 
-</span></span></code></pre></div><h3 id="3-场景">3. 场景</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> 记录上次访问时间
-</span></span><span style="display:flex;"><span>2<span style="color:#000;font-weight:bold">.</span> <span style="color:#900;font-weight:bold">登录时的记住账号功能</span><span style="color:#000;font-weight:bold">(</span>作业<span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>3<span style="color:#000;font-weight:bold">.</span> 浏览记录
-</span></span></code></pre></div><h3 id="4-特点">4. 特点</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> Cookie保存到客户端 安全性低
-</span></span><span style="display:flex;"><span>2<span style="color:#000;font-weight:bold">.</span> Cookie保存数据只能是字符串 不能有特殊符号 空格 分号 逗号 不能以$开头等
-</span></span><span style="display:flex;"><span>3<span style="color:#000;font-weight:bold">.</span> Cookie保存数据大小最多4KB
-</span></span><span style="display:flex;"><span>4<span style="color:#000;font-weight:bold">.</span> 一个服务器可以创建多个Cookie   
-</span></span><span style="display:flex;"><span>5<span style="color:#000;font-weight:bold">.</span> Cookie可以设置有效时间 从调用addCookie方法开始 到期之后销毁了
-</span></span><span style="display:flex;"><span>6<span style="color:#000;font-weight:bold">.</span> Cookie的名字<span style="color:#a61717;background-color:#e3d2d2">、</span>路径<span style="color:#a61717;background-color:#e3d2d2">、</span>有效时间 决定了是不是同一个cookie
-</span></span></code></pre></div><h2 id="三session">三、session</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">创建cookie</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cookie</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">响应客户端</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">addCookie</span><span class="o">(</span><span class="n">cookie</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">获取cookie</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">Cookie</span><span class="o">[]</span> <span class="n">cookies</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getCookies</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="o">(</span><span class="n">cookies</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">:</span> <span class="n">cookies</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">cookie</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cookie</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;==&#34;</span><span class="o">+</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;没有cookie.....&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">过期时间</span> <span class="n">和浏览器无关</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setMaxAge</span><span class="o">();</span> <span class="c1">// 单位：m   +秒数 -默认浏览器会话结束  0立即销毁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">有效路径</span><span class="err">：</span><span class="n">只在当前的有效路径下</span> <span class="n">生效</span>
+</span></span><span class="line"><span class="cl">    <span class="n">默认当前创建cookie的Servlet访问路径的上一层</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setPath</span><span class="o">(</span><span class="n">路径</span><span class="o">);</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-场景">3. 场景</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">记录上次访问时间</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="nf">登录时的记住账号功能</span><span class="o">(</span><span class="n">作业</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">浏览记录</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-特点">4. 特点</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">Cookie保存到客户端</span> <span class="n">安全性低</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">Cookie保存数据只能是字符串</span> <span class="n">不能有特殊符号</span> <span class="n">空格</span> <span class="n">分号</span> <span class="n">逗号</span> <span class="n">不能以$开头等</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">Cookie保存数据大小最多4KB</span>
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">一个服务器可以创建多个Cookie</span>   
+</span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">Cookie可以设置有效时间</span> <span class="n">从调用addCookie方法开始</span> <span class="n">到期之后销毁了</span>
+</span></span><span class="line"><span class="cl"><span class="n">6</span><span class="o">.</span> <span class="n">Cookie的名字</span><span class="err">、</span><span class="n">路径</span><span class="err">、</span><span class="n">有效时间</span> <span class="n">决定了是不是同一个cookie</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="三session">三、session</h2>
 <h3 id="1-理解-4">1. 理解</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> 	HttpSession 提供一种方式<span style="color:#a61717;background-color:#e3d2d2">，</span>跨多个页面请求或对 Web 站点的多次访问标识用户并存储有关该用户的信息<span style="color:#a61717;background-color:#e3d2d2">。</span>
-</span></span><span style="display:flex;"><span>     Servlet 容器使用此接口创建 HTTP 客户端和 HTTP 服务器之间的会话<span style="color:#a61717;background-color:#e3d2d2">。</span>会话将保留指定的时间段<span style="color:#a61717;background-color:#e3d2d2">，</span>跨多个连接或来自用户的页面请求<span style="color:#a61717;background-color:#e3d2d2">。</span>一个会话通常对应于一个用户<span style="color:#a61717;background-color:#e3d2d2">，</span>该用户可能多次访问一个站点<span style="color:#a61717;background-color:#e3d2d2">。</span>服务器能够以多种方式维护会话<span style="color:#a61717;background-color:#e3d2d2">，</span>比如使用 cookie 或重写 URL<span style="color:#a61717;background-color:#e3d2d2">。</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>     <span style="color:#a61717;background-color:#e3d2d2">①</span> session是由Servlet容器创建
-</span></span><span style="display:flex;"><span>     <span style="color:#a61717;background-color:#e3d2d2">②</span> 维护客户端和服务器的会话
-</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225254929.png"
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">HttpSession</span> <span class="n">提供一种方式</span><span class="err">，</span><span class="n">跨多个页面请求或对</span> <span class="n">Web</span> <span class="n">站点的多次访问标识用户并存储有关该用户的信息</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">     <span class="n">Servlet</span> <span class="n">容器使用此接口创建</span> <span class="n">HTTP</span> <span class="n">客户端和</span> <span class="n">HTTP</span> <span class="n">服务器之间的会话</span><span class="err">。</span><span class="n">会话将保留指定的时间段</span><span class="err">，</span><span class="n">跨多个连接或来自用户的页面请求</span><span class="err">。</span><span class="n">一个会话通常对应于一个用户</span><span class="err">，</span><span class="n">该用户可能多次访问一个站点</span><span class="err">。</span><span class="n">服务器能够以多种方式维护会话</span><span class="err">，</span><span class="n">比如使用</span> <span class="n">cookie</span> <span class="n">或重写</span> <span class="n">URL</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">     <span class="err">①</span> <span class="n">session是由Servlet容器创建</span>
+</span></span><span class="line"><span class="cl">     <span class="err">②</span> <span class="n">维护客户端和服务器的会话</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/posts/JavaEE/20220430215283/image-20220430225254929.png"
     
     
     
@@ -452,77 +1116,413 @@
     
 ></p>
 <h3 id="2-使用-1">2. 使用</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> 创建cookie
-</span></span><span style="display:flex;"><span>    Cookie cookie <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> Cookie<span style="color:#000;font-weight:bold">(</span>String name<span style="color:#000;font-weight:bold">,</span> String value<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>2<span style="color:#000;font-weight:bold">.</span> 响应客户端
-</span></span><span style="display:flex;"><span>    response<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">addCookie</span><span style="color:#000;font-weight:bold">(</span>cookie<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>3<span style="color:#000;font-weight:bold">.</span> 获取cookie 
-</span></span><span style="display:flex;"><span>    Cookie<span style="color:#000;font-weight:bold">[]</span> cookies <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getCookies</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span>cookies<span style="color:#000;font-weight:bold">!=</span><span style="color:#000;font-weight:bold">null</span><span style="color:#000;font-weight:bold">){</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span>Cookie cookie <span style="color:#000;font-weight:bold">:</span> cookies<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                String name <span style="color:#000;font-weight:bold">=</span> cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getName</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>                String value <span style="color:#000;font-weight:bold">=</span> cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getValue</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>                System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span>name<span style="color:#000;font-weight:bold">+</span><span style="color:#d14">&#34;==&#34;</span><span style="color:#000;font-weight:bold">+</span>value<span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">else</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">out</span><span style="color:#000;font-weight:bold">.</span><span style="color:#008080">println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;没有cookie.....&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>4<span style="color:#000;font-weight:bold">.</span> 过期时间 和浏览器无关
-</span></span><span style="display:flex;"><span>    cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setMaxAge</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#998;font-style:italic">// 单位：m   +秒数 -默认浏览器会话结束  0立即销毁
-</span></span></span><span style="display:flex;"><span><span style="color:#998;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>5<span style="color:#000;font-weight:bold">.</span> 有效路径<span style="color:#a61717;background-color:#e3d2d2">：</span>只在当前的有效路径下 生效
-</span></span><span style="display:flex;"><span>    默认当前创建cookie的Servlet访问路径的上一层
-</span></span><span style="display:flex;"><span>    cookie<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPath</span><span style="color:#000;font-weight:bold">(</span>路径<span style="color:#000;font-weight:bold">);</span> 
-</span></span></code></pre></div><h3 id="3-场景-1">3. 场景</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> 用户登录成功保存用户信息
-</span></span><span style="display:flex;"><span>2<span style="color:#000;font-weight:bold">.</span> 购物车
-</span></span></code></pre></div><h3 id="4-特点-1">4. 特点</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> session将数据保存到服务器 相对安全
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>2<span style="color:#000;font-weight:bold">.</span> session可以保存任意数据 
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>3<span style="color:#000;font-weight:bold">.</span> session保存数据的大小 没有限制
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>4<span style="color:#000;font-weight:bold">.</span> 一个服务器对应一个session对象 每个用户分别分配不同的id
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>5<span style="color:#000;font-weight:bold">.</span> session可以设置有效时间  这个时间是指两次相邻访问的时间间隔
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>6<span style="color:#000;font-weight:bold">.</span> session是通过JSESSIONID确定是否是同一次会话
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>隐藏特点<span style="color:#a61717;background-color:#e3d2d2">：</span>
-</span></span><span style="display:flex;"><span>    session数据的钝化<span style="color:#a61717;background-color:#e3d2d2">（</span>序列化到本地磁盘<span style="color:#a61717;background-color:#e3d2d2">）</span>和活化<span style="color:#a61717;background-color:#e3d2d2">（</span>从本地磁盘序列化到内存<span style="color:#a61717;background-color:#e3d2d2">）</span>
-</span></span></code></pre></div><h3 id="5-总结">5. 总结</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1<span style="color:#000;font-weight:bold">.</span> 保存数据量比较小  安全性低  数据易变 使用cookie维护会话
-</span></span><span style="display:flex;"><span>2<span style="color:#000;font-weight:bold">.</span> 保存的数据量较大  安全性高  数据不易变 使用session维护会话
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span> cookie数据保存到了客户端 减轻了服务器的压力<span style="color:#a61717;background-color:#e3d2d2">，</span>session默认需要借助cookie使用
-</span></span><span style="display:flex;"><span>即使没有cookie session也可以维护会话 比如<span style="color:#a61717;background-color:#e3d2d2">：</span>重写url地址
-</span></span><span style="display:flex;"><span>   
-</span></span></code></pre></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">创建cookie</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cookie</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">响应客户端</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">addCookie</span><span class="o">(</span><span class="n">cookie</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">获取cookie</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">Cookie</span><span class="o">[]</span> <span class="n">cookies</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getCookies</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="o">(</span><span class="n">cookies</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">:</span> <span class="n">cookies</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">cookie</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cookie</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;==&#34;</span><span class="o">+</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;没有cookie.....&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">过期时间</span> <span class="n">和浏览器无关</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setMaxAge</span><span class="o">();</span> <span class="c1">// 单位：m   +秒数 -默认浏览器会话结束  0立即销毁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">有效路径</span><span class="err">：</span><span class="n">只在当前的有效路径下</span> <span class="n">生效</span>
+</span></span><span class="line"><span class="cl">    <span class="n">默认当前创建cookie的Servlet访问路径的上一层</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setPath</span><span class="o">(</span><span class="n">路径</span><span class="o">);</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-场景-1">3. 场景</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">用户登录成功保存用户信息</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">购物车</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-特点-1">4. 特点</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">session将数据保存到服务器</span> <span class="n">相对安全</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">session可以保存任意数据</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">session保存数据的大小</span> <span class="n">没有限制</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">一个服务器对应一个session对象</span> <span class="n">每个用户分别分配不同的id</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">session可以设置有效时间</span>  <span class="n">这个时间是指两次相邻访问的时间间隔</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">6</span><span class="o">.</span> <span class="n">session是通过JSESSIONID确定是否是同一次会话</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">隐藏特点</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">session数据的钝化</span><span class="err">（</span><span class="n">序列化到本地磁盘</span><span class="err">）</span><span class="n">和活化</span><span class="err">（</span><span class="n">从本地磁盘序列化到内存</span><span class="err">）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5-总结">5. 总结</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">保存数据量比较小</span>  <span class="n">安全性低</span>  <span class="n">数据易变</span> <span class="n">使用cookie维护会话</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">保存的数据量较大</span>  <span class="n">安全性高</span>  <span class="n">数据不易变</span> <span class="n">使用session维护会话</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"> <span class="n">cookie数据保存到了客户端</span> <span class="n">减轻了服务器的压力</span><span class="err">，</span><span class="n">session默认需要借助cookie使用</span>
+</span></span><span class="line"><span class="cl"><span class="n">即使没有cookie</span> <span class="n">session也可以维护会话</span> <span class="n">比如</span><span class="err">：</span><span class="n">重写url地址</span>
+</span></span><span class="line"><span class="cl">   
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+            </div>
+            <hr>
+            <div style="text-align: center;">
+                <button class="btn"><a href="https://lovemjh.github.io/posts/javaee/20220430215286/">← HTTP协议</a></button>
+                <button class="btn"><a href="https://lovemjh.github.io/posts/java-2/20220430214396/">JDBC  →</a></button>
+            </div>
+        </article><div class="aside_content" id="aside_content">
+    <div class="card-widget card-info">
+        <div class="card-content">
+            <div class="card-info-avatar is-center">
+                <img class="avatar-img" src="http://q1.qlogo.cn/g?b=qq&nk=2409741052&s=640" alt="avatar">
+                <div class="author-info__name">青山客</div>
+                <div class="author-info__description">晓梦云码支付 <s>三网云端免挂/QQ/支付宝/微信</s>pay.yzfyd.cn</div>
+            </div>
+            <div class="card-info-social-icons is-center">
+                <a class="social-icon" href="https://yzfyd.cn" target="_blank">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+        </div>
     </div>
 
-    
 
-    
-
-
-    <div class="container-prevnext">
-    <div><a href="https://lovemjh.github.io/posts/javaee/20220430215286/">← HTTP协议</a></div>
-    <div><a href="https://lovemjh.github.io/posts/java-2/20220430214396/">JDBC  →</a></div>
-</div>
-</div>
-
+    <div class="card-widget card-announcement">
+        <div class="card-content">
+            <meting-js auto="https://y.qq.com/n/yqq/playlist/7713574197.html">
+            </meting-js>
         </div>
-        <div id="footer"><div class="container-footer">
+    </div>
+
+    <div class="card-widget card-announcement">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                <span>一言</span>
+            </div>
+            <div id="hitokoto"></div>
+        </div>
+    </div>
+    <div class="card-widget card-announcement">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <span>今日诗词</span>
+            </div>
+            <div id="jinrishici-sentence"></div>
+        </div>
+    </div>
+
+    <div class="card-widget card-webinfo">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                <span>站点信息</span>
+            </div>
+            <div class="webinfo">
+                <div class="webinfo-item">
+                    <div class="webinfo-site-uv-name">本站访客数 :</div>
+                    <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div>
+                </div>
+                <div class="webinfo-item">
+                    <div class="webinfo-site-name">本站总访问量 :</div>
+                    <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <a href="//beian.miit.gov.cn" target="_blank">
-        
-        豫ICP备2022002918号
-        
-    </a>
-    <a id="s" href="/secrets">&nbsp;</a>
+    <div class="card-widget js-toc-w" id="js-toc-w">
+        <div class="card-content js-toc">
+            
+        </div>
+    </div>
+    
 </div></div>
-    </body>
+</main>
+<footer id="footer">
+    <div id="footer-wrap">
+        <div class="copyright">&copy;2019 - 2021 BY QING SHAN KE</div>
+    </div>
+</footer>
+</div>
+<div class="fan" id="fan" style="
+position: fixed;
+width: 40px;
+height: 120px;
+right: 0px;
+bottom: 0px;
+transition: all 0.5s;
+z-index: 99999;
+ ">
+
+    <i class="fa fa-cog fa-spin fa-2x"></i><br>
+    <i class="fa fa-align-justify fa-2x" id="ff"></i><br>
+    <i class="fa fa fa-arrow-up fa-2x" id="aa"></i><br>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+
+    var a = 0;
+    ff.onclick = function () {
+
+        if (a === 0) {
+            $(".js-toc-w").css("position", "fixed"); 
+            $(".js-toc-w").css("bottom", "10px");
+            $(".js-toc-w").css("right", "40px");
+            a++;
+        } else {
+            $(".js-toc-w").css("position", "static");
+            a--;
+        }
+
+    }
+    
+
+    aa.onclick = function () {
+        window.scrollTo({     
+            top: 0,            
+            behavior: "smooth"   
+        })
+    }
+
+
+
+</script>
+<script>
+    $(window).scroll(function () {
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop
+        
+        if (scrollY > 40) {
+            $('.fan').css("right", "0px");
+        } else {
+            $('.fan').css("right", "-220px");
+        }
+    });
+
+    $(function () {
+        
+        var start_height = $(document).scrollTop();
+        
+        var navigation_height = $('.navigation').outerHeight();
+        $(window).scroll(function () {
+            
+            var end_height = $(document).scrollTop();
+            
+            if (end_height > navigation_height) {
+                $('.navigation').addClass('hide');
+            } else {
+                $('.navigation').removeClass('hide');
+            }
+            
+            if (end_height < start_height) {
+                $('.navigation').removeClass('hide');
+            }
+            
+            start_height = $(document).scrollTop();
+        });
+    });
+</script>
+<script>
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+<script src="https://unpkg.com/nplayer@latest/dist/index.min.js"></script>
+
+
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.8/js/maodian.js"></script>
+
+
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3, h4, h5 ,h6',
+        
+        hasInnerContainers: false,
+        
+    });
+</script>
+
+
+<script type="text/javascript">
+    console.clear();
+    console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
+    console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/laoxuai");
+    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.0.0");
+
+    (function ($) {
+        $.fn.snow = function (options) {
+            var $flake = $('<div id="snowbox" />').css({ 'position': 'absolute', 'z-index': '9999', 'top': '-50px' }).html('&#10052;'),
+                documentHeight = $(document).height(),
+                documentWidth = $(document).width(),
+                defaults = {
+                    minSize: 10,
+                    maxSize: 20,
+                    newOn: 1000,
+                    flakeColor: "#AFDAEF"  
+                },
+                options = $.extend({}, defaults, options);
+            var interval = setInterval(function () {
+                var startPositionLeft = Math.random() * documentWidth - 100,
+                    startOpacity = 0.5 + Math.random(),
+                    sizeFlake = options.minSize + Math.random() * options.maxSize,
+                    endPositionTop = documentHeight - 200,
+                    endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+                    durationFall = documentHeight * 10 + Math.random() * 5000;
+                $flake.clone().appendTo('body').css({
+                    left: startPositionLeft,
+                    opacity: startOpacity,
+                    'font-size': sizeFlake,
+                    color: options.flakeColor
+                }).animate({
+                    top: endPositionTop,
+                    left: endPositionLeft,
+                    opacity: 0.2
+                }, durationFall, 'linear', function () {
+                    $(this).remove()
+                });
+            }, options.newOn);
+        };
+    })(jQuery);
+    $(function () {
+        $.fn.snow({
+            minSize: 5,  
+            maxSize: 50, 
+            newOn: 800   
+        });
+    });
+
+    
+    var OriginTitle = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            
+            document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        }
+        else {
+            $('[rel="icon"]').attr('href', "/favicon.ico");
+            document.title = '(ฅ>ω<*ฅ) 噫又好啦 ~' + OriginTitle;
+            titleTime = setTimeout(function () {
+                document.title = OriginTitle;
+            }, 2000);
+        }
+    });
+</script></body>
 </html>

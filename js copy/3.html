@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	height: 3000px;    /*让滚动条出现*/
+}
+.goTop {
+	width: 50px;
+	height: 50px;
+	background-color: aquamarine;
+	font-size: 20px;
+	text-align: center;
+	line-height: 25px;
+	color: azure;
+	position: fixed;    /*固定定位*/
+	bottom: 50px;
+	right: 50px;
+	display: none;   /*隐藏按钮*/
+}
+</style>
+
+</head>
+
+<body >
+<buttion class="goTop" id="gotop">回到顶部</buttion>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  
+	//获取导航栏和按量元素
+	var topw=document.getElementById("dhl")
+	var goTop=document.getElementById("gotop")
+
+	
+	//滚动滚动条触发事件
+	    window.onscroll=function(){
+		  //获取滚动条位置
+		var jhlheight=document.documentElement.scrollTop||document.body.scrollTop
+		//判断滚动条位置
+		if(jhlheight>=300){
+		topw.style.top="0px"      //显示滚动条
+		goTop.style.display="block"	 //显示按钮
+		}else{
+		topw.style.top="-80px"     //隐藏滚动条
+		goTop.style.display="none"	//隐藏按钮	 
+   }
+		
+	}
+	  
+	 //点击按钮事件
+	  goTop.onclick=function(){
+		
+		window.scrollTo({     //设置滚动条位置
+			top:0,            //回到顶部
+			behavior:"smooth"   //平滑过渡
+		})
+		
+	}  
+	
+	</script>
+</body>
+</html>
+

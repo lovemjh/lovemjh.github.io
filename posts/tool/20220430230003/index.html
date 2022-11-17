@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>版本控制之git</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            1740 字
+            1619 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
             4 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,81 +547,16 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/tool/20220430230003/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">版本控制之git</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2021-12-17&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2021-12-17&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    1740 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    4 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h3 id="一git简介">一、Git简介</h3>
 <h4 id="1-理解">1. 理解</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">开源的分布式版本控制系统</span><span class="err">，</span><span class="n">可以有效</span> <span class="n">高速的处理应用由小到大项目版本管理</span><span class="err">。</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="2-版本控制系统">2. 版本控制系统</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">版本控制系统</span> <span class="n">跟踪整个项目的开发过程</span> <span class="n">从开始到结束</span><span class="err">，</span><span class="n">核心任务就是查阅应用操作的历史记录</span> <span class="n">以及</span> <span class="n">多用户协同开发大型的应用</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="3-版本控制系统分类">3. 版本控制系统分类</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">集中式版本控制系统</span>  <span class="n">svn</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">开源的分布式版本控制系统</span><span class="err">，</span><span class="n">可以有效</span> <span class="n">高速的处理应用由小到大项目版本管理</span><span class="err">。</span>
+</span></span></code></pre></div><h4 id="2-版本控制系统">2. 版本控制系统</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">版本控制系统</span> <span class="n">跟踪整个项目的开发过程</span> <span class="n">从开始到结束</span><span class="err">，</span><span class="n">核心任务就是查阅应用操作的历史记录</span> <span class="n">以及</span> <span class="n">多用户协同开发大型的应用</span>
+</span></span></code></pre></div><h4 id="3-版本控制系统分类">3. 版本控制系统分类</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">集中式版本控制系统</span>  <span class="n">svn</span>
 </span></span><span class="line"><span class="cl">    <span class="n">版本仓库存放在中央服务器</span><span class="err">，</span><span class="n">team每个人从中央服务器下载代码</span><span class="err">，</span><span class="n">每个人操作之后</span> <span class="n">再提交到中央仓库</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230132004.png"
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230132004.png"
     
     
     
@@ -566,17 +564,9 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">②</span> <span class="n">分布式版本控制系统</span>  <span class="n">Git</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">②</span> <span class="n">分布式版本控制系统</span>  <span class="n">Git</span>
 </span></span><span class="line"><span class="cl">    <span class="n">没有中央仓库</span><span class="err">，</span><span class="n">team每个人电脑都是一个完整的仓库</span><span class="err">，</span><span class="n">借助于第三托管平台</span><span class="err">，</span><span class="n">实现多人合并项目</span><span class="err">，</span><span class="n">推送到对应的托管平台即可</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230137313.png"
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230137313.png"
     
     
     
@@ -585,21 +575,11 @@
     
 ></p>
 <h4 id="4-git的特点">4. Git的特点</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">速度快</span><span class="err">、</span><span class="n">操作简单</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">速度快</span><span class="err">、</span><span class="n">操作简单</span>
 </span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="n">对非线性开发模式的强力支持</span><span class="o">(</span><span class="n">允许成千上万的分支协同开发</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="err">③</span> <span class="n">完全的分布式</span>
 </span></span><span class="line"><span class="cl"><span class="err">④</span> <span class="n">高效管理大规模的应用</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230141785.png"
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230141785.png"
     
     
     
@@ -607,23 +587,12 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">clone克隆</span><span class="err">，</span><span class="n">从远程仓库克隆一份到本地仓库</span><span class="err">。</span><span class="n">第一次操作</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">clone克隆</span><span class="err">，</span><span class="n">从远程仓库克隆一份到本地仓库</span><span class="err">。</span><span class="n">第一次操作</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">pull拉取</span><span class="err">，</span> <span class="n">从远程仓库拉取项目到本地</span> <span class="err">，</span><span class="n">自动合并</span> <span class="n">最后放入到工作区</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="n">push推送</span><span class="err">，</span><span class="n">代码完成后</span><span class="err">，</span><span class="n">需要团队共享代码</span><span class="err">，</span><span class="n">将本地仓库代码推送到远程仓库</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230146159.png"
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230146159.png"
     
     
     
@@ -631,48 +600,19 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">checkout:</span><span class="n">将本地仓库的代码检出到工作区</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">checkout:</span><span class="n">将本地仓库的代码检出到工作区</span>
 </span></span><span class="line"><span class="cl"><span class="nl">add:</span> <span class="n">在提交本地仓库之前</span> <span class="n">要先将代码添加到暂存区</span> <span class="n">便于记录</span>
 </span></span><span class="line"><span class="cl"><span class="nl">commit:</span> <span class="n">将提交到本地仓库</span> <span class="n">便于推送远程仓库</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">本地仓库:</span> <span class="n">在本地主机上的一个代码库</span><span class="err">，</span><span class="n">可以独立存在</span><span class="err">，</span><span class="n">也可以与远程仓库进行关联</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">本地仓库:</span> <span class="n">在本地主机上的一个代码库</span><span class="err">，</span><span class="n">可以独立存在</span><span class="err">，</span><span class="n">也可以与远程仓库进行关联</span>
 </span></span><span class="line"><span class="cl"><span class="nl">
 </span></span></span><span class="line"><span class="cl"><span class="nl">工作区:</span><span class="n">对任何文件的修订</span><span class="o">(</span><span class="n">增删改</span><span class="o">)</span><span class="err">，</span><span class="n">都先放在工作区</span><span class="err">，</span><span class="n">工作区不与任何仓库分支进行关联</span> 
 </span></span><span class="line"><span class="cl"><span class="nl">暂存区:</span><span class="n">把修订的文件</span><span class="err">，</span><span class="n">从工作区经过add</span><span class="o">(</span><span class="n">添加</span><span class="o">)</span><span class="n">后与某一个仓库分支进行关联</span><span class="err">，</span><span class="n">只要进</span> <span class="nf">入缓存区的文件才能commit</span><span class="o">(</span><span class="n">提交</span><span class="o">)</span><span class="n">到本地仓库</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">远程仓库</span> <span class="o">:</span> <span class="n">在局域网或互联网上的一个主机</span><span class="err">，</span><span class="n">存放代码库的主机或平台</span><span class="err">，</span><span class="n">比如GitHub</span><span class="err">、</span> <span class="n">Gitee</span><span class="o">.</span><span class="na">com</span><span class="o">(</span><span class="n">码云</span><span class="o">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="二下载安装">二、下载安装</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">地址</span><span class="err">：</span><span class="n">https</span><span class="o">:</span><span class="c1">//git-scm.com/
+</span></span></code></pre></div><h3 id="二下载安装">二、下载安装</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">地址</span><span class="err">：</span><span class="n">https</span><span class="o">:</span><span class="c1">//git-scm.com/
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">2</span><span class="o">.</span> <span class="n">傻瓜式安装</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230150927.png"
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230150927.png"
     
     
     
@@ -682,19 +622,10 @@
 ></p>
 <h3 id="三使用">三、使用</h3>
 <h4 id="1-配置">1. 配置</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">使用之前做全局配置</span> <span class="n">设置账户和邮箱</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">使用之前做全局配置</span> <span class="n">设置账户和邮箱</span>
 </span></span><span class="line"><span class="cl">    <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="o">.</span><span class="na">name</span> <span class="err">&#39;</span><span class="n">用户名</span><span class="err">&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="o">.</span><span class="na">email</span> <span class="err">&#39;</span><span class="n">邮箱</span><span class="err">&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230155414.png"
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230155414.png"
     
     
     
@@ -720,32 +651,7 @@
 ></p>
 <h4 id="2-操作">2. 操作</h4>
 <h5 id="21-本地仓库操作">2.1 本地仓库操作</h5>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">初始化仓库</span> <span class="n">在目录下</span>  <span class="n">执行命令</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">初始化仓库</span> <span class="n">在目录下</span>  <span class="n">执行命令</span>
 </span></span><span class="line"><span class="cl">    <span class="n">git</span> <span class="n">init</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">在该仓库中操作之后</span><span class="err">，</span><span class="n">提交到暂存区</span>
@@ -766,33 +672,8 @@
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">删除文件</span><span class="o">(</span><span class="n">只能删除已提交到仓库的文件</span> <span class="n">未提交的不能删除</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">git</span> <span class="n">rm</span> <span class="n">文件名</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h5 id="22-分支操作">2.2 分支操作</h5>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">查看当前仓库的分支</span>
+</span></span></code></pre></div><h5 id="22-分支操作">2.2 分支操作</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">查看当前仓库的分支</span>
 </span></span><span class="line"><span class="cl">    <span class="n">git</span> <span class="n">branch</span>
 </span></span><span class="line"><span class="cl">    <span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">v</span> <span class="err">#</span> <span class="n">分支的更多信息</span>
 </span></span><span class="line"><span class="cl">    <span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">av</span> <span class="err">#</span> <span class="n">本地和远程的分支</span> 
@@ -811,36 +692,11 @@
 </span></span><span class="line"><span class="cl">    <span class="n">解决</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    	<span class="n">先打开文件修改里面不应该出现的内容</span>
 </span></span><span class="line"><span class="cl">    	<span class="n">再添加到暂存区</span> <span class="n">然后提交即可</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h5 id="23-远程仓库操作">2.3 远程仓库操作</h5>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">为了实现协同开发</span> <span class="n">需要将本地仓库共享给团队其他人</span> <span class="err">，</span><span class="n">需要借助远程仓库</span><span class="o">(</span><span class="n">第三方托管平台</span><span class="o">)</span>
+</span></span></code></pre></div><h5 id="23-远程仓库操作">2.3 远程仓库操作</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">为了实现协同开发</span> <span class="n">需要将本地仓库共享给团队其他人</span> <span class="err">，</span><span class="n">需要借助远程仓库</span><span class="o">(</span><span class="n">第三方托管平台</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">     <span class="o">--</span> <span class="n">GitHub</span> <span class="o">(</span><span class="n">https</span><span class="o">:</span><span class="c1">//www.github.com)  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="o">--</span> <span class="n">码云</span> <span class="o">(</span><span class="n">https</span><span class="o">:</span><span class="c1">//www.gitee.com)
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HTTPS方式</span><span class="err">：</span>
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HTTPS方式</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">创建远程仓库</span> <span class="n">码云上创建</span>
 </span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">克隆远程仓库</span>
@@ -850,24 +706,7 @@
 </span></span><span class="line"><span class="cl">     <span class="n">1</span><span class="o">.</span> <span class="n">操作完成之后需要将操作的内容提交到本地仓库</span>  
 </span></span><span class="line"><span class="cl">     <span class="n">2</span><span class="o">.</span> <span class="n">才可以推送到远程仓库</span>
 </span></span><span class="line"><span class="cl">            <span class="n">git</span> <span class="n">push</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">SSH方式</span><span class="err">：</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">SSH方式</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">配置SSH</span>
 </span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">生成密钥和公钥</span><span class="err">：</span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span>
 </span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">将生成的密钥配置到码云</span>
@@ -878,29 +717,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">先添加本地仓库</span>
 </span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">执行</span>
 </span></span><span class="line"><span class="cl">    	<span class="n">git</span> <span class="n">push</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">其他命令</span><span class="err">：</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">其他命令</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">查看当前本地仓库</span> <span class="n">关联的远程仓库</span>
 </span></span><span class="line"><span class="cl">    	<span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span> 
 </span></span><span class="line"><span class="cl">     <span class="n">注意</span><span class="err">：</span><span class="n">origin</span> <span class="n">是指远程仓库的默认服务名</span>
@@ -916,9 +733,7 @@
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="n">5</span><span class="o">.</span> <span class="n">拉取远程仓库中新内容</span> <span class="n">并合并到本地仓库</span>
 </span></span><span class="line"><span class="cl">    	<span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">master</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="四idea中git操作">四、Idea中Git操作</h3>
+</span></span></code></pre></div><h3 id="四idea中git操作">四、Idea中Git操作</h3>
 <h4 id="1-idea整合git">1. idea整合Git</h4>
 <p><img src="/posts/tool/20220430230003/image-20220430230210969.png"
     
@@ -937,17 +752,9 @@
     
 ></p>
 <h4 id="2-项目leader">2. 项目leader</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">创建项目</span> <span class="n">指定为本地仓库</span>  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">创建项目</span> <span class="n">指定为本地仓库</span>  
 </span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="n">推送到远程仓库</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230219387.png"
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230219387.png"
     
     
     
@@ -988,15 +795,8 @@
     
 ></p>
 <h4 id="3-开发者">3. 开发者</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">克隆远程的仓库项目</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230305031.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">克隆远程的仓库项目</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230305031.png"
     
     
     
@@ -1012,15 +812,8 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">操作之后提交到本地仓库</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230313837.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">操作之后提交到本地仓库</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230313837.png"
     
     
     
@@ -1045,15 +838,8 @@
     
 ></p>
 <h4 id="4-idea中git的分支">4. idea中Git的分支</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">查看分支</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230325430.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">查看分支</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230325430.png"
     
     
     
@@ -1061,15 +847,8 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">新建分支</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230330208.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">新建分支</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230330208.png"
     
     
     
@@ -1077,15 +856,8 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">切换分支</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230333890.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">切换分支</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230333890.png"
     
     
     
@@ -1093,15 +865,8 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">合并分支</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230338200.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">合并分支</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230338200.png"
     
     
     
@@ -1109,15 +874,8 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">如果两分支操作同一个文体</span> <span class="n">产生合并冲突</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230342193.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">如果两分支操作同一个文体</span> <span class="n">产生合并冲突</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230342193.png"
     
     
     
@@ -1125,15 +883,8 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">解决</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230346103.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">解决</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230346103.png"
     
     
     
@@ -1142,15 +893,8 @@
     
 ></p>
 <h4 id="5-idea中git的历史提交">5. idea中git的历史提交</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">查看历史提交</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230351236.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">查看历史提交</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230351236.png"
     
     
     
@@ -1158,15 +902,8 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">回退到历史提交</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/tool/20220430230003/image-20220430230355362.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">-</span> <span class="n">回退到历史提交</span>
+</span></span></code></pre></div><p><img src="/posts/tool/20220430230003/image-20220430230355362.png"
     
     
     

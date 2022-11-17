@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>东易买后端微服务框架搭建</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            12271 字
+            11485 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
-            25 分钟
+            23 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,49 +547,6 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/project-0/20220527220542/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">东易买后端微服务框架搭建</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-05-27&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-05-27&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    12271 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    25 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 align = "center">第三章</h1>
 <h1 align = "center">东易买后端微服务框架搭建</h1>
@@ -782,16 +802,16 @@
 ></p>
 <p>结构说明：</p>
 <p>dongyimai-gateway</p>
-<pre tabindex="0"><code>网关模块，根据网站的规模和需要，可以将综合逻辑相关的服务用网关路由组合到一起。在这里还可以做鉴权和限流相关操作。
-</code></pre><p>dongyimai-service</p>
-<pre tabindex="0"><code>微服务模块，该模块用于存放所有独立的微服务工程。
-</code></pre><p>dongyimai-service_api</p>
-<pre tabindex="0"><code>对应工程的JavaBean、Feign、以及Hystrix配置，该工程主要对外提供依赖。
-</code></pre><p>dongyimai-transaction-fescar</p>
-<pre tabindex="0"><code>分布式事务模块，将分布式事务抽取到该工程中，任何工程如需要使用分布式事务，只需依赖该工程即可。
-</code></pre><p>dongyimai-web</p>
-<pre tabindex="0"><code>web服务工程，对应功能模块如需要调用多个微服务，可以将他们写入到该模块中，例如网站后台、网站前台等
-</code></pre><h3 id="33-公共工程搭建">3.3 公共工程搭建</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">网关模块，根据网站的规模和需要，可以将综合逻辑相关的服务用网关路由组合到一起。在这里还可以做鉴权和限流相关操作。
+</span></span></code></pre></div><p>dongyimai-service</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">微服务模块，该模块用于存放所有独立的微服务工程。
+</span></span></code></pre></div><p>dongyimai-service_api</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">对应工程的JavaBean、Feign、以及Hystrix配置，该工程主要对外提供依赖。
+</span></span></code></pre></div><p>dongyimai-transaction-fescar</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">分布式事务模块，将分布式事务抽取到该工程中，任何工程如需要使用分布式事务，只需依赖该工程即可。
+</span></span></code></pre></div><p>dongyimai-web</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">web服务工程，对应功能模块如需要调用多个微服务，可以将他们写入到该模块中，例如网站后台、网站前台等
+</span></span></code></pre></div><h3 id="33-公共工程搭建">3.3 公共工程搭建</h3>
 <h4 id="331-父工程搭建">3.3.1 父工程搭建</h4>
 <p>创建父工程 dongyimai-parent  ,用来管理依赖及其版本，注意是创建project，而不是moudle
 <img src="/posts/project-0/20220527220542/image-20220527220902972.png"
@@ -812,81 +832,7 @@
     
 ></p>
 <p>pom.xml文件中增加配置</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -956,9 +902,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>可以发现，我们在父工程中引入了SpringCloud等很多以后需要用到的依赖，以后创建的子工程就不需要自己引入了。</p>
+</span></span></code></pre></div><p>可以发现，我们在父工程中引入了SpringCloud等很多以后需要用到的依赖，以后创建的子工程就不需要自己引入了。</p>
 <p>然后删除一下文件及目录</p>
 <p><img src="/posts/project-0/20220527220542/image-20220527220922873.png"
     
@@ -971,15 +915,8 @@
 <h4 id="332-其他公共模块搭建">3.3.2 其他公共模块搭建</h4>
 <p>创建dongyimai-gateway、dongyimai-service、dongyimai-service-api、dongyimai-web工程，直接创建Maven模块，工程全部为pom工程，并将所有工程的src文件删除。</p>
 <p>pom.xml中打pom包</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>项目结构如下：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+</span></span></code></pre></div><p>项目结构如下：
 <img src="/posts/project-0/20220527220542/image-20220527220930438.png"
     
     
@@ -1013,32 +950,7 @@
 <p>然后填写模块名称为dongyimai-eureka:</p>
 <h4 id="341-pomxml依赖">3.4.1 pom.xml依赖</h4>
 <p>创建模块dongyimai-eureka ，pom.xml引入依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
@@ -1059,31 +971,9 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="342-appliationyml配置">3.4.2 appliation.yml配置</h4>
+</span></span></code></pre></div><h4 id="342-appliationyml配置">3.4.2 appliation.yml配置</h4>
 <p>创建配置文件application.yml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8761</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
@@ -1099,32 +989,17 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enable-self-preservation</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># 关闭自我保护</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">eviction-interval-timer-in-ms</span><span class="p">:</span><span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="c"># 每隔5秒进行一次服务列表清理</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="343-启动类配置">3.4.3 启动类配置</h4>
+</span></span></span></code></pre></div><h4 id="343-启动类配置">3.4.3 启动类配置</h4>
 <p>创建包com.offcn包下创建启动类EurekaApplication，代码如下：</p>
 <p>上图代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableEurekaServer</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EurekaApplication</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EurekaApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span><span class="n">args</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试访问<code>http://localhost:8761/</code>,效果如下：
+</span></span></code></pre></div><p>测试访问<code>http://localhost:8761/</code>,效果如下：
 <img src="/posts/project-0/20220527220542/image-20220527221001882.png"
     
     
@@ -1136,74 +1011,7 @@
 <h3 id="35-公共模块搭建">3.5 公共模块搭建</h3>
 <h4 id="351-pomxml依赖">3.5.1 pom.xml依赖</h4>
 <p>创建公共子模块dongyimai-common，pom.xml引入依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
@@ -1266,28 +1074,10 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>公共子模块引入这些依赖后，其他微服务引入dongyimai-common后也自动引入了这些依赖</p>
+</span></span></code></pre></div><p>公共子模块引入这些依赖后，其他微服务引入dongyimai-common后也自动引入了这些依赖</p>
 <h4 id="352-常用对象">3.5.2 常用对象</h4>
 <p>创建com.offcn.entity包 ，在entity包下创建返回状态码实体类</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 返回码
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StatusCode</span> <span class="o">{</span>
@@ -1299,44 +1089,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">REPERROR</span> <span class="o">=</span> <span class="n">20005</span><span class="o">;</span><span class="c1">//重复操作
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">NOTFOUNDERROR</span> <span class="o">=</span> <span class="n">20006</span><span class="o">;</span><span class="c1">//没有对应的抢购数据
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>com.offcn.entity包下建立类Result用于微服务返回结果给前端</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></code></pre></div><p>com.offcn.entity包下建立类Result用于微服务返回结果给前端</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 返回结果实体类
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -1366,32 +1120,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// getter and setter.....
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在entity包下建立类用于承载分页的数据结果</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></code></pre></div><p>在entity包下建立类用于承载分页的数据结果</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 分页结果类
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageResult</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
@@ -1409,9 +1139,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">//getter and setter ......
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>当然，我们还可以将其他工具类都一起倒入到工程中，以后会用到，将<code>资料\工具类</code>中的所有类直接导入到entity包下。
+</span></span></code></pre></div><p>当然，我们还可以将其他工具类都一起倒入到工程中，以后会用到，将<code>资料\工具类</code>中的所有类直接导入到entity包下。
 <img src="/posts/project-0/20220527220542/image-20220527221020174.png"
     
     
@@ -1422,50 +1150,7 @@
 ></p>
 <h3 id="36-数据访问工程搭建">3.6 数据访问工程搭建</h3>
 <p>创建公共模块dongyimai-common-db ，pom文件引入依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
@@ -1504,9 +1189,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>这个公共模块是连接数据库的公共微服务模块，所有需要连接数据库的微服务都继承自此工程。</strong></p>
+</span></span></code></pre></div><p><strong>这个公共模块是连接数据库的公共微服务模块，所有需要连接数据库的微服务都继承自此工程。</strong></p>
 <h3 id="37-商品微服务搭建">3.7 商品微服务搭建</h3>
 <p>商品微服务主要是实现对商品的增删改查相关操作，以及商品相关信息的增删改查。</p>
 <h4 id="371-公共组件工程搭建">3.7.1 公共组件工程搭建</h4>
@@ -1520,55 +1203,16 @@
     
 ></p>
 <p>修改父工程dongyimai-service-api的pom.xml，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>com.offcn<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>dongyimai-common-db<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="372-微服务工程搭建">3.7.2 微服务工程搭建</h4>
+</span></span></code></pre></div><h4 id="372-微服务工程搭建">3.7.2 微服务工程搭建</h4>
 <p>在dongyimai-service中创建dongyimai-sellergoods-service ，pom.xml引入依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
@@ -1590,47 +1234,8 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在resources下创建配置文件application.yml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></code></pre></div><p>在resources下创建配置文件application.yml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">9001</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
@@ -1663,22 +1268,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">com</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">offcn</span><span class="p">:</span><span class="w"> </span><span class="l">debug</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>在包com.offcn.sellergoods 包下创建启动类SellerGoodsApplication，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-JAVA" data-lang="JAVA"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
+</span></span></span></code></pre></div><p>在包com.offcn.sellergoods 包下创建启动类SellerGoodsApplication，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JAVA" data-lang="JAVA"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableDiscoveryClient</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@MapperScan</span><span class="o">(</span><span class="s">&#34;com.offcn.sellergoods.dao&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SellerGoodsApplication</span> <span class="o">{</span>
@@ -1686,9 +1277,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">SellerGoodsApplication</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动<code>dongyimai-sellergoods-service</code> 再访问<code>&lt;http://localhost:8761/&gt;</code>效果如下：
+</span></span></code></pre></div><p>启动<code>dongyimai-sellergoods-service</code> 再访问<code>&lt;http://localhost:8761/&gt;</code>效果如下：
 <img src="/posts/project-0/20220527220542/image-20220527221046860.png"
     
     
@@ -1761,29 +1350,7 @@
 </table>
 <h3 id="43-代码实现">4.3 代码实现</h3>
 <p>上面品牌表对应Brand实体类</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@TableName</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;tb_brand&#34;</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@TableName</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;tb_brand&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Brand</span> <span class="kd">implements</span> <span class="n">Serializable</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@TableId</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="n">IdType</span><span class="o">.</span><span class="na">AUTO</span><span class="o">)</span>
@@ -1801,38 +1368,16 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
 </span></span><span class="line"><span class="cl">	<span class="c1">// getter and setter  .....(省略)
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>注解均使用MyBatisPlus的注解</strong></p>
+</span></span></code></pre></div><p><strong>注解均使用MyBatisPlus的注解</strong></p>
 <h4 id="431-品牌列表">4.3.1 品牌列表</h4>
 <p>(1)Dao创建</p>
 <p>在dongyimai-sellegoods-service微服务下创建com.offcn.goods.dao.BrandMapper接口，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BrandMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BrandMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>继承了Mapper接口，就自动实现了增删改查的常用方法。</p>
+</span></span></code></pre></div><p>继承了Mapper接口，就自动实现了增删改查的常用方法。</p>
 <p>(2)业务层</p>
 <p>创建com.offcn.sellergoods.service.BrandService接口，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BrandService</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BrandService</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 查询所有品牌
@@ -1840,25 +1385,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
 </span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建com.offcn.sellergoods.service.impl.BrandServiceImpl实现类，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span></code></pre></div><p>创建com.offcn.sellergoods.service.impl.BrandServiceImpl实现类，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BrandServiceImpl</span> <span class="kd">extends</span> <span class="n">ServiceImpl</span><span class="o">&lt;</span><span class="n">BrandMapper</span><span class="o">,</span> <span class="n">Brand</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">BrandService</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="cm">/**
@@ -1869,33 +1397,9 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">list</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(3)控制层</p>
+</span></span></code></pre></div><p>(3)控制层</p>
 <p>控制层  com.offcn.sellergoods包下创建controller包  ，包下创建类</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/brand&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@CrossOrigin</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BrandController</span> <span class="o">{</span>
@@ -1913,9 +1417,7 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;(</span><span class="kc">true</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">brandList</span><span class="o">)</span> <span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：http://localhost:9001/brand
+</span></span></code></pre></div><p>测试：http://localhost:9001/brand
 <img src="/posts/project-0/20220527220542/image-20220527221106581.png"
     
     
@@ -1927,39 +1429,14 @@
 <h4 id="432-根据id查询品牌">4.3.2 根据ID查询品牌</h4>
 <p>(1)业务层</p>
 <p>修改com.offcn.sellergoods.service.BrandService接口，添加根据ID查询品牌数据方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 根据ID查询
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="n">Brand</span> <span class="nf">findById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl新增方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl新增方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 根据ID查询Brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
@@ -1968,26 +1445,9 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Brand</span> <span class="nf">findById</span><span class="o">(</span><span class="n">Long</span> <span class="n">id</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span>  <span class="k">this</span><span class="o">.</span><span class="na">getById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)控制层</p>
+</span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 根据ID查询Brand数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
@@ -1998,9 +1458,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Brand</span> <span class="n">brand</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">brand</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：&lt;http://localhost:9001/brand/1
+</span></span></code></pre></div><p>测试：&lt;http://localhost:9001/brand/1
 <img src="/posts/project-0/20220527220542/image-20220527221117521.png"
     
     
@@ -2012,36 +1470,13 @@
 <h4 id="433-新增品牌">4.3.3 新增品牌</h4>
 <p>(1)业务层</p>
 <p>修改com.offcn.sellergoods.service.BrandService，新增方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 新增品牌
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，新增增加品牌方法代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，新增增加品牌方法代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 增加Brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
@@ -2049,26 +1484,9 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2) 控制层</p>
+</span></span></code></pre></div><p>(2) 控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 新增Brand数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @pa am brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
@@ -2079,9 +1497,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">brandService</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;添加成功&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：http://localhost:9001/brand
+</span></span></code></pre></div><p>测试：http://localhost:9001/brand
 <img src="/posts/project-0/20220527220542/image-20220527221126720.png"
     
     
@@ -2093,36 +1509,13 @@
 <h4 id="434-修改品牌">4.3.4 修改品牌</h4>
 <p>(1)业务层</p>
 <p>需改com.offcn.sellergoods.service.BrandService,添加修改品牌方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 修改品牌数据
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加修改品牌方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加修改品牌方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 修改Brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
@@ -2130,29 +1523,9 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">updateById</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)控制层</p>
+</span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 修改Brand数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
@@ -2166,9 +1539,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">brandService</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;修改成功&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：http://localhost:9001/brand/35
+</span></span></code></pre></div><p>测试：http://localhost:9001/brand/35
 <img src="/posts/project-0/20220527220542/image-20220527221135412.png"
     
     
@@ -2180,36 +1551,13 @@
 <h4 id="435-删除品牌">4.3.5 删除品牌</h4>
 <p>(1)业务层</p>
 <p>修改com.offcn.sellergoods.service.BrandService，添加删除品牌方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 删除品牌
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">delete</span><span class="o">(</span><span class="n">Long</span> <span class="n">id</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，新增删除品牌方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，新增删除品牌方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 删除
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
@@ -2217,26 +1565,9 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">delete</span><span class="o">(</span><span class="n">Long</span> <span class="n">id</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">removeById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)控制层</p>
+</span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 根据ID删除品牌数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
@@ -2247,9 +1578,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">brandService</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;删除成功&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：http://localhost:9001/brand/35
+</span></span></code></pre></div><p>测试：http://localhost:9001/brand/35
 <img src="/posts/project-0/20220527220542/image-20220527221142928.png"
     
     
@@ -2261,71 +1590,14 @@
 <h4 id="436-品牌列表条件查询">4.3.6 品牌列表条件查询</h4>
 <p>(1)业务层</p>
 <p>修改com.offcn.sellergoods.service.BrandService，增加根据条件搜索品牌方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 多条件搜索品牌方法
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findList</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加根据多条件搜索品牌方法的实现，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加根据多条件搜索品牌方法的实现，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand条件查询
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
@@ -2366,25 +1638,9 @@
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">queryWrapper</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2) 控制层</p>
+</span></span></code></pre></div><p>(2) 控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 多条件搜索品牌数据
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
@@ -2394,9 +1650,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findList</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">list</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：http://localhost:9001/brand/search
+</span></span></code></pre></div><p>测试：http://localhost:9001/brand/search
 <img src="/posts/project-0/20220527220542/image-20220527221155575.png"
     
     
@@ -2408,46 +1662,15 @@
 <h4 id="437-品牌列表分页查询">4.3.7 品牌列表分页查询</h4>
 <p>(1)业务层</p>
 <p>修改com.offcn.sellergoods.service.BrandService添加分页方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 分页查询
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param page
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param size
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findPage</span><span class="o">(</span><span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="kt">int</span> <span class="n">size</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl添加分页方法实现，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl添加分页方法实现，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand分页查询
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param page
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param size
@@ -2461,27 +1684,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Page</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">iPage</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">page</span><span class="o">(</span><span class="n">brandPage</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;(</span><span class="n">iPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">(),</span><span class="n">iPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)控制层</p>
+</span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand分页搜索实现
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param page:当前页
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param size:每页显示多少条
@@ -2493,29 +1698,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">pageResult</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findPage</span><span class="o">(</span><span class="n">page</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">pageResult</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(3)在com.offcn.sellergoods.config包下新增MyBatisPlus分页插件，PageConfig.java类</p>
+</span></span></code></pre></div><p>(3)在com.offcn.sellergoods.config包下新增MyBatisPlus分页插件，PageConfig.java类</p>
 <p>注意：3.4.1版本及以上使用MybatisPlusInterceptor进行配置</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="nd">@Bean</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="nd">@Bean</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">MybatisPlusInterceptor</span> <span class="nf">mybatisPlusInterceptor</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">MybatisPlusInterceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MybatisPlusInterceptor</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">PaginationInnerInterceptor</span> <span class="n">paginationInnerInterceptor</span> <span class="o">=</span> <span class="k">new</span>        <span class="n">PaginationInnerInterceptor</span><span class="o">();</span>
@@ -2529,9 +1714,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">interceptor</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：http://localhost:9001/brand/search/1/3
+</span></span></code></pre></div><p>测试：http://localhost:9001/brand/search/1/3
 <img src="/posts/project-0/20220527220542/image-20220527221204004.png"
     
     
@@ -2543,19 +1726,7 @@
 <h4 id="438-品牌列表条件分页查询">4.3.8 品牌列表条件+分页查询</h4>
 <p>(1)业务层</p>
 <p>修改com.offcn.sellergoods.service.BrandService，增加多条件分页查询方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 多条件分页查询
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param page
@@ -2563,28 +1734,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findPage</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">,</span> <span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="kt">int</span> <span class="n">size</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加多条件分页查询方法代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加多条件分页查询方法代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand条件+分页查询
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand 查询条件
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param page 页码
@@ -2598,28 +1749,9 @@
 </span></span><span class="line"><span class="cl">        <span class="n">IPage</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">iPage</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">page</span><span class="o">(</span><span class="n">mypage</span><span class="o">,</span> <span class="n">queryWrapper</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;(</span><span class="n">iPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">(),</span><span class="n">iPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)控制层</p>
+</span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 分页搜索实现
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param page
@@ -2632,9 +1764,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">pageResult</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findPage</span><span class="o">(</span><span class="n">brand</span><span class="o">,</span> <span class="n">page</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">pageResult</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：http://localhost:9001/brand/search/1/3
+</span></span></code></pre></div><p>测试：http://localhost:9001/brand/search/1/3
 <img src="/posts/project-0/20220527220542/image-20220527221215716.png"
     
     
@@ -2705,74 +1835,29 @@
     
 ></p>
 <p>拉取镜像(已经下载了该镜像，大家无需下载了)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull morunchang/fastdfs
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行tracker</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d --name tracker --net<span class="o">=</span>host morunchang/fastdfs sh tracker.sh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行storage</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d --name storage --net<span class="o">=</span>host -e <span class="nv">TRACKER_IP</span><span class="o">=</span>192.168.100.20:22122 -e <span class="nv">GROUP_NAME</span><span class="o">=</span>group1 morunchang/fastdfs sh storage.sh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker pull morunchang/fastdfs
+</span></span></code></pre></div><p>运行tracker</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d --name tracker --net<span class="o">=</span>host morunchang/fastdfs sh tracker.sh
+</span></span></code></pre></div><p>运行storage</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d --name storage --net<span class="o">=</span>host -e <span class="nv">TRACKER_IP</span><span class="o">=</span>192.168.100.20:22122 -e <span class="nv">GROUP_NAME</span><span class="o">=</span>group1 morunchang/fastdfs sh storage.sh
+</span></span></code></pre></div><ul>
 <li>使用的网络模式是–net=host, 192.168.188.128是宿主机的IP</li>
 <li>group1是组名，即storage的组</li>
 <li>如果想要增加新的storage服务器，再次运行该命令，注意更换 新组名</li>
 </ul>
 <h3 id="522-配置nginx">5.2.2 配置Nginx</h3>
 <p>Nginx在这里主要提供对FastDFS图片访问的支持，Docker容器中已经集成了Nginx，我们需要修改nginx的配置,进入storage的容器内部，修改nginx.conf</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it storage  /bin/bash
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>进入后</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vi /etc/nginx/conf/nginx.conf
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>添加以下内容</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">location ~ /M00 <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it storage  /bin/bash
+</span></span></code></pre></div><p>进入后</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vi /etc/nginx/conf/nginx.conf
+</span></span></code></pre></div><p>添加以下内容</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">location ~ /M00 <span class="o">{</span>
 </span></span><span class="line"><span class="cl">     root /data/fast_data/data<span class="p">;</span>
 </span></span><span class="line"><span class="cl">     ngx_fastdfs_module<span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>设置禁止浏览器缓存：</p>
-<pre tabindex="0"><code>add_header Cache-Control no-store;
-</code></pre><p><img src="/posts/project-0/20220527220542/image-20220527221327512.png"
+</span></span></code></pre></div><p>设置禁止浏览器缓存：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">add_header Cache-Control no-store;
+</span></span></code></pre></div><p><img src="/posts/project-0/20220527220542/image-20220527221327512.png"
     
     
     
@@ -2781,17 +1866,10 @@
     
 ></p>
 <p>退出容器</p>
-<pre tabindex="0"><code>exit
-</code></pre><p>重启storage容器</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker restart storage
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>查看启动容器<code>docker ps -a </code>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">exit
+</span></span></code></pre></div><p>重启storage容器</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker restart storage
+</span></span></code></pre></div><p>查看启动容器<code>docker ps -a </code>
 <img src="/posts/project-0/20220527220542/image-20220527221334618.png"
     
     
@@ -2801,44 +1879,13 @@
     
 ></p>
 <p>开启启动设置，docker启动时</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">docker update --restart=always tracker
-docker update --restart=always storage
-</code></pre><h2 id="53-文件存储微服务">5.3 文件存储微服务</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker update --restart=always tracker
+</span></span><span class="line"><span class="cl">docker update --restart=always storage
+</span></span></code></pre></div><h2 id="53-文件存储微服务">5.3 文件存储微服务</h2>
 <p>创建文件管理微服务<code>dongyimai-file-service</code>，该工程主要用于实现文件上传以及文件删除等功能。</p>
 <h3 id="531-pomxml依赖">5.3.1 pom.xml依赖</h3>
 <p>修改pom.xml，引入依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
@@ -2865,57 +1912,20 @@ docker update --restart=always storage
 </span></span><span class="line"><span class="cl">   <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="532-fastdfs配置">5.3.2 FastDFS配置</h3>
+</span></span></code></pre></div><h3 id="532-fastdfs配置">5.3.2 FastDFS配置</h3>
 <p>在resources文件夹下创建fasfDFS的配置文件fdfs_client.conf</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">#tracker服务器IP地址和端口号
-tracker_server=192.168.188.128:22122
-
-# 连接超时时间，针对socket套接字函数connect，默认为30秒
-#connect_timeout=3000
-
-# 网络通讯超时时间，默认是60秒
-#network_timeout=60000
-</code></pre><p>tracker_server： tracker服务器IP和端口设置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#tracker服务器IP地址和端口号
+</span></span><span class="line"><span class="cl">tracker_server=192.168.188.128:22122
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 连接超时时间，针对socket套接字函数connect，默认为30秒
+</span></span><span class="line"><span class="cl">#connect_timeout=3000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 网络通讯超时时间，默认是60秒
+</span></span><span class="line"><span class="cl">#network_timeout=60000
+</span></span></code></pre></div><p>tracker_server： tracker服务器IP和端口设置</p>
 <h3 id="533-创建测试类teststorageclient">5.3.3 创建测试类TestStorageClient</h3>
 <p>代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn</span><span class="o">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.csource.common.MyException</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.csource.fastdfs.*</span><span class="o">;</span>
@@ -2946,23 +1956,8 @@ tracker_server=192.168.188.128:22122
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>注意：如果出现连接图片服务器超时失败的情况，请检查图片linux服务器是否启动、是否开启了端口22122、23000以及8080的防火墙端口，如果未开启需要开启。</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>22122/tcp --permanent
+</span></span></code></pre></div><p><strong>注意：如果出现连接图片服务器超时失败的情况，请检查图片linux服务器是否启动、是否开启了端口22122、23000以及8080的防火墙端口，如果未开启需要开启。</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>22122/tcp --permanent
 </span></span><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>23000/tcp --permanent
 </span></span><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>8080/tcp --permanent
 </span></span><span class="line"><span class="cl">firewall-cmd --reload
@@ -2971,9 +1966,7 @@ tracker_server=192.168.188.128:22122
 </span></span><span class="line"><span class="cl">systemctl stop firewalld
 </span></span><span class="line"><span class="cl">//禁止开机启动防火墙
 </span></span><span class="line"><span class="cl">systemctl disable firewalld
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>控制台输出如下结果：
+</span></span></code></pre></div><p>控制台输出如下结果：
 <img src="/posts/project-0/20220527220542/image-20220527221349537.png"
     
     
@@ -2995,28 +1988,7 @@ tracker_server=192.168.188.128:22122
 ></p>
 <h3 id="534-applicationyml配置">5.3.4 application.yml配置</h3>
 <p>在resources文件夹下创建application.yml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">servlet</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">multipart</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">max-file-size</span><span class="p">:</span><span class="w"> </span><span class="l">5MB</span><span class="w">
@@ -3033,24 +2005,10 @@ tracker_server=192.168.188.128:22122
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">prefer-ip-address</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">FILE_SERVER_URL</span><span class="p">:</span><span class="w"> </span><span class="l">http://192.168.188.128:8080/    </span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>max-file-size是单个文件大小，max-request-size是设置总上传的数据大小</p>
+</span></span></span></code></pre></div><p>max-file-size是单个文件大小，max-request-size是设置总上传的数据大小</p>
 <h3 id="535-启动类">5.3.5 启动类</h3>
 <p>创建启动类FileApplication</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableEurekaClient</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FileApplication</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -3058,9 +2016,7 @@ tracker_server=192.168.188.128:22122
 </span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">FileApplication</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>这里禁止了DataSource的加载创建。</strong></p>
+</span></span></code></pre></div><p><strong>这里禁止了DataSource的加载创建。</strong></p>
 <h3 id="536-文件上传">5.3.6 文件上传</h3>
 <h4 id="5361-添加工具类">5.3.6.1 添加工具类</h4>
 <p>将“资源/fastDFS/工具类”的FastDFSClient.java 拷贝到<code>com.offcn.util</code>
@@ -3074,49 +2030,7 @@ tracker_server=192.168.188.128:22122
 ></p>
 <h4 id="5362-控制层">5.3.6.2 控制层</h4>
 <p>在<code>com.offcn.controller</code>中创建UploadController.java</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.controller</span><span class="o">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.controller</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.offcn.entity.Result</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.offcn.entity.StatusCode</span><span class="o">;</span>
@@ -3154,9 +2068,7 @@ tracker_server=192.168.188.128:22122
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="5363-postman测试文件上传">5.3.6.3 Postman测试文件上传</h4>
+</span></span></code></pre></div><h4 id="5363-postman测试文件上传">5.3.6.3 Postman测试文件上传</h4>
 <p>步骤：</p>
 <p>1、选择post请求方式，输入请求地址  http://localhost:9002/upload</p>
 <p>2、填写body</p>
@@ -3171,17 +2083,9 @@ tracker_server=192.168.188.128:22122
 ></p>
 <p>3、访问http://192.168.188.156:8080//group1/M00/00/00/wKi8nGA17KaAUgXxAABgnQptHtk851.jpg</p>
 <p>注意，这里每次访问的端口是8080端口，访问的端口其实是storage容器的nginx端口，如果想修改该端口可以直接进入到storage容器，然后修改即可。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it storage  /bin/bash
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it storage  /bin/bash
 </span></span><span class="line"><span class="cl">vi /etc/nginx/conf/nginx.conf
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/project-0/20220527220542/image-20220527221423748.png"
+</span></span></code></pre></div><p><img src="/posts/project-0/20220527220542/image-20220527221423748.png"
     
     
     

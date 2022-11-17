@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>SpringSecurity OAuth2.0用户认证</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            13776 字
+            13272 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
-            28 分钟
+            27 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,49 +547,6 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/project-0/20220528165279/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">SpringSecurity OAuth2.0用户认证</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-05-28&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-05-28&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    13776 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    28 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 align = "center">第十一章</h1>
 <h1 align = "center">SpringSecurity OAuth2.0用户认证</h1>
@@ -584,15 +604,15 @@
     
 ></p>
 <h3 id="132-第三方登录优点">1.3.2 第三方登录优点</h3>
-<pre tabindex="0"><code>1.相比于本地注册，第三方登录一般来说比较方便、快捷，能够显著降低用户的注册和登录成本，方便用户实现快捷登录或注册。
-2.不用费尽心思地应付本地注册对账户名和密码的各种限制，如果不考虑昵称的重复性要求，几乎可以直接一个账号走遍天下，再也不用在大脑或者什么地方记住N多不同的网站或App的账号和密码，整个世界一下子清静了。
-3.在第一次绑定成功之后，之后用户便可以实现一键登录，使得后续的登录操作比起应用内的登录来容易了很多。
-4.对于某些喜欢社交，并希望将更多自己的生活内容展示给朋友的人来说，第三方登录可以实现把用户在应用内的活动同步到第三方平台上，省去了用户手动发布动态的麻烦。但对于某些比较注重个人隐私的用户来说，则会有一些担忧，所以这个优点是有前提的。
-5.因为降低了用户的注册或登录成本，从而减少由于本地注册的繁琐性而带来的隐形用户流失，最终提高注册转化率。
-6.对于某些应用来说，使用第三方登录完全可以满足自己的需要，因此不必要设计和开发一套自己的账户体系。
-7.通过授权，可以通过在第三方平台上分享用户在应用内的活动在第三方平台上宣传自己，从而增加产品知名度。
-8.通过授权，可以获得该用户在第三方平台上的好友或粉丝等社交信息，从而后续可以针对用户的社交关系网进行有目的性的营销宣传，为产品的市场推广提供另一种渠道。
-</code></pre><h3 id="133-第三方认证">1.3.3 第三方认证</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.相比于本地注册，第三方登录一般来说比较方便、快捷，能够显著降低用户的注册和登录成本，方便用户实现快捷登录或注册。
+</span></span><span class="line"><span class="cl">2.不用费尽心思地应付本地注册对账户名和密码的各种限制，如果不考虑昵称的重复性要求，几乎可以直接一个账号走遍天下，再也不用在大脑或者什么地方记住N多不同的网站或App的账号和密码，整个世界一下子清静了。
+</span></span><span class="line"><span class="cl">3.在第一次绑定成功之后，之后用户便可以实现一键登录，使得后续的登录操作比起应用内的登录来容易了很多。
+</span></span><span class="line"><span class="cl">4.对于某些喜欢社交，并希望将更多自己的生活内容展示给朋友的人来说，第三方登录可以实现把用户在应用内的活动同步到第三方平台上，省去了用户手动发布动态的麻烦。但对于某些比较注重个人隐私的用户来说，则会有一些担忧，所以这个优点是有前提的。
+</span></span><span class="line"><span class="cl">5.因为降低了用户的注册或登录成本，从而减少由于本地注册的繁琐性而带来的隐形用户流失，最终提高注册转化率。
+</span></span><span class="line"><span class="cl">6.对于某些应用来说，使用第三方登录完全可以满足自己的需要，因此不必要设计和开发一套自己的账户体系。
+</span></span><span class="line"><span class="cl">7.通过授权，可以通过在第三方平台上分享用户在应用内的活动在第三方平台上宣传自己，从而增加产品知名度。
+</span></span><span class="line"><span class="cl">8.通过授权，可以获得该用户在第三方平台上的好友或粉丝等社交信息，从而后续可以针对用户的社交关系网进行有目的性的营销宣传，为产品的市场推广提供另一种渠道。
+</span></span></code></pre></div><h3 id="133-第三方认证">1.3.3 第三方认证</h3>
 <p>当需要访问第三方系统的资源时需要首先通过第三方系统的认证（例如：微信认证），由第三方系统对用户认证通过，并授权资源的访问权限。
 <img src="/posts/project-0/20220528165279/image-20220528165423568.png"
     
@@ -614,14 +634,14 @@
     
 ></p>
 <p>单点登录的特点是：</p>
-<pre tabindex="0"><code>1、认证系统为独立的系统。 
-2、各子系统通过Http或其它协议与认证系统通信，完成用户认证。 
-3、用户身份信息存储在Redis集群。
-</code></pre><p>Java中有很多用户认证的框架都可以实现单点登录：</p>
-<pre tabindex="0"><code> 1、Apache Shiro. 
- 2、CAS 
- 3、Spring security CAS    
-</code></pre><h2 id="22-oauth2认证">2.2 Oauth2认证</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1、认证系统为独立的系统。 
+</span></span><span class="line"><span class="cl">2、各子系统通过Http或其它协议与认证系统通信，完成用户认证。 
+</span></span><span class="line"><span class="cl">3、用户身份信息存储在Redis集群。
+</span></span></code></pre></div><p>Java中有很多用户认证的框架都可以实现单点登录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> 1、Apache Shiro. 
+</span></span><span class="line"><span class="cl"> 2、CAS 
+</span></span><span class="line"><span class="cl"> 3、Spring security CAS    
+</span></span></code></pre></div><h2 id="22-oauth2认证">2.2 Oauth2认证</h2>
 <p>OAuth（开放授权）是一个开放标准，允许用户授权第三方移动应用访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码提供给第三方移动应用或分享他们数据的所有内容，OAuth2.0是OAuth协议的延续版本。</p>
 <h3 id="221-oauth2认证流程">2.2.1 Oauth2认证流程</h3>
 <p>第三方认证技术方案最主要是解决认证协议的通用标准 问题，因为要实现 跨系统认证，各系统之间要遵循一定的接口协议。
@@ -718,21 +738,7 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
     
 ></p>
 <h3 id="322-pomxml配置">3.2.2 pom.xml配置</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">&lt;dependencies&gt;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">&lt;dependencies&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">&lt;dependency&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><span class="w">
@@ -742,23 +748,8 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">&lt;artifactId&gt;spring-cloud-starter-oauth2&lt;/artifactId&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">&lt;/dependency&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">&lt;/dependencies&gt;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="323-applicationyml配置">3.2.3 application.yml配置</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></div><h3 id="323-applicationyml配置">3.2.3 application.yml配置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">9100</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
@@ -767,72 +758,8 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">service-url</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">defaultZone</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8761/eureka</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="324-编写springsecurity配置类websecurityconfig">3.2.4 编写SpringSecurity配置类WebSecurityConfig</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.config</span><span class="o">;</span>
+</span></span></span></code></pre></div><h3 id="324-编写springsecurity配置类websecurityconfig">3.2.4 编写SpringSecurity配置类WebSecurityConfig</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.config</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@Configuration</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableWebSecurity</span>
@@ -890,69 +817,9 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">BCryptPasswordEncoder</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>注意</strong>：@EnableWebSecurity启用springSecurity</p>
+</span></span></code></pre></div><p><strong>注意</strong>：@EnableWebSecurity启用springSecurity</p>
 <h3 id="325-编写springsecurityoauth2认证服务器配置类authorizationserverconfiguration">3.2.5 编写SpringSecurityOauth2认证服务器配置类AuthorizationServerConfiguration</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.config</span><span class="o">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.config</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@Configuration</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableAuthorizationServer</span>
@@ -1006,24 +873,10 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>注意</strong>：@EnableAuthorizationServer 启用OAuth2授权服务器</p>
+</span></span></code></pre></div><p><strong>注意</strong>：@EnableAuthorizationServer 启用OAuth2授权服务器</p>
 <p><strong>注意</strong>：资源编号需要填写默认的：oauth2-resource</p>
 <h3 id="326-编写主启动类">3.2.6 编写主启动类</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableDiscoveryClient</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserOauth2Application</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -1031,18 +884,16 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
 </span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">UserOauth2Application</span><span class="o">.</span><span class="na">class</span><span class="o">,</span><span class="n">args</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="327-启动授权认证服务">3.2.7 启动授权认证服务</h3>
+</span></span></code></pre></div><h3 id="327-启动授权认证服务">3.2.7 启动授权认证服务</h3>
 <p>启动之前，记得先启动eureka，再启动该授权认证工程。</p>
 <h2 id="33-oauth2授权模式">3.3 Oauth2授权模式</h2>
 <h3 id="331-oauth2授权模式">3.3.1 Oauth2授权模式</h3>
 <p>Oauth2有以下授权模式：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.授权码模式（Authorization Code）
-2.密码模式（Resource Owner Password Credentials）
-3.客户端模式（Client Credentials） 
-4.隐式授权模式（Implicit） 
-</code></pre><h3 id="332-授权码授权实现">3.3.2 授权码授权实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.授权码模式（Authorization Code）
+</span></span><span class="line"><span class="cl">2.密码模式（Resource Owner Password Credentials）
+</span></span><span class="line"><span class="cl">3.客户端模式（Client Credentials） 
+</span></span><span class="line"><span class="cl">4.隐式授权模式（Implicit） 
+</span></span></code></pre></div><h3 id="332-授权码授权实现">3.3.2 授权码授权实现</h3>
 <p>上边例举的优就业官网使用QQ认证的过程就是授权码模式，流程如下：</p>
 <p>1、客户端请求第三方授权</p>
 <p>2、用户(资源拥有者)同意给客户端授权</p>
@@ -1052,14 +903,14 @@ Oauth协议：https://tools.ietf.org/html/rfc6749
 <p>6、资源服务器返回受保护资源</p>
 <p><strong>(1)申请授权码</strong></p>
 <p>请求认证服务获取授权码：</p>
-<pre tabindex="0"><code>Get请求：
-http://localhost:9100/oauth/authorize?client_id=admin&amp;response_type=code&amp;scop=app&amp;redirect_uri=http://localhost
-</code></pre><p>参数列表如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">client_id：客户端id，和授权配置类中设置的客户端id一致。 
-response_type：授权码模式固定为code 
-scop：客户端范围，和授权配置类中设置的scop一致。 
-redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上code参数（授权码）
-</code></pre><p>首先跳转到登录页面：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Get请求：
+</span></span><span class="line"><span class="cl">http://localhost:9100/oauth/authorize?client_id=admin&amp;response_type=code&amp;scop=app&amp;redirect_uri=http://localhost
+</span></span></code></pre></div><p>参数列表如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">client_id：客户端id，和授权配置类中设置的客户端id一致。 
+</span></span><span class="line"><span class="cl">response_type：授权码模式固定为code 
+</span></span><span class="line"><span class="cl">scop：客户端范围，和授权配置类中设置的scop一致。 
+</span></span><span class="line"><span class="cl">redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上code参数（授权码）
+</span></span></code></pre></div><p>首先跳转到登录页面：
 <img src="/posts/project-0/20220528165279/image-20220528165552836.png"
     
     
@@ -1097,10 +948,10 @@ redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，�
 ></p>
 <p><strong>(2)申请令牌</strong></p>
 <p>拿到授权码后，申请令牌。 Post请求：http://localhost:9100/oauth/token 参数如下：</p>
-<pre tabindex="0"><code>grant_type：授权类型，填写authorization_code，表示授权码模式 
-code：授权码，就是刚刚获取的授权码，注意：授权码只使用一次就无效了，需要重新申请。 
-redirect_uri：申请授权码时的跳转url，一定和申请授权码时用的redirect_uri一致。 
-</code></pre><p>此链接需要使用 http Basic认证。 什么是http Basic认证？ http协议定义的一种认证方式，将客户端id和客户端密码按照“客户端ID:客户端密码”的格式拼接，并用base64编 码，放在header中请求服务端，一个例子： Authorization：Basic WGNXZWJBcHA6WGNXZWJBcHA=WGNXZWJBcHA6WGNXZWJBcHA= 是用户名:密码的base64编码。 认证失败服务端返回 401 Unauthorized。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">grant_type：授权类型，填写authorization_code，表示授权码模式 
+</span></span><span class="line"><span class="cl">code：授权码，就是刚刚获取的授权码，注意：授权码只使用一次就无效了，需要重新申请。 
+</span></span><span class="line"><span class="cl">redirect_uri：申请授权码时的跳转url，一定和申请授权码时用的redirect_uri一致。 
+</span></span></code></pre></div><p>此链接需要使用 http Basic认证。 什么是http Basic认证？ http协议定义的一种认证方式，将客户端id和客户端密码按照“客户端ID:客户端密码”的格式拼接，并用base64编 码，放在header中请求服务端，一个例子： Authorization：Basic WGNXZWJBcHA6WGNXZWJBcHA=WGNXZWJBcHA6WGNXZWJBcHA= 是用户名:密码的base64编码。 认证失败服务端返回 401 Unauthorized。</p>
 <p>以上测试使用postman完成：</p>
 <p>http basic认证： <br>
 <img src="/posts/project-0/20220528165279/image-20220528165617452.png"
@@ -1133,12 +984,12 @@ redirect_uri：申请授权码时的跳转url，一定和申请授权码时用�
     
 ></p>
 <p>返回信如下:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">access_token：访问令牌，携带此令牌访问资源 
-token_type：有MAC Token与Bearer Token两种类型，两种的校验算法不同，RFC 6750建议Oauth2采用 Bearer Token（http://www.rfcreader.com/#rfc6750）。 
-refresh_token：刷新令牌，使用此令牌可以延长访问令牌的过期时间。 
-expires_in：过期时间，单位为秒。 
-scope：范围，与定义的客户端范围一致。    
-</code></pre><p><strong>(3)令牌校验</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">access_token：访问令牌，携带此令牌访问资源 
+</span></span><span class="line"><span class="cl">token_type：有MAC Token与Bearer Token两种类型，两种的校验算法不同，RFC 6750建议Oauth2采用 Bearer Token（http://www.rfcreader.com/#rfc6750）。 
+</span></span><span class="line"><span class="cl">refresh_token：刷新令牌，使用此令牌可以延长访问令牌的过期时间。 
+</span></span><span class="line"><span class="cl">expires_in：过期时间，单位为秒。 
+</span></span><span class="line"><span class="cl">scope：范围，与定义的客户端范围一致。    
+</span></span></code></pre></div><p><strong>(3)令牌校验</strong></p>
 <p>Spring Security Oauth2提供校验令牌的端点，如下：</p>
 <p>Get: http://localhost:9100/oauth/check_token?token= [access_token]</p>
 <p>参数：</p>
@@ -1258,14 +1109,14 @@ scope：范围，与定义的客户端范围一致。
 </ul>
 <p><strong>获取token</strong></p>
 <p>请求认证服务获取授权码：</p>
-<pre tabindex="0"><code>Get请求：
-http://localhost:9100/oauth/authorize?client_id=admin&amp;redirect_uri=http://localhost&amp;response_type=token&amp;scope=app
-</code></pre><p>参数列表如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">client_id：客户端id，和授权配置类中设置的客户端id一致。 
-response_type：隐式模式固定为token
-scop：客户端范围，和授权配置类中设置的scop一致。 
-redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上access_token（令牌）
-</code></pre><p>首先跳转到登录页面：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Get请求：
+</span></span><span class="line"><span class="cl">http://localhost:9100/oauth/authorize?client_id=admin&amp;redirect_uri=http://localhost&amp;response_type=token&amp;scope=app
+</span></span></code></pre></div><p>参数列表如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">client_id：客户端id，和授权配置类中设置的客户端id一致。 
+</span></span><span class="line"><span class="cl">response_type：隐式模式固定为token
+</span></span><span class="line"><span class="cl">scop：客户端范围，和授权配置类中设置的scop一致。 
+</span></span><span class="line"><span class="cl">redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，并在后边带上access_token（令牌）
+</span></span></code></pre></div><p>首先跳转到登录页面：
 <img src="/posts/project-0/20220528165279/image-20220528165739449.png"
     
     
@@ -1317,12 +1168,12 @@ redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，�
 ></p>
 <p>传统的授权模式性能低下，每次都需要请求授权服务校验令牌合法性，我们可以利用公钥私钥完成对令牌的加密，如果加密解密成功，则表示令牌合法，如果加密解密失败，则表示令牌无效不合法，合法则允许访问资源服务器的资源，解密失败，则不允许访问资源服务器资源。</p>
 <p>上图的业务流程如下:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1、客户端请求认证服务申请令牌
-2、认证服务生成令牌认证服务采用非对称加密算法，使用私钥生成令牌。
-3、客户端携带令牌访问资源服务客户端在Http header 中添加： Authorization：Bearer 令牌。
-4、资源服务请求认证服务校验令牌的有效性资源服务接收到令牌，使用公钥校验令牌的合法性。
-5、令牌有效，资源服务向客户端响应资源信息
-</code></pre><h2 id="42-公钥私钥">4.2 公钥私钥</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1、客户端请求认证服务申请令牌
+</span></span><span class="line"><span class="cl">2、认证服务生成令牌认证服务采用非对称加密算法，使用私钥生成令牌。
+</span></span><span class="line"><span class="cl">3、客户端携带令牌访问资源服务客户端在Http header 中添加： Authorization：Bearer 令牌。
+</span></span><span class="line"><span class="cl">4、资源服务请求认证服务校验令牌的有效性资源服务接收到令牌，使用公钥校验令牌的合法性。
+</span></span><span class="line"><span class="cl">5、令牌有效，资源服务向客户端响应资源信息
+</span></span></code></pre></div><h2 id="42-公钥私钥">4.2 公钥私钥</h2>
 <p>在对称加密的时代，加密和解密用的是同一个密钥，这个密钥既用于加密，又用于解密。这样做有一个明显的缺点，如果两个人之间传输文件，两个人都要知道密钥，如果是三个人呢，五个人呢？于是就产生了非对称加密，用一个密钥进行加密（公钥），用另一个密钥进行解密（私钥）。</p>
 <h3 id="421-公钥私钥原理">4.2.1 公钥私钥原理</h3>
 <p>张三有两把钥匙，一把是公钥，另一把是私钥。
@@ -1384,19 +1235,19 @@ redirect_uri：跳转uri，当授权码申请成功后会跳转到此地址，�
 <p>(1)生成密钥证书 下边命令生成密钥证书，采用RSA 算法每个证书包含公钥和私钥</p>
 <p>在Centos7服务器安装配置好JAVA环境：</p>
 <p>创建一个文件夹</p>
-<pre tabindex="0"><code>cd /root
-
-mkdir key
-cd key
-</code></pre><p>在该文件夹下执行如下命令行：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -genkeypair -alias dongyimai -keyalg RSA -keypass dongyimai -keystore dongyimai.jks -storepass dongyimai
-</code></pre><p>Keytool 是一个java提供的证书管理工具</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">-alias：密钥的别名 
--keyalg：使用的hash算法 
--keypass：密钥的访问密码 
--keystore：密钥库文件名，xc.keystore保存了生成的证书 
--storepass：密钥库的访问密码 
-</code></pre><p><img src="/posts/project-0/20220528165279/image-20220528165859534.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /root
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir key
+</span></span><span class="line"><span class="cl">cd key
+</span></span></code></pre></div><p>在该文件夹下执行如下命令行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">keytool -genkeypair -alias dongyimai -keyalg RSA -keypass dongyimai -keystore dongyimai.jks -storepass dongyimai
+</span></span></code></pre></div><p>Keytool 是一个java提供的证书管理工具</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-alias：密钥的别名 
+</span></span><span class="line"><span class="cl">-keyalg：使用的hash算法 
+</span></span><span class="line"><span class="cl">-keypass：密钥的访问密码 
+</span></span><span class="line"><span class="cl">-keystore：密钥库文件名，xc.keystore保存了生成的证书 
+</span></span><span class="line"><span class="cl">-storepass：密钥库的访问密码 
+</span></span></code></pre></div><p><img src="/posts/project-0/20220528165279/image-20220528165859534.png"
     
     
     
@@ -1405,8 +1256,8 @@ cd key
     
 ></p>
 <p>(2)查询证书信息</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -list -keystore dongyimai.jks
-</code></pre><p><img src="/posts/project-0/20220528165279/image-20220528165905628.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">keytool -list -keystore dongyimai.jks
+</span></span></code></pre></div><p><img src="/posts/project-0/20220528165279/image-20220528165905628.png"
     
     
     
@@ -1415,22 +1266,15 @@ cd key
     
 ></p>
 <p>(3)删除别名</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">keytool -delete -alias dongyimai -keystore dongyimai.jks
-</code></pre><h3 id="423-导出公钥">4.2.3 导出公钥</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">keytool -delete -alias dongyimai -keystore dongyimai.jks
+</span></span></code></pre></div><h3 id="423-导出公钥">4.2.3 导出公钥</h3>
 <p>openssl是一个加解密工具包，这里使用openssl来导出公钥信息。</p>
 <p>openssl：https://www.openssl.org/</p>
 <p>进入秘钥所在目录</p>
-<pre tabindex="0"><code>cd /root/key
-</code></pre><p>进入dongyimai.jks文件所在目录执行如下命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">keytool -list -rfc --keystore dongyimai.jks <span class="p">|</span> openssl x509 -inform pem -pubkey
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/project-0/20220528165279/image-20220528165944281.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /root/key
+</span></span></code></pre></div><p>进入dongyimai.jks文件所在目录执行如下命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">keytool -list -rfc --keystore dongyimai.jks <span class="p">|</span> openssl x509 -inform pem -pubkey
+</span></span></code></pre></div><p><img src="/posts/project-0/20220528165279/image-20220528165944281.png"
     
     
     
@@ -1439,87 +1283,14 @@ cd key
     
 ></p>
 <p>下面段内容是公钥</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXKdA+tx5/MFq7iLbBPoc6C2Ol+o+wVJVmV3Y1QAYdyGYMWIOJpFwggc+T4CmZNlCDxKEwwdB0ic63URGhTz5vf9lUAcluGC+gu5O++cZLjnUrRQYRjJGNewx8BkAVIRNAZn1i3vTOzdkYhqD6Ev8PyCCI5NGO5E4pZ3vj6F7HvrTjj7FKcI3J5iaXwAF9OiXJYIJpbB1+EBaWksoFSF5MalbwbmE22RJ6fNtgHJYNxhQfzMVip/x5jSwL5fcAJyBS0wzcErTCHYJcWH2tlWctp4e6Tjq23c98bg42nf+i2eqko6o90sQIDAQAB
------END PUBLIC KEY-----
-</code></pre><p>将上边的公钥拷贝到文本public.key文件中，**注意：**合并为一行,可以将它放到需要实现授权认证的工程中。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-----BEGIN PUBLIC KEY-----
+</span></span><span class="line"><span class="cl">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXKdA+tx5/MFq7iLbBPoc6C2Ol+o+wVJVmV3Y1QAYdyGYMWIOJpFwggc+T4CmZNlCDxKEwwdB0ic63URGhTz5vf9lUAcluGC+gu5O++cZLjnUrRQYRjJGNewx8BkAVIRNAZn1i3vTOzdkYhqD6Ev8PyCCI5NGO5E4pZ3vj6F7HvrTjj7FKcI3J5iaXwAF9OiXJYIJpbB1+EBaWksoFSF5MalbwbmE22RJ6fNtgHJYNxhQfzMVip/x5jSwL5fcAJyBS0wzcErTCHYJcWH2tlWctp4e6Tjq23c98bg42nf+i2eqko6o90sQIDAQAB
+</span></span><span class="line"><span class="cl">-----END PUBLIC KEY-----
+</span></span></code></pre></div><p>将上边的公钥拷贝到文本public.key文件中，**注意：**合并为一行,可以将它放到需要实现授权认证的工程中。</p>
 <h2 id="43-使用私钥公钥生成解析jwt令牌">4.3 使用私钥公钥生成、解析JWT令牌</h2>
 <p>(1)创建令牌数据</p>
 <p>在dongyimai-user-oauth工程中创建测试类com.offcn.token.CreateJwtTest，使用它来创建令牌信息，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.dongyimai.oauth</span><span class="o">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.dongyimai.oauth</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.alibaba.fastjson.JSON</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
@@ -1588,42 +1359,12 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">   
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行后的结果如下：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">token:eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlJPTEVfVklQLFJPTEVfVVNFUiIsIm5hbWUiOiJ1aml1eWUiLCJpZCI6IjEifQ.G7hIUJV4a9PihurY4gfCdkqZqE0g9bRWU5l5PY0X1kv8LAt_-Otdi4ryLxgo2iM0FUI9GoT_LnggX3fSF-U3EaIu-pphyrvo2raz9kIWxEN_xLIW-Z3GHG05pOAhJE2OwF6Y-UYd3J1nGc3WMePdenuFRgLlJXw9d3fsalk5pC3fBBk4a6RKTRJveleRZxG58VP856XtrathNMl6HSfT37mwvMm-tTL1vzJgyyO5JM6Px38b9L4jpbsn5R1HX1JDve5RRFsbJHOgRycY2Crj_bm6jbWm-3jgj0w0N1MjA1JH86-DXEunciBgMjZ9BWRUDOe8Q8UhZjUwPVCKLzmcxw
-</code></pre><p>(2)解析令牌</p>
+</span></span></code></pre></div><p>运行后的结果如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">token:eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6IlJPTEVfVklQLFJPTEVfVVNFUiIsIm5hbWUiOiJ1aml1eWUiLCJpZCI6IjEifQ.G7hIUJV4a9PihurY4gfCdkqZqE0g9bRWU5l5PY0X1kv8LAt_-Otdi4ryLxgo2iM0FUI9GoT_LnggX3fSF-U3EaIu-pphyrvo2raz9kIWxEN_xLIW-Z3GHG05pOAhJE2OwF6Y-UYd3J1nGc3WMePdenuFRgLlJXw9d3fsalk5pC3fBBk4a6RKTRJveleRZxG58VP856XtrathNMl6HSfT37mwvMm-tTL1vzJgyyO5JM6Px38b9L4jpbsn5R1HX1JDve5RRFsbJHOgRycY2Crj_bm6jbWm-3jgj0w0N1MjA1JH86-DXEunciBgMjZ9BWRUDOe8Q8UhZjUwPVCKLzmcxw
+</span></span></code></pre></div><p>(2)解析令牌</p>
 <p>上面创建令牌后，我们可以对JWT令牌进行解析，这里解析需要用到公钥，我们可以将之前生成的公钥public.key拷贝出来用字符串变量token存储，然后通过公钥解密。</p>
 <p>在dongyimai-user-oauth创建测试类com.offcn.token.ParseJwtTest实现解析校验令牌数据，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ParseJwtTest</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ParseJwtTest</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 校验令牌
@@ -1647,9 +1388,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">encoded</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行结果：
+</span></span></code></pre></div><p>运行结果：
 <img src="/posts/project-0/20220528165279/image-20220528170000772.png"
     
     
@@ -1670,47 +1409,15 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
     
 ></p>
 <h3 id="442修改配置文件applicationyml配置秘钥相关参数">4.4.2、修改配置文件application.yml配置秘钥相关参数</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">encrypt</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">encrypt</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">key-store</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l">classpath:dongyimai.jks </span><span class="w"> </span><span class="c">#秘钥文件名</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l">dongyimai </span><span class="w"> </span><span class="c">#别名</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">dongyimai </span><span class="w"> </span><span class="c">#密码</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">dongyimai  </span><span class="w"> </span><span class="c">#密钥库的访问密码</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="443修改配置类authorizationserverconfiguration">4.4.3、修改配置类AuthorizationServerConfiguration</h3>
+</span></span></span></code></pre></div><h3 id="443修改配置类authorizationserverconfiguration">4.4.3、修改配置类AuthorizationServerConfiguration</h3>
 <p>秘钥证书读取方法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//创建证书读取工具类
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//创建证书读取工具类
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Bean</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;keyProp&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">KeyProperties</span> <span class="nf">keyProperties</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">KeyProperties</span><span class="o">();</span>
@@ -1726,22 +1433,8 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span class="line"><span class="cl">                <span class="n">keyProperties</span><span class="o">.</span><span class="na">getKeyStore</span><span class="o">().</span><span class="na">getSecret</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">()).</span><span class="na">getKeyPair</span><span class="o">(</span><span class="n">keyProperties</span><span class="o">.</span><span class="na">getKeyStore</span><span class="o">().</span><span class="na">getAlias</span><span class="o">(),</span><span class="n">keyProperties</span><span class="o">.</span><span class="na">getKeyStore</span><span class="o">().</span><span class="na">getSecret</span><span class="o">().</span><span class="na">toCharArray</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>编写普通令牌转换成JWT格式令牌的转换方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//创建JwtAccessTokenConverter用来生成JWT令牌
+</span></span></code></pre></div><p>编写普通令牌转换成JWT格式令牌的转换方法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//创建JwtAccessTokenConverter用来生成JWT令牌
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">JwtAccessTokenConverter</span> <span class="nf">jwtAccessTokenConverter</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">JwtAccessTokenConverter</span> <span class="n">jwtAccessTokenConverter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JwtAccessTokenConverter</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//关联私钥
@@ -1749,24 +1442,8 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">jwtAccessTokenConverter</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改配置方法public void configure(AuthorizationServerEndpointsConfigurer endpoints)指定令牌按照JWT令牌生成</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//端点令牌存储方式、关联自定义认证对象、认证管理器
+</span></span></code></pre></div><p>修改配置方法public void configure(AuthorizationServerEndpointsConfigurer endpoints)指定令牌按照JWT令牌生成</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//端点令牌存储方式、关联自定义认证对象、认证管理器
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="n">AuthorizationServerEndpointsConfigurer</span> <span class="n">endpoints</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">endpoints</span><span class="o">.</span><span class="na">tokenStore</span><span class="o">(</span><span class="k">new</span> <span class="n">JwtTokenStore</span><span class="o">(</span><span class="n">jwtAccessTokenConverter</span><span class="o">()))</span> <span class="c1">//令牌存储格式jwt
@@ -1776,9 +1453,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="o">.</span><span class="na">allowedTokenEndpointRequestMethods</span><span class="o">(</span><span class="n">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span><span class="n">HttpMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">);</span><span class="c1">//允许端点访问方法
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="444测试生成令牌">4.4.4、测试生成令牌</h3>
+</span></span></code></pre></div><h3 id="444测试生成令牌">4.4.4、测试生成令牌</h3>
 <p>生成令牌，就变成了JWT格式的了！
 <img src="/posts/project-0/20220528165279/image-20220528170018040.png"
     
@@ -1790,23 +1465,12 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 ></p>
 <h3 id="445配置获取公钥端点">4.4.5、配置获取公钥端点</h3>
 <p>修改配置类AuthorizationServerConfiguration,增加配置获取公钥的方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//获取公钥的端点访问
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//获取公钥的端点访问
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Bean</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">TokenKeyEndpoint</span> <span class="nf">tokenKeyEndpoint</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">TokenKeyEndpoint</span><span class="o">(</span><span class="n">jwtAccessTokenConverter</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试获取公钥：</p>
+</span></span></code></pre></div><p>测试获取公钥：</p>
 <p>访问地址：http://localhost:9100/oauth/token_key
 <img src="/posts/project-0/20220528165279/image-20220528170024353.png"
     
@@ -1828,12 +1492,12 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
     
 ></p>
 <p>执行流程：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1、用户登录，请求认证服务 
-2、认证服务认证通过，生成jwt令牌，将jwt令牌及相关信息写入cookie 
-3、用户访问资源页面，带着cookie到网关 
-4、网关从cookie获取token，如果存在token，则校验token合法性，如果不合法则拒绝访问，否则放行 
-5、用户退出，请求认证服务，删除cookie中的token 
-</code></pre><h2 id="52-认证服务">5.2 认证服务</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1、用户登录，请求认证服务 
+</span></span><span class="line"><span class="cl">2、认证服务认证通过，生成jwt令牌，将jwt令牌及相关信息写入cookie 
+</span></span><span class="line"><span class="cl">3、用户访问资源页面，带着cookie到网关 
+</span></span><span class="line"><span class="cl">4、网关从cookie获取token，如果存在token，则校验token合法性，如果不合法则拒绝访问，否则放行 
+</span></span><span class="line"><span class="cl">5、用户退出，请求认证服务，删除cookie中的token 
+</span></span></code></pre></div><h2 id="52-认证服务">5.2 认证服务</h2>
 <h3 id="521-认证需求分析">5.2.1 认证需求分析</h3>
 <p>认证服务需要实现的功能如下：</p>
 <p>1、登录接口</p>
@@ -1850,22 +1514,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 <h3 id="522-工具封装">5.2.2 工具封装</h3>
 <p>在dongyimai-user-oauth工程中添加如下工具对象，方便操作令牌信息。</p>
 <p>创建com.offcn.oauth.util.AuthToken类，存储用户令牌数据，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AuthToken</span> <span class="kd">implements</span> <span class="n">Serializable</span><span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AuthToken</span> <span class="kd">implements</span> <span class="n">Serializable</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">//令牌信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span> <span class="n">accessToken</span><span class="o">;</span>
@@ -1876,66 +1525,8 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="c1">//...get...set
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建com.offcn.oauth.util.CookieUtil类，操作Cookie,代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.util</span><span class="o">;</span>
+</span></span></code></pre></div><p>创建com.offcn.oauth.util.CookieUtil类，操作Cookie,代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.util</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">javax.servlet.http.Cookie</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
@@ -1987,29 +1578,15 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="523--配置文件">5.2.3  配置文件</h3>
+</span></span></code></pre></div><h3 id="523--配置文件">5.2.3  配置文件</h3>
 <p>修改配置文件application.yml增加认证相关配置</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">auth</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">auth</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="m">3600</span><span class="w">  </span><span class="c">#token过期时间</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">clientId</span><span class="p">:</span><span class="w"> </span><span class="l">admin </span><span class="w"> </span><span class="c">#客户端账号</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w"> </span><span class="c">#客户端密码</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">cookieDomain</span><span class="p">:</span><span class="w"> </span><span class="l">localhost</span><span class="w"> </span><span class="c">#cookie域名</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">cookieMaxAge</span><span class="p">:</span><span class="w"> </span>-<span class="m">1</span><span class="w">     </span><span class="c">#cookie有效期</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="524--业务层">5.2.4  业务层</h3>
+</span></span></span></code></pre></div><h3 id="524--业务层">5.2.4  业务层</h3>
 <p><img src="/posts/project-0/20220528165279/image-20220528170047629.png"
     
     
@@ -2020,136 +1597,15 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 ></p>
 <p>如上图，我们现在实现一个认证流程，用户从页面输入账号密码，到认证服务的Controller层，Controller层调用Service层，Service层调用OAuth2.0的认证地址，进行密码授权认证操作，如果账号密码正确了，就返回令牌信息给Service层，Service将令牌信息给Controller层，Controller层将数据存入到Cookie中，再响应用户。</p>
 <p>创建com.offcn.oauth.service.AuthService接口，并添加授权认证方法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">AuthService</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">AuthService</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 授权认证方法
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
 </span></span><span class="line"><span class="cl">    <span class="n">AuthToken</span> <span class="nf">login</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">,</span> <span class="n">String</span> <span class="n">password</span><span class="o">,</span> <span class="n">String</span> <span class="n">clientId</span><span class="o">,</span> <span class="n">String</span> <span class="n">clientSecret</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建com.offcn.oauth.service.impl.AuthServiceImpl实现类，实现获取令牌数据，这里认证获取令牌采用的是密码授权模式，用的是RestTemplate向OAuth服务发起认证请求，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span></code></pre></div><p>创建com.offcn.oauth.service.impl.AuthServiceImpl实现类，实现获取令牌数据，这里认证获取令牌采用的是密码授权模式，用的是RestTemplate向OAuth服务发起认证请求，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AuthServiceImpl</span> <span class="kd">implements</span> <span class="n">AuthService</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
@@ -2253,62 +1709,10 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;Basic &#34;</span><span class="o">+</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">encode</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意：HttpBasic协议验证规则 ,在请求头传递  Authorization  值为   Basic+半角空格+Base64Encode客户端id:客户端密码</p>
+</span></span></code></pre></div><p>注意：HttpBasic协议验证规则 ,在请求头传递  Authorization  值为   Basic+半角空格+Base64Encode客户端id:客户端密码</p>
 <h3 id="525--控制层">5.2.5  控制层</h3>
 <p>创建控制层com.offcn.oauth.controller.AuthController，编写用户登录授权方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/user&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AuthController</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -2354,14 +1758,12 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm79WjnLSh41Wt+J3K44rAfUwYVHEz5Ii2zXK
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改主启动类，声明RestTemplate</p>
-<pre tabindex="0"><code> @Bean
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
-</code></pre><h3 id="527-测试认证接口">5.2.7 测试认证接口</h3>
+</span></span></code></pre></div><p>修改主启动类，声明RestTemplate</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> @Bean
+</span></span><span class="line"><span class="cl">    public RestTemplate restTemplate(){
+</span></span><span class="line"><span class="cl">        return new RestTemplate();
+</span></span><span class="line"><span class="cl">    }
+</span></span></code></pre></div><h3 id="527-测试认证接口">5.2.7 测试认证接口</h3>
 <p>使用postman测试：</p>
 <p>Post请求：http://localhost:9100/user/login <br>
 <img src="/posts/project-0/20220528165279/image-20220528170102492.png"

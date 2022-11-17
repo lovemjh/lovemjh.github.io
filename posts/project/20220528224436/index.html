@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>tk-服务网关、Sentinel、Sleuth</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            11676 字
+            11421 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
-            24 分钟
+            23 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,49 +547,6 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/project/20220528224436/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">tk-服务网关、Sentinel、Sleuth</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-05-28&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-05-28&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    11676 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    24 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 align = "center">第2章</h1>
 <h1 align = "center">服务网关、Sentinel、Sleuth</h1>
@@ -597,35 +617,7 @@
 ></p>
 <h3 id="111-引入依赖">1.1.1. 引入依赖</h3>
 <p>已引入，如下。pom.xml中的依赖：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-gateway<span class="nt">&lt;/artifactId&gt;</span>
@@ -649,30 +641,10 @@
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencyManagement&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="112-编写路由规则">1.1.2. 编写路由规则</h3>
+</span></span></code></pre></div><h3 id="112-编写路由规则">1.1.2. 编写路由规则</h3>
 <p>为了演示路由到不同服务，这里把消费者和生产者都配置在网关中</p>
 <p>application.yml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">18090</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">cloud</span><span class="p">:</span><span class="w">
@@ -686,9 +658,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l">http://127.0.0.1:18070</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">predicates</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">Path=/hello</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="113-启动测试">1.1.3. 启动测试</h3>
+</span></span></span></code></pre></div><h3 id="113-启动测试">1.1.3. 启动测试</h3>
 <p>通过网关路径访问消费者或者生产者。
 <img src="/posts/project/20220528224436/image-20220528224708096.png"
     
@@ -751,19 +721,7 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">cloud</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">gateway</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">routes</span><span class="p">:</span><span class="w">
@@ -771,9 +729,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l">http://example.org</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">predicates</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">Path=/foo/{segment},/bar/{segment}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>这个路由匹配以/foo或者/bar开头的路径，转发到http:example.org。例如 <code>/foo/1</code> or <code>/foo/bar</code> or <code>/bar/baz</code>.</p>
+</span></span></span></code></pre></div><p>这个路由匹配以/foo或者/bar开头的路径，转发到http:example.org。例如 <code>/foo/1</code> or <code>/foo/bar</code> or <code>/bar/baz</code>.</p>
 <p>/foo/1 &mdash;&mdash;&gt;转发地址  <a class="link" href="/posts/project/http://example.org/foo/1"  target="_blank" rel="noopener"
     >http://example.org/foo/1</a></p>
 <p>/foo/bar&mdash;&ndash;&gt;转发地址 <a class="link" href="/posts/project/http://example.org/foo/bar"  target="_blank" rel="noopener"
@@ -815,38 +771,15 @@
     
     
 ></p>
-<pre tabindex="0"><code>上面的配置中，所有的`/foo/**`开始的路径都会命中配置的router，并执行过滤器的逻辑，在本案例中配置了RewritePath过滤器工厂，此工厂将`/foo/(?.*)`重写为{segment}，然后转发到http://example.org。比如在网页上请求localhost:8090/foo/forezp，此时会将请求转发到http://example.org/forezp的页面
-
-(?&lt;segment&gt;/?.*)：匹配 /任意字符，此处/出现0次或1次。将匹配到的结果捕获到名称为segment的组中
-$\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出现是由于避免yaml认为这是一个变量，在gateway进行解析时，会被替换为${segment}
-
-
-​		在开发中由于所有微服务的访问都要经过网关，为了区分不同的微服务，通常会在路径前加上一个标识，例如：访问服务提供方：`http://localhost:18090/provider/hello` ；访问服务消费方：`http://localhost:18090/consumer/hi`  如果不重写地址，直接转发的话，转发后的路径为：`http://localhost:18070/provider/hello`和`http://localhost:18080/consumer/hi`明显多了一个provider或者consumer，导致转发失败。
-</code></pre><p>这时，我们就用上了路径重写，配置如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">上面的配置中，所有的`/foo/**`开始的路径都会命中配置的router，并执行过滤器的逻辑，在本案例中配置了RewritePath过滤器工厂，此工厂将`/foo/(?.*)`重写为{segment}，然后转发到http://example.org。比如在网页上请求localhost:8090/foo/forezp，此时会将请求转发到http://example.org/forezp的页面
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">(?&lt;segment&gt;/?.*)：匹配 /任意字符，此处/出现0次或1次。将匹配到的结果捕获到名称为segment的组中
+</span></span><span class="line"><span class="cl">$\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出现是由于避免yaml认为这是一个变量，在gateway进行解析时，会被替换为${segment}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​		在开发中由于所有微服务的访问都要经过网关，为了区分不同的微服务，通常会在路径前加上一个标识，例如：访问服务提供方：`http://localhost:18090/provider/hello` ；访问服务消费方：`http://localhost:18090/consumer/hi`  如果不重写地址，直接转发的话，转发后的路径为：`http://localhost:18070/provider/hello`和`http://localhost:18080/consumer/hi`明显多了一个provider或者consumer，导致转发失败。
+</span></span></code></pre></div><p>这时，我们就用上了路径重写，配置如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">18090</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">cloud</span><span class="p">:</span><span class="w">
@@ -865,9 +798,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">filters</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">RewritePath=/provider/(?&lt;segment&gt;.*),/$\{segment}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#           - StripPrefix=1</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>注意</strong>：<code>Path=/consumer/**</code>及<code>Path=/provider/**</code>的变化</p>
+</span></span></span></code></pre></div><p><strong>注意</strong>：<code>Path=/consumer/**</code>及<code>Path=/provider/**</code>的变化</p>
 <p>RewritePath可以实现原来的zuul的StripPrefix的效果，而且功能更强大!</p>
 <p>测试：
 <img src="/posts/project/20220528224436/image-20220528224916919.png"
@@ -892,36 +823,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 <ol>
 <li>
 <p>引入nacos的相关依赖：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
@@ -946,9 +848,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencyManagement&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></span></code></pre></div></li>
 <li>
 <p>配置nacos服务地址及服务名：
 <img src="/posts/project/20220528224436/image-20220528224932309.png"
@@ -960,34 +860,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
     
 ></p>
 <p>application.yml中的配置：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">18090</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
@@ -1010,25 +883,10 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">Path=/provider/**</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">filters</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">RewritePath=/provider/(?&lt;segment&gt;.*),/$\{segment}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></span></span></code></pre></div></li>
 <li>
 <p>把网关注入到nacos</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableDiscoveryClient</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GatewayDemoApplication</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -1037,39 +895,10 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+</span></span></code></pre></div></li>
 </ol>
 <h3 id="132-修改配置通过服务名路由">1.3.2. 修改配置，通过服务名路由</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">18090</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">application</span><span class="p">:</span><span class="w">
@@ -1092,9 +921,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">Path=/provider/**</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">filters</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">RewritePath=/provider/(?&lt;segment&gt;.*),/$\{segment}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>语法：lb://服务名</p>
+</span></span></span></code></pre></div><p>语法：lb://服务名</p>
 <p>lb：LoadBalance，代表负载均衡的方式</p>
 <p>服务名取决于nacos的服务列表中的服务名
 <img src="/posts/project/20220528224436/image-20220528224944491.png"
@@ -1116,25 +943,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
     
 ></p>
 <p>代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Configuration</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RouteLocatorConfig</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Bean</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">RouteLocator</span> <span class="nf">customRouteLocator</span><span class="o">(</span><span class="n">RouteLocatorBuilder</span> <span class="n">builder</span><span class="o">){</span>
@@ -1148,9 +957,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 </span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="15-网关全局过滤了解">1.5. 网关全局过滤（了解）</h2>
+</span></span></code></pre></div><h2 id="15-网关全局过滤了解">1.5. 网关全局过滤（了解）</h2>
 <p>全局过滤器作用于所有的路由，不需要单独配置，我们可以用它来实现很多统一化处理的业务需求，比如权限认证，IP 访问限制等等。</p>
 <h3 id="151-过滤器生命周期">1.5.1 过滤器生命周期</h3>
 <p><img src="/posts/project/20220528224436/0.webp"
@@ -1163,64 +970,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 ></p>
 <h3 id="152-创建全局过滤器">1.5.2 创建全局过滤器</h3>
 <p>实现 <code>GlobalFilter</code>, <code>Ordered</code> 接口并在类上增加 <code>@Component</code> 注解就可以使用过滤功能了，非常简单方便</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.filter</span><span class="o">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.filter</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.fasterxml.jackson.core.JsonProcessingException</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="o">;</span>
@@ -1273,9 +1023,7 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">1</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="153-测试全局过滤器">1.5.3 测试全局过滤器</h3>
+</span></span></code></pre></div><h3 id="153-测试全局过滤器">1.5.3 测试全局过滤器</h3>
 <p>测试访问地址：http://localhost:18090/consumer/hi
 <img src="/posts/project/20220528224436/image-20220528225107797.png"
     
@@ -1455,36 +1203,26 @@ $\{segment}：将 segment所捕获到的文本置换到此处，注意，\的出
 <li>引入 sentinel 依赖</li>
 </ol>
 <p>使用 group ID 为 <code>com.alibaba.cloud</code> 和 artifact ID 为 <code>spring-cloud-starter-alibaba-sentinel</code> 的 starter。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-sentinel<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+</span></span></code></pre></div><ol start="2">
 <li>在application.yml中添加配置</li>
 </ol>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
-  cloud:    
-    sentinel:
-      transport:
-        dashboard: 192.168.188.138:8080
-        port: 8719
-# 暴露/actuator/sentinel端点
-management:
-  endpoints:
-    web:
-      exposure:
-        include: &#39;*&#39;        
-</code></pre><p>注意：必须暴露 /actuator/sentinel端点；（http://localhost:8000/actuator/sentinel）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">spring:
+</span></span><span class="line"><span class="cl">  cloud:    
+</span></span><span class="line"><span class="cl">    sentinel:
+</span></span><span class="line"><span class="cl">      transport:
+</span></span><span class="line"><span class="cl">        dashboard: 192.168.188.138:8080
+</span></span><span class="line"><span class="cl">        port: 8719
+</span></span><span class="line"><span class="cl"># 暴露/actuator/sentinel端点
+</span></span><span class="line"><span class="cl">management:
+</span></span><span class="line"><span class="cl">  endpoints:
+</span></span><span class="line"><span class="cl">    web:
+</span></span><span class="line"><span class="cl">      exposure:
+</span></span><span class="line"><span class="cl">        include: &#39;*&#39;        
+</span></span></code></pre></div><p>注意：必须暴露 /actuator/sentinel端点；（http://localhost:8000/actuator/sentinel）</p>
 <p>重启nacos-consumer工程，在浏览器中反复访问：http://localhost:18080/hi</p>
 <p>再次查看sentinel控制台页面：</p>
 <p><img src="/posts/project/20220528224436/image-20220528225446243.png"
@@ -1511,20 +1249,7 @@ management:
 <li>引入依赖：</li>
 </ol>
 <p>引入feign及sentinel的依赖</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-alibaba-sentinel<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
@@ -1533,26 +1258,15 @@ management:
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-openfeign<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意：springCloud的版本兼容问题使用的是Hoxton.SR2  兼容的cloud alibaba版本是:2.2.0.RELEASE</p>
+</span></span></code></pre></div><p>注意：springCloud的版本兼容问题使用的是Hoxton.SR2  兼容的cloud alibaba版本是:2.2.0.RELEASE</p>
 <p>注意:spring-cloud-starter-openfeign  2.2.6RELEASE 最高不能超过</p>
 <ol>
 <li>开启sentinel监控功能</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">feign</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">feign</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sentinel</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="3">
+</span></span></span></code></pre></div><ol start="3">
 <li>代码实现
 <img src="/posts/project/20220528224436/image-20220528225705379.png"
     
@@ -1564,19 +1278,7 @@ management:
 ></li>
 </ol>
 <p>添加feign接口的熔断类ProviderFallback：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProviderFallback</span> <span class="kd">implements</span> <span class="n">ProviderClient</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
@@ -1584,9 +1286,7 @@ management:
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;现在服务器忙，请稍后再试！&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在feign接口ProviderClient中指定熔断类：
+</span></span></code></pre></div><p>在feign接口ProviderClient中指定熔断类：
 <img src="/posts/project/20220528224436/image-20220528225722495.png"
     
     
@@ -1826,14 +1526,14 @@ management:
 ></p>
 <h3 id="264-链路限流">2.6.4. 链路限流</h3>
 <p>一棵典型的调用树如下图所示：</p>
-<pre tabindex="0"><code>     	          machine-root
-                    /       \
-                   /         \
-             Entrance1     Entrance2
-                /             \
-               /               \
-      DefaultNode(nodeA)   DefaultNode(nodeA)
-</code></pre><p>上图中来自入口 <code>Entrance1</code> 和 <code>Entrance2</code> 的请求都调用到了资源 <code>NodeA</code>，Sentinel 允许只根据某个入口的统计信息对资源限流。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">     	          machine-root
+</span></span><span class="line"><span class="cl">                    /       \
+</span></span><span class="line"><span class="cl">                   /         \
+</span></span><span class="line"><span class="cl">             Entrance1     Entrance2
+</span></span><span class="line"><span class="cl">                /             \
+</span></span><span class="line"><span class="cl">               /               \
+</span></span><span class="line"><span class="cl">      DefaultNode(nodeA)   DefaultNode(nodeA)
+</span></span></code></pre></div><p>上图中来自入口 <code>Entrance1</code> 和 <code>Entrance2</code> 的请求都调用到了资源 <code>NodeA</code>，Sentinel 允许只根据某个入口的统计信息对资源限流。</p>
 <p>配置如下：表示只针对Entrance1进来的请求做限流限制
 <img src="/posts/project/20220528224436/image-20220528230251440.png"
     
@@ -1957,38 +1657,28 @@ management:
 <ol>
 <li>引入依赖</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.alibaba.csp<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>sentinel-datasource-nacos<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+</span></span></code></pre></div><ol start="2">
 <li>添加配置：</li>
 </ol>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:
-  cloud:    
-    sentinel:
-      transport:
-        dashboard: 192.168.188.138:8080
-        port: 8719
-      datasource:
-        consumer:
-          nacos:
-            server-addr: 192.168.188.138:8848
-            dataId: ${spring.application.name}-sentinel-rules
-            groupId: SENTINEL_GROUP
-            data-type: json
-            rule_type: flow
-</code></pre><ol start="3">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">spring:
+</span></span><span class="line"><span class="cl">  cloud:    
+</span></span><span class="line"><span class="cl">    sentinel:
+</span></span><span class="line"><span class="cl">      transport:
+</span></span><span class="line"><span class="cl">        dashboard: 192.168.188.138:8080
+</span></span><span class="line"><span class="cl">        port: 8719
+</span></span><span class="line"><span class="cl">      datasource:
+</span></span><span class="line"><span class="cl">        consumer:
+</span></span><span class="line"><span class="cl">          nacos:
+</span></span><span class="line"><span class="cl">            server-addr: 192.168.188.138:8848
+</span></span><span class="line"><span class="cl">            dataId: ${spring.application.name}-sentinel-rules
+</span></span><span class="line"><span class="cl">            groupId: SENTINEL_GROUP
+</span></span><span class="line"><span class="cl">            data-type: json
+</span></span><span class="line"><span class="cl">            rule_type: flow
+</span></span></code></pre></div><ol start="3">
 <li>nacos中创建流控规则
 <img src="/posts/project/20220528224436/image-20220528230644314.png"
     
@@ -2000,22 +1690,7 @@ management:
 ></li>
 </ol>
 <p>配置内容如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;resource&#34;</span><span class="p">:</span> <span class="s2">&#34;/hi&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;limitApp&#34;</span><span class="p">:</span> <span class="s2">&#34;default&#34;</span><span class="p">,</span>
@@ -2026,9 +1701,7 @@ management:
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;clusterMode&#34;</span><span class="p">:</span> <span class="kc">false</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>resource：资源名称</p>
+</span></span></code></pre></div><p>resource：资源名称</p>
 <p>limitApp：限流应用，就是用默认就可以</p>
 <p>grade：阈值类型，0表示线程数，1表示Qps</p>
 <p>count：单机阈值</p>
@@ -2061,31 +1734,21 @@ management:
 <ol>
 <li>引入sleuth的依赖</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-zipkin<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>zipkin的启动器包含了sleuth的依赖。</p>
+</span></span></code></pre></div><p>zipkin的启动器包含了sleuth的依赖。</p>
 <ol start="2">
 <li>配置zipkin的相关信息</li>
 </ol>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">spring:  
-  zipkin:
-    base-url: http://192.168.188.138:9411
-    discovery-client-enabled: false
-    sender:
-      type: web
-</code></pre><ol start="3">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">spring:  
+</span></span><span class="line"><span class="cl">  zipkin:
+</span></span><span class="line"><span class="cl">    base-url: http://192.168.188.138:9411
+</span></span><span class="line"><span class="cl">    discovery-client-enabled: false
+</span></span><span class="line"><span class="cl">    sender:
+</span></span><span class="line"><span class="cl">      type: web
+</span></span></code></pre></div><ol start="3">
 <li>重启consumer/provider服务后，访问消费者：http://localhost:18080/hi。查看zipkin客户端如下
 <img src="/posts/project/20220528224436/zipkin_client.gif"
     

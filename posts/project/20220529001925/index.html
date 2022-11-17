@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>tk-题库微信小程序端功能开发</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            6598 字
+            5938 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
-            14 分钟
+            12 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,49 +547,6 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/project/20220529001925/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">tk-题库微信小程序端功能开发</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-05-29&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-05-29&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    6598 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    14 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 align = "center">第七章</h1>
 <h1 align = "center">题库微信小程序端功能开发</h1>
@@ -581,107 +601,7 @@
 ></p>
 <h2 id="13配置基础样式">1.3、配置基础样式</h2>
 <p>修改app.wxss</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
-</span><span class="lnt">89
-</span><span class="lnt">90
-</span><span class="lnt">91
-</span><span class="lnt">92
-</span><span class="lnt">93
-</span><span class="lnt">94
-</span><span class="lnt">95
-</span><span class="lnt">96
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/**app.wxss**/</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/**app.wxss**/</span>
 </span></span><span class="line"><span class="cl"><span class="c">/**app.wxss**/</span>
 </span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">import</span> <span class="s2">&#34;colorui/main.wxss&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">import</span> <span class="s2">&#34;colorui/icon.wxss&#34;</span><span class="p">;</span>
@@ -777,38 +697,24 @@
 </span></span><span class="line"><span class="cl">    <span class="k">border-color</span><span class="p">:</span> <span class="mh">#000</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">border-left-color</span><span class="p">:</span> <span class="mh">#888</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="14配置和后端服务接口调用地址">1.4、配置和后端服务接口调用地址</h2>
+</span></span></code></pre></div><h2 id="14配置和后端服务接口调用地址">1.4、配置和后端服务接口调用地址</h2>
 <p>修改配置文件app.js</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="err">globalData:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="err">userInfo:</span> <span class="err">null,</span>
 </span></span><span class="line"><span class="cl">    <span class="err">baseUrl:</span> <span class="nt">&#34;http://localhost:8888/wx&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>baseUrl地址即为和后端服务器接口调用地址</p>
+</span></span></code></pre></div><p>baseUrl地址即为和后端服务器接口调用地址</p>
 <h2 id="15创建对应的页面">1.5、创建对应的页面</h2>
 <p>修改配置文件app.json，修改对应的pages数组，修改内容如下：</p>
-<pre tabindex="0"><code> &#34;pages/account/account&#34;, 
-    &#34;pages/register/register&#34;,
-    &#34;pages/index/index&#34;,
-    &#34;pages/type/type&#34;,
-    &#34;pages/item/item&#34;,
-    &#34;pages/info/info&#34;
-</code></pre><p>注意默认主页为登录页面！</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> &#34;pages/account/account&#34;, 
+</span></span><span class="line"><span class="cl">    &#34;pages/register/register&#34;,
+</span></span><span class="line"><span class="cl">    &#34;pages/index/index&#34;,
+</span></span><span class="line"><span class="cl">    &#34;pages/type/type&#34;,
+</span></span><span class="line"><span class="cl">    &#34;pages/item/item&#34;,
+</span></span><span class="line"><span class="cl">    &#34;pages/info/info&#34;
+</span></span></code></pre></div><p>注意默认主页为登录页面！</p>
 <p>页面设计规划功能如下：</p>
 <table>
 <thead>
@@ -862,36 +768,7 @@
 ></p>
 <h2 id="16配置tabbar">1.6、配置tabBar</h2>
 <p>修改配置文件app.json</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;tabBar&#34;</span><span class="err">:</span><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;tabBar&#34;</span><span class="err">:</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;color&#34;</span><span class="p">:</span> <span class="s2">&#34;#dbdbdb&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;selectedColor&#34;</span><span class="p">:</span> <span class="s2">&#34;#1296db&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;backgroundColor&#34;</span><span class="p">:</span> <span class="s2">&#34;#ffffff&#34;</span><span class="p">,</span>
@@ -916,9 +793,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}]</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="err">,</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>tabBar效果：
+</span></span></code></pre></div><p>tabBar效果：
 <img src="/posts/project/20220529001925/image-20220529002041489.png"
     
     
@@ -930,133 +805,133 @@
 <h1 id="二用户登录注册功能开发">二、用户登录注册功能开发</h1>
 <h2 id="21创建用户登录页面">2.1、创建用户登录页面</h2>
 <h3 id="211修改页面文件pagesaccountaccountwxml">2.1.1、修改页面文件：pages\account\account.wxml</h3>
-<pre tabindex="0"><code>&lt;view class=&#34;container&#34;&gt; 
- 
- &lt;view class=&#34;login-icon&#34;&gt; 
- &lt;image class=&#34;login-img&#34; src=&#34;../../img/loginLogo.png&#34;&gt;&lt;/image&gt; 
- &lt;/view&gt; 
- &lt;view class=&#34;login-from&#34;&gt; 
- 
- &lt;!--账号--&gt;
- &lt;view class=&#34;inputView&#34;&gt; 
-  &lt;image class=&#34;nameImage&#34; src=&#34;../../img/name.png&#34;&gt;&lt;/image&gt; 
-  &lt;label class=&#34;loginLab&#34;&gt;账号&lt;/label&gt; 
-  &lt;input class=&#34;inputText&#34; placeholder=&#34;请输入账号&#34; bindinput=&#34;usernameInput&#34; /&gt; 
- &lt;/view&gt; 
- &lt;view class=&#34;line&#34;&gt;&lt;/view&gt; 
- 
- &lt;!--密码--&gt;
- &lt;view class=&#34;inputView&#34;&gt; 
-  &lt;image class=&#34;keyImage&#34; src=&#34;../../img/key.png&#34;&gt;&lt;/image&gt; 
-  &lt;label class=&#34;loginLab&#34;&gt;密码&lt;/label&gt; 
-  &lt;input class=&#34;inputText&#34; password=&#34;true&#34; placeholder=&#34;请输入密码&#34; bindinput=&#34;passwordInput&#34; /&gt; 
- &lt;/view&gt; 
- 
- &lt;!--按钮--&gt;
- &lt;view class=&#34;loginBtnView&#34;&gt; 
-  &lt;button class=&#34;loginBtn&#34; type=&#34;primary&#34;  bindtap=&#34;login&#34;&gt;登录&lt;/button&gt;   
- &lt;/view&gt;  
-   &lt;view&gt;
-    &lt;button class=&#34;loginBtn&#34; type=&#34;primary&#34; &gt;开始注册&lt;/button&gt;  
-   &lt;/view&gt;      
- &lt;/view&gt; 
-&lt;/view&gt;
-</code></pre><h3 id="212修改页面样式文件pagesaccountaccountwxss">2.1.2、修改页面样式文件：pages\account\account.wxss</h3>
-<pre tabindex="0"><code>page{ 
-  height: 100%; 
- } 
-  
- .container { 
-  height: 100%; 
-  display: flex; 
-  flex-direction: column; 
-  padding: 0; 
-  box-sizing: border-box; 
-  /* background-color: rgb(156, 23, 78) */
- } 
-  
- /*登录图片*/
- .login-icon{ 
-  flex: none; 
- } 
-  
- .login-img{ 
-  width: 750rpx;
- } 
-  
- /*表单内容*/
- .login-from { 
-  margin-top: 20px; 
-  flex: auto; 
-  height:100%; 
- } 
-  
- .inputView { 
-  /* background-color: #fff;  */
-  line-height: 45px; 
-  border-radius:20px;
-   border:1px solid #999999;
- } 
-  
- /*输入框*/
- .nameImage, .keyImage { 
-  margin-left: 22px; 
-  width: 18px; 
-  height: 16px
- } 
-  
- .loginLab { 
-  margin: 15px 15px 15px 10px; 
-  color: #545454; 
-  font-size: 14px
- } 
-  
- .inputText { 
-  flex: block; 
-  float: right; 
-  text-align: right; 
-  margin-right: 22px; 
-  margin-top: 11px;
-  color: #cccccc; 
-  font-size: 14px
- } 
- .line { 
-  margin-top: 8px; 
- } 
-  
- /* .line { 
-  width: 100%; 
-  height: 1px; 
-  background-color: #cccccc; 
-  margin-top: 1px; 
- }  */
-  
- /*按钮*/
- .loginBtnView { 
-  width: 100%; 
-  height: auto; 
-  /* background-color:#DCDCDC;  */
-  margin-top: 0px; 
-  margin-bottom: 0px; 
-  padding-bottom: 0px; 
- } 
-  
- .loginBtn { 
-  width: 90%; 
-  margin-top: 40px; 
-  border-radius:10px;
- }
- .operate{
-  display: flex;
-  flex-direction: row; 
- }
-.operate view{
-    margin: 0 auto;
-    margin-top: 40px;
-    font-size: 14px;
-    color: #333333;
-}
-</code></pre><h3 id="213登录页面运行效果">2.1.3、登录页面运行效果：</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;view class=&#34;container&#34;&gt; 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> &lt;view class=&#34;login-icon&#34;&gt; 
+</span></span><span class="line"><span class="cl"> &lt;image class=&#34;login-img&#34; src=&#34;../../img/loginLogo.png&#34;&gt;&lt;/image&gt; 
+</span></span><span class="line"><span class="cl"> &lt;/view&gt; 
+</span></span><span class="line"><span class="cl"> &lt;view class=&#34;login-from&#34;&gt; 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> &lt;!--账号--&gt;
+</span></span><span class="line"><span class="cl"> &lt;view class=&#34;inputView&#34;&gt; 
+</span></span><span class="line"><span class="cl">  &lt;image class=&#34;nameImage&#34; src=&#34;../../img/name.png&#34;&gt;&lt;/image&gt; 
+</span></span><span class="line"><span class="cl">  &lt;label class=&#34;loginLab&#34;&gt;账号&lt;/label&gt; 
+</span></span><span class="line"><span class="cl">  &lt;input class=&#34;inputText&#34; placeholder=&#34;请输入账号&#34; bindinput=&#34;usernameInput&#34; /&gt; 
+</span></span><span class="line"><span class="cl"> &lt;/view&gt; 
+</span></span><span class="line"><span class="cl"> &lt;view class=&#34;line&#34;&gt;&lt;/view&gt; 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> &lt;!--密码--&gt;
+</span></span><span class="line"><span class="cl"> &lt;view class=&#34;inputView&#34;&gt; 
+</span></span><span class="line"><span class="cl">  &lt;image class=&#34;keyImage&#34; src=&#34;../../img/key.png&#34;&gt;&lt;/image&gt; 
+</span></span><span class="line"><span class="cl">  &lt;label class=&#34;loginLab&#34;&gt;密码&lt;/label&gt; 
+</span></span><span class="line"><span class="cl">  &lt;input class=&#34;inputText&#34; password=&#34;true&#34; placeholder=&#34;请输入密码&#34; bindinput=&#34;passwordInput&#34; /&gt; 
+</span></span><span class="line"><span class="cl"> &lt;/view&gt; 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> &lt;!--按钮--&gt;
+</span></span><span class="line"><span class="cl"> &lt;view class=&#34;loginBtnView&#34;&gt; 
+</span></span><span class="line"><span class="cl">  &lt;button class=&#34;loginBtn&#34; type=&#34;primary&#34;  bindtap=&#34;login&#34;&gt;登录&lt;/button&gt;   
+</span></span><span class="line"><span class="cl"> &lt;/view&gt;  
+</span></span><span class="line"><span class="cl">   &lt;view&gt;
+</span></span><span class="line"><span class="cl">    &lt;button class=&#34;loginBtn&#34; type=&#34;primary&#34; &gt;开始注册&lt;/button&gt;  
+</span></span><span class="line"><span class="cl">   &lt;/view&gt;      
+</span></span><span class="line"><span class="cl"> &lt;/view&gt; 
+</span></span><span class="line"><span class="cl">&lt;/view&gt;
+</span></span></code></pre></div><h3 id="212修改页面样式文件pagesaccountaccountwxss">2.1.2、修改页面样式文件：pages\account\account.wxss</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">page{ 
+</span></span><span class="line"><span class="cl">  height: 100%; 
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> .container { 
+</span></span><span class="line"><span class="cl">  height: 100%; 
+</span></span><span class="line"><span class="cl">  display: flex; 
+</span></span><span class="line"><span class="cl">  flex-direction: column; 
+</span></span><span class="line"><span class="cl">  padding: 0; 
+</span></span><span class="line"><span class="cl">  box-sizing: border-box; 
+</span></span><span class="line"><span class="cl">  /* background-color: rgb(156, 23, 78) */
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> /*登录图片*/
+</span></span><span class="line"><span class="cl"> .login-icon{ 
+</span></span><span class="line"><span class="cl">  flex: none; 
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> .login-img{ 
+</span></span><span class="line"><span class="cl">  width: 750rpx;
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> /*表单内容*/
+</span></span><span class="line"><span class="cl"> .login-from { 
+</span></span><span class="line"><span class="cl">  margin-top: 20px; 
+</span></span><span class="line"><span class="cl">  flex: auto; 
+</span></span><span class="line"><span class="cl">  height:100%; 
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> .inputView { 
+</span></span><span class="line"><span class="cl">  /* background-color: #fff;  */
+</span></span><span class="line"><span class="cl">  line-height: 45px; 
+</span></span><span class="line"><span class="cl">  border-radius:20px;
+</span></span><span class="line"><span class="cl">   border:1px solid #999999;
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> /*输入框*/
+</span></span><span class="line"><span class="cl"> .nameImage, .keyImage { 
+</span></span><span class="line"><span class="cl">  margin-left: 22px; 
+</span></span><span class="line"><span class="cl">  width: 18px; 
+</span></span><span class="line"><span class="cl">  height: 16px
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> .loginLab { 
+</span></span><span class="line"><span class="cl">  margin: 15px 15px 15px 10px; 
+</span></span><span class="line"><span class="cl">  color: #545454; 
+</span></span><span class="line"><span class="cl">  font-size: 14px
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> .inputText { 
+</span></span><span class="line"><span class="cl">  flex: block; 
+</span></span><span class="line"><span class="cl">  float: right; 
+</span></span><span class="line"><span class="cl">  text-align: right; 
+</span></span><span class="line"><span class="cl">  margin-right: 22px; 
+</span></span><span class="line"><span class="cl">  margin-top: 11px;
+</span></span><span class="line"><span class="cl">  color: #cccccc; 
+</span></span><span class="line"><span class="cl">  font-size: 14px
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl"> .line { 
+</span></span><span class="line"><span class="cl">  margin-top: 8px; 
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> /* .line { 
+</span></span><span class="line"><span class="cl">  width: 100%; 
+</span></span><span class="line"><span class="cl">  height: 1px; 
+</span></span><span class="line"><span class="cl">  background-color: #cccccc; 
+</span></span><span class="line"><span class="cl">  margin-top: 1px; 
+</span></span><span class="line"><span class="cl"> }  */
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> /*按钮*/
+</span></span><span class="line"><span class="cl"> .loginBtnView { 
+</span></span><span class="line"><span class="cl">  width: 100%; 
+</span></span><span class="line"><span class="cl">  height: auto; 
+</span></span><span class="line"><span class="cl">  /* background-color:#DCDCDC;  */
+</span></span><span class="line"><span class="cl">  margin-top: 0px; 
+</span></span><span class="line"><span class="cl">  margin-bottom: 0px; 
+</span></span><span class="line"><span class="cl">  padding-bottom: 0px; 
+</span></span><span class="line"><span class="cl"> } 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> .loginBtn { 
+</span></span><span class="line"><span class="cl">  width: 90%; 
+</span></span><span class="line"><span class="cl">  margin-top: 40px; 
+</span></span><span class="line"><span class="cl">  border-radius:10px;
+</span></span><span class="line"><span class="cl"> }
+</span></span><span class="line"><span class="cl"> .operate{
+</span></span><span class="line"><span class="cl">  display: flex;
+</span></span><span class="line"><span class="cl">  flex-direction: row; 
+</span></span><span class="line"><span class="cl"> }
+</span></span><span class="line"><span class="cl">.operate view{
+</span></span><span class="line"><span class="cl">    margin: 0 auto;
+</span></span><span class="line"><span class="cl">    margin-top: 40px;
+</span></span><span class="line"><span class="cl">    font-size: 14px;
+</span></span><span class="line"><span class="cl">    color: #333333;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="213登录页面运行效果">2.1.3、登录页面运行效果：</h3>
 <p><img src="/posts/project/20220529001925/image-20220529002052051.png"
     
     
@@ -1067,49 +942,7 @@
 ></p>
 <h2 id="22创建用户注册页面">2.2、创建用户注册页面</h2>
 <h3 id="221修改页面文件pagesregisterregisterwxml">2.2.1、修改页面文件：pages\register\register.wxml</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--pages/register/register.wxml--&gt;</span>      
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--pages/register/register.wxml--&gt;</span>      
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span>  <span class="na">bindsubmit</span><span class="o">=</span><span class="s">&#34;formSubmit&#34;</span> <span class="na">bindreset</span><span class="o">=</span><span class="s">&#34;formReset&#34;</span><span class="p">&gt;</span>  
 </span></span><span class="line"><span class="cl">
@@ -1147,129 +980,101 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="222修改页面样式文件pagesregisterregisterwxss">2.2.2、修改页面样式文件：pages\register\register.wxss</h3>
-<pre tabindex="0"><code>/* pages/company/company.wxss */
-.content{
-  width: 100%;
-  height: 700px;
-  background-color: #f2f2f2;
-}
-.hr{
-  padding-top: 40px;
-}
-.item{
-  margin: 0 auto;
-  border: 1px solid #cccccc;
-  height: 40px;
-  width: 90%;
-  border-radius: 3px;
-  background-color: #ffffff;
-  margin-bottom: 15px;
-}
-.items{
-  margin: 0 auto;
-  border: 1px solid #cccccc;
-  height: 40px;
-  width: 90%;
-  border-radius: 3px;
-  margin-bottom: 15px;
-}
-.item input{
-  height: 40px;
-  line-height: 40px;
-  margin-left: 10px;
-}
-.holder{
-  font-size: 14px;
-  color: #999999;
-}
-.flex{
-  display: flex;
-  flex-direction: row;
-}
-.flex input{
-  width: 300px;
-}
-item switch{
-  margin-top: 5px;
-  margin-right: 5px;
-}
-.mobileInfo{
-  display: flex;
-  flex-direction: row;
-}
-.mobile{
-  margin: 0 auto;
-  border: 1px solid #cccccc;
-  height: 40px;
-  width: 90%;
-  border-radius: 3px;
-  background-color: #ffffff;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: row;
-  margin-left: 5%;
-}
-.mobile input{
-  margin-top: 8px;
-  margin-left: 10px;
-}
-.code{
-  border: 1px solid #cccccc;
-  height: 40px;
-  width: 35%;
-  background-color: #edeeec;
-  border-radius: 3px;
-  text-align: center;
-  margin-left: 10px;
-  line-height: 40px;
-  color: #999999;
-  font-size: 15px;
-  margin-bottom: 15px;
-  margin-right: 5%;
-}
-.btn{
-  width: 90%;
-  color: #999999;
-  margin-top: 40px;
- }
-</code></pre><h3 id="223配置从用户登录页面点击注册按钮跳转到用户注册页面">2.2.3、配置从用户登录页面点击注册按钮，跳转到用户注册页面</h3>
+</span></span></code></pre></div><h3 id="222修改页面样式文件pagesregisterregisterwxss">2.2.2、修改页面样式文件：pages\register\register.wxss</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/* pages/company/company.wxss */
+</span></span><span class="line"><span class="cl">.content{
+</span></span><span class="line"><span class="cl">  width: 100%;
+</span></span><span class="line"><span class="cl">  height: 700px;
+</span></span><span class="line"><span class="cl">  background-color: #f2f2f2;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.hr{
+</span></span><span class="line"><span class="cl">  padding-top: 40px;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.item{
+</span></span><span class="line"><span class="cl">  margin: 0 auto;
+</span></span><span class="line"><span class="cl">  border: 1px solid #cccccc;
+</span></span><span class="line"><span class="cl">  height: 40px;
+</span></span><span class="line"><span class="cl">  width: 90%;
+</span></span><span class="line"><span class="cl">  border-radius: 3px;
+</span></span><span class="line"><span class="cl">  background-color: #ffffff;
+</span></span><span class="line"><span class="cl">  margin-bottom: 15px;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.items{
+</span></span><span class="line"><span class="cl">  margin: 0 auto;
+</span></span><span class="line"><span class="cl">  border: 1px solid #cccccc;
+</span></span><span class="line"><span class="cl">  height: 40px;
+</span></span><span class="line"><span class="cl">  width: 90%;
+</span></span><span class="line"><span class="cl">  border-radius: 3px;
+</span></span><span class="line"><span class="cl">  margin-bottom: 15px;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.item input{
+</span></span><span class="line"><span class="cl">  height: 40px;
+</span></span><span class="line"><span class="cl">  line-height: 40px;
+</span></span><span class="line"><span class="cl">  margin-left: 10px;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.holder{
+</span></span><span class="line"><span class="cl">  font-size: 14px;
+</span></span><span class="line"><span class="cl">  color: #999999;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.flex{
+</span></span><span class="line"><span class="cl">  display: flex;
+</span></span><span class="line"><span class="cl">  flex-direction: row;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.flex input{
+</span></span><span class="line"><span class="cl">  width: 300px;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">item switch{
+</span></span><span class="line"><span class="cl">  margin-top: 5px;
+</span></span><span class="line"><span class="cl">  margin-right: 5px;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.mobileInfo{
+</span></span><span class="line"><span class="cl">  display: flex;
+</span></span><span class="line"><span class="cl">  flex-direction: row;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.mobile{
+</span></span><span class="line"><span class="cl">  margin: 0 auto;
+</span></span><span class="line"><span class="cl">  border: 1px solid #cccccc;
+</span></span><span class="line"><span class="cl">  height: 40px;
+</span></span><span class="line"><span class="cl">  width: 90%;
+</span></span><span class="line"><span class="cl">  border-radius: 3px;
+</span></span><span class="line"><span class="cl">  background-color: #ffffff;
+</span></span><span class="line"><span class="cl">  margin-bottom: 15px;
+</span></span><span class="line"><span class="cl">  display: flex;
+</span></span><span class="line"><span class="cl">  flex-direction: row;
+</span></span><span class="line"><span class="cl">  margin-left: 5%;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.mobile input{
+</span></span><span class="line"><span class="cl">  margin-top: 8px;
+</span></span><span class="line"><span class="cl">  margin-left: 10px;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.code{
+</span></span><span class="line"><span class="cl">  border: 1px solid #cccccc;
+</span></span><span class="line"><span class="cl">  height: 40px;
+</span></span><span class="line"><span class="cl">  width: 35%;
+</span></span><span class="line"><span class="cl">  background-color: #edeeec;
+</span></span><span class="line"><span class="cl">  border-radius: 3px;
+</span></span><span class="line"><span class="cl">  text-align: center;
+</span></span><span class="line"><span class="cl">  margin-left: 10px;
+</span></span><span class="line"><span class="cl">  line-height: 40px;
+</span></span><span class="line"><span class="cl">  color: #999999;
+</span></span><span class="line"><span class="cl">  font-size: 15px;
+</span></span><span class="line"><span class="cl">  margin-bottom: 15px;
+</span></span><span class="line"><span class="cl">  margin-right: 5%;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">.btn{
+</span></span><span class="line"><span class="cl">  width: 90%;
+</span></span><span class="line"><span class="cl">  color: #999999;
+</span></span><span class="line"><span class="cl">  margin-top: 40px;
+</span></span><span class="line"><span class="cl"> }
+</span></span></code></pre></div><h3 id="223配置从用户登录页面点击注册按钮跳转到用户注册页面">2.2.3、配置从用户登录页面点击注册按钮，跳转到用户注册页面</h3>
 <h4 id="2231修改pagesaccountaccountjs">2.2.3.1、修改pages\account\account.js</h4>
 <p>定义获取应用实例</p>
-<pre tabindex="0"><code>//获取应用实例
-const app = getApp()
-</code></pre><p>增加获取用户信息方法，跳转到注册页面方法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
+</span></span><span class="line"><span class="cl">const app = getApp()
+</span></span></code></pre></div><p>增加获取用户信息方法，跳转到注册页面方法</p>
 <p><a class="link" href="/posts/project/https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserProfile.html"  target="_blank" rel="noopener"
     >https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserProfile.html</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">getUserProfile</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">getUserProfile</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">wx</span><span class="p">.</span><span class="nx">getUserProfile</span><span class="p">({</span>
@@ -1291,19 +1096,10 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">       <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;../register/register&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">     <span class="p">})</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>2.2.3.2、修改pages\account\account.wxml页面</p>
+</span></span></code></pre></div><p>2.2.3.2、修改pages\account\account.wxml页面</p>
 <p>修改页面上的注册按钮，触发调用获取用户信息方法，然后跳转到注册页面</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;loginBtn&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span>   <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;getUserProfile&#34;</span><span class="p">&gt;</span>开始注册<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>  
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意：用户点击该按钮时，会返回获取到的用户信息
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;loginBtn&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span>   <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;getUserProfile&#34;</span><span class="p">&gt;</span>开始注册<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>  
+</span></span></code></pre></div><p>注意：用户点击该按钮时，会返回获取到的用户信息
 <img src="/posts/project/20220529001925/image-20220529002105706.png"
     
     
@@ -1315,37 +1111,23 @@ const app = getApp()
 <h3 id="224配置在注册页面获取到微信用户信息">2.2.4、配置在注册页面获取到微信用户信息</h3>
 <h4 id="2241修改pagesregisterregisterjs">2.2.4.1、修改pages\register\register.js</h4>
 <p>定义获取应用实例</p>
-<pre tabindex="0"><code>//获取应用实例
-const app = getApp()
-</code></pre><p>修改生命周期函数&ndash;监听页面加载 onLoad 增加获取微信用户信息方法</p>
-<pre tabindex="0"><code>/**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    //从全局变量获取用户信息
-    if (app.globalData.userInfo) {
-      console.log(app.globalData.userInfo)
-      this.setData({
-        userInfo: app.globalData.userInfo       
-      })
-    }
-  }
-</code></pre><p>设置性别数据：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">data:</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
+</span></span><span class="line"><span class="cl">const app = getApp()
+</span></span></code></pre></div><p>修改生命周期函数&ndash;监听页面加载 onLoad 增加获取微信用户信息方法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/**
+</span></span><span class="line"><span class="cl">   * 生命周期函数--监听页面加载
+</span></span><span class="line"><span class="cl">   */
+</span></span><span class="line"><span class="cl">  onLoad: function (options) {
+</span></span><span class="line"><span class="cl">    //从全局变量获取用户信息
+</span></span><span class="line"><span class="cl">    if (app.globalData.userInfo) {
+</span></span><span class="line"><span class="cl">      console.log(app.globalData.userInfo)
+</span></span><span class="line"><span class="cl">      this.setData({
+</span></span><span class="line"><span class="cl">        userInfo: app.globalData.userInfo       
+</span></span><span class="line"><span class="cl">      })
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span></code></pre></div><p>设置性别数据：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">data:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//设置性别选择数据
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="err">sex:</span> <span class="err">[{</span>
 </span></span><span class="line"><span class="cl">      <span class="err">id:</span> <span class="err">1,</span>
@@ -1355,30 +1137,28 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">      <span class="err">value:</span> <span class="err">&#39;女&#39;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="err">]</span>
 </span></span><span class="line"><span class="cl">  <span class="err">},</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改register.wxml增加显示性别</p>
-<pre tabindex="0"><code> &lt;view class=&#34;items&#34;&gt;
-    性别:
-    &lt;radio-group class=&#34;radio-group&#34; bindchange=&#34;radioChange&#34;&gt;
-      &lt;label class=&#34;radio&#34; wx:for=&#34;{{sex}}&#34; wx:key=&#34;key&#34;&gt;
-        &lt;radio value=&#34;{{item.id}}&#34; checked=&#34;{{item.checked}}&#34;/&gt;{{item.value}}
-      &lt;/label&gt;
-    &lt;/radio-group&gt;
-  &lt;/view&gt;
-</code></pre><p>修改register.js增加性别选择处理方法radioChange</p>
-<pre tabindex="0"><code>/**
-   * 
-   * 捕获单选框的选中值
-   */
-  radioChange: function(e){
-    console.log(&#39;radio发生change事件，携带value值为：&#39;, e.detail.value)
-    //设置性别值给本地变量
-    this.setData({
-      gender: e.detail.value
-    })
-  }
-</code></pre><h3 id="225测试运行效果">2.2.5、测试运行效果：</h3>
+</span></span></code></pre></div><p>修改register.wxml增加显示性别</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> &lt;view class=&#34;items&#34;&gt;
+</span></span><span class="line"><span class="cl">    性别:
+</span></span><span class="line"><span class="cl">    &lt;radio-group class=&#34;radio-group&#34; bindchange=&#34;radioChange&#34;&gt;
+</span></span><span class="line"><span class="cl">      &lt;label class=&#34;radio&#34; wx:for=&#34;{{sex}}&#34; wx:key=&#34;key&#34;&gt;
+</span></span><span class="line"><span class="cl">        &lt;radio value=&#34;{{item.id}}&#34; checked=&#34;{{item.checked}}&#34;/&gt;{{item.value}}
+</span></span><span class="line"><span class="cl">      &lt;/label&gt;
+</span></span><span class="line"><span class="cl">    &lt;/radio-group&gt;
+</span></span><span class="line"><span class="cl">  &lt;/view&gt;
+</span></span></code></pre></div><p>修改register.js增加性别选择处理方法radioChange</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/**
+</span></span><span class="line"><span class="cl">   * 
+</span></span><span class="line"><span class="cl">   * 捕获单选框的选中值
+</span></span><span class="line"><span class="cl">   */
+</span></span><span class="line"><span class="cl">  radioChange: function(e){
+</span></span><span class="line"><span class="cl">    console.log(&#39;radio发生change事件，携带value值为：&#39;, e.detail.value)
+</span></span><span class="line"><span class="cl">    //设置性别值给本地变量
+</span></span><span class="line"><span class="cl">    this.setData({
+</span></span><span class="line"><span class="cl">      gender: e.detail.value
+</span></span><span class="line"><span class="cl">    })
+</span></span><span class="line"><span class="cl">  }
+</span></span></code></pre></div><h3 id="225测试运行效果">2.2.5、测试运行效果：</h3>
 <p>在登录页面点击  注册 按钮，即可弹出获取微信用户信息是否允许窗口，选择允许，即可跳转到注册页面
 <img src="/posts/project/20220529001925/image-20220529002114077.png"
     
@@ -1399,69 +1179,7 @@ const app = getApp()
 ></p>
 <h2 id="23完成用户注册">2.3、完成用户注册</h2>
 <h3 id="231修改pagesregisterregisterjs">2.3.1、修改pages\register\register.js</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl">  <span class="nx">formSubmit</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl">  <span class="nx">formSubmit</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;表单被提交&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">that</span><span class="o">=</span>  <span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">value</span> 
 </span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">baseUrl</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">globalData</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">;</span>
@@ -1519,11 +1237,9 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">})</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="232修改pagesregisterregisterwxml">2.3.2、修改pages\register\register.wxml</h3>
-<pre tabindex="0"><code class="language-php+HTML" data-lang="php+HTML">&lt;form  bindsubmit=&#34;formSubmit&#34; bindreset=&#34;formReset&#34;&gt;  
-</code></pre><p>表单提交绑定formSubmit方法</p>
+</span></span></code></pre></div><h3 id="232修改pagesregisterregisterwxml">2.3.2、修改pages\register\register.wxml</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;form  bindsubmit=&#34;formSubmit&#34; bindreset=&#34;formReset&#34;&gt;  
+</span></span></code></pre></div><p>表单提交绑定formSubmit方法</p>
 <h3 id="233用户注册演示效果">2.3.3、用户注册演示效果</h3>
 <p><img src="/posts/project/20220529001925/image-20220529002126325.png"
     
@@ -1543,10 +1259,10 @@ const app = getApp()
     
 ></p>
 <p>等待1秒钟，跳转到登录页面</p>
-<pre tabindex="0"><code>注意控制台如果报错：
-VM1540 asdebug.js:1  http://localhost:8888 不在以下 request 合法域名列表中，请参考文档：https://developers.weixin.qq.com/miniprogram/dev/framework/ability/network.html
-解决方案：
-</code></pre><p><img src="/posts/project/20220529001925/image-20220529002139256.jpeg"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">注意控制台如果报错：
+</span></span><span class="line"><span class="cl">VM1540 asdebug.js:1  http://localhost:8888 不在以下 request 合法域名列表中，请参考文档：https://developers.weixin.qq.com/miniprogram/dev/framework/ability/network.html
+</span></span><span class="line"><span class="cl">解决方案：
+</span></span></code></pre></div><p><img src="/posts/project/20220529001925/image-20220529002139256.jpeg"
     
     
     
@@ -1556,105 +1272,86 @@ VM1540 asdebug.js:1  http://localhost:8888 不在以下 request 合法域名列�
 ></p>
 <h2 id="24完成用户登录">2.4、完成用户登录</h2>
 <h3 id="241修改pagesaccountaccountjs">2.4.1、修改pages\account\account.js</h3>
-<pre tabindex="0"><code>// 获取输入账号 
-  usernameInput: function (e) {
-    this.setData({
-      username: e.detail.value
-    })
-  },
- 
-  // 获取输入密码 
-  passwordInput: function (e) {
-    this.setData({
-      password: e.detail.value
-    })
-  },
-   // 登录处理
-  login: function () {
-    var that = this;
-    console.log(&#39;用户登录&#39;)
-    if (that.data.username.length == 0 || that.data.password.length == 0) {
-      wx.showToast({
-        title: &#39;账号或密码不能为空&#39;,
-        icon: &#39;none&#39;,
-        duration: 2000
-      })
-    } else {
-      let baseUrl = app.globalData.baseUrl;
-      wx.request({
-        url: baseUrl+&#39;/member/member/login&#39;,
-        method:&#39;POST&#39;,
-        header:{&#39;content-type&#39;:&#39;application/json&#39;},
-        data:{
-          username: that.data.username,
-          password: that.data.password
-          },
-        success:function(res){
-          console.log(res);
-          if(res.data.code==0){
-            console.log(&#34;登录成功&#34;)
-            //登录成功，存储token到本地存储 类似于cookie
-            wx.setStorageSync(&#39;token&#39;, res.data.token);
-            wx.setStorageSync(&#39;refreshToken&#39;, res.data.refreshToken);
-           //显示登录成功提示，跳转到题库分类页面
-            wx.showToast({
-              title: &#34;登录成功&#34;,
-              icon: &#39;none&#39;,
-              duration: 1000,
-              success:function(){    
-                console.log(&#39;haha&#39;);      
-                setTimeout(function () {      
-                  //要延时执行的代码      
-                  wx.switchTab({      
-                    url: &#39;../type/type&#39;      
-                  })      
-                }, 1000) //延迟时间      
-              }
-            })
-
-          }else{
-            console.log(res.data.msg)
-            wx.showToast({
-              title: res.data.msg,
-              icon: &#39;none&#39;,
-              duration: 2000
-            })
-          }
-          
-          
-        }
-      })
-    }
-  },
-</code></pre><p>注意：用户登录传递给后端的是json格式的数据，所有后代代码要调整能接收json数据</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//用户登录方法
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 获取输入账号 
+</span></span><span class="line"><span class="cl">  usernameInput: function (e) {
+</span></span><span class="line"><span class="cl">    this.setData({
+</span></span><span class="line"><span class="cl">      username: e.detail.value
+</span></span><span class="line"><span class="cl">    })
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  // 获取输入密码 
+</span></span><span class="line"><span class="cl">  passwordInput: function (e) {
+</span></span><span class="line"><span class="cl">    this.setData({
+</span></span><span class="line"><span class="cl">      password: e.detail.value
+</span></span><span class="line"><span class="cl">    })
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">   // 登录处理
+</span></span><span class="line"><span class="cl">  login: function () {
+</span></span><span class="line"><span class="cl">    var that = this;
+</span></span><span class="line"><span class="cl">    console.log(&#39;用户登录&#39;)
+</span></span><span class="line"><span class="cl">    if (that.data.username.length == 0 || that.data.password.length == 0) {
+</span></span><span class="line"><span class="cl">      wx.showToast({
+</span></span><span class="line"><span class="cl">        title: &#39;账号或密码不能为空&#39;,
+</span></span><span class="line"><span class="cl">        icon: &#39;none&#39;,
+</span></span><span class="line"><span class="cl">        duration: 2000
+</span></span><span class="line"><span class="cl">      })
+</span></span><span class="line"><span class="cl">    } else {
+</span></span><span class="line"><span class="cl">      let baseUrl = app.globalData.baseUrl;
+</span></span><span class="line"><span class="cl">      wx.request({
+</span></span><span class="line"><span class="cl">        url: baseUrl+&#39;/member/member/login&#39;,
+</span></span><span class="line"><span class="cl">        method:&#39;POST&#39;,
+</span></span><span class="line"><span class="cl">        header:{&#39;content-type&#39;:&#39;application/json&#39;},
+</span></span><span class="line"><span class="cl">        data:{
+</span></span><span class="line"><span class="cl">          username: that.data.username,
+</span></span><span class="line"><span class="cl">          password: that.data.password
+</span></span><span class="line"><span class="cl">          },
+</span></span><span class="line"><span class="cl">        success:function(res){
+</span></span><span class="line"><span class="cl">          console.log(res);
+</span></span><span class="line"><span class="cl">          if(res.data.code==0){
+</span></span><span class="line"><span class="cl">            console.log(&#34;登录成功&#34;)
+</span></span><span class="line"><span class="cl">            //登录成功，存储token到本地存储 类似于cookie
+</span></span><span class="line"><span class="cl">            wx.setStorageSync(&#39;token&#39;, res.data.token);
+</span></span><span class="line"><span class="cl">            wx.setStorageSync(&#39;refreshToken&#39;, res.data.refreshToken);
+</span></span><span class="line"><span class="cl">           //显示登录成功提示，跳转到题库分类页面
+</span></span><span class="line"><span class="cl">            wx.showToast({
+</span></span><span class="line"><span class="cl">              title: &#34;登录成功&#34;,
+</span></span><span class="line"><span class="cl">              icon: &#39;none&#39;,
+</span></span><span class="line"><span class="cl">              duration: 1000,
+</span></span><span class="line"><span class="cl">              success:function(){    
+</span></span><span class="line"><span class="cl">                console.log(&#39;haha&#39;);      
+</span></span><span class="line"><span class="cl">                setTimeout(function () {      
+</span></span><span class="line"><span class="cl">                  //要延时执行的代码      
+</span></span><span class="line"><span class="cl">                  wx.switchTab({      
+</span></span><span class="line"><span class="cl">                    url: &#39;../type/type&#39;      
+</span></span><span class="line"><span class="cl">                  })      
+</span></span><span class="line"><span class="cl">                }, 1000) //延迟时间      
+</span></span><span class="line"><span class="cl">              }
+</span></span><span class="line"><span class="cl">            })
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">          }else{
+</span></span><span class="line"><span class="cl">            console.log(res.data.msg)
+</span></span><span class="line"><span class="cl">            wx.showToast({
+</span></span><span class="line"><span class="cl">              title: res.data.msg,
+</span></span><span class="line"><span class="cl">              icon: &#39;none&#39;,
+</span></span><span class="line"><span class="cl">              duration: 2000
+</span></span><span class="line"><span class="cl">            })
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      })
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  },
+</span></span></code></pre></div><p>注意：用户登录传递给后端的是json格式的数据，所有后代代码要调整能接收json数据</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//用户登录方法
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&#34;login&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">R</span> <span class="nf">login</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">//调用服务，根据用户名、密码获取用户信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">MemberEntity</span> <span class="n">memberEntity</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;username&#34;</span><span class="o">),</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;password&#34;</span><span class="o">));</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="242修改pagesaccountaccountwxml">2.4.2、修改pages\account\account.wxml</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;loginBtn&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span>  <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;login&#34;</span><span class="p">&gt;</span>登录<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>   
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="243演示登录效果">2.4.3、演示登录效果</h3>
+</span></span></code></pre></div><h3 id="242修改pagesaccountaccountwxml">2.4.2、修改pages\account\account.wxml</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;loginBtn&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span>  <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;login&#34;</span><span class="p">&gt;</span>登录<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>   
+</span></span></code></pre></div><h3 id="243演示登录效果">2.4.3、演示登录效果</h3>
 <p>输入账号密码错误，提示
 <img src="/posts/project/20220529001925/image-20220529002148070.png"
     
@@ -1676,117 +1373,37 @@ VM1540 asdebug.js:1  http://localhost:8888 不在以下 request 合法域名列�
 <h1 id="三题库分类功能开发">三、题库分类功能开发</h1>
 <h2 id="31创建广告轮播图模板页面">3.1、创建广告轮播图模板页面</h2>
 <p>pages/template/head.wxml</p>
-<pre tabindex="0"><code>&lt;view class=&#39;haibao&#39;&gt;
-  &lt;swiper 
-  indicator-dots=&#39;true&#39;
-   autoplay=&#39;true&#39; 
-   interval=&#39;3000&#39; 
-   duration=&#39;1000&#39; 
-   circular=&#39;true&#39; &gt;
- &lt;block wx:for=&#34;{{imgurls}}&#34; wx:key=&#34;key&#34;&gt;
-    &lt;swiper-item&gt;
-    &lt;image src=&#34;{{item.imgUrl}}&#34; class=&#34;side-image&#34; style=&#34;width:100%&#34;&gt;&lt;/image&gt;
-    &lt;/swiper-item&gt;
- &lt;/block&gt;
-  &lt;/swiper&gt;
-&lt;/view&gt;
-</code></pre><h2 id="32创建题库分类页面">3.2、创建题库分类页面</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;view class=&#39;haibao&#39;&gt;
+</span></span><span class="line"><span class="cl">  &lt;swiper 
+</span></span><span class="line"><span class="cl">  indicator-dots=&#39;true&#39;
+</span></span><span class="line"><span class="cl">   autoplay=&#39;true&#39; 
+</span></span><span class="line"><span class="cl">   interval=&#39;3000&#39; 
+</span></span><span class="line"><span class="cl">   duration=&#39;1000&#39; 
+</span></span><span class="line"><span class="cl">   circular=&#39;true&#39; &gt;
+</span></span><span class="line"><span class="cl"> &lt;block wx:for=&#34;{{imgurls}}&#34; wx:key=&#34;key&#34;&gt;
+</span></span><span class="line"><span class="cl">    &lt;swiper-item&gt;
+</span></span><span class="line"><span class="cl">    &lt;image src=&#34;{{item.imgUrl}}&#34; class=&#34;side-image&#34; style=&#34;width:100%&#34;&gt;&lt;/image&gt;
+</span></span><span class="line"><span class="cl">    &lt;/swiper-item&gt;
+</span></span><span class="line"><span class="cl"> &lt;/block&gt;
+</span></span><span class="line"><span class="cl">  &lt;/swiper&gt;
+</span></span><span class="line"><span class="cl">&lt;/view&gt;
+</span></span></code></pre></div><h2 id="32创建题库分类页面">3.2、创建题库分类页面</h2>
 <p>pages/type/type.wxml</p>
-<pre tabindex="0"><code class="language-php+HTML" data-lang="php+HTML">     &lt;!--pages/type/type.wxml--&gt;
-      &lt;include src=&#34;../template/head.wxml&#34; /&gt;
-      &lt;view class=&#34;cu-list menu sm-border solid-bottom card-menu margin-top&#34; wx:for=&#34;{{exams}}&#34; wx:for-item=&#34;item&#34; id=&#34;{{itemtap}}&#34;&gt;
-        &lt;view class=&#34;cu-item &#34;&gt;                   
-          &lt;view bindtap=&#34;getItem&#34; data-id=&#34;{{item.id}}&#34; class=&#34;action text-bold text-black text-lg&#34;&gt;
-            &lt;image src=&#34;{{item.logoUrl}}&#34; class=&#34;img&#34;&gt;&lt;/image&gt; 
-            &lt;text class=&#34;cu-title&#34;&gt;&lt;/text&gt;
-            {{item.type}}
-          &lt;/view&gt;
-        &lt;/view&gt;
-      &lt;/view&gt;
-</code></pre><p>注意:点击分类名称跳转到题目列表方法 bindtap=&ldquo;getItem&rdquo;  传递分类编号 data-id=&quot;{{item.id}}&quot;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">     &lt;!--pages/type/type.wxml--&gt;
+</span></span><span class="line"><span class="cl">      &lt;include src=&#34;../template/head.wxml&#34; /&gt;
+</span></span><span class="line"><span class="cl">      &lt;view class=&#34;cu-list menu sm-border solid-bottom card-menu margin-top&#34; wx:for=&#34;{{exams}}&#34; wx:for-item=&#34;item&#34; id=&#34;{{itemtap}}&#34;&gt;
+</span></span><span class="line"><span class="cl">        &lt;view class=&#34;cu-item &#34;&gt;                   
+</span></span><span class="line"><span class="cl">          &lt;view bindtap=&#34;getItem&#34; data-id=&#34;{{item.id}}&#34; class=&#34;action text-bold text-black text-lg&#34;&gt;
+</span></span><span class="line"><span class="cl">            &lt;image src=&#34;{{item.logoUrl}}&#34; class=&#34;img&#34;&gt;&lt;/image&gt; 
+</span></span><span class="line"><span class="cl">            &lt;text class=&#34;cu-title&#34;&gt;&lt;/text&gt;
+</span></span><span class="line"><span class="cl">            {{item.type}}
+</span></span><span class="line"><span class="cl">          &lt;/view&gt;
+</span></span><span class="line"><span class="cl">        &lt;/view&gt;
+</span></span><span class="line"><span class="cl">      &lt;/view&gt;
+</span></span></code></pre></div><p>注意:点击分类名称跳转到题目列表方法 bindtap=&ldquo;getItem&rdquo;  传递分类编号 data-id=&quot;{{item.id}}&quot;</p>
 <h2 id="33编写题库样式">3.3、编写题库样式</h2>
 <p>修改type.wxss</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">top_title</span><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">top_title</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">font-family</span><span class="p">:</span> <span class="n">Neue</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#888</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
@@ -1862,60 +1479,11 @@ VM1540 asdebug.js:1  http://localhost:8888 不在以下 request 合法域名列�
 </span></span><span class="line"><span class="cl">	<span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="34修改js文件">3.4、修改js文件</h2>
-<pre tabindex="0"><code>//获取应用实例
-const app = getApp()
-</code></pre><p>编写获取分类数据方法、获取广告轮播图数据方法、设置页面加载时调用2个方法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="nx">onShow</span><span class="o">:</span><span class="kd">function</span><span class="p">(){</span>
+</span></span></code></pre></div><h2 id="34修改js文件">3.4、修改js文件</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
+</span></span><span class="line"><span class="cl">const app = getApp()
+</span></span></code></pre></div><p>编写获取分类数据方法、获取广告轮播图数据方法、设置页面加载时调用2个方法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="nx">onShow</span><span class="o">:</span><span class="kd">function</span><span class="p">(){</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">wx</span><span class="p">.</span><span class="nx">showTabBar</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">animation</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">})</span>
@@ -1958,9 +1526,7 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">})</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="35演示效果">3.5、演示效果</h2>
+</span></span></code></pre></div><h2 id="35演示效果">3.5、演示效果</h2>
 <p><img src="/posts/project/20220529001925/image-20220529002208097.png"
     
     
@@ -1971,20 +1537,7 @@ const app = getApp()
 ></p>
 <h2 id="36编写从分类跳转到题目列表页面">3.6、编写从分类跳转到题目列表页面</h2>
 <p>修改type.js</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl">    <span class="c1">//点击分类，跳转到题目列表页
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl">    <span class="c1">//点击分类，跳转到题目列表页
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">getItem</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">      <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">dataset</span><span class="p">.</span><span class="nx">id</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;key : &#34;</span><span class="o">+</span><span class="nx">id</span><span class="p">);</span>
@@ -1993,31 +1546,16 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">      <span class="p">})</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>对应type.wxml调用跳转方法</p>
-<pre tabindex="0"><code> &lt;view bindtap=&#34;getItem&#34; data-id=&#34;{{item.id}}&#34; class=&#34;action text-bold text-black text-lg&#34;&gt;
-            &lt;image src=&#34;{{item.logoUrl}}&#34; class=&#34;img&#34;&gt;&lt;/image&gt; 
-            &lt;text class=&#34;cu-title&#34;&gt;&lt;/text&gt;
-            {{item.type}}
-&lt;/view&gt;
-</code></pre><h1 id="四题目列表功能开发">四、题目列表功能开发</h1>
+</span></span></code></pre></div><p>对应type.wxml调用跳转方法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> &lt;view bindtap=&#34;getItem&#34; data-id=&#34;{{item.id}}&#34; class=&#34;action text-bold text-black text-lg&#34;&gt;
+</span></span><span class="line"><span class="cl">            &lt;image src=&#34;{{item.logoUrl}}&#34; class=&#34;img&#34;&gt;&lt;/image&gt; 
+</span></span><span class="line"><span class="cl">            &lt;text class=&#34;cu-title&#34;&gt;&lt;/text&gt;
+</span></span><span class="line"><span class="cl">            {{item.type}}
+</span></span><span class="line"><span class="cl">&lt;/view&gt;
+</span></span></code></pre></div><h1 id="四题目列表功能开发">四、题目列表功能开发</h1>
 <h2 id="41创建题目列表页面">4.1、创建题目列表页面</h2>
 <p>pages/item/item.wxml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">include</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;../template/head.wxml&#34;</span> <span class="p">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">include</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;../template/head.wxml&#34;</span> <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;cu-list menu sm-border solid-bottom card-menu margin-top&#34;</span> <span class="na">wx:for</span><span class="o">=</span><span class="s">&#34;{{items}}&#34;</span> <span class="na">wx:for-item</span><span class="o">=</span><span class="s">&#34;item&#34;</span> <span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;cu-item &#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">view</span> <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;getInfo&#34;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&#34;{{item.id}}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;action text-bold text-black text-lg&#34;</span><span class="p">&gt;</span>
@@ -2026,50 +1564,9 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">          <span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>          
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>               
 </span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="42创建题目列表样式">4.2、创建题目列表样式</h2>
+</span></span></code></pre></div><h2 id="42创建题目列表样式">4.2、创建题目列表样式</h2>
 <p>pages/item/item.wxss</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.page_op</span><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="nc">.page_op</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="na">width</span><span class="o">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="na">height</span><span class="o">:</span> <span class="mi">75</span><span class="kt">px</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="na">display</span><span class="o">:</span><span class="ni">flex</span><span class="p">;</span>
@@ -2104,78 +1601,23 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">    <span class="na">width</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">background-color</span><span class="o">:</span> <span class="mh">#000</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="43创建题目列表js文件">4.3、创建题目列表js文件</h2>
+</span></span></code></pre></div><h2 id="43创建题目列表js文件">4.3、创建题目列表js文件</h2>
 <p>pages/item/item.js</p>
-<pre tabindex="0"><code>//获取应用实例
-const app = getApp()
-</code></pre><p>设置页面初始化数据</p>
-<pre tabindex="0"><code>  /**
-   * 页面的初始数据
-   */
-  data: {
-    pageNo: 1,
-    id: 1,
-    limit: 7,
-    totalPages: 1,
-    items: []
-  },
-</code></pre><p>编写当页面加载的时候，获取题目列表数据、广告轮播图数据</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="cm">/**
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
+</span></span><span class="line"><span class="cl">const app = getApp()
+</span></span></code></pre></div><p>设置页面初始化数据</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  /**
+</span></span><span class="line"><span class="cl">   * 页面的初始数据
+</span></span><span class="line"><span class="cl">   */
+</span></span><span class="line"><span class="cl">  data: {
+</span></span><span class="line"><span class="cl">    pageNo: 1,
+</span></span><span class="line"><span class="cl">    id: 1,
+</span></span><span class="line"><span class="cl">    limit: 7,
+</span></span><span class="line"><span class="cl">    totalPages: 1,
+</span></span><span class="line"><span class="cl">    items: []
+</span></span><span class="line"><span class="cl">  },
+</span></span></code></pre></div><p>编写当页面加载的时候，获取题目列表数据、广告轮播图数据</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">   * 生命周期函数--监听页面加载
 </span></span></span><span class="line"><span class="cl"><span class="cm">   */</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">onLoad</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>    
@@ -2224,26 +1666,13 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">})</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意调整后端代码 u-question模块的&mdash;QuestionServiceImpl的queryPage方法，增加如下代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//获取分类编号
+</span></span></code></pre></div><p>注意调整后端代码 u-question模块的&mdash;QuestionServiceImpl的queryPage方法，增加如下代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//获取分类编号
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">String</span> <span class="n">type</span><span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">params</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;type&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(!</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">type</span><span class="o">)){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;type&#34;</span><span class="o">,</span><span class="n">type</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="44题目列表演示效果">4.4、题目列表演示效果</h2>
+</span></span></code></pre></div><h2 id="44题目列表演示效果">4.4、题目列表演示效果</h2>
 <p><img src="/posts/project/20220529001925/image-20220529002220222.png"
     
     
@@ -2255,40 +1684,40 @@ const app = getApp()
 <h2 id="45题目列表下拉获取更多数据处理">4.5、题目列表下拉获取更多数据处理</h2>
 <p>修改pages/item/item.js</p>
 <p>增加上拉触底获取下一页数据方法</p>
-<pre tabindex="0"><code> /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    var t=this;
-   console.log(&#39; 页面上拉触底事件的处理函数&#39;);
-   //判断当前页码小于总页码，就把当前页加1，获取下一页内容
-   if(t.data.pageNo&lt;t.data.totalPages){   
-   t.setData({
-     pageNo: t.data.pageNo+1
-   })   
-   console.log(t.data.pageNo);   
-   let baseUrl = app.globalData.baseUrl;   
-   wx.request({
-     url: baseUrl+&#39;/question/question/list?page=&#39;+this.data.pageNo+&#39;&amp;limit=&#39;+this.data.limit+&#39;&amp;key=&#39;+this.data.id,
-     method:&#39;GET&#39;,
-     header:{&#39;Authorization&#39;:wx.getStorageSync(&#39;token&#39;)},
-     success:function(res){      
-       //合并下一页的数据到当前集合 合并数组是把后一个数组的值依次push进前一个数组，使前一个数组发生改变
-       t.data.items.push.apply(t.data.items.list,res.data.page.list)     
-       t.setData({
-         items: t.data.items
-       })       
-     }
-   })
-  }else{
-    wx.showToast({
-      title: &#39;我是最后一页了！&#39;,
-      icon: &#39;none&#39;,
-      duration: 1000
-    })
-  }
- },
-</code></pre><p>newVideoList.concat(videoList),</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> /**
+</span></span><span class="line"><span class="cl">   * 页面上拉触底事件的处理函数
+</span></span><span class="line"><span class="cl">   */
+</span></span><span class="line"><span class="cl">  onReachBottom: function () {
+</span></span><span class="line"><span class="cl">    var t=this;
+</span></span><span class="line"><span class="cl">   console.log(&#39; 页面上拉触底事件的处理函数&#39;);
+</span></span><span class="line"><span class="cl">   //判断当前页码小于总页码，就把当前页加1，获取下一页内容
+</span></span><span class="line"><span class="cl">   if(t.data.pageNo&lt;t.data.totalPages){   
+</span></span><span class="line"><span class="cl">   t.setData({
+</span></span><span class="line"><span class="cl">     pageNo: t.data.pageNo+1
+</span></span><span class="line"><span class="cl">   })   
+</span></span><span class="line"><span class="cl">   console.log(t.data.pageNo);   
+</span></span><span class="line"><span class="cl">   let baseUrl = app.globalData.baseUrl;   
+</span></span><span class="line"><span class="cl">   wx.request({
+</span></span><span class="line"><span class="cl">     url: baseUrl+&#39;/question/question/list?page=&#39;+this.data.pageNo+&#39;&amp;limit=&#39;+this.data.limit+&#39;&amp;key=&#39;+this.data.id,
+</span></span><span class="line"><span class="cl">     method:&#39;GET&#39;,
+</span></span><span class="line"><span class="cl">     header:{&#39;Authorization&#39;:wx.getStorageSync(&#39;token&#39;)},
+</span></span><span class="line"><span class="cl">     success:function(res){      
+</span></span><span class="line"><span class="cl">       //合并下一页的数据到当前集合 合并数组是把后一个数组的值依次push进前一个数组，使前一个数组发生改变
+</span></span><span class="line"><span class="cl">       t.data.items.push.apply(t.data.items.list,res.data.page.list)     
+</span></span><span class="line"><span class="cl">       t.setData({
+</span></span><span class="line"><span class="cl">         items: t.data.items
+</span></span><span class="line"><span class="cl">       })       
+</span></span><span class="line"><span class="cl">     }
+</span></span><span class="line"><span class="cl">   })
+</span></span><span class="line"><span class="cl">  }else{
+</span></span><span class="line"><span class="cl">    wx.showToast({
+</span></span><span class="line"><span class="cl">      title: &#39;我是最后一页了！&#39;,
+</span></span><span class="line"><span class="cl">      icon: &#39;none&#39;,
+</span></span><span class="line"><span class="cl">      duration: 1000
+</span></span><span class="line"><span class="cl">    })
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl"> },
+</span></span></code></pre></div><p>newVideoList.concat(videoList),</p>
 <p>演示效果，题目列表到了最后，上拉，即可自动加载显示更多数据</p>
 <p>注意：数据必须铺满，才能演示下拉触底方法，可以用鼠标向下滚轮。
 <img src="/posts/project/20220529001925/image-20220529002228042.png"
@@ -2310,54 +1739,25 @@ const app = getApp()
 ></p>
 <h2 id="46编写点击题目标题跳转到题目详情页">4.6、编写点击题目标题跳转到题目详情页</h2>
 <p>修改pages/item/item.js</p>
-<pre tabindex="0"><code> //跳转到题目详情页
-  getInfo:function(e){
-    var id = e.currentTarget.dataset.id
-    console.log(&#34;key : &#34;+id);
-
-    wx.navigateTo({
-      url: &#39;../info/info?id=&#39;+id,
-    })
-  
-  },
-</code></pre><p>修改页面item.wxml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">view</span> <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;getInfo&#34;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&#34;{{item.id}}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;action text-bold text-black text-lg&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> //跳转到题目详情页
+</span></span><span class="line"><span class="cl">  getInfo:function(e){
+</span></span><span class="line"><span class="cl">    var id = e.currentTarget.dataset.id
+</span></span><span class="line"><span class="cl">    console.log(&#34;key : &#34;+id);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    wx.navigateTo({
+</span></span><span class="line"><span class="cl">      url: &#39;../info/info?id=&#39;+id,
+</span></span><span class="line"><span class="cl">    })
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  },
+</span></span></code></pre></div><p>修改页面item.wxml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">view</span> <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;getInfo&#34;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&#34;{{item.id}}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;action text-bold text-black text-lg&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;cuIcon-title text-blue&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    {{item.title}}
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>         
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="五题目详情开发">五、题目详情开发</h1>
+</span></span></code></pre></div><h1 id="五题目详情开发">五、题目详情开发</h1>
 <h2 id="51创建题目详情页面">5.1、创建题目详情页面</h2>
 <p>pages/info/info.wxml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">include</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;../template/head.wxml&#34;</span> <span class="p">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">include</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;../template/head.wxml&#34;</span> <span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;news-detail-container&#34;</span><span class="p">&gt;</span>  
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;author-time&#34;</span><span class="p">&gt;</span>   
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;const-text&#34;</span><span class="p">&gt;</span>发表于<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
@@ -2372,113 +1772,9 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>  
 </span></span><span class="line"><span class="cl">        
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="52创建题目详情样式">5.2、创建题目详情样式</h2>
+</span></span></code></pre></div><h2 id="52创建题目详情样式">5.2、创建题目详情样式</h2>
 <p>pages/info/info.wxss</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
-</span><span class="lnt">89
-</span><span class="lnt">90
-</span><span class="lnt">91
-</span><span class="lnt">92
-</span><span class="lnt">93
-</span><span class="lnt">94
-</span><span class="lnt">95
-</span><span class="lnt">96
-</span><span class="lnt">97
-</span><span class="lnt">98
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">news-detail-container</span><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">news-detail-container</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -2576,67 +1872,12 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">  <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">40</span><span class="n">rpx</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="53编写题目详情js文件">5.3、编写题目详情js文件</h2>
+</span></span></code></pre></div><h2 id="53编写题目详情js文件">5.3、编写题目详情js文件</h2>
 <p>pages/info/info.js</p>
-<pre tabindex="0"><code>//获取应用实例
-const app = getApp()
-</code></pre><p>页面加载获取详细数据、轮播图数据</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
+</span></span><span class="line"><span class="cl">const app = getApp()
+</span></span></code></pre></div><p>页面加载获取详细数据、轮播图数据</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">   * 生命周期函数--监听页面加载
 </span></span></span><span class="line"><span class="cl"><span class="cm">   */</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">onLoad</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
@@ -2685,9 +1926,7 @@ const app = getApp()
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">})</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="54题目详情演示效果">5.4、题目详情演示效果</h2>
+</span></span></code></pre></div><h2 id="54题目详情演示效果">5.4、题目详情演示效果</h2>
 <p><img src="/posts/project/20220529001925/image-20220529002250637.png"
     
     
@@ -2732,23 +1971,12 @@ const app = getApp()
 ></p>
 <h2 id="62修改微信小程序对接地址">6.2、修改微信小程序对接地址</h2>
 <p>修改文件app.js</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"> <span class="err">globalData:</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"> <span class="err">globalData:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="err">userInfo:</span> <span class="err">null,</span>
 </span></span><span class="line"><span class="cl">    <span class="err">baseUrl:</span> <span class="nt">&#34;http://bumzmoegy0.52http.tech&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动真机调试：
+</span></span></code></pre></div><p>启动真机调试：
 <img src="/posts/project/20220529001925/image-20220529002315822.png"
     
     

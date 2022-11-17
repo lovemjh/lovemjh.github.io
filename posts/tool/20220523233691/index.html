@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>Linux常用命令</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -463,8 +512,22 @@
             <i class="fa fa-paper-plane"></i>
             7 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,49 +547,6 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/tool/20220523233691/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Linux常用命令</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-05-23&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-05-23&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    3293 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    7 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 id="linux">Linux</h1>
 <h2 id="理解">理解</h2>
@@ -562,139 +582,139 @@
     
     
 ></p>
-<pre tabindex="0"><code> ➢  /bin (/usr/bin 、 /usr/local/bin)
- • 是Binary的缩写, 这个目录存放着最经常使用的命令
- ➢ /sbin (/usr/sbin 、 /usr/local/sbin)
- • s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。
- ➢ /home
- • 存放普通用户的主目录，在Linux中每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。
- ➢ /root
- • 该目录为系统管理员，也称作超级权限者的用户主目录。
- ➢ /lib
- • 系统开机所需要最基本的动态连接共享库，其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。
- ➢ /lost+found
- • 这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。
- ➢ /etc
- • 所有的系统管理所需要的配置文件和子目录
- ➢ /usr
- • 这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似与windows下的program files目录。
- ➢ /boot
- • 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件，自己的安装别放这里
- ➢ /proc
- • 这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。
- ➢ /srv
- • service缩写，该目录存放一些服务启动之后需要提取的数据。
- ➢ /sys
- • 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。 
- ➢ /tmp
-  • 这个目录是用来存放一些临时文件的。
- ➢ /dev
- • 类似于windows的设备管理器，把所有的硬件用文件的形式存储。
- ➢ /media
- • linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。
- ➢ /mnt
- • 系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将外部的存储挂载在/mnt/上，然后进入该目录就可以查看里的内容了。
- ➢ /opt
- • 这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。
- ➢ /usr/local
- • 这是另一个给主机额外安装软件所摆放的目录。一般是通过编译源码方式安装的程序。
- ➢ /var
- • 这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。
- ➢ /selinux
- • SELinux是一种安全子系统,它能控制程序只能访问特定文件。
-</code></pre><h1 id="linux命令">Linux命令</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ➢  /bin (/usr/bin 、 /usr/local/bin)
+</span></span><span class="line"><span class="cl"> • 是Binary的缩写, 这个目录存放着最经常使用的命令
+</span></span><span class="line"><span class="cl"> ➢ /sbin (/usr/sbin 、 /usr/local/sbin)
+</span></span><span class="line"><span class="cl"> • s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。
+</span></span><span class="line"><span class="cl"> ➢ /home
+</span></span><span class="line"><span class="cl"> • 存放普通用户的主目录，在Linux中每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。
+</span></span><span class="line"><span class="cl"> ➢ /root
+</span></span><span class="line"><span class="cl"> • 该目录为系统管理员，也称作超级权限者的用户主目录。
+</span></span><span class="line"><span class="cl"> ➢ /lib
+</span></span><span class="line"><span class="cl"> • 系统开机所需要最基本的动态连接共享库，其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。
+</span></span><span class="line"><span class="cl"> ➢ /lost+found
+</span></span><span class="line"><span class="cl"> • 这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。
+</span></span><span class="line"><span class="cl"> ➢ /etc
+</span></span><span class="line"><span class="cl"> • 所有的系统管理所需要的配置文件和子目录
+</span></span><span class="line"><span class="cl"> ➢ /usr
+</span></span><span class="line"><span class="cl"> • 这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似与windows下的program files目录。
+</span></span><span class="line"><span class="cl"> ➢ /boot
+</span></span><span class="line"><span class="cl"> • 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件，自己的安装别放这里
+</span></span><span class="line"><span class="cl"> ➢ /proc
+</span></span><span class="line"><span class="cl"> • 这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。
+</span></span><span class="line"><span class="cl"> ➢ /srv
+</span></span><span class="line"><span class="cl"> • service缩写，该目录存放一些服务启动之后需要提取的数据。
+</span></span><span class="line"><span class="cl"> ➢ /sys
+</span></span><span class="line"><span class="cl"> • 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。 
+</span></span><span class="line"><span class="cl"> ➢ /tmp
+</span></span><span class="line"><span class="cl">  • 这个目录是用来存放一些临时文件的。
+</span></span><span class="line"><span class="cl"> ➢ /dev
+</span></span><span class="line"><span class="cl"> • 类似于windows的设备管理器，把所有的硬件用文件的形式存储。
+</span></span><span class="line"><span class="cl"> ➢ /media
+</span></span><span class="line"><span class="cl"> • linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。
+</span></span><span class="line"><span class="cl"> ➢ /mnt
+</span></span><span class="line"><span class="cl"> • 系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将外部的存储挂载在/mnt/上，然后进入该目录就可以查看里的内容了。
+</span></span><span class="line"><span class="cl"> ➢ /opt
+</span></span><span class="line"><span class="cl"> • 这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。
+</span></span><span class="line"><span class="cl"> ➢ /usr/local
+</span></span><span class="line"><span class="cl"> • 这是另一个给主机额外安装软件所摆放的目录。一般是通过编译源码方式安装的程序。
+</span></span><span class="line"><span class="cl"> ➢ /var
+</span></span><span class="line"><span class="cl"> • 这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。
+</span></span><span class="line"><span class="cl"> ➢ /selinux
+</span></span><span class="line"><span class="cl"> • SELinux是一种安全子系统,它能控制程序只能访问特定文件。
+</span></span></code></pre></div><h1 id="linux命令">Linux命令</h1>
 <h2 id="目录操作">目录操作</h2>
-<pre tabindex="0"><code>① 切换目录 
-    cd  目录名 # 切换到指定目录
-    cd  /  # 切换到根目录
-    cd .. # 切换到上一级目录 
-    cd -  # 返回到跳转前的目录
-    pwd   # 显示所在的目录
-
-② 列出目录中的列表
-    ls  # 显示整个目录中的目录名
-    ls -a # 显示包含隐藏文件的目录
-    ls -l # 显示目录中所有目录的详情信息
-    ls -al # 显示目录中包含隐藏文件的详细信息
-
-补充：
-    clear    # 清屏
-    ctrl+l   # q清屏
-
-③ 目录的创建和删除
-    mkdir 目录名 # 创建一个目录
-    mkdir -p 目录 # 创建多层目录
-    rmdir 目录 # 删除空目录
-</code></pre><h2 id="文件操作">文件操作</h2>
-<pre tabindex="0"><code>① 创建文件
-    touch 文件名 # 创建一个空文件
-  
-② 拷贝文件
-    cp a.txt 目录 # 拷贝文件
-    cp a.txt 目录/b.txt # 拷贝并重命名
-  
-③ 移动文件
-    mv a.txt 目录 # 移动文件
-    mv a.txt 目录/b.txt # 移动并重命名 
-  
-④ 删除文件
-    rm 文件名  # 带询问的删除
-    rm -f 文件名 # 不带询问的删除
-    rm -r 目录 # 带询问删除目录可以是多级目录
-    rm -rf 目录 # 不带询问删除目录可以是多级目录
-    rm -rf *  # 自杀
-    rm -rf /* # 自杀
-</code></pre><h2 id="文件内容操作">文件内容操作</h2>
-<pre tabindex="0"><code>① 查看文件内容
-    cat 文件名 # 查看文件中的内容
-
-    more 文件名 # 查看文件的内容 一屏一屏显示  (查看下一屏 空格键 查看下一行数据 回车键
- 
-    tail -10 文件名 # 查看文件的后10行数据
-    tail -f xx.log  # 动态查看文件的内容
-
-② 搜索文件
-    find / -name &#34;ser*&#34; # 搜索以ser开头文件名的文件
-    find / -user root  # 搜索 root权限的文件
-
-③ 搜索符合条件字符串的文件
-    grep 字符串 文件名 # 在文件中查找字符串内容
-</code></pre><h2 id="文件的打包和压缩">文件的打包和压缩</h2>
-<pre tabindex="0"><code>    tar -cvf xx.tar 目录 # 将目录打成tar包 
-    tar -zcvf xx.tar.gz 目录 # 将目录打包并压缩 
-    tar -zxvf xx.tar.gz -C 目录 # 将压缩版解压到指定的目录下
-    说明：
-        c：创建一个新的tar文件
-        v：显示打包的过程
-        f：指定文件名
-        z：调用gzip 压缩文件
-        x：解开tar文件
-</code></pre><h2 id="文件内容编辑">文件内容编辑</h2>
-<pre tabindex="0"><code>vi 是文件内容的编译命令
-    三种模式：命令行模式 插入模式 低行模式
-    进入命令模式：
-    vi 文件名 
-    进入到插入模式：
-        i：插入当前光标的前面
-        I：插入当前行的前面
-        a：插入当前光标的后面
-        A：插入当前行的尾部
-        o：插入当前行的下一行
-        O：插入当前行的上一行
-    进入低行模式：esc
-        冒号  w保存 q退出 !强制
-    常见命令：
-        vi 文件名   # 进入命令行模式
-        i/I/a/A/o/O  # 进入到插入模式  修改内容
-        esc -&gt; :wq  # 保存退出
-    命令行中常见的命令：
-        dd：删除一行
-        yy：复制一行
-        p：粘贴
-        nyy：复制n行
-    低行模式命令
-        /内容  搜索文件中包含该内容的第一个位置
-</code></pre><h2 id="权限命令">权限命令</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 切换目录 
+</span></span><span class="line"><span class="cl">    cd  目录名 # 切换到指定目录
+</span></span><span class="line"><span class="cl">    cd  /  # 切换到根目录
+</span></span><span class="line"><span class="cl">    cd .. # 切换到上一级目录 
+</span></span><span class="line"><span class="cl">    cd -  # 返回到跳转前的目录
+</span></span><span class="line"><span class="cl">    pwd   # 显示所在的目录
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">② 列出目录中的列表
+</span></span><span class="line"><span class="cl">    ls  # 显示整个目录中的目录名
+</span></span><span class="line"><span class="cl">    ls -a # 显示包含隐藏文件的目录
+</span></span><span class="line"><span class="cl">    ls -l # 显示目录中所有目录的详情信息
+</span></span><span class="line"><span class="cl">    ls -al # 显示目录中包含隐藏文件的详细信息
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">补充：
+</span></span><span class="line"><span class="cl">    clear    # 清屏
+</span></span><span class="line"><span class="cl">    ctrl+l   # q清屏
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">③ 目录的创建和删除
+</span></span><span class="line"><span class="cl">    mkdir 目录名 # 创建一个目录
+</span></span><span class="line"><span class="cl">    mkdir -p 目录 # 创建多层目录
+</span></span><span class="line"><span class="cl">    rmdir 目录 # 删除空目录
+</span></span></code></pre></div><h2 id="文件操作">文件操作</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 创建文件
+</span></span><span class="line"><span class="cl">    touch 文件名 # 创建一个空文件
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">② 拷贝文件
+</span></span><span class="line"><span class="cl">    cp a.txt 目录 # 拷贝文件
+</span></span><span class="line"><span class="cl">    cp a.txt 目录/b.txt # 拷贝并重命名
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">③ 移动文件
+</span></span><span class="line"><span class="cl">    mv a.txt 目录 # 移动文件
+</span></span><span class="line"><span class="cl">    mv a.txt 目录/b.txt # 移动并重命名 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">④ 删除文件
+</span></span><span class="line"><span class="cl">    rm 文件名  # 带询问的删除
+</span></span><span class="line"><span class="cl">    rm -f 文件名 # 不带询问的删除
+</span></span><span class="line"><span class="cl">    rm -r 目录 # 带询问删除目录可以是多级目录
+</span></span><span class="line"><span class="cl">    rm -rf 目录 # 不带询问删除目录可以是多级目录
+</span></span><span class="line"><span class="cl">    rm -rf *  # 自杀
+</span></span><span class="line"><span class="cl">    rm -rf /* # 自杀
+</span></span></code></pre></div><h2 id="文件内容操作">文件内容操作</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 查看文件内容
+</span></span><span class="line"><span class="cl">    cat 文件名 # 查看文件中的内容
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    more 文件名 # 查看文件的内容 一屏一屏显示  (查看下一屏 空格键 查看下一行数据 回车键
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    tail -10 文件名 # 查看文件的后10行数据
+</span></span><span class="line"><span class="cl">    tail -f xx.log  # 动态查看文件的内容
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">② 搜索文件
+</span></span><span class="line"><span class="cl">    find / -name &#34;ser*&#34; # 搜索以ser开头文件名的文件
+</span></span><span class="line"><span class="cl">    find / -user root  # 搜索 root权限的文件
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">③ 搜索符合条件字符串的文件
+</span></span><span class="line"><span class="cl">    grep 字符串 文件名 # 在文件中查找字符串内容
+</span></span></code></pre></div><h2 id="文件的打包和压缩">文件的打包和压缩</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    tar -cvf xx.tar 目录 # 将目录打成tar包 
+</span></span><span class="line"><span class="cl">    tar -zcvf xx.tar.gz 目录 # 将目录打包并压缩 
+</span></span><span class="line"><span class="cl">    tar -zxvf xx.tar.gz -C 目录 # 将压缩版解压到指定的目录下
+</span></span><span class="line"><span class="cl">    说明：
+</span></span><span class="line"><span class="cl">        c：创建一个新的tar文件
+</span></span><span class="line"><span class="cl">        v：显示打包的过程
+</span></span><span class="line"><span class="cl">        f：指定文件名
+</span></span><span class="line"><span class="cl">        z：调用gzip 压缩文件
+</span></span><span class="line"><span class="cl">        x：解开tar文件
+</span></span></code></pre></div><h2 id="文件内容编辑">文件内容编辑</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vi 是文件内容的编译命令
+</span></span><span class="line"><span class="cl">    三种模式：命令行模式 插入模式 低行模式
+</span></span><span class="line"><span class="cl">    进入命令模式：
+</span></span><span class="line"><span class="cl">    vi 文件名 
+</span></span><span class="line"><span class="cl">    进入到插入模式：
+</span></span><span class="line"><span class="cl">        i：插入当前光标的前面
+</span></span><span class="line"><span class="cl">        I：插入当前行的前面
+</span></span><span class="line"><span class="cl">        a：插入当前光标的后面
+</span></span><span class="line"><span class="cl">        A：插入当前行的尾部
+</span></span><span class="line"><span class="cl">        o：插入当前行的下一行
+</span></span><span class="line"><span class="cl">        O：插入当前行的上一行
+</span></span><span class="line"><span class="cl">    进入低行模式：esc
+</span></span><span class="line"><span class="cl">        冒号  w保存 q退出 !强制
+</span></span><span class="line"><span class="cl">    常见命令：
+</span></span><span class="line"><span class="cl">        vi 文件名   # 进入命令行模式
+</span></span><span class="line"><span class="cl">        i/I/a/A/o/O  # 进入到插入模式  修改内容
+</span></span><span class="line"><span class="cl">        esc -&gt; :wq  # 保存退出
+</span></span><span class="line"><span class="cl">    命令行中常见的命令：
+</span></span><span class="line"><span class="cl">        dd：删除一行
+</span></span><span class="line"><span class="cl">        yy：复制一行
+</span></span><span class="line"><span class="cl">        p：粘贴
+</span></span><span class="line"><span class="cl">        nyy：复制n行
+</span></span><span class="line"><span class="cl">    低行模式命令
+</span></span><span class="line"><span class="cl">        /内容  搜索文件中包含该内容的第一个位置
+</span></span></code></pre></div><h2 id="权限命令">权限命令</h2>
 <p><img src="/posts/tool/20220523233691/image-20220523234827825.png"
     
     
@@ -704,92 +724,92 @@
     
 >
  </p>
-<pre tabindex="0"><code>① 修改权限： 可读 r=4  可写 w=2  可执行 x=1
-    chmod u-w,g+w 文件名  # 可以添加或者删除指定权限
-    chmod 755 文件  # 指定文件或目录的权限
-
-② 用户和组
-    cat /etc/passwd # 查看 用户结构信息
-用户操作：
-    useradd 用户名 # 添加一个用户
-    userdel -r 用户名 # 删除用户和对应的结构信息
-    passwd 用户名 # 设置密码
-    groups 用户名 # 查看用户所属组
-组操作：
-    groupadd 组名 # 添加一个组
-    groupdel 组名 # 删除组
-    gpasswd -a 用户名 组名 # 将一个用户添加到组中
-    gpasswd -d 用户名 组名 # 将用户从组中移除
-补充：
-    su 用户名 # 切换用户 操作环境不变
-    su - 用户名 # 切换用户 并切换操作环境
-    whoami # 查看当前用户
-</code></pre><h2 id="重定向输出">重定向输出</h2>
-<pre tabindex="0"><code>将一个文件内容到另一个文件中
-cat 文件1 &gt; 文件2 # 将文件1的内容输出到文件2中 覆盖老的内容
-cat 文件1 &gt;&gt; 文件2 # 将文件1的内容追加到文件2中
-</code></pre><h2 id="进程命令">进程命令</h2>
-<pre tabindex="0"><code>ps -ef # 查看所有进程
-ps -ef|grep 进程名  # 查看某个进程
-kill -9 进程id # 强制杀死进程
-</code></pre><h2 id="shell编程">shell编程</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 修改权限： 可读 r=4  可写 w=2  可执行 x=1
+</span></span><span class="line"><span class="cl">    chmod u-w,g+w 文件名  # 可以添加或者删除指定权限
+</span></span><span class="line"><span class="cl">    chmod 755 文件  # 指定文件或目录的权限
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">② 用户和组
+</span></span><span class="line"><span class="cl">    cat /etc/passwd # 查看 用户结构信息
+</span></span><span class="line"><span class="cl">用户操作：
+</span></span><span class="line"><span class="cl">    useradd 用户名 # 添加一个用户
+</span></span><span class="line"><span class="cl">    userdel -r 用户名 # 删除用户和对应的结构信息
+</span></span><span class="line"><span class="cl">    passwd 用户名 # 设置密码
+</span></span><span class="line"><span class="cl">    groups 用户名 # 查看用户所属组
+</span></span><span class="line"><span class="cl">组操作：
+</span></span><span class="line"><span class="cl">    groupadd 组名 # 添加一个组
+</span></span><span class="line"><span class="cl">    groupdel 组名 # 删除组
+</span></span><span class="line"><span class="cl">    gpasswd -a 用户名 组名 # 将一个用户添加到组中
+</span></span><span class="line"><span class="cl">    gpasswd -d 用户名 组名 # 将用户从组中移除
+</span></span><span class="line"><span class="cl">补充：
+</span></span><span class="line"><span class="cl">    su 用户名 # 切换用户 操作环境不变
+</span></span><span class="line"><span class="cl">    su - 用户名 # 切换用户 并切换操作环境
+</span></span><span class="line"><span class="cl">    whoami # 查看当前用户
+</span></span></code></pre></div><h2 id="重定向输出">重定向输出</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">将一个文件内容到另一个文件中
+</span></span><span class="line"><span class="cl">cat 文件1 &gt; 文件2 # 将文件1的内容输出到文件2中 覆盖老的内容
+</span></span><span class="line"><span class="cl">cat 文件1 &gt;&gt; 文件2 # 将文件1的内容追加到文件2中
+</span></span></code></pre></div><h2 id="进程命令">进程命令</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ps -ef # 查看所有进程
+</span></span><span class="line"><span class="cl">ps -ef|grep 进程名  # 查看某个进程
+</span></span><span class="line"><span class="cl">kill -9 进程id # 强制杀死进程
+</span></span></code></pre></div><h2 id="shell编程">shell编程</h2>
 <p>shell命令解释型语言，用户可以通过编写shell命令 编写一些程序。通常运维或者大数据的开发者编写shell脚本管理服务器集群
   
 编写规范：</p>
-<pre tabindex="0"><code>1. 创建以.sh为后缀的文件
-2. 首行 #!/bin/bash
-3. 赋予可执行的权限  chmod u+x 
-4. ./xx.sh  执行
-</code></pre><h2 id="rpm">rpm</h2>
-<pre tabindex="0"><code>    rpm 类似win的软件安装包  可以通过.rpm安装文件 安装软件或者卸载软件
-    ① 安装
-        rmp -ivh rpm安装包 # 安装rpm软件
-  
-    ② 查看安装
-        rpm -qa|grep 软件名 
-  
-    ③ 卸载 rpm安装
-        rpm -e --nodeps 安装名
-  
-    参数：
-        i # 安装  install
-        v # 安装信息
-        h # 安装进度
-        q # 查询
-        a # 查询所有的包
-        e # 卸载
-        nodeps # 不检查依赖性
-</code></pre><h2 id="yum">yum</h2>
-<pre tabindex="0"><code>    Yum是一个可以从指定的服务器中自动下载并且按照的软件包管理器，自动处理依赖，一次性安装所有依赖的软件包。
-    1. 下载安装
-        yum install 软件名
-        
-    2. 查看yum安装的软件
-        yum list installed
-  
-    3. 卸载安装
-        yum uninstall 安装包名
-  
-    4. 查看安装位置
-        rpm -ql 安装包
-</code></pre><h1 id="linux安装环境">Linux安装环境</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 创建以.sh为后缀的文件
+</span></span><span class="line"><span class="cl">2. 首行 #!/bin/bash
+</span></span><span class="line"><span class="cl">3. 赋予可执行的权限  chmod u+x 
+</span></span><span class="line"><span class="cl">4. ./xx.sh  执行
+</span></span></code></pre></div><h2 id="rpm">rpm</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    rpm 类似win的软件安装包  可以通过.rpm安装文件 安装软件或者卸载软件
+</span></span><span class="line"><span class="cl">    ① 安装
+</span></span><span class="line"><span class="cl">        rmp -ivh rpm安装包 # 安装rpm软件
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    ② 查看安装
+</span></span><span class="line"><span class="cl">        rpm -qa|grep 软件名 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    ③ 卸载 rpm安装
+</span></span><span class="line"><span class="cl">        rpm -e --nodeps 安装名
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    参数：
+</span></span><span class="line"><span class="cl">        i # 安装  install
+</span></span><span class="line"><span class="cl">        v # 安装信息
+</span></span><span class="line"><span class="cl">        h # 安装进度
+</span></span><span class="line"><span class="cl">        q # 查询
+</span></span><span class="line"><span class="cl">        a # 查询所有的包
+</span></span><span class="line"><span class="cl">        e # 卸载
+</span></span><span class="line"><span class="cl">        nodeps # 不检查依赖性
+</span></span></code></pre></div><h2 id="yum">yum</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    Yum是一个可以从指定的服务器中自动下载并且按照的软件包管理器，自动处理依赖，一次性安装所有依赖的软件包。
+</span></span><span class="line"><span class="cl">    1. 下载安装
+</span></span><span class="line"><span class="cl">        yum install 软件名
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    2. 查看yum安装的软件
+</span></span><span class="line"><span class="cl">        yum list installed
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    3. 卸载安装
+</span></span><span class="line"><span class="cl">        yum uninstall 安装包名
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    4. 查看安装位置
+</span></span><span class="line"><span class="cl">        rpm -ql 安装包
+</span></span></code></pre></div><h1 id="linux安装环境">Linux安装环境</h1>
 <h2 id="安装jdk">安装jdk</h2>
-<pre tabindex="0"><code> ① 将 jdk-8u144-linux-x64.tar.gz 通过ftp上传到 /usr/ujiuye
- ② 解压到当前目录下
-  tar -zxvf jdk-8u144-linux-x64.tar.gz
-  
- ③ 配置环境变量
-  1. vi /etc/profile 中：
-  JAVA_HOME=/usr/ujiuye/jdk1.8.0_144
-  CLASSPATH=.:$JAVA_HOME/lib/tools.jar
-  PATH=$JAVA_HOME/bin:$PATH
-  export JAVA_HOME CLASSPATH PATH
-  2. 保存退出
-  3. 刷新环境变量
-  source /etc/profile 
-  4. 测试
-  java -version 
-</code></pre><p><img src="/posts/tool/20220523233691/image-20220523235131919.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ① 将 jdk-8u144-linux-x64.tar.gz 通过ftp上传到 /usr/ujiuye
+</span></span><span class="line"><span class="cl"> ② 解压到当前目录下
+</span></span><span class="line"><span class="cl">  tar -zxvf jdk-8u144-linux-x64.tar.gz
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> ③ 配置环境变量
+</span></span><span class="line"><span class="cl">  1. vi /etc/profile 中：
+</span></span><span class="line"><span class="cl">  JAVA_HOME=/usr/ujiuye/jdk1.8.0_144
+</span></span><span class="line"><span class="cl">  CLASSPATH=.:$JAVA_HOME/lib/tools.jar
+</span></span><span class="line"><span class="cl">  PATH=$JAVA_HOME/bin:$PATH
+</span></span><span class="line"><span class="cl">  export JAVA_HOME CLASSPATH PATH
+</span></span><span class="line"><span class="cl">  2. 保存退出
+</span></span><span class="line"><span class="cl">  3. 刷新环境变量
+</span></span><span class="line"><span class="cl">  source /etc/profile 
+</span></span><span class="line"><span class="cl">  4. 测试
+</span></span><span class="line"><span class="cl">  java -version 
+</span></span></code></pre></div><p><img src="/posts/tool/20220523233691/image-20220523235131919.png"
     
     
     
@@ -799,54 +819,54 @@ kill -9 进程id # 强制杀死进程
 ></p>
 <h2 id="安装mysql">安装MySQL</h2>
 <p> </p>
-<pre tabindex="0"><code>① 安装之前先清除 自带的MySQL
-  rpm -qa|grep mysql 
-  rpm -qa|grep mariadb
-  rpm -e --nodeps 安装软件名 # 卸载
-  
-  ② 将win下下载的安装包 上传到 /usr/ujiuye
-  rpm -ivh MySQL-server-5.5.54-1.linux2.6.x86_64.rpm -force --nodeps
-  rpm -ivh MySQL-client-5.5.54-1.linux2.6.x86_64.rpm -force --nodeps
-  
-  ③ 启动 
-  service mysql start 
-  问题：
-  Starting MySQL. ERROR! The server quit without updating PID file (/var/lib/mysql/localhost.pid).
-  
-  解决：
-  执行命令：/usr/bin/mysql_install_db --user=mysql
-  
-  又引发问题：
-  Installing MySQL system tables...
- /usr/sbin/mysqld: error while loading shared libraries: libaio.so.1: cannot open shared object file: No such file or directory
-  
-  再解决：
-  yum install libaio
-  
-  最后再执行：/usr/bin/mysql_install_db --user=mysql
-  
-  最后：
-  启动服务：service mysql start 
-  ④ 连接数据库 默认 5.5 没有密码
-  mysql -uroot -p 
-  ⑤ 设置密码
-  set password = password(&#39;密码&#39;)
-  
-  ⑥ 重新连接 设置权限
-  grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39;;
-  flush privileges;
- 
-  ⑦ 关闭防火墙
-  firewall-cmd --state # 查看防火墙状态
-  systemctl stop firewalld.service # 关闭防火墙
-  systemctl disable firewalld.service # 禁止开机启动防火墙
-</code></pre><h2 id="安装tomcat">安装tomcat</h2>
-<pre tabindex="0"><code> ① 将win下的apache-tomcat-8.5.43.tar.gz 上传到/usr/ujiuye
- ② 解压两份 
-  tar -zxvf apache-tomcat-8.5.43.tar.gz
-  
- ③ 其中一个修改  conf/server.xml文件
-</code></pre><p><img src="/posts/tool/20220523233691/image-20220523235238266.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 安装之前先清除 自带的MySQL
+</span></span><span class="line"><span class="cl">  rpm -qa|grep mysql 
+</span></span><span class="line"><span class="cl">  rpm -qa|grep mariadb
+</span></span><span class="line"><span class="cl">  rpm -e --nodeps 安装软件名 # 卸载
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  ② 将win下下载的安装包 上传到 /usr/ujiuye
+</span></span><span class="line"><span class="cl">  rpm -ivh MySQL-server-5.5.54-1.linux2.6.x86_64.rpm -force --nodeps
+</span></span><span class="line"><span class="cl">  rpm -ivh MySQL-client-5.5.54-1.linux2.6.x86_64.rpm -force --nodeps
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  ③ 启动 
+</span></span><span class="line"><span class="cl">  service mysql start 
+</span></span><span class="line"><span class="cl">  问题：
+</span></span><span class="line"><span class="cl">  Starting MySQL. ERROR! The server quit without updating PID file (/var/lib/mysql/localhost.pid).
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  解决：
+</span></span><span class="line"><span class="cl">  执行命令：/usr/bin/mysql_install_db --user=mysql
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  又引发问题：
+</span></span><span class="line"><span class="cl">  Installing MySQL system tables...
+</span></span><span class="line"><span class="cl"> /usr/sbin/mysqld: error while loading shared libraries: libaio.so.1: cannot open shared object file: No such file or directory
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  再解决：
+</span></span><span class="line"><span class="cl">  yum install libaio
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  最后再执行：/usr/bin/mysql_install_db --user=mysql
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  最后：
+</span></span><span class="line"><span class="cl">  启动服务：service mysql start 
+</span></span><span class="line"><span class="cl">  ④ 连接数据库 默认 5.5 没有密码
+</span></span><span class="line"><span class="cl">  mysql -uroot -p 
+</span></span><span class="line"><span class="cl">  ⑤ 设置密码
+</span></span><span class="line"><span class="cl">  set password = password(&#39;密码&#39;)
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  ⑥ 重新连接 设置权限
+</span></span><span class="line"><span class="cl">  grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39;;
+</span></span><span class="line"><span class="cl">  flush privileges;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  ⑦ 关闭防火墙
+</span></span><span class="line"><span class="cl">  firewall-cmd --state # 查看防火墙状态
+</span></span><span class="line"><span class="cl">  systemctl stop firewalld.service # 关闭防火墙
+</span></span><span class="line"><span class="cl">  systemctl disable firewalld.service # 禁止开机启动防火墙
+</span></span></code></pre></div><h2 id="安装tomcat">安装tomcat</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ① 将win下的apache-tomcat-8.5.43.tar.gz 上传到/usr/ujiuye
+</span></span><span class="line"><span class="cl"> ② 解压两份 
+</span></span><span class="line"><span class="cl">  tar -zxvf apache-tomcat-8.5.43.tar.gz
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> ③ 其中一个修改  conf/server.xml文件
+</span></span></code></pre></div><p><img src="/posts/tool/20220523233691/image-20220523235238266.png"
     
     
     
@@ -878,8 +898,8 @@ kill -9 进程id # 强制杀死进程
     
     
 ></p>
-<pre tabindex="0"><code> ④ 执行 bin/startup.sh
-</code></pre><h1 id="部署项目">部署项目</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ④ 执行 bin/startup.sh
+</span></span></code></pre></div><h1 id="部署项目">部署项目</h1>
 <h2 id="后台代码部署">后台代码部署</h2>
 <p> ① 修改连接池数据源配置文件的
 <img src="/posts/tool/20220523233691/image-20220523235319419.png"
@@ -918,11 +938,11 @@ kill -9 进程id # 强制杀死进程
 ></p>
 <h2 id="部署前台页面">部署前台页面</h2>
 <p> </p>
-<pre tabindex="0"><code>① 修改页面中访问路径 
-  在每个页面中 将请求后台路径 localhost:8080/  改为  IP:8080/
-  在每个页面中 将页面之间的跳转 127.0.0.1:5500/  改为  IP:8081/
- ② 将页面 上传到 tomcat_before/webapps中即可
-</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 修改页面中访问路径 
+</span></span><span class="line"><span class="cl">  在每个页面中 将请求后台路径 localhost:8080/  改为  IP:8080/
+</span></span><span class="line"><span class="cl">  在每个页面中 将页面之间的跳转 127.0.0.1:5500/  改为  IP:8081/
+</span></span><span class="line"><span class="cl"> ② 将页面 上传到 tomcat_before/webapps中即可
+</span></span></code></pre></div>
             </div>
             <hr>
             <div style="text-align: center;">

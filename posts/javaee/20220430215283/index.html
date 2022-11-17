@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>Servlet</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            3637 字
+            3398 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
-            8 分钟
+            7 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,143 +547,19 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/javaee/20220430215283/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Servlet</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2021-12-05&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2021-12-05&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    3637 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    8 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 id="请求与响应">请求与响应</h1>
 <h2 id="一请求">一、请求</h2>
 <h3 id="1-理解">1. 理解</h3>
-<pre tabindex="0"><code>ServletRequest接口  ----&gt; HttpServletRequest子接口 ----&gt;HttpServletRequestWrapper 实现类
-    ① 客户端请求将请求信息封装该对象中
-    ② 该对象是由Servlet容器创建的，开发者只需要使用
-    ③ 在核心方法中直接使用
-    定义将客户端请求信息提供给某个 servlet 的对象。servlet 容器创建 ServletRequest 对象，并将该对象作为参数传递给该 servlet 的 service 方法。
-</code></pre><h3 id="2-作用">2. 作用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">作用</span><span class="err">：</span><span class="n">获取请求信息</span><span class="err">：</span> <span class="n">请求行</span>  <span class="n">请求头</span> <span class="n">请求正文</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3-使用">3. 使用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">获取请求行信息</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ServletRequest接口  ----&gt; HttpServletRequest子接口 ----&gt;HttpServletRequestWrapper 实现类
+</span></span><span class="line"><span class="cl">    ① 客户端请求将请求信息封装该对象中
+</span></span><span class="line"><span class="cl">    ② 该对象是由Servlet容器创建的，开发者只需要使用
+</span></span><span class="line"><span class="cl">    ③ 在核心方法中直接使用
+</span></span><span class="line"><span class="cl">    定义将客户端请求信息提供给某个 servlet 的对象。servlet 容器创建 ServletRequest 对象，并将该对象作为参数传递给该 servlet 的 service 方法。
+</span></span></code></pre></div><h3 id="2-作用">2. 作用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">作用</span><span class="err">：</span><span class="n">获取请求信息</span><span class="err">：</span> <span class="n">请求行</span>  <span class="n">请求头</span> <span class="n">请求正文</span>
+</span></span></code></pre></div><h3 id="3-使用">3. 使用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">获取请求行信息</span>
 </span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">scheme</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getScheme</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;协议：&#34;</span><span class="o">+</span><span class="n">scheme</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
@@ -690,9 +629,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">rd</span><span class="o">.</span><span class="na">include</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span> <span class="c1">// 部分转发
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">  <span class="n">使用场景</span><span class="err">：</span><span class="n">跳转页面</span> <span class="n">如</span><span class="err">：</span><span class="n">注册成功跳转登录页</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/JavaEE/20220430215283/image-20220430225032891.png"
+</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225032891.png"
     
     
     
@@ -702,94 +639,24 @@
 ></p>
 <h2 id="二响应">二、响应</h2>
 <h3 id="1-理解-1">1. 理解</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">定义辅助</span> <span class="n">servlet</span> <span class="n">将响应发送到客户端的对象</span><span class="err">。</span><span class="n">servlet</span> <span class="n">容器创建</span> <span class="n">ServletResponse</span> <span class="n">对象</span><span class="err">，</span><span class="n">并将它作为参数传递给</span> <span class="n">servlet</span> <span class="n">的</span> <span class="n">service</span> <span class="n">方法</span><span class="err">。</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">定义辅助</span> <span class="n">servlet</span> <span class="n">将响应发送到客户端的对象</span><span class="err">。</span><span class="n">servlet</span> <span class="n">容器创建</span> <span class="n">ServletResponse</span> <span class="n">对象</span><span class="err">，</span><span class="n">并将它作为参数传递给</span> <span class="n">servlet</span> <span class="n">的</span> <span class="n">service</span> <span class="n">方法</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">      <span class="err">①</span> <span class="n">是Servlet中处理响应的对象</span>
 </span></span><span class="line"><span class="cl">      <span class="err">②</span> <span class="n">是Servlet容器</span> <span class="n">创建的</span>
 </span></span><span class="line"><span class="cl">      <span class="err">③</span> <span class="n">作为核心方法的参数</span> <span class="n">开发者只需要在核心方法中使用</span>
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">   <span class="n">ServletResponse接口</span> <span class="o">----&gt;</span> <span class="n">HttpServletResponse子接口</span> <span class="o">----&gt;</span> <span class="n">HttpServletResponseWrapper</span> <span class="n">实现了</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="2-作用-1">2. 作用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Servlet中处理响应客户端的对象</span><span class="err">。</span><span class="n">可以响应文本</span><span class="err">，</span><span class="n">也可以响应字节</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3-使用-1">3. 使用</h3>
+</span></span></code></pre></div><h3 id="2-作用-1">2. 作用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Servlet中处理响应客户端的对象</span><span class="err">。</span><span class="n">可以响应文本</span><span class="err">，</span><span class="n">也可以响应字节</span>
+</span></span></code></pre></div><h3 id="3-使用-1">3. 使用</h3>
 <h4 id="-文本">① 文本</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应文本</span><span class="err">：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应文本</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="n">PrintWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="n">writer</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&#34;I am server, 这是文本信息&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">中文乱码问题解决</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">&#34;text/html; charset=utf-8&#34;</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="-字节">② 字节</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应字节</span><span class="err">：</span>
+</span></span></code></pre></div><h4 id="-字节">② 字节</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应字节</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="n">ServletOutputStream</span> <span class="n">sos</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">文件下载案例</span><span class="err">：</span>
@@ -824,20 +691,10 @@
 </span></span><span class="line"><span class="cl">    <span class="c1">// 6. 关闭
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">sos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="4-重定向">4. 重定向</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span>	
+</span></span></code></pre></div><h3 id="4-重定向">4. 重定向</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span>	
 </span></span><span class="line"><span class="cl">	<span class="n">客户端请求ServletA资源</span><span class="err">，</span><span class="n">ServletA没有资源ServletA响应客户端携带302状态码和重定向的url地址</span><span class="err">。</span><span class="n">客户端立刻对重定向的地址发送请求</span><span class="err">。</span><span class="n">这个过程称为重定向</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/JavaEE/20220430215283/image-20220430225040929.png"
+</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225040929.png"
     
     
     
@@ -845,40 +702,12 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现</span><span class="err">：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">(</span><span class="s">&#34;重定向地址&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">使用场景</span><span class="err">：</span><span class="n">跳转页面</span> <span class="n">如</span><span class="err">：</span><span class="n">登录成功跳转首页</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="三转发和重定向区别">三、转发和重定向区别</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">转发特点</span><span class="err">：</span>
+</span></span></code></pre></div><h2 id="三转发和重定向区别">三、转发和重定向区别</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">转发特点</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">转发是由请求发起的</span>
 </span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">发生在服务器内部</span>
 </span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">转发过程中请求地址不变</span> 
@@ -892,63 +721,19 @@
 </span></span><span class="line"><span class="cl">    <span class="n">4</span><span class="o">.</span> <span class="n">重定向既可以重定向内部资源</span> <span class="n">也可以重定向外部资源</span>
 </span></span><span class="line"><span class="cl">    <span class="n">5</span><span class="o">.</span> <span class="n">重定向不可以重定向WEB</span><span class="o">-</span><span class="n">INF下的资源</span>
 </span></span><span class="line"><span class="cl">    <span class="n">6</span><span class="o">.</span> <span class="n">表单提交完成之后重定向可以刷新当前页面</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="四作业">四、作业</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现登录和注册功能</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="共享域">共享域</h1>
+</span></span></code></pre></div><h2 id="四作业">四、作业</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现登录和注册功能</span>
+</span></span></code></pre></div><h1 id="共享域">共享域</h1>
 <h2 id="1-理解-2">1. 理解</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">在Servlet可以实现数据共享的对象</span><span class="err">。</span>  
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="2-分类">2. 分类</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">ServletContext</span> <span class="n">范围最大</span> <span class="n">可以在项目的任何地方实现数据的共享</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">在Servlet可以实现数据共享的对象</span><span class="err">。</span>  
+</span></span></code></pre></div><h2 id="2-分类">2. 分类</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">ServletContext</span> <span class="n">范围最大</span> <span class="n">可以在项目的任何地方实现数据的共享</span>
 </span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="n">session</span>   <span class="n">范围</span> <span class="n">一次会话中</span> <span class="n">实现数据的共享</span>
 </span></span><span class="line"><span class="cl"><span class="err">③</span> <span class="n">request</span>   <span class="n">范围</span> <span class="n">一次请求中</span> <span class="n">实现数据的共享</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="3-作用">3. 作用</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现Servlet与Servlet之间</span> <span class="n">或者</span> <span class="n">Servlet与页面之间</span>  <span class="n">数据的共享</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="4-使用">4. 使用</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">保存数据到共享域</span><span class="err">：</span>
+</span></span></code></pre></div><h2 id="3-作用">3. 作用</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现Servlet与Servlet之间</span> <span class="n">或者</span> <span class="n">Servlet与页面之间</span>  <span class="n">数据的共享</span>
+</span></span></code></pre></div><h2 id="4-使用">4. 使用</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">保存数据到共享域</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="n">setAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Object</span> <span class="n">value</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">取共享域数据</span><span class="err">：</span>
@@ -956,47 +741,23 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">删除共享域数据</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">removeAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="cookie-和-session">Cookie 和 session</h1>
+</span></span></code></pre></div><h1 id="cookie-和-session">Cookie 和 session</h1>
 <h2 id="一会话">一、会话</h2>
 <h3 id="1理解">1.理解</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">客户端发送请求到服务器</span><span class="err">，</span><span class="n">连接成功会话开始</span><span class="err">，</span><span class="n">只有连接不断开整个过程就属于一次会话</span><span class="err">。</span><span class="n">从连接成功开始</span> <span class="n">到</span> <span class="n">服务器或者客户端断开结束</span><span class="err">。</span><span class="n">在此期间的任何请求</span> <span class="n">任何资源都属于该次会话</span><span class="err">。</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="2-作用-2">2. 作用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">由于HTTP协议</span><span class="err">，</span><span class="n">无状态的特点</span><span class="err">。</span><span class="n">每次请求都是一次新的会话</span><span class="err">，</span><span class="n">有时候需要重复验证</span><span class="err">。</span><span class="n">所以用户体验太差</span><span class="err">，</span><span class="n">要解决这种问题</span> <span class="n">使用会话技术</span><span class="err">。</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3-会话技术">3. 会话技术</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cookie</span>  <span class="n">客户端会话</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">客户端发送请求到服务器</span><span class="err">，</span><span class="n">连接成功会话开始</span><span class="err">，</span><span class="n">只有连接不断开整个过程就属于一次会话</span><span class="err">。</span><span class="n">从连接成功开始</span> <span class="n">到</span> <span class="n">服务器或者客户端断开结束</span><span class="err">。</span><span class="n">在此期间的任何请求</span> <span class="n">任何资源都属于该次会话</span><span class="err">。</span>
+</span></span></code></pre></div><h3 id="2-作用-2">2. 作用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">由于HTTP协议</span><span class="err">，</span><span class="n">无状态的特点</span><span class="err">。</span><span class="n">每次请求都是一次新的会话</span><span class="err">，</span><span class="n">有时候需要重复验证</span><span class="err">。</span><span class="n">所以用户体验太差</span><span class="err">，</span><span class="n">要解决这种问题</span> <span class="n">使用会话技术</span><span class="err">。</span>
+</span></span></code></pre></div><h3 id="3-会话技术">3. 会话技术</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cookie</span>  <span class="n">客户端会话</span>
 </span></span><span class="line"><span class="cl"><span class="n">session</span> <span class="n">服务器端会话</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="二cookie">二、Cookie</h2>
+</span></span></code></pre></div><h2 id="二cookie">二、Cookie</h2>
 <h3 id="1-理解-3">1. 理解</h3>
-<pre tabindex="0"><code>	创建一个 cookie，cookie 是 servlet 发送到 Web 浏览器的少量信息，这些信息由浏览器保存，然后发送回服务器。cookie 的值可以唯一地标识客户端，因此 cookie 常用于会话管理。
-    
-    1. 需要在Servlet中创建
-    2. 保存到浏览器
-    3. 唯一标识客户端 保存少量数据
-</code></pre><p><img src="/posts/JavaEE/20220430215283/image-20220430225306726.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	创建一个 cookie，cookie 是 servlet 发送到 Web 浏览器的少量信息，这些信息由浏览器保存，然后发送回服务器。cookie 的值可以唯一地标识客户端，因此 cookie 常用于会话管理。
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    1. 需要在Servlet中创建
+</span></span><span class="line"><span class="cl">    2. 保存到浏览器
+</span></span><span class="line"><span class="cl">    3. 唯一标识客户端 保存少量数据
+</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225306726.png"
     
     
     
@@ -1005,34 +766,7 @@
     
 ></p>
 <h3 id="2-使用">2. 使用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">创建cookie</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">创建cookie</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cookie</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">响应客户端</span>
@@ -1055,59 +789,25 @@
 </span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">有效路径</span><span class="err">：</span><span class="n">只在当前的有效路径下</span> <span class="n">生效</span>
 </span></span><span class="line"><span class="cl">    <span class="n">默认当前创建cookie的Servlet访问路径的上一层</span>
 </span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setPath</span><span class="o">(</span><span class="n">路径</span><span class="o">);</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3-场景">3. 场景</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">记录上次访问时间</span>
+</span></span></code></pre></div><h3 id="3-场景">3. 场景</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">记录上次访问时间</span>
 </span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="nf">登录时的记住账号功能</span><span class="o">(</span><span class="n">作业</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">浏览记录</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="4-特点">4. 特点</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">Cookie保存到客户端</span> <span class="n">安全性低</span>
+</span></span></code></pre></div><h3 id="4-特点">4. 特点</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">Cookie保存到客户端</span> <span class="n">安全性低</span>
 </span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">Cookie保存数据只能是字符串</span> <span class="n">不能有特殊符号</span> <span class="n">空格</span> <span class="n">分号</span> <span class="n">逗号</span> <span class="n">不能以$开头等</span>
 </span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">Cookie保存数据大小最多4KB</span>
 </span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">一个服务器可以创建多个Cookie</span>   
 </span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">Cookie可以设置有效时间</span> <span class="n">从调用addCookie方法开始</span> <span class="n">到期之后销毁了</span>
 </span></span><span class="line"><span class="cl"><span class="n">6</span><span class="o">.</span> <span class="n">Cookie的名字</span><span class="err">、</span><span class="n">路径</span><span class="err">、</span><span class="n">有效时间</span> <span class="n">决定了是不是同一个cookie</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="三session">三、session</h2>
+</span></span></code></pre></div><h2 id="三session">三、session</h2>
 <h3 id="1-理解-4">1. 理解</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">HttpSession</span> <span class="n">提供一种方式</span><span class="err">，</span><span class="n">跨多个页面请求或对</span> <span class="n">Web</span> <span class="n">站点的多次访问标识用户并存储有关该用户的信息</span><span class="err">。</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">HttpSession</span> <span class="n">提供一种方式</span><span class="err">，</span><span class="n">跨多个页面请求或对</span> <span class="n">Web</span> <span class="n">站点的多次访问标识用户并存储有关该用户的信息</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">     <span class="n">Servlet</span> <span class="n">容器使用此接口创建</span> <span class="n">HTTP</span> <span class="n">客户端和</span> <span class="n">HTTP</span> <span class="n">服务器之间的会话</span><span class="err">。</span><span class="n">会话将保留指定的时间段</span><span class="err">，</span><span class="n">跨多个连接或来自用户的页面请求</span><span class="err">。</span><span class="n">一个会话通常对应于一个用户</span><span class="err">，</span><span class="n">该用户可能多次访问一个站点</span><span class="err">。</span><span class="n">服务器能够以多种方式维护会话</span><span class="err">，</span><span class="n">比如使用</span> <span class="n">cookie</span> <span class="n">或重写</span> <span class="n">URL</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">     <span class="err">①</span> <span class="n">session是由Servlet容器创建</span>
 </span></span><span class="line"><span class="cl">     <span class="err">②</span> <span class="n">维护客户端和服务器的会话</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/JavaEE/20220430215283/image-20220430225254929.png"
+</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225254929.png"
     
     
     
@@ -1116,34 +816,7 @@
     
 ></p>
 <h3 id="2-使用-1">2. 使用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">创建cookie</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">创建cookie</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cookie</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">响应客户端</span>
@@ -1166,39 +839,11 @@
 </span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">有效路径</span><span class="err">：</span><span class="n">只在当前的有效路径下</span> <span class="n">生效</span>
 </span></span><span class="line"><span class="cl">    <span class="n">默认当前创建cookie的Servlet访问路径的上一层</span>
 </span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setPath</span><span class="o">(</span><span class="n">路径</span><span class="o">);</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="3-场景-1">3. 场景</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">用户登录成功保存用户信息</span>
+</span></span></code></pre></div><h3 id="3-场景-1">3. 场景</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">用户登录成功保存用户信息</span>
 </span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">购物车</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="4-特点-1">4. 特点</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">session将数据保存到服务器</span> <span class="n">相对安全</span>
+</span></span></code></pre></div><h3 id="4-特点-1">4. 特点</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">session将数据保存到服务器</span> <span class="n">相对安全</span>
 </span></span><span class="line"><span class="cl"> 
 </span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">session可以保存任意数据</span> 
 </span></span><span class="line"><span class="cl">    
@@ -1212,28 +857,14 @@
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="n">隐藏特点</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="n">session数据的钝化</span><span class="err">（</span><span class="n">序列化到本地磁盘</span><span class="err">）</span><span class="n">和活化</span><span class="err">（</span><span class="n">从本地磁盘序列化到内存</span><span class="err">）</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="5-总结">5. 总结</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">保存数据量比较小</span>  <span class="n">安全性低</span>  <span class="n">数据易变</span> <span class="n">使用cookie维护会话</span>
+</span></span></code></pre></div><h3 id="5-总结">5. 总结</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">保存数据量比较小</span>  <span class="n">安全性低</span>  <span class="n">数据易变</span> <span class="n">使用cookie维护会话</span>
 </span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">保存的数据量较大</span>  <span class="n">安全性高</span>  <span class="n">数据不易变</span> <span class="n">使用session维护会话</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"> <span class="n">cookie数据保存到了客户端</span> <span class="n">减轻了服务器的压力</span><span class="err">，</span><span class="n">session默认需要借助cookie使用</span>
 </span></span><span class="line"><span class="cl"><span class="n">即使没有cookie</span> <span class="n">session也可以维护会话</span> <span class="n">比如</span><span class="err">：</span><span class="n">重写url地址</span>
 </span></span><span class="line"><span class="cl">   
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+</span></span></code></pre></div>
             </div>
             <hr>
             <div style="text-align: center;">

@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>Docker快速入门</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -463,8 +512,22 @@
             <i class="fa fa-paper-plane"></i>
             9 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,49 +547,6 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/tool/_20220527215246/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Docker快速入门</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-05-27&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-05-27&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    4074 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    9 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 id="三docker快速入门">三、Docker快速入门</h1>
 <h2 id="1docker简介">1.Docker简介</h2>
@@ -563,48 +583,48 @@
 <p>执行命令:	yum install -y docker-ce-18.06.0.ce-3.el7.x86_64.rpm</p>
 <p>注意：确保linux服务器处于联网状态。</p>
 <p>常见问题：</p>
-<pre tabindex="0"><code>当用yum安装时报错。。。
-Error: Package: glibc-headers-2.17-196.el7_4.2.x86_64 (ultra-centos-7.4-updates)
-           Requires: glibc = 2.17-196.el7_4.2
-           Installed: glibc-2.17-222.el7.x86_64 (installed)
-               glibc = 2.17-222.el7
-           Available: glibc-2.17-196.el7.x86_64 (ultra-centos-7.4-base)
-               glibc = 2.17-196.el7
-           Available: glibc-2.17-196.el7_4.2.x86_64 (ultra-centos-7.4-updates)
-               glibc = 2.17-196.el7_4.2
-Error: Package: gcc-4.8.5-16.el7_4.2.x86_64 (ultra-centos-7.4-updates)
-           Requires: libgomp = 4.8.5-16.el7_4.2
-           Installed: libgomp-4.8.5-28.el7_5.1.x86_64 (installed)
-               libgomp = 4.8.2-16.el7_5
-               libgomp = 4.8.5-28.el7_5.1
-           Available: libgomp-4.8.5-16.el7.x86_64 (ultra-centos-7.4-base)
-               libgomp = 4.8.5-16.el7
-               libgomp = 4.8.2-16.el7
-           Available: libgomp-4.8.5-16.el7_4.1.x86_64 (ultra-centos-7.4-updates)
-               libgomp = 4.8.5-16.el7_4.1
-               libgomp = 4.8.2-16.el7_4
-           Available: libgomp-4.8.5-16.el7_4.2.x86_64 (ultra-centos-7.4-updates)
-               libgomp = 4.8.5-16.el7_4.2
-               libgomp = 4.8.2-16.el7_4
-Error: Package: glibc-devel-2.17-196.el7_4.2.x86_64 (ultra-centos-7.4-updates)
-           Requires: glibc = 2.17-196.el7_4.2
-           Installed: glibc-2.17-222.el7.x86_64 (installed)
-               glibc = 2.17-222.el7
-           Available: glibc-2.17-196.el7.x86_64 (ultra-centos-7.4-base)
-               glibc = 2.17-196.el7
-           Available: glibc-2.17-196.el7_4.2.x86_64 (ultra-centos-7.4-updates)
-               glibc = 2.17-196.el7_4.2
- You could try using --skip-broken to work around the problem
- You could try running: rpm -Va --nofiles --nodigest
- 
-
-解决办法：
-
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-
-sed -i  &#39;s/$releasever/7/g&#39; /etc/yum.repos.d/CentOS-Base.repo
-、yum repolist 
-</code></pre><h4 id="223-启动与停止docker">2.2.3 启动与停止Docker</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">当用yum安装时报错。。。
+</span></span><span class="line"><span class="cl">Error: Package: glibc-headers-2.17-196.el7_4.2.x86_64 (ultra-centos-7.4-updates)
+</span></span><span class="line"><span class="cl">           Requires: glibc = 2.17-196.el7_4.2
+</span></span><span class="line"><span class="cl">           Installed: glibc-2.17-222.el7.x86_64 (installed)
+</span></span><span class="line"><span class="cl">               glibc = 2.17-222.el7
+</span></span><span class="line"><span class="cl">           Available: glibc-2.17-196.el7.x86_64 (ultra-centos-7.4-base)
+</span></span><span class="line"><span class="cl">               glibc = 2.17-196.el7
+</span></span><span class="line"><span class="cl">           Available: glibc-2.17-196.el7_4.2.x86_64 (ultra-centos-7.4-updates)
+</span></span><span class="line"><span class="cl">               glibc = 2.17-196.el7_4.2
+</span></span><span class="line"><span class="cl">Error: Package: gcc-4.8.5-16.el7_4.2.x86_64 (ultra-centos-7.4-updates)
+</span></span><span class="line"><span class="cl">           Requires: libgomp = 4.8.5-16.el7_4.2
+</span></span><span class="line"><span class="cl">           Installed: libgomp-4.8.5-28.el7_5.1.x86_64 (installed)
+</span></span><span class="line"><span class="cl">               libgomp = 4.8.2-16.el7_5
+</span></span><span class="line"><span class="cl">               libgomp = 4.8.5-28.el7_5.1
+</span></span><span class="line"><span class="cl">           Available: libgomp-4.8.5-16.el7.x86_64 (ultra-centos-7.4-base)
+</span></span><span class="line"><span class="cl">               libgomp = 4.8.5-16.el7
+</span></span><span class="line"><span class="cl">               libgomp = 4.8.2-16.el7
+</span></span><span class="line"><span class="cl">           Available: libgomp-4.8.5-16.el7_4.1.x86_64 (ultra-centos-7.4-updates)
+</span></span><span class="line"><span class="cl">               libgomp = 4.8.5-16.el7_4.1
+</span></span><span class="line"><span class="cl">               libgomp = 4.8.2-16.el7_4
+</span></span><span class="line"><span class="cl">           Available: libgomp-4.8.5-16.el7_4.2.x86_64 (ultra-centos-7.4-updates)
+</span></span><span class="line"><span class="cl">               libgomp = 4.8.5-16.el7_4.2
+</span></span><span class="line"><span class="cl">               libgomp = 4.8.2-16.el7_4
+</span></span><span class="line"><span class="cl">Error: Package: glibc-devel-2.17-196.el7_4.2.x86_64 (ultra-centos-7.4-updates)
+</span></span><span class="line"><span class="cl">           Requires: glibc = 2.17-196.el7_4.2
+</span></span><span class="line"><span class="cl">           Installed: glibc-2.17-222.el7.x86_64 (installed)
+</span></span><span class="line"><span class="cl">               glibc = 2.17-222.el7
+</span></span><span class="line"><span class="cl">           Available: glibc-2.17-196.el7.x86_64 (ultra-centos-7.4-base)
+</span></span><span class="line"><span class="cl">               glibc = 2.17-196.el7
+</span></span><span class="line"><span class="cl">           Available: glibc-2.17-196.el7_4.2.x86_64 (ultra-centos-7.4-updates)
+</span></span><span class="line"><span class="cl">               glibc = 2.17-196.el7_4.2
+</span></span><span class="line"><span class="cl"> You could try using --skip-broken to work around the problem
+</span></span><span class="line"><span class="cl"> You could try running: rpm -Va --nofiles --nodigest
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">解决办法：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sed -i  &#39;s/$releasever/7/g&#39; /etc/yum.repos.d/CentOS-Base.repo
+</span></span><span class="line"><span class="cl">、yum repolist 
+</span></span></code></pre></div><h4 id="223-启动与停止docker">2.2.3 启动与停止Docker</h4>
 <p>启动docker：systemctl start docker</p>
 <p>停止docker：systemctl stop docker</p>
 <p>重启docker：systemctl restart docker</p>
@@ -630,9 +650,9 @@ sed -i  &#39;s/$releasever/7/g&#39; /etc/yum.repos.d/CentOS-Base.repo
 <p>查看docker容器信息</p>
 <p>docker info</p>
 <p>查看最后倒数第二行出现如下内容说明配置成功</p>
-<pre tabindex="0"><code>Registry Mirrors:
- https://j4pan1gm.mirror.aliyuncs.com/
-</code></pre><h2 id="4docker镜像操作的常用指令">4.docker镜像操作的常用指令</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Registry Mirrors:
+</span></span><span class="line"><span class="cl"> https://j4pan1gm.mirror.aliyuncs.com/
+</span></span></code></pre></div><h2 id="4docker镜像操作的常用指令">4.docker镜像操作的常用指令</h2>
 <h3 id="41-搜索指令">4.1 搜索指令</h3>
 <h4 id="411通过镜像仓库搜索">4.1.1通过镜像仓库搜索</h4>
 <p>Docker镜像仓库网址：https://hub.docker.com/search?q=&amp;type=image</p>
@@ -726,80 +746,80 @@ sed -i  &#39;s/$releasever/7/g&#39; /etc/yum.repos.d/CentOS-Base.repo
 <h2 id="6java开发者docker常用镜像容器创建">6.Java开发者Docker常用镜像容器创建</h2>
 <h3 id="61-jdk部署">6.1 JDK部署</h3>
 <h4 id="611-拉取jdk镜像">6.1.1 拉取JDK镜像</h4>
-<pre tabindex="0"><code>执行命令： docker pull java:8
-</code></pre><h4 id="612-创建jdk容器">6.1.2 创建JDK容器</h4>
-<pre tabindex="0"><code>执行命令：docker run -di --name  jdk1  java:8
-</code></pre><p>说明：jdk安装的是openjdk，具体安装路径是：/usr/lib/jvm/java-1.8.0-openjdk-amd64</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">执行命令： docker pull java:8
+</span></span></code></pre></div><h4 id="612-创建jdk容器">6.1.2 创建JDK容器</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">执行命令：docker run -di --name  jdk1  java:8
+</span></span></code></pre></div><p>说明：jdk安装的是openjdk，具体安装路径是：/usr/lib/jvm/java-1.8.0-openjdk-amd64</p>
 <h4 id="613-进入容器验证java环境">6.1.3 进入容器验证Java环境</h4>
 <p>docker exec -it jdk1 /bin/bash</p>
 <p>java -version</p>
 <h3 id="62-mysql部署">6.2 MySQL部署</h3>
 <h4 id="621拉取mysql镜像">6.2.1拉取MySQL镜像</h4>
-<pre tabindex="0"><code>执行命令：docker pull mysql:5.7
-</code></pre><h4 id="622-创建mysql容器">6.2.2 创建MySQL容器</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">执行命令：docker pull mysql:5.7
+</span></span></code></pre></div><h4 id="622-创建mysql容器">6.2.2 创建MySQL容器</h4>
 <p>第一种创建容器MySQL容器的方式</p>
-<pre tabindex="0"><code>docker run -d --name=offcn_mysql -p 33306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=scwdb  mysql:5.7 
-</code></pre><p>-p 代表端口映射，格式为  宿主机映射端口:容器运行端口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d --name=offcn_mysql -p 33306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=scwdb  mysql:5.7 
+</span></span></code></pre></div><p>-p 代表端口映射，格式为  宿主机映射端口:容器运行端口</p>
 <p>-e MYSQL_ROOT_PASSWORD=123456  //表示设置root的密码为123456</p>
 <p>-e MYSQL_DATABASE=scwdb  //创建mysql数据库容器的同时初始化创建一个数据库 scwdb</p>
-<pre tabindex="0"><code>//开启mysql容器
-docker exec -it offcn_mysql /bin/bash
-//登录mysql
-mysql -u root -p
-//赋外网访问权限
-ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;
-//刷新权限
-flush privileges;
-</code></pre><p>如上创建需要解决中文乱码问题乱码（默认是latin1）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//开启mysql容器
+</span></span><span class="line"><span class="cl">docker exec -it offcn_mysql /bin/bash
+</span></span><span class="line"><span class="cl">//登录mysql
+</span></span><span class="line"><span class="cl">mysql -u root -p
+</span></span><span class="line"><span class="cl">//赋外网访问权限
+</span></span><span class="line"><span class="cl">ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;
+</span></span><span class="line"><span class="cl">//刷新权限
+</span></span><span class="line"><span class="cl">flush privileges;
+</span></span></code></pre></div><p>如上创建需要解决中文乱码问题乱码（默认是latin1）</p>
 <p>show variables like &lsquo;character_set_%&rsquo;;</p>
 <p>乱码解决方案:</p>
-<pre tabindex="0"><code>a. 进入offcn_mysql容器  修改配置文件/etc/mysql/mysql.conf.d/mysqld.cnf
-
-注意 因为offcn_mysql容器中不能使用vi命令，所以我们将文件拷贝到宿主机后修改后在拷贝回去
-
-b. docker cp offcn_mysql:/etc/mysql/mysql.conf.d/mysqld.cnf /root/
-
-    vi  mysqld.cnf
-
-   找到[mysqld]   在其下添加编码处理
-
-   character-set-server=utf8
-   collation-server=utf8_general_ci
-   
-   保存
-
-c.  docker cp /root/mysqld.cnf  offcn_mysql:/etc/mysql/mysql.conf.d/mysqld.cnf
-
-d.  重启容器  docker restart offcn_mysql
-</code></pre><p>第二种创建容器MySQL容器的方式</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a. 进入offcn_mysql容器  修改配置文件/etc/mysql/mysql.conf.d/mysqld.cnf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">注意 因为offcn_mysql容器中不能使用vi命令，所以我们将文件拷贝到宿主机后修改后在拷贝回去
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">b. docker cp offcn_mysql:/etc/mysql/mysql.conf.d/mysqld.cnf /root/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    vi  mysqld.cnf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   找到[mysqld]   在其下添加编码处理
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   character-set-server=utf8
+</span></span><span class="line"><span class="cl">   collation-server=utf8_general_ci
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   保存
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">c.  docker cp /root/mysqld.cnf  offcn_mysql:/etc/mysql/mysql.conf.d/mysqld.cnf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">d.  重启容器  docker restart offcn_mysql
+</span></span></code></pre></div><p>第二种创建容器MySQL容器的方式</p>
 <p>创新容器同时创建表的时候，解决中文问题（使用挂载的方式，将刚刚解决乱码的mysqld.cnf 挂载下容器中相应的位置）</p>
-<pre tabindex="0"><code>docker run -d --name=offcn_mysql -p 33306:3306  -v /root/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf  -e MYSQL_ROOT_PASSWORD=123456 -eMYSQL_DATABASE=dongyimaidb  mysql:5.7
-</code></pre><p>第三种创建容器MySQL容器的方式</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d --name=offcn_mysql -p 33306:3306  -v /root/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf  -e MYSQL_ROOT_PASSWORD=123456 -eMYSQL_DATABASE=dongyimaidb  mysql:5.7
+</span></span></code></pre></div><p>第三种创建容器MySQL容器的方式</p>
 <p>在创建mysql容器时候，执行初始化数据库脚本  (将scwdb 数据库导出， 其中不要勾选 添加创建数据库语句 ，然后上传到 宿主机root目录)</p>
-<pre tabindex="0"><code>docker run -d --name=offcn_mysql -p 33306:3306  -v /root/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf  -v /root/scwdb.sql:/docker-entrypoint-initdb.d/mysql.sql -e MYSQL_ROOT_PASSWORD=123456 -eMYSQL_DATABASE=dongyimaidb  mysql:5.7 
-</code></pre><pre tabindex="0"><code>//开启mysql容器
-
-docker exec -it offcn_mysql /bin/bash
-
-//登录mysql
-
-mysql -u root -p
-
-//赋外网访问权限
-
-ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;
-
-//刷新权限
-
-flush privileges;
-</code></pre><h4 id="623-连接mysql容器数据库">6.2.3 连接MySQL容器数据库</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d --name=offcn_mysql -p 33306:3306  -v /root/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf  -v /root/scwdb.sql:/docker-entrypoint-initdb.d/mysql.sql -e MYSQL_ROOT_PASSWORD=123456 -eMYSQL_DATABASE=dongyimaidb  mysql:5.7 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//开启mysql容器
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker exec -it offcn_mysql /bin/bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//登录mysql
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql -u root -p
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//赋外网访问权限
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//刷新权限
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">flush privileges;
+</span></span></code></pre></div><h4 id="623-连接mysql容器数据库">6.2.3 连接MySQL容器数据库</h4>
 <p>远程连接mysql数据库只需要使用宿主机ip和端口33306就可以</p>
 <h3 id="63-redis-部署">6.3 Redis 部署</h3>
 <h4 id="631-拉取redis镜像">6.3.1 拉取Redis镜像</h4>
-<pre tabindex="0"><code>执行命令：docker pull redis:4.0.8
-</code></pre><h4 id="632-创建redis容器">6.3.2 创建Redis容器</h4>
-<pre tabindex="0"><code>执行命令： docker run -di --name redis -p 16379:6379  redis:4.0.8
-</code></pre><h2 id="7dockerfile入门了解">7.Dockerfile入门（了解）</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">执行命令：docker pull redis:4.0.8
+</span></span></code></pre></div><h4 id="632-创建redis容器">6.3.2 创建Redis容器</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">执行命令： docker run -di --name redis -p 16379:6379  redis:4.0.8
+</span></span></code></pre></div><h2 id="7dockerfile入门了解">7.Dockerfile入门（了解）</h2>
 <p>Dockerfile是由一系列命令和参数构成的脚本，这些命令应用于基础镜像（centos或者ubuntu，即操作系统级别的镜像）并最终创建一个新的镜像。</p>
 <ul>
 <li>对于开发人员：可以为开发团队提供一个完全一致的开发环境；</li>
@@ -811,20 +831,20 @@ flush privileges;
 <p>(1) 创建一个目录： mkdir  /usr/local/dockerjdk</p>
 <p>(2) 上传 jdk-8u131-linux-x64.tar.gz到  /usr/local/dockerjdk/</p>
 <p>(3) 创建一个 Dockerfile 文件  并编辑  vi Dockerfile  内容如下</p>
-<pre tabindex="0"><code>FROM centos:centos7
-
-MAINTAINER ujiuye
-
-RUN mkdir /usr/local/java
-
-ADD jdk-8u131-linux-x64.tar.gz  /usr/local/java/
-
-ENV JAVA_HOME /usr/local/java/jdk1.8.0_131
-
-ENV CLASSPATH $JAVA_HOME/lib
-
-ENV PATH $JAVA_HOME/bin:$PATH
-</code></pre><p>保存文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM centos:centos7
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">MAINTAINER ujiuye
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">RUN mkdir /usr/local/java
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ADD jdk-8u131-linux-x64.tar.gz  /usr/local/java/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ENV JAVA_HOME /usr/local/java/jdk1.8.0_131
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ENV CLASSPATH $JAVA_HOME/lib
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ENV PATH $JAVA_HOME/bin:$PATH
+</span></span></code></pre></div><p>保存文件</p>
 <p>(4) 创建镜像  为jdk1.8</p>
 <p>docker build -t=&lsquo;jdk1.8&rsquo; /usr/local/dockerjdk/</p>
 <p>(5) 查看已经创建的镜像</p>
@@ -840,18 +860,18 @@ ENV PATH $JAVA_HOME/bin:$PATH
 <p>(1) 创建目录   mkdir  /usr/local/dockertomcat</p>
 <p>(2) 上传jdk tomcat 到文件中</p>
 <p>(3) 创建Dockerfile  vi Dockerfile  内容如下</p>
-<pre tabindex="0"><code>FROM centos:centos7
-MAINTAINER ujiuye
-RUN  mkdir /usr/local/app
-ADD jdk-8u131-linux-x64.tar.gz /usr/local/app/
-ADD apache-tomcat-8.5.15.tar.gz /usr/local/app/
-ENV JAVA_HOME /usr/local/app/jdk1.8.0_131
-ENV CATALINA_HOME /usr/local/app/apache-tomcat-8.5.15
-ENV CLASSPATH $JAVA_HOME/lib
-ENV PATH $JAVA_HOME/bin:$CATALINA_HOME/bin:$PATH
-EXPOSE 8080
-CMD [&#34;/usr/local/app/apache-tomcat-8.5.15/bin/catalina.sh&#34;,&#34;run&#34;]
-</code></pre><p>(4)创建镜像   docker build -t=&lsquo;tomcat8.5:10&rsquo; .</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM centos:centos7
+</span></span><span class="line"><span class="cl">MAINTAINER ujiuye
+</span></span><span class="line"><span class="cl">RUN  mkdir /usr/local/app
+</span></span><span class="line"><span class="cl">ADD jdk-8u131-linux-x64.tar.gz /usr/local/app/
+</span></span><span class="line"><span class="cl">ADD apache-tomcat-8.5.15.tar.gz /usr/local/app/
+</span></span><span class="line"><span class="cl">ENV JAVA_HOME /usr/local/app/jdk1.8.0_131
+</span></span><span class="line"><span class="cl">ENV CATALINA_HOME /usr/local/app/apache-tomcat-8.5.15
+</span></span><span class="line"><span class="cl">ENV CLASSPATH $JAVA_HOME/lib
+</span></span><span class="line"><span class="cl">ENV PATH $JAVA_HOME/bin:$CATALINA_HOME/bin:$PATH
+</span></span><span class="line"><span class="cl">EXPOSE 8080
+</span></span><span class="line"><span class="cl">CMD [&#34;/usr/local/app/apache-tomcat-8.5.15/bin/catalina.sh&#34;,&#34;run&#34;]
+</span></span></code></pre></div><p>(4)创建镜像   docker build -t=&lsquo;tomcat8.5:10&rsquo; .</p>
 <p>(5)查看镜像  docker images</p>
 <p>(6)创建容器  docker run -di &ndash;name=tomcat999 -p 5555:8080 tomcat8.5:10</p>
 <p>(7)查看容器 docker ps</p>

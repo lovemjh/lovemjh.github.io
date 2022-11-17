@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>Thymeleaf实现搜索页面渲染及商品静态页</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            17195 字
+            15928 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
-            35 分钟
+            32 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,49 +547,6 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/project-0/20220527231757/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Thymeleaf实现搜索页面渲染及商品静态页</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-05-27&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-05-27&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    17195 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    35 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 align = "center">第八章</h1>
 <h1 align = "center">Thymeleaf实现搜索页面渲染及商品静态页</h1>
@@ -570,41 +590,7 @@
 <p>(1)创建工程</p>
 <p>创建一个独立的工程springboot-thymeleaf,该工程为案例工程，不需要放到dongyimai-parent工程中。</p>
 <p><strong>pom.xml依赖</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
@@ -634,26 +620,9 @@
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)创建html</p>
+</span></span></code></pre></div><p>(2)创建html</p>
 <p>在resources中创建templates目录，在templates目录创建 demo1.html,代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&#34;http://www.thymeleaf.org&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Thymeleaf的入门<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
@@ -664,26 +633,15 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${hello}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>解释：</p>
+</span></span></code></pre></div><p>解释：</p>
 <p><code>&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;</code>:这句声明使用thymeleaf标签</p>
 <p><code>&lt;p th:text=&quot;${hello}&quot;&gt;&lt;/p&gt;</code>:这句使用 th:text=&quot;${变量名}&quot; 表示 使用thymeleaf获取文本数据，类似于EL表达式。</p>
 <p>(3)修改application.yml配置</p>
 <p>创建application.yml,并设置thymeleaf的缓存设置，设置为false。默认加缓存的，用于测试。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spring</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">thymeleaf</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>在这里，其实还有一些默认配置，比如视图前缀：classpath:/templates/,视图后缀：.html</p>
+</span></span></span></code></pre></div><p>在这里，其实还有一些默认配置，比如视图前缀：classpath:/templates/,视图后缀：.html</p>
 <p><code>org.springframework.boot.autoconfigure.thymeleaf.ThymeleafProperties</code>部分源码如下：
 <img src="/posts/project-0/20220527231757/image-20220527231931353.png"
     
@@ -696,26 +654,7 @@
 <p>(4)控制层</p>
 <p>创建controller用于测试后台 设置数据到model中。</p>
 <p>创建com.offcn.controller.TestController，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/test&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestController</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -730,33 +669,18 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;demo1&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(5)测试</p>
+</span></span></code></pre></div><p>(5)测试</p>
 <p>创建启动类<code>com.offcn.ThymeleafApplication</code>，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThymeleafApplication</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ThymeleafApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span><span class="n">args</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动系统，并在浏览器访问</p>
-<pre tabindex="0"><code>http://localhost:8080/test/hello
-</code></pre><p><img src="/posts/project-0/20220527231757/image-20220527231940177.png"
+</span></span></code></pre></div><p>启动系统，并在浏览器访问</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://localhost:8080/test/hello
+</span></span></code></pre></div><p><img src="/posts/project-0/20220527231757/image-20220527231940177.png"
     
     
     
@@ -768,63 +692,21 @@
 <h3 id="1thaction">(1)th:action</h3>
 <p>定义后台控制器路径，类似<code>&lt;form&gt;</code>标签的action属性。</p>
 <p>例如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;login-form&#34;</span> <span class="na">th:action</span><span class="o">=</span><span class="s">&#34;@{/test/hello}&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;login-form&#34;</span> <span class="na">th:action</span><span class="o">=</span><span class="s">&#34;@{/test/hello}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>提交<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>表示提交的请求地址为<code>/test/hello</code></p>
+</span></span></code></pre></div><p>表示提交的请求地址为<code>/test/hello</code></p>
 <h3 id="2theach">(2)th:each</h3>
 <p>对象遍历，功能类似jstl中的<code>&lt;c:forEach&gt;</code>标签。</p>
 <p>创建com.offcn.model.User,代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">address</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//无参和全参构造器以及..get..set
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Controller添加数据</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
+</span></span></code></pre></div><p>Controller添加数据</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 访问/test/hello  跳转到demo1页面
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param model
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
@@ -841,30 +723,8 @@
 </span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&#34;users&#34;</span><span class="o">,</span><span class="n">users</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s">&#34;demo1&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>页面输出</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>页面输出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>下标<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>编号<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
@@ -880,9 +740,7 @@
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${user.address}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试效果
+</span></span></code></pre></div><p>测试效果
 <img src="/posts/project-0/20220527231757/image-20220527231951362.png"
     
     
@@ -893,42 +751,19 @@
 ></p>
 <h3 id="3map输出">(3)Map输出</h3>
 <p>后台添加Map</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//Map定义
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//Map定义
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">dataMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Object</span><span class="o">&gt;();</span>
 </span></span><span class="line"><span class="cl"><span class="n">dataMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;No&#34;</span><span class="o">,</span><span class="s">&#34;123&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">dataMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;address&#34;</span><span class="o">,</span><span class="s">&#34;深圳&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&#34;dataMap&#34;</span><span class="o">,</span><span class="n">dataMap</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>页面输出</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&#34;map,mapStat:${dataMap}&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>页面输出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&#34;map,mapStat:${dataMap}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${map}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    key:<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${mapStat.current.key}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl">    value:<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${mapStat.current.value}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl">    ==============================================
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试效果
+</span></span></code></pre></div><p>测试效果
 <img src="/posts/project-0/20220527231757/image-20220527231959198.png"
     
     
@@ -939,34 +774,15 @@
 ></p>
 <h3 id="4数组输出">(4)数组输出</h3>
 <p>后台添加数组</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//存储一个数组
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//存储一个数组
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">String</span><span class="o">[]</span> <span class="n">names</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;张三&#34;</span><span class="o">,</span><span class="s">&#34;李四&#34;</span><span class="o">,</span><span class="s">&#34;王五&#34;</span><span class="o">};</span>
 </span></span><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&#34;names&#34;</span><span class="o">,</span><span class="n">names</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>页面输出</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&#34;nm,nmStat:${names}&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>页面输出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&#34;nm,nmStat:${names}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${nmStat.count}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${nm}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    ==============================================
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试效果
+</span></span></code></pre></div><p>测试效果
 <img src="/posts/project-0/20220527231757/image-20220527232005560.png"
     
     
@@ -977,22 +793,14 @@
 ></p>
 <h3 id="5date输出">(5)Date输出</h3>
 <p>后台添加日期</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//日期
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//日期
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&#34;now&#34;</span><span class="o">,</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>页面输出</p>
-<pre tabindex="0"><code class="language-php+HTML" data-lang="php+HTML">&lt;div&gt;
-    &lt;h1&gt;Date输出 th:text&lt;/h1&gt;
-    &lt;span th:text=&#34;${#dates.format(now,&#39;yyyy-MM-dd hh:ss:mm&#39;)}&#34;&gt;&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><p>测试效果
+</span></span></code></pre></div><p>页面输出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;div&gt;
+</span></span><span class="line"><span class="cl">    &lt;h1&gt;Date输出 th:text&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">    &lt;span th:text=&#34;${#dates.format(now,&#39;yyyy-MM-dd hh:ss:mm&#39;)}&#34;&gt;&lt;/span&gt;
+</span></span><span class="line"><span class="cl">&lt;/div&gt;
+</span></span></code></pre></div><p>测试效果
 <img src="/posts/project-0/20220527231757/image-20220527232012182.png"
     
     
@@ -1003,32 +811,14 @@
 ></p>
 <h3 id="6thif条件">(6)th:if条件</h3>
 <p>后台添加年龄</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//if条件
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//if条件
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">,</span><span class="n">22</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>页面输出</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>页面输出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">     <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>条件判断 th:if<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&#34;${(age&gt;=18)}&#34;</span><span class="p">&gt;</span>终于长大了！<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试效果
+</span></span></code></pre></div><p>测试效果
 <img src="/posts/project-0/20220527231757/image-20220527232019197.png"
     
     
@@ -1055,21 +845,7 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;abc()&#34;</span><span class="p">&gt;</span>aaaaaaa<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;abc()&#34;</span><span class="p">&gt;</span>aaaaaaa<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">hhh</span><span class="o">=</span><span class="p">[[</span><span class="nx">$</span><span class="p">{</span><span class="nx">hello</span><span class="p">}]];</span>
@@ -1079,9 +855,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行结果：（注意script放置在body外面）</p>
+</span></span></code></pre></div><p>运行结果：（注意script放置在body外面）</p>
 <p><img src="/posts/project-0/20220527231757/image-20220527232036664.png"
     
     
@@ -1162,30 +936,7 @@
     
 ></p>
 <p>并在dongyimai-web的pom.xml中引入如下依赖：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span class="nt">&lt;/artifactId&gt;</span>
@@ -1204,9 +955,7 @@
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-openfeign<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependency&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)静态资源导入</p>
+</span></span></code></pre></div><p>(2)静态资源导入</p>
 <p>将资源中的<code>页面/前端页面/search.html</code>拷贝到工程的<code>resources/templates</code>目录下，js、css等拷贝到<code>static</code>目录下，如下图：
 <img src="/posts/project-0/20220527231757/image-20220527232127204.png"
     
@@ -1227,23 +976,7 @@
     
 ></p>
 <p>实现调用搜索，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;search&#34;</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;search&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/search&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">SearchSkuFeign</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -1255,9 +988,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Map</span> <span class="nf">search</span><span class="o">(</span><span class="nd">@RequestBody</span><span class="o">(</span><span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span> <span class="n">Map</span> <span class="n">searchMap</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>由于以后做搜索都是基于GET请求，所以我们需要将之前的搜索改成GET请求操作，修改<code>dongyimai-search-service</code>微服务的<code>com.offcn.search.controller.SkuController</code>里面的<code>search</code>方法，代码如下：</p>
+</span></span></code></pre></div><p>由于以后做搜索都是基于GET请求，所以我们需要将之前的搜索改成GET请求操作，修改<code>dongyimai-search-service</code>微服务的<code>com.offcn.search.controller.SkuController</code>里面的<code>search</code>方法，代码如下：</p>
 <p><img src="/posts/project-0/20220527231757/image-20220527232359336.png"
     
     
@@ -1267,22 +998,7 @@
     
 ></p>
 <p>(4)dongyimai-search-web的pom.xml依赖dongyimai-search-service-api</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>com.offcn<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>dongyimai-search-service-api<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
@@ -1293,35 +1009,9 @@
 </span></span><span class="line"><span class="cl">                    <span class="nt">&lt;/exclusion&gt;</span>
 </span></span><span class="line"><span class="cl">           <span class="nt">&lt;/exclusions&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(5)搜索调用</p>
+</span></span></code></pre></div><p>(5)搜索调用</p>
 <p>在dongyimai-search-web中创建com.offcn.search.controller.SkuController,实现调用搜索，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Controller</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/search&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SkuController</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -1341,24 +1031,9 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;search&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(6)启动类创建</p>
+</span></span></code></pre></div><p>(6)启动类创建</p>
 <p>修改dongyimai-search-web,添加启动类com.offcn.search.SearchWebApplication，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="o">(</span><span class="n">exclude</span><span class="o">={</span><span class="n">DataSourceAutoConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="o">(</span><span class="n">exclude</span><span class="o">={</span><span class="n">DataSourceAutoConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableDiscoveryClient</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableFeignClients</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SearchWebApplication</span> <span class="o">{</span>
@@ -1367,28 +1042,26 @@
 </span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">SearchWebApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span><span class="n">args</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(7)application.yml配置文件</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">server:
-  port: 9101
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
-spring:
-  thymeleaf:
-    cache: false
-  application:
-    name: search-web
-  main:
-    allow-bean-definition-overriding: true  
-</code></pre><p>(8)项目完整结构
+</span></span></code></pre></div><p>(7)application.yml配置文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">server:
+</span></span><span class="line"><span class="cl">  port: 9101
+</span></span><span class="line"><span class="cl">eureka:
+</span></span><span class="line"><span class="cl">  client:
+</span></span><span class="line"><span class="cl">    service-url:
+</span></span><span class="line"><span class="cl">      defaultZone: http://127.0.0.1:8761/eureka
+</span></span><span class="line"><span class="cl">  instance:
+</span></span><span class="line"><span class="cl">    prefer-ip-address: true
+</span></span><span class="line"><span class="cl">feign:
+</span></span><span class="line"><span class="cl">  hystrix:
+</span></span><span class="line"><span class="cl">    enabled: true
+</span></span><span class="line"><span class="cl">spring:
+</span></span><span class="line"><span class="cl">  thymeleaf:
+</span></span><span class="line"><span class="cl">    cache: false
+</span></span><span class="line"><span class="cl">  application:
+</span></span><span class="line"><span class="cl">    name: search-web
+</span></span><span class="line"><span class="cl">  main:
+</span></span><span class="line"><span class="cl">    allow-bean-definition-overriding: true  
+</span></span></code></pre></div><p>(8)项目完整结构
 <img src="/posts/project-0/20220527231757/image-20220527232412682.png"
     
     
@@ -1398,30 +1071,13 @@ spring:
     
 ></p>
 <p>在search.html的头部引入thymeleaf标签</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;html</span> <span class="na">xmlns:th=</span><span class="s">&#34;http://www.thymeleaf.org&#34;</span><span class="nt">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将样式修改为：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;css/webbase.css&#34;</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{/css/webbase.css}&#34;</span><span class="p">/&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;html</span> <span class="na">xmlns:th=</span><span class="s">&#34;http://www.thymeleaf.org&#34;</span><span class="nt">&gt;</span>
+</span></span></code></pre></div><p>将样式修改为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;css/webbase.css&#34;</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{/css/webbase.css}&#34;</span><span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;css/pages-list.css&#34;</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{/css/pages-list.css}&#34;</span><span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;css/widget-cartPanelView.css&#34;</span>
 </span></span><span class="line"><span class="cl">			  <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{/css/widget-cartPanelView.css}&#34;</span><span class="p">/&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>测试：<code>http://localhost:9101/search</code>,效果如下：
+</span></span></code></pre></div><p>测试：<code>http://localhost:9101/search</code>,效果如下：
 <img src="/posts/project-0/20220527231757/image-20220527232419302.png"
     
     
@@ -1432,39 +1088,20 @@ spring:
 ></p>
 <h3 id="22-搜索数据填充">2.2 搜索数据填充</h3>
 <p>后端搜索到数据后，前端页面进行数据显示，显示的数据分为3部分</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1)搜索的数据结果
-2)筛选出的数据搜索条件
-3)用户已经勾选的数据条件
-</code></pre><h3 id="23-关键字搜索">2.3 关键字搜索</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1)搜索的数据结果
+</span></span><span class="line"><span class="cl">2)筛选出的数据搜索条件
+</span></span><span class="line"><span class="cl">3)用户已经勾选的数据条件
+</span></span></code></pre></div><h3 id="23-关键字搜索">2.3 关键字搜索</h3>
 <p>用户每次输入关键字的时候，直接根据关键字搜索，关键字搜索的数据会存储到<code>result.rows</code>中，页面每次根据result获取rows，然后循环输出即可,同时页面的搜索框每次需要回显搜索的关键词。</p>
 <p>实现思路</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">1.前端表单提交搜索的关键词
-2.后端根据关键词进行搜索
-3.将搜索条件存储到Model中
-4.页面循环迭代输出数据
-5.搜索表单回显搜索的关键词
-</code></pre><p>(1)后台搜索实现</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.前端表单提交搜索的关键词
+</span></span><span class="line"><span class="cl">2.后端根据关键词进行搜索
+</span></span><span class="line"><span class="cl">3.将搜索条件存储到Model中
+</span></span><span class="line"><span class="cl">4.页面循环迭代输出数据
+</span></span><span class="line"><span class="cl">5.搜索表单回显搜索的关键词
+</span></span></code></pre></div><p>(1)后台搜索实现</p>
 <p>修改SkuController的search方法，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 搜索
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param searchMap
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
@@ -1479,9 +1116,7 @@ spring:
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&#34;searchMap&#34;</span><span class="o">,</span><span class="n">searchMap</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s">&#34;search&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)页面搜索实现</p>
+</span></span></code></pre></div><p>(2)页面搜索实现</p>
 <p>修改search.html
 <img src="/posts/project-0/20220527231757/image-20220527232426786.png"
     
@@ -1491,20 +1126,7 @@ spring:
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;/search/list&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sui-form form-inline&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;/search/list&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sui-form form-inline&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="c">&lt;!--searchAutoComplete--&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;input-append&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;autocomplete&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;keywords&#34;</span>
@@ -1513,9 +1135,7 @@ spring:
 </span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sui-btn btn-xlarge btn-danger&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span><span class="p">&gt;</span>搜索<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意：搜索按钮为submit提交。</p>
+</span></span></code></pre></div><p>注意：搜索按钮为submit提交。</p>
 <p>(3)页面结果输出</p>
 <p>修改search.html，代码如下：
 <img src="/posts/project-0/20220527231757/image-20220527232434952.png"
@@ -1526,41 +1146,7 @@ spring:
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;yui3-g&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;yui3-g&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;yui3-u-1-5&#34;</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&#34;sku,skuStat:${result.rows}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-wrap&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;p-img&#34;</span><span class="p">&gt;</span>
@@ -1590,9 +1176,7 @@ spring:
 </span></span><span class="line"><span class="cl">   <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(4)测试，在地址栏输入：http://localhost:9101/search/list/</p>
+</span></span></code></pre></div><p>(4)测试，在地址栏输入：http://localhost:9101/search/list/</p>
 <p>搜索<code>华为</code>关键字,效果如下：
 <img src="/posts/project-0/20220527231757/image-20220527232443319.png"
     
@@ -1632,105 +1216,7 @@ spring:
     
 ></p>
 <p>上图代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
-</span><span class="lnt">89
-</span><span class="lnt">90
-</span><span class="lnt">91
-</span><span class="lnt">92
-</span><span class="lnt">93
-</span><span class="lnt">94
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> 			<span class="c">&lt;!--selector--&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> 			<span class="c">&lt;!--selector--&gt;</span>
 </span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;clearfix selector&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;type-wrap&#34;</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&#34;${#maps.containsKey(result,&#39;categoryList&#39;)&amp;&amp;!#maps.containsKey(searchMap,&#39;category&#39;)}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl key&#34;</span><span class="p">&gt;</span>商品分类<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1824,12 +1310,10 @@ spring:
 </span></span><span class="line"><span class="cl">				<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">			<span class="c">&lt;!--details--&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>解释：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">th:unless:条件不满足时，才显示
-${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
-</code></pre><p>测试：访问：http://localhost:9101/search/list 输入 关键字 黑色</p>
+</span></span></code></pre></div><p>解释：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">th:unless:条件不满足时，才显示
+</span></span><span class="line"><span class="cl">${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
+</span></span></code></pre></div><p>测试：访问：http://localhost:9101/search/list 输入 关键字 黑色</p>
 <p><img src="/posts/project-0/20220527231757/image-20220527232513672.png"
     
     
@@ -1850,31 +1334,7 @@ ${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
 <p>用户每次点击搜索的时候，其实在上次搜索的基础之上加上了新的搜索条件，也就是在上一次请求的URL后面追加了新的搜索条件，我们可以在后台每次拼接组装出上次搜索的URL，然后每次将URL存入到Model中，页面每次点击不同条件的时候，从Model中取出上次请求的URL，然后再加上新点击的条件参数实现跳转即可。</p>
 <p>(1)后台记录搜索URL</p>
 <p>修改SkuController，添加组装URL的方法，并将组装好的URL存储起来,代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 搜索
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param searchMap
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
@@ -1894,34 +1354,7 @@ ${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
 </span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&#34;url&#34;</span><span class="o">,</span><span class="n">url</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;search&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="kd">private</span> <span class="n">String</span> <span class="nf">setUrl</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">searchMap</span><span class="o">)</span> <span class="o">{</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="kd">private</span> <span class="n">String</span> <span class="nf">setUrl</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">searchMap</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">&#34;/search/list&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">searchMap</span><span class="o">!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">searchMap</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="n">0</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">url</span><span class="o">+=</span><span class="s">&#34;?&#34;</span><span class="o">;</span>
@@ -1942,9 +1375,7 @@ ${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">url</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)页面搜索对接
+</span></span></code></pre></div><p>(2)页面搜索对接
 <img src="/posts/project-0/20220527231757/image-20220527232530986.png"
     
     
@@ -1962,79 +1393,7 @@ ${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
     
 ></p>
 <p>完整代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--selector--&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--selector--&gt;</span>
 </span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;clearfix selector&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;type-wrap&#34;</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&#34;${#maps.containsKey(result,&#39;categoryList&#39;)}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl key&#34;</span><span class="p">&gt;</span>商品分类<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -2102,9 +1461,7 @@ ${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
 </span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl ext&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">					<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">				<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>th:href 这里是超链接的语法，例如：<code>th:href=&quot;@{${url}(price='500-1000')}&quot;</code>表示请求地址是取<code>url</code>参数的值，同时向后台传递参数price的值为500-100。</p>
+</span></span></code></pre></div><p>th:href 这里是超链接的语法，例如：<code>th:href=&quot;@{${url}(price='500-1000')}&quot;</code>表示请求地址是取<code>url</code>参数的值，同时向后台传递参数price的值为500-100。</p>
 <p>如下是查询的时候，后台使用打印输出语句输出的结果
 <img src="/posts/project-0/20220527231757/image-20220527232548932.png"
     
@@ -2126,36 +1483,7 @@ ${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
 <p>如上图，用户点击条件搜索后，要将选中的条件显示出来，并提供移除条件的<code>x</code>按钮,显示条件我们可以从searchMap中获取，移除其实就是将之前的请求地址中的指定条件删除即可。</p>
 <p>(1)条件显示</p>
 <p>修改search.html，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--bread--&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--bread--&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;bread&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl sui-breadcrumb&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -2180,47 +1508,12 @@ ${#maps.containsKey(result,&#39;brandList&#39;)}:map中包含某个key
 </span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;clearfix&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>解释：</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">${#strings.startsWith(spec.key,&#39;spec_&#39;)}:表示以spec_开始的key
-${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的spec_替换成空
-</code></pre><p>(2)移除搜索条件</p>
+</span></span></code></pre></div><p>解释：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">${#strings.startsWith(spec.key,&#39;spec_&#39;)}:表示以spec_开始的key
+</span></span><span class="line"><span class="cl">${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的spec_替换成空
+</span></span></code></pre></div><p>(2)移除搜索条件</p>
 <p>修改search.html，移除分类、品牌、价格、规格搜索条件，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--bread--&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--bread--&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;bread&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl sui-breadcrumb&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -2249,9 +1542,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;clearfix&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="27-选中搜索条件隐藏搜索面板项">2.7 选中搜索条件隐藏搜索面板项</h3>
+</span></span></code></pre></div><h3 id="27-选中搜索条件隐藏搜索面板项">2.7 选中搜索条件隐藏搜索面板项</h3>
 <p>当有选中的搜索条件的时候，对应的搜索面板项就隐藏掉，避免出现用户重复选择的情况
 <img src="/posts/project-0/20220527231757/image-20220527232604235.png"
     
@@ -2262,71 +1553,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
 ></p>
 <p>实现代码，在没个搜索项上增加控制条件，当存在搜索条件的时候，就隐藏搜索面板项</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;type-wrap&#34;</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&#34;${#maps.containsKey(result,&#39;categoryList&#39;)} and !${#maps.containsKey(searchMap,&#39;category&#39;)}&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;type-wrap&#34;</span> <span class="na">th:if</span><span class="o">=</span><span class="s">&#34;${#maps.containsKey(result,&#39;categoryList&#39;)} and !${#maps.containsKey(searchMap,&#39;category&#39;)}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl key&#34;</span><span class="p">&gt;</span>商品分类<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl value&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">						<span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&#34;category,categoryStat:${result.categoryList}&#34;</span><span class="p">&gt;</span>
@@ -2386,9 +1613,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">					<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl ext&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">					<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">				<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="heading"></h3>
+</span></span></code></pre></div><h3 id="heading"></h3>
 <h3 id="28-排序作业">2.8 排序(作业)</h3>
 <p><img src="/posts/project-0/20220527231757/image-20220527232617035.png"
     
@@ -2401,28 +1626,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 <p>上图代码是排序代码，需要2个属性，<code>sortRule</code>:排序规则，ASC或者DESC，<code>sortField</code>:排序的域，前端每次只需要将这2个域的值传入到后台即可实现排序。</p>
 <p>(1)后台组装排序URL</p>
 <p>每次排序的时候恢复第1页查询，所以url地址我们需要重新拼接,每次切换排序的时候，不需要之前的排序信息，修改SkuController,代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">String</span> <span class="nf">url</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">searchMap</span><span class="o">)</span> <span class="o">{</span><span class="c1">// { spec_网络:&#34;移动4G&#34;,&#34;keywords&#34;:&#34;华为&#34;}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">String</span> <span class="nf">url</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">searchMap</span><span class="o">)</span> <span class="o">{</span><span class="c1">// { spec_网络:&#34;移动4G&#34;,&#34;keywords&#34;:&#34;华为&#34;}
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">&#34;/search/list&#34;</span><span class="o">;</span> <span class="c1">// a/b?id=1&amp;
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">searchMap</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">url</span> <span class="o">+=</span> <span class="s">&#34;?&#34;</span><span class="o">;</span>
@@ -2439,29 +1643,15 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">url</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)前端排序实现</p>
+</span></span></code></pre></div><p>(2)前端排序实现</p>
 <p>修改search.html，实现排序，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">         <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{${url}(sortField=price,sortRule=ASC)}&#34;</span><span class="p">&gt;</span>价格↑<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&#34;@{${url}(sortField=price,sortRule=DESC)}&#34;</span><span class="p">&gt;</span>价格↓<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这一块我们实现了价格排序，同学们课后去实现以下销量和新品排序。</p>
+</span></span></code></pre></div><p>这一块我们实现了价格排序，同学们课后去实现以下销量和新品排序。</p>
 <h3 id="29-分页">2.9 分页</h3>
 <p>真实的分页应该像京东那样，如下图：
 <img src="/posts/project-0/20220527231757/image-20220527232625302.png"
@@ -2490,147 +1680,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 ></p>
 <p>(1)分页工具类定义</p>
 <p>在dongyimai-common工程中添加Page分页对象，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Page</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Page</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span> <span class="c1">// 每页查询出来的数据存放的集合
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">pageSize</span> <span class="o">=</span> <span class="n">10</span><span class="o">;</span> <span class="c1">// 每页显示的记录数
@@ -2766,70 +1816,23 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)分页实现</p>
+</span></span></code></pre></div><p>(2)分页实现</p>
 <p>由于这里需要获取分页信息，我们可以在<code>dongyimai-search-service</code>服务中修改搜索方法实现获取分页数据，修改<code>com.offcn.search.service.impl.SkuServiceImpl</code>的search方法，在return之前添加如下方法获取份额与数据：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//分页数据保存
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//分页数据保存
 </span></span></span><span class="line"><span class="cl"><span class="c1">//设置当前页码
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">resultMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;pageNum&#34;</span><span class="o">,</span> <span class="n">pageNum</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">resultMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;pageSize&#34;</span><span class="o">,</span> <span class="n">30</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>修改SkuController,实现分页信息封装，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//5.创建一个分页的对象  可以获取当前页 和总个记录数和显示的页码(以当前页为中心的5个页码)
+</span></span></code></pre></div><p>修改SkuController,实现分页信息封装，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//5.创建一个分页的对象  可以获取当前页 和总个记录数和显示的页码(以当前页为中心的5个页码)
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Page</span><span class="o">&lt;</span><span class="n">SkuInfo</span><span class="o">&gt;</span> <span class="n">infoPage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;</span><span class="n">SkuInfo</span><span class="o">&gt;(</span>
 </span></span><span class="line"><span class="cl">                <span class="n">Long</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">resultMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;total&#34;</span><span class="o">).</span><span class="na">toString</span><span class="o">()),</span>
 </span></span><span class="line"><span class="cl">                <span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">resultMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;pageNum&#34;</span><span class="o">).</span><span class="na">toString</span><span class="o">()),</span>
 </span></span><span class="line"><span class="cl">                <span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">resultMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;pageSize&#34;</span><span class="o">).</span><span class="na">toString</span><span class="o">())</span>
 </span></span><span class="line"><span class="cl">        <span class="o">);</span>
 </span></span><span class="line"><span class="cl">       <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&#34;page&#34;</span><span class="o">,</span><span class="n">infoPage</span><span class="o">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(3)页面分页实现</p>
+</span></span></code></pre></div><p>(3)页面分页实现</p>
 <p>修改search.html，实现分页查询，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fr page&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fr page&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sui-pagination pagination-large&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;prev&#34;</span><span class="p">&gt;</span>
@@ -2847,9 +1850,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">                    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;&lt;</span><span class="nt">span</span><span class="p">&gt;</span>共<span class="p">&lt;</span><span class="nt">i</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${page.totalPageNo}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>页<span class="ni">&amp;nbsp;</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意：每次如果搜条件发生变化都要从第1页查询，而点击下一页的时候，分页数据在页面给出，不需要在后台拼接的url中给出，所以在拼接url的时候，需要过滤掉分页参数，修改<code>dongyimai-search-web</code>的控制层<code>com.offcn.search.controller.SkuController</code>的url拼接方法，代码如下：
+</span></span></code></pre></div><p>注意：每次如果搜条件发生变化都要从第1页查询，而点击下一页的时候，分页数据在页面给出，不需要在后台拼接的url中给出，所以在拼接url的时候，需要过滤掉分页参数，修改<code>dongyimai-search-web</code>的控制层<code>com.offcn.search.controller.SkuController</code>的url拼接方法，代码如下：
 <img src="/posts/project-0/20220527231757/image-20220527232718606.png"
     
     
@@ -2910,44 +1911,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
 ></p>
 <p>（2）dongyimai-item-web中添加起步依赖，如下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
@@ -2980,49 +1944,8 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>（3）修改application.yml的配置</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
+</span></span></code></pre></div><p>（3）修改application.yml的配置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">9102</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">eureka</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client</span><span class="p">:</span><span class="w">
@@ -3057,23 +1980,8 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 生成静态页的位置</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">pagepath</span><span class="p">:</span><span class="w"> </span><span class="l">C:\\items</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>（4）创建系统启动类</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="o">(</span><span class="n">exclude</span> <span class="o">=</span> <span class="o">{</span><span class="n">DataSourceAutoConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+</span></span></span></code></pre></div><p>（4）创建系统启动类</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="o">(</span><span class="n">exclude</span> <span class="o">=</span> <span class="o">{</span><span class="n">DataSourceAutoConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableEurekaClient</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableFeignClients</span><span class="o">(</span><span class="n">basePackages</span> <span class="o">=</span> <span class="s">&#34;com.offcn.sellergoods.feign&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ItemApplication</span> <span class="o">{</span>
@@ -3082,9 +1990,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="32-生成静态页">3.2 生成静态页</h3>
+</span></span></code></pre></div><h3 id="32-生成静态页">3.2 生成静态页</h3>
 <h4 id="321-需求分析">3.2.1 需求分析</h4>
 <p>页面发送请求，传递要生成的静态页的的商品的SpuID.后台controller 接收请求，调用thyemleaf的原生API生成商品静态页。
 <img src="/posts/project-0/20220527231757/image-20220527232804532.png"
@@ -3099,23 +2005,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 <h4 id="322-feign创建">3.2.2 Feign创建</h4>
 <p>稍后需要查询SPU和SKU以及Category，所以我们需要先创建Feign。</p>
 <p>修改dongyimai-sellergoods-service-api,添加ItemCatFeign，并在ItemCatFeign中添加根据ID查询分类数据，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;sellergoods&#34;</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;sellergoods&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/itemCat&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ItemCatFeign</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -3127,25 +2017,8 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/{id}&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">ItemCat</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在dongyimai-sellergoods-service-api,添加GoodsFeign,并添加根据SpuID查询Spu信息，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;sellergoods&#34;</span><span class="o">)</span>
+</span></span></code></pre></div><p>在dongyimai-sellergoods-service-api,添加GoodsFeign,并添加根据SpuID查询Spu信息，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;sellergoods&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/goods&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">GoodsFeign</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="cm">/***
@@ -3156,9 +2029,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/{id}&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Result</span><span class="o">&lt;</span><span class="n">GoodsEntity</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/project-0/20220527231757/image-20220527232813006.png"
+</span></span></code></pre></div><p><img src="/posts/project-0/20220527231757/image-20220527232813006.png"
     
     
     
@@ -3170,106 +2041,15 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 <p>(1) 创建service</p>
 <p>在项目dongyimai-item-web中创建接口 com.offcn.item.service.PageService</p>
 <p>接口：PageService</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PageService</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PageService</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 根据商品的ID 生成静态页
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param spuId
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">createPageHtml</span><span class="o">(</span><span class="n">Long</span> <span class="n">spuId</span><span class="o">)</span> <span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在项目dongyimai-item-web中创建实现类 com.offcn.item.service.impl.PageServiceImpl实现类，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span>
+</span></span></code></pre></div><p>在项目dongyimai-item-web中创建实现类 com.offcn.item.service.impl.PageServiceImpl实现类，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageServiceImpl</span> <span class="kd">implements</span> <span class="n">PageService</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">GoodsFeign</span> <span class="n">goodsFeign</span><span class="o">;</span>
@@ -3343,33 +2123,9 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)创建Controller</p>
+</span></span></code></pre></div><p>(2)创建Controller</p>
 <p>在dongyimai-item-web中创建com.offcn.item.controller.PageController用于接收请求，测试生成静态页</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/page&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageController</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -3387,22 +2143,13 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;ok&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>（3）拷贝模板文件   资料/网站前台/item.html</p>
+</span></span></code></pre></div><p>（3）拷贝模板文件   资料/网站前台/item.html</p>
 <h4 id="324-模板填充">3.2.4 模板填充</h4>
 <p>首先将模板 将资料/网站前台/item.html 拷贝到 resources/templates/下</p>
 <p>添加thymeleaf的头</p>
 <p>修改thymeleaf命名头</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&#34;http://www.thymeleaf.org&#34;</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(1)面包屑数据的实现</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&#34;http://www.thymeleaf.org&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>(1)面包屑数据的实现</p>
 <p><img src="/posts/project-0/20220527231757/image-20220527232842264.png"
     
     
@@ -3412,24 +2159,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
 ></p>
 <p>修改item.html，填充三个分类数据作为面包屑，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;crumb-wrap&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;crumb-wrap&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sui-breadcrumb&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">				<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#&#34;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${category1.name}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
@@ -3442,9 +2172,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)商品图片</p>
+</span></span></code></pre></div><p>(2)商品图片</p>
 <p><img src="/posts/project-0/20220527231757/image-20220527232857567.png"
     
     
@@ -3454,31 +2182,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
 ></p>
 <p>修改item.html，将商品图片信息输出，在真实工作中需要做空判断，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl preview-wrap&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fl preview-wrap&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">       <span class="c">&lt;!--放大镜效果--&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;zoom&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">         <span class="c">&lt;!--默认第一个预览--&gt;</span>
@@ -3498,31 +2202,8 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(3)规格输出</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;specification&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;summary-wrap clearfix&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>(3)规格输出</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;specification&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;summary-wrap clearfix&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="c">&lt;!--循环MAP--&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">dl</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&#34;spec,specStat:${specificationList}&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">         <span class="p">&lt;</span><span class="nt">dt</span><span class="p">&gt;</span>
@@ -3539,42 +2220,14 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">       <span class="p">&lt;/</span><span class="nt">dl</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(4)默认SKU显示</p>
+</span></span></code></pre></div><p>(4)默认SKU显示</p>
 <p>静态页生成后，需要显示默认的Sku，我们这里默认显示第1个Sku即可，这里可以结合着Vue一起实现。可以先定义一个集合，再定义一个spec和sku，用来存储当前选中的Sku信息和Sku的规格，代码如下：</p>
 <p>需要在页面引入vue.js</p>
-<pre tabindex="0"><code>&lt;script src=&#34;js/vue.js&#34;&gt;&lt;/script&gt;
-</code></pre><p>设置绑定vue节点</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--页面顶部 结束--&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script src=&#34;js/vue.js&#34;&gt;&lt;/script&gt;
+</span></span></code></pre></div><p>设置绑定vue节点</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--页面顶部 结束--&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;py-container&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;itemArray&#34;</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#itemArray&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
@@ -3588,34 +2241,8 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">     <span class="p">})</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>   
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>页面显示默认的Sku信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sku-name&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>页面显示默认的Sku信息</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sku-name&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>{{sku.title}}<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;news&#34;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&#34;${goods.caption}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -3635,9 +2262,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">                    ………………
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>                    
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(5)默认SKU显示</p>
+</span></span></code></pre></div><p>(5)默认SKU显示</p>
 <p><img src="/posts/project-0/20220527231757/image-20220527232910834.png"
     
     
@@ -3647,26 +2272,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
 ></p>
 <p>静态页生成后，需要显示默认的Sku，我们这里默认显示第1个Sku即可，这里可以结合着Vue一起实现。可以先定义一个集合，再定义一个spec和sku，用来存储当前选中的Sku信息和Sku的规格，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#itemArray&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
@@ -3681,9 +2287,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">     <span class="p">})</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>   
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意：th:inline=&ldquo;javascript&quot;这是Thymeleaf中的内联写法，支持在javascript访问model中的数据，所以有[[${xxx.xxx}]]这样写法(Javascript中访问thymeleaf变量值)的时候一定要记得在script中写上th:inline=&ldquo;javascript&quot;这样才成功访问。</p>
+</span></span></code></pre></div><p>注意：th:inline=&ldquo;javascript&quot;这是Thymeleaf中的内联写法，支持在javascript访问model中的数据，所以有[[${xxx.xxx}]]这样写法(Javascript中访问thymeleaf变量值)的时候一定要记得在script中写上th:inline=&ldquo;javascript&quot;这样才成功访问。</p>
 <p>位置如下：</p>
 <p><img src="/posts/project-0/20220527231757/image-20220527232923692.png"
     
@@ -3694,33 +2298,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
 ></p>
 <p>页面显示默认的Sku信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fr itemInfo-wrap&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;itemArray&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fr itemInfo-wrap&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;itemArray&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;sku-name&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>{{sku.title}}<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -3742,45 +2320,9 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>        
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--product-detail--&gt;</span> 
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(6)记录选中的Sku</p>
+</span></span></code></pre></div><p>(6)记录选中的Sku</p>
 <p>在当前Spu的所有Sku中spec值是唯一的，我们可以根据spec来判断用户选中的是哪个Sku，我们可以在Vue中添加代码来实现，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">selectSpecification</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">specName</span><span class="p">,</span> <span class="nx">specValue</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">//选中的spec信息，且触发视图更新
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">this</span><span class="p">.</span><span class="nx">$set</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">spec</span><span class="p">,</span> <span class="nx">specName</span><span class="p">,</span> <span class="nx">specValue</span><span class="p">);</span>
@@ -3810,9 +2352,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>添加规格点击事件
+</span></span></code></pre></div><p>添加规格点击事件
 <img src="/posts/project-0/20220527231757/image-20220527232933184.png"
     
     
@@ -3821,26 +2361,12 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
     
 ></p>
-<pre tabindex="0"><code>&lt;a href=&#34;javascript:;&#34; th:@click=&#34;|selectSpecification(&#39;${spec.attributeName}&#39;,&#39;${arrValue}&#39;)|&#34; th:v-bind:class=&#34;|{selected:sel(&#39;${spec.attributeName}&#39;,&#39;${arrValue}&#39;)}|&#34;&gt;[[${arrValue}]]&lt;span title=&#34;点击取消选择&#34;&gt;&amp;nbsp;&lt;/span&gt;
-&lt;/a&gt;
-</code></pre><p>(6)样式切换</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;a href=&#34;javascript:;&#34; th:@click=&#34;|selectSpecification(&#39;${spec.attributeName}&#39;,&#39;${arrValue}&#39;)|&#34; th:v-bind:class=&#34;|{selected:sel(&#39;${spec.attributeName}&#39;,&#39;${arrValue}&#39;)}|&#34;&gt;[[${arrValue}]]&lt;span title=&#34;点击取消选择&#34;&gt;&amp;nbsp;&lt;/span&gt;
+</span></span><span class="line"><span class="cl">&lt;/a&gt;
+</span></span></code></pre></div><p>(6)样式切换</p>
 <p>点击不同规格后，实现样式选中，我们可以根据每个规格判断该规格是否在当前选中的Sku规格中，如果在，则返回true添加selected样式，否则返回false不添加selected样式。</p>
 <p>Vue添加代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="nx">sel</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="nx">sel</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">spec</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">}</span>
@@ -3850,9 +2376,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>页面添加样式绑定，代码如下：
+</span></span></code></pre></div><p>页面添加样式绑定，代码如下：
 <img src="/posts/project-0/20220527231757/image-20220527232943161.png"
     
     
@@ -3862,67 +2386,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
 ></p>
 <p>完整的vue代码如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span><span class="p">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">th:inline</span><span class="o">=</span><span class="s">&#34;javascript&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#itemArray&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
@@ -3978,9 +2442,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="p">})</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="325-启动测试">3.2.5 启动测试</h4>
+</span></span></code></pre></div><h4 id="325-启动测试">3.2.5 启动测试</h4>
 <p>启动eureka服务端 dongyimai-eureka</p>
 <p>启动商品微服务 dongyimai-sellergoods-service</p>
 <p>启动静态化微服务 dongyimai-item-web</p>
@@ -4033,23 +2495,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 <p>在dongyimai-service-api中创建dongyimai-item-web-api，该工程中主要创建dongyimai-item-web的对外依赖抽取信息。</p>
 <p>(1)Feign创建</p>
 <p>在dongyimai-item-web-api中创建com.offcn.item.feign.PageFeign,代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;item-web&#34;</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@FeignClient</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;item-web&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/page&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PageFeign</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -4061,27 +2507,9 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/createHtml/{id}&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Result</span> <span class="nf">createHtml</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="n">Long</span> <span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(2)pom.xml依赖</p>
+</span></span></code></pre></div><p>(2)pom.xml依赖</p>
 <p>修改dongyimai-canal-service工程的pom.xml，引入如下依赖：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!--静态页API 服务--&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!--静态页API 服务--&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.offcn<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>dongyimai-item-web-api<span class="nt">&lt;/artifactId&gt;</span>
@@ -4093,9 +2521,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">       <span class="nt">&lt;/exclusion&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&lt;/exclusions&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>(3)修改dongyiami-canal-service工程中的启动类
+</span></span></code></pre></div><p>(3)修改dongyiami-canal-service工程中的启动类
 <img src="/posts/project-0/20220527231757/image-20220527233024713.png"
     
     
@@ -4104,21 +2530,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="o">(</span><span class="n">exclude</span><span class="o">={</span><span class="n">DataSourceAutoConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="o">(</span><span class="n">exclude</span><span class="o">={</span><span class="n">DataSourceAutoConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableEurekaClient</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableCanalClient</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@EnableFeignClients</span><span class="o">(</span><span class="n">basePackages</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;com.offcn.content.feign&#34;</span><span class="o">,</span><span class="s">&#34;com.offcn.item.feign&#34;</span><span class="o">})</span>
@@ -4128,51 +2540,10 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">CanalApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span><span class="n">args</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="3-canal监听数据变化">3 canal监听数据变化</h2>
+</span></span></code></pre></div><h2 id="3-canal监听数据变化">3 canal监听数据变化</h2>
 <p>监听类中,监听商品数据库的tb_goods的数据变化,当数据变化的时候生成静态页或者删除静态页</p>
 <p>在原来的监听类中添加如下代码即可,</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Autowired</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Autowired</span>
 </span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">PageFeign</span> <span class="n">pageFeign</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@ListenPoint</span><span class="o">(</span><span class="n">destination</span> <span class="o">=</span> <span class="s">&#34;example&#34;</span><span class="o">,</span>
@@ -4207,9 +2578,7 @@ ${#strings.replace(spec.key,&#39;spec_&#39;,&#39;&#39;)}:表示将spec.key中的
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">pageFeign</span><span class="o">.</span><span class="na">createHtml</span><span class="o">(</span><span class="n">Long</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">goodsId</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>4.具体演示可以新增一个商品数据，然后后在监听的时候打印一个数据语句便于观察效果。</p>
+</span></span></code></pre></div><p>4.具体演示可以新增一个商品数据，然后后在监听的时候打印一个数据语句便于观察效果。</p>
 <p>新增之后，可以看到 dongyimai-canal-service,打印如下输出语句
 <img src="/posts/project-0/20220527231757/image-20220527233036229.png"
     

@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>mybatis-3</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            7267 字
+            6398 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
-            15 分钟
+            13 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,87 +547,20 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/java-frame/20220430215722/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">mybatis-3</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-05-25&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-05-25&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    7267 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    15 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 id="延迟加载策略">延迟加载策略</h1>
 <h2 id="延迟加载的简介什么是延迟加载为什么要使用延迟加载">延迟加载的简介：什么是延迟加载，为什么要使用延迟加载</h2>
-<pre tabindex="0"><code>1.什么是延迟加载?
-延迟加载(lazy load)是(也称为懒加载)关联关系对象默认的加载方式，延迟加载机制是为了避免一些无谓的性能开销而提出来的，所谓延迟加载就是当在真正需要数据的时候，才真正执行数据加载操作。
-延迟加载，可以简单理解为，只有在使用的时候，才会发出sql语句进行查询。
-
-2.为什么要使用延迟加载?
-减少访问数据库的频率，我们要访问的数据量过大时，明显用缓存不太合适，因为内存容量有限为了减少并发量，减少系统资源的消耗。
-</code></pre><h2 id="配置延迟加载策略并测试结果">配置延迟加载策略，并测试结果</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">在mybatis中使用resultMap来实现一对一，一对多，多对多关系的操作。主要是通过 association、collection 实现一对一及一对多映射。association、collection 具备延迟加载功能。
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="局部延时加载">局部延时加载</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.什么是延迟加载?
+</span></span><span class="line"><span class="cl">延迟加载(lazy load)是(也称为懒加载)关联关系对象默认的加载方式，延迟加载机制是为了避免一些无谓的性能开销而提出来的，所谓延迟加载就是当在真正需要数据的时候，才真正执行数据加载操作。
+</span></span><span class="line"><span class="cl">延迟加载，可以简单理解为，只有在使用的时候，才会发出sql语句进行查询。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2.为什么要使用延迟加载?
+</span></span><span class="line"><span class="cl">减少访问数据库的频率，我们要访问的数据量过大时，明显用缓存不太合适，因为内存容量有限为了减少并发量，减少系统资源的消耗。
+</span></span></code></pre></div><h2 id="配置延迟加载策略并测试结果">配置延迟加载策略，并测试结果</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">在mybatis中使用resultMap来实现一对一，一对多，多对多关系的操作。主要是通过 association、collection 实现一对一及一对多映射。association、collection 具备延迟加载功能。
+</span></span></code></pre></div><h3 id="局部延时加载">局部延时加载</h3>
 <h4 id="departmentdaoxml配置文件">DepartmentDao.xml配置文件</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;getDepartmentById&#34;</span> <span class="na">resultMap=</span><span class="s">&#34;DepartemntResultMap&#34;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">&#34;getDepartmentById&#34;</span> <span class="na">resultMap=</span><span class="s">&#34;DepartemntResultMap&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl">    select * from department where d_id=#{id}
 </span></span><span class="line"><span class="cl"> <span class="nt">&lt;/select&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;resultMap</span> <span class="na">id=</span><span class="s">&#34;DepartemntResultMap&#34;</span> <span class="na">type=</span><span class="s">&#34;Department&#34;</span><span class="nt">&gt;</span>
@@ -577,28 +573,8 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/resultMap&gt;</span>
 </span></span><span class="line"><span class="cl">相关联的查询标签上加 fetchType=”lazy” 
 </span></span><span class="line"><span class="cl">fetchType默认值为eager 立即加载,Lazy为延时加载。
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="测试类">测试类</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Test</span>
+</span></span></code></pre></div><h4 id="测试类">测试类</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGetDepartentById</span><span class="o">()</span> <span class="kd">throws</span>  <span class="n">Exception</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//获取SqlSession对象
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
@@ -612,60 +588,20 @@
 </span></span><span class="line"><span class="cl"><span class="c1">//关闭连接
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="2全局延时加载">2.全局延时加载</h3>
+</span></span></code></pre></div><h3 id="2全局延时加载">2.全局延时加载</h3>
 <p>如果希望所有关联都需要延时加载，可以在mybatis的核心配置文件中进行配置，不用在collection或association中指定。默认全局开启。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;settings&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;settings&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--开启延时加载开关--&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;setting</span> <span class="na">name=</span><span class="s">&#34;lazyLoadingEnabled&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!--关闭立即加载，实施按需加载--&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;setting</span> <span class="na">name=</span><span class="s">&#34;aggressiveLazyLoading&#34;</span> <span class="na">value=</span><span class="s">&#34;false&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/settings&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="mybatis的逆向工程">MyBatis的逆向工程</h1>
+</span></span></code></pre></div><h1 id="mybatis的逆向工程">MyBatis的逆向工程</h1>
 <h2 id="逆向工程绍">逆向工程绍</h2>
 <p>MyBatis的一个主要的特点就是需要程序员自己编写sql，那么如果表太多的话，难免会很麻烦，所以mybatis官方提供了一个逆向工程，可以针对单表自动生成mybatis执行所需要的代码（包括mapper.xml、mapper.java、po..）。一般在开发中，常用的逆向工程方式是通过数据库的表生成代码。</p>
 <h2 id="构建项目环境">构建项目环境</h2>
 <h3 id="构建maven工程并导入依赖">构建maven工程并导入依赖</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">mybatis</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
@@ -687,48 +623,8 @@
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">16</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="编写配置框架配置文件">编写配置框架配置文件</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+</span></span></code></pre></div><h3 id="编写配置框架配置文件">编写配置框架配置文件</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="cp">&lt;!DOCTYPE configuration
 </span></span></span><span class="line"><span class="cl"><span class="cp">          PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;
 </span></span></span><span class="line"><span class="cl"><span class="cp">          &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>
@@ -762,70 +658,8 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&#34;cn.offcn.mapper&#34;</span><span class="nt">&gt;&lt;/package&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/mappers&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/configuration&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="编写逆向工程的配置文件generatorxml">编写逆向工程的配置文件generator.xml</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span></code></pre></div><h3 id="编写逆向工程的配置文件generatorxml">编写逆向工程的配置文件generator.xml</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE generatorConfiguration
 </span></span></span><span class="line"><span class="cl"><span class="cp">PUBLIC &#34;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&#34;
 </span></span></span><span class="line"><span class="cl"><span class="cp">&#34;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&#34;&gt;</span>
@@ -881,41 +715,8 @@
 </span></span><span class="line"><span class="cl">		<span class="nt">&lt;table</span> <span class="na">tableName=</span><span class="s">&#34;teacher&#34;</span><span class="nt">&gt;&lt;/table&gt;</span>
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;/context&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/generatorConfiguration&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="调用官方api实现逆向工程">调用官方api实现逆向工程</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">cn.test</span><span class="o">;</span>
+</span></span></code></pre></div><h3 id="调用官方api实现逆向工程">调用官方api实现逆向工程</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">cn.test</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.mybatis.generator.api.MyBatisGenerator</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.mybatis.generator.config.Configuration</span><span class="o">;</span>
@@ -942,179 +743,9 @@
 </span></span><span class="line"><span class="cl">  <span class="n">myBatisGenerator</span><span class="o">.</span><span class="na">generate</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="逆向工程自动生成的文件解析">逆向工程自动生成的文件解析</h3>
+</span></span></code></pre></div><h3 id="逆向工程自动生成的文件解析">逆向工程自动生成的文件解析</h3>
 <h3 id="使用逆向工程完成数据crud">使用逆向工程完成数据CRUD</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span><span class="lnt">163
-</span><span class="lnt">164
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">//添加员工
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">//添加员工
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">addEmployee</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
@@ -1278,9 +909,7 @@
 </span></span><span class="line"><span class="cl">                        <span class="o">+</span><span class="n">employee</span><span class="o">.</span><span class="na">getDepart</span><span class="o">().</span><span class="na">getdName</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">  <span class="n">queryEmployees</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="mybatis-缓存">Mybatis 缓存</h1>
+</span></span></code></pre></div><h1 id="mybatis-缓存">Mybatis 缓存</h1>
 <h2 id="缓存简介">缓存简介</h2>
 <p>缓存是存在于内存中的临时数据，使用缓存的目的是减少和数据库的交互次数，提高执行效率。像大多数的持久化框架一样，Mybatis 也提供了缓存策略，通过缓存策略来减少数据库的查询次数，从而提高性能，Mybatis 中缓存分为一级缓存，二级缓存。</p>
 <p><img src="/posts/Java-frame/20220430215722/image-20220526000536083.png"
@@ -1304,35 +933,12 @@
     
 ></p>
 <h3 id="编写用户持久层-dao-接口">编写用户持久层 Dao 接口</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeDao</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeDao</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Employee</span> <span class="nf">getEmployeeById</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="编写用户持久层映射文件">编写用户持久层映射文件</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;getEmployeeById&#34;</span> <span class="n">resultMap</span><span class="o">=</span><span class="s">&#34;EmployeeResultMap&#34;</span><span class="o">&gt;</span>
+</span></span></code></pre></div><h3 id="编写用户持久层映射文件">编写用户持久层映射文件</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;getEmployeeById&#34;</span> <span class="n">resultMap</span><span class="o">=</span><span class="s">&#34;EmployeeResultMap&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">       <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">employee</span> <span class="n">WHERE</span> <span class="n">e_id</span><span class="o">=</span><span class="err">#</span><span class="o">{</span><span class="n">id</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">resultMap</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;EmployeeResultMap&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;Employee&#34;</span><span class="o">&gt;</span>
@@ -1341,28 +947,8 @@
 </span></span><span class="line"><span class="cl">     <span class="o">&lt;</span><span class="n">result</span> <span class="n">column</span><span class="o">=</span><span class="s">&#34;e_gender&#34;</span> <span class="n">property</span><span class="o">=</span><span class="s">&#34;gender&#34;</span><span class="o">&gt;&lt;/</span><span class="n">result</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">     <span class="o">&lt;</span><span class="n">result</span> <span class="n">column</span><span class="o">=</span><span class="s">&#34;e_age&#34;</span> <span class="n">property</span><span class="o">=</span><span class="s">&#34;age&#34;</span><span class="o">&gt;&lt;/</span><span class="n">result</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">resultMap</span><span class="o">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="编写测试方法">编写测试方法</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">firstCahce</span><span class="o">(){</span>
+</span></span></code></pre></div><h3 id="编写测试方法">编写测试方法</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">firstCahce</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">     <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">     <span class="n">EmployeeMapper</span> <span class="n">employeeMapper</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">EmployeeMapper</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
@@ -1376,9 +962,7 @@
 </span></span><span class="line"><span class="cl">     <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/Java-frame/20220430215722/image-20220526001136242.png"
+</span></span></code></pre></div><p><img src="/posts/Java-frame/20220430215722/image-20220526001136242.png"
     
     
     
@@ -1387,28 +971,9 @@
     
 ></p>
 <h3 id="一级缓存的分析">一级缓存的分析</h3>
-<pre tabindex="0"><code>  从上面的代码可以出，我们写了两次查询操作，但在访问数据时，只有一次。第一次先从一级缓存中获取，因为session是新创建的，一级缓存中没有数据，于是就查询数据获取数据，然后把查询的数据放到一级缓存中，此时一定要注意的是，一级缓存是一个Map集合，map的key是你的查询条件字符串，值就是查询出来的对象。等第二次查询时，先从一缓存中获取，因为上一次查询后已经放到一级缓存中了，所以从一级缓存中获取到了，就不用访问数据库了，减少和数据次的一次交互，提高了执行效率。
-</code></pre><h3 id="测试一级缓存的清空">测试一级缓存的清空</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">当我们在两次查询之间做增</span><span class="err">、</span><span class="n">删</span><span class="err">、</span><span class="n">改操作都会把一级缓存清空</span><span class="err">，</span><span class="n">因为不清空就不能保证缓存中的数据与数据库中数据的一致性</span><span class="err">，</span><span class="n">可能会读取不正确的数据</span><span class="err">。</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  从上面的代码可以出，我们写了两次查询操作，但在访问数据时，只有一次。第一次先从一级缓存中获取，因为session是新创建的，一级缓存中没有数据，于是就查询数据获取数据，然后把查询的数据放到一级缓存中，此时一定要注意的是，一级缓存是一个Map集合，map的key是你的查询条件字符串，值就是查询出来的对象。等第二次查询时，先从一缓存中获取，因为上一次查询后已经放到一级缓存中了，所以从一级缓存中获取到了，就不用访问数据库了，减少和数据次的一次交互，提高了执行效率。
+</span></span></code></pre></div><h3 id="测试一级缓存的清空">测试一级缓存的清空</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">当我们在两次查询之间做增</span><span class="err">、</span><span class="n">删</span><span class="err">、</span><span class="n">改操作都会把一级缓存清空</span><span class="err">，</span><span class="n">因为不清空就不能保证缓存中的数据与数据库中数据的一致性</span><span class="err">，</span><span class="n">可能会读取不正确的数据</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">firstCahce</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">     <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
@@ -1423,9 +988,7 @@
 </span></span><span class="line"><span class="cl">     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">employee2</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">     <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="二级缓存">二级缓存</h2>
+</span></span></code></pre></div><h2 id="二级缓存">二级缓存</h2>
 <h3 id="二级缓存简介">二级缓存简介</h3>
 <p>二级缓存是 mapper 映射级别的缓存，多个 SqlSession 去操作同一个 Mapper 映射的 sql 语句，多个 SqlSession 可以共用二级缓存，二级缓存是跨 SqlSession 的。</p>
 <h3 id="二级缓存结构图">二级缓存结构图</h3>
@@ -1439,62 +1002,22 @@
 ></p>
 <h3 id="二级缓存的开启与关闭">二级缓存的开启与关闭</h3>
 <h4 id="在sqlmapconfigxml-文件开启二级缓存">在SqlMapConfig.xml 文件开启二级缓存</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="nt">&lt;settings&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="nt">&lt;settings&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 开启二级缓存的支持 --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;setting</span> <span class="na">name=</span><span class="s">&#34;cacheEnabled&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/settings&gt;</span>
 </span></span><span class="line"><span class="cl">因为 cacheEnabled 的取值默认就为 true，所以这一步可以省略不配置。为 true 代表开启二级缓存；为
 </span></span><span class="line"><span class="cl">false 代表不开启二级缓存。
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="配置相关的-mapper-映射文件">配置相关的 Mapper 映射文件</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE mapper
+</span></span></code></pre></div><h4 id="配置相关的-mapper-映射文件">配置相关的 Mapper 映射文件</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE mapper
 </span></span></span><span class="line"><span class="cl"><span class="cp">  PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;
 </span></span></span><span class="line"><span class="cl"><span class="cp">  &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;mapper</span> <span class="na">namespace=</span><span class="s">&#34;cn.offcn.dao.EmployeeDao&#34;</span><span class="nt">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 开启二级缓存的支持 --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;cache&gt;&lt;/cache&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/mapper&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="配置-statement-上面的-usecache-属性">配置 statement 上面的 useCache 属性</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;getEmployeeById&#34;</span> <span class="n">resultMap</span><span class="o">=</span><span class="s">&#34;EmployeeResultMap&#34;</span> <span class="n">useCache</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="o">&gt;</span>
+</span></span></code></pre></div><h4 id="配置-statement-上面的-usecache-属性">配置 statement 上面的 useCache 属性</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;getEmployeeById&#34;</span> <span class="n">resultMap</span><span class="o">=</span><span class="s">&#34;EmployeeResultMap&#34;</span> <span class="n">useCache</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">employee</span> <span class="n">WHERE</span> <span class="n">e_id</span><span class="o">=</span><span class="err">#</span><span class="o">{</span><span class="n">id</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">resultMap</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;EmployeeResultMap&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;Employee&#34;</span><span class="o">&gt;</span>
@@ -1505,33 +1028,8 @@
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">resultMap</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="n">将</span> <span class="n">EmployeeDao</span><span class="o">.</span><span class="na">xml</span> <span class="n">映射文件中的</span><span class="o">&lt;</span><span class="n">select</span><span class="o">&gt;</span><span class="n">标签中设置</span> <span class="n">useCache</span><span class="o">=</span><span class="err">”</span><span class="kc">true</span><span class="err">”</span><span class="n">代表当前这个</span> <span class="n">statement</span> <span class="n">要使用二级缓存</span><span class="err">，</span><span class="n">如果不使用二级缓存可以设置为</span> <span class="kc">false</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl"><span class="n">注意</span><span class="err">：</span><span class="n">针对每次查询都需要最新的数据</span> <span class="n">sql</span><span class="err">，</span><span class="n">要设置成</span> <span class="n">useCache</span><span class="o">=</span><span class="kc">false</span><span class="err">，</span><span class="n">禁用二级缓存</span><span class="err">。</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="二级缓存测试">二级缓存测试</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">secondCahce</span><span class="o">(){</span>
+</span></span></code></pre></div><h4 id="二级缓存测试">二级缓存测试</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">secondCahce</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="n">SqlSession</span> <span class="n">session1</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">  <span class="n">SqlSession</span> <span class="n">session2</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
@@ -1550,9 +1048,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="n">经过上面的测试</span><span class="err">，</span><span class="n">我们发现执行了两次查询</span><span class="err">，</span><span class="n">并且在执行第一次查询后</span><span class="err">，</span><span class="n">我们关闭了一级缓存</span><span class="err">，</span><span class="n">再去执行第二</span>
 </span></span><span class="line"><span class="cl"><span class="n">次查询时</span><span class="err">，</span><span class="n">我们发现并没有对数据库发出</span> <span class="n">sql</span> <span class="n">语句</span><span class="err">，</span><span class="n">所以此时的数据就只能是来自于我们所说的二级缓存</span><span class="err">。</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/Java-frame/20220430215722/image-20220526001426548.png"
+</span></span></code></pre></div><p><img src="/posts/Java-frame/20220430215722/image-20220526001426548.png"
     
     
     
@@ -1567,21 +1063,7 @@
 1.提高性能，一次查20个，比一次查20000个性能肯定更好；另外如果数据量很大，一次性将内容都查询出来，查询出来的结果是放在内存存里面的，会增加cpu的开销造成内存的浪费，效率极低。<br>
 2.展现层面的考虑：如果一次展现太多的数据，不管是排版，还是美观上都不好。</p>
 <h2 id="分页插件的引入和配置">分页插件的引入和配置</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl">1.在pom.xml中引入插件依赖
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl">1.在pom.xml中引入插件依赖
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
 </span></span><span class="line"><span class="cl"> <span class="nt">&lt;groupId&gt;</span>com.github.pagehelper<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl"> <span class="nt">&lt;artifactId&gt;</span>pagehelper<span class="nt">&lt;/artifactId&gt;</span>
@@ -1591,61 +1073,16 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;plugins&gt;</span>
 </span></span><span class="line"><span class="cl"> <span class="nt">&lt;plugin</span> <span class="na">interceptor=</span><span class="s">&#34;com.github.pagehelper.PageInterceptor&#34;</span><span class="nt">&gt;&lt;/plugin&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/plugins&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="定义接口方法getinfo">定义接口方法getInfo</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmployeeDao</span><span class="o">{</span>
+</span></span></code></pre></div><h2 id="定义接口方法getinfo">定义接口方法getInfo</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmployeeDao</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl"> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getInfo</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="配置sql语句对应接口方法">配置sql语句对应接口方法</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;getInfo&#34;</span> <span class="n">resultType</span><span class="o">=</span><span class="s">&#34;cn.offcn.entity.Employee&#34;</span><span class="o">&gt;</span>
+</span></span></code></pre></div><h2 id="配置sql语句对应接口方法">配置sql语句对应接口方法</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;getInfo&#34;</span> <span class="n">resultType</span><span class="o">=</span><span class="s">&#34;cn.offcn.entity.Employee&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">       <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">employee</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="测试分页插件作用">测试分页插件作用</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@Test</span>
+</span></span></code></pre></div><h2 id="测试分页插件作用">测试分页插件作用</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">queryEmployees</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">     <span class="c1">//在查询前设置当前页与每页显示的记录数
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">PageHelper</span><span class="o">.</span><span class="na">startPage</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">5</span><span class="o">);</span>
@@ -1666,55 +1103,25 @@
 </span></span><span class="line"><span class="cl">     <span class="n">session</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">     <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="mybatis的注解开发">MyBatis的注解开发</h1>
+</span></span></code></pre></div><h1 id="mybatis的注解开发">MyBatis的注解开发</h1>
 <h2 id="注解开发的背景介绍">注解开发的背景介绍</h2>
-<pre tabindex="0"><code>注解提供了一种简单的方式来实现简单映射语句,而不会引入大量的开销。能够读懂别人写的代码，特别是框架相关的代码。本来可能需要很多配置文件，需要很多逻辑才能实现的内容，就可以使用一个或者多个注解来替代，这样就使得编程更加简洁，代码更加清晰。
-</code></pre><h2 id="常用注解介绍">常用注解介绍</h2>
-<pre tabindex="0"><code>这几年来注解开发越来越流行，Mybatis 也可以使用注解开发方式，这样我们就可以减少编写 Mapper 映射文件了。本次我们先围绕一些基本的 CRUD 来学习，再学习复杂映射关系及延迟加载。
-@Insert:实现新增
-@Update:实现更新
-@Delete:实现删除
-@Select:实现查询
-@Result:实现结果集封装
-@Results:可以与@Result 一起使用，封装多个结果集
-@ResultMap:实现引用@Results 定义的封装
-@One:实现一对一结果集封装
-@Many:实现一对多结果集封装
-@SelectProvider: 实现动态 SQL 映射
-@CacheNamespace:实现注解二级缓存的使用
-</code></pre><h2 id="项目环境搭建">项目环境搭建</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">注解提供了一种简单的方式来实现简单映射语句,而不会引入大量的开销。能够读懂别人写的代码，特别是框架相关的代码。本来可能需要很多配置文件，需要很多逻辑才能实现的内容，就可以使用一个或者多个注解来替代，这样就使得编程更加简洁，代码更加清晰。
+</span></span></code></pre></div><h2 id="常用注解介绍">常用注解介绍</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">这几年来注解开发越来越流行，Mybatis 也可以使用注解开发方式，这样我们就可以减少编写 Mapper 映射文件了。本次我们先围绕一些基本的 CRUD 来学习，再学习复杂映射关系及延迟加载。
+</span></span><span class="line"><span class="cl">@Insert:实现新增
+</span></span><span class="line"><span class="cl">@Update:实现更新
+</span></span><span class="line"><span class="cl">@Delete:实现删除
+</span></span><span class="line"><span class="cl">@Select:实现查询
+</span></span><span class="line"><span class="cl">@Result:实现结果集封装
+</span></span><span class="line"><span class="cl">@Results:可以与@Result 一起使用，封装多个结果集
+</span></span><span class="line"><span class="cl">@ResultMap:实现引用@Results 定义的封装
+</span></span><span class="line"><span class="cl">@One:实现一对一结果集封装
+</span></span><span class="line"><span class="cl">@Many:实现一对多结果集封装
+</span></span><span class="line"><span class="cl">@SelectProvider: 实现动态 SQL 映射
+</span></span><span class="line"><span class="cl">@CacheNamespace:实现注解二级缓存的使用
+</span></span></code></pre></div><h2 id="项目环境搭建">项目环境搭建</h2>
 <h3 id="构建maven工程导入依赖">构建maven工程，导入依赖</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">mybatis</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
@@ -1738,69 +1145,9 @@
 </span></span><span class="line"><span class="cl">   <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">17</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="使用-mybatis-注解实现基本-crud">使用 Mybatis 注解实现基本 CRUD</h2>
+</span></span></code></pre></div><h2 id="使用-mybatis-注解实现基本-crud">使用 Mybatis 注解实现基本 CRUD</h2>
 <h3 id="编写实体类">编写实体类</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Worker</span> <span class="o">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Worker</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">String</span> <span class="n">gender</span><span class="o">;</span>
@@ -1854,44 +1201,8 @@
 </span></span><span class="line"><span class="cl">          <span class="sc">&#39;}&#39;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="使用注解方式开发持久层接口">使用注解方式开发持久层接口</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">WorkerMapper</span> <span class="o">{</span>
+</span></span></code></pre></div><h3 id="使用注解方式开发持久层接口">使用注解方式开发持久层接口</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">WorkerMapper</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@Insert</span><span class="o">(</span><span class="s">&#34;insert into worker (w_name,w_gender,w_age) &#34;</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">      <span class="s">&#34;values(#{name},#{gender},#{age})&#34;</span><span class="o">)</span>
@@ -1921,38 +1232,8 @@
 </span></span><span class="line"><span class="cl"><span class="o">})</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Worker</span><span class="o">&gt;</span> <span class="nf">getWorkers</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="编写-sqlmapconfig-配置文件">编写 SqlMapConfig 配置文件</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span></code></pre></div><h3 id="编写-sqlmapconfig-配置文件">编写 SqlMapConfig 配置文件</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Xml" data-lang="Xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE configuration
 </span></span></span><span class="line"><span class="cl"><span class="cp">PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;
 </span></span></span><span class="line"><span class="cl"><span class="cp">&#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>
@@ -1976,72 +1257,8 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;package</span> <span class="na">name=</span><span class="s">&#34;cn.offcn.dao&#34;</span><span class="nt">&gt;&lt;/package&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/mappers&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/configuration&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="编写测试方法-1">编写测试方法</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cn.offcn.dao.WorkerMapper</span><span class="o">;</span>
+</span></span></code></pre></div><h3 id="编写测试方法-1">编写测试方法</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cn.offcn.dao.WorkerMapper</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cn.offcn.entity.Worker</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cn.offcn.utils.MyBatisUtils</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.apache.ibatis.session.SqlSession</span><span class="o">;</span>
@@ -2099,106 +1316,36 @@
 </span></span><span class="line"><span class="cl">  <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="使用注解实现复杂关系映射开发">使用注解实现复杂关系映射开发</h2>
+</span></span></code></pre></div><h2 id="使用注解实现复杂关系映射开发">使用注解实现复杂关系映射开发</h2>
 <h3 id="复杂关系映射的注解介绍">复杂关系映射的注解介绍</h3>
-<pre tabindex="0"><code>@Results  注解
-代替的是标签&lt;resultMap&gt;
-该注解中可以使用单个@Result 注解，也可以使用@Result 集合
-@Results（{@Result（），@Result（）}）或@Results（@Result（））
-@Resutl 注解
-代替了 &lt;id&gt; 标签和&lt;result&gt; 标签
-@Result  中  属性介绍：
-id 是否是主键字段
-column 数据库的列名
-property 需要装配的属性名
-one 需要使用的@One 注解（@Result（one=@One）（）））
-many 需要使用的@Many 注解（@Result（many=@many）（）））
-@One  注解（一对一）
-代替了&lt;assocation&gt; 标签，是多表查询的关键，在注解中用来指定子查询返回单一对象。
-@One  注解属性介绍：
-select 指定用的 来多表查询的 sqlmapper
-fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
-使用格式：
-@Result(column=&#34; &#34;,property=&#34;&#34;,one=@One(select=&#34;&#34;))
-@Many  注解（多对一）
-代替了&lt;Collection&gt; 标签, 是是多表查询的关键，在注解中用来指定子查询返回对象集合。
-注意：聚集元素用来处理“一对多”的关系。需要指定映射的 Java 实体类的属性，属性的 javaType
-（一般为 ArrayList）但是注解中可以不定义；
-使用格式：
-@Result(property=&#34;&#34;,column=&#34;&#34;,many=@Many(select=&#34;&#34;))
-</code></pre><h3 id="使用注解实现一对一复杂关系映射及延迟加载">使用注解实现一对一复杂关系映射及延迟加载</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@Results  注解
+</span></span><span class="line"><span class="cl">代替的是标签&lt;resultMap&gt;
+</span></span><span class="line"><span class="cl">该注解中可以使用单个@Result 注解，也可以使用@Result 集合
+</span></span><span class="line"><span class="cl">@Results（{@Result（），@Result（）}）或@Results（@Result（））
+</span></span><span class="line"><span class="cl">@Resutl 注解
+</span></span><span class="line"><span class="cl">代替了 &lt;id&gt; 标签和&lt;result&gt; 标签
+</span></span><span class="line"><span class="cl">@Result  中  属性介绍：
+</span></span><span class="line"><span class="cl">id 是否是主键字段
+</span></span><span class="line"><span class="cl">column 数据库的列名
+</span></span><span class="line"><span class="cl">property 需要装配的属性名
+</span></span><span class="line"><span class="cl">one 需要使用的@One 注解（@Result（one=@One）（）））
+</span></span><span class="line"><span class="cl">many 需要使用的@Many 注解（@Result（many=@many）（）））
+</span></span><span class="line"><span class="cl">@One  注解（一对一）
+</span></span><span class="line"><span class="cl">代替了&lt;assocation&gt; 标签，是多表查询的关键，在注解中用来指定子查询返回单一对象。
+</span></span><span class="line"><span class="cl">@One  注解属性介绍：
+</span></span><span class="line"><span class="cl">select 指定用的 来多表查询的 sqlmapper
+</span></span><span class="line"><span class="cl">fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
+</span></span><span class="line"><span class="cl">使用格式：
+</span></span><span class="line"><span class="cl">@Result(column=&#34; &#34;,property=&#34;&#34;,one=@One(select=&#34;&#34;))
+</span></span><span class="line"><span class="cl">@Many  注解（多对一）
+</span></span><span class="line"><span class="cl">代替了&lt;Collection&gt; 标签, 是是多表查询的关键，在注解中用来指定子查询返回对象集合。
+</span></span><span class="line"><span class="cl">注意：聚集元素用来处理“一对多”的关系。需要指定映射的 Java 实体类的属性，属性的 javaType
+</span></span><span class="line"><span class="cl">（一般为 ArrayList）但是注解中可以不定义；
+</span></span><span class="line"><span class="cl">使用格式：
+</span></span><span class="line"><span class="cl">@Result(property=&#34;&#34;,column=&#34;&#34;,many=@Many(select=&#34;&#34;))
+</span></span></code></pre></div><h3 id="使用注解实现一对一复杂关系映射及延迟加载">使用注解实现一对一复杂关系映射及延迟加载</h3>
 <h4 id="添加-person实体类及-idcard-实体类">添加 Person实体类及 IdCard 实体类</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">Person实体类:</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">Person实体类:</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
@@ -2262,24 +1409,8 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl"> <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="添加idcard的持久层接口并使用注解配置">添加IdCard的持久层接口并使用注解配置</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IdCardMapper</span> <span class="o">{</span>
+</span></span></code></pre></div><h4 id="添加idcard的持久层接口并使用注解配置">添加IdCard的持久层接口并使用注解配置</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IdCardMapper</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nd">@Select</span><span class="o">(</span><span class="s">&#34;select * from idcard where c_id=#{id}&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"> <span class="nd">@Results</span><span class="o">({</span>
@@ -2289,28 +1420,8 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl"> <span class="o">})</span>
 </span></span><span class="line"><span class="cl"> <span class="kd">public</span> <span class="n">IdCard</span> <span class="nf">getIdCardByPersonId</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="添加person持久层接口并使用注解配置">添加Person持久层接口并使用注解配置</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PersonMapper</span> <span class="o">{</span>
+</span></span></code></pre></div><h4 id="添加person持久层接口并使用注解配置">添加Person持久层接口并使用注解配置</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PersonMapper</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="nd">@Select</span><span class="o">(</span><span class="n">select</span> <span class="o">*</span> <span class="n">from</span> <span class="n">person</span> <span class="n">where</span>  <span class="n">p_id</span><span class="o">=</span><span class="err">#</span><span class="o">{</span><span class="n">id</span><span class="o">})</span>
 </span></span><span class="line"><span class="cl"> <span class="nd">@Results</span><span class="o">({</span>
@@ -2324,24 +1435,8 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl"> <span class="o">})</span>
 </span></span><span class="line"><span class="cl"> <span class="kd">public</span> <span class="n">Person</span> <span class="nf">getPersonById</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="测试一对一关联及延迟加载">测试一对一关联及延迟加载</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Test</span>
+</span></span></code></pre></div><h4 id="测试一对一关联及延迟加载">测试一对一关联及延迟加载</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGetPersonById</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">     <span class="n">SqlSession</span> <span class="n">session</span><span class="o">=</span><span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
@@ -2351,92 +1446,9 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl">     <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">     
 </span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="使用注解实现一对多复杂关系映射">使用注解实现一对多复杂关系映射</h3>
+</span></span></code></pre></div><h3 id="使用注解实现一对多复杂关系映射">使用注解实现一对多复杂关系映射</h3>
 <h4 id="构建department和employee实体类">构建Department和Employee实体类</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">Department实体类:</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">Department实体类:</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Department</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
@@ -2513,22 +1525,8 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl">     <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"> <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="department实体类加入-listemployee">Department实体类加入 <code>List&lt;Employee&gt;</code></h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">emps</span><span class="o">;</span>
+</span></span></code></pre></div><h4 id="department实体类加入-listemployee">Department实体类加入 <code>List&lt;Employee&gt;</code></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">emps</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">getEmps</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="n">emps</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -2536,27 +1534,8 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEmps</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">emps</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">     <span class="k">this</span><span class="o">.</span><span class="na">emps</span> <span class="o">=</span> <span class="n">emps</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="编写employeemapper持久层接口并使用注解配置">编写EmployeeMapper持久层接口并使用注解配置</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeMapper</span><span class="o">{</span>
+</span></span></code></pre></div><h4 id="编写employeemapper持久层接口并使用注解配置">编写EmployeeMapper持久层接口并使用注解配置</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeMapper</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="nd">@Select</span><span class="o">(</span><span class="s">&#34;select * from employee where e_depart_id=#{id}&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"> <span class="nd">@Results</span><span class="o">({</span>
@@ -2569,29 +1548,8 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="编写departmentmapper持久层接口并使用注解配置">编写DepartmentMapper持久层接口并使用注解配置</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">DepartmentDao</span> <span class="o">{</span>
+</span></span></code></pre></div><h4 id="编写departmentmapper持久层接口并使用注解配置">编写DepartmentMapper持久层接口并使用注解配置</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">DepartmentDao</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="nd">@Select</span><span class="o">(</span><span class="s">&#34;select d_id id,d_name name from department where d_id=#{id}&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"> <span class="kd">public</span> <span class="n">Department</span> <span class="nf">getDepartmentById</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">);</span>
@@ -2606,23 +1564,8 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl"> <span class="o">})</span>
 </span></span><span class="line"><span class="cl"> <span class="kd">public</span> <span class="n">Department</span> <span class="nf">getDepartmentById</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="添加测试方法">添加测试方法</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span>  <span class="nf">testGetDepartmentById</span><span class="o">(){</span>
+</span></span></code></pre></div><h4 id="添加测试方法">添加测试方法</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span>  <span class="nf">testGetDepartmentById</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">     <span class="n">SqlSession</span> <span class="n">session</span><span class="o">=</span><span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">     <span class="n">DepartmentMapper</span> <span class="n">departmentMapper</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">DepartmentMapper</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
@@ -2631,9 +1574,7 @@ fetchType 会覆盖全局的配置参数 lazyLoadingEnabled。
 </span></span><span class="line"><span class="cl">     <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+</span></span></code></pre></div>
             </div>
             <hr>
             <div style="text-align: center;">

@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>UFI001B刷入Debian部署青龙</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            2926 字
+            2917 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
             6 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,65 +547,22 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/blog/20220807155029/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">UFI001B刷入Debian部署青龙</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2022-08-07&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2022-08-07&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    2926 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    6 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 id="刷入debian">刷入Debian</h1>
 <h2 id="系统介绍">系统介绍</h2>
-<pre tabindex="0"><code>内核版本5.18.0
-微调了CPU频率，最大1.36GHz(性能提升一般)
-将板子置于fastboot模式下，运行flash.bat即可刷入
-boot镜像适用于UFi001W/QRZL903主板
-加入了sim卡槽切换支持，使用systemctl enable sim1/esim1 重启后即可切换卡槽
-加入了modem支持(由于放入错误的modem固件会导致CPU异常发热，所以没有放固件，固件请自行从NON-HLOS.bin中提取后放到/lib/firmware下)
-加入了WiFi支持，sudo nmtui即可管理
-加入了USB RNDIS、USB虚拟串口设备与USB存储设备支持，刷入后插上电脑出现一个u盘，使用里面的putty工具连接虚拟串口即可登录系统
-加入了开机自动扩容支持
-加入了ssh支持，apt源已配置为清华源，系统语言环境已配置为中文，时区配置至CST
-加入了带CPU温度显示的htop支持，sudo htop即可查看当前系统状态
-用户名ufi，密码ufi，已启用sudo
-</code></pre><p>sudo passwd</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">内核版本5.18.0
+</span></span><span class="line"><span class="cl">微调了CPU频率，最大1.36GHz(性能提升一般)
+</span></span><span class="line"><span class="cl">将板子置于fastboot模式下，运行flash.bat即可刷入
+</span></span><span class="line"><span class="cl">boot镜像适用于UFi001W/QRZL903主板
+</span></span><span class="line"><span class="cl">加入了sim卡槽切换支持，使用systemctl enable sim1/esim1 重启后即可切换卡槽
+</span></span><span class="line"><span class="cl">加入了modem支持(由于放入错误的modem固件会导致CPU异常发热，所以没有放固件，固件请自行从NON-HLOS.bin中提取后放到/lib/firmware下)
+</span></span><span class="line"><span class="cl">加入了WiFi支持，sudo nmtui即可管理
+</span></span><span class="line"><span class="cl">加入了USB RNDIS、USB虚拟串口设备与USB存储设备支持，刷入后插上电脑出现一个u盘，使用里面的putty工具连接虚拟串口即可登录系统
+</span></span><span class="line"><span class="cl">加入了开机自动扩容支持
+</span></span><span class="line"><span class="cl">加入了ssh支持，apt源已配置为清华源，系统语言环境已配置为中文，时区配置至CST
+</span></span><span class="line"><span class="cl">加入了带CPU温度显示的htop支持，sudo htop即可查看当前系统状态
+</span></span><span class="line"><span class="cl">用户名ufi，密码ufi，已启用sudo
+</span></span></code></pre></div><p>sudo passwd</p>
 <h2 id="配置交换分区">配置交换分区</h2>
 <h3 id="创建交换空间文件">创建交换空间文件</h3>
 <p>在此教程中，我们将创建<code>2 GB</code>大小的交换空间文件。如果要添加更多交换空间，请将<code>2G</code>替换为你所需交换空间的大小。
@@ -550,19 +570,19 @@ boot镜像适用于UFi001W/QRZL903主板
 fallocate和dd命令都可以帮助快速创建指定大小的文件，fallocate比dd命令更易于理解。具体选择取决于你。
 如果您的系统上没有<code>fallocate</code>命令，或者您收到一条错误消息，提示<code>fallocate failed: Operation not supported</code>操作不支持。
 你可使用dd命令创建swap交换空间文件。以下<code>fallocate</code>和<code>dd</code>命令将会在你Debian 9 Linux的根目录中创建交换空间文件swapfile，大小是2G。</p>
-<pre tabindex="0"><code>sudo fallocate -l 2G /swapfile
-sudo dd if=/dev/zero of=/swapfile bs=1024 count=2097152
-</code></pre><p>默认交换空间文件的权限只有root用户才能写入和读取交换文件的数据。因此我们需要修改交换空间文件的权限为<code>600</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo fallocate -l 2G /swapfile
+</span></span><span class="line"><span class="cl">sudo dd if=/dev/zero of=/swapfile bs=1024 count=2097152
+</span></span></code></pre></div><p>默认交换空间文件的权限只有root用户才能写入和读取交换文件的数据。因此我们需要修改交换空间文件的权限为<code>600</code>。</p>
 <p>在Linux中可使用<a class="link" href="/posts/blog/https://www.myfreax.com/chmod-command-in-linux/"  target="_blank" rel="noopener"
     >chmod修改文件权限</a>，除此之外你还需要格式化交换空间的文件。交换空间文件所使用的文件系统与普通文件系统不一样，</p>
 <p>交换空间它有自己的文件系统格式和专用个格式化工具<code>mkswap</code>。以下命令将修改交换空间文件的权限为600，并使用<code>mkswap</code>格式化文件：</p>
-<pre tabindex="0"><code>sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-</code></pre><h3 id="启用交换空间">启用交换空间</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo chmod 600 /swapfile
+</span></span><span class="line"><span class="cl">sudo mkswap /swapfile
+</span></span></code></pre></div><h3 id="启用交换空间">启用交换空间</h3>
 <p>当你格式化完成后，为了让系统识别交换空间文件，因此还需要手动启用交换空间文件。</p>
 <p>在Debian 9 Linux中你可以使用<code>swapon</code>命令启用交换空间文件，它将会在自动挂载到系统中。运行以下<code>swapon</code>命令启用交换空间</p>
-<pre tabindex="0"><code>sudo swapon /swapfile
-</code></pre><p><code>swapon</code>命令启用交换空间仅此次会话可用，重启后将不会自动挂载。为了让交换空间永久启用，并在开机启动时自动<a class="link" href="/posts/blog/https://www.myfreax.com/how-to-mount-and-unmount-file-systems-in-linux/"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo swapon /swapfile
+</span></span></code></pre></div><p><code>swapon</code>命令启用交换空间仅此次会话可用，重启后将不会自动挂载。为了让交换空间永久启用，并在开机启动时自动<a class="link" href="/posts/blog/https://www.myfreax.com/how-to-mount-and-unmount-file-systems-in-linux/"  target="_blank" rel="noopener"
     >挂载</a>。</p>
 <p>要在Linux系统启动时自动挂载分区，你需要在<code>/etc/fstab</code>文件中定义挂载配置选项。</p>
 <p><code>/etc/fstab</code>文件存储着文件系统的静态挂载信息，可用于定义磁盘分区，各种其他块设备或远程文件系统，告知Linux内核如何在挂载这些设备文件。</p>
@@ -570,12 +590,12 @@ sudo mkswap /swapfile
     >echo</a>，<a class="link" href="/posts/blog/https://www.myfreax.com/linux-tee-command/"  target="_blank" rel="noopener"
     >tee命令</a>以及<a class="link" href="/posts/blog/https://www.myfreax.com/bash-redirect-stderr-stdout/"  target="_blank" rel="noopener"
     >管道</a>追加行<code>/swapfile swap swap defaults 0 0</code>到将<code>/etc/fstab</code>文件文件：</p>
-<pre tabindex="0"><code>echo &#34;/swapfile swap swap defaults 0 0&#34; | sudo tee -a /etc/fstab
-</code></pre><p>当计算机在重启时，交换空间将会自动启用。通过使用<code>swapon</code>或<a class="link" href="/posts/blog/https://www.myfreax.com/free-command-in-linux/"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo &#34;/swapfile swap swap defaults 0 0&#34; | sudo tee -a /etc/fstab
+</span></span></code></pre></div><p>当计算机在重启时，交换空间将会自动启用。通过使用<code>swapon</code>或<a class="link" href="/posts/blog/https://www.myfreax.com/free-command-in-linux/"  target="_blank" rel="noopener"
     ><code>free</code>命令</a>验证交换空间是否处于活动状态。</p>
-<pre tabindex="0"><code>sudo swapon --show
-sudo free -h
-</code></pre><h3 id="swappiness">Swappiness</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo swapon --show
+</span></span><span class="line"><span class="cl">sudo free -h
+</span></span></code></pre></div><h3 id="swappiness">Swappiness</h3>
 <p>Swappiness是一个Linux内核属性，用于定义系统使用交换空间的频率。Swappiness可以是0到100之间的值。</p>
 <p>swappiness=0的时候表示最大限度使用物理内存，然后才是swap空间，swappiness＝100的时候表示积极的使用交换空间。</p>
 <p>如果你不能确定该值大小，请参考我们的教程：<a class="link" href="/posts/blog/https://www.myfreax.com/why-you-should-add-swap-space/"  target="_blank" rel="noopener"
@@ -586,16 +606,16 @@ sudo free -h
 <p><code>sysctl</code>命令用于在运行时配置Linux内核的参数，更改仅在当前会话中可用，即重启会恢复为默认值。</p>
 <p>为让swappiness的值持久化，则需要将值写入到<code>/etc/sysctl.conf</code>文件中。<code>sysctl.conf</code>是Linux内核的配置文件。在Linux内核启动是将会次配置文件的参数。</p>
 <p>运行以下命令持久化Linux内核参数swappiness的值：</p>
-<pre tabindex="0"><code>echo &#34;/swapfile swap swap defaults 0 0&#34; | sudo tee -a /etc/sysctl.conf
-</code></pre><h3 id="删除交换空间">删除交换空间</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo &#34;/swapfile swap swap defaults 0 0&#34; | sudo tee -a /etc/sysctl.conf
+</span></span></code></pre></div><h3 id="删除交换空间">删除交换空间</h3>
 <p>如果你因某些原因需要关闭并且删除交换文件。你必须首先使用<code>swapoff</code>命令关闭交换空间。</p>
 <p>如果你的交换空间文件还启用fstab方式的自动挂载，你还需要删除<code>/etc/fstab</code>文件中定义的自动挂载配置。</p>
-<pre tabindex="0"><code>sudo swapoff -v /swapfile
-</code></pre><p>接着，使用你喜欢的<a class="link" href="/posts/blog/https://www.myfreax.com/tag/vim/"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo swapoff -v /swapfile
+</span></span></code></pre></div><p>接着，使用你喜欢的<a class="link" href="/posts/blog/https://www.myfreax.com/tag/vim/"  target="_blank" rel="noopener"
     >编辑器</a>打开文件<code>/etc/fstab</code>，并移除行定义交换空间自动挂载的行。在本教程中，我们将<a class="link" href="/posts/blog/https://www.myfreax.com/the-basis-of-the-linux-vim-command/"  target="_blank" rel="noopener"
     >使用vim命令打开文件</a>。</p>
-<pre tabindex="0"><code>sudo vim /etc/fstab
-</code></pre><p>最后<a class="link" href="/posts/blog/https://www.myfreax.com/how-to-save-file-in-vim-quit-editor/"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo vim /etc/fstab
+</span></span></code></pre></div><p>最后<a class="link" href="/posts/blog/https://www.myfreax.com/how-to-save-file-in-vim-quit-editor/"  target="_blank" rel="noopener"
     >保存并退出</a>。最后的一步是使用命令删除交换空间文件。你将<a class="link" href="/posts/blog/https://www.myfreax.com/rm-command-in-linux/"  target="_blank" rel="noopener"
     >使用rm命令删除文件</a>：<code>sudo rm /swapfile</code></p>
 <h3 id="结论">结论</h3>
@@ -603,55 +623,22 @@ sudo free -h
 <h2 id="增加开机自启脚本">增加开机自启脚本</h2>
 <p>在低版本的debian系linux系统中，增加开机自启脚本比较简单，直接修改/etc/rc.local文件，在exit 0之前增加需要运行的脚本即可。但是现在在高版本的linux中默认没有开启该功能，接下来我们通过设置来开启该功能。</p>
 <p>首先，我们到/lib/systemd/system目录下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /lib/systemd/system
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在该目录下，可以发现有个rc-local.service文件，使用文本编辑器，在最后加上下列信息即可。</p>
-<pre tabindex="0"><code>[Install]  
-WantedBy=multi-user.target
-</code></pre><p>由于没有/etc/rc.local文件，所以我们需要手动创建它，并写入以下信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh -e
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /lib/systemd/system
+</span></span></code></pre></div><p>在该目录下，可以发现有个rc-local.service文件，使用文本编辑器，在最后加上下列信息即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Install]  
+</span></span><span class="line"><span class="cl">WantedBy=multi-user.target
+</span></span></code></pre></div><p>由于没有/etc/rc.local文件，所以我们需要手动创建它，并写入以下信息</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh -e
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 在这里输入需要自启的脚本</span>
 </span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="m">0</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建完成后需要给其赋予运行权限</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod +x /etc/rc.local
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动该服务</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> rc-local  <span class="c1"># 启用</span>
+</span></span></code></pre></div><p>创建完成后需要给其赋予运行权限</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod +x /etc/rc.local
+</span></span></code></pre></div><p>启动该服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> rc-local  <span class="c1"># 启用</span>
 </span></span><span class="line"><span class="cl">sudo systemctl start rc-local.service <span class="c1"># 开始运行</span>
 </span></span><span class="line"><span class="cl">sudo systemctl status rc-local.service  <span class="c1"># 查看状态</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这个时候，我们的开机自启服务就完成了。</p>
+</span></span></code></pre></div><p>这个时候，我们的开机自启服务就完成了。</p>
 <h1 id="docker环境配置">Docker环境配置</h1>
 <p>连接WiFi
 <code>sudo nmtui</code><br>
@@ -676,16 +663,16 @@ WantedBy=multi-user.target
 <p><em>千次阅读</em></p>
 <p>2019-05-08 16:46:25</p>
 <p>创建或修改 /etc/docker/daemon.json 文件，修改为如下形式</p>
-<pre tabindex="0"><code># vi /etc/docker/daemon.json
-
-{
-
-&#34;registry-mirrors&#34;: [&#34;http://hub-mirror.c.163.com&#34;]
-
-}
-
-systemctl restart docker.service
-</code></pre><p>国内加速地址有：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># vi /etc/docker/daemon.json
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#34;registry-mirrors&#34;: [&#34;http://hub-mirror.c.163.com&#34;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">systemctl restart docker.service
+</span></span></code></pre></div><p>国内加速地址有：</p>
 <p>Docker中国区官方镜像<br>
 <a class="link" href="/posts/blog/https://registry.docker-cn.com"  target="_blank" rel="noopener"
     >https://registry.docker-cn.com</a></p>

@@ -3,7 +3,8 @@
   
   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+
   <title>SQL命令01</title>
   <meta name="description" content="MJH Blog & MEET HTML Theme">
   
@@ -12,12 +13,60 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
     }
   </script>
   <style>
+    .highlight {
+      overflow-x: auto;
+    }
+
+    pre {
+      position: relative;
+      padding: 30px 10px 10px 10px;
+      border-width: 1px;
+      border-color:#7c4242;
+    }
+
+    .post-content pre code {
+      font-family: Consolas;
+    }
+
+    pre::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #ff5f56;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 12px;
+      margin-top: 12px;
+      -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+      box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+
+
+
+
+
+
+
+
+
+
+    html,
+    body {
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .page-list {
       height: 18em;
       background-color: rgba(255, 255, 255, 0);
@@ -167,7 +216,7 @@
          
         padding: 0% 2% 0% 2%;
       }
-      
+
     }
   </style>
 
@@ -176,9 +225,9 @@
 
   <style>
     a.toc-link {
-        color: currentColor;
-        height: auto;
-      }
+      color: currentColor;
+      height: auto;
+    }
 
      
     ::-webkit-scrollbar {
@@ -434,7 +483,7 @@
     
   </ul>
 </nav>
-  <div style="width: 100%; height: 60vh;">
+  <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
         <input type="checkbox" id="check">
@@ -456,15 +505,29 @@
           <span>
             
             <i class="fa fa-edit"></i>
-            3595 字
+            3304 字
           </span>&nbsp;
           <span>
             
             <i class="fa fa-paper-plane"></i>
-            8 分钟
+            7 分钟
           </span>
-        </div>
-        
+        </div><div class="container-ctgtag">
+	<div class="taxonomy">
+		
+		<div class="ctg">
+			
+			
+		</div>
+		<div class="tag">
+			
+			 - 
+			
+			<a href="/tags/"></a>
+			
+		</div>
+	</div>
+</div>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
         <script>
@@ -484,49 +547,6 @@
 <main id="content-outer">
     <div class="layout_page" id="content-inner">
         <article id="page" style="margin-right: 10px;">
-            <div class="cover-content post">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">/posts/001/20220430223589/ </a></li>
-                    <li class="breadcrumb-item active" aria-current="page">SQL命令01</li>
-                  </ol>
-                </nav>
-                
-                <div class="post-header">
-                  <span>
-                    
-                    <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
-                    2021-11-30&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
-                    2021-11-30&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    
-                    <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-                    3595 字</span>&nbsp;
-                <span>
-                    
-                    <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-                    8 分钟</span>
-                </div><div class="container-ctgtag">
-	<div class="taxonomy">
-		
-		<div class="ctg">
-			
-			
-		</div>
-		<div class="tag">
-			
-			 - 
-			
-			<a href="/tags/"></a>
-			
-		</div>
-	</div>
-</div></div>
             <div class="js-toc-content">
                 <h1 id="sql命令">SQL命令</h1>
 <h2 id="分类">分类</h2>
@@ -538,69 +558,7 @@
 <li>事务</li>
 </ol>
 <h2 id="ddl">DDL</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="n">DDL</span><span class="w">  </span><span class="err">数据定义语言数据库的创建和删除、数据表的创建、删除和修改</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="n">DDL</span><span class="w">  </span><span class="err">数据定义语言数据库的创建和删除、数据表的创建、删除和修改</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="err">库操作</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">查看所有库：</span><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">     	</span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">创建数据库：</span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="err">库名</span><span class="p">;</span><span class="w">
@@ -658,29 +616,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="err">⑩</span><span class="w"> </span><span class="err">外键删除</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                	</span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">stu</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="err">外键名</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">stu</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="err">外键名</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w"> </span><span class="n">MySQL常见类型</span><span class="err">：</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w"> </span><span class="n">MySQL常见类型</span><span class="err">：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">整型：</span><span class="n">tinyint</span><span class="o">/</span><span class="nb">smallint</span><span class="o">/</span><span class="nb">int</span><span class="o">/</span><span class="nb">bigint</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">浮点型：</span><span class="n">double</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="nb">decimal</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">n</span><span class="w"> </span><span class="err">代表：整数和小数总位数</span><span class="w">
@@ -696,23 +632,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">				
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">time</span><span class="w"> </span><span class="err">时分秒</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">timestamp</span><span class="w"> </span><span class="err">年月日</span><span class="w"> </span><span class="err">时分秒</span><span class="w">  </span><span class="mi">4</span><span class="err">个字节</span><span class="w">  </span><span class="mi">1970</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="mi">2038</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="n">MySQL约束</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="n">MySQL约束</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">约束是限制</span><span class="w"> </span><span class="err">表中数据的</span><span class="w"> </span><span class="err">一种要求</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">约束：</span><span class="w">
@@ -722,25 +642,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">		
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">唯一约束</span><span class="w">  </span><span class="k">unique</span><span class="w">  </span><span class="err">唯一</span><span class="w"> </span><span class="err">可以为</span><span class="k">null</span><span class="w"> </span><span class="n">null可以多个</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="err">外键约束</span><span class="w">  </span><span class="err">建立两表之间的关系，一个表的某一列</span><span class="w"> </span><span class="err">来源于另一个表的主键值</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="dml">DML</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">增</span><span class="p">(</span><span class="err">插入</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><h2 id="dml">DML</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">增</span><span class="p">(</span><span class="err">插入</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">列名</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="mi">2</span><span class="p">,...)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">值</span><span class="mi">2</span><span class="p">,....)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">列名</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="mi">2</span><span class="p">,...)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">值</span><span class="mi">2</span><span class="p">,....),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">值</span><span class="mi">2</span><span class="p">,....),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">值</span><span class="mi">2</span><span class="p">,....)....</span><span class="w">
@@ -751,26 +654,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">不区分单双引号</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="err">如果约束有默认约束和可以为空的列</span><span class="w"> </span><span class="err">值可以不写</span><span class="w"> </span><span class="err">对应列也不写</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="mi">6</span><span class="p">.</span><span class="w"> </span><span class="err">如果表中所有列都给数据</span><span class="w"> </span><span class="err">列名可以省略不写</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">删</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">删</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">全部删除</span><span class="w">
@@ -783,44 +667,20 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        	</span><span class="k">truncate</span><span class="w"> </span><span class="err">删除自增字段再次添加重新开始</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">④</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="err">一条一条数据删除</span><span class="w">  </span><span class="k">truncate</span><span class="w"> </span><span class="err">删除整个表</span><span class="w"> </span><span class="err">然后再创建新表</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">        	</span><span class="n">truncate效率高</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">修改</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">修改</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="k">update</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="err">列名</span><span class="mi">1</span><span class="o">=</span><span class="err">新值</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="mi">2</span><span class="o">=</span><span class="err">新值</span><span class="p">,...</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">注意：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件要加</span><span class="w"> </span><span class="err">否则修改所有数据</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="dql">DQL</h2>
+</span></span></span></code></pre></div><h2 id="dql">DQL</h2>
 <p>数据查询语言，查询数据库表中的数据。查询的结果为虚拟表</p>
 <h3 id="基础查询">基础查询</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">特点：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">查询列表可以是</span><span class="w"> </span><span class="err">常量、变量、函数、表达式、字段名或者组合</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">查询数据来源于表</span><span class="w"> </span><span class="err">加</span><span class="w"> </span><span class="k">from</span><span class="w">  </span><span class="err">否则不加</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">查询列表为虚拟表的列名</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223549926.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223549926.png"
     
     
     
@@ -829,27 +689,14 @@
     
 ></p>
 <h3 id="条件查询">条件查询</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">特点：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">条件形式</span><span class="w"> </span><span class="err">有多种：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">条件表达式：</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w">  </span><span class="o">&gt;=</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">!=</span><span class="err">或者</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">逻辑表达式：</span><span class="k">and</span><span class="p">(</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w">  </span><span class="k">or</span><span class="p">(</span><span class="o">||</span><span class="p">)</span><span class="w">  </span><span class="k">not</span><span class="p">(</span><span class="o">!</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">模糊表达式：</span><span class="k">like</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">between</span><span class="p">...</span><span class="k">and</span><span class="p">...</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223556159.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223556159.png"
     
     
     
@@ -874,20 +721,7 @@
     
 ></p>
 <h3 id="排序查询">排序查询</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="err">表名</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="w">
@@ -896,9 +730,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="err">必须写在</span><span class="n">where后</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">排序列表：单字段名、表达式、函数、别名、多字段名或者组合</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="k">asc</span><span class="w"> </span><span class="err">升序</span><span class="p">(</span><span class="err">默认</span><span class="p">)</span><span class="w">   </span><span class="n">desc降序</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223607231.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223607231.png"
     
     
     
@@ -915,46 +747,7 @@
     
 ></p>
 <h3 id="常见函数">常见函数</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">单行函数：传递一个参数返回一个结果</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">单行函数：传递一个参数返回一个结果</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">字符函数：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="k">length</span><span class="p">();</span><span class="w"> </span><span class="err">获取字符长度</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="k">upper</span><span class="p">();</span><span class="w">  </span><span class="err">转大写</span><span class="w">
@@ -989,9 +782,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">		   			</span><span class="k">else</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">		 		</span><span class="k">end</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223620412.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223620412.png"
     
     
     
@@ -1023,23 +814,7 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">多行函数：传递一组参数返回一个结果</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">多行函数：传递一组参数返回一个结果</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="k">sum</span><span class="p">();</span><span class="w"> </span><span class="err">求和</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">avg</span><span class="p">();</span><span class="w"> </span><span class="err">平均值</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">max</span><span class="p">();</span><span class="w"> </span><span class="err">最大值</span><span class="w">
@@ -1051,9 +826,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">多行函数支持类型</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">sum</span><span class="w"> </span><span class="k">avg</span><span class="w"> </span><span class="err">只支持数值类型</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">max</span><span class="w"> </span><span class="k">min</span><span class="w"> </span><span class="n">count支持任意类型</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223643230.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223643230.png"
     
     
     
@@ -1062,21 +835,7 @@
     
 ></p>
 <h3 id="分组查询">分组查询</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w">  </span><span class="c1">----- ④
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="err">表名</span><span class="w">	 </span><span class="c1">------ ①
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="err">分组之前条件</span><span class="w"> </span><span class="c1">------ ② 
@@ -1086,9 +845,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">特点</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">分组查询查询列表中只能查询到分组函数和分组字段</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">分组查询执行顺序</span><span class="w"> </span><span class="err">后执行可以使用前执行的别名</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223646851.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223646851.png"
     
     
     
@@ -1113,22 +870,7 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="err">表名</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="err">分组前条件</span><span class="w">
@@ -1139,9 +881,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">特点：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">偏移量</span><span class="w"> </span><span class="err">跳过前面的个数</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">个数</span><span class="w"> </span><span class="err">一页要查询的个数</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223711037.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223711037.png"
     
     
     
@@ -1166,34 +906,7 @@
     
 ></p>
 <h2 id="连接查询-1">连接查询</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">内连接查询</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">内连接查询</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">隐式内连接</span><span class="p">(</span><span class="n">sql92</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w">
@@ -1216,9 +929,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    
 </span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223724258.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223724258.png"
     
     
     
@@ -1242,30 +953,7 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w">  </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">显示内连接</span><span class="p">(</span><span class="n">sql99</span><span class="p">)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w">  </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">显示内连接</span><span class="p">(</span><span class="n">sql99</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      	</span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      	</span><span class="k">from</span><span class="w"> </span><span class="err">表</span><span class="mi">1</span><span class="w"> </span><span class="err">别名</span><span class="mi">1</span><span class="w"> 
@@ -1284,9 +972,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="err">②</span><span class="w"> </span><span class="err">非等值内连接</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="err">③</span><span class="w"> </span><span class="err">自连接</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="n">n表连接</span><span class="w"> </span><span class="err">连接条件至少</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="err">个</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223735773.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223735773.png"
     
     
     
@@ -1310,28 +996,7 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">外连接查询</span><span class="p">(</span><span class="n">sql99</span><span class="p">)</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="err">外连接查询</span><span class="p">(</span><span class="n">sql99</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">语法</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">select</span><span class="w"> </span><span class="err">查询列表</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="k">from</span><span class="w"> </span><span class="err">表</span><span class="mi">1</span><span class="w"> </span><span class="err">别名</span><span class="mi">1</span><span class="w">
@@ -1348,9 +1013,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	 </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="k">right</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="err">右外连接指</span><span class="w"> </span><span class="err">右表为主表</span><span class="p">(</span><span class="err">所有数据查询</span><span class="p">)</span><span class="w">  </span><span class="err">左表为副表</span><span class="p">(</span><span class="err">有对应主表的数据查询</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="err">查询结果</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">主表中所有数据、副表中有对应关系的数据</span><span class="w"> </span><span class="err">以及与主表中没有对应关系的显示为</span><span class="k">null</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	 </span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">表之间的顺序不能随意调换，否则会影响结果</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223747093.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223747093.png"
     
     
     
@@ -1367,26 +1030,7 @@
     
 ></p>
 <h2 id="子查询">子查询</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w">	</span><span class="err">一个查询语句中嵌套了另一个完整的查询语句，被嵌套的语句称为子查询或内查询，外面的语句称为主查询或外查询</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w">	</span><span class="err">一个查询语句中嵌套了另一个完整的查询语句，被嵌套的语句称为子查询或内查询，外面的语句称为主查询或外查询</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="k">select</span><span class="w"> </span><span class="p">(</span><span class="err">子查询</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="k">from</span><span class="w"> </span><span class="p">(</span><span class="err">子查询</span><span class="p">)</span><span class="w">
@@ -1401,9 +1045,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">原则：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">能用单表</span><span class="w"> </span><span class="err">不使用多表</span><span class="w">  </span><span class="err">能用多表不用子查询</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223754754.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223754754.png"
     
     
     
@@ -1460,26 +1102,7 @@
     
     
 ></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">事务的特性</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">事务的特性</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">①</span><span class="w"> </span><span class="err">原子性</span><span class="w">  </span><span class="err">事务是不可分割的</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">②</span><span class="w"> </span><span class="err">一致性</span><span class="w">  </span><span class="err">数据的一致性</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">③</span><span class="w"> </span><span class="err">持久性</span><span class="w">  </span><span class="err">事务完成之后数据是持久化存储的</span><span class="w">
@@ -1494,9 +1117,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">可重复读</span><span class="w"> </span><span class="k">REPEATABLE</span><span class="w"> </span><span class="k">READ</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    			</span><span class="err">引发问题：幻读</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">串行化</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/posts/001/20220430223589/image-20220430223813549.png"
+</span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223813549.png"
     
     
     

@@ -1,164 +1,457 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="description" content="Linux常用命令 - https://lovemjh.github.io/posts/tool/20220523233691/">
-    
-    <meta name="msvalidate.01" content="B46311949B856F2A7015F366FB3CE878" />
-    <title>Linux常用命令</title>
-    <link rel="icon" type="image/png" href="/favicon.ico">
-    
-    <link rel="stylesheet" href="https://lovemjh.github.io/style.min.824365c118b34524ce845ac2a294220354719cca11af5b27a81b04c173bbba57.css">
-    
-    <script type="text/javascript" src="/main.js" defer></script>
-    
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+  <meta name="description" content="MJH Blog & MEET HTML Theme">
+  <title>Linux常用命令</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <script type="text/javascript">
+    if (!!window.ActiveXObject || "ActiveXObject" in window) { 
+      alert('朋友，上古浏览器不支持呢~');
+    }
+  </script>
+
+  <style>
+    .sidebar {
+      z-index: 998;
+      position: fixed;
+      left: -200px;
+      width: 200px;
+      height: 100%;
+      background: #ffffff;
+      transition: all .5s ease;
+    }
+
+    .sidebar .top {
+      font-size: 22px;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      height: 60px;
+      line-height: 60px;
+      background-color: rgb(255, 255, 255);
+      user-select: none;
+
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      line-height: 45px;
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      box-sizing: border-box;
+      border-top: 1px solid rgb(255, 0, 0);
+      border-bottom: 1px solid rgb(0, 17, 255);
+      transition: .4s;
+    }
+
+    .sidebar ul li:hover a {
+      padding-left: 30px;
+      color: #7c4242;
+      border-left: 5px solid #ffffff;
+      transition: all 0.5s;
+    }
+
+    .sidebar ul a i {
+      margin-right: 16px;
+    }
+
+    #check {
+      display: none;
+    }
+
+    label #btn,
+    label #cancel {
+      position: fixed;
+      cursor: pointer;
+      background-color: #000000;
+      border-radius: 3px;
+    }
+
+    label #btn {
+      left: 5px;
+      top: 7px;
+      font-size: 25px;
+      color: #fff;
+      padding: 6px 10px;
+      transition: all .5s;
+      z-index: 999;
+    }
+
+    label #cancel {
+      z-index: 999;
+      left: -145px;
+      top: 10px;
+      font-size: 25px;
+      color: rgb(255, 255, 255);
+      padding: 4px 9px;
+      transition: all .5s ease;
+    }
+
+    #check:checked~.sidebar {
+      left: 0;
+    }
+
+    #check:checked~label #btn {
+      left: 10px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #check:checked~label #cancel {
+      left: 150px;
+    }
+
+
+
+
+
+
+
+     
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 6px
+    }
+
+     
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em
+    }
+
+     
+    ::-webkit-scrollbar-thumb {
+      background-color: #30B07F;
+      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 100%, transparent 100%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em
+    }
+
+
+
+
+
+
+     
+    .navigation {
+      width: 100%;
+      height: 50px;
+       
+      position: fixed;
+      left: 0;
+      top: 0;
+      text-align: center;
+      transition: top 0.5s;
+      z-index: 999;
+
+      background: rgba(255, 255, 255, .4) !important;
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px) !important;
+    }
+
+     
+    .hide {
+      top: -60px;
+    }
+
+
+
+     
+    .btn {
+      width: 120px;
+      height: 40px;
+      background: linear-gradient(315deg, #a4d8fa 0%, #5eb1e9 74%);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: smaller;
+      color: #fff;
+      box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+      outline: none;
+      position: relative;
+      z-index: 0;
+    }
+
+    .btn::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      background: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      top: 0;
+      height: 100%;
+    }
+
+    .btn:active {
+      top: 2px;
+    }
+
+
+
+
+     
+    a.toc-link {
+      color: currentColor;
+      height: auto;
+    }
+
+     
+    * {
+      font-family: LXGW WenKai
+    }
+
+    * {
+      font-weight: bold
+    }
+
+    body {
+      font-family: LXGW WenKai;
+    }
+
+
+
+
+     
+    .pagination {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      margin: 0px;
+    }
+
+    .pagination a {
+      text-decoration: none;
+      font-size: 22px;
+      color: rgb(0, 0, 0);
+    }
+
+    .page-item {
+      display: inline;
+      margin-right: 20px;
+    }
+  </style>
+
 </head>
-<body class="active-animate cool">
-        <div id="header"><div class="container-header">
-    <div id="vars" class="container-vars" style="display: none;">
-	{
-		"hasFoldAllCodeBlocks": false,
-		"svgColor": "#6c757d",
-		"en": false,
-		"dark": false
-	}
+    <body style="    
+    background-image: url(https://api.ixiaowai.cn/api/api.php);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;">
+    <input type="checkbox" id="check">
+<label for="check">
+  <i class="fa fa-bars" id="btn"></i>
+  <i class="fa fa-times" id="cancel"></i>
+</label>
+<div class="sidebar">
+  <div class="top">Hi~</div>
+  <ul>
+    
+    <li class="lii">
+      <a href="/">
+        <div class="burger-item">
+          <i class='fa fa-home'></i> 主页
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/posts">
+        <div class="burger-item">
+          <i class='fa fa-archive'></i> 文章
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/categories">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> 分类
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/archive">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> 归档
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/tags">
+        <div class="burger-item">
+          <i class='fa fa-tags'></i> 标签
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/about">
+        <div class="burger-item">
+          <i class='fa fa-info-circle'></i> 关于
+        </div>
+      </a>
+    </li>
+    
+  </ul>
 </div>
-    <h1 class="title">
+<div id="body-wrap">
+  <nav class="navigation">
+  <ul class="ull">
+    
+    <li class="lii">
+      <a href="/">
+        <div class="burger-item">
+          <i class='fa fa-home'></i> 主页
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/posts">
+        <div class="burger-item">
+          <i class='fa fa-archive'></i> 文章
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/categories">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> 分类
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/archive">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> 归档
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/tags">
+        <div class="burger-item">
+          <i class='fa fa-tags'></i> 标签
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/about">
+        <div class="burger-item">
+          <i class='fa fa-info-circle'></i> 关于
+        </div>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+  <div style="width: 100%; height: 65vh;">
+    <div id="page_site-info">
+      <div id="site-title">
+        <input type="checkbox" id="check">
+        <br>
+        <span class="blogtitle"></span>
         
-            Linux常用命令
+        
+        <div class="post-header">
+          <span>
             
-        
-    </h1>
-
-    <div class="container-breadcrumb-nav">
-    
-    <div class="breadcrumb-nav-bar">
-        <div><a href="/"><svg t="1656411084410" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2954" width="16" height="16"><path d="M947.5 390.6l-377-290c-34.5-26.5-82.6-26.5-117.1 0l-377 290c-14 10.8-16.6 30.9-5.9 44.9 10.8 14 30.9 16.6 44.9 5.9l28.5-21.9V768c0 88.2 71.8 160 160 160h80c35.3 0 64-28.7 64-64V640c0-17.6 14.4-32 32-32h64c17.6 0 32 14.4 32 32v224c0 35.3 28.7 64 64 64h80c88.2 0 160-71.8 160-160V419.4l28.5 21.9c5.8 4.5 12.7 6.6 19.5 6.6 9.6 0 19.1-4.3 25.4-12.5 10.8-13.9 8.2-34-5.8-44.8zM816 768c0 52.9-43.1 96-96 96h-80V640c0-52.9-43.1-96-96-96h-64c-52.9 0-96 43.1-96 96v224h-80c-52.9 0-96-43.1-96-96V370.2l284.5-218.8c11.5-8.8 27.5-8.8 39 0L816 370.2V768z" fill=#6c757d p-id="2955"></path></svg></a></div>
-        <div><a href="/nav"><svg t="1656411531924" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5827" width="16" height="16"><path d="M849.59197473 125.23018519L139.22930586 391.72854662a23.35052669 23.35052669 0 0 0-14.95414244 21.65490745c-0.12257519 9.70384955 5.61801843 18.46795771 14.40255493 22.04306141l318.42928099 129.25528056 119.51057092 320.39047893c3.06437293 8.23295069 10.35758221 13.89182751 18.7335381 14.87242563l2.7170774 0.14300521a22.79893918 22.79893918 0 0 0 21.20546682-15.36272638l259.51158924-729.54564933a23.8612558 23.8612558 0 0 0-5.31158128-24.55584682 22.3290685 22.3290685 0 0 0-23.9021142-5.43415649zM793.65694081 211.64552314l-196.63064161 552.75171747-91.91077952-246.37564122-253.62799211-102.96295445 542.16941324-203.4131218z" p-id="5828" fill=#6c757d></path></svg></a></div>
-        <div><a href="/search"><svg t="1656411627509" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1730" width="14" height="14"><path d="M469.333333 85.333333c211.968 0 384 172.032 384 384s-172.032 384-384 384-384-172.032-384-384 172.032-384 384-384z m0 682.666667c164.992 0 298.666667-133.674667 298.666667-298.666667 0-165.034667-133.674667-298.666667-298.666667-298.666666-165.034667 0-298.666667 133.632-298.666666 298.666666 0 164.992 133.632 298.666667 298.666666 298.666667z m362.026667 3.029333l120.704 120.661334-60.373333 60.373333-120.661334-120.704 60.330667-60.330667z" p-id="1731" fill=#6c757d></path></svg></a></div>
-        <div><a href="/posts"><svg t="1656411724198" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5655" width="12" height="12"><path d="M811.705761 1024H212.294239c-93.1199 0-174.823046-87.570975-174.823046-187.387854V162.322018C37.471193 69.776145 112.604921 0 212.294239 0H596.190595l7.015883 5.93161c111.74388 95.479788 185.857116 170.741078 279.614824 266.093304 29.65805 30.040735 61.165743 62.122454 96.436499 97.393211l7.271006 7.334787v459.859234c-0.063781 99.816879-81.703145 187.387854-174.823046 187.387854zM212.294239 49.94033c-72.391155 0-124.882716 47.261538-124.882716 112.381688v674.290128c0 71.94469 59.507443 137.383743 124.882716 137.383743h599.411522c65.311492 0 124.882716-65.439053 124.882716-137.383743V397.417876c-32.528184-32.464404-61.73977-62.250016-89.356836-90.377328-90.951355-92.418312-163.278729-165.957521-269.601245-257.163999H212.294239z" fill=#6c757d p-id="5656"></path><path d="M936.588477 449.526752h-212.326129c-99.753099 0-187.324073-81.703145-187.324073-174.823046V49.94033a25.002055 25.002055 0 0 1 49.94033 0v224.763376c0 65.311492 65.502834 124.882716 137.383743 124.882716h212.326129a25.002055 25.002055 0 1 1 0 49.94033z" fill=#6c757d p-id="5657"></path></svg></a></div>
-        <div><a href="/archive"><svg t="1656411795742" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7334" width="12" height="12"><path d="M884.224 522.24H504.32V141.824c0-16.896-13.824-30.72-30.72-30.72-120.32 0-233.472 47.616-317.952 134.144S26.112 445.952 29.184 566.784c2.56 114.688 49.152 222.72 131.072 304.128 81.92 81.408 189.952 128 304.64 130.56h10.24c117.76 0 227.84-45.568 312.32-128.512 86.528-85.504 133.632-199.68 132.608-321.024-0.512-2.048-1.536-29.696-35.84-29.696z m-140.288 307.712c-74.752 73.728-173.056 112.64-277.504 110.592-205.824-4.608-370.688-169.472-375.296-374.784-3.072-104.448 35.84-202.752 108.544-277.504 65.536-67.072 151.552-107.52 243.712-114.688v378.88c0 16.896 13.824 30.72 30.72 30.72 129.024 0 311.296 0 382.976 0.512-6.144 93.184-46.08 179.712-113.152 246.272z" fill=#6c757d p-id="7335"></path><path d="M603.136 11.264c-8.192-0.512-15.872 3.072-22.016 8.704-5.632 5.632-9.216 13.824-9.216 22.016v378.88c0 16.896 13.824 30.72 30.72 30.72h378.88c16.896 0 30.72-13.824 30.72-30.72 0-223.744-183.808-407.552-409.088-409.6z m30.208 378.88V74.24c167.424 16.384 301.056 150.016 315.904 315.904h-315.904z" fill=#6c757d p-id="7336"></path></svg></a></div>
-        <div id="light-dark" style="cursor: pointer;"><a><svg t="1656411842215" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5086" width="12" height="12"><path d="M1007.492874 384.513055c-8.795694-34.58307-21.189627-67.666874-36.682043-99.05151-2.698679-5.397358-10.894667-3.498287-10.894666 2.598728v0.299853c0 32.484098-6.896624 63.868734-19.890263 92.554691-10.694764 23.488501-25.487523 45.077933-43.978471 64.068635-41.779547 42.679107-99.05151 66.967217-158.722299 67.26707-61.869712 0.299853-119.941284-24.188159-162.920244-68.966238-40.280281-41.979449-62.56937-98.251902-62.269516-156.323473 0.399804-59.270984 23.588452-114.94373 65.567901-156.823229 19.59041-19.59041 42.179351-35.082826 66.667364-46.077443C672.956643 71.166451 704.041426 64.469729 736.125719 64.469729h1.299364c6.097015 0 8.096037-8.096037 2.598728-10.794715C708.739126 37.982696 675.655322 25.488812 641.172203 16.493216 599.492607 5.598549 555.714038-0.098662 510.536154 0.001289 222.37722 0.700947-7.41029 237.38508 0.185992 525.444064c7.096526 271.667008 225.889418 490.559851 497.456474 497.856279 287.559228 7.796183 524.14341-220.891864 525.842579-508.551044 0.299853-44.977981-5.297407-88.656599-15.992171-130.236244z m-83.15929 301.552378c-22.588942 53.27392-54.873137 101.250434-95.953027 142.330323-41.179841 41.179841-89.056403 73.464036-142.330324 95.953027-55.172991 23.288599-113.744317 35.182777-174.314666 35.182777s-119.141675-11.794226-174.314666-35.182777c-53.27392-22.588942-101.250434-54.873137-142.330323-95.953027-41.179841-41.179841-73.464036-89.056403-95.953027-142.330323C75.749001 630.892442 63.954774 572.221164 63.954774 511.750767s11.794226-119.141675 35.182777-174.314666c22.588942-53.27392 54.873137-101.250434 95.953027-142.330323 41.179841-41.179841 89.056403-73.464036 142.330323-95.953027C392.593892 75.7642 451.26517 63.969974 511.735567 63.969974c13.99315 0 27.886348 0.599706 41.679596 1.89907C489.246577 118.643209 448.266638 198.704016 448.266638 288.360126c0 159.022152 128.836929 287.859081 287.859081 287.859081 89.156354 0 168.817357-40.580134 221.691473-104.149015 1.099462 13.09359 1.699168 26.387082 1.699168 39.680575 0 60.470397-11.794226 119.141675-35.182776 174.314666z" p-id="5087" fill=#6c757d></path></svg></a></div>
-        
-    </div>
-
-    
-</div>
-
-            <div id="toc">📜</div>
-        
-    
-    
-</div>
-</div>
-        <div id="content">
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container-main 
-     container-page 
-">
-
-    <div class="desc">
-        
-        <span>
-            
-            <svg t="1656736000388" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7409" width="12" height="12"><path d="M524.885333 338.986667L200.362667 663.466667c-17.28 15.274667-27.989333 36.693333-29.696 56.234666v133.76l130.730666 0.085334c22.784-1.621333 43.989333-12.245333 61.013334-31.701334l322.688-322.645333-160.213334-160.213333z m60.373334-60.330667l160.170666 160.213333 102.144-102.144a19.712 19.712 0 0 0 0-27.861333L715.093333 176.426667a19.456 19.456 0 0 0-27.605333 0L585.258667 278.613333zM701.312 85.333333c27.946667 0 54.741333 11.136 74.282667 30.848l132.309333 132.309334a105.045333 105.045333 0 0 1 0 148.565333L424.874667 879.957333c-29.824 34.346667-72.106667 55.466667-120.448 58.794667H85.333333v-42.666667l0.128-179.84c3.626667-44.970667 24.576-86.826667 56.448-114.944l485.12-485.034666A104.789333 104.789333 0 0 1 701.269333 85.333333z" p-id="7410" fill="#adb5bd"></path></svg>
+            <i class="fa fa-calendar"></i>
             2022-05-23&nbsp;
-        </span>
-        <span>
+          </span>
+          <span>
             
-            <svg t="1656737270708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23838" width="11" height="11"><path d="M824.264 95.36c0-23.859 25.043-44.16 48.902-44.16s49.714 20.301 49.714 44.16v190.08c0 23.859-19.054 52.868-42.913 52.868h-190.08c-23.859 0-46.696-25.96-46.696-49.819s22.55-46.249 46.409-46.249h82.025C702.344 175.534 610.22 155.853 512 155.853c-206.775 0-360.398 149.372-360.398 356.147 0 206.775 153.623 358.23 360.398 358.23 206.775 0 357.467-151.455 357.467-358.23 0-23.859 23.634-50.706 53.413-50.706 29.78 0 49.92 26.847 49.92 50.706 0 254.493-206.307 460.8-460.8 460.8-254.493 0-460.8-206.307-460.8-460.8C51.2 257.507 257.507 51.2 512 51.2c122.4 0 226.684 33.296 312.264 117.369 0.358 0.351 0.358-24.052 0-73.209z" p-id="23839" fill="#adb5bd"></path></svg>
+            <i class="fa fa-calendar-check-o"></i>
             2022-05-23&nbsp;&nbsp;&nbsp;
-        </span>
-        <span>
+          </span>
+          <span>
             
-            <svg t="1656737548689" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="33866" width="12" height="12"><path d="M832.038608 64.662657H192.030028C121.255125 64.662657 63.940169 121.98845 63.940169 192.694717v446.793671C63.940169 710.205493 121.255125 767.643272 192.030028 767.643272h133.353183a63.940169 63.940169 0 0 1 55.219742 31.576328l76.099638 129.83828c12.358154 21.093031 33.790754 31.626903 55.216129 31.626903s42.832688-10.544709 55.198067-31.619678l76.222461-129.870792a63.940169 63.940169 0 0 1 55.212517-31.551041h133.54103c70.576219 0 127.732228-57.289669 127.732227-127.800865V192.391272C959.825022 121.85479 902.643727 64.662657 832.038608 64.662657zM895.884854 639.842407A63.85347 63.85347 0 0 1 832.092795 703.703103h-133.54103a127.753903 127.753903 0 0 0-110.349172 63.09847l-76.222461 129.856342a0.274545 0.274545 0 0 1 0-0.050574h-0.032512s-0.021675 0.061411-0.032512 0.061412l-76.1466-129.85273A127.804477 127.804477 0 0 0 325.383211 703.703103H192.030028A64.207489 64.207489 0 0 1 127.880338 639.488388V192.694717A64.102729 64.102729 0 0 1 192.030028 128.602826h640.00858A63.799284 63.799284 0 0 1 895.884854 192.391272v447.451135z" fill="#adb5bd" p-id="33867"></path><path d="M608.154093 288.092004A31.970084 31.970084 0 0 0 576.184009 320.062089v160.078006l-134.650049-179.278119A31.970084 31.970084 0 0 0 384.002258 320.062089v255.760676a31.970084 31.970084 0 0 0 63.940169 0v-159.958796l134.650048 179.274507a31.970084 31.970084 0 0 0 57.531703-19.200113V320.062089a31.970084 31.970084 0 0 0-31.970085-31.970085z" fill="#adb5bd" p-id="33868"></path></svg>
-            3293 字</span>&nbsp;
-        <span>
+            <i class="fa fa-edit"></i>
+            3293 字
+          </span>&nbsp;
+          <span>
             
-            <svg t="1656737462334" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="32892" width="12" height="12"><path d="M512 74.666667C270.933333 74.666667 74.666667 270.933333 74.666667 512S270.933333 949.333333 512 949.333333 949.333333 753.066667 949.333333 512 753.066667 74.666667 512 74.666667z m0 810.666666c-204.8 0-373.333333-168.533333-373.333333-373.333333S307.2 138.666667 512 138.666667 885.333333 307.2 885.333333 512 716.8 885.333333 512 885.333333z" p-id="32893" fill="#adb5bd"></path><path d="M695.466667 567.466667l-151.466667-70.4V277.333333c0-17.066667-14.933333-32-32-32s-32 14.933333-32 32v238.933334c0 12.8 6.4 23.466667 19.2 29.866666l170.666667 81.066667c4.266667 2.133333 8.533333 2.133333 12.8 2.133333 12.8 0 23.466667-6.4 29.866666-19.2 6.4-14.933333 0-34.133333-17.066666-42.666666z" p-id="32894" fill="#adb5bd"></path></svg>
-            7 分钟</span><div class="container-ctgtag">
-	<div class="taxonomy">
+            <i class="fa fa-paper-plane"></i>
+            7 分钟
+          </span>
+        </div><div class="container-ctgtag">
+	<div class="taxonomy" style="display: flex; justify-content: center;">
 		
-		<div class="ctg">
+		<div class="ctg" style="display: flex; justify-content: center; margin-right: 20px;">
 			
-			
-			<a href="/categories/"></a>
+			<div style="margin-right: 10px;">
+				
+				<a href="/categories/"></a>
+			</div>
 			
 		</div>
-		<div class="tag">
+		<div class="tag" style="display: flex; justify-content: center;">
 			
-			 - 
-			
-			<a href="/tags/"></a>
+			<div style="margin-right: 10px;">
+				
+				<a href="/tags/"></a></i>
+			</div>
 			
 		</div>
 	</div>
 </div>
-    </div>
-    
-    <div class="toc">
-        
-        <div class="page-operation">
-            <div><a href="#"><img src="/imgs/icons/arrow-up-circle.svg" alt=""></a></div>
-            <div><a href="https://lovemjh.github.io/posts/001/20220524210558/"><img src="/imgs/icons/arrow-left-circle.svg" alt=""></a></div>
-            <div><a href="https://lovemjh.github.io/posts/project/20220522222541/"><img src="/imgs/icons/arrow-right-circle.svg" alt=""></a></div>
-        </div>
-        
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#linux">Linux</a>
-      <ul>
-        <li><a href="#理解">理解</a></li>
-        <li><a href="#特点">特点</a></li>
-        <li><a href="#安装">安装</a></li>
-        <li><a href="#linux目录">linux目录</a></li>
-      </ul>
-    </li>
-    <li><a href="#linux命令">Linux命令</a>
-      <ul>
-        <li><a href="#目录操作">目录操作</a></li>
-        <li><a href="#文件操作">文件操作</a></li>
-        <li><a href="#文件内容操作">文件内容操作</a></li>
-        <li><a href="#文件的打包和压缩">文件的打包和压缩</a></li>
-        <li><a href="#文件内容编辑">文件内容编辑</a></li>
-        <li><a href="#权限命令">权限命令</a></li>
-        <li><a href="#重定向输出">重定向输出</a></li>
-        <li><a href="#进程命令">进程命令</a></li>
-        <li><a href="#shell编程">shell编程</a></li>
-        <li><a href="#rpm">rpm</a></li>
-        <li><a href="#yum">yum</a></li>
-      </ul>
-    </li>
-    <li><a href="#linux安装环境">Linux安装环境</a>
-      <ul>
-        <li><a href="#安装jdk">安装jdk</a></li>
-        <li><a href="#安装mysql">安装MySQL</a></li>
-        <li><a href="#安装tomcat">安装tomcat</a></li>
-      </ul>
-    </li>
-    <li><a href="#部署项目">部署项目</a>
-      <ul>
-        <li><a href="#后台代码部署">后台代码部署</a></li>
-        <li><a href="#部署前台页面">部署前台页面</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    </div>
 
-    <div class='content  content '>
-        <h1 id="linux">Linux</h1>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+        <script>
+          var typed = new Typed(".blogtitle", {
+            strings: ['Linux常用命令'],
+            startDelay: 300,
+            typeSpeed: 100,
+            loop: true,
+            backSpeed: 50,
+            showCursor: true
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  
+<main id="content-outer">
+    <div class="layout_page" id="content-inner">
+        <article id="page" style="margin-right: 10px;">
+            
+            <div class="js-toc-content" style="height: 100%;">
+                <h1 id="linux">Linux</h1>
 <h2 id="理解">理解</h2>
 <p>  linux就是基于Unix一款开源免费的操作系统。由于系统的稳定和安全性  几乎成为都有程序代码的最佳运行环境。由于开源 衍生出了很多Liunx的产品：centos、redcat、Ubuntu等</p>
 <h2 id="特点">特点</h2>
@@ -192,139 +485,139 @@
     
     
 ></p>
-<pre tabindex="0"><code> ➢  /bin (/usr/bin 、 /usr/local/bin)
- • 是Binary的缩写, 这个目录存放着最经常使用的命令
- ➢ /sbin (/usr/sbin 、 /usr/local/sbin)
- • s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。
- ➢ /home
- • 存放普通用户的主目录，在Linux中每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。
- ➢ /root
- • 该目录为系统管理员，也称作超级权限者的用户主目录。
- ➢ /lib
- • 系统开机所需要最基本的动态连接共享库，其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。
- ➢ /lost+found
- • 这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。
- ➢ /etc
- • 所有的系统管理所需要的配置文件和子目录
- ➢ /usr
- • 这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似与windows下的program files目录。
- ➢ /boot
- • 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件，自己的安装别放这里
- ➢ /proc
- • 这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。
- ➢ /srv
- • service缩写，该目录存放一些服务启动之后需要提取的数据。
- ➢ /sys
- • 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。 
- ➢ /tmp
-  • 这个目录是用来存放一些临时文件的。
- ➢ /dev
- • 类似于windows的设备管理器，把所有的硬件用文件的形式存储。
- ➢ /media
- • linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。
- ➢ /mnt
- • 系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将外部的存储挂载在/mnt/上，然后进入该目录就可以查看里的内容了。
- ➢ /opt
- • 这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。
- ➢ /usr/local
- • 这是另一个给主机额外安装软件所摆放的目录。一般是通过编译源码方式安装的程序。
- ➢ /var
- • 这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。
- ➢ /selinux
- • SELinux是一种安全子系统,它能控制程序只能访问特定文件。
-</code></pre><h1 id="linux命令">Linux命令</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ➢  /bin (/usr/bin 、 /usr/local/bin)
+</span></span><span class="line"><span class="cl"> • 是Binary的缩写, 这个目录存放着最经常使用的命令
+</span></span><span class="line"><span class="cl"> ➢ /sbin (/usr/sbin 、 /usr/local/sbin)
+</span></span><span class="line"><span class="cl"> • s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。
+</span></span><span class="line"><span class="cl"> ➢ /home
+</span></span><span class="line"><span class="cl"> • 存放普通用户的主目录，在Linux中每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。
+</span></span><span class="line"><span class="cl"> ➢ /root
+</span></span><span class="line"><span class="cl"> • 该目录为系统管理员，也称作超级权限者的用户主目录。
+</span></span><span class="line"><span class="cl"> ➢ /lib
+</span></span><span class="line"><span class="cl"> • 系统开机所需要最基本的动态连接共享库，其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。
+</span></span><span class="line"><span class="cl"> ➢ /lost+found
+</span></span><span class="line"><span class="cl"> • 这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。
+</span></span><span class="line"><span class="cl"> ➢ /etc
+</span></span><span class="line"><span class="cl"> • 所有的系统管理所需要的配置文件和子目录
+</span></span><span class="line"><span class="cl"> ➢ /usr
+</span></span><span class="line"><span class="cl"> • 这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似与windows下的program files目录。
+</span></span><span class="line"><span class="cl"> ➢ /boot
+</span></span><span class="line"><span class="cl"> • 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件，自己的安装别放这里
+</span></span><span class="line"><span class="cl"> ➢ /proc
+</span></span><span class="line"><span class="cl"> • 这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。
+</span></span><span class="line"><span class="cl"> ➢ /srv
+</span></span><span class="line"><span class="cl"> • service缩写，该目录存放一些服务启动之后需要提取的数据。
+</span></span><span class="line"><span class="cl"> ➢ /sys
+</span></span><span class="line"><span class="cl"> • 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。 
+</span></span><span class="line"><span class="cl"> ➢ /tmp
+</span></span><span class="line"><span class="cl">  • 这个目录是用来存放一些临时文件的。
+</span></span><span class="line"><span class="cl"> ➢ /dev
+</span></span><span class="line"><span class="cl"> • 类似于windows的设备管理器，把所有的硬件用文件的形式存储。
+</span></span><span class="line"><span class="cl"> ➢ /media
+</span></span><span class="line"><span class="cl"> • linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。
+</span></span><span class="line"><span class="cl"> ➢ /mnt
+</span></span><span class="line"><span class="cl"> • 系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将外部的存储挂载在/mnt/上，然后进入该目录就可以查看里的内容了。
+</span></span><span class="line"><span class="cl"> ➢ /opt
+</span></span><span class="line"><span class="cl"> • 这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。
+</span></span><span class="line"><span class="cl"> ➢ /usr/local
+</span></span><span class="line"><span class="cl"> • 这是另一个给主机额外安装软件所摆放的目录。一般是通过编译源码方式安装的程序。
+</span></span><span class="line"><span class="cl"> ➢ /var
+</span></span><span class="line"><span class="cl"> • 这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。
+</span></span><span class="line"><span class="cl"> ➢ /selinux
+</span></span><span class="line"><span class="cl"> • SELinux是一种安全子系统,它能控制程序只能访问特定文件。
+</span></span></code></pre></div><h1 id="linux命令">Linux命令</h1>
 <h2 id="目录操作">目录操作</h2>
-<pre tabindex="0"><code>① 切换目录 
-    cd  目录名 # 切换到指定目录
-    cd  /  # 切换到根目录
-    cd .. # 切换到上一级目录 
-    cd -  # 返回到跳转前的目录
-    pwd   # 显示所在的目录
-
-② 列出目录中的列表
-    ls  # 显示整个目录中的目录名
-    ls -a # 显示包含隐藏文件的目录
-    ls -l # 显示目录中所有目录的详情信息
-    ls -al # 显示目录中包含隐藏文件的详细信息
-
-补充：
-    clear    # 清屏
-    ctrl+l   # q清屏
-
-③ 目录的创建和删除
-    mkdir 目录名 # 创建一个目录
-    mkdir -p 目录 # 创建多层目录
-    rmdir 目录 # 删除空目录
-</code></pre><h2 id="文件操作">文件操作</h2>
-<pre tabindex="0"><code>① 创建文件
-    touch 文件名 # 创建一个空文件
-  
-② 拷贝文件
-    cp a.txt 目录 # 拷贝文件
-    cp a.txt 目录/b.txt # 拷贝并重命名
-  
-③ 移动文件
-    mv a.txt 目录 # 移动文件
-    mv a.txt 目录/b.txt # 移动并重命名 
-  
-④ 删除文件
-    rm 文件名  # 带询问的删除
-    rm -f 文件名 # 不带询问的删除
-    rm -r 目录 # 带询问删除目录可以是多级目录
-    rm -rf 目录 # 不带询问删除目录可以是多级目录
-    rm -rf *  # 自杀
-    rm -rf /* # 自杀
-</code></pre><h2 id="文件内容操作">文件内容操作</h2>
-<pre tabindex="0"><code>① 查看文件内容
-    cat 文件名 # 查看文件中的内容
-
-    more 文件名 # 查看文件的内容 一屏一屏显示  (查看下一屏 空格键 查看下一行数据 回车键
- 
-    tail -10 文件名 # 查看文件的后10行数据
-    tail -f xx.log  # 动态查看文件的内容
-
-② 搜索文件
-    find / -name &#34;ser*&#34; # 搜索以ser开头文件名的文件
-    find / -user root  # 搜索 root权限的文件
-
-③ 搜索符合条件字符串的文件
-    grep 字符串 文件名 # 在文件中查找字符串内容
-</code></pre><h2 id="文件的打包和压缩">文件的打包和压缩</h2>
-<pre tabindex="0"><code>    tar -cvf xx.tar 目录 # 将目录打成tar包 
-    tar -zcvf xx.tar.gz 目录 # 将目录打包并压缩 
-    tar -zxvf xx.tar.gz -C 目录 # 将压缩版解压到指定的目录下
-    说明：
-        c：创建一个新的tar文件
-        v：显示打包的过程
-        f：指定文件名
-        z：调用gzip 压缩文件
-        x：解开tar文件
-</code></pre><h2 id="文件内容编辑">文件内容编辑</h2>
-<pre tabindex="0"><code>vi 是文件内容的编译命令
-    三种模式：命令行模式 插入模式 低行模式
-    进入命令模式：
-    vi 文件名 
-    进入到插入模式：
-        i：插入当前光标的前面
-        I：插入当前行的前面
-        a：插入当前光标的后面
-        A：插入当前行的尾部
-        o：插入当前行的下一行
-        O：插入当前行的上一行
-    进入低行模式：esc
-        冒号  w保存 q退出 !强制
-    常见命令：
-        vi 文件名   # 进入命令行模式
-        i/I/a/A/o/O  # 进入到插入模式  修改内容
-        esc -&gt; :wq  # 保存退出
-    命令行中常见的命令：
-        dd：删除一行
-        yy：复制一行
-        p：粘贴
-        nyy：复制n行
-    低行模式命令
-        /内容  搜索文件中包含该内容的第一个位置
-</code></pre><h2 id="权限命令">权限命令</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 切换目录 
+</span></span><span class="line"><span class="cl">    cd  目录名 # 切换到指定目录
+</span></span><span class="line"><span class="cl">    cd  /  # 切换到根目录
+</span></span><span class="line"><span class="cl">    cd .. # 切换到上一级目录 
+</span></span><span class="line"><span class="cl">    cd -  # 返回到跳转前的目录
+</span></span><span class="line"><span class="cl">    pwd   # 显示所在的目录
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">② 列出目录中的列表
+</span></span><span class="line"><span class="cl">    ls  # 显示整个目录中的目录名
+</span></span><span class="line"><span class="cl">    ls -a # 显示包含隐藏文件的目录
+</span></span><span class="line"><span class="cl">    ls -l # 显示目录中所有目录的详情信息
+</span></span><span class="line"><span class="cl">    ls -al # 显示目录中包含隐藏文件的详细信息
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">补充：
+</span></span><span class="line"><span class="cl">    clear    # 清屏
+</span></span><span class="line"><span class="cl">    ctrl+l   # q清屏
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">③ 目录的创建和删除
+</span></span><span class="line"><span class="cl">    mkdir 目录名 # 创建一个目录
+</span></span><span class="line"><span class="cl">    mkdir -p 目录 # 创建多层目录
+</span></span><span class="line"><span class="cl">    rmdir 目录 # 删除空目录
+</span></span></code></pre></div><h2 id="文件操作">文件操作</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 创建文件
+</span></span><span class="line"><span class="cl">    touch 文件名 # 创建一个空文件
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">② 拷贝文件
+</span></span><span class="line"><span class="cl">    cp a.txt 目录 # 拷贝文件
+</span></span><span class="line"><span class="cl">    cp a.txt 目录/b.txt # 拷贝并重命名
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">③ 移动文件
+</span></span><span class="line"><span class="cl">    mv a.txt 目录 # 移动文件
+</span></span><span class="line"><span class="cl">    mv a.txt 目录/b.txt # 移动并重命名 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">④ 删除文件
+</span></span><span class="line"><span class="cl">    rm 文件名  # 带询问的删除
+</span></span><span class="line"><span class="cl">    rm -f 文件名 # 不带询问的删除
+</span></span><span class="line"><span class="cl">    rm -r 目录 # 带询问删除目录可以是多级目录
+</span></span><span class="line"><span class="cl">    rm -rf 目录 # 不带询问删除目录可以是多级目录
+</span></span><span class="line"><span class="cl">    rm -rf *  # 自杀
+</span></span><span class="line"><span class="cl">    rm -rf /* # 自杀
+</span></span></code></pre></div><h2 id="文件内容操作">文件内容操作</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 查看文件内容
+</span></span><span class="line"><span class="cl">    cat 文件名 # 查看文件中的内容
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    more 文件名 # 查看文件的内容 一屏一屏显示  (查看下一屏 空格键 查看下一行数据 回车键
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    tail -10 文件名 # 查看文件的后10行数据
+</span></span><span class="line"><span class="cl">    tail -f xx.log  # 动态查看文件的内容
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">② 搜索文件
+</span></span><span class="line"><span class="cl">    find / -name &#34;ser*&#34; # 搜索以ser开头文件名的文件
+</span></span><span class="line"><span class="cl">    find / -user root  # 搜索 root权限的文件
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">③ 搜索符合条件字符串的文件
+</span></span><span class="line"><span class="cl">    grep 字符串 文件名 # 在文件中查找字符串内容
+</span></span></code></pre></div><h2 id="文件的打包和压缩">文件的打包和压缩</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    tar -cvf xx.tar 目录 # 将目录打成tar包 
+</span></span><span class="line"><span class="cl">    tar -zcvf xx.tar.gz 目录 # 将目录打包并压缩 
+</span></span><span class="line"><span class="cl">    tar -zxvf xx.tar.gz -C 目录 # 将压缩版解压到指定的目录下
+</span></span><span class="line"><span class="cl">    说明：
+</span></span><span class="line"><span class="cl">        c：创建一个新的tar文件
+</span></span><span class="line"><span class="cl">        v：显示打包的过程
+</span></span><span class="line"><span class="cl">        f：指定文件名
+</span></span><span class="line"><span class="cl">        z：调用gzip 压缩文件
+</span></span><span class="line"><span class="cl">        x：解开tar文件
+</span></span></code></pre></div><h2 id="文件内容编辑">文件内容编辑</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vi 是文件内容的编译命令
+</span></span><span class="line"><span class="cl">    三种模式：命令行模式 插入模式 低行模式
+</span></span><span class="line"><span class="cl">    进入命令模式：
+</span></span><span class="line"><span class="cl">    vi 文件名 
+</span></span><span class="line"><span class="cl">    进入到插入模式：
+</span></span><span class="line"><span class="cl">        i：插入当前光标的前面
+</span></span><span class="line"><span class="cl">        I：插入当前行的前面
+</span></span><span class="line"><span class="cl">        a：插入当前光标的后面
+</span></span><span class="line"><span class="cl">        A：插入当前行的尾部
+</span></span><span class="line"><span class="cl">        o：插入当前行的下一行
+</span></span><span class="line"><span class="cl">        O：插入当前行的上一行
+</span></span><span class="line"><span class="cl">    进入低行模式：esc
+</span></span><span class="line"><span class="cl">        冒号  w保存 q退出 !强制
+</span></span><span class="line"><span class="cl">    常见命令：
+</span></span><span class="line"><span class="cl">        vi 文件名   # 进入命令行模式
+</span></span><span class="line"><span class="cl">        i/I/a/A/o/O  # 进入到插入模式  修改内容
+</span></span><span class="line"><span class="cl">        esc -&gt; :wq  # 保存退出
+</span></span><span class="line"><span class="cl">    命令行中常见的命令：
+</span></span><span class="line"><span class="cl">        dd：删除一行
+</span></span><span class="line"><span class="cl">        yy：复制一行
+</span></span><span class="line"><span class="cl">        p：粘贴
+</span></span><span class="line"><span class="cl">        nyy：复制n行
+</span></span><span class="line"><span class="cl">    低行模式命令
+</span></span><span class="line"><span class="cl">        /内容  搜索文件中包含该内容的第一个位置
+</span></span></code></pre></div><h2 id="权限命令">权限命令</h2>
 <p><img src="/posts/tool/20220523233691/image-20220523234827825.png"
     
     
@@ -334,92 +627,92 @@
     
 >
  </p>
-<pre tabindex="0"><code>① 修改权限： 可读 r=4  可写 w=2  可执行 x=1
-    chmod u-w,g+w 文件名  # 可以添加或者删除指定权限
-    chmod 755 文件  # 指定文件或目录的权限
-
-② 用户和组
-    cat /etc/passwd # 查看 用户结构信息
-用户操作：
-    useradd 用户名 # 添加一个用户
-    userdel -r 用户名 # 删除用户和对应的结构信息
-    passwd 用户名 # 设置密码
-    groups 用户名 # 查看用户所属组
-组操作：
-    groupadd 组名 # 添加一个组
-    groupdel 组名 # 删除组
-    gpasswd -a 用户名 组名 # 将一个用户添加到组中
-    gpasswd -d 用户名 组名 # 将用户从组中移除
-补充：
-    su 用户名 # 切换用户 操作环境不变
-    su - 用户名 # 切换用户 并切换操作环境
-    whoami # 查看当前用户
-</code></pre><h2 id="重定向输出">重定向输出</h2>
-<pre tabindex="0"><code>将一个文件内容到另一个文件中
-cat 文件1 &gt; 文件2 # 将文件1的内容输出到文件2中 覆盖老的内容
-cat 文件1 &gt;&gt; 文件2 # 将文件1的内容追加到文件2中
-</code></pre><h2 id="进程命令">进程命令</h2>
-<pre tabindex="0"><code>ps -ef # 查看所有进程
-ps -ef|grep 进程名  # 查看某个进程
-kill -9 进程id # 强制杀死进程
-</code></pre><h2 id="shell编程">shell编程</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 修改权限： 可读 r=4  可写 w=2  可执行 x=1
+</span></span><span class="line"><span class="cl">    chmod u-w,g+w 文件名  # 可以添加或者删除指定权限
+</span></span><span class="line"><span class="cl">    chmod 755 文件  # 指定文件或目录的权限
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">② 用户和组
+</span></span><span class="line"><span class="cl">    cat /etc/passwd # 查看 用户结构信息
+</span></span><span class="line"><span class="cl">用户操作：
+</span></span><span class="line"><span class="cl">    useradd 用户名 # 添加一个用户
+</span></span><span class="line"><span class="cl">    userdel -r 用户名 # 删除用户和对应的结构信息
+</span></span><span class="line"><span class="cl">    passwd 用户名 # 设置密码
+</span></span><span class="line"><span class="cl">    groups 用户名 # 查看用户所属组
+</span></span><span class="line"><span class="cl">组操作：
+</span></span><span class="line"><span class="cl">    groupadd 组名 # 添加一个组
+</span></span><span class="line"><span class="cl">    groupdel 组名 # 删除组
+</span></span><span class="line"><span class="cl">    gpasswd -a 用户名 组名 # 将一个用户添加到组中
+</span></span><span class="line"><span class="cl">    gpasswd -d 用户名 组名 # 将用户从组中移除
+</span></span><span class="line"><span class="cl">补充：
+</span></span><span class="line"><span class="cl">    su 用户名 # 切换用户 操作环境不变
+</span></span><span class="line"><span class="cl">    su - 用户名 # 切换用户 并切换操作环境
+</span></span><span class="line"><span class="cl">    whoami # 查看当前用户
+</span></span></code></pre></div><h2 id="重定向输出">重定向输出</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">将一个文件内容到另一个文件中
+</span></span><span class="line"><span class="cl">cat 文件1 &gt; 文件2 # 将文件1的内容输出到文件2中 覆盖老的内容
+</span></span><span class="line"><span class="cl">cat 文件1 &gt;&gt; 文件2 # 将文件1的内容追加到文件2中
+</span></span></code></pre></div><h2 id="进程命令">进程命令</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ps -ef # 查看所有进程
+</span></span><span class="line"><span class="cl">ps -ef|grep 进程名  # 查看某个进程
+</span></span><span class="line"><span class="cl">kill -9 进程id # 强制杀死进程
+</span></span></code></pre></div><h2 id="shell编程">shell编程</h2>
 <p>shell命令解释型语言，用户可以通过编写shell命令 编写一些程序。通常运维或者大数据的开发者编写shell脚本管理服务器集群
  
 编写规范：</p>
-<pre tabindex="0"><code>1. 创建以.sh为后缀的文件
-2. 首行 #!/bin/bash
-3. 赋予可执行的权限  chmod u+x 
-4. ./xx.sh  执行
-</code></pre><h2 id="rpm">rpm</h2>
-<pre tabindex="0"><code>    rpm 类似win的软件安装包  可以通过.rpm安装文件 安装软件或者卸载软件
-    ① 安装
-        rmp -ivh rpm安装包 # 安装rpm软件
-  
-    ② 查看安装
-        rpm -qa|grep 软件名 
-  
-    ③ 卸载 rpm安装
-        rpm -e --nodeps 安装名
-  
-    参数：
-        i # 安装  install
-        v # 安装信息
-        h # 安装进度
-        q # 查询
-        a # 查询所有的包
-        e # 卸载
-        nodeps # 不检查依赖性
-</code></pre><h2 id="yum">yum</h2>
-<pre tabindex="0"><code>    Yum是一个可以从指定的服务器中自动下载并且按照的软件包管理器，自动处理依赖，一次性安装所有依赖的软件包。
-    1. 下载安装
-        yum install 软件名
-        
-    2. 查看yum安装的软件
-        yum list installed
-  
-    3. 卸载安装
-        yum uninstall 安装包名
-  
-    4. 查看安装位置
-        rpm -ql 安装包
-</code></pre><h1 id="linux安装环境">Linux安装环境</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 创建以.sh为后缀的文件
+</span></span><span class="line"><span class="cl">2. 首行 #!/bin/bash
+</span></span><span class="line"><span class="cl">3. 赋予可执行的权限  chmod u+x 
+</span></span><span class="line"><span class="cl">4. ./xx.sh  执行
+</span></span></code></pre></div><h2 id="rpm">rpm</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    rpm 类似win的软件安装包  可以通过.rpm安装文件 安装软件或者卸载软件
+</span></span><span class="line"><span class="cl">    ① 安装
+</span></span><span class="line"><span class="cl">        rmp -ivh rpm安装包 # 安装rpm软件
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    ② 查看安装
+</span></span><span class="line"><span class="cl">        rpm -qa|grep 软件名 
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    ③ 卸载 rpm安装
+</span></span><span class="line"><span class="cl">        rpm -e --nodeps 安装名
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    参数：
+</span></span><span class="line"><span class="cl">        i # 安装  install
+</span></span><span class="line"><span class="cl">        v # 安装信息
+</span></span><span class="line"><span class="cl">        h # 安装进度
+</span></span><span class="line"><span class="cl">        q # 查询
+</span></span><span class="line"><span class="cl">        a # 查询所有的包
+</span></span><span class="line"><span class="cl">        e # 卸载
+</span></span><span class="line"><span class="cl">        nodeps # 不检查依赖性
+</span></span></code></pre></div><h2 id="yum">yum</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    Yum是一个可以从指定的服务器中自动下载并且按照的软件包管理器，自动处理依赖，一次性安装所有依赖的软件包。
+</span></span><span class="line"><span class="cl">    1. 下载安装
+</span></span><span class="line"><span class="cl">        yum install 软件名
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    2. 查看yum安装的软件
+</span></span><span class="line"><span class="cl">        yum list installed
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    3. 卸载安装
+</span></span><span class="line"><span class="cl">        yum uninstall 安装包名
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    4. 查看安装位置
+</span></span><span class="line"><span class="cl">        rpm -ql 安装包
+</span></span></code></pre></div><h1 id="linux安装环境">Linux安装环境</h1>
 <h2 id="安装jdk">安装jdk</h2>
-<pre tabindex="0"><code> ① 将 jdk-8u144-linux-x64.tar.gz 通过ftp上传到 /usr/ujiuye
- ② 解压到当前目录下
-  tar -zxvf jdk-8u144-linux-x64.tar.gz
-  
- ③ 配置环境变量
-  1. vi /etc/profile 中：
-  JAVA_HOME=/usr/ujiuye/jdk1.8.0_144
-  CLASSPATH=.:$JAVA_HOME/lib/tools.jar
-  PATH=$JAVA_HOME/bin:$PATH
-  export JAVA_HOME CLASSPATH PATH
-  2. 保存退出
-  3. 刷新环境变量
-  source /etc/profile 
-  4. 测试
-  java -version 
-</code></pre><p><img src="/posts/tool/20220523233691/image-20220523235131919.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ① 将 jdk-8u144-linux-x64.tar.gz 通过ftp上传到 /usr/ujiuye
+</span></span><span class="line"><span class="cl"> ② 解压到当前目录下
+</span></span><span class="line"><span class="cl">  tar -zxvf jdk-8u144-linux-x64.tar.gz
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> ③ 配置环境变量
+</span></span><span class="line"><span class="cl">  1. vi /etc/profile 中：
+</span></span><span class="line"><span class="cl">  JAVA_HOME=/usr/ujiuye/jdk1.8.0_144
+</span></span><span class="line"><span class="cl">  CLASSPATH=.:$JAVA_HOME/lib/tools.jar
+</span></span><span class="line"><span class="cl">  PATH=$JAVA_HOME/bin:$PATH
+</span></span><span class="line"><span class="cl">  export JAVA_HOME CLASSPATH PATH
+</span></span><span class="line"><span class="cl">  2. 保存退出
+</span></span><span class="line"><span class="cl">  3. 刷新环境变量
+</span></span><span class="line"><span class="cl">  source /etc/profile 
+</span></span><span class="line"><span class="cl">  4. 测试
+</span></span><span class="line"><span class="cl">  java -version 
+</span></span></code></pre></div><p><img src="/posts/tool/20220523233691/image-20220523235131919.png"
     
     
     
@@ -429,54 +722,54 @@ kill -9 进程id # 强制杀死进程
 ></p>
 <h2 id="安装mysql">安装MySQL</h2>
 <p> </p>
-<pre tabindex="0"><code>① 安装之前先清除 自带的MySQL
-  rpm -qa|grep mysql 
-  rpm -qa|grep mariadb
-  rpm -e --nodeps 安装软件名 # 卸载
-  
-  ② 将win下下载的安装包 上传到 /usr/ujiuye
-  rpm -ivh MySQL-server-5.5.54-1.linux2.6.x86_64.rpm -force --nodeps
-  rpm -ivh MySQL-client-5.5.54-1.linux2.6.x86_64.rpm -force --nodeps
-  
-  ③ 启动 
-  service mysql start 
-  问题：
-  Starting MySQL. ERROR! The server quit without updating PID file (/var/lib/mysql/localhost.pid).
-  
-  解决：
-  执行命令：/usr/bin/mysql_install_db --user=mysql
-  
-  又引发问题：
-  Installing MySQL system tables...
- /usr/sbin/mysqld: error while loading shared libraries: libaio.so.1: cannot open shared object file: No such file or directory
-  
-  再解决：
-  yum install libaio
-  
-  最后再执行：/usr/bin/mysql_install_db --user=mysql
-  
-  最后：
-  启动服务：service mysql start 
-  ④ 连接数据库 默认 5.5 没有密码
-  mysql -uroot -p 
-  ⑤ 设置密码
-  set password = password(&#39;密码&#39;)
-  
-  ⑥ 重新连接 设置权限
-  grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39;;
-  flush privileges;
- 
-  ⑦ 关闭防火墙
-  firewall-cmd --state # 查看防火墙状态
-  systemctl stop firewalld.service # 关闭防火墙
-  systemctl disable firewalld.service # 禁止开机启动防火墙
-</code></pre><h2 id="安装tomcat">安装tomcat</h2>
-<pre tabindex="0"><code> ① 将win下的apache-tomcat-8.5.43.tar.gz 上传到/usr/ujiuye
- ② 解压两份 
-  tar -zxvf apache-tomcat-8.5.43.tar.gz
-  
- ③ 其中一个修改  conf/server.xml文件
-</code></pre><p><img src="/posts/tool/20220523233691/image-20220523235238266.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 安装之前先清除 自带的MySQL
+</span></span><span class="line"><span class="cl">  rpm -qa|grep mysql 
+</span></span><span class="line"><span class="cl">  rpm -qa|grep mariadb
+</span></span><span class="line"><span class="cl">  rpm -e --nodeps 安装软件名 # 卸载
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  ② 将win下下载的安装包 上传到 /usr/ujiuye
+</span></span><span class="line"><span class="cl">  rpm -ivh MySQL-server-5.5.54-1.linux2.6.x86_64.rpm -force --nodeps
+</span></span><span class="line"><span class="cl">  rpm -ivh MySQL-client-5.5.54-1.linux2.6.x86_64.rpm -force --nodeps
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  ③ 启动 
+</span></span><span class="line"><span class="cl">  service mysql start 
+</span></span><span class="line"><span class="cl">  问题：
+</span></span><span class="line"><span class="cl">  Starting MySQL. ERROR! The server quit without updating PID file (/var/lib/mysql/localhost.pid).
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  解决：
+</span></span><span class="line"><span class="cl">  执行命令：/usr/bin/mysql_install_db --user=mysql
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  又引发问题：
+</span></span><span class="line"><span class="cl">  Installing MySQL system tables...
+</span></span><span class="line"><span class="cl"> /usr/sbin/mysqld: error while loading shared libraries: libaio.so.1: cannot open shared object file: No such file or directory
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  再解决：
+</span></span><span class="line"><span class="cl">  yum install libaio
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  最后再执行：/usr/bin/mysql_install_db --user=mysql
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  最后：
+</span></span><span class="line"><span class="cl">  启动服务：service mysql start 
+</span></span><span class="line"><span class="cl">  ④ 连接数据库 默认 5.5 没有密码
+</span></span><span class="line"><span class="cl">  mysql -uroot -p 
+</span></span><span class="line"><span class="cl">  ⑤ 设置密码
+</span></span><span class="line"><span class="cl">  set password = password(&#39;密码&#39;)
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  ⑥ 重新连接 设置权限
+</span></span><span class="line"><span class="cl">  grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;root&#39;;
+</span></span><span class="line"><span class="cl">  flush privileges;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">  ⑦ 关闭防火墙
+</span></span><span class="line"><span class="cl">  firewall-cmd --state # 查看防火墙状态
+</span></span><span class="line"><span class="cl">  systemctl stop firewalld.service # 关闭防火墙
+</span></span><span class="line"><span class="cl">  systemctl disable firewalld.service # 禁止开机启动防火墙
+</span></span></code></pre></div><h2 id="安装tomcat">安装tomcat</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ① 将win下的apache-tomcat-8.5.43.tar.gz 上传到/usr/ujiuye
+</span></span><span class="line"><span class="cl"> ② 解压两份 
+</span></span><span class="line"><span class="cl">  tar -zxvf apache-tomcat-8.5.43.tar.gz
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> ③ 其中一个修改  conf/server.xml文件
+</span></span></code></pre></div><p><img src="/posts/tool/20220523233691/image-20220523235238266.png"
     
     
     
@@ -508,8 +801,8 @@ kill -9 进程id # 强制杀死进程
     
     
 ></p>
-<pre tabindex="0"><code> ④ 执行 bin/startup.sh
-</code></pre><h1 id="部署项目">部署项目</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> ④ 执行 bin/startup.sh
+</span></span></code></pre></div><h1 id="部署项目">部署项目</h1>
 <h2 id="后台代码部署">后台代码部署</h2>
 <p> ① 修改连接池数据源配置文件的
 <img src="/posts/tool/20220523233691/image-20220523235319419.png"
@@ -548,33 +841,283 @@ kill -9 进程id # 强制杀死进程
 ></p>
 <h2 id="部署前台页面">部署前台页面</h2>
 <p> </p>
-<pre tabindex="0"><code>① 修改页面中访问路径 
-  在每个页面中 将请求后台路径 localhost:8080/  改为  IP:8080/
-  在每个页面中 将页面之间的跳转 127.0.0.1:5500/  改为  IP:8081/
- ② 将页面 上传到 tomcat_before/webapps中即可
-</code></pre>
-    </div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">① 修改页面中访问路径 
+</span></span><span class="line"><span class="cl">  在每个页面中 将请求后台路径 localhost:8080/  改为  IP:8080/
+</span></span><span class="line"><span class="cl">  在每个页面中 将页面之间的跳转 127.0.0.1:5500/  改为  IP:8081/
+</span></span><span class="line"><span class="cl"> ② 将页面 上传到 tomcat_before/webapps中即可
+</span></span></code></pre></div>
+            </div>
+            <hr>
+            <div style="text-align: center;">
+                <button class="btn"><a href="https://lovemjh.github.io/posts/001/20220524210558/">← 正则表达式</a></button>
+                <button class="btn"><a href="https://lovemjh.github.io/posts/project/20220522222541/">小课堂 →</a></button>
+            </div>
 
-    
-
-    
-
-
-    <div class="container-prevnext">
-    <div><a href="https://lovemjh.github.io/posts/001/20220524210558/">← 正则表达式</a></div>
-    <div><a href="https://lovemjh.github.io/posts/project/20220522222541/">小课堂  →</a></div>
-</div>
-</div>
+            
+        </article><div class="aside_content" id="aside_content">
+    <div class="card-widget card-info">
+        <div class="card-content">
+            <div class="card-info-avatar is-center">
+                <img class="avatar-img" src="http://q1.qlogo.cn/g?b=qq&nk=2409741052&s=640" alt="avatar">
+                <div class="author-info__name">青山</div>
+                <div class="author-info__description">悟已往之不谏 知来者之可追</div>
+            </div>
+            
+            <div class="card-info-social-icons is-center">
+                <a class="social-icon" href="https://github.com/xioyito" target="_blank">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
 
         </div>
-        <div id="footer"><div class="container-footer">
+    </div>
+
+
+    <div class="card-widget">
+        <div class="card-content">
+            <meting-js auto="https://y.qq.com/n/yqq/playlist/7713574197.html">
+            </meting-js>
+        </div>
+    </div>
+
+    <div class="card-widget">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                <span>一言</span>
+            </div>
+            <div id="hitokoto"></div>
+        </div>
+    </div>
+    <div class="card-widget">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <span>今日诗词</span>
+            </div>
+            <div id="jinrishici-sentence"></div>
+        </div>
+    </div>
+
+    <div class="card-widget">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                <span>站点信息</span>
+            </div>
+            <div class="webinfo">
+                <div class="webinfo-item">
+                    <div class="webinfo-site-uv-name">本站访客数 :</div>
+                    <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div>
+                </div>
+                <div class="webinfo-item">
+                    <div class="webinfo-site-name">本站总访问量 :</div>
+                    <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <a href="//beian.miit.gov.cn" target="_blank">
-        
-        豫ICP备2022002918号
-        
-    </a>
-    <a id="s" href="/secrets">&nbsp;</a>
+    <div class="card-widget js-toc-w" id="js-toc-w">
+        <div class="card-content js-toc">
+            
+        </div>
+    </div>
+    
 </div></div>
-    </body>
+</main>
+<footer id="footer">
+    <div id="footer-wrap">
+        <div class="copyright">&copy;2019 - 2021 BY QING SHAN KE</div>
+    </div>
+</footer>
+</div>
+
+<div class="fan" id="fan" style="
+position: fixed;
+width: 40px;
+height: 120px;
+right: -200px;
+bottom: 0px;
+transition: all 0.5s;
+z-index: 99999;
+ ">
+    <i class="fa fa-cog fa-spin fa-2x"></i><br>
+    <i class="fa fa-align-justify fa-2x" id="ff"></i><br>
+    <i class="fa fa fa-arrow-up fa-2x" id="aa"></i><br>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    var a = 0;
+    ff.onclick = function () {
+        if (a === 0) {
+            $(".js-toc-w").css("position", "fixed"); 
+            $(".js-toc-w").css("bottom", "10px");
+            $(".js-toc-w").css("right", "40px");
+
+            a++;
+        } else {
+            $(".js-toc-w").css("position", "static");
+            a--;
+        }
+    }
+
+    aa.onclick = function () {
+        window.scrollTo({     
+            top: 0,            
+            behavior: "smooth"   
+        })
+    }
+
+    
+    window.onload = function () {
+        $(".aplayer").css("background", "rgba(0, 0, 0, 0)");
+        
+
+        
+    } 
+</script>
+<script>
+    $(window).scroll(function () {
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop
+        console.log(scrollY + "----------------------")
+        if (scrollY > 40) {
+            $('.fan').css("right", "0px");
+        } else {
+            $('.fan').css("right", "-220px");
+        }
+    });
+    $(function () {
+        
+        var start_height = $(document).scrollTop();
+        
+        var navigation_height = $('.navigation').outerHeight();
+        $(window).scroll(function () {
+            
+            var end_height = $(document).scrollTop();
+            
+            if (end_height > navigation_height) {
+                $('.navigation').addClass('hide');
+            } else {
+                $('.navigation').removeClass('hide');
+            }
+            
+            if (end_height < start_height) {
+                $('.navigation').removeClass('hide');
+            }
+            
+            start_height = $(document).scrollTop();
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+<script src="https://unpkg.com/nplayer@latest/dist/index.min.js"></script>
+
+
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.8/js/maodian.js"></script>
+
+
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3, h4, h5 ,h6',
+        
+        hasInnerContainers: false,
+        
+    });
+</script>
+
+
+<script type="text/javascript">
+    console.clear();
+    console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
+    console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/laoxuai");
+    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.0.0");
+
+    (function ($) {
+        $.fn.snow = function (options) {
+            var $flake = $('<div id="snowbox" />').css({ 'position': 'absolute', 'z-index': '9999', 'top': '-50px' }).html('&#10052;'),
+                documentHeight = $(document).height(),
+                documentWidth = $(document).width(),
+                defaults = {
+                    minSize: 10,
+                    maxSize: 20,
+                    newOn: 1000,
+                    flakeColor: "#AFDAEF"  
+                },
+                options = $.extend({}, defaults, options);
+            var interval = setInterval(function () {
+                var startPositionLeft = Math.random() * documentWidth - 100,
+                    startOpacity = 0.5 + Math.random(),
+                    sizeFlake = options.minSize + Math.random() * options.maxSize,
+                    endPositionTop = documentHeight - 200,
+                    endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+                    durationFall = documentHeight * 10 + Math.random() * 5000;
+                $flake.clone().appendTo('body').css({
+                    left: startPositionLeft,
+                    opacity: startOpacity,
+                    'font-size': sizeFlake,
+                    color: options.flakeColor
+                }).animate({
+                    top: endPositionTop,
+                    left: endPositionLeft,
+                    opacity: 0.2
+                }, durationFall, 'linear', function () {
+                    $(this).remove()
+                });
+            }, options.newOn);
+        };
+    })(jQuery);
+    $(function () {
+        $.fn.snow({
+            minSize: 5,  
+            maxSize: 50, 
+            newOn: 800   
+        });
+    });
+
+    
+    var OriginTitle = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            
+            document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        }
+        else {
+            $('[rel="icon"]').attr('href', "/favicon.ico");
+            document.title = '(ฅ>ω<*ฅ) 噫又好啦 ~' + OriginTitle;
+            titleTime = setTimeout(function () {
+                document.title = OriginTitle;
+            }, 2000);
+        }
+    });
+</script></body>
 </html>

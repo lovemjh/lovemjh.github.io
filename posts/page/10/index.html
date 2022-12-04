@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no">
+  <meta name="description" content="MJH Blog & MEET HTML Theme">
+  <title>Posts</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
+  
+  <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <script type="text/javascript">
+    if (!!window.ActiveXObject || "ActiveXObject" in window) { 
+      alert('朋友，上古浏览器不支持呢~');
+    }
+  </script>
+
+  <style>
+    .sidebar {
+      z-index: 998;
+      position: fixed;
+      left: -200px;
+      width: 200px;
+      height: 100%;
+      background: #ffffff;
+      transition: all .5s ease;
+    }
+
+    .sidebar .top {
+      font-size: 22px;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      height: 60px;
+      line-height: 60px;
+      background-color: rgb(255, 255, 255);
+      user-select: none;
+
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      line-height: 45px;
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      box-sizing: border-box;
+      border-top: 1px solid rgb(255, 0, 0);
+      border-bottom: 1px solid rgb(0, 17, 255);
+      transition: .4s;
+    }
+
+    .sidebar ul li:hover a {
+      padding-left: 30px;
+      color: #7c4242;
+      border-left: 5px solid #ffffff;
+      transition: all 0.5s;
+    }
+
+    .sidebar ul a i {
+      margin-right: 16px;
+    }
+
+    #check {
+      display: none;
+    }
+
+    label #btn,
+    label #cancel {
+      position: fixed;
+      cursor: pointer;
+      background-color: #000000;
+      border-radius: 3px;
+    }
+
+    label #btn {
+      left: 5px;
+      top: 7px;
+      font-size: 25px;
+      color: #fff;
+      padding: 6px 10px;
+      transition: all .5s;
+      z-index: 999;
+    }
+
+    label #cancel {
+      z-index: 999;
+      left: -145px;
+      top: 10px;
+      font-size: 25px;
+      color: rgb(255, 255, 255);
+      padding: 4px 9px;
+      transition: all .5s ease;
+    }
+
+    #check:checked~.sidebar {
+      left: 0;
+    }
+
+    #check:checked~label #btn {
+      left: 10px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #check:checked~label #cancel {
+      left: 150px;
+    }
+
+
+
+
+
+
+
+     
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 6px
+    }
+
+     
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em
+    }
+
+     
+    ::-webkit-scrollbar-thumb {
+      background-color: #30B07F;
+      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 100%, transparent 100%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em
+    }
+
+
+
+
+
+
+     
+    .navigation {
+      width: 100%;
+      height: 50px;
+       
+      position: fixed;
+      left: 0;
+      top: 0;
+      text-align: center;
+      transition: top 0.5s;
+      z-index: 999;
+
+      background: rgba(255, 255, 255, .4) !important;
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px) !important;
+    }
+
+     
+    .hide {
+      top: -60px;
+    }
+
+
+
+     
+    .btn {
+      width: 120px;
+      height: 40px;
+      background: linear-gradient(315deg, #a4d8fa 0%, #5eb1e9 74%);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      font-size: smaller;
+      color: #fff;
+      box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+      outline: none;
+      position: relative;
+      z-index: 0;
+    }
+
+    .btn::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      background: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      top: 0;
+      height: 100%;
+    }
+
+    .btn:active {
+      top: 2px;
+    }
+
+
+
+
+     
+    a.toc-link {
+      color: currentColor;
+      height: auto;
+    }
+
+     
+    * {
+      font-family: LXGW WenKai
+    }
+
+    * {
+      font-weight: bold
+    }
+
+    body {
+      font-family: LXGW WenKai;
+    }
+
+
+
+
+     
+    .pagination {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      margin: 0px;
+    }
+
+    .pagination a {
+      text-decoration: none;
+      font-size: 22px;
+      color: rgb(0, 0, 0);
+    }
+
+    .page-item {
+      display: inline;
+      margin-right: 20px;
+    }
+  </style>
+
+</head>
+    <body style="    
+    background-image: url(https://api.ixiaowai.cn/api/api.php);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;">
+    <input type="checkbox" id="check">
+<label for="check">
+  <i class="fa fa-bars" id="btn"></i>
+  <i class="fa fa-times" id="cancel"></i>
+</label>
+<div class="sidebar">
+  <div class="top">Hi~</div>
+  <ul>
+    
+    <li class="lii">
+      <a href="/">
+        <div class="burger-item">
+          <i class='fa fa-home'></i> 主页
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/posts">
+        <div class="burger-item">
+          <i class='fa fa-archive'></i> 文章
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/categories">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> 分类
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/archive">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> 归档
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/tags">
+        <div class="burger-item">
+          <i class='fa fa-tags'></i> 标签
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/about">
+        <div class="burger-item">
+          <i class='fa fa-info-circle'></i> 关于
+        </div>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+<div id="body-wrap">
+  <nav class="navigation">
+  <ul class="ull">
+    
+    <li class="lii">
+      <a href="/">
+        <div class="burger-item">
+          <i class='fa fa-home'></i> 主页
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/posts">
+        <div class="burger-item">
+          <i class='fa fa-archive'></i> 文章
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/categories">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> 分类
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/archive">
+        <div class="burger-item">
+          <i class='fa fa-folder-open'></i> 归档
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/tags">
+        <div class="burger-item">
+          <i class='fa fa-tags'></i> 标签
+        </div>
+      </a>
+    </li>
+    
+    <li class="lii">
+      <a href="/about">
+        <div class="burger-item">
+          <i class='fa fa-info-circle'></i> 关于
+        </div>
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+  <div style="width: 100%; height: 65vh;">
+    <div id="page_site-info">
+      <div id="site-title">
+        <input type="checkbox" id="check">
+        <br>
+        <span class="blogtitle"></span>
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+        <script>
+          var typed = new Typed(".blogtitle", {
+            strings: ['Posts'],
+            startDelay: 300,
+            typeSpeed: 100,
+            loop: true,
+            backSpeed: 50,
+            showCursor: true
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  
+<main id="content-outer">
+    <div class="layout_page" id="content-inner">
+        <article id="page" style="margin-right: 10px;">
+            
+                
+                    
+                        
+                        <div class="page-list">
+                            <div class="page-img"></div>
+                            <div class="page-mian">
+                                <h2 class="page-Title"><a href="https://lovemjh.github.io/posts/_%E7%9B%AE%E5%BD%95/"></a></h2>
+                                <p class="page-Content" style="word-wrap:break-word"><a href="https://lovemjh.github.io/posts/_%E7%9B%AE%E5%BD%95/">Java基础 20220430195146 20220430195346 20220430200635 20220430210211 20220430210364 20220430211218 20220430211406 20220430212064 20220430212111 20220430212354 Java中级 20220430214030 20220430214135 20220430212581 20220430214286 20220430214272 20220430214372 20220430214396 20220430214484 20220430214426 20220430222140 web部分 20220430214595 20220430214665 20220430214800 20220430214937 20220430214943 20220430214936 20220430215029 20220430215026 20220430225784 JavaEE 20220430215127 20220430215286 20220430215283 20220430215319 20220430215358 20220430215387 Java框架 20220430230955 20220430230666 20220524223082 20220430215722 20220526003427 20220526005077 20220526160511 20220526162071 20220526204358 20220526213257 20220526214937</a><div class="container-ctgtag">
+	<div class="taxonomy" style="display: flex; justify-content: center;">
+		
+		<div class="ctg" style="display: flex; justify-content: center; margin-right: 20px;">
+			
+		</div>
+		<div class="tag" style="display: flex; justify-content: center;">
+			
+		</div>
+	</div>
+</div><div>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="page-list">
+                            <div class="page-img"></div>
+                            <div class="page-mian">
+                                <h2 class="page-Title"><a href="https://lovemjh.github.io/posts/java-web/20220430214943/">JSON</a></h2>
+                                <p class="page-Content" style="word-wrap:break-word"><a href="https://lovemjh.github.io/posts/java-web/20220430214943/"></a><div class="container-ctgtag">
+	<div class="taxonomy" style="display: flex; justify-content: center;">
+		
+		<div class="ctg" style="display: flex; justify-content: center; margin-right: 20px;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/categories/"></a>
+			</div>
+			
+		</div>
+		<div class="tag" style="display: flex; justify-content: center;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/tags/"></a></i>
+			</div>
+			
+		</div>
+	</div>
+</div><div>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="page-list">
+                            <div class="page-img"></div>
+                            <div class="page-mian">
+                                <h2 class="page-Title"><a href="https://lovemjh.github.io/posts/javaee/20220430215319/">JSP</a></h2>
+                                <p class="page-Content" style="word-wrap:break-word"><a href="https://lovemjh.github.io/posts/javaee/20220430215319/">JSP 1. 理解 Java Server Page 一种动态页面技术。本质上就是Servlet 运行原理：将jsp文件 &mdash;-&gt; .java &mdash;-&gt; .class 运行 2. JSP的使用策略 1. 可以当成纯粹的页面使用 和 html 使用</a><div class="container-ctgtag">
+	<div class="taxonomy" style="display: flex; justify-content: center;">
+		
+		<div class="ctg" style="display: flex; justify-content: center; margin-right: 20px;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/categories/"></a>
+			</div>
+			
+		</div>
+		<div class="tag" style="display: flex; justify-content: center;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/tags/"></a></i>
+			</div>
+			
+		</div>
+	</div>
+</div><div>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="page-list">
+                            <div class="page-img"></div>
+                            <div class="page-mian">
+                                <h2 class="page-Title"><a href="https://lovemjh.github.io/posts/javaee/20220430215358/">MVC</a></h2>
+                                <p class="page-Content" style="word-wrap:break-word"><a href="https://lovemjh.github.io/posts/javaee/20220430215358/"></a><div class="container-ctgtag">
+	<div class="taxonomy" style="display: flex; justify-content: center;">
+		
+		<div class="ctg" style="display: flex; justify-content: center; margin-right: 20px;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/categories/"></a>
+			</div>
+			
+		</div>
+		<div class="tag" style="display: flex; justify-content: center;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/tags/"></a></i>
+			</div>
+			
+		</div>
+	</div>
+</div><div>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="page-list">
+                            <div class="page-img"></div>
+                            <div class="page-mian">
+                                <h2 class="page-Title"><a href="https://lovemjh.github.io/posts/javaee/20220430215127/">Tomcat</a></h2>
+                                <p class="page-Content" style="word-wrap:break-word"><a href="https://lovemjh.github.io/posts/javaee/20220430215127/">Web核心 1. 服务器 理解 web服务器一般是指网站服务器，为软件提供后台服务的软件。相当于远程的一台计算机包含磁盘 CPU 内存和服务器软件等。我们这里</a><div class="container-ctgtag">
+	<div class="taxonomy" style="display: flex; justify-content: center;">
+		
+		<div class="ctg" style="display: flex; justify-content: center; margin-right: 20px;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/categories/"></a>
+			</div>
+			
+		</div>
+		<div class="tag" style="display: flex; justify-content: center;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/tags/"></a></i>
+			</div>
+			
+		</div>
+	</div>
+</div><div>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="page-list">
+                            <div class="page-img"></div>
+                            <div class="page-mian">
+                                <h2 class="page-Title"><a href="https://lovemjh.github.io/posts/java-2/20220430214484/">图形界面</a></h2>
+                                <p class="page-Content" style="word-wrap:break-word"><a href="https://lovemjh.github.io/posts/java-2/20220430214484/"></a><div class="container-ctgtag">
+	<div class="taxonomy" style="display: flex; justify-content: center;">
+		
+		<div class="ctg" style="display: flex; justify-content: center; margin-right: 20px;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/categories/"></a>
+			</div>
+			
+		</div>
+		<div class="tag" style="display: flex; justify-content: center;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/tags/"></a></i>
+			</div>
+			
+		</div>
+	</div>
+</div><div>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+                    
+                        
+                        <div class="page-list">
+                            <div class="page-img"></div>
+                            <div class="page-mian">
+                                <h2 class="page-Title"><a href="https://lovemjh.github.io/posts/project/20220430225457/">学生管理系统</a></h2>
+                                <p class="page-Content" style="word-wrap:break-word"><a href="https://lovemjh.github.io/posts/project/20220430225457/">学生管理系统 一、回顾 1. Servlet 使用 注意事项 生命周期方法 进化史 注解的形式创建Servlet 2. request和response request 获取请求信息 请求行 请求</a><div class="container-ctgtag">
+	<div class="taxonomy" style="display: flex; justify-content: center;">
+		
+		<div class="ctg" style="display: flex; justify-content: center; margin-right: 20px;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/categories/"></a>
+			</div>
+			
+		</div>
+		<div class="tag" style="display: flex; justify-content: center;">
+			
+			<div style="margin-right: 10px;">
+				
+				<a href="/tags/"></a></i>
+			</div>
+			
+		</div>
+	</div>
+</div><div>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+            
+            <div class="container-pagination">
+                
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/9/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/6/" aria-label="Page 6" class="page-link" role="button">6</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/9/" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+            </div>
+        </article><div class="aside_content" id="aside_content">
+    <div class="card-widget card-info">
+        <div class="card-content">
+            <div class="card-info-avatar is-center">
+                <img class="avatar-img" src="http://q1.qlogo.cn/g?b=qq&nk=2409741052&s=640" alt="avatar">
+                <div class="author-info__name">青山</div>
+                <div class="author-info__description">悟已往之不谏 知来者之可追</div>
+            </div>
+            
+            <div class="card-info-social-icons is-center">
+                <a class="social-icon" href="https://github.com/xioyito" target="_blank">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+    <div class="card-widget">
+        <div class="card-content">
+            <meting-js auto="https://y.qq.com/n/yqq/playlist/7713574197.html">
+            </meting-js>
+        </div>
+    </div>
+
+    <div class="card-widget">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                <span>一言</span>
+            </div>
+            <div id="hitokoto"></div>
+        </div>
+    </div>
+    <div class="card-widget">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <span>今日诗词</span>
+            </div>
+            <div id="jinrishici-sentence"></div>
+        </div>
+    </div>
+
+    <div class="card-widget">
+        <div class="card-content">
+            <div class="item-headline">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                <span>站点信息</span>
+            </div>
+            <div class="webinfo">
+                <div class="webinfo-item">
+                    <div class="webinfo-site-uv-name">本站访客数 :</div>
+                    <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div>
+                </div>
+                <div class="webinfo-item">
+                    <div class="webinfo-site-name">本站总访问量 :</div>
+                    <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div></div>
+</main>
+<footer id="footer">
+    <div id="footer-wrap">
+        <div class="copyright">&copy;2019 - 2021 BY QING SHAN KE</div>
+    </div>
+</footer>
+</div>
+
+<div class="fan" id="fan" style="
+position: fixed;
+width: 40px;
+height: 120px;
+right: -200px;
+bottom: 0px;
+transition: all 0.5s;
+z-index: 99999;
+ ">
+    <i class="fa fa-cog fa-spin fa-2x"></i><br>
+    <i class="fa fa-align-justify fa-2x" id="ff"></i><br>
+    <i class="fa fa fa-arrow-up fa-2x" id="aa"></i><br>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    var a = 0;
+    ff.onclick = function () {
+        if (a === 0) {
+            $(".js-toc-w").css("position", "fixed"); 
+            $(".js-toc-w").css("bottom", "10px");
+            $(".js-toc-w").css("right", "40px");
+
+            a++;
+        } else {
+            $(".js-toc-w").css("position", "static");
+            a--;
+        }
+    }
+
+    aa.onclick = function () {
+        window.scrollTo({     
+            top: 0,            
+            behavior: "smooth"   
+        })
+    }
+
+    
+    window.onload = function () {
+        $(".aplayer").css("background", "rgba(0, 0, 0, 0)");
+        
+
+        
+    } 
+</script>
+<script>
+    $(window).scroll(function () {
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop
+        console.log(scrollY + "----------------------")
+        if (scrollY > 40) {
+            $('.fan').css("right", "0px");
+        } else {
+            $('.fan').css("right", "-220px");
+        }
+    });
+    $(function () {
+        
+        var start_height = $(document).scrollTop();
+        
+        var navigation_height = $('.navigation').outerHeight();
+        $(window).scroll(function () {
+            
+            var end_height = $(document).scrollTop();
+            
+            if (end_height > navigation_height) {
+                $('.navigation').addClass('hide');
+            } else {
+                $('.navigation').removeClass('hide');
+            }
+            
+            if (end_height < start_height) {
+                $('.navigation').removeClass('hide');
+            }
+            
+            start_height = $(document).scrollTop();
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+<script src="https://unpkg.com/nplayer@latest/dist/index.min.js"></script>
+
+
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.8/js/maodian.js"></script>
+
+
+
+<script type="text/javascript">
+    console.clear();
+    console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
+    console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/laoxuai");
+    console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.0.0");
+
+    (function ($) {
+        $.fn.snow = function (options) {
+            var $flake = $('<div id="snowbox" />').css({ 'position': 'absolute', 'z-index': '9999', 'top': '-50px' }).html('&#10052;'),
+                documentHeight = $(document).height(),
+                documentWidth = $(document).width(),
+                defaults = {
+                    minSize: 10,
+                    maxSize: 20,
+                    newOn: 1000,
+                    flakeColor: "#AFDAEF"  
+                },
+                options = $.extend({}, defaults, options);
+            var interval = setInterval(function () {
+                var startPositionLeft = Math.random() * documentWidth - 100,
+                    startOpacity = 0.5 + Math.random(),
+                    sizeFlake = options.minSize + Math.random() * options.maxSize,
+                    endPositionTop = documentHeight - 200,
+                    endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+                    durationFall = documentHeight * 10 + Math.random() * 5000;
+                $flake.clone().appendTo('body').css({
+                    left: startPositionLeft,
+                    opacity: startOpacity,
+                    'font-size': sizeFlake,
+                    color: options.flakeColor
+                }).animate({
+                    top: endPositionTop,
+                    left: endPositionLeft,
+                    opacity: 0.2
+                }, durationFall, 'linear', function () {
+                    $(this).remove()
+                });
+            }, options.newOn);
+        };
+    })(jQuery);
+    $(function () {
+        $.fn.snow({
+            minSize: 5,  
+            maxSize: 50, 
+            newOn: 800   
+        });
+    });
+
+    
+    var OriginTitle = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            
+            document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        }
+        else {
+            $('[rel="icon"]').attr('href', "/favicon.ico");
+            document.title = '(ฅ>ω<*ฅ) 噫又好啦 ~' + OriginTitle;
+            titleTime = setTimeout(function () {
+                document.title = OriginTitle;
+            }, 2000);
+        }
+    });
+</script></body>
+</html>

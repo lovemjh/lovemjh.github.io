@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -484,11 +525,11 @@
 <h4 id="代码">代码</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">线程创建方式一 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">线程创建方式一</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">AThread</span>  <span class="n">at</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AThread</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">at</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;main+==&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -496,7 +537,7 @@
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">AThread</span> <span class="kd">extends</span> <span class="n">Thread</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">1000</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">1000</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;AThread=================&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">};</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -530,13 +571,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> 在创建对象时，需要通过start方法才能开启线程。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> Thread(Runnable target) 该构造可以把Runnable接口对象转换成线程。进而调用start方法。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">线程创建方式二 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">线程创建方式二</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">ARunnable</span> <span class="n">ar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ARunnable</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// ar --&gt;Thread
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Thread</span> <span class="n">at</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">ar</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">at</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;main+==&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -544,7 +585,7 @@
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">ARunnable</span> <span class="kd">implements</span>  <span class="n">Runnable</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">1000</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">1000</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;ARunnable=================&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">};</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -574,7 +615,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> 2.FutureTask常用方法：
 </span></span></span><span class="line"><span class="cl"><span class="cm"> get() 获取线程的执行结果
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">线程创建方式三 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">线程创建方式三</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ExecutionException</span><span class="o">,</span> <span class="n">InterruptedException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">ACallable</span> <span class="n">ab</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ACallable</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//转线程对象
@@ -582,7 +623,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">Thread</span> <span class="n">at</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">task</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">at</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">task</span><span class="o">.</span><span class="na">get</span><span class="o">()+</span><span class="s">&#34;=======================================&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">200</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;main+==&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -590,7 +631,7 @@
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">ACallable</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;======================Acallable&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;这是一个线程的执行结果&#34;</span><span class="o">;</span>
@@ -646,7 +687,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">线程常见方法 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">线程常见方法</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">       <span class="cm">/* AThread at = new AThread();
 </span></span></span><span class="line"><span class="cl"><span class="cm">        at.start();
@@ -672,7 +713,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">   2.interrupted() 判断线程是否中断。
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">线程常见方法一 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">线程常见方法一</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">BThread</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BThread</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">bt</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
@@ -681,8 +722,8 @@
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">BThread</span> <span class="kd">extends</span> <span class="n">Thread</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">i</span>  <span class="o">==</span> <span class="mi">5</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">i</span>  <span class="o">==</span> <span class="n">5</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="n">interrupt</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">+</span><span class="s">&#34;===============&#34;</span><span class="o">+</span><span class="n">interrupted</span><span class="o">());</span>
@@ -708,13 +749,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">      ② 守护线程： 为用户线程提供便捷服务的线程。用户线程一旦结束，守护线程也会随之结束。
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">线程常见方法三 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">线程常见方法三</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">CThread</span> <span class="n">ct</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CThread</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//线程开启之前 设置
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ct</span><span class="o">.</span><span class="na">setDaemon</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">ct</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">10</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">10</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;=============main&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -722,7 +763,7 @@
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">CThread</span> <span class="kd">extends</span>  <span class="n">Thread</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;====+CThread+==&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -738,12 +779,12 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">     注意： 线程开启之后调用。
 </span></span></span><span class="line"><span class="cl"><span class="cm">           相当于方法调用，调用run方法。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">线程常见方式四 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">线程常见方式四</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">         <span class="n">DThread</span> <span class="n">dt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DThread</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">         <span class="n">dt</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">         <span class="n">dt</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;main+======================================&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">         <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -751,7 +792,7 @@
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">DThread</span> <span class="kd">extends</span> <span class="n">Thread</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;DThread +======&#34;</span><span class="o">+</span> <span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -767,7 +808,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">       （*）2.yield() 线程的让步，暂停当前线程的执行，转而执行其他线程。
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">线程常见方法五 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">线程常见方法五</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="cm">/*for (int i = 0; i &lt; 100; i++) {
 </span></span></span><span class="line"><span class="cl"><span class="cm">            System.out.println(i);
@@ -785,7 +826,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1">//        yield()
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">MThread</span>  <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MThread</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">m</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;main+============================&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -793,8 +834,8 @@
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">MThread</span> <span class="kd">extends</span>  <span class="n">Thread</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">%</span><span class="n">2</span> <span class="o">==</span> <span class="n">0</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="n">yield</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;====&#34;</span><span class="o">+</span><span class="n">i</span><span class="o">);</span>
@@ -838,7 +879,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">  1.多线程的安全问题：
 </span></span></span><span class="line"><span class="cl"><span class="cm">      账户取款操作。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">多线程的安全问题 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">多线程的安全问题</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">BankAccount</span>  <span class="n">ba</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BankAccount</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">ba</span><span class="o">);</span>
@@ -850,9 +891,9 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="kd">class</span>  <span class="nc">BankAccount</span> <span class="kd">implements</span>  <span class="n">Runnable</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">balance</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span><span class="c1">//余额
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">1000</span><span class="o">;</span><span class="c1">//余额
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Object</span> <span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="n">Double</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">12.3</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="n">Double</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="n">12</span><span class="o">.</span><span class="na">3</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="cm">/*synchronized*/</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//同步代码块 任意对象：锁对象:要求对所有的线程对象有效 ，共享。
@@ -860,13 +901,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1">//        synchronized (this) {//this锁
 </span></span></span><span class="line"><span class="cl"><span class="c1">//        synchronized (d) {//静态锁：静态成员
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">synchronized</span> <span class="o">(</span><span class="n">BankAccount</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span><span class="c1">//类锁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(</span><span class="n">balance</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">){</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(</span><span class="n">balance</span><span class="o">&gt;</span><span class="n">0</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
-</span></span><span class="line"><span class="cl">                <span class="n">balance</span> <span class="o">-=</span><span class="mi">1000</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">balance</span> <span class="o">-=</span><span class="n">1000</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()+</span><span class="s">&#34;取款后，金额为:&#34;</span><span class="o">+</span> <span class="n">balance</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()+</span><span class="s">&#34;余额不足&#34;</span><span class="o">);</span>
@@ -908,7 +949,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">     ① 保证有多线程的安全问题
 </span></span></span><span class="line"><span class="cl"><span class="cm">     ② 保证锁唯一，所有线程对象共享同一把锁。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">多线程的安全问题继承方式 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">多线程的安全问题继承方式</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">BankAccount</span> <span class="n">ba</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BankAccount</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">BankAccount</span> <span class="n">ba1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BankAccount</span><span class="o">();</span>
@@ -920,19 +961,19 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="kd">class</span>  <span class="nc">BankAccount</span> <span class="kd">extends</span> <span class="n">Thread</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">   <span class="kd">static</span>  <span class="kt">double</span> <span class="n">balance</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">static</span>  <span class="kt">double</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">1000</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">   <span class="kd">static</span> <span class="n">Object</span> <span class="n">o</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">Object</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span>  <span class="cm">/*synchronized */</span><span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//        synchronized (BankAccount.class) {
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">synchronized</span> <span class="o">(</span><span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">balance</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(</span><span class="n">balance</span><span class="o">&gt;</span><span class="n">0</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">10</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
-</span></span><span class="line"><span class="cl">                <span class="n">balance</span> <span class="o">-=</span> <span class="mi">1000</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">balance</span> <span class="o">-=</span> <span class="n">1000</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;取款后，余额为:&#34;</span><span class="o">+</span><span class="n">balance</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getName</span><span class="o">()+</span><span class="s">&#34;余额不足&#34;</span><span class="o">);</span>
@@ -970,7 +1011,7 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.concurrent.locks.Lock</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.concurrent.locks.ReentrantLock</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lock</span><span class="err">锁</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lock锁</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">BA</span> <span class="n">ba</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BA</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">ba</span><span class="o">);</span>
@@ -981,18 +1022,18 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">BA</span> <span class="kd">implements</span>  <span class="n">Runnable</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Lock</span> <span class="n">lock</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReentrantLock</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">balance</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">1000</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//加锁
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">lock</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">balance</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">balance</span><span class="o">&gt;</span><span class="n">0</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">10</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">            <span class="n">balance</span> <span class="o">-=</span> <span class="mi">1000</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">balance</span> <span class="o">-=</span> <span class="n">1000</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()+</span><span class="s">&#34;取款后，余额为:&#34;</span><span class="o">+</span><span class="n">balance</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()+</span><span class="s">&#34;余额不足！！！&#34;</span><span class="o">);</span>
@@ -1012,7 +1053,7 @@
 <h3 id="代码-10">代码</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">死锁 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">死锁</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">AThread</span> <span class="n">at</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AThread</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">AThread</span> <span class="n">at1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AThread</span><span class="o">();</span>
@@ -1031,7 +1072,7 @@
 </span></span><span class="line"><span class="cl">            <span class="kd">synchronized</span> <span class="o">(</span><span class="n">o</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了o......1&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sleep</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
@@ -1043,7 +1084,7 @@
 </span></span><span class="line"><span class="cl">            <span class="kd">synchronized</span> <span class="o">(</span><span class="n">o1</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了o1......2&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">sleep</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
@@ -1106,7 +1147,7 @@
 <h4 id="代码-11">代码</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">单例设计模式 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">单例设计模式</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">       <span class="cm">/* A  a = new A();
 </span></span></span><span class="line"><span class="cl"><span class="cm">        A  a1 = new A();
@@ -1141,7 +1182,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">    尽管饿汉式可能造成资源的浪费，但是懒汉式有线程安全问题的。
 </span></span></span><span class="line"><span class="cl"><span class="cm">   所以，考虑线程安全问题的前提下，使用饿汉式居多。如果要使用懒汉式，必须要进行线程安全问题的解决。加同步。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">单例设计模式 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">单例设计模式</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">SingleTon</span> <span class="n">s</span> <span class="o">=</span> <span class="n">SingleTon</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">SingleTon</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">SingleTon</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
@@ -1189,7 +1230,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">       ③ 方法
 </span></span></span><span class="line"><span class="cl"><span class="cm">       ④ 抽象方法
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">枚举 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">枚举</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Student</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">st</span><span class="o">.</span><span class="na">sex</span> <span class="o">=</span> <span class="n">Sex</span><span class="o">.</span><span class="na">MALE</span><span class="o">;</span>
@@ -1314,18 +1355,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> 在 ThreadPoolExecutor.DiscardOldestPolicy 中，如果执行程序尚未关闭，则位于 工作队列头部的任务将被删除，
 </span></span></span><span class="line"><span class="cl"><span class="cm"> 然后重试执行程序（如果再次失败，则重复此过程）。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadPoolExecutor</span><span class="err">线程池</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadPoolExecutor线程池</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ThreadPoolExecutor</span> <span class="n">tp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadPoolExecutor</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">                <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">,</span> <span class="k">new</span> <span class="n">ArrayBlockingQueue</span><span class="o">&lt;&gt;(</span><span class="mi">1</span><span class="o">),</span> <span class="n">Executors</span><span class="o">.</span><span class="na">defaultThreadFactory</span><span class="o">(),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ThreadPoolExecutor</span> <span class="n">tp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadPoolExecutor</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="n">5</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">,</span> <span class="k">new</span> <span class="n">ArrayBlockingQueue</span><span class="o">&lt;&gt;(</span><span class="n">1</span><span class="o">),</span> <span class="n">Executors</span><span class="o">.</span><span class="na">defaultThreadFactory</span><span class="o">(),</span>
 </span></span><span class="line"><span class="cl">                <span class="k">new</span> <span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">DiscardOldestPolicy</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">7</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">finalI</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span><span class="c1">//1.8jdk之后，在内部类中使用时，加final或省略都是加的。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">tp</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">}</span>
@@ -1417,19 +1458,19 @@ ThreadPoolExecutor：可以解决线程的管理问题，由于newCachedThreadPo
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadPoolExecutor</span><span class="err">线程池</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadPoolExecutor线程池</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">ThreadPoolExecutor</span> <span class="n">tp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadPoolExecutor</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="n">ThreadPoolExecutor</span> <span class="n">tp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadPoolExecutor</span><span class="o">(</span><span class="n">3</span><span class="o">,</span> <span class="n">5</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">,</span> <span class="k">new</span> <span class="n">ArrayBlockingQueue</span><span class="o">&lt;&gt;(</span><span class="mi">1</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl"><span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">,</span> <span class="k">new</span> <span class="n">ArrayBlockingQueue</span><span class="o">&lt;&gt;(</span><span class="n">1</span><span class="o">),</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">Executors</span><span class="o">.</span><span class="na">defaultThreadFactory</span><span class="o">(),</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">new</span> <span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">DiscardOldestPolicy</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">7</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">finalI</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span><span class="c1">//1.8jdk之后，在内部类中使用时，加final或省略都是加的。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
@@ -1441,7 +1482,7 @@ ThreadPoolExecutor：可以解决线程的管理问题，由于newCachedThreadPo
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">try</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">100</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -1566,6 +1607,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -1629,9 +1727,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

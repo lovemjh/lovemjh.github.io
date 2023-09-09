@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -490,7 +531,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">         对javase的项目：针对idea工具，前面啥也不带 表示当前项目底下。
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">File</span><span class="err">类</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">File类</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">File</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;D:\\1\\2.txt&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//        System.out.println(f.exists());
@@ -542,7 +583,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">     ⑤ length() 文件的长度 容量 只对文件有效，对于目录来说，值不确定的。
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">File</span><span class="err">类常用方法</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">File类常用方法</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;d:\\1\\3.txt&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//           ① createNewFile() 创建文件没有才创建。
@@ -590,7 +631,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">文件遍历的方法 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">文件遍历的方法</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;d:\\1\\3.txt&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">File</span><span class="o">[]</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">listFiles</span><span class="o">();</span>
@@ -616,7 +657,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">   1.FileFilter文件过滤器
 </span></span></span><span class="line"><span class="cl"><span class="cm">    boolean accept(File pathname) 如果返回值为true，可以通过，否则不能通过
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">文件过滤器 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">文件过滤器</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;d:\\1&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">File</span><span class="o">[]</span> <span class="n">cs</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">listFiles</span><span class="o">(</span><span class="k">new</span> <span class="n">FileFilter</span><span class="o">()</span> <span class="o">{</span>
@@ -642,7 +683,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">  2.renameTo(File dest) 重命名
 </span></span></span><span class="line"><span class="cl"><span class="cm">     在同一个目录下，相当于重命名，但是在不同的目录下，相当于剪切和重命名。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">File</span><span class="err">类常用方法一</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">File类常用方法一</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">       <span class="cm">/* File file = new File(&#34;d:\\1\\2\\3&#34;);
 </span></span></span><span class="line"><span class="cl"><span class="cm">        file.mkdirs();*/</span>
@@ -695,15 +736,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">   f(3)===&gt; f(2)+3
 </span></span></span><span class="line"><span class="cl"><span class="cm">  ==&gt; f(n) ==&gt; f(n-1)+n
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">递归 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">递归</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getSum</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getSum</span><span class="o">(</span><span class="n">5</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getSum</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">n</span><span class="o">==</span><span class="n">1</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">1</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">       <span class="k">return</span>  <span class="n">getSum</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)+</span><span class="n">n</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">       <span class="k">return</span>  <span class="n">getSum</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="n">1</span><span class="o">)+</span><span class="n">n</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h2 id="io流-1">IO流</h2>
@@ -758,7 +799,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">       1》 read()从流中读取一个字节数据，返回值表示读取的字节，到达文件的末尾 返回值为-1
 </span></span></span><span class="line"><span class="cl"><span class="cm">       2》 close() 关闭资源。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">字节输入流 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">字节输入流</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22a\\1.txt&#34;</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">       <span class="cm">/* int value = fis.read();
@@ -769,8 +810,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(value);
 </span></span></span><span class="line"><span class="cl"><span class="cm">        value = fis.read();
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(value);*/</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="c1">//表示要读取的字节的数值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">())!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span><span class="c1">//表示要读取的字节的数值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">())!=</span> <span class="o">-</span><span class="n">1</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="n">value</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//关闭资源
@@ -809,10 +850,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> String(byte[] bytes, int offset, int length)
 </span></span></span><span class="line"><span class="cl"><span class="cm">   从offset位置开始，将length个字节进行转换。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Read</span><span class="err">方法</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Read方法</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22a\\2.txt&#34;</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span><span class="c1">// 1个字节 8位  1024B = 1KB  M G T P
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">1024</span><span class="o">];</span><span class="c1">// 1个字节 8位  1024B = 1KB  M G T P
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/*int value = fis.read(bt);
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(value);
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Arrays.toString(bt));
@@ -828,7 +869,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">        }*/</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//        3.read(byte[] b, int off, int len)  将 最多len个数据读取到b中，到达文件的末尾，返回值为-1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">value1</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">value1</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">3</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">value1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">bt</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">        <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
@@ -847,7 +888,7 @@
 </span></span><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">   1.available() 剩余字节数,如果一次都没读取，就是该文件的长度，如果读取了，就是剩余没有读取的字节数。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Available</span><span class="err">方法</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Available方法</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22a\\2.txt&#34;</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fis</span><span class="o">.</span><span class="na">available</span><span class="o">());</span>
@@ -894,16 +935,16 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">      ③ write(byte[] b, int off, int len) 将数组中的内容 从off位置开始，写len个。
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">字节输出流 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">字节输出流</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22a\\6.txt&#34;</span><span class="o">)</span><span class="cm">/*,true*/</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="mi">97</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="o">{</span><span class="mi">97</span><span class="o">,</span><span class="mi">98</span><span class="o">,</span><span class="mi">99</span><span class="o">,</span><span class="mi">100</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">97</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="o">{</span><span class="n">97</span><span class="o">,</span><span class="n">98</span><span class="o">,</span><span class="n">99</span><span class="o">,</span><span class="n">100</span><span class="o">};</span>
 </span></span><span class="line"><span class="cl">        <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//输入字符串--&gt;byte[]
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">&#34;今天天气很好&#34;</span><span class="o">.</span><span class="na">getBytes</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt1</span> <span class="o">=</span> <span class="o">{</span><span class="mi">101</span><span class="o">,</span><span class="mi">102</span><span class="o">,</span><span class="mi">103</span><span class="o">,</span><span class="mi">104</span><span class="o">,</span><span class="mi">105</span><span class="o">};</span>
-</span></span><span class="line"><span class="cl">        <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt1</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt1</span> <span class="o">=</span> <span class="o">{</span><span class="n">101</span><span class="o">,</span><span class="n">102</span><span class="o">,</span><span class="n">103</span><span class="o">,</span><span class="n">104</span><span class="o">,</span><span class="n">105</span><span class="o">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt1</span><span class="o">,</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">fos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -934,14 +975,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> 字节流可以进行操作的文件：
 </span></span></span><span class="line"><span class="cl"><span class="cm">       所有的文件，包括 文本文件 视频  声音 图片  ，但是对于文本文件这种，由于编码问题，建议字符流，减少乱码问题的产生。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">文件复制操作 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">文件复制操作</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\img\\1.jpg&#34;</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileOutputStream</span> <span class="n">fos</span><span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;C:\\Users\\Administrator\\Desktop\\5.jpg&#34;</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=-</span><span class="mi">1</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">1024</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=-</span><span class="n">1</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//关闭资源
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
@@ -971,18 +1012,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">     }
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Jdk1_6</span><span class="err">异常处理形式</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Jdk1_6异常处理形式</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">           <span class="kt">int</span>  <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="o">/</span><span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">int</span>  <span class="n">i</span> <span class="o">=</span> <span class="n">5</span><span class="o">/</span><span class="n">0</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">           <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\img\\1.jpg&#34;</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">           <span class="n">fos</span><span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;C:\\Users\\Administrator\\Desktop\\5.jpg&#34;</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">           <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">           <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">           <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=-</span><span class="mi">1</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">               <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">1024</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">           <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=-</span><span class="n">1</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">               <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">           <span class="o">}</span>
 </span></span><span class="line"><span class="cl">       <span class="o">}</span><span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
@@ -1029,18 +1070,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">     }
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Jdk1_6</span><span class="err">异常处理形式</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Jdk1_6异常处理形式</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileOutputStream</span> <span class="n">fos</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">           <span class="kt">int</span>  <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="o">/</span><span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">int</span>  <span class="n">i</span> <span class="o">=</span> <span class="n">5</span><span class="o">/</span><span class="n">0</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">           <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\img\\1.jpg&#34;</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">           <span class="n">fos</span><span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;C:\\Users\\Administrator\\Desktop\\5.jpg&#34;</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">           <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">           <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">           <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=-</span><span class="mi">1</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">               <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">1024</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">           <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=-</span><span class="n">1</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">               <span class="n">fos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">           <span class="o">}</span>
 </span></span><span class="line"><span class="cl">       <span class="o">}</span><span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
@@ -1079,24 +1120,24 @@
 <p>① flush 刷新缓冲区，不会关闭流，后续还可以使用输出流。</p>
 <p>② close方法 表示关闭资源，会关闭输出流。但是在关闭输出流之前，调用flush方法 刷新缓冲区。</p>
 <h4 id="代码-13">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span><span class="kd">public</span> <span class="kd">class</span> <span class="err">带有缓冲区的高效读写的字节流 {    </span><span class="nc">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>        <span class="n">BufferedInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span>                <span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\src\\com\\demo\\文件复制操作.java&#34;</span><span class="o">)));</span>        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>        <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">bis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">value</span><span class="o">));</span>        <span class="o">}</span>        <span class="n">bis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>    <span class="o">}}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span><span class="cm">/**  1.构造方法：   BufferedOutputStream(OutputStream out)  2.常用方法：      ① flush()  刷新缓冲区  (***) 3.close方法与flush方法的区别：       ① flush 刷新缓冲区，不会关闭流，后续还可以使用输出流。       ② close方法 表示关闭资源，会关闭输出流。但是在关闭输出流之前，调用flush方法 刷新缓冲区。 */</span><span class="kd">public</span> <span class="kd">class</span> <span class="err">带有缓冲区的高效读写的字节输出流 {    </span><span class="nc">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>        <span class="n">BufferedOutputStream</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\1.txt&#34;</span><span class="o">)));</span>        <span class="n">br</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="mi">98</span><span class="o">);</span>        <span class="n">br</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="mi">97</span><span class="o">);</span>        <span class="n">br</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="mi">99</span><span class="o">);</span>        <span class="n">br</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>    <span class="o">}}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">带有缓冲区的高效读写的字节流</span> <span class="o">{</span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>        <span class="n">BufferedInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span>                <span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\src\\com\\demo\\文件复制操作.java&#34;</span><span class="o">)));</span>        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">1024</span><span class="o">];</span>        <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">bis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=</span> <span class="o">-</span><span class="n">1</span><span class="o">){</span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">value</span><span class="o">));</span>        <span class="o">}</span>        <span class="n">bis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>    <span class="o">}}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span><span class="cm">/**  1.构造方法：   BufferedOutputStream(OutputStream out)  2.常用方法：      ① flush()  刷新缓冲区  (***) 3.close方法与flush方法的区别：       ① flush 刷新缓冲区，不会关闭流，后续还可以使用输出流。       ② close方法 表示关闭资源，会关闭输出流。但是在关闭输出流之前，调用flush方法 刷新缓冲区。 */</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">带有缓冲区的高效读写的字节输出流</span> <span class="o">{</span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>        <span class="n">BufferedOutputStream</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\1.txt&#34;</span><span class="o">)));</span>        <span class="n">br</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">98</span><span class="o">);</span>        <span class="n">br</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">97</span><span class="o">);</span>        <span class="n">br</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">99</span><span class="o">);</span>        <span class="n">br</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>    <span class="o">}}</span>
 </span></span></code></pre></div><h3 id="带有高效读写的文件复制">带有高效读写的文件复制</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">带有高效读写的文件复制 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">带有高效读写的文件复制</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="o">(</span>
 </span></span><span class="line"><span class="cl">                <span class="n">BufferedInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\img\\1.jpg&#34;</span><span class="o">)));</span>
 </span></span><span class="line"><span class="cl">                <span class="n">BufferedOutputStream</span> <span class="n">bos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;C:\\Users\\Administrator\\Desktop\\5.jpg&#34;</span><span class="o">)));</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="o">){</span>
-</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">                <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">bis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=-</span><span class="mi">1</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">bos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">1024</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">bis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">bt</span><span class="o">))!=-</span><span class="n">1</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">bos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">bt</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
@@ -1125,16 +1166,16 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">文件字符输入流 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">文件字符输入流</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileReader</span> <span class="n">fr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\src\\com\\demo\\文件复制操作.java&#34;</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//        int value = fr.read();
 </span></span></span><span class="line"><span class="cl"><span class="c1">//        System.out.println((char) value);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="kt">int</span>  <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">         <span class="kt">char</span><span class="o">[]</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">         <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="kt">int</span>  <span class="n">value</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">         <span class="kt">char</span><span class="o">[]</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">1024</span><span class="o">];</span>
+</span></span><span class="line"><span class="cl">         <span class="k">while</span> <span class="o">((</span><span class="n">value</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">!=</span> <span class="o">-</span><span class="n">1</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//             System.out.print((char)value);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">c</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="n">value</span><span class="o">));</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">c</span><span class="o">,</span><span class="n">0</span><span class="o">,</span><span class="n">value</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">         <span class="o">}</span>
 </span></span><span class="line"><span class="cl">         <span class="n">fr</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -1156,12 +1197,12 @@
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.FileWriter</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">文件字符输出流 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">文件字符输出流</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">FileWriter</span> <span class="n">fw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileWriter</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day22b\\3.txt&#34;</span><span class="o">));</span>
 </span></span><span class="line"><span class="cl">        <span class="n">fw</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">fw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">&#34;今天天气真好&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">fw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="k">new</span> <span class="kt">char</span><span class="o">[]{</span><span class="sc">&#39;b&#39;</span><span class="o">,</span><span class="sc">&#39;c&#39;</span><span class="o">,</span><span class="sc">&#39;d&#39;</span><span class="o">},</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fw</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="k">new</span> <span class="kt">char</span><span class="o">[]{</span><span class="sc">&#39;b&#39;</span><span class="o">,</span><span class="sc">&#39;c&#39;</span><span class="o">,</span><span class="sc">&#39;d&#39;</span><span class="o">},</span> <span class="n">0</span><span class="o">,</span> <span class="n">3</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">fw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -1183,7 +1224,7 @@
 </span></span><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">    文件复制
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">高效读写的字符流 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">高效读写的字符流</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="o">(</span>
 </span></span><span class="line"><span class="cl">                <span class="n">BufferedReader</span>  <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;day23a\\src\\com\\homework\\Topic1.java&#34;</span><span class="o">)));</span>
@@ -1252,7 +1293,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">       注意：
 </span></span></span><span class="line"><span class="cl"><span class="cm">          如果只有一个参数，采用平台默认编码，如果有两个参数，第二个参数表示编码。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">转换流 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">转换流</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//        FileReader fr = new FileReader(new File(&#34;day23a\\1.txt&#34;));
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/*InputStreamReader fr = new InputStreamReader(new FileInputStream(new File(&#34;day23a\\1.txt&#34;)),&#34;gbk&#34;);
@@ -1328,7 +1369,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">对象输出流 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">对象输出流</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//写入
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="cm">/* ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(&#34;day23b\\1.txt&#34;)));
@@ -1369,7 +1410,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">   1.读写多个对象
 </span></span></span><span class="line"><span class="cl"><span class="cm">   2.EOFException :当输入意外到达文件或流的末尾时，会报该异常
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">对象流读写多个对象 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">对象流读写多个对象</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">       <span class="cm">/* ObjectOutputStream  oos = new ObjectOutputStream(new FileOutputStream(new File(&#34;day23b\\3.txt&#34;)));
 </span></span></span><span class="line"><span class="cl"><span class="cm">        oos.writeObject(new Person(&#34;张三&#34;, 19));
@@ -1397,7 +1438,7 @@
 </span></span><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">    1.存储集合
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">对象流存储集合 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">对象流存储集合</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="cm">/*ObjectOutputStream  oos = new ObjectOutputStream(new FileOutputStream(new File(&#34;day23b\\5.txt&#34;)));
 </span></span></span><span class="line"><span class="cl"><span class="cm">        ArrayList&lt;Person&gt; list = new ArrayList&lt;&gt;();
@@ -1432,7 +1473,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">  注意：
 </span></span></span><span class="line"><span class="cl"><span class="cm">     在使用next、nextXXX 与 nextLine连用时，需要重新创建一个Scanner对象，保证数组中不存在数据。
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Scanner</span><span class="err">细节问题</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Scanner细节问题</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//        String value = sc.next();
@@ -1462,7 +1503,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">    关键字：transient 表示该对象是瞬时对象。不会被持久化，不会被存储。
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">对象流的细节问题 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">对象流的细节问题</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="cm">/*ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(&#34;day23b\\7.txt&#34;)));
 </span></span></span><span class="line"><span class="cl"><span class="cm">        oos.writeObject(new B(15, new A()));
@@ -1532,7 +1573,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">  ① 默认 private static final long serialVersionUID = 1l
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="err">对象流序列化的细节问题1 {</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">对象流序列化的细节问题1</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="cm">/*ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(&#34;day23b\\9.txt&#34;)));
 </span></span></span><span class="line"><span class="cl"><span class="cm">        oos.writeObject(new Student(&#34;张三&#34;, 19));
@@ -1544,7 +1585,7 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Student</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">4496801413692333247L</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="n">4496801413692333247L</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//    private static final long serialVersionUID = 1l;
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
@@ -1603,7 +1644,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> JDBC:java数据库连接
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Properties</span><span class="err">属性集</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Properties属性集</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Properties</span> <span class="n">prp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="cm">/*prp.setProperty(&#34;name&#34;, &#34;张三&#34;);
@@ -1723,6 +1764,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -1786,9 +1884,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -1475,7 +1516,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Page</span><span class="o">&lt;</span><span class="n">Checkitem</span><span class="o">&gt;</span> <span class="n">page1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;(</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getCurrentPage</span><span class="o">(),</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getPageSize</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//构建查询条件对象
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Checkitem</span><span class="o">&gt;</span> <span class="n">wrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">()!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">().</span><span class="na">length</span><span class="o">()&gt;</span><span class="mi">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">()!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">().</span><span class="na">length</span><span class="o">()&gt;</span><span class="n">0</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">wrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">,</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">            <span class="n">wrapper</span><span class="o">.</span><span class="na">or</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">            <span class="n">wrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;code&#34;</span><span class="o">,</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">());</span>
@@ -1504,119 +1545,119 @@
 <h3 id="一编写页面">（一）编写页面</h3>
 <p> 为了防止用户误操作，点击删除按钮时需要弹出确认删除的提示，用户点击取消则不做 任何操作，用户点击确定按钮再提交删除请求</p>
 <h4 id="1绑定单击事件">1：绑定单击事件</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err"> </span><span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">button</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&#34;mini&#34;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;danger&#34;</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;handleDelete(scope.row)&#34;</span><span class="o">&gt;</span><span class="nx">删除</span><span class="o">&lt;</span><span class="err">/el-button&gt;  </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="nx">scope</span><span class="p">.</span><span class="nx">row</span><span class="err">：</span><span class="nx">就是当前行的json对象</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">button</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&#34;mini&#34;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;danger&#34;</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;handleDelete(scope.row)&#34;</span><span class="o">&gt;</span><span class="nx">删除</span><span class="o">&lt;</span><span class="err">/el-button&gt;  </span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="nx">scope</span><span class="p">.</span><span class="nx">row</span><span class="err">：</span><span class="nx">就是当前行的json对象</span>
 </span></span></code></pre></div><h4 id="2构建删除方法">2：构建删除方法</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">// 删除  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">handleDelete</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$confirm</span><span class="p">(</span><span class="s2">&#34;确认删除当前数据么&#34;</span><span class="p">,</span><span class="s2">&#34;提示&#34;</span><span class="p">,{</span><span class="nx">type</span><span class="o">:</span><span class="s1">&#39;waring&#39;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//用户点击确认按钮  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&#34;/checkitem/deleteInfoById?id=&#34;</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//删除成功  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">message</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">findPage</span><span class="p">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//删除失败  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}).</span><span class="k">catch</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//用户点击取消按钮  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;用户取消了删除操作&#39;</span><span class="p">,</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;info&#39;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span> <span class="p">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">  <span class="c1">// 删除  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">handleDelete</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">$confirm</span><span class="p">(</span><span class="s2">&#34;确认删除当前数据么&#34;</span><span class="p">,</span><span class="s2">&#34;提示&#34;</span><span class="p">,{</span><span class="nx">type</span><span class="o">:</span><span class="s1">&#39;waring&#39;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//用户点击确认按钮  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&#34;/checkitem/deleteInfoById?id=&#34;</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//删除成功  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">findPage</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//删除失败  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="k">catch</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//用户点击取消按钮  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;用户取消了删除操作&#39;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;info&#39;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></div><h3 id="二后台代码实现">（二）后台代码实现</h3>
 <h4 id="1控制器方法">1：控制器方法</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="c1">//删除检查项  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/deleteInfoById&#34;</span><span class="o">)</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nd">@ResponseBody</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="kd">public</span> <span class="n">Result</span> <span class="nf">deleteInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">try</span><span class="o">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">checkItemService</span><span class="o">.</span><span class="na">deleteInfoById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span><span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span><span class="n">MessageConstant</span><span class="o">.</span><span class="na">DELETE_CHECKITEM_FAIL</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">MessageConstant</span><span class="o">.</span><span class="na">DELETE_CHECKITEM_SUCCESS</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>  
+</span></span><span class="line"><span class="cl"> <span class="c1">//删除检查项  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/deleteInfoById&#34;</span><span class="o">)</span>  
+</span></span><span class="line"><span class="cl">  <span class="nd">@ResponseBody</span>  
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">Result</span> <span class="nf">deleteInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">try</span><span class="o">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">checkItemService</span><span class="o">.</span><span class="na">deleteInfoById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span><span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span><span class="n">MessageConstant</span><span class="o">.</span><span class="na">DELETE_CHECKITEM_FAIL</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">MessageConstant</span><span class="o">.</span><span class="na">DELETE_CHECKITEM_SUCCESS</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>  
 </span></span></code></pre></div><h4 id="2服务接口中的方法">2：服务接口中的方法</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="err"> </span> <span class="kt">void</span> <span class="nf">deleteInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">deleteInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
 </span></span></code></pre></div><h4 id="3在checkitemserviceimpl服务实现类实现删除功能">3：在CheckItemServiceImpl服务实现类实现删除功能</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="err"> </span> <span class="nd">@Override</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deleteInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">checkitemMapper</span><span class="o">.</span><span class="na">deleteById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">  <span class="nd">@Override</span>  
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deleteInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">checkitemMapper</span><span class="o">.</span><span class="na">deleteById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span></code></pre></div><h2 id="二编辑检查项功能">二、编辑检查项功能</h2>
 <h3 id="一编写页面-1">(一)编写页面</h3>
 <p> 用户点击编辑按钮时，需要弹出编辑窗口并且将当前记录的数据进行回显，用户修改完 成后点击确定按钮将修改后的数据提交到后台进行数据库操作</p>
 <h4 id="1给编辑按钮绑定事件">1:给编辑按钮绑定事件</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Js" data-lang="Js"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;primary&#34;</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&#34;mini&#34;</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;handleUpdate(scope.row)&#34;</span><span class="o">&gt;</span><span class="nx">编辑</span><span class="o">&lt;</span><span class="err">/el-button&gt;  </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="nx">对应事件方法</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="nx">handleUpdate</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;primary&#34;</span> <span class="nx">size</span><span class="o">=</span><span class="s2">&#34;mini&#34;</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;handleUpdate(scope.row)&#34;</span><span class="o">&gt;</span><span class="nx">编辑</span><span class="o">&lt;</span><span class="err">/el-button&gt;  </span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="nx">对应事件方法</span>  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="nx">handleUpdate</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div><h4 id="2弹出编辑窗口回显数据">2：弹出编辑窗口回显数据</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">// 弹出编辑窗口  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">handleUpdate</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">resetForm</span><span class="p">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//显示编辑窗口  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">dialogFormVisible4Edit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//根据当前行的id回显数据  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/checkitem/findInfoById?id=&#34;</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//true 代表查询到了数据  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//&lt;el-input v-model=&#34;formData.code&#34;/&gt;  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="c1">//进行数据回显,基于vue的数据绑定实现的 绑定的对象就是formData,这个对象有值,就会自动回显到文本框中  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">formData</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">},</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">  <span class="c1">// 弹出编辑窗口  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">handleUpdate</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">resetForm</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//显示编辑窗口  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">dialogFormVisible4Edit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//根据当前行的id回显数据  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/checkitem/findInfoById?id=&#34;</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//true 代表查询到了数据  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//&lt;el-input v-model=&#34;formData.code&#34;/&gt;  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//进行数据回显,基于vue的数据绑定实现的 绑定的对象就是formData,这个对象有值,就会自动回显到文本框中  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">formData</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span></code></pre></div><h4 id="3点击确定按钮进行数据更新">3：点击确定按钮进行数据更新</h4>
 <p> 在编辑窗口中修改完成后，点击确定按钮需要提交请求，所以需要为确定按钮绑定事件 并提供处理函数handleEdit<br>
  </p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">el</span><span class="err">‐</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;primary&#34;</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;handleEdit()&#34;</span><span class="o">&gt;</span><span class="nx">确定</span><span class="o">&lt;</span><span class="err">/el‐button&gt;</span>
 </span></span></code></pre></div><h4 id="4编辑方法绑定函数">4：编辑方法绑定函数</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//编辑  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">handleEdit</span><span class="p">()</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">[</span><span class="s1">&#39;dataEditForm&#39;</span><span class="p">].</span><span class="nx">validate</span><span class="p">((</span><span class="nx">valid</span><span class="p">)</span> <span class="p">=&gt;{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">if</span><span class="p">(</span><span class="nx">valid</span><span class="p">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/checkitem/updateInfoById&#39;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">formData</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">message</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">type</span><span class="o">:</span><span class="s1">&#39;success&#39;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}).</span><span class="k">finally</span><span class="p">(()</span> <span class="p">=&gt;{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//无论校验成功还是失败都需要调用分页方法  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">findPage</span><span class="p">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//隐藏我们弹出的数据框  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">dialogFormVisible4Edit</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;表单校验失败&#34;</span><span class="p">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">},</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">  <span class="c1">//编辑  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">handleEdit</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">[</span><span class="s1">&#39;dataEditForm&#39;</span><span class="p">].</span><span class="nx">validate</span><span class="p">((</span><span class="nx">valid</span><span class="p">)</span> <span class="p">=&gt;{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="nx">valid</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/checkitem/updateInfoById&#39;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">formData</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">message</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">type</span><span class="o">:</span><span class="s1">&#39;success&#39;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}).</span><span class="k">finally</span><span class="p">(()</span> <span class="p">=&gt;{</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//无论校验成功还是失败都需要调用分页方法  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">findPage</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//隐藏我们弹出的数据框  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">dialogFormVisible4Edit</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;表单校验失败&#34;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span></code></pre></div><h3 id="二后台功能实现">（二）后台功能实现</h3>
 <h4 id="1控制器方法-1">1：控制器方法</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">
@@ -1795,119 +1836,119 @@
 <h2 id="一检查组分页显示">一、检查组分页显示</h2>
 <h3 id="一前端页面内容">(一)前端页面内容</h3>
 <h4 id="1编写分页函数">1：编写分页函数</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//分页查询  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">findPage</span><span class="p">()</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//发送ajax的请求完成页面数据加载  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span><span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">currentPage</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">currentPage</span><span class="p">,</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">pageSize</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">pageSize</span><span class="p">,</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">queryString</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">queryString</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">};</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//发送ajax请求  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&#34;/checkgroup/findPage&#34;</span><span class="p">,</span><span class="nx">param</span><span class="p">,).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//给我们的vue的变量赋值  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">total</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">dataList</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">rows</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">},</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">  <span class="c1">//分页查询  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">findPage</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//发送ajax的请求完成页面数据加载  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">currentPage</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">currentPage</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">pageSize</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">pageSize</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">  <span class="nx">queryString</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">queryString</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//发送ajax请求  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&#34;/checkgroup/findPage&#34;</span><span class="p">,</span><span class="nx">param</span><span class="p">,).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//给我们的vue的变量赋值  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">total</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">dataList</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">rows</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span></code></pre></div><h4 id="2分页方法执行时机">2：分页方法执行时机</h4>
 <p> 加载页面的时候使用vue的钩子函数完成分页功能</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err"> </span> <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">findPage</span><span class="p">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">},</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> 
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="nx">点击页码完成分页数据展示</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//切换页码  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">handleCurrentChange</span><span class="p">(</span><span class="nx">currentPage</span><span class="p">)</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">currentPage</span> <span class="o">=</span> <span class="nx">currentPage</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">findPage</span><span class="p">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">},</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="nx">查询按钮完成分页显示功能</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">button</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;findPage()&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;dalfBut&#34;</span><span class="o">&gt;</span><span class="nx">查询</span><span class="o">&lt;</span><span class="err">/el-button&gt;  </span>
-</span></span><span class="line"><span class="cl"><span class="err"> </span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">findPage</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"> <span class="nx">点击页码完成分页数据展示</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//切换页码  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">handleCurrentChange</span><span class="p">(</span><span class="nx">currentPage</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">pagination</span><span class="p">.</span><span class="nx">currentPage</span> <span class="o">=</span> <span class="nx">currentPage</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">findPage</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>  
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="nx">查询按钮完成分页显示功能</span>  
+</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="nx">el</span><span class="o">-</span><span class="nx">button</span> <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;findPage()&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;dalfBut&#34;</span><span class="o">&gt;</span><span class="nx">查询</span><span class="o">&lt;</span><span class="err">/el-button&gt;  </span>
+</span></span><span class="line"><span class="cl"> 
 </span></span></code></pre></div><h3 id="二后台内容">(二)后台内容</h3>
 <h4 id="1控制器方法-2">1：控制器方法</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//分页显示检查组  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/findPage&#34;</span><span class="o">)</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="kd">public</span> <span class="n">PageResult</span> <span class="nf">findPage</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">QueryPageBean</span> <span class="n">queryPageBean</span><span class="o">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">PageResult</span> <span class="n">pageResult</span> <span class="o">=</span> <span class="n">checkGroupService</span><span class="o">.</span><span class="na">findPage</span><span class="o">(</span><span class="n">queryPageBean</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">return</span> <span class="err"> </span><span class="n">pageResult</span><span class="o">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">  <span class="c1">//分页显示检查组  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/findPage&#34;</span><span class="o">)</span>  
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">PageResult</span> <span class="nf">findPage</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">QueryPageBean</span> <span class="n">queryPageBean</span><span class="o">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">PageResult</span> <span class="n">pageResult</span> <span class="o">=</span> <span class="n">checkGroupService</span><span class="o">.</span><span class="na">findPage</span><span class="o">(</span><span class="n">queryPageBean</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span>  <span class="n">pageResult</span><span class="o">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span></code></pre></div><h4 id="2-服务接口">2： 服务接口</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="err"> </span> <span class="n">PageResult</span> <span class="nf">findPage</span><span class="o">(</span><span class="n">QueryPageBean</span> <span class="n">queryPageBean</span><span class="o">);</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">  <span class="n">PageResult</span> <span class="nf">findPage</span><span class="o">(</span><span class="n">QueryPageBean</span> <span class="n">queryPageBean</span><span class="o">);</span>
 </span></span></code></pre></div><h4 id="3接口实现类">3：接口实现类</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="err"> </span> <span class="nd">@Override</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="kd">public</span> <span class="n">PageResult</span> <span class="nf">findPage</span><span class="o">(</span><span class="n">QueryPageBean</span> <span class="n">queryPageBean</span><span class="o">)</span> <span class="o">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">Page</span><span class="o">&lt;</span><span class="n">Checkgroup</span><span class="o">&gt;</span> <span class="n">page1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">(</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getCurrentPage</span><span class="o">(),</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getPageSize</span><span class="o">());</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Checkgroup</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">if</span><span class="o">(</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">()!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">().</span><span class="na">length</span><span class="o">()&gt;</span><span class="mi">0</span><span class="o">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;code&#34;</span><span class="o">,</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">());</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">queryWrapper</span><span class="o">.</span><span class="na">or</span><span class="o">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">,</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">());</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">queryWrapper</span><span class="o">.</span><span class="na">or</span><span class="o">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;helpCode&#34;</span><span class="o">,</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">());</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">Page</span><span class="o">&lt;</span><span class="n">Checkgroup</span><span class="o">&gt;</span> <span class="n">checkgroupPage</span> <span class="o">=</span> <span class="n">checkgroupMapper</span><span class="o">.</span><span class="na">selectPage</span><span class="o">(</span><span class="n">page1</span><span class="o">,</span> <span class="n">queryWrapper</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">return</span> <span class="k">new</span> <span class="n">PageResult</span><span class="o">(</span><span class="n">checkgroupPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">(),</span><span class="n">checkgroupPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">());</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">  <span class="nd">@Override</span>  
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">PageResult</span> <span class="nf">findPage</span><span class="o">(</span><span class="n">QueryPageBean</span> <span class="n">queryPageBean</span><span class="o">)</span> <span class="o">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">Page</span><span class="o">&lt;</span><span class="n">Checkgroup</span><span class="o">&gt;</span> <span class="n">page1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">(</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getCurrentPage</span><span class="o">(),</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getPageSize</span><span class="o">());</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Checkgroup</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="o">(</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">()!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">().</span><span class="na">length</span><span class="o">()&gt;</span><span class="n">0</span><span class="o">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;code&#34;</span><span class="o">,</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">());</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">queryWrapper</span><span class="o">.</span><span class="na">or</span><span class="o">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">,</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">());</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">queryWrapper</span><span class="o">.</span><span class="na">or</span><span class="o">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;helpCode&#34;</span><span class="o">,</span><span class="n">queryPageBean</span><span class="o">.</span><span class="na">getQueryString</span><span class="o">());</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">Page</span><span class="o">&lt;</span><span class="n">Checkgroup</span><span class="o">&gt;</span> <span class="n">checkgroupPage</span> <span class="o">=</span> <span class="n">checkgroupMapper</span><span class="o">.</span><span class="na">selectPage</span><span class="o">(</span><span class="n">page1</span><span class="o">,</span> <span class="n">queryWrapper</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">new</span> <span class="n">PageResult</span><span class="o">(</span><span class="n">checkgroupPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">(),</span><span class="n">checkgroupPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">());</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span></code></pre></div><h2 id="二编辑检查组功能">二、编辑检查组功能</h2>
 <h3 id="一回显编辑信息功能">(一)回显编辑信息功能</h3>
 <h4 id="1前端内容编写">1:前端内容编写</h4>
 <h5 id="1点击按钮弹出编辑窗口并回显检查组数据">(1)点击按钮弹出编辑窗口并回显检查组数据</h5>
 <p> </p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 弹出编辑窗口  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span><span class="nx">handleUpdate</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">dialogFormVisible4Edit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//回显当前检查组的基本信息  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/checkgroup/findGroupInfoById?id&#34;</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//回显数据  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">formData</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//异步请求获取所有检查项信息  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/checkitem/showAllItem&#34;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">tableData</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//基于双向绑定给我们的checkitemIds赋值 就可以默认勾选当前检查项的所有默认检查组  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="c1">//必须等到我们的检查项的列表加载完毕才可以进行勾选 所有我们的异步请求需要添加到这个位置  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="c1">// java  List&lt;Integer&gt;  转换成的json就是这个效果 [3,4,576,]  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/checkitem/getCheckItemIdByGroupId?id=&#34;</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">checkitemIds</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> ​</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">messge</span><span class="p">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="p">});</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span><span class="p">},</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nx">handleUpdate</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">dialogFormVisible4Edit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//回显当前检查组的基本信息  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/checkgroup/findGroupInfoById?id&#34;</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//回显数据  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">formData</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//异步请求获取所有检查项信息  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/checkitem/showAllItem&#34;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">tableData</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="c1">//基于双向绑定给我们的checkitemIds赋值 就可以默认勾选当前检查项的所有默认检查组  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//必须等到我们的检查项的列表加载完毕才可以进行勾选 所有我们的异步请求需要添加到这个位置  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// java  List&lt;Integer&gt;  转换成的json就是这个效果 [3,4,576,]  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/checkitem/getCheckItemIdByGroupId?id=&#34;</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">checkitemIds</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl"> <span class="err">​</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">$message</span><span class="p">().</span><span class="nx">error</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">messge</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>  
+</span></span><span class="line"><span class="cl"> <span class="p">},</span>
 </span></span></code></pre></div><h4 id="2后台内容-2">2:后台内容</h4>
 <h5 id="1控制器方法-3">(1):控制器方法</h5>
 <h6 id="acheckgroupcontroller">a:CheckgroupController</h6>
 <p> </p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="c1">//根据检查组的id获取检查组的信息  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/findGroupInfoById&#34;</span><span class="o">)</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="kd">public</span> <span class="n">Result</span> <span class="nf">findGroupInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">Checkgroup</span> <span class="n">checkgroup</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">try</span> <span class="o">{</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">checkgroup</span> <span class="o">=</span> <span class="n">checkGroupService</span><span class="o">.</span><span class="na">findGroupInfoById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span><span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span><span class="n">MessageConstant</span><span class="o">.</span><span class="na">QUERY_CHECKGROUP_FAIL</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">MessageConstant</span><span class="o">.</span><span class="na">QUERY_CHECKGROUP_SUCCESS</span><span class="o">,</span><span class="n">checkgroup</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/findGroupInfoById&#34;</span><span class="o">)</span>  
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">Result</span> <span class="nf">findGroupInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">Checkgroup</span> <span class="n">checkgroup</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="o">{</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">checkgroup</span> <span class="o">=</span> <span class="n">checkGroupService</span><span class="o">.</span><span class="na">findGroupInfoById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span><span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span><span class="n">MessageConstant</span><span class="o">.</span><span class="na">QUERY_CHECKGROUP_FAIL</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">MessageConstant</span><span class="o">.</span><span class="na">QUERY_CHECKGROUP_SUCCESS</span><span class="o">,</span><span class="n">checkgroup</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span></code></pre></div><h6 id="bcheckitemcontroller">b:CheckitemController</h6>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="err"> </span> <span class="c1">//根据检查组的id获取检查组包含的检查项的id  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err"> </span> <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/getCheckItemIdByGroupId&#34;</span><span class="o">)</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="nd">@ResponseBody</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="kd">public</span> <span class="err"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">getCheckItemIdByGroupId</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="k">return</span> <span class="n">checkItemService</span><span class="o">.</span><span class="na">getCheckItemIdByGroupId</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
-</span></span><span class="line"><span class="cl"><span class="err"> </span> <span class="o">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">  <span class="c1">//根据检查组的id获取检查组包含的检查项的id  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/getCheckItemIdByGroupId&#34;</span><span class="o">)</span>  
+</span></span><span class="line"><span class="cl">  <span class="nd">@ResponseBody</span>  
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span>  <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">getCheckItemIdByGroupId</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">checkItemService</span><span class="o">.</span><span class="na">getCheckItemIdByGroupId</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span></code></pre></div><h5 id="2服务接口方法">(2)服务接口方法</h5>
 <h6 id="acheckgroupservice">a:CheckGroupService</h6>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">Checkgroup</span>  <span class="nf">findGroupInfoById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
@@ -2114,12 +2155,12 @@ before-upload: 上传之前回调的函数</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//上传图片之前执行 规范了上传图片的类型和上传图片的大小
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">beforeAvatarUpload</span><span class="o">(</span><span class="n">file</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">	<span class="kd">const</span> <span class="n">isJPG</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">type</span> <span class="o">===</span> <span class="err">&#39;</span><span class="n">image</span><span class="o">/</span><span class="n">jpeg</span><span class="err">&#39;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">const</span> <span class="n">isLt2M</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">size</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">const</span> <span class="n">isLt2M</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">size</span> <span class="o">/</span> <span class="n">1024</span> <span class="o">/</span> <span class="n">1024</span> <span class="o">&lt;</span> <span class="n">2</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">(!</span><span class="n">isJPG</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">		    <span class="k">this</span><span class="o">.</span><span class="na">$message</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="err">&#39;上传套餐图片只能是</span> <span class="n">JPG</span> <span class="err">格式</span><span class="o">!</span><span class="err">&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		    <span class="k">this</span><span class="o">.</span><span class="na">$message</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="err">&#39;</span><span class="n">上传套餐图片只能是</span> <span class="n">JPG</span> <span class="n">格式</span><span class="o">!</span><span class="err">&#39;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">		<span class="o">}</span>
 </span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">(!</span><span class="n">isLt2M</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">		    <span class="k">this</span><span class="o">.</span><span class="na">$message</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="err">&#39;上传套餐图片大小不能超过</span> <span class="mi">2</span><span class="n">MB</span><span class="o">!</span><span class="err">&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">		    <span class="k">this</span><span class="o">.</span><span class="na">$message</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="err">&#39;</span><span class="n">上传套餐图片大小不能超过</span> <span class="n">2MB</span><span class="o">!</span><span class="err">&#39;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">		<span class="o">}</span>
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">isJPG</span> <span class="o">&amp;&amp;</span> <span class="n">isLt2M</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">},</span>
@@ -2140,7 +2181,7 @@ before-upload: 上传之前回调的函数</p>
 </span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">originalFilename</span> <span class="o">=</span> <span class="n">multipartFile</span><span class="o">.</span><span class="na">getOriginalFilename</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">lastIndexOf</span> <span class="o">=</span> <span class="n">originalFilename</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">&#34;.&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//获取文件后缀
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">suffix</span> <span class="o">=</span> <span class="n">originalFilename</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">lastIndexOf</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">suffix</span> <span class="o">=</span> <span class="n">originalFilename</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">lastIndexOf</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">fileName</span>  <span class="o">=</span> <span class="n">UUID</span><span class="o">.</span><span class="na">randomUUID</span><span class="o">().</span><span class="na">toString</span><span class="o">()+</span><span class="n">suffix</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;D:/upload/&#34;</span><span class="o">+</span><span class="n">fileName</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
@@ -2267,6 +2308,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -2330,9 +2428,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

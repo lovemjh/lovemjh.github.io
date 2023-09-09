@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -453,102 +494,102 @@
             <div class="js-toc-content" style="height: 100%;">
                 <h1 id="jsp">JSP</h1>
 <h2 id="1-理解">1. 理解</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">Java</span> <span class="n">Server</span> <span class="n">Page</span> <span class="err">一种动态页面技术。本质上就是</span><span class="n">Servlet</span>  
-</span></span><span class="line"><span class="cl">     <span class="err">运行原理：将</span><span class="n">jsp</span><span class="err">文件</span>  <span class="o">----&gt;</span> <span class="o">.</span><span class="na">java</span>  <span class="o">----&gt;</span> <span class="o">.</span><span class="na">class</span>  <span class="err">运行</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">Java</span> <span class="n">Server</span> <span class="n">Page</span> <span class="n">一种动态页面技术</span><span class="err">。</span><span class="n">本质上就是Servlet</span>  
+</span></span><span class="line"><span class="cl">     <span class="n">运行原理</span><span class="err">：</span><span class="n">将jsp文件</span>  <span class="o">----&gt;</span> <span class="o">.</span><span class="na">java</span>  <span class="o">----&gt;</span> <span class="o">.</span><span class="na">class</span>  <span class="n">运行</span>
 </span></span></code></pre></div><h2 id="2-jsp的使用策略">2. JSP的使用策略</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">可以当成纯粹的页面使用</span> <span class="err">和</span> <span class="n">html</span> <span class="err">使用语法一样</span><span class="o">(</span><span class="err">推荐</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">可以当成纯粹的</span><span class="n">Java</span><span class="err">代码使用</span>  
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%</span> <span class="n">java</span><span class="err">代码</span> <span class="o">%&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">可以当成纯粹的页面使用</span> <span class="n">和</span> <span class="n">html</span> <span class="nf">使用语法一样</span><span class="o">(</span><span class="n">推荐</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">可以当成纯粹的Java代码使用</span>  
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%</span> <span class="n">java代码</span> <span class="o">%&gt;</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">可以实现页面中嵌套</span><span class="n">Java</span><span class="err">代码</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">可以实现页面中嵌套Java代码</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">jsp</span><span class="err">和</span><span class="n">Servlet</span><span class="err">各司其职：将业务处理和页面展示分离</span>
-</span></span><span class="line"><span class="cl">    <span class="n">jsp</span><span class="err">只做页面数据展示</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Servlet</span><span class="err">处理业务</span>
+</span></span><span class="line"><span class="cl"><span class="n">jsp和Servlet各司其职</span><span class="err">：</span><span class="n">将业务处理和页面展示分离</span>
+</span></span><span class="line"><span class="cl">    <span class="n">jsp只做页面数据展示</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Servlet处理业务</span>
 </span></span></code></pre></div><h2 id="3-jsp的核心内容">3. JSP的核心内容</h2>
 <h3 id="-三大指令">① 三大指令</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">·</span> <span class="n">page</span> <span class="err">指定页面的初始化配置信息</span><span class="o">(</span><span class="err">通常取默认值即可</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">contentType</span><span class="o">=</span><span class="s">&#34;text/html;charset=UTF-8&#34;</span>  <span class="err">内容的类型</span>
-</span></span><span class="line"><span class="cl">    <span class="n">language</span><span class="o">=</span><span class="s">&#34;java&#34;</span> <span class="err">支持语言</span>
-</span></span><span class="line"><span class="cl">    <span class="n">import</span><span class="o">=</span><span class="s">&#34;java.util.ArrayList&#34;</span> <span class="err">引入依赖包</span>
-</span></span><span class="line"><span class="cl">    <span class="n">autoFlush</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="err">刷新当前页面</span>
-</span></span><span class="line"><span class="cl">    <span class="n">session</span><span class="o">=</span><span class="s">&#34;true&#34;</span>  <span class="err">是否可用</span><span class="n">session</span>
-</span></span><span class="line"><span class="cl">    <span class="n">errorPage</span><span class="o">=</span><span class="s">&#34;02-error.jsp&#34;</span> <span class="err">当前页面异常</span> <span class="err">指定跳转的错误页</span>
-</span></span><span class="line"><span class="cl">    <span class="n">isELIgnored</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="err">是否忽略</span><span class="n">EL</span><span class="err">表达式</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">·</span> <span class="n">page</span> <span class="nf">指定页面的初始化配置信息</span><span class="o">(</span><span class="n">通常取默认值即可</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">contentType</span><span class="o">=</span><span class="s">&#34;text/html;charset=UTF-8&#34;</span>  <span class="n">内容的类型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">language</span><span class="o">=</span><span class="s">&#34;java&#34;</span> <span class="n">支持语言</span>
+</span></span><span class="line"><span class="cl">    <span class="n">import</span><span class="o">=</span><span class="s">&#34;java.util.ArrayList&#34;</span> <span class="n">引入依赖包</span>
+</span></span><span class="line"><span class="cl">    <span class="n">autoFlush</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="n">刷新当前页面</span>
+</span></span><span class="line"><span class="cl">    <span class="n">session</span><span class="o">=</span><span class="s">&#34;true&#34;</span>  <span class="n">是否可用session</span>
+</span></span><span class="line"><span class="cl">    <span class="n">errorPage</span><span class="o">=</span><span class="s">&#34;02-error.jsp&#34;</span> <span class="n">当前页面异常</span> <span class="n">指定跳转的错误页</span>
+</span></span><span class="line"><span class="cl">    <span class="n">isELIgnored</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="n">是否忽略EL表达式</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">·</span> <span class="n">taglib</span> <span class="err">引入第三方标签库</span>
+</span></span><span class="line"><span class="cl"><span class="err">·</span> <span class="n">taglib</span> <span class="n">引入第三方标签库</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;%</span><span class="nd">@taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#34;c&#34;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&#34;http://java.sun.com/jsp/jstl/core&#34;</span> <span class="o">%&gt;</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">·</span> <span class="n">include</span> <span class="err">包含其他页面</span>
+</span></span><span class="line"><span class="cl"><span class="err">·</span> <span class="n">include</span> <span class="n">包含其他页面</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;%</span><span class="nd">@include</span> <span class="n">file</span><span class="o">=</span><span class="s">&#34;02-header.jsp&#34;</span><span class="o">%&gt;</span>
 </span></span></code></pre></div><h3 id="-六大动作">② 六大动作</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">转发</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">动作</span><span class="mi">1</span><span class="err">：完全转发</span><span class="o">--%&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">转发</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">动作1</span><span class="err">：</span><span class="n">完全转发</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;%--&lt;</span><span class="n">jsp</span><span class="o">:</span><span class="n">forward</span> <span class="n">page</span><span class="o">=</span><span class="s">&#34;02-three.jsp&#34;</span><span class="o">&gt;&lt;/</span><span class="n">jsp</span><span class="o">:</span><span class="n">forward</span><span class="o">&gt;--%&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">动作</span><span class="mi">2</span><span class="err">：不完全转发</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">动作2</span><span class="err">：</span><span class="n">不完全转发</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">jsp</span><span class="o">:</span><span class="n">include</span> <span class="n">page</span><span class="o">=</span><span class="s">&#34;02-three.jsp&#34;</span><span class="o">&gt;&lt;/</span><span class="n">jsp</span><span class="o">:</span><span class="n">include</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;%--</span> <span class="err">动作</span><span class="mi">3</span><span class="o">:</span><span class="err">转发携带参数</span> <span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;%--</span> <span class="n">动作3</span><span class="o">:</span><span class="n">转发携带参数</span> <span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">     <span class="o">&lt;</span><span class="n">jsp</span><span class="o">:</span><span class="n">param</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;xx&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;王二小&#34;</span><span class="o">/&gt;</span>   	
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">使用对象</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">动作</span><span class="mi">4</span><span class="err">：使用对象</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">使用对象</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">动作4</span><span class="err">：</span><span class="n">使用对象</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">jsp</span><span class="o">:</span><span class="n">useBean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;p&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;com.ujiuye.bean.Person&#34;</span><span class="o">&gt;&lt;/</span><span class="n">jsp</span><span class="o">:</span><span class="n">useBean</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">动作</span><span class="mi">5</span><span class="err">：设置对象属性</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">动作5</span><span class="err">：</span><span class="n">设置对象属性</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">jsp</span><span class="o">:</span><span class="n">setProperty</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;p&#34;</span> <span class="n">property</span><span class="o">=</span><span class="s">&#34;name&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;王二小&#34;</span><span class="o">&gt;&lt;/</span><span class="n">jsp</span><span class="o">:</span><span class="n">setProperty</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">动作</span><span class="mi">6</span><span class="err">：获取对象属性值</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">动作6</span><span class="err">：</span><span class="n">获取对象属性值</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">jsp</span><span class="o">:</span><span class="n">getProperty</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;p&#34;</span> <span class="n">property</span><span class="o">=</span><span class="s">&#34;name&#34;</span><span class="o">/&gt;</span>  
 </span></span></code></pre></div><h3 id="-九大内置对象">③ 九大内置对象</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">内置对象</span> <span class="err">天生自带的对象</span>    <span class="n">out</span>            
-</span></span><span class="line"><span class="cl"><span class="err">页面输出对象</span>      <span class="n">Exception</span>      
-</span></span><span class="line"><span class="cl"><span class="err">异常对象</span>    <span class="n">request</span> 	 
-</span></span><span class="line"><span class="cl"><span class="err">请求对象</span>    <span class="n">response</span>       
-</span></span><span class="line"><span class="cl"><span class="err">响应对象</span>    <span class="n">application</span>    <span class="n">ServletContext</span>    <span class="n">session</span>		  
-</span></span><span class="line"><span class="cl"><span class="err">会话</span>     <span class="n">config</span>  	  
-</span></span><span class="line"><span class="cl"><span class="n">Servlet</span><span class="err">配置对象</span>    <span class="n">Page</span>   		  
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">内置对象</span> <span class="n">天生自带的对象</span>    <span class="n">out</span>            
+</span></span><span class="line"><span class="cl"><span class="n">页面输出对象</span>      <span class="n">Exception</span>      
+</span></span><span class="line"><span class="cl"><span class="n">异常对象</span>    <span class="n">request</span> 	 
+</span></span><span class="line"><span class="cl"><span class="n">请求对象</span>    <span class="n">response</span>       
+</span></span><span class="line"><span class="cl"><span class="n">响应对象</span>    <span class="n">application</span>    <span class="n">ServletContext</span>    <span class="n">session</span>		  
+</span></span><span class="line"><span class="cl"><span class="n">会话</span>     <span class="n">config</span>  	  
+</span></span><span class="line"><span class="cl"><span class="n">Servlet配置对象</span>    <span class="n">Page</span>   		  
 </span></span><span class="line"><span class="cl"><span class="k">this</span>     <span class="n">pageContext</span>	   
-</span></span><span class="line"><span class="cl"><span class="err">最小共享域对象</span>  <span class="err">范围只在当前页面共享</span>  <span class="err">可以实现操作任何共享域的数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">最小共享域对象</span>  <span class="n">范围只在当前页面共享</span>  <span class="n">可以实现操作任何共享域的数据</span>
 </span></span></code></pre></div><h3 id="-el表达式">④ EL表达式</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">格式：</span> 	<span class="n">$</span><span class="o">{}</span>  
-</span></span><span class="line"><span class="cl"><span class="err">作用：</span>    <span class="err">获取共享域中的数据</span>    
-</span></span><span class="line"><span class="cl"><span class="err">原理：根据属性的</span><span class="n">get</span><span class="err">方法名取数据</span>  <span class="err">和属性名没有关系</span>    
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">格式</span><span class="err">：</span> 	<span class="n">$</span><span class="o">{}</span>  
+</span></span><span class="line"><span class="cl"><span class="n">作用</span><span class="err">：</span>    <span class="n">获取共享域中的数据</span>    
+</span></span><span class="line"><span class="cl"><span class="n">原理</span><span class="err">：</span><span class="n">根据属性的get方法名取数据</span>  <span class="n">和属性名没有关系</span>    
 </span></span><span class="line"><span class="cl">    <span class="c1">// map.get(map2);   ----&gt;  map.map2    
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// xiFu.getName();  ----&gt;  xiFu.name
 </span></span></span></code></pre></div><h3 id="-jstl标签库">⑤ JSTL标签库</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">理解：</span>    <span class="err">便于</span><span class="n">jsp</span><span class="err">中对数据展示的一些标签</span>    
-</span></span><span class="line"><span class="cl">    <span class="err">使用：</span>   
-</span></span><span class="line"><span class="cl">    <span class="mf">1.</span> <span class="err">下载导包</span> <span class="n">jstl</span><span class="o">.</span><span class="na">jar</span>  <span class="n">standard</span><span class="o">.</span><span class="na">jar</span>    
-</span></span><span class="line"><span class="cl">    <span class="mf">2.</span> <span class="err">使用指令引入当前</span><span class="n">jsp</span><span class="err">页面中</span>    	
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span>    <span class="n">便于jsp中对数据展示的一些标签</span>    
+</span></span><span class="line"><span class="cl">    <span class="n">使用</span><span class="err">：</span>   
+</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">jstl</span><span class="o">.</span><span class="na">jar</span>  <span class="n">standard</span><span class="o">.</span><span class="na">jar</span>    
+</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">使用指令引入当前jsp页面中</span>    	
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;%</span><span class="err">@</span> <span class="n">taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#34;c&#34;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&#34;http://java.sun.com/jsp/jstl/core&#34;</span> <span class="o">%&gt;</span>    
-</span></span><span class="line"><span class="cl">    <span class="mf">3.</span> <span class="err">常见标签</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="mf">1.</span> <span class="err">遍历集合标签</span><span class="o">--%&gt;</span>         
+</span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">常见标签</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">1</span><span class="o">.</span> <span class="n">遍历集合标签</span><span class="o">--%&gt;</span>         
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">forEach</span> <span class="n">items</span><span class="o">=</span><span class="s">&#34;集合&#34;</span> <span class="n">var</span><span class="o">=</span><span class="s">&#34;集合每一个元素变量&#34;</span><span class="o">&gt;</span>                      
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="mf">2.</span> <span class="err">普通遍历</span><span class="o">--%&gt;</span>    	
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">2</span><span class="o">.</span> <span class="n">普通遍历</span><span class="o">--%&gt;</span>    	
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">forEach</span> <span class="n">begin</span><span class="o">=</span><span class="s">&#34;起始值&#34;</span> <span class="n">end</span><span class="o">=</span><span class="s">&#34;结束值&#34;</span> <span class="n">step</span><span class="o">=</span><span class="s">&#34;步长&#34;</span> <span class="n">var</span><span class="o">=</span><span class="s">&#34;变量名&#34;</span><span class="o">&gt;</span>       	
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="mf">3.</span> <span class="err">判断</span><span class="o">--%&gt;</span>    	
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">3</span><span class="o">.</span> <span class="n">判断</span><span class="o">--%&gt;</span>    	
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="k">if</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;判断条件&#34;</span><span class="o">&gt;</span>                     
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="mf">4.</span> <span class="err">变量操作</span><span class="o">--%&gt;</span>        
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">变量的定义</span><span class="o">--%&gt;</span>        
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">4</span><span class="o">.</span> <span class="n">变量操作</span><span class="o">--%&gt;</span>        
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">变量的定义</span><span class="o">--%&gt;</span>        
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">set</span> <span class="n">var</span><span class="o">=</span><span class="s">&#34;num&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;200&#34;</span><span class="o">&gt;&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">set</span><span class="o">&gt;</span>        
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">获取变量值</span><span class="o">--%&gt;</span>        
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">获取变量值</span><span class="o">--%&gt;</span>        
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">out</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;${num }&#34;</span> <span class="k">default</span><span class="o">=</span><span class="s">&#34;未定义&#34;</span><span class="o">&gt;&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">out</span><span class="o">&gt;</span>        
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">删除变量</span><span class="o">--%&gt;</span>        
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">删除变量</span><span class="o">--%&gt;</span>        
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;%--&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">remove</span> <span class="n">var</span><span class="o">=</span><span class="s">&#34;num&#34;</span><span class="o">&gt;&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">remove</span><span class="o">&gt;--%&gt;</span>                        
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="mf">5.</span> <span class="err">选择标签</span><span class="o">--%&gt;</span>            
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">5</span><span class="o">.</span> <span class="n">选择标签</span><span class="o">--%&gt;</span>            
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">choose</span><span class="o">&gt;</span>                
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">when</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;${num &gt; 100 }&#34;</span><span class="o">&gt;</span>                    
-</span></span><span class="line"><span class="cl">        <span class="n">VIP</span><span class="err">老白菜</span>                
+</span></span><span class="line"><span class="cl">        <span class="n">VIP老白菜</span>                
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">when</span><span class="o">&gt;</span>                
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">when</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;${num &gt; 50 }&#34;</span><span class="o">&gt;</span>                    
-</span></span><span class="line"><span class="cl">        <span class="n">VIP</span><span class="err">大白菜</span>                
+</span></span><span class="line"><span class="cl">        <span class="n">VIP大白菜</span>                
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">when</span><span class="o">&gt;</span>                
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">when</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;${num &gt; 20 }&#34;</span><span class="o">&gt;</span>                    
-</span></span><span class="line"><span class="cl">        <span class="n">VIP</span><span class="err">小白菜</span>                
+</span></span><span class="line"><span class="cl">        <span class="n">VIP小白菜</span>                
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">when</span><span class="o">&gt;</span>               
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">otherwise</span><span class="o">&gt;</span>                    
-</span></span><span class="line"><span class="cl">        <span class="n">VIP</span><span class="err">没白菜</span>                
+</span></span><span class="line"><span class="cl">        <span class="n">VIP没白菜</span>                
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">otherwise</span><span class="o">&gt;</span>           
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">choose</span><span class="o">&gt;</span>
 </span></span></code></pre></div><h1 id="登录注册">登录注册</h1>
@@ -667,6 +708,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -730,9 +828,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -453,52 +494,52 @@
             <div class="js-toc-content" style="height: 100%;">
                 <h1 id="学生管理系统">学生管理系统</h1>
 <h2 id="一回顾">一、回顾</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="n">Servlet</span> <span class="err">使用</span> <span class="err">注意事项</span> <span class="err">生命周期方法</span> <span class="err">进化史</span>  <span class="err">注解的形式创建</span><span class="n">Servlet</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">Servlet</span> <span class="n">使用</span> <span class="n">注意事项</span> <span class="n">生命周期方法</span> <span class="n">进化史</span>  <span class="n">注解的形式创建Servlet</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="n">request</span><span class="err">和</span><span class="n">response</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">request和response</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">request</span> <span class="err">获取请求信息</span> <span class="err">请求行</span> <span class="err">请求头</span> <span class="err">请求正文</span>  <span class="err">转发</span>
+</span></span><span class="line"><span class="cl">    <span class="n">request</span> <span class="n">获取请求信息</span> <span class="n">请求行</span> <span class="n">请求头</span> <span class="n">请求正文</span>  <span class="n">转发</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="err">响应信息</span> <span class="err">响应行</span> <span class="err">响应头</span> <span class="err">响应正文</span><span class="o">(</span><span class="err">文本、字节</span><span class="o">)</span> <span class="err">重定向</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="n">响应信息</span> <span class="n">响应行</span> <span class="n">响应头</span> <span class="nf">响应正文</span><span class="o">(</span><span class="n">文本</span><span class="err">、</span><span class="n">字节</span><span class="o">)</span> <span class="n">重定向</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">共享域：</span><span class="n">ServletContext</span>  <span class="n">session</span>  <span class="n">request</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">共享域</span><span class="err">：</span><span class="n">ServletContext</span>  <span class="n">session</span>  <span class="n">request</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mf">4.</span> <span class="n">JSP</span><span class="o">(</span><span class="err">三大指令、六大动作、九大内置对象、</span><span class="n">EL</span><span class="err">、</span><span class="n">JSTL</span><span class="err">标签库</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="nf">JSP</span><span class="o">(</span><span class="n">三大指令</span><span class="err">、</span><span class="n">六大动作</span><span class="err">、</span><span class="n">九大内置对象</span><span class="err">、</span><span class="n">EL</span><span class="err">、</span><span class="n">JSTL标签库</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mf">5.</span> <span class="err">会话</span><span class="o">(</span><span class="n">Cookie</span><span class="o">/</span><span class="n">session</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="nf">会话</span><span class="o">(</span><span class="n">Cookie</span><span class="o">/</span><span class="n">session</span><span class="o">)</span>
 </span></span></code></pre></div><h2 id="二mvc和三层结构">二、MVC和三层结构</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">MVC</span><span class="err">设计模式</span>
-</span></span><span class="line"><span class="cl">    <span class="n">M</span>  <span class="n">Model</span>  <span class="err">模型</span><span class="o">(</span><span class="err">数据模型</span> <span class="err">业务模型</span> <span class="err">数据访问模型</span><span class="o">...)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">V</span>  <span class="n">View</span>   <span class="err">视图</span><span class="o">(</span><span class="err">展示数据</span> <span class="n">JSP</span> <span class="n">HTML</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">C</span>  <span class="n">Controller</span> <span class="err">控制器</span><span class="o">(</span><span class="err">控制哪些数据</span> <span class="err">和</span> <span class="err">哪些页面</span> <span class="err">响应</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">MVC设计模式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">M</span>  <span class="n">Model</span>  <span class="nf">模型</span><span class="o">(</span><span class="n">数据模型</span> <span class="n">业务模型</span> <span class="n">数据访问模型</span><span class="o">...)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">V</span>  <span class="n">View</span>   <span class="nf">视图</span><span class="o">(</span><span class="n">展示数据</span> <span class="n">JSP</span> <span class="n">HTML</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C</span>  <span class="n">Controller</span> <span class="nf">控制器</span><span class="o">(</span><span class="n">控制哪些数据</span> <span class="n">和</span> <span class="n">哪些页面</span> <span class="n">响应</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">三层结构</span><span class="o">(</span><span class="err">项目的三层包</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">web</span><span class="err">层与客户端交互</span>  <span class="o">----</span> <span class="n">Servlet</span>
-</span></span><span class="line"><span class="cl">    <span class="n">service</span> <span class="err">业务层</span>  <span class="o">----</span>  <span class="err">处理业务的类</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dao</span><span class="err">数据库访问层</span>  <span class="o">----</span> <span class="err">处理数据库数据操作的</span>
+</span></span><span class="line"><span class="cl"><span class="n">三层结构</span><span class="o">(</span><span class="n">项目的三层包</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">web层与客户端交互</span>  <span class="o">----</span> <span class="n">Servlet</span>
+</span></span><span class="line"><span class="cl">    <span class="n">service</span> <span class="n">业务层</span>  <span class="o">----</span>  <span class="n">处理业务的类</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dao数据库访问层</span>  <span class="o">----</span> <span class="n">处理数据库数据操作的</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="mf">1.</span> <span class="err">上一层可以调用下一层，但是下一层不能调用上一层</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">2.</span> <span class="err">不能隔层调用</span>
+</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">上一层可以调用下一层</span><span class="err">，</span><span class="n">但是下一层不能调用上一层</span>
+</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">不能隔层调用</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="err">一个表对应一个</span><span class="n">dao</span> <span class="err">对应一个业务类</span>  <span class="err">对应一个实体类</span> <span class="err">对应一个</span><span class="n">Servlet</span>
+</span></span><span class="line"><span class="cl">    <span class="n">一个表对应一个dao</span> <span class="n">对应一个业务类</span>  <span class="n">对应一个实体类</span> <span class="n">对应一个Servlet</span>
 </span></span></code></pre></div><h2 id="三学生管理系统">三、学生管理系统</h2>
 <h3 id="1-功能">1. 功能</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">学生信息添加</span>  
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">学生信息修改</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">学生信息删除</span><span class="o">(</span><span class="err">单删、多删</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="mf">4.</span> <span class="err">学生展示</span><span class="o">(</span><span class="err">分页展示</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">学生信息添加</span>  
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">学生信息修改</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="nf">学生信息删除</span><span class="o">(</span><span class="n">单删</span><span class="err">、</span><span class="n">多删</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="nf">学生展示</span><span class="o">(</span><span class="n">分页展示</span><span class="o">)</span>
 </span></span></code></pre></div><h3 id="2思路">2.思路</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">分析技术、分析库和表</span>
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">准备</span><span class="n">jar</span>  <span class="err">工具类</span> <span class="err">配置文件等</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">库表</span> <span class="err">创建</span>
-</span></span><span class="line"><span class="cl"><span class="mf">4.</span> <span class="err">搭建环境</span>
-</span></span><span class="line"><span class="cl">    <span class="err">①</span> <span class="err">搭建项目结构</span> 
-</span></span><span class="line"><span class="cl">    <span class="err">②</span> <span class="err">引入</span><span class="n">jar</span> <span class="err">工具类</span> <span class="err">配置文件等</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">分析技术</span><span class="err">、</span><span class="n">分析库和表</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">准备jar</span>  <span class="n">工具类</span> <span class="n">配置文件等</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">库表</span> <span class="n">创建</span>
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">搭建环境</span>
+</span></span><span class="line"><span class="cl">    <span class="err">①</span> <span class="n">搭建项目结构</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">②</span> <span class="n">引入jar</span> <span class="n">工具类</span> <span class="n">配置文件等</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mf">5.</span> <span class="err">编码</span>
+</span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span> <span class="n">编码</span>
 </span></span></code></pre></div><h3 id="3-优化servlet">3. 优化Servlet</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">目的：实现一个表对应一个</span><span class="n">Servlet</span>  <span class="err">防止</span><span class="n">Servlet</span><span class="err">创建过多</span>
-</span></span><span class="line"><span class="cl"><span class="err">具体封装：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">目的</span><span class="err">：</span><span class="n">实现一个表对应一个Servlet</span>  <span class="n">防止Servlet创建过多</span>
+</span></span><span class="line"><span class="cl"><span class="n">具体封装</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.ujiuye.web.servlet</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
@@ -536,35 +577,35 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">使用：自定义类</span> <span class="err">继承</span><span class="n">BaseServlet</span><span class="err">即可</span>
+</span></span><span class="line"><span class="cl"><span class="n">使用</span><span class="err">：</span><span class="n">自定义类</span> <span class="n">继承BaseServlet即可</span>
 </span></span></code></pre></div><h3 id="4-入口的处理">4. 入口的处理</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">index</span><span class="o">.</span><span class="na">jsp</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">contentType</span><span class="o">=</span><span class="s">&#34;text/html;charset=UTF-8&#34;</span> <span class="n">language</span><span class="o">=</span><span class="s">&#34;java&#34;</span> <span class="o">%&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="err">入口页</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">入口页</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="err">跳转首页之前</span> <span class="err">从后台获取数据</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span><span class="n">跳转首页之前</span> <span class="n">从后台获取数据</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">jsp</span><span class="o">:</span><span class="n">forward</span> <span class="n">page</span><span class="o">=</span><span class="s">&#34;stu&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">jsp</span><span class="o">:</span><span class="n">param</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;method&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;home&#34;</span><span class="o">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">jsp</span><span class="o">:</span><span class="n">forward</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
 </span></span></code></pre></div><h3 id="5-首页展示">5. 首页展示</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">index</span><span class="o">.</span><span class="na">jsp</span>  <span class="o">----&gt;</span> <span class="n">StudentServlet</span><span class="err">中</span><span class="n">home</span><span class="err">方法</span> <span class="err">获取学生信息</span>  <span class="err">保存到共享域中</span> <span class="o">----&gt;</span> <span class="err">跳转到</span><span class="n">home</span><span class="o">.</span><span class="na">jsp</span><span class="err">中展示</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">index</span><span class="o">.</span><span class="na">jsp</span>  <span class="o">----&gt;</span> <span class="n">StudentServlet中home方法</span> <span class="n">获取学生信息</span>  <span class="n">保存到共享域中</span> <span class="o">----&gt;</span> <span class="n">跳转到home</span><span class="o">.</span><span class="na">jsp中展示</span>
 </span></span></code></pre></div><h3 id="6-添加学生">6. 添加学生</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">index</span><span class="o">.</span><span class="na">jsp</span> <span class="err">点击添加按钮</span>  <span class="o">----&gt;</span> <span class="n">StudentServlet</span> <span class="err">中的</span><span class="n">addStuUI</span><span class="err">方法</span>  <span class="o">----&gt;</span> <span class="err">跳转</span><span class="n">addStu</span><span class="o">.</span><span class="na">jsp</span><span class="err">中</span> <span class="o">----&gt;</span> <span class="n">StudentServlet</span><span class="err">中的</span><span class="n">addStu</span><span class="err">方法</span> <span class="o">(----&gt;</span> <span class="n">StudentServiceImpl</span>  <span class="o">----&gt;</span> <span class="n">StudentDaoImpl</span> <span class="o">----&gt;)</span> <span class="err">跳转到首页</span> <span class="o">----&gt;</span> <span class="n">StudentServlet</span><span class="err">中</span><span class="n">home</span><span class="err">方法</span> <span class="err">获取学生信息</span>  <span class="err">保存到共享域中</span> <span class="o">----&gt;</span> <span class="err">跳转到</span><span class="n">home</span><span class="o">.</span><span class="na">jsp</span><span class="err">中展示</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">index</span><span class="o">.</span><span class="na">jsp</span> <span class="n">点击添加按钮</span>  <span class="o">----&gt;</span> <span class="n">StudentServlet</span> <span class="n">中的addStuUI方法</span>  <span class="o">----&gt;</span> <span class="n">跳转addStu</span><span class="o">.</span><span class="na">jsp中</span> <span class="o">----&gt;</span> <span class="n">StudentServlet中的addStu方法</span> <span class="o">(----&gt;</span> <span class="n">StudentServiceImpl</span>  <span class="o">----&gt;</span> <span class="n">StudentDaoImpl</span> <span class="o">----&gt;)</span> <span class="n">跳转到首页</span> <span class="o">----&gt;</span> <span class="n">StudentServlet中home方法</span> <span class="n">获取学生信息</span>  <span class="n">保存到共享域中</span> <span class="o">----&gt;</span> <span class="n">跳转到home</span><span class="o">.</span><span class="na">jsp中展示</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"> <span class="err">文件上传要求：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">页面要求：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">需要指定：</span><span class="n">enctype</span><span class="o">=</span><span class="n">multipart</span><span class="o">/</span><span class="n">form</span><span class="o">-</span><span class="n">data</span>  <span class="err">提交方式必须是</span> <span class="n">post</span> <span class="n">type</span><span class="o">=</span><span class="n">file</span>
+</span></span><span class="line"><span class="cl"> <span class="n">文件上传要求</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">页面要求</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">需要指定</span><span class="err">：</span><span class="n">enctype</span><span class="o">=</span><span class="n">multipart</span><span class="o">/</span><span class="n">form</span><span class="o">-</span><span class="n">data</span>  <span class="n">提交方式必须是</span> <span class="n">post</span> <span class="n">type</span><span class="o">=</span><span class="n">file</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;stu?method=addStu&#34;</span> <span class="n">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span> <span class="n">enctype</span><span class="o">=</span><span class="s">&#34;multipart/form-data&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">    <span class="n">Servlet</span><span class="err">要求：添加</span><span class="nd">@MultipartConfig</span> <span class="err">在类上</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Servlet要求</span><span class="err">：</span><span class="n">添加</span><span class="nd">@MultipartConfig</span> <span class="n">在类上</span>
 </span></span><span class="line"><span class="cl">       
-</span></span><span class="line"><span class="cl"><span class="n">jsp</span><span class="err">中加载本地路径下的图片需要挂载服务器路径：</span>
+</span></span><span class="line"><span class="cl"><span class="n">jsp中加载本地路径下的图片需要挂载服务器路径</span><span class="err">：</span>
 </span></span></code></pre></div><p><img src="/posts/project/20220430225457/image-20220430225623694.png"
     
     
@@ -574,31 +615,31 @@
     
 ></p>
 <h3 id="7-修改学生">7. 修改学生</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">home</span><span class="o">.</span><span class="na">jsp</span><span class="err">中点击修改按钮</span>  <span class="o">-----&gt;</span> <span class="n">StudentServlet</span><span class="err">的</span><span class="n">updateStuUI</span><span class="err">方法</span> <span class="err">获取修改的学生信息</span> <span class="o">----&gt;</span> <span class="n">updateStu</span><span class="o">.</span><span class="na">jsp</span> <span class="err">回显老数据</span> <span class="err">修改</span> <span class="o">----&gt;</span> <span class="n">StudentServlet</span><span class="err">的</span><span class="n">updateStu</span><span class="err">方法</span> <span class="o">----&gt;</span> <span class="o">(</span><span class="n">StudentServiceImpl</span>  <span class="o">----&gt;</span> <span class="n">StudentDaoImpl</span><span class="o">)</span> <span class="err">跳转到首页获取新的数据</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">home</span><span class="o">.</span><span class="na">jsp中点击修改按钮</span>  <span class="o">-----&gt;</span> <span class="n">StudentServlet的updateStuUI方法</span> <span class="n">获取修改的学生信息</span> <span class="o">----&gt;</span> <span class="n">updateStu</span><span class="o">.</span><span class="na">jsp</span> <span class="n">回显老数据</span> <span class="n">修改</span> <span class="o">----&gt;</span> <span class="n">StudentServlet的updateStu方法</span> <span class="o">----&gt;</span> <span class="o">(</span><span class="n">StudentServiceImpl</span>  <span class="o">----&gt;</span> <span class="n">StudentDaoImpl</span><span class="o">)</span> <span class="n">跳转到首页获取新的数据</span>
 </span></span></code></pre></div><h3 id="8-删除学生">8. 删除学生</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">单删</span>	
-</span></span><span class="line"><span class="cl">	<span class="n">home</span><span class="o">.</span><span class="na">jsp</span><span class="err">中点击删除按钮</span> <span class="o">----&gt;</span> <span class="n">StudentServlet</span><span class="err">的</span><span class="n">delStu</span><span class="err">方法</span> <span class="o">----&gt;</span> <span class="o">(</span><span class="n">StudentServiceImpl</span>  <span class="o">----&gt;</span> <span class="n">StudentDaoImpl</span><span class="o">)</span><span class="err">跳转到首页获取新的数据</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">单删</span>	
+</span></span><span class="line"><span class="cl">	<span class="n">home</span><span class="o">.</span><span class="na">jsp中点击删除按钮</span> <span class="o">----&gt;</span> <span class="n">StudentServlet的delStu方法</span> <span class="o">----&gt;</span> <span class="o">(</span><span class="n">StudentServiceImpl</span>  <span class="o">----&gt;</span> <span class="n">StudentDaoImpl</span><span class="o">)</span><span class="n">跳转到首页获取新的数据</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">批量删除</span>
-</span></span><span class="line"><span class="cl">    <span class="n">home</span><span class="o">.</span><span class="na">jsp</span><span class="err">中选中删除的数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">批量删除</span>
+</span></span><span class="line"><span class="cl">    <span class="n">home</span><span class="o">.</span><span class="na">jsp中选中删除的数据</span>
 </span></span></code></pre></div><h2 id="学生管理之分页">学生管理之分页</h2>
 <h3 id="1-分析">1. 分析</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="err">页面需要什么数据</span>
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="err">当前页的数据</span> <span class="err">（数据库查询）</span>
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="err">当前页的页码</span>  <span class="err">（页面）</span>
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="err">共多少页</span> 
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="err">一页显示多少条数据</span>  <span class="err">（自己定义）</span>
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="err">共多少条数据</span>  <span class="err">（数据库查询）</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">页面需要什么数据</span>
+</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">当前页的数据</span> <span class="err">（</span><span class="n">数据库查询</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">当前页的页码</span>  <span class="err">（</span><span class="n">页面</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">共多少页</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">一页显示多少条数据</span>  <span class="err">（</span><span class="n">自己定义</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">共多少条数据</span>  <span class="err">（</span><span class="n">数据库查询</span><span class="err">）</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="err">这些数据都需要保存到共享域中</span> <span class="err">，将以上这些数据封装到一个类中</span>
+</span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="n">这些数据都需要保存到共享域中</span> <span class="err">，</span><span class="n">将以上这些数据封装到一个类中</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageBean</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    	<span class="kd">private</span> <span class="kt">int</span> <span class="n">currentPage</span><span class="o">;</span> <span class="c1">// 当前页 页码
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    	<span class="kd">private</span> <span class="kt">int</span> <span class="n">totalCount</span><span class="o">;</span>  <span class="c1">//  数据总数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    	<span class="kd">private</span> <span class="kt">int</span> <span class="n">pageSize</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>  <span class="c1">// 一页显示多少条数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    	<span class="kd">private</span> <span class="kt">int</span> <span class="n">pageSize</span> <span class="o">=</span> <span class="n">6</span><span class="o">;</span>  <span class="c1">// 一页显示多少条数据
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    	<span class="kd">private</span> <span class="kt">int</span> <span class="n">totalPage</span><span class="o">;</span> <span class="c1">// 一共多少页
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    	<span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span>  <span class="c1">// 当前页显示的数据
 </span></span></span></code></pre></div><h3 id="2-编码">2. 编码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">StudentServlet</span><span class="err">中</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">StudentServlet中</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 分页显示首页数据
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">home</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 1. 获取请求携带参数
@@ -614,7 +655,7 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 转发
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="s">&#34;home_page.jsp&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">StudentServiceImpl</span><span class="err">中</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">StudentServiceImpl中</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">PageBean</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="nf">findByPage</span><span class="o">(</span><span class="n">String</span> <span class="n">currentPage</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 1. 处理分页业务
@@ -631,7 +672,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 2.3 共多少页  总个数/一页的数据个数    6   36  37
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">pageSize</span> <span class="o">=</span> <span class="n">pageBean</span><span class="o">.</span><span class="na">getPageSize</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">totalPage</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">totalCount</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="n">pageSize</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">totalPage</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">totalCount</span><span class="o">*</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">/</span><span class="n">pageSize</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setTotalPage</span><span class="o">(</span><span class="n">totalPage</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 2.4 当前页的数据  s   limit (n-1)*
@@ -639,19 +680,19 @@
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setList</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 2.5 起始页码和 结束页面封装到PageBean
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">totalPage</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">pageBean</span><span class="o">.</span><span class="na">setStartPage</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">totalPage</span> <span class="o">&lt;=</span> <span class="n">10</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pageBean</span><span class="o">.</span><span class="na">setStartPage</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="n">pageBean</span><span class="o">.</span><span class="na">setEndPage</span><span class="o">(</span><span class="n">totalPage</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">cp</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="o">){</span>
-</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setStartPage</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setEndPage</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">totalPage</span> <span class="o">-</span> <span class="n">cp</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setStartPage</span><span class="o">(</span><span class="n">totalPage</span> <span class="o">-</span> <span class="mi">9</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">cp</span> <span class="o">&lt;=</span> <span class="n">6</span> <span class="o">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setStartPage</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setEndPage</span><span class="o">(</span><span class="n">10</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">totalPage</span> <span class="o">-</span> <span class="n">cp</span> <span class="o">&lt;</span> <span class="n">4</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setStartPage</span><span class="o">(</span><span class="n">totalPage</span> <span class="o">-</span> <span class="n">9</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setEndPage</span><span class="o">(</span><span class="n">totalPage</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setStartPage</span><span class="o">(</span><span class="n">cp</span> <span class="o">-</span> <span class="mi">5</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setEndPage</span><span class="o">(</span><span class="n">cp</span> <span class="o">+</span> <span class="mi">4</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setStartPage</span><span class="o">(</span><span class="n">cp</span> <span class="o">-</span> <span class="n">5</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pageBean</span><span class="o">.</span><span class="na">setEndPage</span><span class="o">(</span><span class="n">cp</span> <span class="o">+</span> <span class="n">4</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
@@ -661,61 +702,61 @@
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;%--</span>
 </span></span><span class="line"><span class="cl">  <span class="n">Created</span> <span class="n">by</span> <span class="n">IntelliJ</span> <span class="n">IDEA</span><span class="o">.</span>
 </span></span><span class="line"><span class="cl">  <span class="n">User</span><span class="o">:</span> <span class="n">junguang</span>
-</span></span><span class="line"><span class="cl">  <span class="n">Date</span><span class="o">:</span> <span class="mi">2021</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="mi">10</span>
-</span></span><span class="line"><span class="cl">  <span class="n">Time</span><span class="o">:</span> <span class="mi">11</span><span class="o">:</span><span class="mi">22</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Date</span><span class="o">:</span> <span class="n">2021</span><span class="o">/</span><span class="n">12</span><span class="o">/</span><span class="n">10</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Time</span><span class="o">:</span> <span class="n">11</span><span class="o">:</span><span class="n">22</span>
 </span></span><span class="line"><span class="cl">  <span class="n">To</span> <span class="n">change</span> <span class="k">this</span> <span class="n">template</span> <span class="n">use</span> <span class="n">File</span> <span class="o">|</span> <span class="n">Settings</span> <span class="o">|</span> <span class="n">File</span> <span class="n">Templates</span><span class="o">.</span>
 </span></span><span class="line"><span class="cl"><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">contentType</span><span class="o">=</span><span class="s">&#34;text/html;charset=UTF-8&#34;</span> <span class="n">language</span><span class="o">=</span><span class="s">&#34;java&#34;</span> <span class="o">%&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;%</span><span class="nd">@taglib</span> <span class="n">prefix</span><span class="o">=</span><span class="s">&#34;c&#34;</span> <span class="n">uri</span><span class="o">=</span><span class="s">&#34;http://java.sun.com/jsp/jstl/core&#34;</span> <span class="o">%&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="err">首页</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">首页</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="k">if</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;${pageBean.list.size() &lt;= 0 }&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="err">没有学生信息，赶紧</span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=addStuUI&#34;</span><span class="o">&gt;</span><span class="err">添加</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span><span class="err">吧！</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">没有学生信息</span><span class="err">，</span><span class="n">赶紧</span><span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=addStuUI&#34;</span><span class="o">&gt;</span><span class="n">添加</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span><span class="n">吧</span><span class="err">！</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="k">if</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="k">if</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;${pageBean.list.size() &gt; 0 }&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">table</span> <span class="n">border</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="n">cellspacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="n">width</span><span class="o">=</span><span class="s">&#34;800&#34;</span> <span class="n">align</span><span class="o">=</span><span class="s">&#34;center&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">caption</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=addStuUI&#34;</span><span class="o">&gt;</span><span class="err">添加学生</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">caption</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">caption</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=addStuUI&#34;</span><span class="o">&gt;</span><span class="n">添加学生</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">caption</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;javascript:void(0);&#34;</span> <span class="n">onclick</span><span class="o">=</span><span class="s">&#34;delMore()&#34;</span><span class="o">&gt;</span><span class="err">批量删除</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="err">学号</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="err">姓名</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="err">性别</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="err">年龄</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 20%;&#34;</span><span class="o">&gt;</span><span class="err">身份证号</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="err">入校日期</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="err">头像</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="err">操作</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;javascript:void(0);&#34;</span> <span class="n">onclick</span><span class="o">=</span><span class="s">&#34;delMore()&#34;</span><span class="o">&gt;</span><span class="n">批量删除</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="n">学号</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="n">姓名</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="n">性别</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="n">年龄</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 20%;&#34;</span><span class="o">&gt;</span><span class="n">身份证号</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="n">入校日期</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="n">头像</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">th</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;width: 10%;&#34;</span><span class="o">&gt;</span><span class="n">操作</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">forEach</span> <span class="n">items</span><span class="o">=</span><span class="s">&#34;${pageBean.list }&#34;</span> <span class="n">var</span><span class="o">=</span><span class="s">&#34;stu&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">tr</span> <span class="n">align</span><span class="o">=</span><span class="s">&#34;center&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;checkbox&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;${stu.sid }&#34;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="n">$</span><span class="o">{</span><span class="n">stu</span><span class="o">.</span><span class="na">sid</span> <span class="o">}&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="n">$</span><span class="o">{</span><span class="n">stu</span><span class="o">.</span><span class="na">sname</span> <span class="o">}&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="n">$</span><span class="o">{</span><span class="n">stu</span><span class="o">.</span><span class="na">gender</span><span class="o">==</span><span class="mi">1</span><span class="o">?</span><span class="sc">&#39;男&#39;</span><span class="o">:</span><span class="sc">&#39;女&#39;</span> <span class="o">}&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="n">$</span><span class="o">{</span><span class="n">stu</span><span class="o">.</span><span class="na">gender</span><span class="o">==</span><span class="n">1</span><span class="o">?</span><span class="sc">&#39;男&#39;</span><span class="o">:</span><span class="sc">&#39;女&#39;</span> <span class="o">}&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="n">$</span><span class="o">{</span><span class="n">stu</span><span class="o">.</span><span class="na">age</span> <span class="o">}&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="n">$</span><span class="o">{</span><span class="n">stu</span><span class="o">.</span><span class="na">cardno</span> <span class="o">}&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span><span class="n">$</span><span class="o">{</span><span class="n">stu</span><span class="o">.</span><span class="na">hiredate</span> <span class="o">}&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;/stuimg/${stu.pic }&#34;</span> <span class="n">width</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="n">height</span><span class="o">=</span><span class="s">&#34;50&#34;</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">td</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                        <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=updateStuUI&amp;sid=${stu.sid }&#34;</span><span class="o">&gt;</span><span class="err">修改</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                        <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;javascript:void(0);&#34;</span> <span class="n">onclick</span><span class="o">=</span><span class="s">&#34;del(&#39;${stu.sid }&#39;)&#34;</span><span class="o">&gt;</span><span class="err">删除</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=updateStuUI&amp;sid=${stu.sid }&#34;</span><span class="o">&gt;</span><span class="n">修改</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                        <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;javascript:void(0);&#34;</span> <span class="n">onclick</span><span class="o">=</span><span class="s">&#34;del(&#39;${stu.sid }&#39;)&#34;</span><span class="o">&gt;</span><span class="n">删除</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">forEach</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;/</span><span class="n">table</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">&lt;%--</span><span class="err">页码展示</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;%--</span><span class="n">页码展示</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">center</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;%--</span><span class="err">首页</span><span class="o">--%&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&#34;</span><span class="o">&gt;</span><span class="err">首页</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;%--</span><span class="err">上一页</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;%--</span><span class="n">首页</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&#34;</span><span class="o">&gt;</span><span class="n">首页</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;%--</span><span class="n">上一页</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="k">if</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;${pageBean.currentPage &gt; 1 }&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&amp;currentPage=${pageBean.currentPage-1 }&#34;</span><span class="o">&gt;</span><span class="err">上一页</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&amp;currentPage=${pageBean.currentPage-1 }&#34;</span><span class="o">&gt;</span><span class="n">上一页</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="k">if</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">             <span class="o">&lt;%--</span><span class="err">每一页页码</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">             <span class="o">&lt;%--</span><span class="n">每一页页码</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="n">forEach</span> <span class="n">begin</span><span class="o">=</span><span class="s">&#34;${pageBean.startPage }&#34;</span> <span class="n">end</span><span class="o">=</span><span class="s">&#34;${pageBean.endPage }&#34;</span> <span class="n">step</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="n">var</span><span class="o">=</span><span class="s">&#34;i&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="k">if</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;${pageBean.currentPage==i }&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                        <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&amp;currentPage=${i }&#34;</span>
@@ -727,12 +768,12 @@
 </span></span><span class="line"><span class="cl">                    <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="k">if</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="n">forEach</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;%--</span><span class="err">下一页</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;%--</span><span class="n">下一页</span><span class="o">--%&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">c</span><span class="o">:</span><span class="k">if</span> <span class="n">test</span><span class="o">=</span><span class="s">&#34;${pageBean.currentPage &lt; pageBean.totalPage }&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&amp;currentPage=${pageBean.currentPage+1 }&#34;</span><span class="o">&gt;</span><span class="err">下一页</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&amp;currentPage=${pageBean.currentPage+1 }&#34;</span><span class="o">&gt;</span><span class="n">下一页</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="k">if</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;%--</span><span class="err">尾页</span><span class="o">--%&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&amp;currentPage=${pageBean.totalPage }&#34;</span><span class="o">&gt;</span><span class="err">尾页</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;%--</span><span class="n">尾页</span><span class="o">--%&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;stu?method=home&amp;currentPage=${pageBean.totalPage }&#34;</span><span class="o">&gt;</span><span class="n">尾页</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;/</span><span class="n">center</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">c</span><span class="o">:</span><span class="k">if</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;jquery/jquery-1.4.2.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
@@ -752,7 +793,7 @@
 </span></span><span class="line"><span class="cl">            <span class="n">$</span><span class="o">.</span><span class="na">each</span><span class="o">(</span><span class="n">$</span><span class="o">(</span><span class="s">&#34;input:checked&#34;</span><span class="o">),</span> <span class="n">function</span><span class="o">(</span><span class="n">index</span><span class="o">,</span> <span class="n">eml</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="n">sids</span> <span class="o">+=</span> <span class="s">&#34;,&#34;</span><span class="o">+</span><span class="n">eml</span><span class="o">.</span><span class="na">value</span>
 </span></span><span class="line"><span class="cl">            <span class="o">})</span>
-</span></span><span class="line"><span class="cl">            <span class="n">sidss</span> <span class="o">=</span> <span class="n">sids</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sidss</span> <span class="o">=</span> <span class="n">sids</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 2. sids是否有值
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(</span><span class="n">sidss</span><span class="o">==</span><span class="kc">null</span> <span class="o">||</span> <span class="s">&#34;&#34;</span><span class="o">==</span><span class="n">sidss</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="n">alert</span><span class="o">(</span><span class="s">&#34;请选择要删除的数据&#34;</span><span class="o">);</span>
@@ -873,6 +914,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -936,9 +1034,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

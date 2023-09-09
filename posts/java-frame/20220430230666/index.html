@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -471,24 +512,24 @@
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">mybatis</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mybatis</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">3.4.6</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="o">.</span><span class="na">4</span><span class="o">.</span><span class="na">6</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">5.1.47</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">47</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">runtime</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">junit</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">junit</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">4.12</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="o">.</span><span class="na">12</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">test</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">log4j</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">log4j</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.2.17</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">17</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
 </span></span></code></pre></div><h2 id="搭建项目环境">搭建项目环境</h2>
@@ -649,20 +690,20 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h1 id="mybatis执行原理分析">Mybatis执行原理分析</h1>
 <h2 id="配置文件分析">配置文件分析</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">核心配置文件</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">核心配置文件</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s">&#34;1.0&#34;</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="o">?&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;!</span><span class="n">DOCTYPE</span> <span class="n">configuration</span>
 </span></span><span class="line"><span class="cl">        <span class="n">PUBLIC</span> <span class="s">&#34;-//mybatis.org//DTD Config 3.0//EN&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="s">&#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">configuration</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="err">配置</span> <span class="n">mybatis</span> <span class="err">的环境</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="n">配置</span> <span class="n">mybatis</span> <span class="n">的环境</span> <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">environments</span> <span class="k">default</span><span class="o">=</span><span class="s">&#34;development&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">&lt;!--</span> <span class="err">配置的环境</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;!--</span> <span class="n">配置的环境</span> <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">environment</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;development&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;!--</span> <span class="err">配置事务的类型</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;!--</span> <span class="n">配置事务的类型</span> <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">transactionManager</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;JDBC&#34;</span><span class="o">&gt;&lt;/</span><span class="n">transactionManager</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;!--</span> <span class="err">配置连接数据库的信息</span><span class="o">:</span><span class="err">用的是数据源【连接池</span><span class="o">)</span><span class="err">】</span><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;!--</span> <span class="n">配置连接数据库的信息</span><span class="o">:</span><span class="n">用的是数据源</span><span class="err">【</span><span class="n">连接池</span><span class="o">)</span><span class="err">】</span><span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">dataSource</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;POOLED&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;driver&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;com.mysql.jdbc.Driver&#34;</span><span class="o">/&gt;</span>
 </span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;url&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;jdbc:mysql://localhost:3306/mybatis001&#34;</span><span class="o">/&gt;</span>
@@ -671,48 +712,48 @@
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;/</span><span class="n">dataSource</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;/</span><span class="n">environment</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">environments</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span>  <span class="err">注册</span><span class="n">UserDao</span><span class="err">接品映射文件位置</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span>  <span class="n">注册UserDao接品映射文件位置</span> <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">mappers</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">mapper</span> <span class="n">resource</span><span class="o">=</span><span class="s">&#34;cn/offcn/dao/UserDao.xml&#34;</span><span class="o">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">mappers</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">configuration</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">核心配置文件参数详解：</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="mi">1</span><span class="o">)</span><span class="n">environment</span><span class="err">标签中的</span><span class="n">id</span><span class="err">属性值必须和</span><span class="n">environments</span><span class="err">标签中的</span><span class="n">default</span><span class="err">属性一致。</span>
-</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="mi">2</span><span class="o">)</span><span class="err">事务管理器：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">第一种采用</span><span class="n">JDBC</span><span class="err">事务类型，直接使用了</span> <span class="n">JDBC</span><span class="err">的提交和回滚设施，它依赖从数据源获得的连接来管理事务作用域。</span>
-</span></span><span class="line"><span class="cl">    <span class="err">第二种采用</span><span class="n">MANAGED</span><span class="err">事务类型，它从不提交或回滚一个连接，而是让容器来管理事务的整个生命周期（比如</span> <span class="n">JEE</span> <span class="err">应用服务器的上下文）。默认情况下它会关闭连接。然而一些容器并不希望连接被关闭，因此需要将</span> <span class="n">closeConnection</span> <span class="err">属性设置为</span> <span class="kc">false</span> <span class="err">来阻止默认的关闭行为。例如</span><span class="o">:</span> 
+</span></span><span class="line"><span class="cl"><span class="n">核心配置文件参数详解</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">1</span><span class="o">)</span><span class="n">environment标签中的id属性值必须和environments标签中的default属性一致</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">2</span><span class="o">)</span><span class="n">事务管理器</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">第一种采用JDBC事务类型</span><span class="err">，</span><span class="n">直接使用了</span> <span class="n">JDBC的提交和回滚设施</span><span class="err">，</span><span class="n">它依赖从数据源获得的连接来管理事务作用域</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">第二种采用MANAGED事务类型</span><span class="err">，</span><span class="n">它从不提交或回滚一个连接</span><span class="err">，</span><span class="n">而是让容器来管理事务的整个生命周期</span><span class="err">（</span><span class="n">比如</span> <span class="n">JEE</span> <span class="n">应用服务器的上下文</span><span class="err">）。</span><span class="n">默认情况下它会关闭连接</span><span class="err">。</span><span class="n">然而一些容器并不希望连接被关闭</span><span class="err">，</span><span class="n">因此需要将</span> <span class="n">closeConnection</span> <span class="n">属性设置为</span> <span class="kc">false</span> <span class="n">来阻止默认的关闭行为</span><span class="err">。</span><span class="n">例如</span><span class="o">:</span> 
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">transactionManager</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;MANAGED&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">       <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;closeConnection&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;false&#34;</span><span class="o">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">transactionManager</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="err">数据源（</span><span class="n">dataSource</span><span class="err">）</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dataSource</span><span class="err">元素使用标准的</span><span class="n">JDBC</span><span class="err">数据源接口来配置</span><span class="n">JDBC</span><span class="err">连接对象的资源。大多数</span> <span class="n">MyBatis</span> <span class="err">应用程序会按示例中的例子来配置数据源。</span>     <span class="err">虽然数据源配置是可选的，但如果要启用延迟加载特性，就必须配置数据源。</span>
-</span></span><span class="line"><span class="cl">    <span class="err">有三种内建的数据源类型（也就是</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;[UNPOOLED|POOLED|JNDI]&#34;</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">3</span><span class="o">)</span> <span class="n">数据源</span><span class="err">（</span><span class="n">dataSource</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dataSource元素使用标准的JDBC数据源接口来配置JDBC连接对象的资源</span><span class="err">。</span><span class="n">大多数</span> <span class="n">MyBatis</span> <span class="n">应用程序会按示例中的例子来配置数据源</span><span class="err">。</span>     <span class="n">虽然数据源配置是可选的</span><span class="err">，</span><span class="n">但如果要启用延迟加载特性</span><span class="err">，</span><span class="n">就必须配置数据源</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">有三种内建的数据源类型</span><span class="err">（</span><span class="n">也就是</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;[UNPOOLED|POOLED|JNDI]&#34;</span><span class="err">）</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">UNPOOLED</span><span class="err">–</span> <span class="err">这个数据源的实现会每次请求时打开和关闭连接。虽然有点慢，但对那些数据库连接可用性要求不高的简单应用程序来说，是一个很好的选择。</span> <span class="err">性能表现则依赖于使用的数据库，对某些数据库来说，使用连接池并不重要，这个配置就很适合这种情形。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UNPOOLED</span><span class="err">–</span> <span class="n">这个数据源的实现会每次请求时打开和关闭连接</span><span class="err">。</span><span class="n">虽然有点慢</span><span class="err">，</span><span class="n">但对那些数据库连接可用性要求不高的简单应用程序来说</span><span class="err">，</span><span class="n">是一个很好的选择</span><span class="err">。</span> <span class="n">性能表现则依赖于使用的数据库</span><span class="err">，</span><span class="n">对某些数据库来说</span><span class="err">，</span><span class="n">使用连接池并不重要</span><span class="err">，</span><span class="n">这个配置就很适合这种情形</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">POOLED</span><span class="err">–</span> <span class="err">这种数据源的实现利用“池”的概念将</span> <span class="n">JDBC</span> <span class="err">连接对象组织起来，避免了创建新的连接实例时所必需的初始化和认证时间。</span> <span class="err">这种处理方式很流行，能使并发</span> <span class="n">Web</span> <span class="err">应用快速响应请求。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">POOLED</span><span class="err">–</span> <span class="n">这种数据源的实现利用</span><span class="err">“</span><span class="n">池</span><span class="err">”</span><span class="n">的概念将</span> <span class="n">JDBC</span> <span class="n">连接对象组织起来</span><span class="err">，</span><span class="n">避免了创建新的连接实例时所必需的初始化和认证时间</span><span class="err">。</span> <span class="n">这种处理方式很流行</span><span class="err">，</span><span class="n">能使并发</span> <span class="n">Web</span> <span class="n">应用快速响应请求</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">JNDI</span> <span class="err">–</span> <span class="err">这个数据源实现是为了能在如</span> <span class="n">EJB</span> <span class="err">或应用服务器这类容器中使用，容器可以集中或在外部配置数据源，然后放置一个</span><span class="n">JNDI</span><span class="err">上下文的数据源引用。</span>
+</span></span><span class="line"><span class="cl">    <span class="n">JNDI</span> <span class="err">–</span> <span class="n">这个数据源实现是为了能在如</span> <span class="n">EJB</span> <span class="n">或应用服务器这类容器中使用</span><span class="err">，</span><span class="n">容器可以集中或在外部配置数据源</span><span class="err">，</span><span class="n">然后放置一个JNDI上下文的数据源引用</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="n">mapper</span><span class="err">中的</span><span class="n">resource</span><span class="err">属性用于指定映射文件的位置。</span><span class="n">mapper</span><span class="err">中有多个属性可以描述映射文件，分别为：</span>
-</span></span><span class="line"><span class="cl">        <span class="n">resource</span><span class="o">=</span><span class="err">“</span><span class="n">cn</span><span class="o">/</span><span class="n">offcn</span><span class="o">/</span><span class="n">dao</span><span class="o">/</span><span class="n">UserDao</span><span class="o">.</span><span class="na">xml</span><span class="err">”</span> <span class="err">文件在多级目录中要用分隔符“</span><span class="o">/</span><span class="err">”隔开。</span>
-</span></span><span class="line"><span class="cl">        <span class="n">class</span><span class="o">=</span><span class="s">&#34;cn.offcn.dao.UserDao&#34;</span>  <span class="err">指定</span><span class="n">UserDao</span><span class="err">接口文件位置，但此时</span><span class="n">UserDao</span><span class="o">.</span><span class="na">xml</span><span class="err">必须和接口处在同一个包中并且文件名要</span> <span class="err">相同。</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">5</span><span class="o">)</span> <span class="n">mapper中的resource属性用于指定映射文件的位置</span><span class="err">。</span><span class="n">mapper中有多个属性可以描述映射文件</span><span class="err">，</span><span class="n">分别为</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">        <span class="n">resource</span><span class="o">=</span><span class="err">“</span><span class="n">cn</span><span class="o">/</span><span class="n">offcn</span><span class="o">/</span><span class="n">dao</span><span class="o">/</span><span class="n">UserDao</span><span class="o">.</span><span class="na">xml</span><span class="err">”</span> <span class="n">文件在多级目录中要用分隔符</span><span class="err">“</span><span class="o">/</span><span class="err">”</span><span class="n">隔开</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">        <span class="n">class</span><span class="o">=</span><span class="s">&#34;cn.offcn.dao.UserDao&#34;</span>  <span class="n">指定UserDao接口文件位置</span><span class="err">，</span><span class="n">但此时UserDao</span><span class="o">.</span><span class="na">xml必须和接口处在同一个包中并且文件名要</span> <span class="n">相同</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">映射文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">映射文件</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">mapper</span> <span class="n">namespace</span><span class="o">=</span><span class="s">&#34;cn.offcn.dao.UserDao&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="err">配置查询的</span><span class="n">sql</span><span class="err">语句</span><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;!--</span><span class="n">配置查询的sql语句</span><span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;queryAllUsers&#34;</span> <span class="n">resultType</span><span class="o">=</span><span class="s">&#34;cn.offcn.entity.User&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">         <span class="n">select</span> <span class="o">*</span> <span class="n">from</span> <span class="n">user</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">mapper</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">映射文件参数详解：</span> 
-</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="n">namespace</span><span class="err">必须为接口的完全限定名（即包名</span><span class="o">+</span><span class="err">类名的格式）。</span>
-</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="mi">2</span><span class="o">)</span> <span class="n">select</span><span class="err">标签中的</span><span class="n">id</span><span class="err">必须和接口中声明的方法同名。</span>
-</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="err">如果接口中方法有返回值，</span><span class="n">resyultType</span><span class="err">必须跟方法返回值一致并采用返回值的完全限定名来表示。</span>
+</span></span><span class="line"><span class="cl"><span class="n">映射文件参数详解</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="n">1</span><span class="o">)</span> <span class="n">namespace必须为接口的完全限定名</span><span class="err">（</span><span class="n">即包名</span><span class="o">+</span><span class="n">类名的格式</span><span class="err">）。</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="n">2</span><span class="o">)</span> <span class="n">select标签中的id必须和接口中声明的方法同名</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="n">3</span><span class="o">)</span> <span class="n">如果接口中方法有返回值</span><span class="err">，</span><span class="n">resyultType必须跟方法返回值一致并采用返回值的完全限定名来表示</span><span class="err">。</span>
 </span></span></code></pre></div><h2 id="底层源码分析">底层源码分析</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="mf">1.</span><span class="err">利用</span><span class="n">Resources</span><span class="err">的</span><span class="n">getResourceAsStream</span><span class="err">方法读取</span><span class="n">mybatis</span><span class="err">核心配置文件，该配置文件中注册数据源【</span><span class="n">dataSource</span><span class="err">】和映射文件的位置【</span><span class="n">mappers</span><span class="err">标签中的</span><span class="n">mapper</span><span class="err">子标签的</span><span class="n">resource</span><span class="err">属性】。</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span><span class="na">利用Resources的getResourceAsStream方法读取mybatis核心配置文件</span><span class="err">，</span><span class="n">该配置文件中注册数据源</span><span class="err">【</span><span class="n">dataSource</span><span class="err">】</span><span class="n">和映射文件的位置</span><span class="err">【</span><span class="n">mappers标签中的mapper子标签的resource属性</span><span class="err">】。</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dataSource</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;POOLED&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;driver&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;com.mysql.jdbc.Driver&#34;</span><span class="o">/&gt;</span>
 </span></span><span class="line"><span class="cl">          <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;url&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;jdbc:mysql://localhost:3306/mybatis001&#34;</span><span class="o">/&gt;</span>
@@ -723,12 +764,12 @@
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">mapper</span> <span class="n">resource</span><span class="o">=</span><span class="s">&#34;cn/offcn/dao/UserDao.xml&#34;</span><span class="o">/&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">mappers</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span><span class="err">展开映射文件【</span><span class="n">UserDao</span><span class="o">.</span><span class="na">xml</span><span class="err">】中定义了查询方法、查询时所封装结果类型和所要执行的</span><span class="n">sql</span><span class="err">语句。</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span><span class="na">展开映射文件</span><span class="err">【</span><span class="n">UserDao</span><span class="o">.</span><span class="na">xml</span><span class="err">】</span><span class="n">中定义了查询方法</span><span class="err">、</span><span class="n">查询时所封装结果类型和所要执行的sql语句</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;queryAllUsers&#34;</span> <span class="n">resultType</span><span class="o">=</span><span class="s">&#34;cn.offcn.entity.User&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">   <span class="n">select</span> <span class="o">*</span> <span class="n">from</span> <span class="n">user</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span><span class="err">使用构建者模式</span><span class="n">SqlSessionFactoryBuilder</span><span class="err">类的</span><span class="n">build</span><span class="err">方法创建</span><span class="n">SqlSessionFactory</span><span class="err">对象，在</span><span class="n">build</span><span class="err">方法中从字节输入流中解析数据。</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span><span class="na">使用构建者模式SqlSessionFactoryBuilder类的build方法创建SqlSessionFactory对象</span><span class="err">，</span><span class="n">在build方法中从字节输入流中解析数据</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl"><span class="n">SqlSessionFactoryBuilder</span> <span class="n">sqlSessionFactoryBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SqlSessionFactoryBuilder</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="n">sqlSessionFactory</span> <span class="o">=</span> <span class="n">sqlSessionFactoryBuilder</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">inputStream</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
@@ -780,10 +821,10 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">上述代码中我们可以看到创建了一个</span><span class="n">XMLConfigBuilder</span><span class="err">对象用来解析</span><span class="n">XML</span><span class="err">，把配置文件中所有标签及标签中属性值放封装到</span><span class="n">Configuration</span><span class="err">对象中并返回</span><span class="n">SqlSessionFactory</span><span class="err">对象。</span>
+</span></span><span class="line"><span class="cl"><span class="n">上述代码中我们可以看到创建了一个XMLConfigBuilder对象用来解析XML</span><span class="err">，</span><span class="n">把配置文件中所有标签及标签中属性值放封装到Configuration对象中并返回SqlSessionFactory对象</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mf">4.</span><span class="err">调用</span><span class="n">SqlSessionFactory</span><span class="err">对象的</span><span class="n">openSession</span><span class="err">方法返回一个</span><span class="n">SqlSession</span><span class="err">对象，</span><span class="n">SqlSessionFactory</span><span class="err">是一个接口，我们找到它的实现类</span>
-</span></span><span class="line"><span class="cl"><span class="n">DefaultSqlSessionFactory</span><span class="err">类，点击它的</span><span class="n">openSession</span><span class="err">方法，打开</span><span class="n">openSessionFromDataSource</span><span class="err">方法。</span>
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span><span class="na">调用SqlSessionFactory对象的openSession方法返回一个SqlSession对象</span><span class="err">，</span><span class="n">SqlSessionFactory是一个接口</span><span class="err">，</span><span class="n">我们找到它的实现类</span>
+</span></span><span class="line"><span class="cl"><span class="n">DefaultSqlSessionFactory类</span><span class="err">，</span><span class="n">点击它的openSession方法</span><span class="err">，</span><span class="n">打开openSessionFromDataSource方法</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//DefaultSqlSessionFactory源码:
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">private</span> <span class="n">SqlSession</span> <span class="nf">openSessionFromDataSource</span><span class="o">(</span><span class="n">ExecutorType</span> <span class="n">execType</span><span class="o">,</span> <span class="n">TransactionIsolationLevel</span> <span class="n">level</span><span class="o">,</span>      <span class="kt">boolean</span> <span class="n">autoCommit</span><span class="o">)</span> <span class="o">{</span>
@@ -808,7 +849,7 @@
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">var8</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mf">5.</span><span class="err">调用</span><span class="n">sqlSession</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserDao</span><span class="o">.</span><span class="na">class</span><span class="o">)</span><span class="err">方法返回一个</span><span class="n">UserDao</span><span class="err">接口的代理类对象。</span>
+</span></span><span class="line"><span class="cl"><span class="n">5</span><span class="o">.</span><span class="na">调用sqlSession</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserDao</span><span class="o">.</span><span class="na">class</span><span class="o">)</span><span class="n">方法返回一个UserDao接口的代理类对象</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//DefaultSqlSession源码:
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getMapper</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
@@ -939,7 +980,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1">//调用SqlSession 创建 UserDao接口的代理对象
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UserDao</span> <span class="n">userDao</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserDao</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//创建User对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">User</span> <span class="n">user</span><span class="o">=</span><span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&#34;何晓&#34;</span><span class="o">,</span><span class="s">&#34;男&#34;</span><span class="o">,</span><span class="mi">22</span><span class="o">,</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">User</span> <span class="n">user</span><span class="o">=</span><span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&#34;何晓&#34;</span><span class="o">,</span><span class="s">&#34;男&#34;</span><span class="o">,</span><span class="n">22</span><span class="o">,</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//调用addUser方法进行保存
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">userDao</span><span class="o">.</span><span class="na">addUser</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//关闭连接
@@ -958,15 +999,15 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/update&gt;</span>
 </span></span></code></pre></div><h3 id="添加测试方法-1">添加测试方法</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@Test</span>  
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testUpdateUser</span><span class="o">()</span> <span class="kd">throws</span> <span class="err"> </span><span class="n">Exception</span><span class="o">{</span>  
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testUpdateUser</span><span class="o">()</span> <span class="kd">throws</span>  <span class="n">Exception</span><span class="o">{</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//获取SqlSession对象  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//调用SqlSession 创建 UserDao接口的代理对象  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UserDao</span> <span class="n">userDao</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserDao</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//创建User对象  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">User</span> <span class="n">user</span><span class="o">=</span><span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&#34;何晓飞&#34;</span><span class="o">,</span><span class="s">&#34;女&#34;</span><span class="o">,</span><span class="mi">21</span><span class="o">,</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">User</span> <span class="n">user</span><span class="o">=</span><span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&#34;何晓飞&#34;</span><span class="o">,</span><span class="s">&#34;女&#34;</span><span class="o">,</span><span class="n">21</span><span class="o">,</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//指定要更新id  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//调用updateUser方法进行修改  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">userDao</span><span class="o">.</span><span class="na">updateUser</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//关闭连接  
@@ -991,7 +1032,7 @@
 </span></span><span class="line"><span class="cl">  <span class="c1">//调用SqlSession 创建 UserDao接口的代理对象
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">UserDao</span> <span class="n">userDao</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserDao</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">//调用deleteUser方法进行删除
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">userDao</span><span class="o">.</span><span class="na">deleteUser</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">userDao</span><span class="o">.</span><span class="na">deleteUser</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">//关闭连接
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -1025,7 +1066,7 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/select&gt;</span>
 </span></span></code></pre></div><h3 id="模糊查询测试">模糊查询测试</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl">    <span class="nd">@Test</span>  
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSearcherUser</span><span class="o">()</span> <span class="kd">throws</span> <span class="err"> </span><span class="n">Exception</span><span class="o">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSearcherUser</span><span class="o">()</span> <span class="kd">throws</span>  <span class="n">Exception</span><span class="o">{</span>  
 </span></span><span class="line"><span class="cl">        <span class="c1">//获取SqlSession对象  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>  
 </span></span><span class="line"><span class="cl">        <span class="c1">//调用SqlSession 创建 UserDao接口的代理对象  
@@ -1224,7 +1265,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UserMapper</span> <span class="n">userMapper</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserMapper</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Object</span><span class="o">&gt;();</span>
 </span></span><span class="line"><span class="cl"><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;sex&#34;</span><span class="o">,</span><span class="s">&#34;男&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">,</span><span class="mi">22</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">,</span><span class="n">22</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">userList</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">getUserByGenderAndAge</span><span class="o">(</span><span class="n">map</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">userList</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">print</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//关闭连接
@@ -1247,9 +1288,9 @@
 </span></span><span class="line"><span class="cl"><span class="c1">//调用SqlSession 创建 UserDao接口的代理对象
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UserMapper</span> <span class="n">userMapper</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserMapper</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">Calendar</span> <span class="n">calendar</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">YEAR</span><span class="o">,</span><span class="mi">1997</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">DAY_OF_MONTH</span><span class="o">,</span><span class="mi">10</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">DAY_OF_MONTH</span><span class="o">,</span><span class="mi">12</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">YEAR</span><span class="o">,</span><span class="n">1997</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">DAY_OF_MONTH</span><span class="o">,</span><span class="n">10</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">DAY_OF_MONTH</span><span class="o">,</span><span class="n">12</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">Date</span> <span class="n">birthday</span><span class="o">=</span><span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">userList</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">getUserByGenderAndBirthday</span><span class="o">(</span><span class="s">&#34;女&#34;</span><span class="o">,</span><span class="n">birthday</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">userList</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">print</span><span class="o">);</span>
@@ -1320,7 +1361,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">close</span><span class="o">(</span><span class="n">session</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h5 id="特殊情况">特殊情况</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="err">如果个修改了实体类</span><span class="n">User</span><span class="err">中的</span><span class="n">id</span><span class="err">属性值，比如修改成了</span><span class="n">userId</span><span class="o">,</span><span class="err">此时查询出的结果没有把表中的</span><span class="n">id</span><span class="err">值映射到</span><span class="n">userId</span><span class="err">属性中，因为属性和表中的列名不一致，内部无法用反射技术进行映射，所以为空。</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">如果个修改了实体类User中的id属性值</span><span class="err">，</span><span class="n">比如修改成了userId</span><span class="o">,</span><span class="n">此时查询出的结果没有把表中的id值映射到userId属性中</span><span class="err">，</span><span class="n">因为属性和表中的列名不一致</span><span class="err">，</span><span class="n">内部无法用反射技术进行映射</span><span class="err">，</span><span class="n">所以为空</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span>  <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">private</span> <span class="n">Integer</span> <span class="n">userId</span><span class="o">;</span>
@@ -1364,8 +1405,8 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">经过上述测试结果发现</span><span class="n">userId</span><span class="err">属性为</span><span class="kc">null</span><span class="o">,</span><span class="err">没有被赋上值。</span>
-</span></span><span class="line"><span class="cl"><span class="err">解决方案：修改映射配置，采用别名设置，让结果集中的列与实体类中的属性对应。</span>
+</span></span><span class="line"><span class="cl"><span class="n">经过上述测试结果发现userId属性为null</span><span class="o">,</span><span class="n">没有被赋上值</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">解决方案</span><span class="err">：</span><span class="n">修改映射配置</span><span class="err">，</span><span class="n">采用别名设置</span><span class="err">，</span><span class="n">让结果集中的列与实体类中的属性对应</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">select</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;getUsers&#34;</span> <span class="n">resultType</span><span class="o">=</span><span class="s">&#34;cn.offcn.entity.User&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="n">select</span> <span class="n">id</span> <span class="n">userId</span><span class="o">,</span><span class="n">name</span> <span class="n">userName</span><span class="o">,</span><span class="n">gender</span> <span class="n">gender</span><span class="o">,</span><span class="n">age</span> <span class="n">age</span><span class="o">,</span><span class="n">birthday</span> <span class="n">userBirthday</span> <span class="n">from</span> <span class="n">user</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">select</span><span class="o">&gt;</span>
@@ -1412,7 +1453,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1">//调用SqlSession 创建 UserDao接口的代理对象
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UserMapper</span> <span class="n">userMapper</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserMapper</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//查询user
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">getUserById</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">getUserById</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//打印user
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//关闭连接
@@ -1608,9 +1649,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">gender</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="n">birthday</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="o">#</span><span class="err">{</span><span class="n">name</span><span class="err">}</span><span class="p">,</span><span class="o">#</span><span class="err">{</span><span class="n">gender</span><span class="err">}</span><span class="p">,</span><span class="o">#</span><span class="err">{</span><span class="n">age</span><span class="err">}</span><span class="p">,</span><span class="o">#</span><span class="err">{</span><span class="n">birthday</span><span class="err">}</span><span class="p">)</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="k">insert</span><span class="o">&gt;</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">useGeneratedKeys</span><span class="p">:</span><span class="w"> </span><span class="err">表示开启获取自增主键值。</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">keyProperty</span><span class="err">：</span><span class="w"> </span><span class="err">表示从表中取到主键值后赋给</span><span class="n">User</span><span class="err">类中的哪个属性。</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">keyProperty</span><span class="err">：</span><span class="w"> </span><span class="err">表示从表中取到主键值后赋给</span><span class="n">User类中的哪个属性</span><span class="err">。</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">第二种方式</span><span class="p">:</span><span class="err">使用</span><span class="n">selectKey</span><span class="err">标签和</span><span class="n">mysql</span><span class="err">内置函数</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">第二种方式</span><span class="p">:</span><span class="err">使用</span><span class="n">selectKey标签和mysql内置函数</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="k">insert</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s2">&#34;saveUser&#34;</span><span class="w"> </span><span class="n">parameterType</span><span class="o">=</span><span class="s2">&#34;cn.offcn.entity.User&#34;</span><span class="o">&gt;</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">selectKey</span><span class="w"> </span><span class="n">keyColumn</span><span class="o">=</span><span class="s2">&#34;id&#34;</span><span class="w"> </span><span class="n">keyProperty</span><span class="o">=</span><span class="s2">&#34;id&#34;</span><span class="w"> </span><span class="n">resultType</span><span class="o">=</span><span class="s2">&#34;int&#34;</span><span class="w"> </span><span class="k">order</span><span class="o">=</span><span class="s2">&#34;AFTER&#34;</span><span class="o">&gt;</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">last_insert_id</span><span class="p">()</span><span class="w">  
@@ -1618,18 +1659,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">gender</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="n">birthday</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="o">#</span><span class="err">{</span><span class="n">name</span><span class="err">}</span><span class="p">,</span><span class="o">#</span><span class="err">{</span><span class="n">gender</span><span class="err">}</span><span class="p">,</span><span class="o">#</span><span class="err">{</span><span class="n">age</span><span class="err">}</span><span class="p">,</span><span class="o">#</span><span class="err">{</span><span class="n">birthday</span><span class="err">}</span><span class="p">)</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="k">insert</span><span class="o">&gt;</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">keyColumn</span><span class="p">:</span><span class="err">指定取数据库中哪一列的值（通常指主键列）。</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">keyProperty</span><span class="err">：</span><span class="w"> </span><span class="err">表示取出主键值后赋值</span><span class="n">User</span><span class="err">对象的哪个属性。</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">keyProperty</span><span class="err">：</span><span class="w"> </span><span class="err">表示取出主键值后赋值</span><span class="n">User对象的哪个属性</span><span class="err">。</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">resultType</span><span class="err">：</span><span class="w">  </span><span class="err">表示对象的属性类型</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="err">：表示完后</span><span class="n">sql</span><span class="err">语句之前还是之后把主键值赋给实体类对应属性。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="err">：表示完后</span><span class="n">sql语句之前还是之后把主键值赋给实体类对应属性</span><span class="err">。</span><span class="w">
 </span></span></span></code></pre></div><h3 id="测试">测试</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Test</span>  
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testsaveUser</span><span class="o">()</span> <span class="kd">throws</span> <span class="err"> </span><span class="n">Exception</span><span class="o">{</span>  
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testsaveUser</span><span class="o">()</span> <span class="kd">throws</span>  <span class="n">Exception</span><span class="o">{</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//获取SqlSession对象  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">SqlSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">MyBatisUtils</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//调用SqlSession 创建 UserDao接口的代理对象  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">UserMapper</span> <span class="n">userMapper</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">getMapper</span><span class="o">(</span><span class="n">UserMapper</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//创建User对象  
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">User</span> <span class="n">user</span><span class="o">=</span><span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&#34;刘备&#34;</span><span class="o">,</span><span class="s">&#34;男&#34;</span><span class="o">,</span><span class="mi">30</span><span class="o">,</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">User</span> <span class="n">user</span><span class="o">=</span><span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="s">&#34;刘备&#34;</span><span class="o">,</span><span class="s">&#34;男&#34;</span><span class="o">,</span><span class="n">30</span><span class="o">,</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//保存User对象  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">userMapper</span><span class="o">.</span><span class="na">saveUser</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>  
 </span></span><span class="line"><span class="cl"><span class="c1">//打印user的id属性值  
@@ -1745,6 +1786,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -1808,9 +1906,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

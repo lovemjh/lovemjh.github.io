@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -549,7 +590,7 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 1. 生成验证码
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 1.1  创建核心对象
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 参数1：宽度  参数2：高度  参数3：字符个数 参数4：干扰元素线的条数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ValidateCode</span> <span class="n">code</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ValidateCode</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ValidateCode</span> <span class="n">code</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ValidateCode</span><span class="o">(</span><span class="n">100</span><span class="o">,</span> <span class="n">30</span><span class="o">,</span> <span class="n">4</span><span class="o">,</span> <span class="n">100</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 将生成的验证码字符 保存到session中
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">HttpSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
@@ -651,21 +692,21 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">serivce</span><span class="o">.</span><span class="na">checkLogin</span><span class="o">(</span><span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">user</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 登录失败  提示用户名和密码不匹配
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;用户名和密码不匹配！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;用户名和密码不匹配！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 校验角色  状态
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="na">getRole</span><span class="o">()==</span><span class="mi">1</span><span class="o">){</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()==</span><span class="n">1</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="na">getRole</span><span class="o">()==</span><span class="n">1</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// 登录成功
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">session</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&#34;user&#34;</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;登录成功！&#34;</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;登录成功！&#34;</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// 登录失败 提示权限不足
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;权限不足！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;权限不足！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 验证码错误
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;验证码输入有误！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;验证码输入有误！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 响应 信息
@@ -696,9 +737,9 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据结果 响应信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">user</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;获取用户信息失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;获取用户信息失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;获取用户信息成功！&#34;</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;获取用户信息成功！&#34;</span><span class="o">,</span> <span class="n">user</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -742,7 +783,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">session</span><span class="o">.</span><span class="na">removeAttribute</span><span class="o">(</span><span class="s">&#34;user&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// 3. 响应结果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;退出成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;退出成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">json</span> <span class="o">=</span> <span class="n">JsonUtils</span><span class="o">.</span><span class="na">objToJson</span><span class="o">(</span><span class="n">vo</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">().</span><span class="na">print</span><span class="o">(</span><span class="n">json</span><span class="o">);</span>
@@ -794,7 +835,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">PageBean</span> <span class="n">pageBean</span> <span class="o">=</span> <span class="n">serivce</span><span class="o">.</span><span class="na">findUserByPage</span><span class="o">(</span><span class="n">currentPage</span><span class="o">,</span> <span class="n">pageSize</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 封装响应数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">json</span> <span class="o">=</span> <span class="n">JsonUtils</span><span class="o">.</span><span class="na">objToJson</span><span class="o">(</span><span class="n">vo</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">().</span><span class="na">print</span><span class="o">(</span><span class="n">json</span><span class="o">);</span>
@@ -815,7 +856,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setTotalCount</span><span class="o">(</span><span class="n">totalCount</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 总页码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">totalPage</span> <span class="o">=</span>  <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">totalCount</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="n">ps</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">totalPage</span> <span class="o">=</span>  <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">totalCount</span><span class="o">*</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">/</span><span class="n">ps</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setTotalPage</span><span class="o">(</span><span class="n">totalPage</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">        <span class="c1">// 5. 当前页的页码
@@ -919,10 +960,10 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据返回结果 封装响应结果
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 添加成功
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;添加用户成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;添加用户成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 添加失败
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;添加用户失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;添加用户失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应信息
@@ -1002,10 +1043,10 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据结果响应信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 修改成功
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;修改成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;修改成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 修改失败
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;修改失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;修改失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1103,10 +1144,10 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据删除结果 封装响应数据
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 删除成功
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;删除成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;删除成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 删除失败
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;删除失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;删除失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1163,7 +1204,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setTotalCount</span><span class="o">(</span><span class="n">totalCount</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 总页码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">totalPage</span> <span class="o">=</span>  <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">totalCount</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="n">ps</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">totalPage</span> <span class="o">=</span>  <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">totalCount</span><span class="o">*</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">/</span><span class="n">ps</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setTotalPage</span><span class="o">(</span><span class="n">totalPage</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">        <span class="c1">// 5. 当前页的页码
@@ -1171,7 +1212,7 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 问题：搜索的总页码小于当前页 的话  没有数据
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 解决：如果搜索的总页码小于当前页 的话 当前页 为第一页
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">cp</span> <span class="o">&gt;</span> <span class="n">totalPage</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cp</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">cp</span><span class="o">);</span>
@@ -1242,14 +1283,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">fileName</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&#34;.jpg&#34;</span><span class="o">)</span> <span class="o">||</span> <span class="n">fileName</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&#34;.jpeg&#34;</span><span class="o">)</span> <span class="o">||</span> <span class="n">fileName</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&#34;.png&#34;</span><span class="o">)</span> <span class="o">||</span> <span class="n">fileName</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&#34;.gif&#34;</span><span class="o">)){</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 图片上传成功
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="n">fileName</span> <span class="o">=</span> <span class="n">FileUploadUtils</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">part</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;图片上传成功！&#34;</span><span class="o">,</span> <span class="n">url</span><span class="o">+</span><span class="n">fileName</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;图片上传成功！&#34;</span><span class="o">,</span> <span class="n">url</span><span class="o">+</span><span class="n">fileName</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">fileName</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&#34;.mp4&#34;</span><span class="o">)){</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 视频上传成功
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">fileName</span> <span class="o">=</span> <span class="n">FileUploadUtils</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">part</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;视频上传成功！&#34;</span><span class="o">,</span> <span class="n">url</span><span class="o">+</span><span class="n">fileName</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;视频上传成功！&#34;</span><span class="o">,</span> <span class="n">url</span><span class="o">+</span><span class="n">fileName</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 格式不合法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;上传文件不合法！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;上传文件不合法！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 响应
@@ -1287,7 +1328,7 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 解决删除失败 流信息引用关闭
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">gc</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">2000</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
@@ -1295,15 +1336,15 @@
 </span></span><span class="line"><span class="cl">        <span class="kt">boolean</span> <span class="n">d</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">delete</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">d</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="o">(</span><span class="n">fileName</span><span class="o">.</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&#34;.mp4&#34;</span><span class="o">)){</span>
-</span></span><span class="line"><span class="cl">                <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;视频删除成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;视频删除成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;图片删除成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;图片删除成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;删除失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;删除失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;文件不存在！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;文件不存在！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// 3. 响应
@@ -1385,10 +1426,10 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据结果 封装响应信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 添加成功
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;课程添加成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;课程添加成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 添加失败
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;课程添加失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;课程添加失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1426,10 +1467,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">PageBean</span> <span class="n">pageBean</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findCourseByPage</span><span class="o">(</span><span class="n">currentPage</span><span class="o">,</span> <span class="n">pageSize</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 封装响应信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">pageBean</span><span class="o">.</span><span class="na">getList</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">pageBean</span><span class="o">.</span><span class="na">getList</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;没有数据！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;没有数据！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1465,10 +1506,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">PageBean</span> <span class="n">pageBean</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findCourseByPage</span><span class="o">(</span><span class="n">currentPage</span><span class="o">,</span> <span class="n">pageSize</span><span class="o">,</span> <span class="n">search</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 封装响应信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">pageBean</span><span class="o">.</span><span class="na">getList</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">pageBean</span><span class="o">.</span><span class="na">getList</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;没有数据！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;没有数据！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1490,13 +1531,13 @@
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setTotalCount</span><span class="o">(</span><span class="n">totalCount</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 总页数 封装到PageBean
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">totalPage</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">totalCount</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="n">ps</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">totalPage</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span><span class="n">Math</span><span class="o">.</span><span class="na">ceil</span><span class="o">(</span><span class="n">totalCount</span><span class="o">*</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">/</span><span class="n">ps</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setTotalPage</span><span class="o">(</span><span class="n">totalPage</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 当前页码 封装PageBean
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">cp</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">currentPage</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">cp</span> <span class="o">&gt;</span> <span class="n">totalPage</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cp</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pageBean</span><span class="o">.</span><span class="na">setCurrentPage</span><span class="o">(</span><span class="n">cp</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
@@ -1547,11 +1588,11 @@
 </span></span><span class="line"><span class="cl">                <span class="k">for</span><span class="o">(</span><span class="n">let</span> <span class="n">key</span> <span class="n">in</span> <span class="k">this</span><span class="o">.</span><span class="na">ruleForm</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                    <span class="n">p</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">ruleForm</span><span class="o">[</span><span class="n">key</span><span class="o">])</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
-</span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;courseImage&#34;</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">dialogImageUrl</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">dialogImageUrl</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">&#34;/&#34;</span><span class="o">)+</span><span class="mi">1</span><span class="o">))</span>
-</span></span><span class="line"><span class="cl">                <span class="n">p</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;courseVideo&#34;</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">dialogVedioUrl</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">dialogVedioUrl</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">&#34;/&#34;</span><span class="o">)+</span><span class="mi">1</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;courseImage&#34;</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">dialogImageUrl</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">dialogImageUrl</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">&#34;/&#34;</span><span class="o">)+</span><span class="n">1</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;courseVideo&#34;</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">dialogVedioUrl</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">dialogVedioUrl</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">&#34;/&#34;</span><span class="o">)+</span><span class="n">1</span><span class="o">))</span>
 </span></span><span class="line"><span class="cl">                <span class="n">axios</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">&#34;http://localhost:8080/smallU_1012/courses&#34;</span><span class="o">,</span> <span class="n">p</span><span class="o">).</span><span class="na">then</span><span class="o">(</span><span class="n">resp</span> <span class="o">=&gt;</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 4. 获取响应结果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">code</span> <span class="o">==</span> <span class="mi">200</span><span class="o">){</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">code</span> <span class="o">==</span> <span class="n">200</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">this</span><span class="o">.</span><span class="na">$message</span><span class="o">.</span><span class="na">success</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">msg</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">                        <span class="k">this</span><span class="o">.</span><span class="na">dialogFormVisible1</span> <span class="o">=</span> <span class="kc">false</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span><span class="k">else</span><span class="o">{</span>
@@ -1577,10 +1618,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">PageBean</span> <span class="n">pageBean</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findCourseByPage</span><span class="o">(</span><span class="n">currentPage</span><span class="o">,</span> <span class="n">pageSize</span><span class="o">,</span> <span class="n">search</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 封装响应信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">pageBean</span><span class="o">.</span><span class="na">getList</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">pageBean</span><span class="o">.</span><span class="na">getList</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;没有数据！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;没有数据！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1608,9 +1649,9 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据结果 封装响应信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;修改成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;修改成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;修改失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;修改失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1664,9 +1705,9 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据结果 封装响应信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;删除成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;删除成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;删除失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;删除失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1747,9 +1788,9 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据结果 封装响应信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">b</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;章节添加成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;章节添加成功！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">500</span><span class="o">,</span> <span class="s">&#34;章节添加失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">500</span><span class="o">,</span> <span class="s">&#34;章节添加失败！&#34;</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -1787,7 +1828,7 @@
 </span></span><span class="line"><span class="cl">            <span class="c1">// 表单不为空
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(</span><span class="n">msg</span><span class="o">==</span><span class="s">&#34;用户名不能为空&#34;</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 1. 校验用户名  长度
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="o">(</span><span class="n">vv</span><span class="o">&lt;</span><span class="mi">3</span> <span class="o">||</span> <span class="n">vv</span><span class="o">&gt;</span><span class="mi">12</span><span class="o">){</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="o">(</span><span class="n">vv</span><span class="o">&lt;</span><span class="n">3</span> <span class="o">||</span> <span class="n">vv</span><span class="o">&gt;</span><span class="n">12</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="s">&#34;长度3-12位&#34;</span>
 </span></span><span class="line"><span class="cl">                        <span class="k">return</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
@@ -1795,7 +1836,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="c1">// 发送请求
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">axios</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;http://localhost:8080/smallU_1012/user_b?method=checkName&amp;username=&#34;</span><span class="o">+</span><span class="n">v</span><span class="o">.</span><span class="na">trim</span><span class="o">()).</span><span class="na">then</span><span class="o">(</span><span class="n">resp</span> <span class="o">=&gt;{</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// 3. 返回结果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">if</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">code</span><span class="o">==</span><span class="mi">500</span><span class="o">){</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">if</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">code</span><span class="o">==</span><span class="n">500</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                        <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">msg</span>
 </span></span><span class="line"><span class="cl">                    <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">                        <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="err">&#39;&#39;</span>
@@ -1805,12 +1846,12 @@
 </span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">msg</span> <span class="o">==</span> <span class="s">&#34;手机号不能为空&#34;</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 校验手机号  
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="c1">// 1. 手机号合法 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">let</span> <span class="n">reg</span> <span class="o">=</span> <span class="o">/^</span><span class="mi">1</span><span class="o">[</span><span class="mi">3</span><span class="o">|</span><span class="mi">5</span><span class="o">|</span><span class="mi">7</span><span class="o">|</span><span class="mi">8</span><span class="o">|</span><span class="mi">9</span><span class="o">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="o">]{</span><span class="mi">9</span><span class="o">}</span><span class="n">$</span><span class="o">/</span> 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">let</span> <span class="n">reg</span> <span class="o">=</span> <span class="o">/^</span><span class="n">1</span><span class="o">[</span><span class="n">3</span><span class="o">|</span><span class="n">5</span><span class="o">|</span><span class="n">7</span><span class="o">|</span><span class="n">8</span><span class="o">|</span><span class="n">9</span><span class="o">][</span><span class="n">0</span><span class="o">-</span><span class="n">9</span><span class="o">]{</span><span class="n">9</span><span class="o">}</span><span class="n">$</span><span class="o">/</span> 
 </span></span><span class="line"><span class="cl">                    <span class="k">if</span><span class="o">(</span><span class="n">reg</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="n">v</span><span class="o">.</span><span class="na">trim</span><span class="o">())){</span>
 </span></span><span class="line"><span class="cl">                        <span class="c1">// 2. 手机是否已经注册
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="n">axios</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;http://localhost:8080/smallU_1012/user_b?method=checkPhone&amp;phone=&#34;</span><span class="o">+</span><span class="n">v</span><span class="o">.</span><span class="na">trim</span><span class="o">()).</span><span class="na">then</span><span class="o">(</span><span class="n">resp</span> <span class="o">=&gt;</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">                            <span class="c1">// 3. 获取响应结果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                            <span class="k">if</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">code</span> <span class="o">==</span> <span class="mi">500</span><span class="o">){</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                            <span class="k">if</span><span class="o">(</span><span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">code</span> <span class="o">==</span> <span class="n">500</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                                <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">msg</span>
 </span></span><span class="line"><span class="cl">                            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">                                <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="err">&#39;&#39;</span>
@@ -1822,7 +1863,7 @@
 </span></span><span class="line"><span class="cl">                    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">msg</span> <span class="o">==</span> <span class="s">&#34;密码不能为空&#34;</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="o">(</span><span class="n">vv</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">||</span> <span class="n">vv</span> <span class="o">&gt;</span> <span class="mi">24</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="o">(</span><span class="n">vv</span> <span class="o">&lt;</span> <span class="n">3</span> <span class="o">||</span> <span class="n">vv</span> <span class="o">&gt;</span> <span class="n">24</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="s">&#34;长度3-24位&#34;</span>
 </span></span><span class="line"><span class="cl">                <span class="o">}</span><span class="k">else</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">this</span><span class="o">.</span><span class="na">msg</span> <span class="o">=</span> <span class="err">&#39;&#39;</span>
@@ -1956,7 +1997,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">List</span><span class="o">&lt;</span><span class="n">Course</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findCourseByType</span><span class="o">(</span><span class="n">courseType</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据数据响应 信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;获取数据！&#34;</span><span class="o">,</span> <span class="n">list</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;获取数据！&#34;</span><span class="o">,</span> <span class="n">list</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">json</span> <span class="o">=</span> <span class="n">JsonUtils</span><span class="o">.</span><span class="na">objToJson</span><span class="o">(</span><span class="n">vo</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
@@ -2011,7 +2052,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">PageBean</span><span class="o">&lt;</span><span class="n">Course</span><span class="o">&gt;</span> <span class="n">pageBean</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findAllCourse</span><span class="o">(</span><span class="n">courseType</span><span class="o">,</span> <span class="n">currentPage</span><span class="o">,</span> <span class="n">courseName</span><span class="o">,</span> <span class="n">pageSize</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 封装 响应信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;获取数据！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;获取数据！&#34;</span><span class="o">,</span> <span class="n">pageBean</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">json</span> <span class="o">=</span> <span class="n">JsonUtils</span><span class="o">.</span><span class="na">objToJson</span><span class="o">(</span><span class="n">vo</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
@@ -2123,7 +2164,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findCDByCid</span><span class="o">(</span><span class="n">cid</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据结果 封装响应信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">map</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;获取数据成功！&#34;</span><span class="o">,</span> <span class="n">map</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 4. 响应
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">json</span> <span class="o">=</span> <span class="n">JsonUtils</span><span class="o">.</span><span class="na">objToJson</span><span class="o">(</span><span class="n">vo</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
@@ -2361,7 +2402,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">List</span><span class="o">&lt;</span><span class="n">Course</span><span class="o">&gt;</span> <span class="n">courses</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findByUid</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getUid</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 3. 根据结果响应信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&#34;&#34;</span><span class="o">,</span> <span class="n">courses</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">(</span><span class="n">200</span><span class="o">,</span> <span class="s">&#34;&#34;</span><span class="o">,</span> <span class="n">courses</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 响应
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">json</span> <span class="o">=</span> <span class="n">JsonUtils</span><span class="o">.</span><span class="na">objToJson</span><span class="o">(</span><span class="n">vo</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
@@ -2512,6 +2553,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -2575,9 +2673,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

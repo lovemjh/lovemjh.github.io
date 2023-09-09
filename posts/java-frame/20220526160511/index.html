@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -681,78 +722,78 @@
 </span></span><span class="line"><span class="cl">（2）第二种：接收的请求参数是 json 格式数据。需要借助一个注解实现。 @RequestBody注解
 </span></span></code></pre></div><h3 id="二参数绑定示例">（二）参数绑定示例</h3>
 <h4 id="1基本类型和-string-类型作为参数">1、基本类型和 String 类型作为参数</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="mi">1</span><span class="err">）页面定义请求：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">页面定义请求</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;/hello/test2&#34;</span> <span class="n">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">用户名：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;userName&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">年龄：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">用户名</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;userName&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">年龄</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">2</span><span class="err">）执行器方法绑定参数：</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">执行器方法绑定参数</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"> <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test2&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test2</span><span class="o">(</span><span class="n">String</span> <span class="n">userName</span><span class="o">,</span><span class="kt">int</span> <span class="n">age</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;用户名：&#34;</span><span class="o">+</span><span class="n">userName</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;年龄：&#34;</span><span class="o">+</span><span class="n">age</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">注意：</span> <span class="err">参数提交的名称和方法形式参数的名称保持一致。</span> <span class="err">否则封装失败</span><span class="o">~</span>  <span class="err">，并且能够进行数据类型的转换。</span> 
+</span></span><span class="line"><span class="cl"><span class="n">注意</span><span class="err">：</span> <span class="n">参数提交的名称和方法形式参数的名称保持一致</span><span class="err">。</span> <span class="n">否则封装失败</span><span class="o">~</span>  <span class="err">，</span><span class="n">并且能够进行数据类型的转换</span><span class="err">。</span> 
 </span></span></code></pre></div><h4 id="2pojo-类型作为参数">2、POJO 类型作为参数</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="mi">1</span><span class="err">）页面定义请求：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">页面定义请求</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;/hello/test3&#34;</span> <span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">用户名：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;pname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">年龄：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">车名称：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;car.cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">车价格：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;car.cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">用户名</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;pname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">年龄</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">车名称</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;car.cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">车价格</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;car.cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">2</span><span class="err">）执行器方法绑定参数：</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">执行器方法绑定参数</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"> <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test3&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test3</span><span class="o">(</span><span class="n">Person</span> <span class="n">person</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></div><h4 id="3pojo-类中包含集合类型参数了解">3、POJO 类中包含集合类型参数（了解）</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">集合类型，不能直接绑定在方法的形式参数上。</span> 
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">1</span><span class="err">）页面定义请求：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">集合类型</span><span class="err">，</span><span class="n">不能直接绑定在方法的形式参数上</span><span class="err">。</span> 
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">页面定义请求</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;/hello/test4&#34;</span> <span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">用户名：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;pname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">年龄：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">车名称：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;car.cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">车价格：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;car.cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">list</span><span class="err">集合车</span><span class="mi">1</span><span class="err">：车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carList[0].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">list</span><span class="err">集合车</span><span class="mi">1</span><span class="err">：车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carList[0].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">list</span><span class="err">集合车</span><span class="mi">2</span><span class="err">：车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carList[1].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">list</span><span class="err">集合车</span><span class="mi">2</span><span class="err">：车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carList[1].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">set</span><span class="err">集合车</span><span class="mi">1</span><span class="err">：车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carSet[0].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">set</span><span class="err">集合车</span><span class="mi">1</span><span class="err">：车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carSet[0].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">set</span><span class="err">集合车</span><span class="mi">2</span><span class="err">：车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carSet[1].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">set</span><span class="err">集合车</span><span class="mi">2</span><span class="err">：车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carSet[1].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">map</span><span class="err">集合车</span><span class="mi">1</span><span class="err">：车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;map[&#39;x&#39;].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">map</span><span class="err">集合车</span><span class="mi">1</span><span class="err">：车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;map[&#39;x&#39;].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">map</span><span class="err">集合车</span><span class="mi">2</span><span class="err">：车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;map[&#39;y&#39;].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">map</span><span class="err">集合车</span><span class="mi">2</span><span class="err">：车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;map[&#39;y&#39;].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">用户名</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;pname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">年龄</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">车名称</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;car.cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">车价格</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;car.cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list集合车1</span><span class="err">：</span><span class="n">车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carList[0].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list集合车1</span><span class="err">：</span><span class="n">车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carList[0].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list集合车2</span><span class="err">：</span><span class="n">车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carList[1].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list集合车2</span><span class="err">：</span><span class="n">车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carList[1].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">set集合车1</span><span class="err">：</span><span class="n">车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carSet[0].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">set集合车1</span><span class="err">：</span><span class="n">车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carSet[0].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">set集合车2</span><span class="err">：</span><span class="n">车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carSet[1].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">set集合车2</span><span class="err">：</span><span class="n">车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;carSet[1].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">map集合车1</span><span class="err">：</span><span class="n">车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;map[&#39;x&#39;].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">map集合车1</span><span class="err">：</span><span class="n">车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;map[&#39;x&#39;].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">map集合车2</span><span class="err">：</span><span class="n">车名称</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;map[&#39;y&#39;].cname&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">map集合车2</span><span class="err">：</span><span class="n">车价格</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;map[&#39;y&#39;].cprice&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">2</span><span class="err">）执行器方法绑定参数：</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">执行器方法绑定参数</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test4&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test4</span><span class="o">(</span><span class="n">Person</span> <span class="n">person</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">注意：</span> <span class="n">set</span><span class="err">集合：</span><span class="o">---</span><span class="err">【了解】</span> 
-</span></span><span class="line"><span class="cl"> <span class="err">（</span><span class="mi">1</span><span class="err">）</span><span class="n">set</span><span class="err">集合必须创建</span> <span class="err">：</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl"> <span class="err">（</span><span class="mi">2</span><span class="err">）</span><span class="n">set</span><span class="err">集合提供</span><span class="n">set</span> <span class="err">和</span><span class="n">get</span> <span class="err">方法</span>
-</span></span><span class="line"><span class="cl"> <span class="err">（</span><span class="mi">3</span><span class="err">）在构造器当中明确</span><span class="n">set</span><span class="err">集合当中添加的元素个数</span>
+</span></span><span class="line"><span class="cl"><span class="n">注意</span><span class="err">：</span> <span class="n">set集合</span><span class="err">：</span><span class="o">---</span><span class="err">【</span><span class="n">了解</span><span class="err">】</span> 
+</span></span><span class="line"><span class="cl"> <span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">set集合必须创建</span> <span class="err">：</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl"> <span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">set集合提供set</span> <span class="n">和get</span> <span class="n">方法</span>
+</span></span><span class="line"><span class="cl"> <span class="err">（</span><span class="n">3</span><span class="err">）</span><span class="n">在构造器当中明确set集合当中添加的元素个数</span>
 </span></span></code></pre></div><h4 id="4数组类型参数重点">4、数组类型参数（重点）</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">1</span><span class="err">）页面定义请求：</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">页面定义请求</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;/hello/test5&#34;</span> <span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">爱好</span><span class="mi">1</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;hobbies&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">爱好</span><span class="mi">2</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;hobbies&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">爱好</span><span class="mi">3</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;hobbies&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">爱好1</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;hobbies&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">爱好2</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;hobbies&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">爱好3</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;hobbies&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">2</span><span class="err">）执行器方法绑定参数：</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">执行器方法绑定参数</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">   <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test5&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test5</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">hobbies</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="n">hobby</span><span class="o">:</span><span class="n">hobbies</span><span class="o">){</span>
@@ -761,28 +802,28 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></div><h4 id="5使用-servletapi-对象作为方法参数">5、使用 ServletAPI 对象作为方法参数</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="mi">1</span><span class="err">）引入</span><span class="n">servletAPI</span><span class="err">的依赖</span><span class="n">jar</span><span class="err">包：（注意</span><span class="n">jar</span><span class="err">包作用范围</span><span class="n">provided</span><span class="o">:</span><span class="err">不参与项目部署）</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">引入servletAPI的依赖jar包</span><span class="err">：（</span><span class="n">注意jar包作用范围provided</span><span class="o">:</span><span class="n">不参与项目部署</span><span class="err">）</span>
 </span></span><span class="line"><span class="cl">		 <span class="o">&lt;!--</span><span class="n">web</span><span class="o">:</span> <span class="n">servlet</span> <span class="o">,</span><span class="n">jsp</span><span class="o">,</span> <span class="n">jstl</span> <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">-</span><span class="n">api</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">3.1.0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">provided</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">javax</span><span class="o">.</span><span class="na">servlet</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jsp</span><span class="o">-</span><span class="n">api</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">2</span><span class="o">.</span><span class="na">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">provided</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">jstl</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jstl</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="o">.</span><span class="na">2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">2</span><span class="err">）执行器方法绑定参数：</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">执行器方法绑定参数</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test6&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test6</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span><span class="n">HttpSession</span> <span class="n">session</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;我在请求转发&#34;</span><span class="o">);</span>
@@ -829,7 +870,7 @@
 </span></span><span class="line"><span class="cl">（2）将自定义的类型转换器配置在工厂当中： 
 </span></span><span class="line"><span class="cl">（3）在注解当中引用工厂： &lt;mvc:annotation-driven conversion-service=&#34;serviceFactoryBean&#34; /&gt; 
 </span></span></code></pre></div><h4 id="2使用步骤">2、使用步骤：</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="mi">1</span><span class="err">）定义类型转换器；</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">定义类型转换器</span><span class="err">；</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyDateConverter</span> <span class="kd">implements</span> <span class="n">Converter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Date</span><span class="o">&gt;</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Date</span> <span class="nf">convert</span><span class="o">(</span><span class="n">String</span> <span class="n">source</span><span class="o">)</span> <span class="o">{</span>
@@ -843,19 +884,19 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">date</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">2</span><span class="err">）配置类型转换器；</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">配置类型转换器</span><span class="err">；</span>
 </span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;formattingConversionService&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;org.springframework.format.support.FormattingConversionServiceFactoryBean&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;converters&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">bean</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;com.offcn.util.MyDateConverter&#34;</span><span class="o">&gt;&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;/</span><span class="n">property</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">3</span><span class="err">）引用类型转换器；</span>	
-</span></span><span class="line"><span class="cl"> <span class="err">引用自定义的类型转换器：</span> 
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">3</span><span class="err">）</span><span class="n">引用类型转换器</span><span class="err">；</span>	
+</span></span><span class="line"><span class="cl"> <span class="n">引用自定义的类型转换器</span><span class="err">：</span> 
 </span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">mvc</span><span class="o">:</span><span class="n">annotation</span><span class="o">-</span><span class="n">driven</span> <span class="n">conversion</span><span class="o">-</span><span class="n">service</span><span class="o">=</span><span class="s">&#34;serviceFactoryBean&#34;</span> <span class="o">/&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">     
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;/hello/test7&#34;</span> <span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">入职日期：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;hireDate&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;date&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">入职日期</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;hireDate&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;date&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
@@ -888,7 +929,7 @@
 </span></span><span class="line"><span class="cl"> <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;findById&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ModelAndView</span> <span class="nf">findById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">,</span> <span class="n">Model</span> <span class="n">model</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="mi">29</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="n">29</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;许~&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setBirthday</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//视图路径的跳转：
@@ -931,9 +972,9 @@
 <h4 id="1requestheader注解介绍">1、RequestHeader注解介绍</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">注解在方法入参位置，用于获取请求头信息。
 </span></span></code></pre></div><h4 id="2requestheader注解使用案例">2、RequestHeader注解使用案例</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">value</span><span class="err">：指定头的名称；</span> 
-</span></span><span class="line"><span class="cl"> <span class="n">require</span><span class="err">：是否是必须，</span> <span class="kc">true</span><span class="err">，必须传递，</span> <span class="err">没传递。</span><span class="mi">400</span> 
-</span></span><span class="line"><span class="cl"> <span class="n">defaultValue</span><span class="err">：</span> <span class="err">如果前台没传递头信息，</span> <span class="err">指定默认值。</span> <span class="n">require</span><span class="err">冲突。</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">value</span><span class="err">：</span><span class="n">指定头的名称</span><span class="err">；</span> 
+</span></span><span class="line"><span class="cl"> <span class="n">require</span><span class="err">：</span><span class="n">是否是必须</span><span class="err">，</span> <span class="kc">true</span><span class="err">，</span><span class="n">必须传递</span><span class="err">，</span> <span class="n">没传递</span><span class="err">。</span><span class="n">400</span> 
+</span></span><span class="line"><span class="cl"> <span class="n">defaultValue</span><span class="err">：</span> <span class="n">如果前台没传递头信息</span><span class="err">，</span> <span class="n">指定默认值</span><span class="err">。</span> <span class="n">require冲突</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test2&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test2</span><span class="o">(</span><span class="nd">@RequestHeader</span><span class="o">(</span><span class="s">&#34;Upgrade-Insecure-Requests&#34;</span><span class="o">)</span><span class="n">String</span> <span class="n">data</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
@@ -945,10 +986,10 @@
 <h4 id="1requestbody注解介绍">1、RequestBody注解介绍</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用于方法入参位置，获取请求体内容。直接使用得到是 key=value&amp;key=value...结构的数据。get 请求方式不适用。通常用于将json格式字符串绑定到bean对象中；
 </span></span></code></pre></div><h4 id="2requestbody注解使用案例">2、RequestBody注解使用案例</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="mi">1</span><span class="err">）直接获取请求体内容：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">直接获取请求体内容</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;/annotation/test3&#34;</span> <span class="n">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">用户名：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;userName&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">年龄：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">用户名</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;userName&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">年龄</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test3&#34;</span><span class="o">)</span>
@@ -956,8 +997,8 @@
 </span></span><span class="line"><span class="cl">      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">2</span><span class="err">）将</span><span class="n">json</span><span class="err">格式请求参数绑定到指定对象</span><span class="n">bean</span><span class="err">中：</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">button</span> <span class="n">onclick</span><span class="o">=</span><span class="s">&#34;sendCar()&#34;</span><span class="o">&gt;</span><span class="err">发起</span><span class="n">ajax</span><span class="err">请求</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">将json格式请求参数绑定到指定对象bean中</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">button</span> <span class="n">onclick</span><span class="o">=</span><span class="s">&#34;sendCar()&#34;</span><span class="o">&gt;</span><span class="n">发起ajax请求</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">function</span> <span class="nf">sendCar</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">$</span><span class="o">.</span><span class="na">ajax</span><span class="o">({</span>
@@ -977,11 +1018,11 @@
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">注意：</span> <span class="err">使用</span><span class="n">json</span> <span class="err">需要引入</span><span class="n">json</span><span class="err">的解析器</span><span class="o">~</span> 
+</span></span><span class="line"><span class="cl"><span class="n">注意</span><span class="err">：</span> <span class="n">使用json</span> <span class="n">需要引入json的解析器</span><span class="o">~</span> 
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">fasterxml</span><span class="o">.</span><span class="na">jackson</span><span class="o">.</span><span class="na">core</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jackson</span><span class="o">-</span><span class="n">databind</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.9.9</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">2</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">9</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span></code></pre></div><h4 id="3requestbody注解测试结果">3、RequestBody注解测试结果</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">详见课堂案例结果
@@ -1018,13 +1059,13 @@
 </span></span><span class="line"><span class="cl">出现在方法上，表示当前方法会在控制器的方法执行之前，先执行。它可以修饰没有返回值的方法，也可以修饰有具体返回值的方法。
 </span></span><span class="line"><span class="cl">出现在参数上，获取指定的数据给参数赋值。
 </span></span></code></pre></div><h4 id="2modelattribute注解使用案例">2、ModelAttribute注解使用案例</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="mi">1</span><span class="err">）注解在方法上：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">（</span><span class="n">1</span><span class="err">）</span><span class="n">注解在方法上</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">  <span class="nd">@ModelAttribute</span><span class="o">(</span><span class="s">&#34;shareParam&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">test6</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;我是公共方法&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="s">&#34;公共参数&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="mi">2</span><span class="err">）注解在参数位置：</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">2</span><span class="err">）</span><span class="n">注解在参数位置</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test7&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="n">String</span> <span class="nf">test7</span><span class="o">(</span><span class="nd">@ModelAttribute</span><span class="o">(</span><span class="s">&#34;shareParam&#34;</span><span class="o">)</span><span class="n">String</span> <span class="n">data</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
@@ -1088,12 +1129,12 @@
 </span></span><span class="line"><span class="cl">2： 传递的参数可以作为url地址的一部分。 
 </span></span><span class="line"><span class="cl">http://localhost:8888/annotation/person/1
 </span></span></code></pre></div><h3 id="二pathvariable注解重要">（二）PathVariable注解【重要】</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">该注解用于绑定</span> <span class="n">url</span> <span class="err">中的占位符。例如：请求</span> <span class="n">url</span> <span class="err">中</span><span class="o">/</span><span class="n">annotation</span><span class="o">/</span><span class="n">test9</span><span class="o">/{</span><span class="n">id</span><span class="o">}</span><span class="err">，这个</span><span class="o">{</span><span class="n">id</span><span class="o">}</span><span class="err">就是</span> <span class="n">url</span> <span class="err">占位符。</span><span class="n">url</span> <span class="err">支持占位符是</span> <span class="n">spring3</span><span class="mf">.0</span> <span class="err">之后加入的。是</span><span class="n">springmvc</span> <span class="err">支持</span> <span class="n">rest</span> <span class="err">风格</span> <span class="n">URL</span> <span class="err">的一个重要标志。</span>
-</span></span><span class="line"><span class="cl"><span class="err">属性：</span>
-</span></span><span class="line"><span class="cl">	<span class="n">value</span><span class="err">：用于指定</span> <span class="n">url</span> <span class="err">中占位符名称。</span>
-</span></span><span class="line"><span class="cl">	<span class="n">required</span><span class="err">：是否必须提供占位符。</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">该注解用于绑定</span> <span class="n">url</span> <span class="n">中的占位符</span><span class="err">。</span><span class="n">例如</span><span class="err">：</span><span class="n">请求</span> <span class="n">url</span> <span class="n">中</span><span class="o">/</span><span class="n">annotation</span><span class="o">/</span><span class="n">test9</span><span class="o">/{</span><span class="n">id</span><span class="o">}</span><span class="err">，</span><span class="n">这个</span><span class="o">{</span><span class="n">id</span><span class="o">}</span><span class="n">就是</span> <span class="n">url</span> <span class="n">占位符</span><span class="err">。</span><span class="n">url</span> <span class="n">支持占位符是</span> <span class="n">spring3</span><span class="o">.</span><span class="na">0</span> <span class="n">之后加入的</span><span class="err">。</span><span class="n">是springmvc</span> <span class="n">支持</span> <span class="n">rest</span> <span class="n">风格</span> <span class="n">URL</span> <span class="n">的一个重要标志</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">属性</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">	<span class="n">value</span><span class="err">：</span><span class="n">用于指定</span> <span class="n">url</span> <span class="n">中占位符名称</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">	<span class="n">required</span><span class="err">：</span><span class="n">是否必须提供占位符</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	<span class="n">localhost</span><span class="o">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">hello3</span><span class="o">/</span><span class="mi">250</span> <span class="n">url</span><span class="o">:</span> 
+</span></span><span class="line"><span class="cl">	<span class="n">localhost</span><span class="o">:</span><span class="n">8080</span><span class="o">/</span><span class="n">hello3</span><span class="o">/</span><span class="n">250</span> <span class="n">url</span><span class="o">:</span> 
 </span></span><span class="line"><span class="cl">	<span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 获得url地址当中的变量值：
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param modelAndView
@@ -1167,8 +1208,8 @@
 </span></span></code></pre></div><h2 id="二响应数据和结果视图">二、响应数据和结果视图</h2>
 <h3 id="一返回值分类">（一）返回值分类</h3>
 <h4 id="1返回值为字符串">1、返回值为字符串</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">用于指定返回的逻辑视图名称；</span>
-</span></span><span class="line"><span class="cl"><span class="err">控制器代码：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">用于指定返回的逻辑视图名称</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="n">控制器代码</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test1&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test1</span><span class="o">(</span><span class="n">String</span> <span class="n">pname</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">pname</span><span class="o">);</span>
@@ -1176,7 +1217,7 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">运行结果：详见课堂案例结果</span>
+</span></span><span class="line"><span class="cl"><span class="n">运行结果</span><span class="err">：</span><span class="n">详见课堂案例结果</span>
 </span></span></code></pre></div><h4 id="2void类型">2、void类型</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     *  方法的返回值void：
@@ -1197,8 +1238,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>	
 </span></span></code></pre></div><h4 id="3modelandview">3、ModelAndView</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">用于绑定参数和指定返回视图名称；</span>
-</span></span><span class="line"><span class="cl"><span class="err">控制器代码：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">用于绑定参数和指定返回视图名称</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="n">控制器代码</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test3&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ModelAndView</span> <span class="nf">test3</span><span class="o">(</span><span class="n">ModelAndView</span> <span class="n">modelAndView</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">modelAndView</span><span class="o">.</span><span class="na">addObject</span><span class="o">(</span><span class="s">&#34;aa&#34;</span><span class="o">,</span><span class="s">&#34;aa1&#34;</span><span class="o">);</span>
@@ -1206,10 +1247,10 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">modelAndView</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">ModelAndView</span> <span class="err">对象：</span>  
-</span></span><span class="line"><span class="cl"><span class="err">封装模型数据</span>
-</span></span><span class="line"><span class="cl"><span class="err">封装视图数据。</span>
-</span></span><span class="line"><span class="cl"><span class="err">注意</span><span class="o">:</span><span class="err">对象是</span><span class="n">springMVC</span><span class="err">底层对象，使用很少</span><span class="o">~</span>
+</span></span><span class="line"><span class="cl"><span class="n">ModelAndView</span> <span class="n">对象</span><span class="err">：</span>  
+</span></span><span class="line"><span class="cl"><span class="n">封装模型数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">封装视图数据</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="nl">注意:</span><span class="n">对象是springMVC底层对象</span><span class="err">，</span><span class="n">使用很少</span><span class="o">~</span>
 </span></span></code></pre></div><h4 id="4-自定义类型重要">4： 自定义类型【重要】</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">  <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;getData&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">     <span class="nd">@ResponseBody</span><span class="c1">//引入依赖包：
@@ -1222,7 +1263,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nd">@ResponseBody</span><span class="c1">//引入依赖包：
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="n">Person</span>  <span class="nf">getData2</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1001</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1001</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;许8&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">person</span><span class="o">;</span><span class="c1">//异步返回数据：{&#34;id&#34;:1001,&#34;name&#34;:&#34;许8&#34;}
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
@@ -1234,15 +1275,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="nf">getData3</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">         <span class="n">List</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1001</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1001</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;许8&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">person2</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1002</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person2</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1002</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person2</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;康7&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">person3</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1003</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person3</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1003</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person3</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;夏66&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">person2</span><span class="o">);</span>
@@ -1259,15 +1300,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Person</span><span class="o">&gt;</span> <span class="nf">getData4</span><span class="o">(){</span><span class="c1">//
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1001</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1001</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;许8&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">person2</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1002</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person2</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1002</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person2</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;康7&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">person3</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1003</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person3</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1003</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">person3</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;夏66&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;person1&#34;</span><span class="o">,</span><span class="n">person</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;person2&#34;</span><span class="o">,</span><span class="n">person2</span><span class="o">);</span>
@@ -1277,19 +1318,19 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">注意：</span> 
-</span></span><span class="line"><span class="cl"><span class="err">使用</span><span class="nd">@ResponseBody</span> <span class="err">必须引入</span><span class="n">jackson</span><span class="o">-</span><span class="n">databind</span> <span class="n">json</span><span class="err">解析器。</span> 
+</span></span><span class="line"><span class="cl"><span class="n">注意</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl"><span class="n">使用</span><span class="nd">@ResponseBody</span> <span class="n">必须引入jackson</span><span class="o">-</span><span class="n">databind</span> <span class="n">json解析器</span><span class="err">。</span> 
 </span></span></code></pre></div><h3 id="二转发和重定向">（二）转发和重定向</h3>
 <h4 id="1forward请求转发">1、forward请求转发</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">控制器代码：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">控制器代码</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"> <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test4&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test4</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;我是请求转发&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;forward:/response/test1&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">运行结果：详见课堂案例结果</span>	
+</span></span><span class="line"><span class="cl"><span class="n">运行结果</span><span class="err">：</span><span class="n">详见课堂案例结果</span>	
 </span></span></code></pre></div><h4 id="2redirect重定向">2、redirect重定向</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">控制器代码：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">控制器代码</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test5&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test5</span><span class="o">(</span><span class="n">RedirectAttributes</span> <span class="n">redirectAttributes</span><span class="o">,</span><span class="n">String</span> <span class="n">pname</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;我是重定向&#34;</span><span class="o">);</span>
@@ -1297,7 +1338,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">redirectAttributes</span><span class="o">.</span><span class="na">addFlashAttribute</span><span class="o">(</span><span class="s">&#34;pname&#34;</span><span class="o">,</span><span class="n">pname</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;redirect:/response/test1&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">运行结果：详见课堂案例结果</span>
+</span></span><span class="line"><span class="cl"><span class="n">运行结果</span><span class="err">：</span><span class="n">详见课堂案例结果</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//注意：重定向携带参数，需要使用对象RedirectAttributes，该对象提供两个方法封装参数addAttribute()和addFlashAttribute()，第一个方法参数会明文显示在浏览器地址栏，第二个方法参会会隐藏，使用第二种方法传参时，获取参数时需要加注解@ModelAttribute;
 </span></span></span></code></pre></div><h2 id="三postman工具使用">三、Postman工具使用</h2>
 <h3 id="一postman工具介绍">（一）Postman工具介绍</h3>
@@ -1383,10 +1424,10 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">  <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;test2&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">test2</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;模拟出现异常&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="o">/</span><span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">10</span><span class="o">/</span><span class="n">0</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">页面</span><span class="n">error</span><span class="o">.</span><span class="na">jsp</span><span class="err">详见具体课堂案例；</span>
+</span></span><span class="line"><span class="cl"><span class="n">页面error</span><span class="o">.</span><span class="na">jsp详见具体课堂案例</span><span class="err">；</span>
 </span></span></code></pre></div><h4 id="2自定义异常处理器">2、自定义异常处理器</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyExceptionHandler</span> <span class="kd">implements</span> <span class="n">HandlerExceptionResolver</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
@@ -1490,8 +1531,8 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">详见课堂案例结果
 </span></span></code></pre></div><h3 id="四拦截器的注意事项">（四）拦截器的注意事项</h3>
 <h4 id="1拦截器的放行">1、拦截器的放行</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">拦截器中的放行指的是：如果有下一个拦截器就执行下一个，如果该拦截器处于拦截器链的最后一个，则执行控制器中的方法。</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">preHandle</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">Object</span> <span class="n">handler</span><span class="o">)</span><span class="err">方法返回</span><span class="n">true</span><span class="err">表示继续执行控制层执行器方法，返回</span><span class="n">false</span><span class="err">表示方法结束，不会执行控制层执行器方法。</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">拦截器中的放行指的是</span><span class="err">：</span><span class="n">如果有下一个拦截器就执行下一个</span><span class="err">，</span><span class="n">如果该拦截器处于拦截器链的最后一个</span><span class="err">，</span><span class="n">则执行控制器中的方法</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">preHandle</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">Object</span> <span class="n">handler</span><span class="o">)</span><span class="n">方法返回true表示继续执行控制层执行器方法</span><span class="err">，</span><span class="n">返回false表示方法结束</span><span class="err">，</span><span class="n">不会执行控制层执行器方法</span><span class="err">。</span>
 </span></span></code></pre></div><h4 id="2拦截器中方法的说明">2、拦截器中方法的说明</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInterceptor2</span> <span class="kd">implements</span> <span class="n">HandlerInterceptor</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="cm">/**
@@ -1550,7 +1591,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;/mvc:interceptors&gt;</span>
 </span></span></code></pre></div><h4 id="4多个拦截器的执行顺序">4、多个拦截器的执行顺序</h4>
 <h5 id="1多个拦截器放行的情况">（1）多个拦截器放行的情况：</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">拦截器</span><span class="mi">1</span><span class="err">：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">拦截器1</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInterceptor1</span> <span class="kd">implements</span> <span class="n">HandlerInterceptor</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 控制层执行器方法前的拦截器（该方法时在控制层执行器方法前调用，当该方法返回结果为true则继续调用下一个拦截器，如果已经时最后
@@ -1597,7 +1638,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;我是控制层执行器方法结束后的拦截器1&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">拦截器</span><span class="mi">2</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="n">拦截器2</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInterceptor2</span> <span class="kd">implements</span> <span class="n">HandlerInterceptor</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 控制层执行器方法前的拦截器（该方法时在控制层执行器方法前调用，当该方法返回结果为true则继续调用下一个拦截器，如果已经时最后
@@ -1644,7 +1685,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;我是控制层执行器方法结束后的拦截器2&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">执行结果如下：</span>
+</span></span><span class="line"><span class="cl"><span class="n">执行结果如下</span><span class="err">：</span>
 </span></span></code></pre></div><p><img src="/posts/Java-frame/20220526160511/image-20220526161831090.png"
     
     
@@ -1682,20 +1723,20 @@
 </span></span><span class="line"><span class="cl">6、如果用户已经登录。放行
 </span></span><span class="line"><span class="cl">7、如果用户未登录，跳转到登录页面
 </span></span></code></pre></div><h3 id="二案例代码">（二）案例代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="err">、登录页面</span><span class="n">login</span><span class="o">.</span><span class="na">jsp</span><span class="err">定义：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="err">、</span><span class="n">登录页面login</span><span class="o">.</span><span class="na">jsp定义</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Title</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s">&#34;/file/login&#34;</span> <span class="n">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">用户名：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;pname&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="err">密码：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;password&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">用户名</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;pname&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">密码</span><span class="err">：</span><span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;password&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;登录&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="err">、控制器实现：</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="err">、</span><span class="n">控制器实现</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;login&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">login</span><span class="o">(</span><span class="n">String</span> <span class="n">pname</span><span class="o">,</span> <span class="n">String</span> <span class="n">password</span><span class="o">,</span> <span class="n">HttpSession</span> <span class="n">session</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;登录校验成功&#34;</span><span class="o">);</span>
@@ -1703,7 +1744,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">session</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&#34;pname&#34;</span><span class="o">,</span><span class="n">pname</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;main&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">   <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="err">、拦截器实现：</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="err">、</span><span class="n">拦截器实现</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"> <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">preHandle</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="n">Object</span> <span class="n">handler</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">            <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
@@ -1722,10 +1763,10 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">//返回true表示继续执行控制层执行器方法，返回false表示方法结束，不会执行控制层执行器方法
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="err">、注册拦截器：</span>
+</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="err">、</span><span class="n">注册拦截器</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">mvc</span><span class="o">:</span><span class="n">interceptor</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">mvc</span><span class="o">:</span><span class="n">mapping</span> <span class="n">path</span><span class="o">=</span><span class="s">&#34;/**&#34;</span><span class="o">/&gt;&lt;!--</span><span class="err">用于指定拦截的</span> <span class="n">url</span><span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">mvc</span><span class="o">:</span><span class="n">exclude</span><span class="o">-</span><span class="n">mapping</span> <span class="n">path</span><span class="o">=</span><span class="s">&#34;/file/login&#34;</span><span class="o">/&gt;&lt;!--</span><span class="err">用于指定排除的</span> <span class="n">url</span><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">mvc</span><span class="o">:</span><span class="n">mapping</span> <span class="n">path</span><span class="o">=</span><span class="s">&#34;/**&#34;</span><span class="o">/&gt;&lt;!--</span><span class="n">用于指定拦截的</span> <span class="n">url</span><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">mvc</span><span class="o">:</span><span class="n">exclude</span><span class="o">-</span><span class="n">mapping</span> <span class="n">path</span><span class="o">=</span><span class="s">&#34;/file/login&#34;</span><span class="o">/&gt;&lt;!--</span><span class="n">用于指定排除的</span> <span class="n">url</span><span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">bean</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;com.offcn.util.MyIntercepter&#34;</span><span class="o">&gt;&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">mvc</span><span class="o">:</span><span class="n">interceptor</span><span class="o">&gt;</span>
 </span></span></code></pre></div><p>spring  :</p>
@@ -1838,6 +1879,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -1901,9 +1999,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

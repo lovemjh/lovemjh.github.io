@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -539,7 +580,7 @@
 <h3 id="1-编译不依赖运行时才依赖">1 编译不依赖，运行时才依赖</h3>
 <p>当我们讲解jdbc时，是通过反射来注册驱动的，代码如下:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&#34;com.mysql.jdbc.Driver&#34;</span><span class="o">);</span><span class="c1">//使用的驱动类是指定了一个字符串
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">底层：</span> <span class="n">DriverManager</span><span class="o">.</span><span class="na">regist</span><span class="o">(</span><span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">mysql</span><span class="o">.</span><span class="na">jdbc</span><span class="o">.</span><span class="na">Driver</span><span class="o">());</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">底层</span><span class="err">：</span> <span class="n">DriverManager</span><span class="o">.</span><span class="na">regist</span><span class="o">(</span><span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">mysql</span><span class="o">.</span><span class="na">jdbc</span><span class="o">.</span><span class="na">Driver</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">,</span><span class="s">&#34;&#34;</span><span class="o">,</span><span class="s">&#34;&#34;</span><span class="o">);</span>
 </span></span></code></pre></div><p>​        此时的好处式，我们的类中在编译阶段不再需要具体的驱动类，就算删除mysql的驱动jar包，依然可以通过编译。在运行阶段才会依赖驱动包。实际开发当中，我们应该做到编译不依赖，运行时才依赖。</p>
@@ -833,10 +874,10 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">总结：</span> <span class="n">IOC</span><span class="err">容器自定义时候；</span> 
-</span></span><span class="line"><span class="cl"><span class="n">xml</span><span class="err">解析技术：</span> 
-</span></span><span class="line"><span class="cl"><span class="err">反射技术</span>
-</span></span><span class="line"><span class="cl"><span class="err">工厂模式</span>
+</span></span><span class="line"><span class="cl"><span class="n">总结</span><span class="err">：</span> <span class="n">IOC容器自定义时候</span><span class="err">；</span> 
+</span></span><span class="line"><span class="cl"><span class="n">xml解析技术</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl"><span class="n">反射技术</span>
+</span></span><span class="line"><span class="cl"><span class="n">工厂模式</span>
 </span></span></code></pre></div><h3 id="5-编写测试文件展示测试结果">5 编写测试文件，展示测试结果</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">testMyFactory</span><span class="o">(){</span>
@@ -1402,7 +1443,7 @@
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="c1">//定义模板方法： 
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">templateMethod</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">        <span class="o">(</span><span class="mi">1</span><span class="o">)(</span><span class="mi">2</span><span class="o">)....</span>
+</span></span><span class="line"><span class="cl">        <span class="o">(</span><span class="n">1</span><span class="o">)(</span><span class="n">2</span><span class="o">)....</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//定义具体的子类，美国留学
@@ -1699,7 +1740,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">AccountService</span> <span class="n">service</span> <span class="o">=</span> <span class="o">(</span><span class="n">AccountService</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;accountService&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Account</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="n">account</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;jack&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">account</span><span class="o">.</span><span class="na">setMoney</span><span class="o">(</span><span class="mi">1001</span><span class="n">D</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">account</span><span class="o">.</span><span class="na">setMoney</span><span class="o">(</span><span class="n">1001D</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">service</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">account</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1711,8 +1752,8 @@
 </span></span><span class="line"><span class="cl">    <span class="n">AccountService</span> <span class="n">service</span> <span class="o">=</span> <span class="o">(</span><span class="n">AccountService</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;accountService&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Account</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">    <span class="n">account</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;jack2&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">account</span><span class="o">.</span><span class="na">setMoney</span><span class="o">(</span><span class="mi">999</span><span class="n">D</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">account</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1008</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">account</span><span class="o">.</span><span class="na">setMoney</span><span class="o">(</span><span class="n">999D</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">account</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1008</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">service</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">account</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1722,7 +1763,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">ApplicationContext</span> <span class="n">context</span> <span class="o">=</span>
 </span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;applicationContext.xml&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">AccountService</span> <span class="n">service</span> <span class="o">=</span> <span class="o">(</span><span class="n">AccountService</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;accountService&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">service</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="mi">1001</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">service</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">1001</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//测试唯一性查询findById
@@ -1731,7 +1772,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">ApplicationContext</span> <span class="n">context</span> <span class="o">=</span>
 </span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;applicationContext.xml&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">AccountService</span> <span class="n">service</span> <span class="o">=</span> <span class="o">(</span><span class="n">AccountService</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;accountService&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">1001</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">1001</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">account</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1862,6 +1903,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -1925,9 +2023,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

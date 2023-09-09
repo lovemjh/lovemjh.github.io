@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -487,7 +528,7 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Double</span> <span class="n">money</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">getter</span> <span class="err">和</span> <span class="n">setter</span> <span class="o">...</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">getter</span> <span class="n">和</span> <span class="n">setter</span> <span class="o">...</span> 
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="3-accountdao-层接口--accountdaoimpl">3 AccountDao 层接口 &amp; AccountDaoImpl</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.dao</span><span class="o">;</span>
@@ -662,7 +703,7 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AccountService</span> <span class="n">accountService</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">accountService</span><span class="o">.</span><span class="na">transfer</span><span class="o">(</span><span class="mi">1001</span><span class="o">,</span><span class="mi">1002</span><span class="o">,</span><span class="mi">100</span><span class="n">D</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">accountService</span><span class="o">.</span><span class="na">transfer</span><span class="o">(</span><span class="n">1001</span><span class="o">,</span><span class="n">1002</span><span class="o">,</span><span class="n">100D</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -853,7 +894,7 @@
 </span></span><span class="line"><span class="cl">            <span class="c1">//3: 更新到数据库当中：
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">accountDao</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">sAcc</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">i</span><span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">i</span><span class="o">=</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="n">accountDao</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">tAcc</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
@@ -945,7 +986,7 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">AccountService</span> <span class="n">accountService</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">accountService</span><span class="o">.</span><span class="na">transfer</span><span class="o">(</span><span class="mi">1001</span><span class="o">,</span><span class="mi">1002</span><span class="o">,</span><span class="mi">100</span><span class="n">D</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">accountService</span><span class="o">.</span><span class="na">transfer</span><span class="o">(</span><span class="n">1001</span><span class="o">,</span><span class="n">1002</span><span class="o">,</span><span class="n">100D</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -1037,13 +1078,13 @@
 </span></span><span class="line"><span class="cl">                    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="n">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="n">Method</span> <span class="n">method</span><span class="o">,</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                        <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span><span class="c1">//获得执行方法的名称。；
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="n">Double</span> <span class="n">money</span> <span class="o">=</span> <span class="o">(</span><span class="n">Double</span><span class="o">)</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span><span class="c1">//获得目标方法的参数信息：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="n">Double</span> <span class="n">money</span> <span class="o">=</span> <span class="o">(</span><span class="n">Double</span><span class="o">)</span> <span class="n">args</span><span class="o">[</span><span class="n">0</span><span class="o">];</span><span class="c1">//获得目标方法的参数信息：
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="n">Object</span> <span class="n">obj</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;sing&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">money</span> <span class="o">&gt;=</span><span class="mi">1000</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;sing&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">money</span> <span class="o">&gt;=</span><span class="n">1000</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                            <span class="c1">//真正执行目标方法：  p1:目标对象 p2: 目标方法需要的参数信息。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>                             <span class="n">obj</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">person</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;dance&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">)&amp;&amp;</span> <span class="n">money</span><span class="o">&gt;=</span><span class="mi">2000</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="o">(</span><span class="s">&#34;dance&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">)&amp;&amp;</span> <span class="n">money</span><span class="o">&gt;=</span><span class="n">2000</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">                             <span class="n">obj</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">person</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">                        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1052,13 +1093,13 @@
 </span></span><span class="line"><span class="cl">                <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="o">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">proxy</span><span class="o">.</span><span class="na">sing</span><span class="o">(</span><span class="mi">1005</span><span class="n">D</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">proxy</span><span class="o">.</span><span class="na">dance</span><span class="o">(</span><span class="mi">2005</span><span class="n">D</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">proxy</span><span class="o">.</span><span class="na">sing</span><span class="o">(</span><span class="n">1005D</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">proxy</span><span class="o">.</span><span class="na">dance</span><span class="o">(</span><span class="n">2005D</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="3-使用动态代理控制事务">3 使用动态代理控制事务</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">创建了工厂类，</span> <span class="err">生成代理类对象：</span> 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">创建了工厂类</span><span class="err">，</span> <span class="n">生成代理类对象</span><span class="err">：</span> 
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.factory</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">
@@ -1136,7 +1177,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="c1">//3: 更新到数据库当中：
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">accountDao</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">sAcc</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">i</span><span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">i</span><span class="o">=</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">            <span class="n">accountDao</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">tAcc</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          
@@ -1172,7 +1213,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//accountService.transfer(1001,1002,100D);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">proxy</span><span class="o">.</span><span class="na">transfer</span><span class="o">(</span><span class="mi">1001</span><span class="o">,</span><span class="mi">1002</span><span class="o">,</span><span class="mi">100</span><span class="n">D</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">proxy</span><span class="o">.</span><span class="na">transfer</span><span class="o">(</span><span class="n">1001</span><span class="o">,</span><span class="n">1002</span><span class="o">,</span><span class="n">100D</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
@@ -1404,7 +1445,7 @@
 </span></span><span class="line"><span class="cl"> <span class="nt">&lt;aop:after</span> <span class="na">method=</span><span class="s">&#34;release&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;point1&#34;</span><span class="nt">/&gt;</span>
 </span></span></code></pre></div><h3 id="3-切入点表达式说明">3 切入点表达式说明</h3>
 <h4 id="31-切点表达式的语法">3.1 切点表达式的语法</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">execution</span><span class="o">([</span><span class="err">修饰符</span><span class="o">]</span> <span class="err">返回值类型</span> <span class="err">包名</span><span class="o">.</span><span class="err">类名</span><span class="o">.</span><span class="err">方法名</span><span class="o">(</span><span class="err">参数</span><span class="o">))</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">execution</span><span class="o">([</span><span class="n">修饰符</span><span class="o">]</span> <span class="n">返回值类型</span> <span class="n">包名</span><span class="o">.</span><span class="na">类名</span><span class="o">.</span><span class="na">方法名</span><span class="o">(</span><span class="n">参数</span><span class="o">))</span>
 </span></span></code></pre></div><ul>
 <li>访问修饰符可以省略</li>
 <li>返回值类型、包名、类名、方法名可以使用星号*  代表任意</li>
@@ -1562,10 +1603,10 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h4 id="13-在增强的方法上使用注解配置通知">1.3 在增强的方法上使用注解配置通知</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Before</span>
-</span></span><span class="line"><span class="cl">	<span class="err">作用：</span>
-</span></span><span class="line"><span class="cl">		<span class="err">把当前方法看成是前置通知</span>
-</span></span><span class="line"><span class="cl">	<span class="err">属性：</span>
-</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：用于指定切入点表达式，还可以指定切入点表达式的引用。</span>
+</span></span><span class="line"><span class="cl">	<span class="n">作用</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">		<span class="n">把当前方法看成是前置通知</span>
+</span></span><span class="line"><span class="cl">	<span class="n">属性</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：</span><span class="n">用于指定切入点表达式</span><span class="err">，</span><span class="n">还可以指定切入点表达式的引用</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">		
 </span></span><span class="line"><span class="cl"><span class="c1">//开启事务
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@Before</span><span class="o">(</span><span class="s">&#34;execution(* com.offcn.service.impl.*.*(..)))&#34;</span><span class="o">)</span>
@@ -1578,10 +1619,10 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="nd">@AfterReturning</span>
-</span></span><span class="line"><span class="cl">	<span class="err">作用：</span> 
-</span></span><span class="line"><span class="cl">		<span class="err">把当前方法看成是后置通知。</span>
-</span></span><span class="line"><span class="cl">	<span class="err">属性：</span> 
-</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：用于指定切入点表达式，还可以指定切入点表达式的引用</span>
+</span></span><span class="line"><span class="cl">	<span class="n">作用</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">把当前方法看成是后置通知</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">	<span class="n">属性</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：</span><span class="n">用于指定切入点表达式</span><span class="err">，</span><span class="n">还可以指定切入点表达式的引用</span>
 </span></span><span class="line"><span class="cl">		
 </span></span><span class="line"><span class="cl"><span class="c1">// 提交事务
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@AfterReturning</span><span class="o">(</span><span class="s">&#34;execution(* com.offcn.service.impl.*.*(..)))&#34;</span><span class="o">)</span>
@@ -1593,10 +1634,10 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@AfterThrowing</span>
-</span></span><span class="line"><span class="cl">	<span class="err">作用：</span> 
-</span></span><span class="line"><span class="cl">		<span class="err">把当前方法看成是异常通知。</span>
-</span></span><span class="line"><span class="cl">	<span class="err">属性：</span> 
-</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：用于指定切入点表达式，还可以指定切入点表达式的引用</span>
+</span></span><span class="line"><span class="cl">	<span class="n">作用</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">把当前方法看成是异常通知</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">	<span class="n">属性</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：</span><span class="n">用于指定切入点表达式</span><span class="err">，</span><span class="n">还可以指定切入点表达式的引用</span>
 </span></span><span class="line"><span class="cl">		
 </span></span><span class="line"><span class="cl"><span class="c1">//回滚事务
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@AfterThrowing</span><span class="o">(</span><span class="s">&#34;execution(* com.offcn.service.impl.*.*(..)))&#34;</span><span class="o">)</span>
@@ -1608,10 +1649,10 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@After</span>
-</span></span><span class="line"><span class="cl">	<span class="err">作用：</span> 
-</span></span><span class="line"><span class="cl">		<span class="err">把当前方法看成是最终通知。</span>
-</span></span><span class="line"><span class="cl">	<span class="err">属性：</span> 
-</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：用于指定切入点表达式，还可以指定切入点表达式的引用</span>
+</span></span><span class="line"><span class="cl">	<span class="n">作用</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">把当前方法看成是最终通知</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">	<span class="n">属性</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：</span><span class="n">用于指定切入点表达式</span><span class="err">，</span><span class="n">还可以指定切入点表达式的引用</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//释放连接
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@After</span><span class="o">(</span><span class="s">&#34;execution(* com.offcn.service.impl.*.*(..)))&#34;</span><span class="o">)</span>
@@ -1628,10 +1669,10 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;aop:aspectj-autoproxy/&gt;</span>
 </span></span></code></pre></div><h4 id="15-环绕通知注解配置">1.5 环绕通知注解配置</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Around</span>
-</span></span><span class="line"><span class="cl">	<span class="err">作用：</span> 
-</span></span><span class="line"><span class="cl">		<span class="err">把当前方法看成是环绕通知。</span>
-</span></span><span class="line"><span class="cl">	<span class="err">属性：</span> 
-</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：用于指定切入点表达式，还可以指定切入点表达式的引用。</span>
+</span></span><span class="line"><span class="cl">	<span class="n">作用</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">把当前方法看成是环绕通知</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">	<span class="n">属性</span><span class="err">：</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">value</span><span class="err">：</span><span class="n">用于指定切入点表达式</span><span class="err">，</span><span class="n">还可以指定切入点表达式的引用</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// 环绕通知:
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@Around</span><span class="o">(</span><span class="s">&#34;execution(* com.offcn.service.impl.*.*(..)))&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">Object</span> <span class="nf">transactionAround</span><span class="o">(</span><span class="n">ProceedingJoinPoint</span> <span class="n">pjp</span><span class="o">)</span> <span class="o">{</span>
@@ -2379,7 +2420,7 @@
 </span></span><span class="line"><span class="cl">        <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&#34;marry&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">user</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="s">&#34;America&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">user</span><span class="o">.</span><span class="na">setBirthday</span><span class="o">(</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">        <span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;num:&#34;</span><span class="o">+</span><span class="n">num</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -2387,14 +2428,14 @@
 </span></span><span class="line"><span class="cl">    <span class="c1">//delete:
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testDelete</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;num:&#34;</span><span class="o">+</span><span class="n">num</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">//findById
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@Test</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testFindById</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userService</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;user:&#34;</span><span class="o">+</span><span class="n">user</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//findAll
@@ -2510,6 +2551,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -2573,9 +2671,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

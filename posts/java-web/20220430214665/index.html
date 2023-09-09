@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -452,73 +493,73 @@
             
             <div class="js-toc-content" style="height: 100%;">
                 <h1 id="1-理解">1. 理解</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cascading</span> <span class="n">Style</span> <span class="n">Sheets</span> <span class="err">层叠样式表，使用一些样式来修饰</span><span class="n">html</span><span class="err">标签的效果</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cascading</span> <span class="n">Style</span> <span class="n">Sheets</span> <span class="n">层叠样式表</span><span class="err">，</span><span class="n">使用一些样式来修饰html标签的效果</span>
 </span></span></code></pre></div><h1 id="2-使用">2. 使用</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">几乎每一个标签都有的属性：</span><span class="n">id</span> <span class="kd">class</span> <span class="nc">name</span> <span class="n">style</span>
-</span></span><span class="line"><span class="cl"><span class="err">使用方式</span><span class="mi">1</span><span class="err">：行内样式</span> <span class="err">根据的标签的</span><span class="n">style</span><span class="err">属性引入</span><span class="n">CSS</span><span class="err">样式</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">几乎每一个标签都有的属性</span><span class="err">：</span><span class="n">id</span> <span class="kd">class</span> <span class="nc">name</span> <span class="n">style</span>
+</span></span><span class="line"><span class="cl"><span class="n">使用方式1</span><span class="err">：</span><span class="n">行内样式</span> <span class="n">根据的标签的style属性引入CSS样式</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> 
-</span></span><span class="line"><span class="cl">        <span class="err">方式</span><span class="mi">1</span><span class="err">：行内样式使用</span>
-</span></span><span class="line"><span class="cl">            <span class="err">几乎每一个标签都有的属性：</span><span class="n">id</span>  <span class="kd">class</span> <span class="nc">name</span> <span class="n">style</span><span class="err">（引入</span><span class="n">CSS</span><span class="err">样式）</span>
+</span></span><span class="line"><span class="cl">        <span class="n">方式1</span><span class="err">：</span><span class="n">行内样式使用</span>
+</span></span><span class="line"><span class="cl">            <span class="n">几乎每一个标签都有的属性</span><span class="err">：</span><span class="n">id</span>  <span class="kd">class</span> <span class="nc">name</span> <span class="n">style</span><span class="err">（</span><span class="n">引入CSS样式</span><span class="err">）</span>
 </span></span><span class="line"><span class="cl">    <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">div</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;color: pink; font-size: 20px;&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="err">这是一个美女，但是没有化妆</span>
+</span></span><span class="line"><span class="cl">        <span class="n">这是一个美女</span><span class="err">，</span><span class="n">但是没有化妆</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">                
-</span></span><span class="line"><span class="cl"><span class="err">使用方式</span><span class="mi">2</span><span class="err">：内联样式</span> <span class="err">根据</span><span class="n">head</span><span class="err">中的</span> <span class="err">子标签</span><span class="n">style</span> <span class="err">引入</span><span class="n">CSS</span><span class="err">样式</span>  <span class="err">提高</span><span class="n">CSS</span><span class="err">的复用性</span>
+</span></span><span class="line"><span class="cl"><span class="n">使用方式2</span><span class="err">：</span><span class="n">内联样式</span> <span class="n">根据head中的</span> <span class="n">子标签style</span> <span class="n">引入CSS样式</span>  <span class="n">提高CSS的复用性</span>
 </span></span><span class="line"><span class="cl">     <span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">span</span><span class="o">,</span> <span class="n">b</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">red</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="mi">25</span><span class="n">px</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="n">25px</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"><span class="err">使用方式</span><span class="mi">3</span><span class="err">：外联样式</span>  <span class="err">在外部编写</span><span class="o">.</span><span class="na">css</span><span class="err">文件</span>  <span class="err">在</span><span class="n">head</span><span class="err">中使用</span><span class="n">link</span><span class="err">标签引入该页面</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="err">方式</span><span class="mi">3</span><span class="err">：引入外部样式</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">使用方式3</span><span class="err">：</span><span class="n">外联样式</span>  <span class="n">在外部编写</span><span class="o">.</span><span class="na">css文件</span>  <span class="n">在head中使用link标签引入该页面</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="n">方式3</span><span class="err">：</span><span class="n">引入外部样式</span> <span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;./css/xx.css&#34;</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"><span class="err">总结：</span>
-</span></span><span class="line"><span class="cl">        <span class="err">优先级：就近原则</span>
+</span></span><span class="line"><span class="cl"><span class="n">总结</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">        <span class="n">优先级</span><span class="err">：</span><span class="n">就近原则</span>
 </span></span></code></pre></div><h1 id="3-选择器">3. 选择器</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">理解：</span><span class="n">CSS</span><span class="err">中为了便于定位具体的某个标签</span>
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">选择器种类：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">基本选择器：标签选择器、</span><span class="n">id</span><span class="err">选择器、类选择器</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">理解</span><span class="err">：</span><span class="n">CSS中为了便于定位具体的某个标签</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">选择器种类</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">基本选择器</span><span class="err">：</span><span class="n">标签选择器</span><span class="err">、</span><span class="n">id选择器</span><span class="err">、</span><span class="n">类选择器</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="err">·标签选择器：通过标签的名字定位到标签</span>
+</span></span><span class="line"><span class="cl">    <span class="err">·</span><span class="n">标签选择器</span><span class="err">：</span><span class="n">通过标签的名字定位到标签</span>
 </span></span><span class="line"><span class="cl">    	<span class="cm">/* 1. 标签选择器: 定位页面中所有该名字的标签 */</span>
 </span></span><span class="line"><span class="cl">        <span class="n">div</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">red</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="err">·</span><span class="n">ID</span><span class="err">选择器：通过标签的</span><span class="n">ID</span><span class="err">属性值定位该标签</span>
+</span></span><span class="line"><span class="cl">	<span class="err">·</span><span class="n">ID选择器</span><span class="err">：</span><span class="n">通过标签的ID属性值定位该标签</span>
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">        <span class="cm">/* 2. id选择器：id值是唯一的 定位更加准确 */</span>
 </span></span><span class="line"><span class="cl">        <span class="err">#</span><span class="n">d2</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">           <span class="n">color</span><span class="o">:</span> <span class="n">blue</span><span class="o">;</span> 
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">       
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="err">类选择器</span>
+</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">类选择器</span>
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">        <span class="cm">/*  3. 类选择器：多个标签可以有相同的class的值 一个标签可以有多个 */</span>
 </span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">d1</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">pink</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">d3</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="mi">25</span><span class="n">px</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="n">25px</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">其他选择器</span>
-</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="err">组合选择器</span>
+</span></span><span class="line"><span class="cl"><span class="n">其他选择器</span>
+</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="n">组合选择器</span>
 </span></span><span class="line"><span class="cl">        <span class="cm">/* 4. 组合选择器: 多个选择器组合使用 逗号隔开 */</span>
 </span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">d1</span><span class="o">,.</span><span class="na">sp1</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">pink</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="err">层级选择器</span>
+</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">层级选择器</span>
 </span></span><span class="line"><span class="cl">          <span class="cm">/* 5. 层级选择器：一层一层找 */</span>
 </span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="n">b</span> <span class="n">span</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">green</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="err">伪类选择器</span>
+</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">伪类选择器</span>
 </span></span><span class="line"><span class="cl">        <span class="cm">/*  6. 伪类选择器：根据标签的状态定位 */</span>
 </span></span><span class="line"><span class="cl">       <span class="cm">/* a链接未点击的状态 */</span>
 </span></span><span class="line"><span class="cl">       <span class="n">a</span><span class="o">:</span><span class="n">link</span><span class="o">{</span>
@@ -539,42 +580,42 @@
 </span></span><span class="line"><span class="cl">      <span class="n">a</span><span class="o">:</span><span class="n">active</span><span class="o">{</span>
 </span></span><span class="line"><span class="cl">          <span class="n">color</span><span class="o">:</span> <span class="n">yellow</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">}</span>
-</span></span><span class="line"><span class="cl">	<span class="err">·属性选择器</span>
+</span></span><span class="line"><span class="cl">	<span class="err">·</span><span class="n">属性选择器</span>
 </span></span><span class="line"><span class="cl">        <span class="cm">/* 7. 属性选择器：根据标签的属性值 定位该标签 */</span>
 </span></span><span class="line"><span class="cl">      <span class="n">input</span><span class="o">[</span><span class="n">name</span><span class="o">=</span><span class="n">username</span><span class="o">]{</span>
 </span></span><span class="line"><span class="cl">          <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="o">:</span> <span class="n">blue</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="o">*</span><span class="err">选择器</span>
+</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="o">*</span><span class="n">选择器</span>
 </span></span><span class="line"><span class="cl">         <span class="cm">/* 8. *选择器  匹配页面中所有的标签 */</span>
 </span></span><span class="line"><span class="cl">      <span class="o">*{</span>
-</span></span><span class="line"><span class="cl">          <span class="n">margin</span><span class="o">:</span> <span class="mi">0</span><span class="n">px</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">margin</span><span class="o">:</span> <span class="n">0px</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">      <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">优先级：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">越精确优先级越高</span>
-</span></span><span class="line"><span class="cl">    	<span class="n">ID</span><span class="err">选择器</span>  <span class="o">&gt;</span> <span class="err">其他的选择器</span> <span class="o">&gt;</span> <span class="o">*</span><span class="err">选择器</span>
+</span></span><span class="line"><span class="cl"><span class="n">优先级</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">越精确优先级越高</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">ID选择器</span>  <span class="o">&gt;</span> <span class="n">其他的选择器</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">选择器</span>
 </span></span></code></pre></div><h1 id="4-常见的样式">4. 常见的样式</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">语法：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">样式名</span><span class="o">:</span> <span class="err">样式值</span><span class="o">;</span>   
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="err">以键值对的形式书写</span>
-</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="err">键和值之间冒号隔开</span>
-</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="err">每一个样式使用分号结束</span>
-</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="err">一个标签可以有多个样式</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">语法</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">样式名</span><span class="o">:</span> <span class="n">样式值</span><span class="o">;</span>   
+</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">以键值对的形式书写</span>
+</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="n">键和值之间冒号隔开</span>
+</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="n">每一个样式使用分号结束</span>
+</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="n">一个标签可以有多个样式</span>
 </span></span></code></pre></div><h2 id="-字体样式">① 字体样式</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">color:</span> <span class="n">rgba</span><span class="o">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mf">.2</span><span class="o">);</span>  <span class="cm">/* 字体颜色:可以是单词 十六进制形式 和 rgba形式 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="mi">20</span><span class="n">px</span><span class="o">;</span>   <span class="cm">/* 字体大小 */</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">color:</span> <span class="n">rgba</span><span class="o">(</span><span class="n">255</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="o">.</span><span class="na">2</span><span class="o">);</span>  <span class="cm">/* 字体颜色:可以是单词 十六进制形式 和 rgba形式 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="n">20px</span><span class="o">;</span>   <span class="cm">/* 字体大小 */</span>
 </span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="o">:</span> <span class="n">bolder</span><span class="o">;</span>  <span class="cm">/* 字体粗细：加粗 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="o">:</span> <span class="err">&#39;宋体&#39;</span><span class="o">;</span>  <span class="cm">/* 字体类型 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">宋体</span><span class="err">&#39;</span><span class="o">;</span>  <span class="cm">/* 字体类型 */</span>
 </span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">style</span><span class="o">:</span> <span class="n">italic</span><span class="o">;</span>  <span class="cm">/* 字体风格：倾斜 */</span>
 </span></span></code></pre></div><h2 id="-文本样式">② 文本样式</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="mi">30</span><span class="n">px</span><span class="o">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="n">30px</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="o">:</span> <span class="n">center</span><span class="o">;</span> <span class="cm">/* 对齐方式 */</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">text</span><span class="o">-</span><span class="n">decoration</span><span class="o">:</span> <span class="n">none</span><span class="o">;</span> <span class="cm">/* 文本装饰 */</span>
 </span></span><span class="line"><span class="cl"><span class="cm">/* 文本阴影 参数1：阴影颜色  参数2：水平方向的偏移量 参数3：垂直方向的偏移量 参数4：模糊度 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">text</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="n">pink</span> <span class="mi">5</span><span class="n">px</span> <span class="mi">6</span><span class="n">px</span> <span class="mi">3</span><span class="n">px</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">line</span><span class="o">-</span><span class="n">height</span><span class="o">:</span> <span class="mi">200</span><span class="n">px</span><span class="o">;</span>  <span class="cm">/* 行高：文本所占位置的高度 可以实现垂直方向的居中 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">text</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="n">pink</span> <span class="n">5px</span> <span class="n">6px</span> <span class="n">3px</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl"><span class="n">line</span><span class="o">-</span><span class="n">height</span><span class="o">:</span> <span class="n">200px</span><span class="o">;</span>  <span class="cm">/* 行高：文本所占位置的高度 可以实现垂直方向的居中 */</span>
 </span></span></code></pre></div><h2 id="-尺寸样式">③ 尺寸样式</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">width</span>
 </span></span><span class="line"><span class="cl"><span class="n">height</span>
@@ -595,9 +636,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
 </span></span><span class="line"><span class="cl"><span class="nl">position:</span> <span class="n">absolute</span><span class="o">;</span>
 </span></span></code></pre></div><h2 id="-边框样式">⑥ 边框样式</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">参数</span><span class="mi">1</span><span class="err">：边框的宽度</span>  <span class="err">参数</span><span class="mi">2</span><span class="err">：边框的类型</span> <span class="err">参数</span><span class="mi">3</span><span class="err">：边框的颜色</span> 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">参数1</span><span class="err">：</span><span class="n">边框的宽度</span>  <span class="n">参数2</span><span class="err">：</span><span class="n">边框的类型</span> <span class="n">参数3</span><span class="err">：</span><span class="n">边框的颜色</span> 
 </span></span><span class="line"><span class="cl"><span class="nl">
-</span></span></span><span class="line"><span class="cl"><span class="nl">border:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="n">blue</span><span class="o">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="nl">border:</span> <span class="n">1px</span> <span class="n">solid</span> <span class="n">blue</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl"><span class="cm">/* border-top: 1px dashed red;
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">border-bottom: 1px dotted pink;
@@ -606,26 +647,26 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">border-right: 8px ridge green; */</span>
 </span></span><span class="line"><span class="cl"><span class="cm">/*  border: 10px ridge #c3c3c3; */</span>
-</span></span><span class="line"><span class="cl"><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="o">;</span>  <span class="cm">/* 边框角的弧度 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="n">10px</span><span class="o">;</span>  <span class="cm">/* 边框角的弧度 */</span>
 </span></span></code></pre></div><h2 id="-盒子模型">⑦ 盒子模型</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">理解：布局页面的思想</span>
-</span></span><span class="line"><span class="cl"><span class="err">注意：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">盒子的位置大小</span> <span class="o">=</span> <span class="n">height</span> <span class="o">+</span> <span class="n">border</span><span class="err">边框</span> <span class="o">+</span> <span class="n">margin</span> <span class="err">外边距</span> <span class="o">+</span> <span class="n">padding</span> <span class="err">内边距</span> 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span><span class="n">布局页面的思想</span>
+</span></span><span class="line"><span class="cl"><span class="n">注意</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">盒子的位置大小</span> <span class="o">=</span> <span class="n">height</span> <span class="o">+</span> <span class="n">border边框</span> <span class="o">+</span> <span class="n">margin</span> <span class="n">外边距</span> <span class="o">+</span> <span class="n">padding</span> <span class="n">内边距</span> 
 </span></span></code></pre></div><h2 id="-float-和-display">⑧ float 和 display</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">float</span> <span class="err">使标签浮动</span> 
-</span></span><span class="line"><span class="cl">    <span class="err">作用：块级标签的水平方向的对象</span> <span class="err">顶部对齐</span>
-</span></span><span class="line"><span class="cl">    <span class="err">后果：</span>
-</span></span><span class="line"><span class="cl">    	<span class="mf">1.</span> <span class="err">块标签</span> <span class="err">转换成</span> <span class="err">行内块</span><span class="o">(</span><span class="err">可以设置宽度和高度</span> <span class="err">不独占一行</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    	<span class="mf">2.</span> <span class="err">浮动之后</span> <span class="err">空间坍塌</span>  <span class="err">影响后面的标签的正常布局</span>  
-</span></span><span class="line"><span class="cl">   <span class="err">总结：因此只用使用了浮动</span> <span class="err">完毕之后要记得清楚浮动</span>
-</span></span><span class="line"><span class="cl">   <span class="err">使用：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">使标签浮动</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">作用</span><span class="err">：</span><span class="n">块级标签的水平方向的对象</span> <span class="n">顶部对齐</span>
+</span></span><span class="line"><span class="cl">    <span class="n">后果</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">1</span><span class="o">.</span> <span class="n">块标签</span> <span class="n">转换成</span> <span class="nf">行内块</span><span class="o">(</span><span class="n">可以设置宽度和高度</span> <span class="n">不独占一行</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">2</span><span class="o">.</span> <span class="n">浮动之后</span> <span class="n">空间坍塌</span>  <span class="n">影响后面的标签的正常布局</span>  
+</span></span><span class="line"><span class="cl">   <span class="n">总结</span><span class="err">：</span><span class="n">因此只用使用了浮动</span> <span class="n">完毕之后要记得清楚浮动</span>
+</span></span><span class="line"><span class="cl">   <span class="n">使用</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">    	<span class="kt">float</span><span class="o">:</span> <span class="n">left</span><span class="o">|</span><span class="n">right</span>
-</span></span><span class="line"><span class="cl">   <span class="err">清除浮动：</span>
-</span></span><span class="line"><span class="cl">        <span class="err">添加一个同级别的空标签</span> <span class="err">设置</span> <span class="err">样式</span> <span class="n">clear</span><span class="o">:</span><span class="n">both</span>
+</span></span><span class="line"><span class="cl">   <span class="n">清除浮动</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">        <span class="n">添加一个同级别的空标签</span> <span class="n">设置</span> <span class="n">样式</span> <span class="n">clear</span><span class="o">:</span><span class="n">both</span>
 </span></span><span class="line"><span class="cl">            
 </span></span><span class="line"><span class="cl"><span class="n">display</span> 
-</span></span><span class="line"><span class="cl">    <span class="err">作用：①</span> <span class="err">可以实现块标签、行标签和行内块标签的相互转换</span> <span class="err">②</span> <span class="err">可以实现标签的显示和隐藏</span>
-</span></span><span class="line"><span class="cl">    <span class="err">使用：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">作用</span><span class="err">：①</span> <span class="n">可以实现块标签</span><span class="err">、</span><span class="n">行标签和行内块标签的相互转换</span> <span class="err">②</span> <span class="n">可以实现标签的显示和隐藏</span>
+</span></span><span class="line"><span class="cl">    <span class="n">使用</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">         <span class="n">display</span><span class="o">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="o">;</span>  <span class="c1">// 转换行内块标签
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">display</span><span class="o">:</span> <span class="n">inline</span><span class="o">;</span>    <span class="c1">// 转换行标签
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">display</span><span class="o">:</span> <span class="n">block</span><span class="o">;</span>     <span class="c1">// 转换块标签
@@ -736,6 +777,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -799,9 +897,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

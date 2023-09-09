@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -838,7 +879,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">案例：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">案例</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@Component</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//@ConfigurationProperties(prefix = &#34;person&#34;)
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
@@ -914,7 +955,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">讲解思路： 
 </span></span><span class="line"><span class="cl"> 本章节主要掌握springboot当中静态资源的处理，springboot当中提供的静态资源存放的位置。 在实际当中开发，我们应该满足springboot的约定和规范。如果提供的静态资源目录不能满足实际的需求，还可以自定义静态资源的位置
 </span></span></code></pre></div><h3 id="一springboot关于静态资源的处理">（一）springboot关于静态资源的处理</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">springboot</span><span class="err">启动时会根据配置文件自动配置相应场景的组件</span><span class="n">xxxAutoConfiguration</span><span class="err">，</span><span class="n">web</span><span class="err">项目启动时会初始化</span><span class="n">WebMvcAutoConfiguration</span><span class="err">组件处理请求相关的操作，其中有默认处理静态资源的方法：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">springboot启动时会根据配置文件自动配置相应场景的组件xxxAutoConfiguration</span><span class="err">，</span><span class="n">web项目启动时会初始化WebMvcAutoConfiguration组件处理请求相关的操作</span><span class="err">，</span><span class="n">其中有默认处理静态资源的方法</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">		<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">addResourceHandlers</span><span class="o">(</span><span class="n">ResourceHandlerRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">			<span class="kd">super</span><span class="o">.</span><span class="na">addResourceHandlers</span><span class="o">(</span><span class="n">registry</span><span class="o">);</span>
@@ -1083,8 +1124,8 @@
 </span></span><span class="line"><span class="cl">	<span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//第六步：获取自动配置信息spring.factories
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">FACTORIES_RESOURCE_LOCATION</span> <span class="o">=</span> <span class="s">&#34;META-INF/spring.factories&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="err">获取到配置文件中的自动配置类</span><span class="n">xxxAutoConfiguration</span><span class="err">的信息，并将自动配置类中的组件初始化到容器中。</span>
-</span></span><span class="line"><span class="cl"><span class="err">初始化的过程中会加载</span><span class="n">xxxProperties</span><span class="err">对象，根据</span><span class="n">xxxProperties</span><span class="err">对象中的属性值初始化组件</span><span class="o">,</span><span class="n">xxxProperties</span><span class="err">对象的值可以通过全局配置文件指定。</span>
+</span></span><span class="line"><span class="cl"><span class="n">获取到配置文件中的自动配置类xxxAutoConfiguration的信息</span><span class="err">，</span><span class="n">并将自动配置类中的组件初始化到容器中</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">初始化的过程中会加载xxxProperties对象</span><span class="err">，</span><span class="n">根据xxxProperties对象中的属性值初始化组件</span><span class="o">,</span><span class="n">xxxProperties对象的值可以通过全局配置文件指定</span><span class="err">。</span>
 </span></span></code></pre></div><h5 id="3初始化自动配置组件">（3）初始化自动配置组件</h5>
 <p>以Spring Boot 自动配置SpringMVC为例，Spring Boot启动时会做以下操作：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//根据以上步骤找到自动配置类WebMvcAutoConfiguration，并根据自动配置类进行以下初始化操作：
@@ -1092,7 +1133,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@ConditionalOnWebApplication</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="n">Type</span><span class="o">.</span><span class="na">SERVLET</span><span class="o">)</span><span class="c1">//@Conditional判断满足指定的条件，整个配置类里面的配置就会生效,否则不生效； 这里是判断当前应用是否是web应用，如果是当前配置类生效
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@ConditionalOnClass</span><span class="o">({</span> <span class="n">Servlet</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">DispatcherServlet</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">WebMvcConfigurer</span><span class="o">.</span><span class="na">class</span> <span class="o">})</span><span class="c1">//判断当前项目有没有以上指定类
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@ConditionalOnMissingBean</span><span class="o">(</span><span class="n">WebMvcConfigurationSupport</span><span class="o">.</span><span class="na">class</span><span class="o">)</span><span class="c1">//判断容器中是否没有指定组件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@AutoConfigureOrder</span><span class="o">(</span><span class="n">Ordered</span><span class="o">.</span><span class="na">HIGHEST_PRECEDENCE</span> <span class="o">+</span> <span class="mi">10</span><span class="o">)</span><span class="c1">//自动配置顺序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@AutoConfigureOrder</span><span class="o">(</span><span class="n">Ordered</span><span class="o">.</span><span class="na">HIGHEST_PRECEDENCE</span> <span class="o">+</span> <span class="n">10</span><span class="o">)</span><span class="c1">//自动配置顺序
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">@AutoConfigureAfter</span><span class="o">({</span> <span class="n">DispatcherServletAutoConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">TaskExecutionAutoConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
 </span></span><span class="line"><span class="cl">		<span class="n">ValidationAutoConfiguration</span><span class="o">.</span><span class="na">class</span> <span class="o">})</span><span class="c1">//在指定自动配置之后配置
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebMvcAutoConfiguration</span> <span class="o">{</span>
@@ -1118,7 +1159,7 @@
 </span></span><span class="line"><span class="cl">		<span class="nd">@ConditionalOnMissingBean</span>
 </span></span><span class="line"><span class="cl">		<span class="kd">public</span> <span class="n">BeanNameViewResolver</span> <span class="nf">beanNameViewResolver</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">			<span class="n">BeanNameViewResolver</span> <span class="n">resolver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BeanNameViewResolver</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">			<span class="n">resolver</span><span class="o">.</span><span class="na">setOrder</span><span class="o">(</span><span class="n">Ordered</span><span class="o">.</span><span class="na">LOWEST_PRECEDENCE</span> <span class="o">-</span> <span class="mi">10</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="n">resolver</span><span class="o">.</span><span class="na">setOrder</span><span class="o">(</span><span class="n">Ordered</span><span class="o">.</span><span class="na">LOWEST_PRECEDENCE</span> <span class="o">-</span> <span class="n">10</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="n">resolver</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">		<span class="o">}</span>
 </span></span><span class="line"><span class="cl">    	
@@ -1143,12 +1184,12 @@
 </span></span><span class="line"><span class="cl">		<span class="o">}</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="o">-----------------</span><span class="err">内部类</span><span class="o">--------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="o">-----------------</span><span class="n">内部类</span><span class="o">--------------------</span>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Configuration</span><span class="o">(</span><span class="n">proxyBeanMethods</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nd">@Import</span><span class="o">(</span><span class="n">EnableWebMvcConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nd">@EnableConfigurationProperties</span><span class="o">({</span> <span class="n">WebMvcProperties</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
 </span></span><span class="line"><span class="cl">			<span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">autoconfigure</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">ResourceProperties</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">WebProperties</span><span class="o">.</span><span class="na">class</span> <span class="o">})</span>
-</span></span><span class="line"><span class="cl">	<span class="nd">@Order</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nd">@Order</span><span class="o">(</span><span class="n">0</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">WebMvcAutoConfigurationAdapter</span> <span class="kd">implements</span> <span class="n">WebMvcConfigurer</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">		<span class="kd">private</span> <span class="kd">final</span> <span class="n">WebMvcProperties</span> <span class="n">mvcProperties</span><span class="o">;</span>
@@ -1221,7 +1262,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">		<span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">singleDispatcherServlet</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">servletRegistrations</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">ServletRegistrationBean</span><span class="o">::</span><span class="n">getServlet</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">					<span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">DispatcherServlet</span><span class="o">.</span><span class="na">class</span><span class="o">::</span><span class="n">isInstance</span><span class="o">).</span><span class="na">count</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">					<span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">DispatcherServlet</span><span class="o">.</span><span class="na">class</span><span class="o">::</span><span class="n">isInstance</span><span class="o">).</span><span class="na">count</span><span class="o">()</span> <span class="o">==</span> <span class="n">1</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">		<span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">		<span class="nd">@Override</span>
@@ -1250,7 +1291,7 @@
 </span></span><span class="line"><span class="cl">		<span class="nd">@ConditionalOnMissingBean</span>
 </span></span><span class="line"><span class="cl">		<span class="kd">public</span> <span class="n">BeanNameViewResolver</span> <span class="nf">beanNameViewResolver</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">			<span class="n">BeanNameViewResolver</span> <span class="n">resolver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BeanNameViewResolver</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">			<span class="n">resolver</span><span class="o">.</span><span class="na">setOrder</span><span class="o">(</span><span class="n">Ordered</span><span class="o">.</span><span class="na">LOWEST_PRECEDENCE</span> <span class="o">-</span> <span class="mi">10</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">			<span class="n">resolver</span><span class="o">.</span><span class="na">setOrder</span><span class="o">(</span><span class="n">Ordered</span><span class="o">.</span><span class="na">LOWEST_PRECEDENCE</span> <span class="o">-</span> <span class="n">10</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="n">resolver</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">		<span class="o">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1320,11 +1361,11 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">a</span><span class="err">、自动配置视图解析器</span><span class="n">ViewResolver</span><span class="err">（</span><span class="n">ContentNegotiatingViewResolver</span> <span class="err">和</span> <span class="n">BeanNameViewResolver</span><span class="err">）</span><span class="o">,</span><span class="err">作用：根据方法返回值得到视图对象，由视图对象决定请求转发或者重定向到指定视图。（注意：此处会创建获取容器中的所有视图解析器，包括自定义的视图解析器）</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="err">、提供静态资源访问路径和</span><span class="n">webjars</span><span class="err">访问路径；</span>
-</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="err">、自动注册</span><span class="n">Converter</span><span class="err">类型转换器</span><span class="o">,</span><span class="n">Formatter</span><span class="err">格式化器；</span>
-</span></span><span class="line"><span class="cl"><span class="n">d</span><span class="err">、提供</span><span class="n">HttpMessageConverters</span><span class="err">，用于</span><span class="n">Http</span><span class="err">请求和响应之间的转换，将</span><span class="n">json</span><span class="err">或者</span><span class="n">xml</span><span class="err">格式字符串和</span><span class="n">java</span><span class="err">类型之间做转换；</span>
-</span></span><span class="line"><span class="cl"><span class="err">（注意：如果要自定义类型转换器，也可以通过该接口注册）</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">a</span><span class="err">、</span><span class="n">自动配置视图解析器ViewResolver</span><span class="err">（</span><span class="n">ContentNegotiatingViewResolver</span> <span class="n">和</span> <span class="n">BeanNameViewResolver</span><span class="err">）</span><span class="o">,</span><span class="n">作用</span><span class="err">：</span><span class="n">根据方法返回值得到视图对象</span><span class="err">，</span><span class="n">由视图对象决定请求转发或者重定向到指定视图</span><span class="err">。（</span><span class="n">注意</span><span class="err">：</span><span class="n">此处会创建获取容器中的所有视图解析器</span><span class="err">，</span><span class="n">包括自定义的视图解析器</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="err">、</span><span class="n">提供静态资源访问路径和webjars访问路径</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="err">、</span><span class="n">自动注册Converter类型转换器</span><span class="o">,</span><span class="n">Formatter格式化器</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="n">d</span><span class="err">、</span><span class="n">提供HttpMessageConverters</span><span class="err">，</span><span class="n">用于Http请求和响应之间的转换</span><span class="err">，</span><span class="n">将json或者xml格式字符串和java类型之间做转换</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="err">（</span><span class="n">注意</span><span class="err">：</span><span class="n">如果要自定义类型转换器</span><span class="err">，</span><span class="n">也可以通过该接口注册</span><span class="err">）</span>
 </span></span><span class="line"><span class="cl"><span class="nd">@Configuration</span><span class="o">(</span><span class="n">proxyBeanMethods</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyConfiguration</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">
@@ -1336,14 +1377,14 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="n">e</span><span class="err">、自动注册消息代码提示处理器</span><span class="n">MessageCodesResolver</span>
-</span></span><span class="line"><span class="cl"><span class="n">f</span><span class="err">、支持静态首页</span><span class="n">index</span><span class="o">.</span><span class="na">html</span><span class="err">访问</span>
-</span></span><span class="line"><span class="cl"><span class="n">g</span><span class="err">、自动注册</span><span class="n">web</span><span class="err">数据参数绑定对象</span><span class="n">ConfigurableWebBindingInitializer</span><span class="err">，如果我们自己注册了该类型对象，那</span><span class="n">springboot</span><span class="err">会自动调用我们注册的对象，替换默认对象将请求参数绑定到</span><span class="n">javabean</span><span class="err">（了解）。</span>
-</span></span><span class="line"><span class="cl"><span class="n">h</span><span class="err">、如果要自定义拦截器</span><span class="n">interceptors</span><span class="err">，格式化器</span><span class="n">formatters</span><span class="err">，视图控制器</span><span class="n">view</span> <span class="n">controllers</span><span class="err">等，可以通过创建类型为</span><span class="n">WebMvcConfigurer</span><span class="err">的配置类来实现，不要加注解</span><span class="nd">@EnableWebMvc</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl"><span class="n">i</span><span class="err">、如果要自定义处理器映射器</span><span class="n">RequestMappingHandlerMapping</span><span class="o">,</span> <span class="err">处理器适配器</span><span class="n">RequestMappingHandlerAdapter</span><span class="o">,</span> <span class="err">或者异常处理器</span><span class="n">ExceptionHandlerExceptionResolver</span><span class="err">，可以在容器中创建类型为</span><span class="n">WebMvcRegistrations</span><span class="err">的组件对象来实现。</span>
-</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="err">、如果想要完全使用自定义配置，不使用</span><span class="n">springboot</span><span class="err">默认配置，可以在配置类上加注解</span><span class="nd">@EnableWebMvc</span><span class="err">。（不推荐）</span>
+</span></span><span class="line"><span class="cl"><span class="n">e</span><span class="err">、</span><span class="n">自动注册消息代码提示处理器MessageCodesResolver</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span><span class="err">、</span><span class="n">支持静态首页index</span><span class="o">.</span><span class="na">html访问</span>
+</span></span><span class="line"><span class="cl"><span class="n">g</span><span class="err">、</span><span class="n">自动注册web数据参数绑定对象ConfigurableWebBindingInitializer</span><span class="err">，</span><span class="n">如果我们自己注册了该类型对象</span><span class="err">，</span><span class="n">那springboot会自动调用我们注册的对象</span><span class="err">，</span><span class="n">替换默认对象将请求参数绑定到javabean</span><span class="err">（</span><span class="n">了解</span><span class="err">）。</span>
+</span></span><span class="line"><span class="cl"><span class="n">h</span><span class="err">、</span><span class="n">如果要自定义拦截器interceptors</span><span class="err">，</span><span class="n">格式化器formatters</span><span class="err">，</span><span class="n">视图控制器view</span> <span class="n">controllers等</span><span class="err">，</span><span class="n">可以通过创建类型为WebMvcConfigurer的配置类来实现</span><span class="err">，</span><span class="n">不要加注解</span><span class="nd">@EnableWebMvc</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span><span class="err">、</span><span class="n">如果要自定义处理器映射器RequestMappingHandlerMapping</span><span class="o">,</span> <span class="n">处理器适配器RequestMappingHandlerAdapter</span><span class="o">,</span> <span class="n">或者异常处理器ExceptionHandlerExceptionResolver</span><span class="err">，</span><span class="n">可以在容器中创建类型为WebMvcRegistrations的组件对象来实现</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span><span class="err">、</span><span class="n">如果想要完全使用自定义配置</span><span class="err">，</span><span class="n">不使用springboot默认配置</span><span class="err">，</span><span class="n">可以在配置类上加注解</span><span class="nd">@EnableWebMvc</span><span class="err">。（</span><span class="n">不推荐</span><span class="err">）</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">参考官方文档：</span><span class="n">https</span><span class="o">:</span><span class="c1">//docs.spring.io/spring-boot/docs/2.4.3/reference/html/spring-boot-features.html#boot-features-spring-mvc
+</span></span><span class="line"><span class="cl"><span class="n">参考官方文档</span><span class="err">：</span><span class="n">https</span><span class="o">:</span><span class="c1">//docs.spring.io/spring-boot/docs/2.4.3/reference/html/spring-boot-features.html#boot-features-spring-mvc
 </span></span></span></code></pre></div><h5 id="4小结">（4）小结</h5>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a、SpringBoot启动会加载大量的自动配置类 
 </span></span><span class="line"><span class="cl">b、根据配置文件和xxxProperties的默认设置初始化自动配置类中的组件
@@ -1511,6 +1552,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -1574,9 +1672,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

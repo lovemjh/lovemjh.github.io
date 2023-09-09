@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -461,27 +502,27 @@
     
 ></p>
 <h2 id="1-服务器">1. 服务器</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">理解</span>
-</span></span><span class="line"><span class="cl">    <span class="n">web</span><span class="err">服务器一般是指网站服务器，为软件提供后台服务的软件。相当于远程的一台计算机包含磁盘</span> <span class="n">CPU</span> <span class="err">内存和服务器软件等。我们这里的服务器指</span> <span class="err">服务器软件</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span>
+</span></span><span class="line"><span class="cl">    <span class="n">web服务器一般是指网站服务器</span><span class="err">，</span><span class="n">为软件提供后台服务的软件</span><span class="err">。</span><span class="n">相当于远程的一台计算机包含磁盘</span> <span class="n">CPU</span> <span class="n">内存和服务器软件等</span><span class="err">。</span><span class="n">我们这里的服务器指</span> <span class="n">服务器软件</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">常见服务器软件：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Tomcat</span><span class="o">(</span><span class="n">Apacha</span><span class="o">)</span> <span class="err">目前最流行的</span><span class="n">JavaWeb</span><span class="err">服务器软件。开源免费</span>
+</span></span><span class="line"><span class="cl"><span class="n">常见服务器软件</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Tomcat</span><span class="o">(</span><span class="n">Apacha</span><span class="o">)</span> <span class="n">目前最流行的JavaWeb服务器软件</span><span class="err">。</span><span class="n">开源免费</span>
 </span></span><span class="line"><span class="cl">    <span class="n">JBoss</span> 
 </span></span><span class="line"><span class="cl">    <span class="n">Weblogic</span> 
 </span></span><span class="line"><span class="cl">    <span class="o">......</span>
-</span></span><span class="line"><span class="cl"><span class="n">Tomcat</span><span class="err">的使用</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">1.</span> <span class="err">下载</span> <span class="err">解压</span>  <span class="n">apache</span><span class="o">-</span><span class="n">tomcat</span><span class="o">-</span><span class="mf">8.5.20</span><span class="o">-</span><span class="n">windows</span><span class="o">-</span><span class="n">x64</span><span class="o">.</span><span class="na">zip</span>
-</span></span><span class="line"><span class="cl">    	<span class="err">解压的目录不要过深</span> <span class="err">不要有中文</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">2.</span> <span class="err">配置好</span><span class="n">JDK</span>  <span class="err">需要配置</span><span class="n">JAVA_HOME</span><span class="err">环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="n">Tomcat的使用</span>
+</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">下载</span> <span class="n">解压</span>  <span class="n">apache</span><span class="o">-</span><span class="n">tomcat</span><span class="o">-</span><span class="n">8</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">20</span><span class="o">-</span><span class="n">windows</span><span class="o">-</span><span class="n">x64</span><span class="o">.</span><span class="na">zip</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">解压的目录不要过深</span> <span class="n">不要有中文</span>
+</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">配置好JDK</span>  <span class="n">需要配置JAVA_HOME环境变量</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">目录：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">bin</span><span class="err">：</span><span class="n">tomcat</span><span class="err">二进制启动文件</span>
-</span></span><span class="line"><span class="cl">    <span class="n">conf</span><span class="err">：</span><span class="n">tomcat</span><span class="err">配置文件</span>
-</span></span><span class="line"><span class="cl">    <span class="n">lib</span><span class="o">:</span> <span class="n">tomcat</span><span class="err">依赖包</span>
-</span></span><span class="line"><span class="cl">    <span class="n">logs</span><span class="o">:</span> <span class="n">tomcat</span><span class="err">运行的日志信息</span>
-</span></span><span class="line"><span class="cl">    <span class="n">temp</span><span class="err">：临时文件</span>
-</span></span><span class="line"><span class="cl">    <span class="n">webapps</span><span class="o">:</span> <span class="n">web</span><span class="err">工程</span>
-</span></span><span class="line"><span class="cl">    <span class="n">work</span><span class="err">：编译文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">目录</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bin</span><span class="err">：</span><span class="n">tomcat二进制启动文件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conf</span><span class="err">：</span><span class="n">tomcat配置文件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lib</span><span class="o">:</span> <span class="n">tomcat依赖包</span>
+</span></span><span class="line"><span class="cl">    <span class="n">logs</span><span class="o">:</span> <span class="n">tomcat运行的日志信息</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp</span><span class="err">：</span><span class="n">临时文件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">webapps</span><span class="o">:</span> <span class="n">web工程</span>
+</span></span><span class="line"><span class="cl">    <span class="n">work</span><span class="err">：</span><span class="n">编译文件</span>
 </span></span></code></pre></div><h2 id="2-idea与tomcat整合">2. idea与tomcat整合</h2>
 <p><img src="/posts/JavaEE/20220430215127/image-20220430224907951.png"
     
@@ -492,67 +533,67 @@
     
 ></p>
 <h1 id="servlet">Servlet</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">理解：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Servlet</span> <span class="err">是运行在</span> <span class="n">Web</span> <span class="err">服务器中的小型</span> <span class="n">Java</span> <span class="err">程序。</span><span class="n">Servlet</span> <span class="err">通常通过</span> <span class="n">HTTP</span><span class="err">（超文本传输协议）接收和响应来自</span> <span class="n">Web</span> <span class="err">客户端的请求。</span>
-</span></span><span class="line"><span class="cl">    <span class="err">①</span> <span class="n">Servlet</span><span class="err">是一个</span><span class="n">Java</span><span class="err">接口</span>
-</span></span><span class="line"><span class="cl">    <span class="err">②</span> <span class="err">需要运行在服务器中</span>
-</span></span><span class="line"><span class="cl">    <span class="err">③</span> <span class="err">可以处理来自客户端的请求和响应</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Servlet</span> <span class="n">是运行在</span> <span class="n">Web</span> <span class="n">服务器中的小型</span> <span class="n">Java</span> <span class="n">程序</span><span class="err">。</span><span class="n">Servlet</span> <span class="n">通常通过</span> <span class="n">HTTP</span><span class="err">（</span><span class="n">超文本传输协议</span><span class="err">）</span><span class="n">接收和响应来自</span> <span class="n">Web</span> <span class="n">客户端的请求</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">    <span class="err">①</span> <span class="n">Servlet是一个Java接口</span>
+</span></span><span class="line"><span class="cl">    <span class="err">②</span> <span class="n">需要运行在服务器中</span>
+</span></span><span class="line"><span class="cl">    <span class="err">③</span> <span class="n">可以处理来自客户端的请求和响应</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">作用：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">处理来自客户端的请求和响应</span>
+</span></span><span class="line"><span class="cl"><span class="n">作用</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">处理来自客户端的请求和响应</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">使用：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">①</span> <span class="err">自定义类实现</span><span class="n">Servlet</span><span class="err">接口</span>
-</span></span><span class="line"><span class="cl">    <span class="err">②</span> <span class="err">实现</span><span class="n">Servlet</span><span class="err">中未实现方法</span> <span class="mi">5</span>
-</span></span><span class="line"><span class="cl">    <span class="err">③</span> <span class="err">配置</span><span class="n">Servlet</span><span class="err">的访问路径</span>
-</span></span><span class="line"><span class="cl">    <span class="err">在</span><span class="n">web</span><span class="o">.</span><span class="na">xml</span><span class="err">文件中配置</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span><span class="err">声明</span><span class="n">Servlet</span><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">使用</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="err">①</span> <span class="n">自定义类实现Servlet接口</span>
+</span></span><span class="line"><span class="cl">    <span class="err">②</span> <span class="n">实现Servlet中未实现方法</span> <span class="n">5</span>
+</span></span><span class="line"><span class="cl">    <span class="err">③</span> <span class="n">配置Servlet的访问路径</span>
+</span></span><span class="line"><span class="cl">    <span class="n">在web</span><span class="o">.</span><span class="na">xml文件中配置</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span><span class="n">声明Servlet</span><span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">MyServlet1</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">ujiuye</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">MyServlet1</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span><span class="err">配置访问路径</span><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span><span class="n">配置访问路径</span><span class="o">--&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">MyServlet1</span><span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;!--</span><span class="n">http</span><span class="o">:</span><span class="c1">//localhost:8080/JavaWeb_day11_web/xx--&gt;
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">xx</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl"><span class="err">使用注意事项</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">1.</span> <span class="n">Servlet</span><span class="err">是由谁实例化的？</span> <span class="err">由</span><span class="n">tomcat</span><span class="err">服务器</span><span class="o">(</span><span class="n">Servlet</span><span class="err">容器</span><span class="o">)</span><span class="err">实例化的</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">2.</span> <span class="n">Servlet</span><span class="err">实例化几次？只初始化一次</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">3.</span> <span class="n">Servlet</span><span class="err">什么时候初始化的？第一次请求</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">4.</span> <span class="err">一个</span><span class="n">Servlet</span><span class="err">可以设置多少个访问路径？可以设置多个访问路径</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">5.</span> <span class="err">一个路径可以访问多个</span><span class="n">Servlet</span><span class="err">吗？一个路径只能映射一个</span><span class="n">Servlet</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">6.</span> <span class="err">路径多元化</span>
-</span></span><span class="line"><span class="cl">            <span class="o">/</span><span class="n">xx</span>  <span class="err">一层</span>
-</span></span><span class="line"><span class="cl">            <span class="o">/</span><span class="n">xx</span><span class="o">/</span><span class="n">xxx</span><span class="o">/</span><span class="n">xxxx</span> <span class="err">多层</span>
-</span></span><span class="line"><span class="cl">            <span class="o">/*</span>   <span class="err">除去已经配置过的路径的其他任意路径</span>
-</span></span><span class="line"><span class="cl">            <span class="o">*.</span><span class="na">png</span>  <span class="err">后缀的形式</span>
+</span></span><span class="line"><span class="cl"><span class="n">使用注意事项</span>
+</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">Servlet是由谁实例化的</span><span class="err">？</span> <span class="n">由tomcat服务器</span><span class="o">(</span><span class="n">Servlet容器</span><span class="o">)</span><span class="n">实例化的</span>
+</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">Servlet实例化几次</span><span class="err">？</span><span class="n">只初始化一次</span>
+</span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">Servlet什么时候初始化的</span><span class="err">？</span><span class="n">第一次请求</span>
+</span></span><span class="line"><span class="cl">    <span class="n">4</span><span class="o">.</span> <span class="n">一个Servlet可以设置多少个访问路径</span><span class="err">？</span><span class="n">可以设置多个访问路径</span>
+</span></span><span class="line"><span class="cl">    <span class="n">5</span><span class="o">.</span> <span class="n">一个路径可以访问多个Servlet吗</span><span class="err">？</span><span class="n">一个路径只能映射一个Servlet</span>
+</span></span><span class="line"><span class="cl">    <span class="n">6</span><span class="o">.</span> <span class="n">路径多元化</span>
+</span></span><span class="line"><span class="cl">            <span class="o">/</span><span class="n">xx</span>  <span class="n">一层</span>
+</span></span><span class="line"><span class="cl">            <span class="o">/</span><span class="n">xx</span><span class="o">/</span><span class="n">xxx</span><span class="o">/</span><span class="n">xxxx</span> <span class="n">多层</span>
+</span></span><span class="line"><span class="cl">            <span class="o">/*</span>   <span class="n">除去已经配置过的路径的其他任意路径</span>
+</span></span><span class="line"><span class="cl">            <span class="o">*.</span><span class="na">png</span>  <span class="n">后缀的形式</span>
 </span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl"><span class="err">浏览器请求</span><span class="n">Servlet</span><span class="err">的过程</span>
-</span></span><span class="line"><span class="cl">   <span class="mf">1.</span> <span class="err">当浏览器</span><span class="n">url</span><span class="err">中输入</span><span class="n">http</span><span class="o">:</span><span class="c1">//localhost:8080/JavaWeb_day11_web/xx
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="mf">2.</span> <span class="err">根据</span><span class="o">/</span><span class="n">xx</span> <span class="err">匹配</span><span class="n">web</span><span class="o">.</span><span class="na">xml</span><span class="err">中的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span><span class="err">中的</span><span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">   <span class="mf">3.</span> <span class="err">没有匹配到</span> <span class="err">报</span><span class="mi">404</span><span class="err">未找到</span>  <span class="err">如果匹配到</span>
-</span></span><span class="line"><span class="cl">   <span class="mf">4.</span> <span class="err">再根据匹配到的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span><span class="err">中的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;,</span><span class="err">根据这个</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="err">进步匹配</span> <span class="o">&lt;</span><span class="n">servlet</span><span class="o">&gt;</span><span class="err">中的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">浏览器请求Servlet的过程</span>
+</span></span><span class="line"><span class="cl">   <span class="n">1</span><span class="o">.</span> <span class="n">当浏览器url中输入http</span><span class="o">:</span><span class="c1">//localhost:8080/JavaWeb_day11_web/xx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">2</span><span class="o">.</span> <span class="n">根据</span><span class="o">/</span><span class="n">xx</span> <span class="n">匹配web</span><span class="o">.</span><span class="na">xml中的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span><span class="n">中的</span><span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">3</span><span class="o">.</span> <span class="n">没有匹配到</span> <span class="n">报404未找到</span>  <span class="n">如果匹配到</span>
+</span></span><span class="line"><span class="cl">   <span class="n">4</span><span class="o">.</span> <span class="n">再根据匹配到的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span><span class="n">中的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;,</span><span class="n">根据这个</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="n">进步匹配</span> <span class="o">&lt;</span><span class="n">servlet</span><span class="o">&gt;</span><span class="n">中的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl">   <span class="mf">5.</span> <span class="err">没有匹配到</span> <span class="err">报</span><span class="mi">404</span><span class="err">未找到</span> <span class="err">如果匹配到</span>
-</span></span><span class="line"><span class="cl">   <span class="mf">6.</span> <span class="err">根据当前的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="err">找对应的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span> 
-</span></span><span class="line"><span class="cl">   <span class="mf">7.</span> <span class="err">反射机制加载当前类</span>
+</span></span><span class="line"><span class="cl">   <span class="n">5</span><span class="o">.</span> <span class="n">没有匹配到</span> <span class="n">报404未找到</span> <span class="n">如果匹配到</span>
+</span></span><span class="line"><span class="cl">   <span class="n">6</span><span class="o">.</span> <span class="n">根据当前的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">找对应的</span><span class="o">&lt;</span><span class="n">servlet</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span> 
+</span></span><span class="line"><span class="cl">   <span class="n">7</span><span class="o">.</span> <span class="n">反射机制加载当前类</span>
 </span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl"><span class="n">Servlet</span><span class="err">的生命周期方法</span>
-</span></span><span class="line"><span class="cl">	<span class="n">init</span> <span class="err">初始化方法</span>  <span class="err">默认当第一次请求</span><span class="n">Servlet</span><span class="err">时执行该方法</span> <span class="err">对</span><span class="n">Servlet</span><span class="err">做初始化操作。</span>
-</span></span><span class="line"><span class="cl">	<span class="n">service</span> <span class="err">处理客户端请求和响应</span> <span class="err">实现浏览器和</span><span class="n">Servlet</span><span class="err">交互</span>
+</span></span><span class="line"><span class="cl"><span class="n">Servlet的生命周期方法</span>
+</span></span><span class="line"><span class="cl">	<span class="n">init</span> <span class="n">初始化方法</span>  <span class="n">默认当第一次请求Servlet时执行该方法</span> <span class="n">对Servlet做初始化操作</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">	<span class="n">service</span> <span class="n">处理客户端请求和响应</span> <span class="n">实现浏览器和Servlet交互</span>
 </span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	<span class="n">destory</span> <span class="err">销毁方法</span> <span class="err">服务器关闭</span> <span class="err">移出应用</span> <span class="n">tomcat</span><span class="err">销毁当前</span><span class="n">Servlet</span>
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl"><span class="n">Servlet</span><span class="err">的进化史</span>
-</span></span><span class="line"><span class="cl">	<span class="mf">1.</span> <span class="n">GenericServlet</span><span class="err">抽象类</span> <span class="err">实现了</span><span class="n">Servlet</span><span class="err">接口，并且实现了除</span><span class="n">service</span><span class="err">之外的其他方法</span>
-</span></span><span class="line"><span class="cl">	<span class="mf">2.</span> <span class="n">HttpServlet</span> <span class="err">继承了</span><span class="n">GenericServlet</span> <span class="err">实现</span><span class="n">service</span><span class="err">方法</span> <span class="err">根据</span><span class="n">HTTP</span><span class="err">协议的请求方式执行不同的方法</span><span class="n">doXx</span><span class="o">,</span><span class="err">然后定义自己的</span><span class="n">service</span><span class="err">方法。开发者使用只需要重写对应请求方式的</span><span class="n">doXx</span>  <span class="err">或者重写</span><span class="n">service</span><span class="err">方法</span>	
+</span></span><span class="line"><span class="cl">	<span class="n">destory</span> <span class="n">销毁方法</span> <span class="n">服务器关闭</span> <span class="n">移出应用</span> <span class="n">tomcat销毁当前Servlet</span>
 </span></span><span class="line"><span class="cl">	
 </span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl"><span class="err">注解的方式使用</span><span class="n">HttpServlet</span>
+</span></span><span class="line"><span class="cl"><span class="n">Servlet的进化史</span>
+</span></span><span class="line"><span class="cl">	<span class="n">1</span><span class="o">.</span> <span class="n">GenericServlet抽象类</span> <span class="n">实现了Servlet接口</span><span class="err">，</span><span class="n">并且实现了除service之外的其他方法</span>
+</span></span><span class="line"><span class="cl">	<span class="n">2</span><span class="o">.</span> <span class="n">HttpServlet</span> <span class="n">继承了GenericServlet</span> <span class="n">实现service方法</span> <span class="n">根据HTTP协议的请求方式执行不同的方法doXx</span><span class="o">,</span><span class="n">然后定义自己的service方法</span><span class="err">。</span><span class="n">开发者使用只需要重写对应请求方式的doXx</span>  <span class="n">或者重写service方法</span>	
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"><span class="n">注解的方式使用HttpServlet</span>
 </span></span></code></pre></div>
             </div>
             <hr>
@@ -659,6 +700,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -722,9 +820,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -483,22 +524,22 @@
 ></p>
 <h2 id="四mysql">四、MySQL</h2>
 <h4 id="1-下载安装">1. 下载安装</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">下载地址：</span><span class="n">https</span><span class="o">:</span><span class="c1">//dev.mysql.com/downloads/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">下载地址</span><span class="err">：</span><span class="n">https</span><span class="o">:</span><span class="c1">//dev.mysql.com/downloads/
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="err">安装：参考</span><span class="o">&lt;&lt;</span><span class="n">MySQL</span><span class="err">安装过程</span><span class="o">&gt;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">安装</span><span class="err">：</span><span class="n">参考</span><span class="o">&lt;&lt;</span><span class="n">MySQL安装过程</span><span class="o">&gt;&gt;</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="err">卸载：</span>
-</span></span><span class="line"><span class="cl">    <span class="err">①</span> <span class="err">卸载应用</span> 
-</span></span><span class="line"><span class="cl">    <span class="err">②</span> <span class="err">删除残留文件：安装的目录下</span>
+</span></span><span class="line"><span class="cl"><span class="n">卸载</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="err">①</span> <span class="n">卸载应用</span> 
+</span></span><span class="line"><span class="cl">    <span class="err">②</span> <span class="n">删除残留文件</span><span class="err">：</span><span class="n">安装的目录下</span>
 </span></span><span class="line"><span class="cl">    	<span class="n">D</span><span class="o">:</span><span class="err">\</span><span class="n">ProgramData</span><span class="err">\</span><span class="n">MySQL</span>
 </span></span><span class="line"><span class="cl">         <span class="n">D</span><span class="o">:</span><span class="err">\</span><span class="n">Program</span> <span class="n">Files</span><span class="err">\</span><span class="n">MySQL</span>
-</span></span><span class="line"><span class="cl">    <span class="err">③</span> <span class="err">检查注册表</span>
-</span></span><span class="line"><span class="cl">    <span class="err">④</span> <span class="err">关机</span>  <span class="err">开启重新安装</span>
+</span></span><span class="line"><span class="cl">    <span class="err">③</span> <span class="n">检查注册表</span>
+</span></span><span class="line"><span class="cl">    <span class="err">④</span> <span class="n">关机</span>  <span class="n">开启重新安装</span>
 </span></span><span class="line"><span class="cl">             
-</span></span><span class="line"><span class="cl"><span class="err">测试：</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">1.</span> <span class="err">关闭</span><span class="n">MySQL</span><span class="err">服务：</span><span class="n">net</span> <span class="n">stop</span> <span class="n">mysql</span><span class="err">服务名</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">2.</span> <span class="err">开启</span><span class="n">MySQL</span><span class="err">服务：</span><span class="n">net</span> <span class="n">start</span> <span class="n">mysql</span><span class="err">服务名</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">3.</span> <span class="err">连接：</span><span class="n">mysql</span> <span class="err">【</span><span class="o">-</span><span class="n">hIP</span><span class="err">地址】</span> <span class="o">-</span><span class="n">u</span><span class="err">用户名</span> <span class="o">-</span><span class="n">p</span><span class="err">密码</span>
+</span></span><span class="line"><span class="cl"><span class="n">测试</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">关闭MySQL服务</span><span class="err">：</span><span class="n">net</span> <span class="n">stop</span> <span class="n">mysql服务名</span>
+</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">开启MySQL服务</span><span class="err">：</span><span class="n">net</span> <span class="n">start</span> <span class="n">mysql服务名</span>
+</span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">连接</span><span class="err">：</span><span class="n">mysql</span> <span class="err">【</span><span class="o">-</span><span class="n">hIP地址</span><span class="err">】</span> <span class="o">-</span><span class="n">u用户名</span> <span class="o">-</span><span class="n">p密码</span>
 </span></span></code></pre></div><p><img src="/posts/001/20220430223384/image-20220430223446077.png"
     
     
@@ -516,9 +557,9 @@
     
 ></p>
 <h2 id="数据库结构">数据库结构</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">一个</span><span class="n">DBMS</span><span class="err">数据库系统中保存</span> <span class="err">多个</span> <span class="err">数据库</span>
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">一个数据库</span> <span class="err">中保存</span> <span class="err">多张表</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">一张表中</span> <span class="err">可以保存</span> <span class="err">多条数据</span> <span class="err">表头（列名或者字段名）</span><span class="o">+</span> <span class="err">每一条数据</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">一个DBMS数据库系统中保存</span> <span class="n">多个</span> <span class="n">数据库</span>
+</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">一个数据库</span> <span class="n">中保存</span> <span class="n">多张表</span>
+</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">一张表中</span> <span class="n">可以保存</span> <span class="n">多条数据</span> <span class="n">表头</span><span class="err">（</span><span class="n">列名或者字段名</span><span class="err">）</span><span class="o">+</span> <span class="n">每一条数据</span>
 </span></span></code></pre></div>
             </div>
             <hr>
@@ -625,6 +666,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -688,9 +786,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

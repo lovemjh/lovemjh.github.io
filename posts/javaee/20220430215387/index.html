@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -453,17 +494,17 @@
             <div class="js-toc-content" style="height: 100%;">
                 <h1 id="filter">Filter</h1>
 <h3 id="1-理解">1. 理解</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">Filter</span><span class="err">过滤器，过滤器是执行过滤任务的对象，这些任务是针对对某一资源（</span><span class="n">servlet</span> <span class="err">或静态内容）的请求或来自某一资源的响应执行的，抑或同时针对这两者执行。</span>
-</span></span><span class="line"><span class="cl">      <span class="err">过滤的结果：</span>
-</span></span><span class="line"><span class="cl">        <span class="mf">1.</span> <span class="err">拦截</span>  
-</span></span><span class="line"><span class="cl">        <span class="mf">2.</span> <span class="err">放行</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">Filter过滤器</span><span class="err">，</span><span class="n">过滤器是执行过滤任务的对象</span><span class="err">，</span><span class="n">这些任务是针对对某一资源</span><span class="err">（</span><span class="n">servlet</span> <span class="n">或静态内容</span><span class="err">）</span><span class="n">的请求或来自某一资源的响应执行的</span><span class="err">，</span><span class="n">抑或同时针对这两者执行</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">      <span class="n">过滤的结果</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">        <span class="n">1</span><span class="o">.</span> <span class="n">拦截</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">2</span><span class="o">.</span> <span class="n">放行</span>
 </span></span></code></pre></div><h3 id="2-作用">2. 作用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="err">过滤访问</span><span class="n">Servlet</span><span class="err">或者其他资源之前的</span> <span class="err">初始化操作的对象，比如：自动登录</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">过滤访问Servlet或者其他资源之前的</span> <span class="n">初始化操作的对象</span><span class="err">，</span><span class="n">比如</span><span class="err">：</span><span class="n">自动登录</span>
 </span></span></code></pre></div><h3 id="3-使用">3. 使用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">方式</span><span class="mi">1</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl"><span class="err">①</span> <span class="err">自定义类</span> <span class="err">实现过滤器接口</span>
-</span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="err">实现未实现方法</span>
-</span></span><span class="line"><span class="cl"><span class="err">③</span> <span class="err">指定过滤的资源</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">方式1</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="err">①</span> <span class="n">自定义类</span> <span class="n">实现过滤器接口</span>
+</span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="n">实现未实现方法</span>
+</span></span><span class="line"><span class="cl"><span class="err">③</span> <span class="n">指定过滤的资源</span>
 </span></span><span class="line"><span class="cl">     <span class="o">&lt;</span><span class="n">filter</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">MyFilter1</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">filter</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">ujiuye</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">filter</span><span class="o">.</span><span class="na">MyFilter1</span><span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>
@@ -473,13 +514,13 @@
 </span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;/</span><span class="n">servlet1</span><span class="o">&lt;/</span><span class="n">url</span><span class="o">-</span><span class="n">pattern</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">filter</span><span class="o">-</span><span class="n">mapping</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl"><span class="err">方式</span><span class="mi">2</span><span class="err">：注解的方式</span> <span class="o">(</span><span class="err">推荐</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">方式2</span><span class="err">：</span><span class="n">注解的方式</span> <span class="o">(</span><span class="n">推荐</span><span class="o">)</span>
 </span></span></code></pre></div><h3 id="4-特点">4. 特点</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">·</span> <span class="err">一个资源可以配置多个</span><span class="n">Filter</span> 
-</span></span><span class="line"><span class="cl"><span class="err">·</span> <span class="err">一个</span><span class="n">Filter</span><span class="err">可以过滤多个资源</span>
-</span></span><span class="line"><span class="cl"><span class="err">·</span> <span class="err">过滤器默认不过滤转发</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">·</span> <span class="n">一个资源可以配置多个Filter</span> 
+</span></span><span class="line"><span class="cl"><span class="err">·</span> <span class="n">一个Filter可以过滤多个资源</span>
+</span></span><span class="line"><span class="cl"><span class="err">·</span> <span class="n">过滤器默认不过滤转发</span>
 </span></span></code></pre></div><h3 id="5-使用场景">5. 使用场景</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="err">字符编码过滤器②</span> <span class="err">自动登录</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">字符编码过滤器</span><span class="err">②</span> <span class="n">自动登录</span>
 </span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215387/image-20220430224642703.png"
     
     
@@ -490,13 +531,13 @@
 ></p>
 <h1 id="listener">Listener</h1>
 <h3 id="1-理解-1">1. 理解</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">Listener</span><span class="err">监听器。监听</span><span class="n">Servlet</span><span class="err">中的共享域对象的创建</span> <span class="err">销毁</span> <span class="err">属性的设置</span> <span class="err">获取</span> <span class="err">改变的对象</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">Listener监听器</span><span class="err">。</span><span class="n">监听Servlet中的共享域对象的创建</span> <span class="n">销毁</span> <span class="n">属性的设置</span> <span class="n">获取</span> <span class="n">改变的对象</span>
 </span></span></code></pre></div><h3 id="2-作用-1">2. 作用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="err">对数据的相关监听</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">对数据的相关监听</span>
 </span></span></code></pre></div><h3 id="3-分类">3. 分类</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="err">域对象的创建和销毁的监听器</span>    <span class="n">ServletContextListener</span>  <span class="err">统计消耗的流量</span>    <span class="n">HttpSessionListener</span>     <span class="err">统计在线人数</span>    <span class="n">ServletRequestListener</span>  <span class="err">统计访问量</span>    <span class="err">②</span> <span class="err">域对象中属性操作的监听</span>    <span class="n">ServletContextAttributeListener</span>    <span class="n">HttpSessionAttributeListener</span>    <span class="n">ServletRequestAttributeListener</span>    <span class="err">③</span> <span class="n">HttpSession</span><span class="err">对象处理的监听</span>    <span class="n">HttpSessionBindingListener</span>  <span class="n">session</span><span class="err">中绑定对象的监听器</span>    <span class="n">HttpSessionActivactionListener</span>  <span class="err">对象随着</span><span class="n">session</span><span class="err">钝化和活化的监听器</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">域对象的创建和销毁的监听器</span>    <span class="n">ServletContextListener</span>  <span class="n">统计消耗的流量</span>    <span class="n">HttpSessionListener</span>     <span class="n">统计在线人数</span>    <span class="n">ServletRequestListener</span>  <span class="n">统计访问量</span>    <span class="err">②</span> <span class="n">域对象中属性操作的监听</span>    <span class="n">ServletContextAttributeListener</span>    <span class="n">HttpSessionAttributeListener</span>    <span class="n">ServletRequestAttributeListener</span>    <span class="err">③</span> <span class="n">HttpSession对象处理的监听</span>    <span class="n">HttpSessionBindingListener</span>  <span class="n">session中绑定对象的监听器</span>    <span class="n">HttpSessionActivactionListener</span>  <span class="n">对象随着session钝化和活化的监听器</span>
 </span></span></code></pre></div><h3 id="4-使用">4. 使用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="err">自定义类实现监听器接口②</span> <span class="err">实现未实现方法③</span> <span class="err">声明监听器</span> <span class="n">web</span><span class="o">.</span><span class="na">xml</span>    <span class="o">&lt;</span><span class="n">listener</span><span class="o">&gt;</span>        <span class="o">&lt;</span><span class="n">listener</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">ujiuye</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">listener</span><span class="o">.</span><span class="na">MyListener1</span><span class="o">&lt;/</span><span class="n">listener</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>    <span class="o">&lt;/</span><span class="n">listener</span><span class="o">&gt;</span>    
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">自定义类实现监听器接口</span><span class="err">②</span> <span class="n">实现未实现方法</span><span class="err">③</span> <span class="n">声明监听器</span> <span class="n">web</span><span class="o">.</span><span class="na">xml</span>    <span class="o">&lt;</span><span class="n">listener</span><span class="o">&gt;</span>        <span class="o">&lt;</span><span class="n">listener</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">ujiuye</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">listener</span><span class="o">.</span><span class="na">MyListener1</span><span class="o">&lt;/</span><span class="n">listener</span><span class="o">-</span><span class="n">class</span><span class="o">&gt;</span>    <span class="o">&lt;/</span><span class="n">listener</span><span class="o">&gt;</span>    
 </span></span></code></pre></div><h3 id="四总结">四、总结</h3>
 <p><img src="/posts/JavaEE/20220430215387/image-20220430224707460.png"
     
@@ -612,6 +653,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -675,9 +773,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.4/tocbot.css">
   
   <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/agate.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
   <script type="text/javascript">
     if (!!window.ActiveXObject || "ActiveXObject" in window) { 
       alert('朋友，上古浏览器不支持呢~');
@@ -217,10 +224,7 @@
 
 
      
-    a.toc-link {
-      color: currentColor;
-      height: auto;
-    }
+     
 
      
     * {
@@ -258,16 +262,53 @@
       display: inline;
       margin-right: 20px;
     }
+
+    #Background_animation { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    }
+
   </style>
 
 </head>
-    <body style="    
-    background-image: url(https://api.ixiaowai.cn/api/api.php);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    -moz-background-size: 100% 100%;">
-    <input type="checkbox" id="check">
+    <body style="background-color: rgb(229, 204, 15);">
+    
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" id="Background_animation">
+  <defs>
+      <style>
+          @keyframes rotate {
+              100% {
+                  transform: rotate(360deg);
+              }
+          }
+          .out-top {
+              animation: rotate 20s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .in-top {
+              animation: rotate 10s linear infinite;
+              transform-origin: 13px 25px;
+          }
+          .out-bottom {
+              animation: rotate 25s linear infinite;
+              transform-origin: 84px 93px;
+          }
+          .in-bottom {
+              animation: rotate 15s linear infinite;
+              transform-origin: 84px 93px;
+          }
+      </style>
+  </defs>
+  <path fill="#9b5de5" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+  <path fill="#f15bb5" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
+  <path fill="#00bbf9" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+  <path fill="#00f5d4" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
+</svg>
+
+  <input type="checkbox" id="check">
 <label for="check">
   <i class="fa fa-bars" id="btn"></i>
   <i class="fa fa-times" id="cancel"></i>
@@ -325,9 +366,7 @@
     </li>
     
   </ul>
-</div>
-<div id="body-wrap">
-  <nav class="navigation">
+</div><nav class="navigation">
   <ul class="ull">
     
     <li class="lii">
@@ -380,6 +419,8 @@
     
   </ul>
 </nav>
+<div id="body-wrap">
+  
   <div style="width: 100%; height: 65vh;">
     <div id="page_site-info">
       <div id="site-title">
@@ -519,15 +560,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="err">⑩</span><span class="w"> </span><span class="err">外键删除</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                	</span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">stu</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="err">外键名</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">stu</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="err">外键名</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w"> </span><span class="n">MySQL</span><span class="err">常见类型：</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="w"> </span><span class="n">MySQL常见类型</span><span class="err">：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">整型：</span><span class="n">tinyint</span><span class="o">/</span><span class="nb">smallint</span><span class="o">/</span><span class="nb">int</span><span class="o">/</span><span class="nb">bigint</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">浮点型：</span><span class="n">double</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="nb">decimal</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">n</span><span class="w"> </span><span class="err">代表：整数和小数总位数</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">m</span><span class="w"> </span><span class="err">代表：小数的位数</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">字符型：</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nb">char</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">		</span><span class="err">定长字符串</span><span class="w">    </span><span class="n">n</span><span class="err">可以不写</span><span class="w"> </span><span class="err">默认</span><span class="mi">1</span><span class="w">  		</span><span class="err">性能高</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nb">varchar</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">  	</span><span class="err">变长字符串</span><span class="w">    </span><span class="n">n</span><span class="err">必须写</span><span class="w">  </span><span class="err">最大长度</span><span class="w"> 	</span><span class="err">性能低</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nb">char</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">		</span><span class="err">定长字符串</span><span class="w">    </span><span class="n">n可以不写</span><span class="w"> </span><span class="err">默认</span><span class="mi">1</span><span class="w">  		</span><span class="err">性能高</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nb">varchar</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w">  	</span><span class="err">变长字符串</span><span class="w">    </span><span class="n">n必须写</span><span class="w">  </span><span class="err">最大长度</span><span class="w"> 	</span><span class="err">性能低</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">日期类型：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nb">date</span><span class="w"> </span><span class="err">年月日</span><span class="w">
@@ -535,7 +576,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">				
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">time</span><span class="w"> </span><span class="err">时分秒</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">timestamp</span><span class="w"> </span><span class="err">年月日</span><span class="w"> </span><span class="err">时分秒</span><span class="w">  </span><span class="mi">4</span><span class="err">个字节</span><span class="w">  </span><span class="mi">1970</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="mi">2038</span><span class="w">
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="n">MySQL</span><span class="err">约束</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="n">MySQL约束</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">约束是限制</span><span class="w"> </span><span class="err">表中数据的</span><span class="w"> </span><span class="err">一种要求</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">约束：</span><span class="w">
@@ -543,7 +584,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">非空约束</span><span class="w">  </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">主键约束</span><span class="w">  </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w">    </span><span class="err">唯一</span><span class="w"> </span><span class="err">不能为</span><span class="k">null</span><span class="w">   </span><span class="err">一个表有且仅有一个主键</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">唯一约束</span><span class="w">  </span><span class="k">unique</span><span class="w">  </span><span class="err">唯一</span><span class="w"> </span><span class="err">可以为</span><span class="k">null</span><span class="w"> </span><span class="n">null</span><span class="err">可以多个</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">唯一约束</span><span class="w">  </span><span class="k">unique</span><span class="w">  </span><span class="err">唯一</span><span class="w"> </span><span class="err">可以为</span><span class="k">null</span><span class="w"> </span><span class="n">null可以多个</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="err">外键约束</span><span class="w">  </span><span class="err">建立两表之间的关系，一个表的某一列</span><span class="w"> </span><span class="err">来源于另一个表的主键值</span><span class="w">
 </span></span></span></code></pre></div><h2 id="dml">DML</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">增</span><span class="p">(</span><span class="err">插入</span><span class="p">)</span><span class="w">
@@ -563,13 +604,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">全部删除</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="k">truncate</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">【</span><span class="n">delete</span><span class="err">和</span><span class="n">truncate</span><span class="err">区别】</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">①</span><span class="w"> </span><span class="n">delete</span><span class="err">可以加</span><span class="k">where</span><span class="w">  </span><span class="k">truncate</span><span class="w"> </span><span class="err">不可以</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">②</span><span class="w"> </span><span class="n">delete</span><span class="err">删除可以回滚</span><span class="w">  </span><span class="k">truncate</span><span class="w"> </span><span class="err">不可以</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">【</span><span class="n">delete和truncate区别</span><span class="err">】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">①</span><span class="w"> </span><span class="n">delete可以加where</span><span class="w">  </span><span class="k">truncate</span><span class="w"> </span><span class="err">不可以</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">②</span><span class="w"> </span><span class="n">delete删除可以回滚</span><span class="w">  </span><span class="k">truncate</span><span class="w"> </span><span class="err">不可以</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	   </span><span class="err">③</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="err">删除自增字段时</span><span class="w"> </span><span class="err">下次添加自增效果仍然以删除之前自增</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        	</span><span class="k">truncate</span><span class="w"> </span><span class="err">删除自增字段再次添加重新开始</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">④</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="err">一条一条数据删除</span><span class="w">  </span><span class="k">truncate</span><span class="w"> </span><span class="err">删除整个表</span><span class="w"> </span><span class="err">然后再创建新表</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">        	</span><span class="n">truncate</span><span class="err">效率高</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        	</span><span class="n">truncate效率高</span><span class="w">
 </span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Sql" data-lang="Sql"><span class="line"><span class="cl"><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">修改</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">语法：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="k">update</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="err">列名</span><span class="mi">1</span><span class="o">=</span><span class="err">新值</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="mi">2</span><span class="o">=</span><span class="err">新值</span><span class="p">,...</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="w">
@@ -630,9 +671,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="err">排序列表</span><span class="w"> </span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">特点：</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="err">必须写在</span><span class="n">where</span><span class="err">后</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="err">必须写在</span><span class="n">where后</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">排序列表：单字段名、表达式、函数、别名、多字段名或者组合</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="k">asc</span><span class="w"> </span><span class="err">升序</span><span class="p">(</span><span class="err">默认</span><span class="p">)</span><span class="w">   </span><span class="n">desc</span><span class="err">降序</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="k">asc</span><span class="w"> </span><span class="err">升序</span><span class="p">(</span><span class="err">默认</span><span class="p">)</span><span class="w">   </span><span class="n">desc降序</span><span class="w">
 </span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223607231.png"
     
     
@@ -725,10 +766,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">count</span><span class="p">();</span><span class="w"> </span><span class="err">个数</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">特点：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">分组函数中可以传递列名、表达式</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">多行函数自动忽略</span><span class="n">null</span><span class="err">值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">多行函数自动忽略</span><span class="n">null值</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">多行函数支持类型</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">sum</span><span class="w"> </span><span class="k">avg</span><span class="w"> </span><span class="err">只支持数值类型</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">max</span><span class="w"> </span><span class="k">min</span><span class="w"> </span><span class="n">count</span><span class="err">支持任意类型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">max</span><span class="w"> </span><span class="k">min</span><span class="w"> </span><span class="n">count支持任意类型</span><span class="w">
 </span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223643230.png"
     
     
@@ -822,13 +863,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="k">limit</span><span class="w"> </span><span class="err">偏移量</span><span class="p">,</span><span class="w"> </span><span class="err">个数</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">特点：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">连接条件一定要加</span><span class="w">  </span><span class="err">否则出现笛卡尔乘积现象</span><span class="w">  </span><span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">通过</span><span class="n">where</span><span class="err">添加连接条件</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="n">from</span><span class="err">后的表名顺序可以随意调整</span><span class="w"> </span><span class="err">不影响结果</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">通过</span><span class="n">where添加连接条件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="n">from后的表名顺序可以随意调整</span><span class="w"> </span><span class="err">不影响结果</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">根据连接条件分类</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="err">①</span><span class="w"> </span><span class="err">等值内连接</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="err">②</span><span class="w"> </span><span class="err">非等值内连接</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="err">③</span><span class="w"> </span><span class="err">自连接</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="n">n</span><span class="err">表连接</span><span class="w"> </span><span class="err">连接条件至少</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="err">个</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="n">n表连接</span><span class="w"> </span><span class="err">连接条件至少</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="err">个</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    
 </span></span></span><span class="line"><span class="cl"><span class="w">  
@@ -868,13 +909,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      	</span><span class="k">limit</span><span class="w"> </span><span class="err">偏移量</span><span class="p">,</span><span class="w"> </span><span class="err">个数</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="err">特点：</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">连接条件需要添加</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="n">on</span><span class="err">后加连接条件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="n">on后加连接条件</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">表的顺序可以随意调换</span><span class="w"> </span><span class="err">不影响结果</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">根据连接条件分类</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="err">①</span><span class="w"> </span><span class="err">等值内连接</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="err">②</span><span class="w"> </span><span class="err">非等值内连接</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="err">③</span><span class="w"> </span><span class="err">自连接</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="n">n</span><span class="err">表连接</span><span class="w"> </span><span class="err">连接条件至少</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="err">个</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="n">n表连接</span><span class="w"> </span><span class="err">连接条件至少</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="err">个</span><span class="w">
 </span></span></span></code></pre></div><p><img src="/posts/001/20220430223589/image-20220430223735773.png"
     
     
@@ -1134,6 +1175,63 @@ z-index: 99999;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+  
+  <script src="/js/jquery.pjax.js"></script> 
+
+    <script type="text/javascript">
+            $(function () {
+                $(document).pjax('a', '#page', {
+                    fragment: '#page',
+                    timeout: 5000,
+                    cache: false
+                });
+                $(document).on({
+                    'pjax:click': function () {
+                        
+                        console.log("点击链接");
+                    },
+                    'pjax:start': function () {
+                        
+                        console.log("获取请求");
+                    },
+                    'pjax:end': function () {
+                        
+                        console.log("请求完成");
+                    }
+                });
+            });
+
+
+        </script>
+
+
+
+
+
+<script>
+  const imgArr = [
+    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+  ];
+  var objs = document.getElementsByClassName('page-img');
+  for (var i = 0; i < objs.length; i++) {
+    objs[i].id = "myid" + i;
+    let randNum = Math.floor(Math.random() * imgArr.length);
+    var odiv = document.getElementById("myid" + i);
+    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+    
+    odiv.style.backgroundRepeat = "no-repeat";
+    odiv.style.backgroundPosition = "0px 0px";
+  }
+</script>
+
 <script>
     var a = 0;
     ff.onclick = function () {
@@ -1197,9 +1295,13 @@ z-index: 99999;
         });
     });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
 
 

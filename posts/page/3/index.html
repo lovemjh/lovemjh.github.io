@@ -877,6 +877,12 @@
         </div>
     </div>
     
+    <div class="card-widget js-toc-w" id="js-toc-w">
+        <div class="card-content js-toc">
+            
+        </div>
+    </div>
+    
 </div></div>
 </main>
 <footer id="footer">
@@ -927,11 +933,27 @@ z-index: 99999;
                     'pjax:end': function () {
                         
                         console.log("请求完成");
+                        addNumbers();
+
                     }
                 });
             });
+                    function addNumbers() {
+                        
+                        
+                        var myElement = document.getElementById('js-toc-w');
+                        if (window.location.href.includes('/posts/')) {
+                            
+                            console.log('地址栏中包含 "/posts/"');
+                            tocbot.refresh();
+                            myElement.style.display = 'block';
+                        } else {
+                            
+                            console.log('地址栏中不包含 "/posts/"');
+                            myElement.style.display = 'none';
+                        }
 
-
+                    }
         </script>
 
 
@@ -986,14 +1008,13 @@ z-index: 99999;
     window.onload = function () {
         $(".aplayer").css("background", "rgba(0, 0, 0, 0)");
         
-
+        addNumbers();
         
     } 
 </script>
 <script>
     $(window).scroll(function () {
         var scrollY = document.documentElement.scrollTop || document.body.scrollTop
-        console.log(scrollY + "----------------------")
         if (scrollY > 40) {
             $('.fan').css("right", "0px");
         } else {
@@ -1054,6 +1075,18 @@ z-index: 99999;
 
 
 <script type="text/javascript">
+    
+    tocbot.init({
+    
+    tocSelector: '.js-toc',
+    
+    contentSelector: '.js-toc-content',
+    
+    headingSelector: 'h1, h2, h3, h4, h5 ,h6',
+    
+    hasInnerContainers: false,
+    
+    });
     console.clear();
     console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
     console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/laoxuai");

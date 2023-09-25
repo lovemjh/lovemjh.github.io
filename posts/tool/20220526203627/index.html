@@ -558,29 +558,29 @@
 <ol start="7">
 <li>使用configure命令进行按装</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="p">.</span><span class="o">/</span><span class="nv">configure</span> \
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./configure \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">prefix</span><span class="o">=/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span> \
+</span></span><span class="line"><span class="cl">--prefix=/usr/local/nginx \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">pid</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="nv">run</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">nginx</span><span class="p">.</span><span class="nv">pid</span> \
+</span></span><span class="line"><span class="cl">--pid-path=/var/run/nginx/nginx.pid \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="k">lock</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="k">lock</span><span class="o">/</span><span class="nv">nginx</span><span class="p">.</span><span class="k">lock</span> \
+</span></span><span class="line"><span class="cl">--lock-path=/var/lock/nginx.lock \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="kt">error</span><span class="o">-</span><span class="nv">log</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="nv">log</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="kt">error</span><span class="p">.</span><span class="nv">log</span> \
+</span></span><span class="line"><span class="cl">--error-log-path=/var/log/nginx/error.log \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">log</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="nv">log</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">access</span><span class="p">.</span><span class="nv">log</span> \
+</span></span><span class="line"><span class="cl">--http-log-path=/var/log/nginx/access.log \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">http_gzip_static_module</span> \
+</span></span><span class="line"><span class="cl">--with-http_gzip_static_module \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">client</span><span class="o">-</span><span class="nv">body</span><span class="o">-</span><span class="nv">temp</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="nv">temp</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">client</span> \
+</span></span><span class="line"><span class="cl">--http-client-body-temp-path=/var/temp/nginx/client \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">proxy</span><span class="o">-</span><span class="nv">temp</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="nv">temp</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">proxy</span> \
+</span></span><span class="line"><span class="cl">--http-proxy-temp-path=/var/temp/nginx/proxy \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">fastcgi</span><span class="o">-</span><span class="nv">temp</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="nv">temp</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">fastcgi</span> \
+</span></span><span class="line"><span class="cl">--http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">uwsgi</span><span class="o">-</span><span class="nv">temp</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="nv">temp</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">uwsgi</span> \
+</span></span><span class="line"><span class="cl">--http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">scgi</span><span class="o">-</span><span class="nv">temp</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">var</span><span class="o">/</span><span class="nv">temp</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">scgi</span>
+</span></span><span class="line"><span class="cl">--http-scgi-temp-path=/var/temp/nginx/scgi
 </span></span></code></pre></div><p><strong>注意：上边将临时文件目录指定为/var/temp/nginx，需要在/var下创建temp及nginx目录</strong></p>
 <ol start="8">
 <li>编译安装</li>
@@ -780,43 +780,43 @@
 </span></span></code></pre></div><ol start="3">
 <li>配置nginx.conf</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-conf" data-lang="conf"><span class="line"><span class="cl"> <span class="nv">upstream</span> <span class="nv">tomcat</span><span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> upstream tomcat{
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">server</span> <span class="mf">192.168.18.201</span><span class="err">:</span><span class="nv">8081</span> <span class="nv">weight</span><span class="o">=</span><span class="nv">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> server 192.168.18.201:8081 weight=2;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">server</span> <span class="mf">192.168.18.201</span><span class="err">:</span><span class="nv">8082</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> server 192.168.18.201:8082;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">}
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> server {
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">listen</span>       <span class="nv">80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> listen       80;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">server_name</span>  <span class="nv">localhost</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> server_name  localhost;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="c">#charset koi8-r;
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>
-</span></span><span class="line"><span class="cl"> <span class="c">#access_log  logs/host.access.log  main;
-</span></span></span><span class="line"><span class="cl"><span class="c"></span>
-</span></span><span class="line"><span class="cl"> <span class="nv">location</span> <span class="err">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> #charset koi8-r;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">proxy_pass</span>   <span class="nv">http</span><span class="err">://</span><span class="nv">tomcat</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> #access_log  logs/host.access.log  main;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">index</span>  <span class="nv">index.html</span> <span class="nv">index.htm</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> location / {
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> proxy_pass   http://tomcat;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">location</span> <span class="err">~\</span><span class="nf">.</span><span class="p">(</span><span class="nv">jsp</span><span class="err">|</span><span class="nv">do</span><span class="err">|</span><span class="nv">action</span><span class="p">)</span><span class="err">$</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> index  index.html index.htm;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">proxy_pass</span>  <span class="nv">http</span><span class="err">://</span><span class="nv">tomcat</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> }
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">location ~\.(jsp|do|action)$ {
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">location</span> <span class="err">~\</span><span class="nf">.</span><span class="p">(</span><span class="nv">html</span><span class="err">|</span><span class="nv">css</span><span class="err">|</span><span class="nv">js</span><span class="err">|</span><span class="nv">gif</span><span class="err">|</span><span class="nv">jpg</span><span class="err">|</span><span class="nv">png</span><span class="err">|</span><span class="nv">bmp</span><span class="err">|</span><span class="nv">swf</span><span class="p">)</span><span class="err">$</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> proxy_pass  http://tomcat;
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nv">root</span>  <span class="err">/</span><span class="nv">usr</span><span class="err">/</span><span class="nv">local</span><span class="err">/</span><span class="nv">staticresources</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> }
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">location ~\.(html|css|js|gif|jpg|png|bmp|swf)$ {
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> root  /usr/local/staticresources;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> }
 </span></span></code></pre></div><p><a class="link" href="/posts/tool/http://192.168.18.201/aaa.jsp"  target="_blank" rel="noopener"
     >http://192.168.18.201/aaa.jsp</a></p>
 <p>经过nginx 由nginx判断是jsp文件,走的tomcat</p>

@@ -893,7 +893,7 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">RouteLocator</span> <span class="nf">customRouteLocator</span><span class="o">(</span><span class="n">RouteLocatorBuilder</span> <span class="n">builder</span><span class="o">){</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">routes</span><span class="o">()</span>
 </span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">route</span><span class="o">(</span><span class="n">r</span> <span class="o">-&gt;</span> <span class="n">r</span><span class="o">.</span><span class="na">path</span><span class="o">(</span><span class="s">&#34;/api/hello/**&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">                             <span class="o">.</span><span class="na">filters</span><span class="o">(</span><span class="n">f</span> <span class="o">-&gt;</span> <span class="n">f</span><span class="o">.</span><span class="na">stripPrefix</span><span class="o">(</span><span class="n">1</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">                             <span class="o">.</span><span class="na">filters</span><span class="o">(</span><span class="n">f</span> <span class="o">-&gt;</span> <span class="n">f</span><span class="o">.</span><span class="na">stripPrefix</span><span class="o">(</span><span class="mi">1</span><span class="o">))</span>
 </span></span><span class="line"><span class="cl">                             <span class="o">.</span><span class="na">uri</span><span class="o">(</span><span class="s">&#34;lb://nacos-provider&#34;</span><span class="o">))</span>
 </span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">route</span><span class="o">(</span><span class="n">r</span> <span class="o">-&gt;</span> <span class="n">r</span><span class="o">.</span><span class="na">path</span><span class="o">(</span><span class="s">&#34;/ujiuye/hello/**&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">                            <span class="o">.</span><span class="na">filters</span><span class="o">(</span><span class="n">f</span> <span class="o">-&gt;</span> <span class="n">f</span><span class="o">.</span><span class="na">rewritePath</span><span class="o">(</span><span class="s">&#34;/ujiuye/(?&lt;segment&gt;.*)&#34;</span><span class="o">,</span> <span class="s">&#34;/${segment}&#34;</span><span class="o">))</span>
@@ -941,7 +941,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="c1">// 封装错误信息
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">responseData</span> <span class="o">=</span> <span class="n">Maps</span><span class="o">.</span><span class="na">newHashMap</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">            <span class="n">responseData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;code&#34;</span><span class="o">,</span> <span class="n">401</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">responseData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;code&#34;</span><span class="o">,</span> <span class="mi">401</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="n">responseData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;message&#34;</span><span class="o">,</span> <span class="s">&#34;非法请求&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">            <span class="n">responseData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;cause&#34;</span><span class="o">,</span> <span class="s">&#34;Token is empty&#34;</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
@@ -964,7 +964,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getOrder</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><h3 id="153-测试全局过滤器">1.5.3 测试全局过滤器</h3>

@@ -512,11 +512,11 @@
     
 ></p>
 <h4 id="2-作用">2. 作用</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">JDBC提供了一组API</span> <span class="n">开发者只需要针对一组API开发即可</span><span class="err">，</span><span class="n">为开发者屏蔽了一些问题</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">JDBC提供了一组API</span> <span class="n">开发者只需要针对一组API开发即可</span><span class="err">，</span><span class="n">为开发者屏蔽了一些问题</span>
 </span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">JDBC为连接不同的数据库提供了统一的路径</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">JDBC为连接不同的数据库提供了统一的路径</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">根据不同的数据库厂商提供不同的驱动</span> <span class="n">提高了维护性</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">根据不同的数据库厂商提供不同的驱动</span> <span class="n">提高了维护性</span>
 </span></span></code></pre></div><h4 id="3-使用">3. 使用</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">包</span><span class="err">：</span><span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.*</span>  <span class="n">javax</span><span class="o">.</span><span class="na">sql</span><span class="o">.*</span>
@@ -526,26 +526,26 @@
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">使用步骤</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">加载驱动</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">加载驱动</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    	<span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&#34;com.mysql.jdbc.Driver&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">获取连接</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">获取连接</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    	<span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(</span><span class="s">&#34;jdbc:mysql://localhost:3306/库名&#34;</span><span class="o">,</span> <span class="s">&#34;root&#34;</span><span class="o">,</span> <span class="s">&#34;密码&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">创建命令对象</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">创建命令对象</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    	<span class="n">Statement</span> <span class="n">st</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">createStatement</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="n">4</span><span class="o">.</span> <span class="n">编写SQL</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="o">.</span> <span class="n">编写SQL</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">5</span><span class="o">.</span> <span class="n">执行命令</span> <span class="n">返回结果</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">5</span><span class="o">.</span> <span class="n">执行命令</span> <span class="n">返回结果</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span> <span class="c1">// 执行查询
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">	   <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">executeUpdate</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span> <span class="c1">// 执行增删改
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">6</span><span class="o">.</span> <span class="n">处理结果</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="mi">6</span><span class="o">.</span> <span class="n">处理结果</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">    <span class="n">7</span><span class="o">.</span> <span class="n">关闭资源</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">7</span><span class="o">.</span> <span class="n">关闭资源</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">rs</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">
@@ -554,21 +554,21 @@
 </span></span><span class="line"><span class="cl">	   <span class="n">conn</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </span></span></code></pre></div><h3 id="jdbc优化">JDBC优化</h3>
 <h4 id="1-优化1sql注入">1. 优化1：SQL注入</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">SQL注入问题</span><span class="err">：</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">SQL注入问题</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">SQL中出现了特殊的字符</span> <span class="n">导致SQL语句发生变化</span> <span class="n">引发结果不正确</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">解决</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">解决</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">使用PreparedStatement预编译命令接口</span> <span class="n">替代</span> <span class="n">Statement接口</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">原理</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">原理</span><span class="err">：</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="err">·</span><span class="n">对SQL语句先编译</span> <span class="n">检查传递的内容</span> <span class="n">如果出现了特殊字符</span> <span class="n">给转义</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="err">·</span><span class="n">SQL语句中使用</span><span class="o">?</span> <span class="n">作为占位符</span>  <span class="n">只对</span><span class="o">?</span><span class="n">的内容</span> <span class="n">检查转义</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">PreparedStatement是Statement的子接口</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">PreparedStatement是Statement的子接口</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">避免SQL中拼接变量</span> <span class="n">引发问题</span>
 </span></span><span class="line"><span class="cl">
@@ -576,7 +576,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    
 </span></span></code></pre></div><h4 id="2-优化2连接对象">2. 优化2：连接对象</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">连接池的必要性</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">连接池的必要性</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">连接资源没有得到复用</span><span class="err">，</span><span class="n">导致连接资源创建很多次</span> <span class="n">占用系统资源</span>
 </span></span><span class="line"><span class="cl">
@@ -586,7 +586,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">连接资源不关闭</span> <span class="n">造成内存泄漏</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">连接池的好处</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">连接池的好处</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">提高连接资源的复用性</span>
 </span></span><span class="line"><span class="cl">
@@ -597,7 +597,7 @@
 </span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">减少数据库宕机的可能性</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">开源的连接池</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">开源的连接池</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">DBCP连接池</span>
 </span></span><span class="line"><span class="cl">
@@ -605,12 +605,12 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">Druid连接池</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">4</span><span class="o">.</span> <span class="n">连接池的使用</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">连接池的使用</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">C3P0使用</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    	<span class="n">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">c3p0</span><span class="o">-</span><span class="n">0</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">bin</span><span class="o">.</span><span class="na">zip</span>
-</span></span><span class="line"><span class="cl">    	<span class="n">2</span><span class="o">.</span> <span class="n">引入jar</span>  <span class="n">c3p0</span><span class="o">-</span><span class="n">0</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">jar</span> <span class="n">mchange</span><span class="o">-</span><span class="n">commons</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">0</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">11</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">    	<span class="n">3</span><span class="o">.</span> <span class="n">编写代码</span>
+</span></span><span class="line"><span class="cl">    	<span class="mi">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">c3p0</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">bin</span><span class="o">.</span><span class="na">zip</span>
+</span></span><span class="line"><span class="cl">    	<span class="mi">2</span><span class="o">.</span> <span class="n">引入jar</span>  <span class="n">c3p0</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">jar</span> <span class="n">mchange</span><span class="o">-</span><span class="n">commons</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">11</span><span class="o">.</span><span class="na">jar</span>
+</span></span><span class="line"><span class="cl">    	<span class="mi">3</span><span class="o">.</span> <span class="n">编写代码</span>
 </span></span><span class="line"><span class="cl"><span class="nl">
 </span></span></span><span class="line"><span class="cl"><span class="nl">    		方式1:</span><span class="n">代码配置</span>
 </span></span><span class="line"><span class="cl">
@@ -632,9 +632,9 @@
 </span></span><span class="line"><span class="cl">            	<span class="n">connection</span> <span class="o">=</span> <span class="n">cpds</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">   <span class="n">Druid使用</span>
-</span></span><span class="line"><span class="cl">       <span class="n">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">druid</span><span class="o">-</span><span class="n">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">zip</span>
-</span></span><span class="line"><span class="cl">       <span class="n">2</span><span class="o">.</span> <span class="n">引入</span> <span class="n">jar</span> <span class="n">druid</span><span class="o">-</span><span class="n">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">       <span class="n">3</span><span class="o">.</span> <span class="n">编码</span>
+</span></span><span class="line"><span class="cl">       <span class="mi">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">druid</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">zip</span>
+</span></span><span class="line"><span class="cl">       <span class="mi">2</span><span class="o">.</span> <span class="n">引入</span> <span class="n">jar</span> <span class="n">druid</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">jar</span>
+</span></span><span class="line"><span class="cl">       <span class="mi">3</span><span class="o">.</span> <span class="n">编码</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">       	  <span class="err">①</span> <span class="n">在src下创建</span> <span class="n">druid</span><span class="o">.</span><span class="na">properties</span>
 </span></span><span class="line"><span class="cl">
@@ -683,8 +683,8 @@
 <h4 id="3-优化3封装连接池工具类">3. 优化3：封装连接池工具类</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">封装连接池工具类</span>  <span class="n">连接池只被创建一次</span>
-</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">将连接池的创建</span> <span class="n">封装到静态代码块中</span>
-</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">获取连接池对象的方法</span> <span class="n">静态方法</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">将连接池的创建</span> <span class="n">封装到静态代码块中</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">获取连接池对象的方法</span> <span class="n">静态方法</span>
 </span></span></code></pre></div><h4 id="4-优化4连接对象线程安全">4. 优化4：连接对象线程安全</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">JDK1</span><span class="o">.</span><span class="na">2</span> <span class="n">ThreadLocal类</span>
@@ -857,9 +857,9 @@
 </span></span><span class="line"><span class="cl">	<span class="n">dbutils工具类</span> <span class="n">是</span> <span class="n">apacha提供的将操作数据库的步骤</span> <span class="n">和</span> <span class="n">返回结果为了封装</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">使用</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="n">1</span><span class="o">.</span><span class="na">7</span><span class="o">-</span><span class="n">bin</span><span class="o">.</span><span class="na">zip</span>
-</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">导入jar</span> <span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="n">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">使用</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">7</span><span class="o">-</span><span class="n">bin</span><span class="o">.</span><span class="na">zip</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">导入jar</span> <span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">jar</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">使用</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    	<span class="err">①</span> <span class="n">创建核心对象</span>
 </span></span><span class="line"><span class="cl">
@@ -1026,22 +1026,22 @@
 </span></span></code></pre></div><h3 id="总结">总结</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">JDBC最终使用步骤</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">1</span><span class="o">.</span> <span class="n">导入第三方jar</span>  
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">导入第三方jar</span>  
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">44</span><span class="o">-</span><span class="n">bin</span><span class="o">.</span><span class="na">jar</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="mi">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">44</span><span class="o">-</span><span class="n">bin</span><span class="o">.</span><span class="na">jar</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">druid</span><span class="o">-</span><span class="n">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">jar</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">druid</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">jar</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="n">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">    <span class="n">2</span><span class="o">.</span> <span class="n">导入数据源</span> <span class="n">配置文件</span> <span class="n">引入src目录</span>
+</span></span><span class="line"><span class="cl">    	<span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">jar</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">导入数据源</span> <span class="n">配置文件</span> <span class="n">引入src目录</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    	<span class="n">druid</span><span class="o">.</span><span class="na">properties</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">3</span><span class="o">.</span> <span class="n">导入连接池工具类JDBCUtils</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">导入连接池工具类JDBCUtils</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">4</span><span class="o">.</span> <span class="n">导入通用DAO</span>  
+</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="o">.</span> <span class="n">导入通用DAO</span>  
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">5</span><span class="o">.</span> <span class="n">创建类继承DAO</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">5</span><span class="o">.</span> <span class="n">创建类继承DAO</span>
 </span></span></code></pre></div><h3 id="一补充">一、补充</h3>
 <p>####1. junit单元测试</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
@@ -1049,13 +1049,13 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">junit单元测试用法</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="n">1</span><span class="o">.</span> <span class="n">自定类</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="mi">1</span><span class="o">.</span> <span class="n">自定类</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="n">2</span><span class="o">.</span> <span class="nf">定义测试方法</span> <span class="o">(</span><span class="n">可以多个</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="mi">2</span><span class="o">.</span> <span class="nf">定义测试方法</span> <span class="o">(</span><span class="n">可以多个</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="o">*</span>          <span class="n">public修饰</span>  <span class="n">无返回值</span>  <span class="n">无参</span>  <span class="nd">@Test注解</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="n">3</span><span class="o">.</span> <span class="n">常见注解</span>
+</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="mi">3</span><span class="o">.</span> <span class="n">常见注解</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="o">*</span>          
 </span></span><span class="line"><span class="cl">
@@ -1071,27 +1071,27 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">     		
 </span></span></code></pre></div><h4 id="2-事务">2. 事务</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">开启事务</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">开启事务</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="na">setAutoCommit</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">成功</span> <span class="n">提交事务</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">成功</span> <span class="n">提交事务</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">失败</span> <span class="n">回滚事务</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">失败</span> <span class="n">回滚事务</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="na">rollBack</span><span class="o">()</span>
 </span></span></code></pre></div><h4 id="3-批处理">3. 批处理</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="o">.</span> <span class="n">添加批处理</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">添加批处理</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">ps</span><span class="o">.</span><span class="na">addBatch</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">2</span><span class="o">.</span> <span class="n">执行批处理</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">执行批处理</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">ps</span><span class="o">.</span><span class="na">executeBatch</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">3</span><span class="o">.</span> <span class="n">清除批处理</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">清除批处理</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">ps</span><span class="o">.</span><span class="na">clearBatch</span>
 </span></span></code></pre></div><hr>

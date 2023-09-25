@@ -1366,7 +1366,7 @@ OrderService.try()</p>
 </span></span><span class="line"><span class="cl">        <span class="c1">//添加订单
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">OrderInfo</span> <span class="n">orderInfo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderInfo</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">orderInfo</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="s">&#34;生成订单&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">orderInfo</span><span class="o">.</span><span class="na">setMoney</span><span class="o">(</span><span class="n">10</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">orderInfo</span><span class="o">.</span><span class="na">setMoney</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">icount</span> <span class="o">=</span> <span class="n">orderInfoMapper</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">orderInfo</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;添加订单受影响函数：&#34;</span><span class="o">+</span><span class="n">icount</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
@@ -1515,7 +1515,7 @@ OrderService.try()</p>
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">orderInfoFeign</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">username</span><span class="o">,</span><span class="n">id</span><span class="o">,</span><span class="n">count</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">//用户账户余额递减
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">userInfoFeign</span><span class="o">.</span><span class="na">decrMoney</span><span class="o">(</span><span class="n">username</span><span class="o">,</span><span class="n">10</span><span class="o">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">userInfoFeign</span><span class="o">.</span><span class="na">decrMoney</span><span class="o">(</span><span class="n">username</span><span class="o">,</span><span class="mi">10</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><p>(4)Controller</p>
@@ -1534,8 +1534,8 @@ OrderService.try()</p>
 </span></span><span class="line"><span class="cl">    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/addorder&#34;</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">order</span><span class="o">(){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">username</span><span class="o">=</span><span class="s">&#34;zhangsan&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">id</span><span class="o">=</span><span class="n">1</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="n">5</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//下单
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">businessService</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">username</span><span class="o">,</span><span class="n">id</span><span class="o">,</span><span class="n">count</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s">&#34;success&#34;</span><span class="o">;</span>
@@ -1786,7 +1786,7 @@ OrderService.try()</p>
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">dcount</span> <span class="o">=</span> <span class="n">userInfoMapper</span><span class="o">.</span><span class="na">updateById</span><span class="o">(</span><span class="n">userInfo</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&#34;更新用户受影响行数:&#34;</span><span class="o">+</span><span class="n">dcount</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//模拟异常
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="n">10</span><span class="o">/</span><span class="n">0</span><span class="o">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="mi">10</span><span class="o">/</span><span class="mi">0</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></div><p>重启user服务，再次测试，发现，订单、用户、日志数据都没有插入。</p>

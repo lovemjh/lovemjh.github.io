@@ -826,52 +826,52 @@ z-index: 99999;
                         console.log("请求完成");
                         addNumbers();
 
-                    }
-                });
+                }
             });
-                    function addNumbers() {
-                        
-                        
-                        var myElement = document.getElementById('js-toc-w');
-                        if (window.location.href.includes('/posts/')) {
-                            
-                            console.log('地址栏中包含 "/posts/"');
-                            tocbot.refresh();
-                            myElement.style.display = 'block';
-                        } else {
-                            
-                            console.log('地址栏中不包含 "/posts/"');
-                            myElement.style.display = 'none';
-                        }
+        });
 
-                    }
-        </script>
+    </script>
 
+    <script>
+        function addNumbers() {
+            
+            
+            var myElement = document.getElementById('js-toc-w');
+            if (window.location.href.includes('/posts/')) {
+                
+                console.log('地址栏中包含 "/posts/"');
+                tocbot.refresh();
+                myElement.style.display = 'block';
+            } else {
+                
+                initpageimg();
+                console.log('地址栏中不包含 "/posts/"');
+                myElement.style.display = 'none';
+            }
 
-
-
-
-<script>
-  const imgArr = [
-    "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
-    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
-    "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
-    "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
-    "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
-    "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
-    "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
-  ];
-  var objs = document.getElementsByClassName('page-img');
-  for (var i = 0; i < objs.length; i++) {
-    objs[i].id = "myid" + i;
-    let randNum = Math.floor(Math.random() * imgArr.length);
-    var odiv = document.getElementById("myid" + i);
-    odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
-    
-    odiv.style.backgroundRepeat = "no-repeat";
-    odiv.style.backgroundPosition = "0px 0px";
-  }
-</script>
+        }
+        function initpageimg() {
+            const imgArr = [
+                "https://pic1.zhimg.com/80/v2-23d671bf74a246c54b1256bd2322d461_720w.webp?source=1940ef5c",
+                "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+                "https://picx.zhimg.com/80/v2-b83d637fafb72fd13a5922aa0038bff9_720w.webp?source=1940ef5c",
+                "https://pic1.zhimg.com/80/v2-3afad658b44f596b10ec13b2b6d4299d_720w.webp?source=1940ef5c",
+                "https://pic1.zhimg.com/80/v2-7ee6f104979814d2bf420461e3872475_720w.webp?source=1940ef5c",
+                "https://picx.zhimg.com/80/v2-585754b4ab4d49f480b833cbbbf4839f_720w.webp?source=1940ef5c",
+                "https://pic1.zhimg.com/80/v2-b3d8f74192b2940a1112c93797cc0815_720w.webp?source=1940ef5c",
+            ];
+            var objs = document.getElementsByClassName('page-img');
+            for (var i = 0; i < objs.length; i++) {
+                objs[i].id = "myid" + i;
+                let randNum = Math.floor(Math.random() * imgArr.length);
+                var odiv = document.getElementById("myid" + i);
+                odiv.style.backgroundImage = `url(${imgArr[randNum]})`;
+                
+                odiv.style.backgroundRepeat = "no-repeat";
+                odiv.style.backgroundPosition = "0px 0px";
+            }
+        }
+    </script>
 
 <script>
     var a = 0;
@@ -910,6 +910,15 @@ z-index: 99999;
             $('.fan').css("right", "0px");
         } else {
             $('.fan').css("right", "-220px");
+        }
+        if (scrollY > 600) {
+            $(".js-toc-w").css("position", "fixed");
+            $('.js-toc-w').css("right", "0px");
+            $(".js-toc-w").css("bottom", "10px");
+            $(".js-toc-w").css("right", "40px");
+        } else {
+            $(".js-toc-w").css("position", "fixed");
+            $('.js-toc-w').css("right", "-220px");
         }
     });
     $(function () {

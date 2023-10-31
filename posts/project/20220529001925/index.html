@@ -1013,8 +1013,8 @@
 </span></span></code></pre></div><h3 id="223配置从用户登录页面点击注册按钮跳转到用户注册页面">2.2.3、配置从用户登录页面点击注册按钮，跳转到用户注册页面</h3>
 <h4 id="2231修改pagesaccountaccountjs">2.2.3.1、修改pages\account\account.js</h4>
 <p>定义获取应用实例</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
-</span></span><span class="line"><span class="cl">const app = getApp()
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span><span class="err">获取应用实例</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">app</span> <span class="o">=</span> <span class="n">getApp</span><span class="p">()</span>
 </span></span></code></pre></div><p>增加获取用户信息方法，跳转到注册页面方法</p>
 <p><a class="link" href="/posts/project/https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserProfile.html"  target="_blank" rel="noopener"
     >https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserProfile.html</a></p>
@@ -1055,8 +1055,8 @@
 <h3 id="224配置在注册页面获取到微信用户信息">2.2.4、配置在注册页面获取到微信用户信息</h3>
 <h4 id="2241修改pagesregisterregisterjs">2.2.4.1、修改pages\register\register.js</h4>
 <p>定义获取应用实例</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
-</span></span><span class="line"><span class="cl">const app = getApp()
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span><span class="err">获取应用实例</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">app</span> <span class="o">=</span> <span class="n">getApp</span><span class="p">()</span>
 </span></span></code></pre></div><p>修改生命周期函数&ndash;监听页面加载 onLoad 增加获取微信用户信息方法</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/**
 </span></span><span class="line"><span class="cl">   * 生命周期函数--监听页面加载
@@ -1216,84 +1216,84 @@
 ></p>
 <h2 id="24完成用户登录">2.4、完成用户登录</h2>
 <h3 id="241修改pagesaccountaccountjs">2.4.1、修改pages\account\account.js</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 获取输入账号 
-</span></span><span class="line"><span class="cl">  usernameInput: function (e) {
-</span></span><span class="line"><span class="cl">    this.setData({
-</span></span><span class="line"><span class="cl">      username: e.detail.value
-</span></span><span class="line"><span class="cl">    })
-</span></span><span class="line"><span class="cl">  },
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span> <span class="err">获取输入账号</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">usernameInput</span><span class="p">:</span> <span class="n">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">setData</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="n">username</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">detail</span><span class="o">.</span><span class="n">value</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">  // 获取输入密码 
-</span></span><span class="line"><span class="cl">  passwordInput: function (e) {
-</span></span><span class="line"><span class="cl">    this.setData({
-</span></span><span class="line"><span class="cl">      password: e.detail.value
-</span></span><span class="line"><span class="cl">    })
-</span></span><span class="line"><span class="cl">  },
-</span></span><span class="line"><span class="cl">   // 登录处理
-</span></span><span class="line"><span class="cl">  login: function () {
-</span></span><span class="line"><span class="cl">    var that = this;
-</span></span><span class="line"><span class="cl">    console.log(&#39;用户登录&#39;)
-</span></span><span class="line"><span class="cl">    if (that.data.username.length == 0 || that.data.password.length == 0) {
-</span></span><span class="line"><span class="cl">      wx.showToast({
-</span></span><span class="line"><span class="cl">        title: &#39;账号或密码不能为空&#39;,
-</span></span><span class="line"><span class="cl">        icon: &#39;none&#39;,
-</span></span><span class="line"><span class="cl">        duration: 2000
-</span></span><span class="line"><span class="cl">      })
-</span></span><span class="line"><span class="cl">    } else {
-</span></span><span class="line"><span class="cl">      let baseUrl = app.globalData.baseUrl;
-</span></span><span class="line"><span class="cl">      wx.request({
-</span></span><span class="line"><span class="cl">        url: baseUrl+&#39;/member/member/login&#39;,
-</span></span><span class="line"><span class="cl">        method:&#39;POST&#39;,
-</span></span><span class="line"><span class="cl">        header:{&#39;content-type&#39;:&#39;application/json&#39;},
-</span></span><span class="line"><span class="cl">        data:{
-</span></span><span class="line"><span class="cl">          username: that.data.username,
-</span></span><span class="line"><span class="cl">          password: that.data.password
-</span></span><span class="line"><span class="cl">          },
-</span></span><span class="line"><span class="cl">        success:function(res){
-</span></span><span class="line"><span class="cl">          console.log(res);
-</span></span><span class="line"><span class="cl">          if(res.data.code==0){
-</span></span><span class="line"><span class="cl">            console.log(&#34;登录成功&#34;)
-</span></span><span class="line"><span class="cl">            //登录成功，存储token到本地存储 类似于cookie
-</span></span><span class="line"><span class="cl">            wx.setStorageSync(&#39;token&#39;, res.data.token);
-</span></span><span class="line"><span class="cl">            wx.setStorageSync(&#39;refreshToken&#39;, res.data.refreshToken);
-</span></span><span class="line"><span class="cl">           //显示登录成功提示，跳转到题库分类页面
-</span></span><span class="line"><span class="cl">            wx.showToast({
-</span></span><span class="line"><span class="cl">              title: &#34;登录成功&#34;,
-</span></span><span class="line"><span class="cl">              icon: &#39;none&#39;,
-</span></span><span class="line"><span class="cl">              duration: 1000,
-</span></span><span class="line"><span class="cl">              success:function(){    
-</span></span><span class="line"><span class="cl">                console.log(&#39;haha&#39;);      
-</span></span><span class="line"><span class="cl">                setTimeout(function () {      
-</span></span><span class="line"><span class="cl">                  //要延时执行的代码      
-</span></span><span class="line"><span class="cl">                  wx.switchTab({      
-</span></span><span class="line"><span class="cl">                    url: &#39;../type/type&#39;      
-</span></span><span class="line"><span class="cl">                  })      
-</span></span><span class="line"><span class="cl">                }, 1000) //延迟时间      
-</span></span><span class="line"><span class="cl">              }
-</span></span><span class="line"><span class="cl">            })
+</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="err">获取输入密码</span> 
+</span></span><span class="line"><span class="cl">  <span class="n">passwordInput</span><span class="p">:</span> <span class="n">function</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">setData</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="n">password</span><span class="p">:</span> <span class="n">e</span><span class="o">.</span><span class="n">detail</span><span class="o">.</span><span class="n">value</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">   <span class="o">//</span> <span class="err">登录处理</span>
+</span></span><span class="line"><span class="cl">  <span class="n">login</span><span class="p">:</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">that</span> <span class="o">=</span> <span class="n">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;用户登录&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">that</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">that</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">wx</span><span class="o">.</span><span class="n">showToast</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="n">title</span><span class="p">:</span> <span class="s1">&#39;账号或密码不能为空&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">icon</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">duration</span><span class="p">:</span> <span class="mi">2000</span>
+</span></span><span class="line"><span class="cl">      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">let</span> <span class="n">baseUrl</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">globalData</span><span class="o">.</span><span class="n">baseUrl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">wx</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="n">url</span><span class="p">:</span> <span class="n">baseUrl</span><span class="o">+</span><span class="s1">&#39;/member/member/login&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">method</span><span class="p">:</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">header</span><span class="p">:{</span><span class="s1">&#39;content-type&#39;</span><span class="p">:</span><span class="s1">&#39;application/json&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="p">:{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">username</span><span class="p">:</span> <span class="n">that</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">password</span><span class="p">:</span> <span class="n">that</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">password</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">success</span><span class="p">:</span><span class="n">function</span><span class="p">(</span><span class="n">res</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">          <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">code</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&#34;登录成功&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="o">//</span><span class="err">登录成功，存储</span><span class="n">token到本地存储</span> <span class="err">类似于</span><span class="n">cookie</span>
+</span></span><span class="line"><span class="cl">            <span class="n">wx</span><span class="o">.</span><span class="n">setStorageSync</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">token</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">wx</span><span class="o">.</span><span class="n">setStorageSync</span><span class="p">(</span><span class="s1">&#39;refreshToken&#39;</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">refreshToken</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">           <span class="o">//</span><span class="err">显示登录成功提示，跳转到题库分类页面</span>
+</span></span><span class="line"><span class="cl">            <span class="n">wx</span><span class="o">.</span><span class="n">showToast</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">              <span class="n">title</span><span class="p">:</span> <span class="s2">&#34;登录成功&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">icon</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">duration</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">success</span><span class="p">:</span><span class="n">function</span><span class="p">(){</span>    
+</span></span><span class="line"><span class="cl">                <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;haha&#39;</span><span class="p">);</span>      
+</span></span><span class="line"><span class="cl">                <span class="n">setTimeout</span><span class="p">(</span><span class="n">function</span> <span class="p">()</span> <span class="p">{</span>      
+</span></span><span class="line"><span class="cl">                  <span class="o">//</span><span class="err">要延时执行的代码</span>      
+</span></span><span class="line"><span class="cl">                  <span class="n">wx</span><span class="o">.</span><span class="n">switchTab</span><span class="p">({</span>      
+</span></span><span class="line"><span class="cl">                    <span class="n">url</span><span class="p">:</span> <span class="s1">&#39;../type/type&#39;</span>      
+</span></span><span class="line"><span class="cl">                  <span class="p">})</span>      
+</span></span><span class="line"><span class="cl">                <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">//</span><span class="err">延迟时间</span>      
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">          }else{
-</span></span><span class="line"><span class="cl">            console.log(res.data.msg)
-</span></span><span class="line"><span class="cl">            wx.showToast({
-</span></span><span class="line"><span class="cl">              title: res.data.msg,
-</span></span><span class="line"><span class="cl">              icon: &#39;none&#39;,
-</span></span><span class="line"><span class="cl">              duration: 2000
-</span></span><span class="line"><span class="cl">            })
-</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">          <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">wx</span><span class="o">.</span><span class="n">showToast</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">              <span class="n">title</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">msg</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">icon</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">duration</span><span class="p">:</span> <span class="mi">2000</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
 </span></span><span class="line"><span class="cl">          
 </span></span><span class="line"><span class="cl">          
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">      })
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span></code></pre></div><p>注意：用户登录传递给后端的是json格式的数据，所有后代代码要调整能接收json数据</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//用户登录方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&#34;login&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">R</span> <span class="nf">login</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">//调用服务，根据用户名、密码获取用户信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">MemberEntity</span> <span class="n">memberEntity</span> <span class="o">=</span> <span class="n">memberService</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;username&#34;</span><span class="o">),</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;password&#34;</span><span class="o">));</span>
-</span></span></code></pre></div><h3 id="242修改pagesaccountaccountwxml">2.4.2、修改pages\account\account.wxml</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//用户登录方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;login&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//调用服务，根据用户名、密码获取用户信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MemberEntity</span><span class="w"> </span><span class="n">memberEntity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">memberService</span><span class="p">.</span><span class="na">login</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;username&#34;</span><span class="p">),</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;password&#34;</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></div><h3 id="242修改pagesaccountaccountwxml">2.4.2、修改pages\account\account.wxml</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;loginBtn&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span>  <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;login&#34;</span><span class="p">&gt;</span>登录<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>   
 </span></span></code></pre></div><h3 id="243演示登录效果">2.4.3、演示登录效果</h3>
 <p>输入账号密码错误，提示
@@ -1424,8 +1424,8 @@
 </span></span><span class="line"><span class="cl">	<span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="34修改js文件">3.4、修改js文件</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
-</span></span><span class="line"><span class="cl">const app = getApp()
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span><span class="err">获取应用实例</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">app</span> <span class="o">=</span> <span class="n">getApp</span><span class="p">()</span>
 </span></span></code></pre></div><p>编写获取分类数据方法、获取广告轮播图数据方法、设置页面加载时调用2个方法</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"> <span class="nx">onShow</span><span class="o">:</span><span class="kd">function</span><span class="p">(){</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">wx</span><span class="p">.</span><span class="nx">showTabBar</span><span class="p">({</span>
@@ -1547,8 +1547,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="43创建题目列表js文件">4.3、创建题目列表js文件</h2>
 <p>pages/item/item.js</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
-</span></span><span class="line"><span class="cl">const app = getApp()
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span><span class="err">获取应用实例</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">app</span> <span class="o">=</span> <span class="n">getApp</span><span class="p">()</span>
 </span></span></code></pre></div><p>设置页面初始化数据</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  /**
 </span></span><span class="line"><span class="cl">   * 页面的初始数据
@@ -1611,12 +1611,12 @@
 </span></span><span class="line"><span class="cl">    <span class="p">})</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span></code></pre></div><p>注意调整后端代码 u-question模块的&mdash;QuestionServiceImpl的queryPage方法，增加如下代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="c1">//获取分类编号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">String</span> <span class="n">type</span><span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">params</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;type&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(!</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">type</span><span class="o">)){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;type&#34;</span><span class="o">,</span><span class="n">type</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span></code></pre></div><h2 id="44题目列表演示效果">4.4、题目列表演示效果</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="c1">//获取分类编号</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">String</span><span class="w"> </span><span class="n">type</span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="n">params</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;type&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">type</span><span class="p">)){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&#34;type&#34;</span><span class="p">,</span><span class="n">type</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="44题目列表演示效果">4.4、题目列表演示效果</h2>
 <p><img src="/posts/project/20220529001925/image-20220529002220222.png"
     
     
@@ -1628,39 +1628,39 @@
 <h2 id="45题目列表下拉获取更多数据处理">4.5、题目列表下拉获取更多数据处理</h2>
 <p>修改pages/item/item.js</p>
 <p>增加上拉触底获取下一页数据方法</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> /**
-</span></span><span class="line"><span class="cl">   * 页面上拉触底事件的处理函数
-</span></span><span class="line"><span class="cl">   */
-</span></span><span class="line"><span class="cl">  onReachBottom: function () {
-</span></span><span class="line"><span class="cl">    var t=this;
-</span></span><span class="line"><span class="cl">   console.log(&#39; 页面上拉触底事件的处理函数&#39;);
-</span></span><span class="line"><span class="cl">   //判断当前页码小于总页码，就把当前页加1，获取下一页内容
-</span></span><span class="line"><span class="cl">   if(t.data.pageNo&lt;t.data.totalPages){   
-</span></span><span class="line"><span class="cl">   t.setData({
-</span></span><span class="line"><span class="cl">     pageNo: t.data.pageNo+1
-</span></span><span class="line"><span class="cl">   })   
-</span></span><span class="line"><span class="cl">   console.log(t.data.pageNo);   
-</span></span><span class="line"><span class="cl">   let baseUrl = app.globalData.baseUrl;   
-</span></span><span class="line"><span class="cl">   wx.request({
-</span></span><span class="line"><span class="cl">     url: baseUrl+&#39;/question/question/list?page=&#39;+this.data.pageNo+&#39;&amp;limit=&#39;+this.data.limit+&#39;&amp;key=&#39;+this.data.id,
-</span></span><span class="line"><span class="cl">     method:&#39;GET&#39;,
-</span></span><span class="line"><span class="cl">     header:{&#39;Authorization&#39;:wx.getStorageSync(&#39;token&#39;)},
-</span></span><span class="line"><span class="cl">     success:function(res){      
-</span></span><span class="line"><span class="cl">       //合并下一页的数据到当前集合 合并数组是把后一个数组的值依次push进前一个数组，使前一个数组发生改变
-</span></span><span class="line"><span class="cl">       t.data.items.push.apply(t.data.items.list,res.data.page.list)     
-</span></span><span class="line"><span class="cl">       t.setData({
-</span></span><span class="line"><span class="cl">         items: t.data.items
-</span></span><span class="line"><span class="cl">       })       
-</span></span><span class="line"><span class="cl">     }
-</span></span><span class="line"><span class="cl">   })
-</span></span><span class="line"><span class="cl">  }else{
-</span></span><span class="line"><span class="cl">    wx.showToast({
-</span></span><span class="line"><span class="cl">      title: &#39;我是最后一页了！&#39;,
-</span></span><span class="line"><span class="cl">      icon: &#39;none&#39;,
-</span></span><span class="line"><span class="cl">      duration: 1000
-</span></span><span class="line"><span class="cl">    })
-</span></span><span class="line"><span class="cl">  }
-</span></span><span class="line"><span class="cl"> },
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"> <span class="o">/**</span>
+</span></span><span class="line"><span class="cl">   <span class="o">*</span> <span class="err">页面上拉触底事件的处理函数</span>
+</span></span><span class="line"><span class="cl">   <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">  <span class="n">onReachBottom</span><span class="p">:</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">t</span><span class="o">=</span><span class="n">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39; 页面上拉触底事件的处理函数&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="o">//</span><span class="err">判断当前页码小于总页码，就把当前页加</span><span class="mi">1</span><span class="err">，获取下一页内容</span>
+</span></span><span class="line"><span class="cl">   <span class="k">if</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pageNo</span><span class="o">&lt;</span><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">totalPages</span><span class="p">){</span>   
+</span></span><span class="line"><span class="cl">   <span class="n">t</span><span class="o">.</span><span class="n">setData</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">     <span class="n">pageNo</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pageNo</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">   <span class="p">})</span>   
+</span></span><span class="line"><span class="cl">   <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pageNo</span><span class="p">);</span>   
+</span></span><span class="line"><span class="cl">   <span class="n">let</span> <span class="n">baseUrl</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">globalData</span><span class="o">.</span><span class="n">baseUrl</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl">   <span class="n">wx</span><span class="o">.</span><span class="n">request</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">     <span class="n">url</span><span class="p">:</span> <span class="n">baseUrl</span><span class="o">+</span><span class="s1">&#39;/question/question/list?page=&#39;</span><span class="o">+</span><span class="n">this</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pageNo</span><span class="o">+</span><span class="s1">&#39;&amp;limit=&#39;</span><span class="o">+</span><span class="n">this</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">limit</span><span class="o">+</span><span class="s1">&#39;&amp;key=&#39;</span><span class="o">+</span><span class="n">this</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="n">method</span><span class="p">:</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="n">header</span><span class="p">:{</span><span class="s1">&#39;Authorization&#39;</span><span class="p">:</span><span class="n">wx</span><span class="o">.</span><span class="n">getStorageSync</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)},</span>
+</span></span><span class="line"><span class="cl">     <span class="n">success</span><span class="p">:</span><span class="n">function</span><span class="p">(</span><span class="n">res</span><span class="p">){</span>      
+</span></span><span class="line"><span class="cl">       <span class="o">//</span><span class="err">合并下一页的数据到当前集合</span> <span class="err">合并数组是把后一个数组的值依次</span><span class="n">push进前一个数组</span><span class="err">，使前一个数组发生改变</span>
+</span></span><span class="line"><span class="cl">       <span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">push</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">list</span><span class="p">,</span><span class="n">res</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>     
+</span></span><span class="line"><span class="cl">       <span class="n">t</span><span class="o">.</span><span class="n">setData</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">         <span class="n">items</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span>
+</span></span><span class="line"><span class="cl">       <span class="p">})</span>       
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">wx</span><span class="o">.</span><span class="n">showToast</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="n">title</span><span class="p">:</span> <span class="s1">&#39;我是最后一页了！&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">icon</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">duration</span><span class="p">:</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="p">},</span>
 </span></span></code></pre></div><p>newVideoList.concat(videoList),</p>
 <p>演示效果，题目列表到了最后，上拉，即可自动加载显示更多数据</p>
 <p>注意：数据必须铺满，才能演示下拉触底方法，可以用鼠标向下滚轮。
@@ -1683,16 +1683,16 @@
 ></p>
 <h2 id="46编写点击题目标题跳转到题目详情页">4.6、编写点击题目标题跳转到题目详情页</h2>
 <p>修改pages/item/item.js</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> //跳转到题目详情页
-</span></span><span class="line"><span class="cl">  getInfo:function(e){
-</span></span><span class="line"><span class="cl">    var id = e.currentTarget.dataset.id
-</span></span><span class="line"><span class="cl">    console.log(&#34;key : &#34;+id);
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"> <span class="o">//</span><span class="err">跳转到题目详情页</span>
+</span></span><span class="line"><span class="cl">  <span class="n">getInfo</span><span class="p">:</span><span class="n">function</span><span class="p">(</span><span class="n">e</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">id</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">currentTarget</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span>
+</span></span><span class="line"><span class="cl">    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&#34;key : &#34;</span><span class="o">+</span><span class="n">id</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    wx.navigateTo({
-</span></span><span class="line"><span class="cl">      url: &#39;../info/info?id=&#39;+id,
-</span></span><span class="line"><span class="cl">    })
+</span></span><span class="line"><span class="cl">    <span class="n">wx</span><span class="o">.</span><span class="n">navigateTo</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="n">url</span><span class="p">:</span> <span class="s1">&#39;../info/info?id=&#39;</span><span class="o">+</span><span class="n">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
 </span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span></code></pre></div><p>修改页面item.wxml</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">view</span> <span class="na">bindtap</span><span class="o">=</span><span class="s">&#34;getInfo&#34;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&#34;{{item.id}}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;action text-bold text-black text-lg&#34;</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;cuIcon-title text-blue&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
@@ -1818,8 +1818,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="53编写题目详情js文件">5.3、编写题目详情js文件</h2>
 <p>pages/info/info.js</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
-</span></span><span class="line"><span class="cl">const app = getApp()
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span><span class="err">获取应用实例</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">app</span> <span class="o">=</span> <span class="n">getApp</span><span class="p">()</span>
 </span></span></code></pre></div><p>页面加载获取详细数据、轮播图数据</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">   * 生命周期函数--监听页面加载

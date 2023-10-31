@@ -936,14 +936,14 @@
 </span></span></span></code></pre></div><h4 id="343-启动类配置">3.4.3 启动类配置</h4>
 <p>创建包com.offcn包下创建启动类EurekaApplication，代码如下：</p>
 <p>上图代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
-</span></span><span class="line"><span class="cl"><span class="nd">@EnableEurekaServer</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EurekaApplication</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">EurekaApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span><span class="n">args</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>测试访问<code>http://localhost:8761/</code>,效果如下：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@EnableEurekaServer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EurekaApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">EurekaApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="n">args</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试访问<code>http://localhost:8761/</code>,效果如下：
 <img src="/posts/project-0/20220527220542/image-20220527221001882.png"
     
     
@@ -1023,67 +1023,67 @@
 <p>创建com.offcn.entity包 ，在entity包下创建返回状态码实体类</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 返回码
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StatusCode</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">OK</span> <span class="o">=</span> <span class="mi">20000</span><span class="o">;</span><span class="c1">//成功
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">ERROR</span> <span class="o">=</span> <span class="mi">20001</span><span class="o">;</span><span class="c1">//失败
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">LOGINERROR</span> <span class="o">=</span> <span class="mi">20002</span><span class="o">;</span><span class="c1">//用户名或密码错误
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">ACCESSERROR</span> <span class="o">=</span> <span class="mi">20003</span><span class="o">;</span><span class="c1">//权限不足
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">REMOTEERROR</span> <span class="o">=</span> <span class="mi">20004</span><span class="o">;</span><span class="c1">//远程调用失败
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">REPERROR</span> <span class="o">=</span> <span class="mi">20005</span><span class="o">;</span><span class="c1">//重复操作
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">NOTFOUNDERROR</span> <span class="o">=</span> <span class="mi">20006</span><span class="o">;</span><span class="c1">//没有对应的抢购数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></div><p>com.offcn.entity包下建立类Result用于微服务返回结果给前端</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StatusCode</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">OK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20000</span><span class="p">;</span><span class="c1">//成功</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20001</span><span class="p">;</span><span class="c1">//失败</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LOGINERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20002</span><span class="p">;</span><span class="c1">//用户名或密码错误</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ACCESSERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20003</span><span class="p">;</span><span class="c1">//权限不足</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">REMOTEERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20004</span><span class="p">;</span><span class="c1">//远程调用失败</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">REPERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20005</span><span class="p">;</span><span class="c1">//重复操作</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">NOTFOUNDERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20006</span><span class="p">;</span><span class="c1">//没有对应的抢购数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>com.offcn.entity包下建立类Result用于微服务返回结果给前端</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 返回结果实体类
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">flag</span><span class="o">;</span><span class="c1">//是否成功
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">code</span><span class="o">;</span><span class="c1">//返回码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">String</span> <span class="n">message</span><span class="o">;</span><span class="c1">//返回消息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">T</span> <span class="n">data</span><span class="o">;</span><span class="c1">//返回数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">Result</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">flag</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">code</span><span class="o">,</span> <span class="n">String</span> <span class="n">message</span><span class="o">,</span> <span class="n">T</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">flag</span> <span class="o">=</span> <span class="n">flag</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">code</span> <span class="o">=</span> <span class="n">code</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span>  <span class="n">data</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">Result</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">flag</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">code</span><span class="o">,</span> <span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">flag</span> <span class="o">=</span> <span class="n">flag</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">code</span> <span class="o">=</span> <span class="n">code</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">Result</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">code</span> <span class="o">=</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="s">&#34;操作成功!&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// getter and setter.....
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></div><p>在entity包下建立类用于承载分页的数据结果</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">flag</span><span class="p">;</span><span class="c1">//是否成功</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">code</span><span class="p">;</span><span class="c1">//返回码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="c1">//返回消息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="c1">//返回数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Result</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">flag</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flag</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">code</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">data</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">data</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Result</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">flag</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flag</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">code</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Result</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;操作成功!&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// getter and setter.....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>在entity包下建立类用于承载分页的数据结果</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 分页结果类
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PageResult</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Long</span> <span class="n">total</span><span class="o">;</span><span class="c1">//总记录数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">rows</span><span class="o">;</span><span class="c1">//记录
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">PageResult</span><span class="o">(</span><span class="n">Long</span> <span class="n">total</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">rows</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">total</span> <span class="o">=</span> <span class="n">total</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">rows</span> <span class="o">=</span> <span class="n">rows</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">PageResult</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">//getter and setter ......
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></div><p>当然，我们还可以将其他工具类都一起倒入到工程中，以后会用到，将<code>资料\工具类</code>中的所有类直接导入到entity包下。
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PageResult</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">total</span><span class="p">;</span><span class="c1">//总记录数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rows</span><span class="p">;</span><span class="c1">//记录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PageResult</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rows</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">total</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rows</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PageResult</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//getter and setter ......</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>当然，我们还可以将其他工具类都一起倒入到工程中，以后会用到，将<code>资料\工具类</code>中的所有类直接导入到entity包下。
 <img src="/posts/project-0/20220527220542/image-20220527221020174.png"
     
     
@@ -1213,15 +1213,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">com</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">offcn</span><span class="p">:</span><span class="w"> </span><span class="l">debug</span><span class="w">
 </span></span></span></code></pre></div><p>在包com.offcn.sellergoods 包下创建启动类SellerGoodsApplication，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JAVA" data-lang="JAVA"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
-</span></span><span class="line"><span class="cl"><span class="nd">@EnableDiscoveryClient</span>
-</span></span><span class="line"><span class="cl"><span class="nd">@MapperScan</span><span class="o">(</span><span class="s">&#34;com.offcn.sellergoods.dao&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SellerGoodsApplication</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">SellerGoodsApplication</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>启动<code>dongyimai-sellergoods-service</code> 再访问<code>&lt;http://localhost:8761/&gt;</code>效果如下：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-JAVA" data-lang="JAVA"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@EnableDiscoveryClient</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@MapperScan</span><span class="p">(</span><span class="s">&#34;com.offcn.sellergoods.dao&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SellerGoodsApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">SellerGoodsApplication</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>启动<code>dongyimai-sellergoods-service</code> 再访问<code>&lt;http://localhost:8761/&gt;</code>效果如下：
 <img src="/posts/project-0/20220527220542/image-20220527221046860.png"
     
     
@@ -1294,74 +1294,74 @@
 </table>
 <h3 id="43-代码实现">4.3 代码实现</h3>
 <p>上面品牌表对应Brand实体类</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@TableName</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;tb_brand&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Brand</span> <span class="kd">implements</span> <span class="n">Serializable</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@TableId</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="n">IdType</span><span class="o">.</span><span class="na">AUTO</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@TableField</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;id&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="o">;</span><span class="c1">//
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@TableField</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;name&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span><span class="c1">//品牌名称
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@TableField</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;first_char&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">private</span> <span class="n">String</span> <span class="n">firstChar</span><span class="o">;</span><span class="c1">//品牌首字母
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@TableField</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;image&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">private</span> <span class="n">String</span> <span class="n">image</span><span class="o">;</span><span class="c1">//品牌图像
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
-</span></span><span class="line"><span class="cl">	<span class="c1">// getter and setter  .....(省略)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
-</span></span></code></pre></div><p><strong>注解均使用MyBatisPlus的注解</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@TableName</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;tb_brand&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Brand</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Serializable</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TableId</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IdType</span><span class="p">.</span><span class="na">AUTO</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TableField</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;id&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="c1">//</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TableField</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;name&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="c1">//品牌名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TableField</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;first_char&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">firstChar</span><span class="p">;</span><span class="c1">//品牌首字母</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@TableField</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;image&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">image</span><span class="p">;</span><span class="c1">//品牌图像</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// getter and setter  .....(省略)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>注解均使用MyBatisPlus的注解</strong></p>
 <h4 id="431-品牌列表">4.3.1 品牌列表</h4>
 <p>(1)Dao创建</p>
 <p>在dongyimai-sellegoods-service微服务下创建com.offcn.goods.dao.BrandMapper接口，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BrandMapper</span> <span class="kd">extends</span> <span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>继承了Mapper接口，就自动实现了增删改查的常用方法。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">BrandMapper</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">BaseMapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>继承了Mapper接口，就自动实现了增删改查的常用方法。</p>
 <p>(2)业务层</p>
 <p>创建com.offcn.sellergoods.service.BrandService接口，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BrandService</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">BrandService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 查询所有品牌
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>创建com.offcn.sellergoods.service.impl.BrandServiceImpl实现类，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BrandServiceImpl</span> <span class="kd">extends</span> <span class="n">ServiceImpl</span><span class="o">&lt;</span><span class="n">BrandMapper</span><span class="o">,</span> <span class="n">Brand</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">BrandService</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>创建com.offcn.sellergoods.service.impl.BrandServiceImpl实现类，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BrandServiceImpl</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ServiceImpl</span><span class="o">&lt;</span><span class="n">BrandMapper</span><span class="p">,</span><span class="w"> </span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">BrandService</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 全部数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">list</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>(3)控制层</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">list</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(3)控制层</p>
 <p>控制层  com.offcn.sellergoods包下创建controller包  ，包下创建类</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span>
-</span></span><span class="line"><span class="cl"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/brand&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="nd">@CrossOrigin</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BrandController</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@Autowired</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">BrandService</span> <span class="n">brandService</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@RestController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&#34;/brand&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@CrossOrigin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BrandController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BrandService</span><span class="w"> </span><span class="n">brandService</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 查询全部数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span> <span class="c1">//不写value值默认调用根路径
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">public</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span> <span class="nf">findAll</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">brandList</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;(</span><span class="kc">true</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">brandList</span><span class="o">)</span> <span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>测试：http://localhost:9001/brand
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="w"> </span><span class="c1">//不写value值默认调用根路径</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">brandList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brandService</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;查询成功&#34;</span><span class="p">,</span><span class="n">brandList</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试：http://localhost:9001/brand
 <img src="/posts/project-0/20220527220542/image-20220527221106581.png"
     
     
@@ -1377,32 +1377,32 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 根据ID查询
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="n">Brand</span> <span class="nf">findById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
-</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl新增方法，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Brand</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl新增方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 根据ID查询Brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Brand</span> <span class="nf">findById</span><span class="o">(</span><span class="n">Long</span> <span class="n">id</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span>  <span class="k">this</span><span class="o">.</span><span class="na">getById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>(2)控制层</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Brand</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 根据ID查询Brand数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&#34;/{id}&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//调用BrandService实现根据主键查询Brand
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Brand</span> <span class="n">brand</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">brand</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>测试：&lt;http://localhost:9001/brand/1
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&#34;/{id}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//调用BrandService实现根据主键查询Brand</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brandService</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;查询成功&#34;</span><span class="p">,</span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试：&lt;http://localhost:9001/brand/1
 <img src="/posts/project-0/20220527220542/image-20220527221117521.png"
     
     
@@ -1417,31 +1417,31 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 新增品牌
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">);</span>
-</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，新增增加品牌方法代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，新增增加品牌方法代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 增加Brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>(2) 控制层</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(2) 控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 新增Brand数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @pa am brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@PostMapping</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">add</span><span class="o">(</span><span class="nd">@RequestBody</span>   <span class="n">Brand</span> <span class="n">brand</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//调用BrandService实现添加Brand
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">brandService</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;添加成功&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>测试：http://localhost:9001/brand
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w">   </span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//调用BrandService实现添加Brand</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">brandService</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;添加成功&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试：http://localhost:9001/brand
 <img src="/posts/project-0/20220527220542/image-20220527221126720.png"
     
     
@@ -1456,34 +1456,34 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 修改品牌数据
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">);</span>
-</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加修改品牌方法，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加修改品牌方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 修改Brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">updateById</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>(2)控制层</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">updateById</span><span class="p">(</span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 修改Brand数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@PutMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;/{id}&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">update</span><span class="o">(</span><span class="nd">@RequestBody</span>  <span class="n">Brand</span> <span class="n">brand</span><span class="o">,</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//设置主键值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">brand</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//调用BrandService实现修改Brand
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">brandService</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;修改成功&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>测试：http://localhost:9001/brand/35
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PutMapping</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s">&#34;/{id}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="w">  </span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">,</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//设置主键值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">brand</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//调用BrandService实现修改Brand</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">brandService</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;修改成功&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试：http://localhost:9001/brand/35
 <img src="/posts/project-0/20220527220542/image-20220527221135412.png"
     
     
@@ -1498,31 +1498,31 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 删除品牌
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param id
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">delete</span><span class="o">(</span><span class="n">Long</span> <span class="n">id</span><span class="o">);</span>
-</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，新增删除品牌方法，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">void</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，新增删除品牌方法，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 删除
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">delete</span><span class="o">(</span><span class="n">Long</span> <span class="n">id</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">removeById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>(2)控制层</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">removeById</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * 根据ID删除品牌数据
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param id
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@DeleteMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/{id}&#34;</span> <span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">delete</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//调用BrandService实现根据主键删除
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">brandService</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;删除成功&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>测试：http://localhost:9001/brand/35
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@DeleteMapping</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;/{id}&#34;</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//调用BrandService实现根据主键删除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">brandService</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;删除成功&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试：http://localhost:9001/brand/35
 <img src="/posts/project-0/20220527220542/image-20220527221142928.png"
     
     
@@ -1538,63 +1538,63 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 多条件搜索品牌方法
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findList</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">);</span>
-</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加根据多条件搜索品牌方法的实现，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findList</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加根据多条件搜索品牌方法的实现，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand条件查询
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findList</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//构建查询条件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">createQueryWrapper</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//根据构建的条件查询数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">list</span><span class="o">(</span><span class="n">queryWrapper</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findList</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//构建查询条件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">createQueryWrapper</span><span class="p">(</span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//根据构建的条件查询数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">list</span><span class="p">(</span><span class="n">queryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand构建查询对象
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">createQueryWrapper</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">brand</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(</span><span class="n">brand</span><span class="o">.</span><span class="na">getId</span><span class="o">()!=</span><span class="kc">null</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">                 <span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">,</span><span class="n">brand</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 品牌名称
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(!</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">brand</span><span class="o">.</span><span class="na">getName</span><span class="o">())){</span>
-</span></span><span class="line"><span class="cl">                <span class="n">queryWrapper</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">,</span><span class="n">brand</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 品牌首字母
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(!</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">brand</span><span class="o">.</span><span class="na">getFirstChar</span><span class="o">())){</span>
-</span></span><span class="line"><span class="cl">                 <span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;first_char&#34;</span><span class="o">,</span><span class="n">brand</span><span class="o">.</span><span class="na">getFirstChar</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 品牌图像
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="o">(!</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">brand</span><span class="o">.</span><span class="na">getImage</span><span class="o">())){</span>
-</span></span><span class="line"><span class="cl">                 <span class="n">queryWrapper</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="s">&#34;image&#34;</span><span class="o">,</span><span class="n">brand</span><span class="o">.</span><span class="na">getImage</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">queryWrapper</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>(2) 控制层</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">createQueryWrapper</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">brand</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">brand</span><span class="p">.</span><span class="na">getId</span><span class="p">()</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                 </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">,</span><span class="n">brand</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 品牌名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">brand</span><span class="p">.</span><span class="na">getName</span><span class="p">())){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">like</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">,</span><span class="n">brand</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 品牌首字母</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">brand</span><span class="p">.</span><span class="na">getFirstChar</span><span class="p">())){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                 </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&#34;first_char&#34;</span><span class="p">,</span><span class="n">brand</span><span class="p">.</span><span class="na">getFirstChar</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 品牌图像</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">StringUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">brand</span><span class="p">.</span><span class="na">getImage</span><span class="p">())){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                 </span><span class="n">queryWrapper</span><span class="p">.</span><span class="na">eq</span><span class="p">(</span><span class="s">&#34;image&#34;</span><span class="p">,</span><span class="n">brand</span><span class="p">.</span><span class="na">getImage</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">queryWrapper</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(2) 控制层</p>
 <p>BrandController新增方法</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 多条件搜索品牌数据
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param brand
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/search&#34;</span> <span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span> <span class="nf">findList</span><span class="o">(</span><span class="nd">@RequestBody</span><span class="o">(</span><span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span> <span class="n">Brand</span> <span class="n">brand</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findList</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">list</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>测试：http://localhost:9001/brand/search
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@PostMapping</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;/search&#34;</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">findList</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="p">(</span><span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brandService</span><span class="p">.</span><span class="na">findList</span><span class="p">(</span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;查询成功&#34;</span><span class="p">,</span><span class="n">list</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试：http://localhost:9001/brand/search
 <img src="/posts/project-0/20220527220542/image-20220527221155575.png"
     
     
@@ -1611,54 +1611,54 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param page
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param size
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findPage</span><span class="o">(</span><span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="kt">int</span> <span class="n">size</span><span class="o">);</span>
-</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl添加分页方法实现，代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findPage</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl添加分页方法实现，代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand分页查询
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param page
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param size
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findPage</span><span class="o">(</span><span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="kt">int</span> <span class="n">size</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">       <span class="c1">//分页参数封装对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Page</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">brandPage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;(</span><span class="n">page</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//发出分页查询
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Page</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">iPage</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">page</span><span class="o">(</span><span class="n">brandPage</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;(</span><span class="n">iPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">(),</span><span class="n">iPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>(2)控制层</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findPage</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="c1">//分页参数封装对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">brandPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Page</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//发出分页查询</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">page</span><span class="p">(</span><span class="n">brandPage</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="p">(</span><span class="n">iPage</span><span class="p">.</span><span class="na">getTotal</span><span class="p">(),</span><span class="n">iPage</span><span class="p">.</span><span class="na">getRecords</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/***
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand分页搜索实现
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param page:当前页
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param size:每页显示多少条
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/search/{page}/{size}&#34;</span> <span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span> <span class="nf">findPage</span><span class="o">(</span><span class="nd">@PathVariable</span>  <span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="nd">@PathVariable</span>  <span class="kt">int</span> <span class="n">size</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//调用BrandService实现分页查询Brand
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">pageResult</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findPage</span><span class="o">(</span><span class="n">page</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">pageResult</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>(3)在com.offcn.sellergoods.config包下新增MyBatisPlus分页插件，PageConfig.java类</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;/search/{page}/{size}&#34;</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nf">findPage</span><span class="p">(</span><span class="nd">@PathVariable</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="nd">@PathVariable</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//调用BrandService实现分页查询Brand</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pageResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brandService</span><span class="p">.</span><span class="na">findPage</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;查询成功&#34;</span><span class="p">,</span><span class="n">pageResult</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(3)在com.offcn.sellergoods.config包下新增MyBatisPlus分页插件，PageConfig.java类</p>
 <p>注意：3.4.1版本及以上使用MybatisPlusInterceptor进行配置</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="nd">@Bean</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">MybatisPlusInterceptor</span> <span class="nf">mybatisPlusInterceptor</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">MybatisPlusInterceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MybatisPlusInterceptor</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">PaginationInnerInterceptor</span> <span class="n">paginationInnerInterceptor</span> <span class="o">=</span> <span class="k">new</span>        <span class="n">PaginationInnerInterceptor</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">paginationInnerInterceptor</span><span class="o">.</span><span class="na">setDbType</span><span class="o">(</span><span class="n">DbType</span><span class="o">.</span><span class="na">MYSQL</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//设置请求的页面大于最大页后操作，true调回到首页，false继续请求 默认false
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">paginationInnerInterceptor</span><span class="o">.</span><span class="na">setOverflow</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//设置最大单页限制数量，默认 500 条， -1 不受限制
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">paginationInnerInterceptor</span><span class="o">.</span><span class="na">setMaxLimit</span><span class="o">(</span><span class="mi">500L</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">interceptor</span><span class="o">.</span><span class="na">addInnerInterceptor</span><span class="o">(</span><span class="n">paginationInnerInterceptor</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">interceptor</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>测试：http://localhost:9001/brand/search/1/3
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Bean</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MybatisPlusInterceptor</span><span class="w"> </span><span class="nf">mybatisPlusInterceptor</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">MybatisPlusInterceptor</span><span class="w"> </span><span class="n">interceptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MybatisPlusInterceptor</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">PaginationInnerInterceptor</span><span class="w"> </span><span class="n">paginationInnerInterceptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w">        </span><span class="n">PaginationInnerInterceptor</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">paginationInnerInterceptor</span><span class="p">.</span><span class="na">setDbType</span><span class="p">(</span><span class="n">DbType</span><span class="p">.</span><span class="na">MYSQL</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//设置请求的页面大于最大页后操作，true调回到首页，false继续请求 默认false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">paginationInnerInterceptor</span><span class="p">.</span><span class="na">setOverflow</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//设置最大单页限制数量，默认 500 条， -1 不受限制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">paginationInnerInterceptor</span><span class="p">.</span><span class="na">setMaxLimit</span><span class="p">(</span><span class="n">500L</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">interceptor</span><span class="p">.</span><span class="na">addInnerInterceptor</span><span class="p">(</span><span class="n">paginationInnerInterceptor</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">interceptor</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试：http://localhost:9001/brand/search/1/3
 <img src="/posts/project-0/20220527220542/image-20220527221204004.png"
     
     
@@ -1676,24 +1676,24 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param page
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param size
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findPage</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">,</span> <span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="kt">int</span> <span class="n">size</span><span class="o">);</span>
-</span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加多条件分页查询方法代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findPage</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>修改com.offcn.sellergoods.service.impl.BrandServiceImpl，添加多条件分页查询方法代码如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * Brand条件+分页查询
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param brand 查询条件
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param page 页码
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @param size 页大小
 </span></span></span><span class="line"><span class="cl"><span class="cm">     * @return 分页结果
-</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="nf">findPage</span><span class="o">(</span><span class="n">Brand</span> <span class="n">brand</span><span class="o">,</span> <span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="kt">int</span> <span class="n">size</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">         <span class="n">Page</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">mypage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Page</span><span class="o">&lt;&gt;(</span><span class="n">page</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">queryWrapper</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">createQueryWrapper</span><span class="o">(</span><span class="n">brand</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">IPage</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">iPage</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">page</span><span class="o">(</span><span class="n">mypage</span><span class="o">,</span> <span class="n">queryWrapper</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;(</span><span class="n">iPage</span><span class="o">.</span><span class="na">getTotal</span><span class="o">(),</span><span class="n">iPage</span><span class="o">.</span><span class="na">getRecords</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span></code></pre></div><p>(2)控制层</p>
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findPage</span><span class="p">(</span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">Page</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mypage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Page</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">QueryWrapper</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queryWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">createQueryWrapper</span><span class="p">(</span><span class="n">brand</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">IPage</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">page</span><span class="p">(</span><span class="n">mypage</span><span class="p">,</span><span class="w"> </span><span class="n">queryWrapper</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="p">(</span><span class="n">iPage</span><span class="p">.</span><span class="na">getTotal</span><span class="p">(),</span><span class="n">iPage</span><span class="p">.</span><span class="na">getRecords</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>(2)控制层</p>
 <p>BrandController新增方法</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/***
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 分页搜索实现
@@ -1701,14 +1701,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param page
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @param size
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * @return
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/search/{page}/{size}&#34;</span> <span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">PageResult</span><span class="o">&gt;</span> <span class="nf">findPage</span><span class="o">(</span><span class="nd">@RequestBody</span><span class="o">(</span><span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span> <span class="n">Brand</span> <span class="n">brand</span><span class="o">,</span> <span class="nd">@PathVariable</span>  <span class="kt">int</span> <span class="n">page</span><span class="o">,</span> <span class="nd">@PathVariable</span>  <span class="kt">int</span> <span class="n">size</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//执行搜索
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span> <span class="n">pageResult</span> <span class="o">=</span> <span class="n">brandService</span><span class="o">.</span><span class="na">findPage</span><span class="o">(</span><span class="n">brand</span><span class="o">,</span> <span class="n">page</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span><span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span><span class="s">&#34;查询成功&#34;</span><span class="o">,</span><span class="n">pageResult</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>测试：http://localhost:9001/brand/search/1/3
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@PostMapping</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;/search/{page}/{size}&#34;</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">PageResult</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findPage</span><span class="p">(</span><span class="nd">@RequestBody</span><span class="p">(</span><span class="n">required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="n">Brand</span><span class="w"> </span><span class="n">brand</span><span class="p">,</span><span class="w"> </span><span class="nd">@PathVariable</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="nd">@PathVariable</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//执行搜索</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PageResult</span><span class="o">&lt;</span><span class="n">Brand</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pageResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brandService</span><span class="p">.</span><span class="na">findPage</span><span class="p">(</span><span class="n">brand</span><span class="p">,</span><span class="w"> </span><span class="n">page</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="s">&#34;查询成功&#34;</span><span class="p">,</span><span class="n">pageResult</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>测试：http://localhost:9001/brand/search/1/3
 <img src="/posts/project-0/20220527220542/image-20220527221215716.png"
     
     
@@ -1869,38 +1869,38 @@
 </span></span></code></pre></div><p>tracker_server： tracker服务器IP和端口设置</p>
 <h3 id="533-创建测试类teststorageclient">5.3.3 创建测试类TestStorageClient</h3>
 <p>代码如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.csource.common.MyException</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.csource.fastdfs.*</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestFastDFS</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">MyException</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 1、加载配置文件，配置文件中的内容就是 tracker 服务的地址。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">ClientGlobal</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="s">&#34;C:\\idea_workspace_offcn\\2021shadow\\github\\dongyimai-parent\\dongyimai-service\\dongyimai-file-service\\src\\main\\resources\\fdfs_client.conf&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 2、创建一个 TrackerClient 对象。直接 new 一个。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">TrackerClient</span> <span class="n">trackerClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TrackerClient</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 3、使用 TrackerClient 对象创建连接，获得一个 TrackerServer 对象。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">TrackerServer</span> <span class="n">trackerServer</span> <span class="o">=</span> <span class="n">trackerClient</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 4、创建一个 StorageServer 的引用，值为 null
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">StorageServer</span> <span class="n">storageServer</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 5、创建一个 StorageClient 对象，需要两个参数 TrackerServer 对象、StorageServer 的引用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">StorageClient</span> <span class="n">storageClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StorageClient</span><span class="o">(</span><span class="n">trackerServer</span><span class="o">,</span> <span class="n">storageServer</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 6、使用 StorageClient 对象上传图片。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//扩展名不带“.”
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span><span class="o">[]</span> <span class="n">strings</span> <span class="o">=</span> <span class="n">storageClient</span><span class="o">.</span><span class="na">upload_file</span><span class="o">(</span><span class="s">&#34;C:/1.jpg&#34;</span><span class="o">,</span> <span class="s">&#34;jpg&#34;</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl">                <span class="kc">null</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 7、返回数组。包含组名和图片的路径。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">string</span> <span class="o">:</span> <span class="n">strings</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">string</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p><strong>注意：如果出现连接图片服务器超时失败的情况，请检查图片linux服务器是否启动、是否开启了端口22122、23000以及8080的防火墙端口，如果未开启需要开启。</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.offcn</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.csource.common.MyException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.csource.fastdfs.*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestFastDFS</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">,</span><span class="w"> </span><span class="n">MyException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 1、加载配置文件，配置文件中的内容就是 tracker 服务的地址。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ClientGlobal</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="s">&#34;C:\\idea_workspace_offcn\\2021shadow\\github\\dongyimai-parent\\dongyimai-service\\dongyimai-file-service\\src\\main\\resources\\fdfs_client.conf&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 2、创建一个 TrackerClient 对象。直接 new 一个。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">TrackerClient</span><span class="w"> </span><span class="n">trackerClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TrackerClient</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 3、使用 TrackerClient 对象创建连接，获得一个 TrackerServer 对象。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">TrackerServer</span><span class="w"> </span><span class="n">trackerServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trackerClient</span><span class="p">.</span><span class="na">getConnection</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 4、创建一个 StorageServer 的引用，值为 null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">StorageServer</span><span class="w"> </span><span class="n">storageServer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 5、创建一个 StorageClient 对象，需要两个参数 TrackerServer 对象、StorageServer 的引用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">StorageClient</span><span class="w"> </span><span class="n">storageClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StorageClient</span><span class="p">(</span><span class="n">trackerServer</span><span class="p">,</span><span class="w"> </span><span class="n">storageServer</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 6、使用 StorageClient 对象上传图片。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//扩展名不带“.”</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">storageClient</span><span class="p">.</span><span class="na">upload_file</span><span class="p">(</span><span class="s">&#34;C:/1.jpg&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;jpg&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kc">null</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 7、返回数组。包含组名和图片的路径。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">strings</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">string</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>注意：如果出现连接图片服务器超时失败的情况，请检查图片linux服务器是否启动、是否开启了端口22122、23000以及8080的防火墙端口，如果未开启需要开启。</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>22122/tcp --permanent
 </span></span><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>23000/tcp --permanent
 </span></span><span class="line"><span class="cl">firewall-cmd --add-port<span class="o">=</span>8080/tcp --permanent
@@ -1952,15 +1952,15 @@
 </span></span></span></code></pre></div><p>max-file-size是单个文件大小，max-request-size是设置总上传的数据大小</p>
 <h3 id="535-启动类">5.3.5 启动类</h3>
 <p>创建启动类FileApplication</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span>
-</span></span><span class="line"><span class="cl"><span class="nd">@EnableEurekaClient</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FileApplication</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">FileApplication</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p><strong>这里禁止了DataSource的加载创建。</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SpringBootApplication</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@EnableEurekaClient</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FileApplication</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">FileApplication</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>这里禁止了DataSource的加载创建。</strong></p>
 <h3 id="536-文件上传">5.3.6 文件上传</h3>
 <h4 id="5361-添加工具类">5.3.6.1 添加工具类</h4>
 <p>将“资源/fastDFS/工具类”的FastDFSClient.java 拷贝到<code>com.offcn.util</code>
@@ -1974,45 +1974,45 @@
 ></p>
 <h4 id="5362-控制层">5.3.6.2 控制层</h4>
 <p>在<code>com.offcn.controller</code>中创建UploadController.java</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.offcn.controller</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.offcn.entity.Result</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.offcn.entity.StatusCode</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.offcn.util.FastDFSClient</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestParam</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.springframework.web.multipart.MultipartFile</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nd">@RestController</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UploadController</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${FILE_SERVER_URL}&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">FILE_SERVER_URL</span><span class="o">;</span><span class="c1">//文件服务器地址
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&#34;/upload&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Result</span> <span class="nf">upload</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;file&#34;</span><span class="o">)</span> <span class="n">MultipartFile</span> <span class="n">file</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//1、取文件的扩展名
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">originalFilename</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">getOriginalFilename</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">extName</span> <span class="o">=</span> <span class="n">originalFilename</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">originalFilename</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">&#34;.&#34;</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">//2、创建一个 FastDFS 的客户端
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">FastDFSClient</span> <span class="n">fastDFSClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FastDFSClient</span><span class="o">(</span><span class="s">&#34;classpath:fdfs_client.conf&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">//3、执行上传处理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">fastDFSClient</span><span class="o">.</span><span class="na">uploadFile</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span> <span class="n">extName</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">//4、拼接返回的 url 和 ip 地址，拼装成完整的 url
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">FILE_SERVER_URL</span> <span class="o">+</span> <span class="n">path</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">OK</span><span class="o">,</span> <span class="n">url</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">new</span> <span class="n">Result</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="n">StatusCode</span><span class="o">.</span><span class="na">ERROR</span><span class="o">,</span> <span class="s">&#34;上传失败&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h4 id="5363-postman测试文件上传">5.3.6.3 Postman测试文件上传</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.offcn.controller</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.offcn.entity.Result</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.offcn.entity.StatusCode</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.offcn.util.FastDFSClient</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.PostMapping</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.RequestParam</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.web.multipart.MultipartFile</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RestController</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UploadController</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&#34;${FILE_SERVER_URL}&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">FILE_SERVER_URL</span><span class="p">;</span><span class="c1">//文件服务器地址</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&#34;/upload&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="nf">upload</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;file&#34;</span><span class="p">)</span><span class="w"> </span><span class="n">MultipartFile</span><span class="w"> </span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//1、取文件的扩展名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">originalFilename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="na">getOriginalFilename</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">extName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">originalFilename</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">originalFilename</span><span class="p">.</span><span class="na">lastIndexOf</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//2、创建一个 FastDFS 的客户端</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">FastDFSClient</span><span class="w"> </span><span class="n">fastDFSClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FastDFSClient</span><span class="p">(</span><span class="s">&#34;classpath:fdfs_client.conf&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//3、执行上传处理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fastDFSClient</span><span class="p">.</span><span class="na">uploadFile</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(),</span><span class="w"> </span><span class="n">extName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//4、拼接返回的 url 和 ip 地址，拼装成完整的 url</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FILE_SERVER_URL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">path</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">,</span><span class="w"> </span><span class="n">url</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="n">StatusCode</span><span class="p">.</span><span class="na">ERROR</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;上传失败&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="5363-postman测试文件上传">5.3.6.3 Postman测试文件上传</h4>
 <p>步骤：</p>
 <p>1、选择post请求方式，输入请求地址  http://localhost:9002/upload</p>
 <p>2、填写body</p>

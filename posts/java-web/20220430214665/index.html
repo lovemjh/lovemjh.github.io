@@ -493,184 +493,184 @@
             
             <div class="js-toc-content" style="height: 100%;">
                 <h1 id="1-理解">1. 理解</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cascading</span> <span class="n">Style</span> <span class="n">Sheets</span> <span class="n">层叠样式表</span><span class="err">，</span><span class="n">使用一些样式来修饰html标签的效果</span>
-</span></span></code></pre></div><h1 id="2-使用">2. 使用</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">几乎每一个标签都有的属性</span><span class="err">：</span><span class="n">id</span> <span class="kd">class</span> <span class="nc">name</span> <span class="n">style</span>
-</span></span><span class="line"><span class="cl"><span class="n">使用方式1</span><span class="err">：</span><span class="n">行内样式</span> <span class="n">根据的标签的style属性引入CSS样式</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">方式1</span><span class="err">：</span><span class="n">行内样式使用</span>
-</span></span><span class="line"><span class="cl">            <span class="n">几乎每一个标签都有的属性</span><span class="err">：</span><span class="n">id</span>  <span class="kd">class</span> <span class="nc">name</span> <span class="n">style</span><span class="err">（</span><span class="n">引入CSS样式</span><span class="err">）</span>
-</span></span><span class="line"><span class="cl">    <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">div</span> <span class="n">style</span><span class="o">=</span><span class="s">&#34;color: pink; font-size: 20px;&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">这是一个美女</span><span class="err">，</span><span class="n">但是没有化妆</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">                
-</span></span><span class="line"><span class="cl"><span class="n">使用方式2</span><span class="err">：</span><span class="n">内联样式</span> <span class="n">根据head中的</span> <span class="n">子标签style</span> <span class="n">引入CSS样式</span>  <span class="n">提高CSS的复用性</span>
-</span></span><span class="line"><span class="cl">     <span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">span</span><span class="o">,</span> <span class="n">b</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">red</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="mi">25</span><span class="n">px</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"><span class="n">使用方式3</span><span class="err">：</span><span class="n">外联样式</span>  <span class="n">在外部编写</span><span class="o">.</span><span class="na">css文件</span>  <span class="n">在head中使用link标签引入该页面</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="n">方式3</span><span class="err">：</span><span class="n">引入外部样式</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="n">href</span><span class="o">=</span><span class="s">&#34;./css/xx.css&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"><span class="n">总结</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">        <span class="n">优先级</span><span class="err">：</span><span class="n">就近原则</span>
-</span></span></code></pre></div><h1 id="3-选择器">3. 选择器</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">理解</span><span class="err">：</span><span class="n">CSS中为了便于定位具体的某个标签</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">选择器种类</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">基本选择器</span><span class="err">：</span><span class="n">标签选择器</span><span class="err">、</span><span class="n">id选择器</span><span class="err">、</span><span class="n">类选择器</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="err">·</span><span class="n">标签选择器</span><span class="err">：</span><span class="n">通过标签的名字定位到标签</span>
-</span></span><span class="line"><span class="cl">    	<span class="cm">/* 1. 标签选择器: 定位页面中所有该名字的标签 */</span>
-</span></span><span class="line"><span class="cl">        <span class="n">div</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">red</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="err">·</span><span class="n">ID选择器</span><span class="err">：</span><span class="n">通过标签的ID属性值定位该标签</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="cm">/* 2. id选择器：id值是唯一的 定位更加准确 */</span>
-</span></span><span class="line"><span class="cl">        <span class="err">#</span><span class="n">d2</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">color</span><span class="o">:</span> <span class="n">blue</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">       
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">类选择器</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="cm">/*  3. 类选择器：多个标签可以有相同的class的值 一个标签可以有多个 */</span>
-</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">d1</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">pink</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">d3</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="mi">25</span><span class="n">px</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">其他选择器</span>
-</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="n">组合选择器</span>
-</span></span><span class="line"><span class="cl">        <span class="cm">/* 4. 组合选择器: 多个选择器组合使用 逗号隔开 */</span>
-</span></span><span class="line"><span class="cl">        <span class="o">.</span><span class="na">d1</span><span class="o">,.</span><span class="na">sp1</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">pink</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">层级选择器</span>
-</span></span><span class="line"><span class="cl">          <span class="cm">/* 5. 层级选择器：一层一层找 */</span>
-</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="n">b</span> <span class="n">span</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">color</span><span class="o">:</span> <span class="n">green</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">伪类选择器</span>
-</span></span><span class="line"><span class="cl">        <span class="cm">/*  6. 伪类选择器：根据标签的状态定位 */</span>
-</span></span><span class="line"><span class="cl">       <span class="cm">/* a链接未点击的状态 */</span>
-</span></span><span class="line"><span class="cl">       <span class="n">a</span><span class="o">:</span><span class="n">link</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">color</span><span class="o">:</span> <span class="n">red</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">       <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       <span class="cm">/* a链接访问后的状态 */</span>
-</span></span><span class="line"><span class="cl">       <span class="n">a</span><span class="o">:</span><span class="n">visited</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">           <span class="n">color</span><span class="o">:</span> <span class="err">#</span><span class="n">c3c3c3</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">       <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="cm">/*  a链接鼠标悬停的状态 */</span>
-</span></span><span class="line"><span class="cl">      <span class="n">a</span><span class="o">:</span><span class="n">hover</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">          <span class="n">color</span><span class="o">:</span> <span class="n">green</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="cm">/* a链接正在点击的状态 */</span>
-</span></span><span class="line"><span class="cl">      <span class="n">a</span><span class="o">:</span><span class="n">active</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">          <span class="n">color</span><span class="o">:</span> <span class="n">yellow</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">}</span>
-</span></span><span class="line"><span class="cl">	<span class="err">·</span><span class="n">属性选择器</span>
-</span></span><span class="line"><span class="cl">        <span class="cm">/* 7. 属性选择器：根据标签的属性值 定位该标签 */</span>
-</span></span><span class="line"><span class="cl">      <span class="n">input</span><span class="o">[</span><span class="n">name</span><span class="o">=</span><span class="n">username</span><span class="o">]{</span>
-</span></span><span class="line"><span class="cl">          <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="o">:</span> <span class="n">blue</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="o">*</span><span class="n">选择器</span>
-</span></span><span class="line"><span class="cl">         <span class="cm">/* 8. *选择器  匹配页面中所有的标签 */</span>
-</span></span><span class="line"><span class="cl">      <span class="o">*{</span>
-</span></span><span class="line"><span class="cl">          <span class="n">margin</span><span class="o">:</span> <span class="mi">0</span><span class="n">px</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">      <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">优先级</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">越精确优先级越高</span>
-</span></span><span class="line"><span class="cl">    	<span class="n">ID选择器</span>  <span class="o">&gt;</span> <span class="n">其他的选择器</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">选择器</span>
-</span></span></code></pre></div><h1 id="4-常见的样式">4. 常见的样式</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">语法</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">样式名</span><span class="o">:</span> <span class="n">样式值</span><span class="o">;</span>   
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">以键值对的形式书写</span>
-</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="n">键和值之间冒号隔开</span>
-</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="n">每一个样式使用分号结束</span>
-</span></span><span class="line"><span class="cl">     <span class="err">·</span> <span class="n">一个标签可以有多个样式</span>
-</span></span></code></pre></div><h2 id="-字体样式">① 字体样式</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">color:</span> <span class="n">rgba</span><span class="o">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="o">.</span><span class="na">2</span><span class="o">);</span>  <span class="cm">/* 字体颜色:可以是单词 十六进制形式 和 rgba形式 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="mi">20</span><span class="n">px</span><span class="o">;</span>   <span class="cm">/* 字体大小 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="o">:</span> <span class="n">bolder</span><span class="o">;</span>  <span class="cm">/* 字体粗细：加粗 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">宋体</span><span class="err">&#39;</span><span class="o">;</span>  <span class="cm">/* 字体类型 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">style</span><span class="o">:</span> <span class="n">italic</span><span class="o">;</span>  <span class="cm">/* 字体风格：倾斜 */</span>
-</span></span></code></pre></div><h2 id="-文本样式">② 文本样式</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="o">:</span> <span class="mi">30</span><span class="n">px</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="o">:</span> <span class="n">center</span><span class="o">;</span> <span class="cm">/* 对齐方式 */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">text</span><span class="o">-</span><span class="n">decoration</span><span class="o">:</span> <span class="n">none</span><span class="o">;</span> <span class="cm">/* 文本装饰 */</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/* 文本阴影 参数1：阴影颜色  参数2：水平方向的偏移量 参数3：垂直方向的偏移量 参数4：模糊度 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">text</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="n">pink</span> <span class="mi">5</span><span class="n">px</span> <span class="mi">6</span><span class="n">px</span> <span class="mi">3</span><span class="n">px</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">line</span><span class="o">-</span><span class="n">height</span><span class="o">:</span> <span class="mi">200</span><span class="n">px</span><span class="o">;</span>  <span class="cm">/* 行高：文本所占位置的高度 可以实现垂直方向的居中 */</span>
-</span></span></code></pre></div><h2 id="-尺寸样式">③ 尺寸样式</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">width</span>
-</span></span><span class="line"><span class="cl"><span class="n">height</span>
-</span></span></code></pre></div><h2 id="-背景样式">④ 背景样式</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="o">:</span> <span class="n">green</span><span class="o">;</span> <span class="cm">/* 背景的颜色 */</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/* background-image: url(./img/lgx.png); */</span> <span class="cm">/* 背景图片 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">background</span><span class="o">-</span><span class="n">repeat</span><span class="o">:</span> <span class="n">no</span><span class="o">-</span><span class="n">repeat</span><span class="o">;</span> <span class="cm">/* 是否平铺 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">background</span><span class="o">-</span><span class="n">position</span><span class="o">:</span> <span class="n">left</span> <span class="n">bottom</span><span class="o">;</span> <span class="cm">/* 背景图片的位置 */</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/* 背景图片是否随着标签滚动 fixed不随着滚动  scroll 随着滚动 */</span>
-</span></span><span class="line"><span class="cl"><span class="n">background</span><span class="o">-</span><span class="n">attachment</span><span class="o">:</span> <span class="n">fixed</span><span class="o">;</span>  
-</span></span><span class="line"><span class="cl"><span class="cm">/* 背景的渐变色参数1：方向 参数2:颜色的变化 */</span>
-</span></span><span class="line"><span class="cl"><span class="nl">background:</span> <span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="o">(</span><span class="n">to</span> <span class="n">bottom</span><span class="o">,</span> <span class="n">green</span><span class="o">,</span> <span class="n">white</span><span class="o">)</span>
-</span></span></code></pre></div><h2 id="-定位">⑤ 定位</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cascading</span><span class="w"> </span><span class="n">Style</span><span class="w"> </span><span class="n">Sheets</span><span class="w"> </span><span class="n">层叠样式表</span><span class="err">，</span><span class="n">使用一些样式来修饰html标签的效果</span><span class="w">
+</span></span></span></code></pre></div><h1 id="2-使用">2. 使用</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">几乎每一个标签都有的属性</span><span class="err">：</span><span class="n">id</span><span class="w"> </span><span class="kd">class</span> <span class="nc">name</span><span class="w"> </span><span class="n">style</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">使用方式1</span><span class="err">：</span><span class="n">行内样式</span><span class="w"> </span><span class="n">根据的标签的style属性引入CSS样式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">方式1</span><span class="err">：</span><span class="n">行内样式使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">几乎每一个标签都有的属性</span><span class="err">：</span><span class="n">id</span><span class="w">  </span><span class="kd">class</span> <span class="nc">name</span><span class="w"> </span><span class="n">style</span><span class="err">（</span><span class="n">引入CSS样式</span><span class="err">）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">div</span><span class="w"> </span><span class="n">style</span><span class="o">=</span><span class="s">&#34;color: pink; font-size: 20px;&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">这是一个美女</span><span class="err">，</span><span class="n">但是没有化妆</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">使用方式2</span><span class="err">：</span><span class="n">内联样式</span><span class="w"> </span><span class="n">根据head中的</span><span class="w"> </span><span class="n">子标签style</span><span class="w"> </span><span class="n">引入CSS样式</span><span class="w">  </span><span class="n">提高CSS的复用性</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">span</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">red</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span><span class="w"> </span><span class="n">25px</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">使用方式3</span><span class="err">：</span><span class="n">外联样式</span><span class="w">  </span><span class="n">在外部编写</span><span class="p">.</span><span class="na">css文件</span><span class="w">  </span><span class="n">在head中使用link标签引入该页面</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">方式3</span><span class="err">：</span><span class="n">引入外部样式</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">link</span><span class="w"> </span><span class="n">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="w"> </span><span class="n">href</span><span class="o">=</span><span class="s">&#34;./css/xx.css&#34;</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">总结</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">优先级</span><span class="err">：</span><span class="n">就近原则</span><span class="w">
+</span></span></span></code></pre></div><h1 id="3-选择器">3. 选择器</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">理解</span><span class="err">：</span><span class="n">CSS中为了便于定位具体的某个标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">选择器种类</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">基本选择器</span><span class="err">：</span><span class="n">标签选择器</span><span class="err">、</span><span class="n">id选择器</span><span class="err">、</span><span class="n">类选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="n">标签选择器</span><span class="err">：</span><span class="n">通过标签的名字定位到标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="cm">/* 1. 标签选择器: 定位页面中所有该名字的标签 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">div</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">red</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">·</span><span class="n">ID选择器</span><span class="err">：</span><span class="n">通过标签的ID属性值定位该标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* 2. id选择器：id值是唯一的 定位更加准确 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">#</span><span class="n">d2</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">·</span><span class="w"> </span><span class="n">类选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*  3. 类选择器：多个标签可以有相同的class的值 一个标签可以有多个 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">d1</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">pink</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">d3</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span><span class="w"> </span><span class="n">25px</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">其他选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">·</span><span class="w"> </span><span class="n">组合选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* 4. 组合选择器: 多个选择器组合使用 逗号隔开 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">d1</span><span class="p">,.</span><span class="na">sp1</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">pink</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">·</span><span class="w"> </span><span class="n">层级选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="cm">/* 5. 层级选择器：一层一层找 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">span</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">green</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">·</span><span class="w"> </span><span class="n">伪类选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*  6. 伪类选择器：根据标签的状态定位 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="cm">/* a链接未点击的状态 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">a</span><span class="p">:</span><span class="n">link</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">red</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="cm">/* a链接访问后的状态 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">a</span><span class="p">:</span><span class="n">visited</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">           </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="err">#</span><span class="n">c3c3c3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="cm">/*  a链接鼠标悬停的状态 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">a</span><span class="p">:</span><span class="n">hover</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">green</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="cm">/* a链接正在点击的状态 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">a</span><span class="p">:</span><span class="n">active</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">yellow</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">·</span><span class="n">属性选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* 7. 属性选择器：根据标签的属性值 定位该标签 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">input</span><span class="o">[</span><span class="n">name</span><span class="o">=</span><span class="n">username</span><span class="o">]</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">·</span><span class="w"> </span><span class="o">*</span><span class="n">选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="cm">/* 8. *选择器  匹配页面中所有的标签 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="o">*</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="n">margin</span><span class="p">:</span><span class="w"> </span><span class="n">0px</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">优先级</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">越精确优先级越高</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">ID选择器</span><span class="w">  </span><span class="o">&gt;</span><span class="w"> </span><span class="n">其他的选择器</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="n">选择器</span><span class="w">
+</span></span></span></code></pre></div><h1 id="4-常见的样式">4. 常见的样式</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">语法</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">样式名</span><span class="p">:</span><span class="w"> </span><span class="n">样式值</span><span class="p">;</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">·</span><span class="w"> </span><span class="n">以键值对的形式书写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">·</span><span class="w"> </span><span class="n">键和值之间冒号隔开</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">·</span><span class="w"> </span><span class="n">每一个样式使用分号结束</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">·</span><span class="w"> </span><span class="n">一个标签可以有多个样式</span><span class="w">
+</span></span></span></code></pre></div><h2 id="-字体样式">① 字体样式</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">color</span><span class="p">:</span><span class="w"> </span><span class="n">rgba</span><span class="p">(</span><span class="n">255</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="na">2</span><span class="p">);</span><span class="w">  </span><span class="cm">/* 字体颜色:可以是单词 十六进制形式 和 rgba形式 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span><span class="w"> </span><span class="n">20px</span><span class="p">;</span><span class="w">   </span><span class="cm">/* 字体大小 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="p">:</span><span class="w"> </span><span class="n">bolder</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 字体粗细：加粗 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">宋体</span><span class="err">&#39;</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 字体类型 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">font</span><span class="o">-</span><span class="n">style</span><span class="p">:</span><span class="w"> </span><span class="n">italic</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 字体风格：倾斜 */</span><span class="w">
+</span></span></span></code></pre></div><h2 id="-文本样式">② 文本样式</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span><span class="w"> </span><span class="n">30px</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">text</span><span class="o">-</span><span class="n">align</span><span class="p">:</span><span class="w"> </span><span class="n">center</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 对齐方式 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">text</span><span class="o">-</span><span class="n">decoration</span><span class="p">:</span><span class="w"> </span><span class="n">none</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 文本装饰 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 文本阴影 参数1：阴影颜色  参数2：水平方向的偏移量 参数3：垂直方向的偏移量 参数4：模糊度 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">text</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span><span class="w"> </span><span class="n">pink</span><span class="w"> </span><span class="n">5px</span><span class="w"> </span><span class="n">6px</span><span class="w"> </span><span class="n">3px</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">line</span><span class="o">-</span><span class="n">height</span><span class="p">:</span><span class="w"> </span><span class="n">200px</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 行高：文本所占位置的高度 可以实现垂直方向的居中 */</span><span class="w">
+</span></span></span></code></pre></div><h2 id="-尺寸样式">③ 尺寸样式</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">width</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">height</span><span class="w">
+</span></span></span></code></pre></div><h2 id="-背景样式">④ 背景样式</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span><span class="w"> </span><span class="n">green</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 背景的颜色 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* background-image: url(./img/lgx.png); */</span><span class="w"> </span><span class="cm">/* 背景图片 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">background</span><span class="o">-</span><span class="n">repeat</span><span class="p">:</span><span class="w"> </span><span class="n">no</span><span class="o">-</span><span class="n">repeat</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 是否平铺 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">background</span><span class="o">-</span><span class="n">position</span><span class="p">:</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">bottom</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 背景图片的位置 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 背景图片是否随着标签滚动 fixed不随着滚动  scroll 随着滚动 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">background</span><span class="o">-</span><span class="n">attachment</span><span class="p">:</span><span class="w"> </span><span class="n">fixed</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 背景的渐变色参数1：方向 参数2:颜色的变化 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nl">background</span><span class="p">:</span><span class="w"> </span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="n">to</span><span class="w"> </span><span class="n">bottom</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">white</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><h2 id="-定位">⑤ 定位</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/* 定位
 </span></span></span><span class="line"><span class="cl"><span class="cm">     relative 相对定位 相对于当前标签原先的位置        
 </span></span></span><span class="line"><span class="cl"><span class="cm">     absolute 绝对定位 相对于页面的左上为抽点
 </span></span></span><span class="line"><span class="cl"><span class="cm">     fixed 固定定位  位置不变
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
-</span></span><span class="line"><span class="cl"><span class="nl">position:</span> <span class="n">absolute</span><span class="o">;</span>
-</span></span></code></pre></div><h2 id="-边框样式">⑥ 边框样式</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">参数1</span><span class="err">：</span><span class="n">边框的宽度</span>  <span class="n">参数2</span><span class="err">：</span><span class="n">边框的类型</span> <span class="n">参数3</span><span class="err">：</span><span class="n">边框的颜色</span> 
-</span></span><span class="line"><span class="cl"><span class="nl">
-</span></span></span><span class="line"><span class="cl"><span class="nl">border:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="n">blue</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/* border-top: 1px dashed red;
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nl">position</span><span class="p">:</span><span class="w"> </span><span class="n">absolute</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="-边框样式">⑥ 边框样式</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">参数1</span><span class="err">：</span><span class="n">边框的宽度</span><span class="w">  </span><span class="n">参数2</span><span class="err">：</span><span class="n">边框的类型</span><span class="w"> </span><span class="n">参数3</span><span class="err">：</span><span class="n">边框的颜色</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nl">border</span><span class="p">:</span><span class="w"> </span><span class="n">1px</span><span class="w"> </span><span class="n">solid</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* border-top: 1px dashed red;
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">border-bottom: 1px dotted pink;
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">border-left: 8px groove #c3c3c3;
 </span></span></span><span class="line"><span class="cl"><span class="cm">
-</span></span></span><span class="line"><span class="cl"><span class="cm">border-right: 8px ridge green; */</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/*  border: 10px ridge #c3c3c3; */</span>
-</span></span><span class="line"><span class="cl"><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="o">;</span>  <span class="cm">/* 边框角的弧度 */</span>
-</span></span></code></pre></div><h2 id="-盒子模型">⑦ 盒子模型</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span><span class="n">布局页面的思想</span>
-</span></span><span class="line"><span class="cl"><span class="n">注意</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">盒子的位置大小</span> <span class="o">=</span> <span class="n">height</span> <span class="o">+</span> <span class="n">border边框</span> <span class="o">+</span> <span class="n">margin</span> <span class="n">外边距</span> <span class="o">+</span> <span class="n">padding</span> <span class="n">内边距</span> 
-</span></span></code></pre></div><h2 id="-float-和-display">⑧ float 和 display</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">float</span> <span class="n">使标签浮动</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">作用</span><span class="err">：</span><span class="n">块级标签的水平方向的对象</span> <span class="n">顶部对齐</span>
-</span></span><span class="line"><span class="cl">    <span class="n">后果</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    	<span class="mi">1</span><span class="o">.</span> <span class="n">块标签</span> <span class="n">转换成</span> <span class="nf">行内块</span><span class="o">(</span><span class="n">可以设置宽度和高度</span> <span class="n">不独占一行</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    	<span class="mi">2</span><span class="o">.</span> <span class="n">浮动之后</span> <span class="n">空间坍塌</span>  <span class="n">影响后面的标签的正常布局</span>  
-</span></span><span class="line"><span class="cl">   <span class="n">总结</span><span class="err">：</span><span class="n">因此只用使用了浮动</span> <span class="n">完毕之后要记得清楚浮动</span>
-</span></span><span class="line"><span class="cl">   <span class="n">使用</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    	<span class="kt">float</span><span class="o">:</span> <span class="n">left</span><span class="o">|</span><span class="n">right</span>
-</span></span><span class="line"><span class="cl">   <span class="n">清除浮动</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">        <span class="n">添加一个同级别的空标签</span> <span class="n">设置</span> <span class="n">样式</span> <span class="n">clear</span><span class="o">:</span><span class="n">both</span>
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl"><span class="n">display</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">作用</span><span class="err">：①</span> <span class="n">可以实现块标签</span><span class="err">、</span><span class="n">行标签和行内块标签的相互转换</span> <span class="err">②</span> <span class="n">可以实现标签的显示和隐藏</span>
-</span></span><span class="line"><span class="cl">    <span class="n">使用</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">         <span class="n">display</span><span class="o">:</span> <span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="o">;</span>  <span class="c1">// 转换行内块标签
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">display</span><span class="o">:</span> <span class="n">inline</span><span class="o">;</span>    <span class="c1">// 转换行标签
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">display</span><span class="o">:</span> <span class="n">block</span><span class="o">;</span>     <span class="c1">// 转换块标签
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">display</span><span class="o">:</span> <span class="n">none</span><span class="o">;</span>  <span class="c1">// 隐藏标签
+</span></span></span><span class="line"><span class="cl"><span class="cm">border-right: 8px ridge green; */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*  border: 10px ridge #c3c3c3; */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span><span class="w"> </span><span class="n">10px</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 边框角的弧度 */</span><span class="w">
+</span></span></span></code></pre></div><h2 id="-盒子模型">⑦ 盒子模型</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span><span class="n">布局页面的思想</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">注意</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">盒子的位置大小</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">border边框</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="n">外边距</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">padding</span><span class="w"> </span><span class="n">内边距</span><span class="w"> 
+</span></span></span></code></pre></div><h2 id="-float-和-display">⑧ float 和 display</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">float</span><span class="w"> </span><span class="n">使标签浮动</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">作用</span><span class="err">：</span><span class="n">块级标签的水平方向的对象</span><span class="w"> </span><span class="n">顶部对齐</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">后果</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">块标签</span><span class="w"> </span><span class="n">转换成</span><span class="w"> </span><span class="nf">行内块</span><span class="p">(</span><span class="n">可以设置宽度和高度</span><span class="w"> </span><span class="n">不独占一行</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">浮动之后</span><span class="w"> </span><span class="n">空间坍塌</span><span class="w">  </span><span class="n">影响后面的标签的正常布局</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">总结</span><span class="err">：</span><span class="n">因此只用使用了浮动</span><span class="w"> </span><span class="n">完毕之后要记得清楚浮动</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">使用</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="kt">float</span><span class="p">:</span><span class="w"> </span><span class="n">left</span><span class="o">|</span><span class="n">right</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">清除浮动</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">添加一个同级别的空标签</span><span class="w"> </span><span class="n">设置</span><span class="w"> </span><span class="n">样式</span><span class="w"> </span><span class="n">clear</span><span class="p">:</span><span class="n">both</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">display</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">作用</span><span class="err">：①</span><span class="w"> </span><span class="n">可以实现块标签</span><span class="err">、</span><span class="n">行标签和行内块标签的相互转换</span><span class="w"> </span><span class="err">②</span><span class="w"> </span><span class="n">可以实现标签的显示和隐藏</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">使用</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">display</span><span class="p">:</span><span class="w"> </span><span class="n">inline</span><span class="o">-</span><span class="n">block</span><span class="p">;</span><span class="w">  </span><span class="c1">// 转换行内块标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">display</span><span class="p">:</span><span class="w"> </span><span class="n">inline</span><span class="p">;</span><span class="w">    </span><span class="c1">// 转换行标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">display</span><span class="p">:</span><span class="w"> </span><span class="n">block</span><span class="p">;</span><span class="w">     </span><span class="c1">// 转换块标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">display</span><span class="p">:</span><span class="w"> </span><span class="n">none</span><span class="p">;</span><span class="w">  </span><span class="c1">// 隐藏标签</span><span class="w">
 </span></span></span></code></pre></div>
             </div>
             <hr>

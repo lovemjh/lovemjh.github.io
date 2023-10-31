@@ -502,47 +502,47 @@
     
 ></p>
 <p>####1. 理解</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">写更少的代码</span> <span class="n">做更多的事情</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">jQuery是js的函数库</span>
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">优化了HTML文档操作</span><span class="err">、</span><span class="n">事件处理</span>
-</span></span></code></pre></div><h4 id="2-使用">2. 使用</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">下载代码库</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">jquery</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">min</span><span class="o">.</span><span class="na">js</span>  <span class="n">压缩版本</span>
-</span></span><span class="line"><span class="cl">    <span class="n">jquery</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">js</span>   <span class="n">未压缩</span>
-</span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="n">引入页面中</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="mi">1</span><span class="o">.</span> <span class="n">引入jquer库</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;js/jquery-3.5.1.min.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-</span></span></code></pre></div><h4 id="3-语法">3. 语法</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">核心函数</span>  <span class="nf">$</span><span class="o">()</span>
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">$</span><span class="o">(</span><span class="n">function</span><span class="o">(){})</span> <span class="n">等价于</span>  <span class="n">window</span><span class="o">.</span><span class="na">onload</span> <span class="o">=</span> <span class="n">function</span><span class="o">(){}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">区别</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">        <span class="n">jquery中$</span><span class="o">(</span><span class="n">function</span><span class="o">(){})</span> <span class="n">可以使用多次</span>
-</span></span><span class="line"><span class="cl">        <span class="n">js中的window</span><span class="o">.</span><span class="na">onload</span>  <span class="o">=</span> <span class="n">function</span><span class="o">(){}</span> <span class="n">只能使用1次</span>
-</span></span><span class="line"><span class="cl">	<span class="err">·</span> <span class="n">$</span><span class="o">(</span><span class="n">选择器</span><span class="o">)</span> <span class="n">获取标签元素</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">jquery对象</span><span class="err">：</span> <span class="n">是一组js对象</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="n">可以相互转换</span>
-</span></span><span class="line"><span class="cl">        	<span class="c1">// 1. jquery对象 转换成 js对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">ps</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">style</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="s">&#34;pink&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">ps</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">style</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="s">&#34;yellow&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 2. js 对象 转换成jquery
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">$</span><span class="o">(</span><span class="n">h2</span><span class="o">).</span><span class="na">css</span><span class="o">(</span><span class="s">&#34;color&#34;</span><span class="o">,</span> <span class="s">&#34;blue&#34;</span><span class="o">);</span>
-</span></span></code></pre></div><h4 id="4-选择器">4. 选择器</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">分类</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">基本选择器</span>	
-</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">层级选择器</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">属性选择器</span> 
-</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="o">.</span> <span class="n">表单选择器</span>
-</span></span></code></pre></div><p>#####基本选择器</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">$</span><span class="o">(</span><span class="s">&#34;#id值&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">$</span><span class="o">(</span><span class="s">&#34;.class值&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">$</span><span class="o">(</span><span class="s">&#34;标签名&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">$</span><span class="o">(</span><span class="s">&#34;*&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">$</span><span class="o">(</span><span class="s">&#34;#id,.class,标签&#34;</span><span class="o">)</span>    		
-</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222915525.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">写更少的代码</span><span class="w"> </span><span class="n">做更多的事情</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">jQuery是js的函数库</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">优化了HTML文档操作</span><span class="err">、</span><span class="n">事件处理</span><span class="w">
+</span></span></span></code></pre></div><h4 id="2-使用">2. 使用</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span><span class="w"> </span><span class="n">下载代码库</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">jquery</span><span class="o">-</span><span class="n">3</span><span class="p">.</span><span class="na">5</span><span class="p">.</span><span class="na">1</span><span class="p">.</span><span class="na">min</span><span class="p">.</span><span class="na">js</span><span class="w">  </span><span class="n">压缩版本</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">jquery</span><span class="o">-</span><span class="n">3</span><span class="p">.</span><span class="na">5</span><span class="p">.</span><span class="na">1</span><span class="p">.</span><span class="na">js</span><span class="w">   </span><span class="n">未压缩</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">②</span><span class="w"> </span><span class="n">引入页面中</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">引入jquer库</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s">&#34;js/jquery-3.5.1.min.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><h4 id="3-语法">3. 语法</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">核心函数</span><span class="w">  </span><span class="nf">$</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">function</span><span class="p">(){})</span><span class="w"> </span><span class="n">等价于</span><span class="w">  </span><span class="n">window</span><span class="p">.</span><span class="na">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">function</span><span class="p">(){}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">区别</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">jquery中$</span><span class="p">(</span><span class="n">function</span><span class="p">(){})</span><span class="w"> </span><span class="n">可以使用多次</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">js中的window</span><span class="p">.</span><span class="na">onload</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">function</span><span class="p">(){}</span><span class="w"> </span><span class="n">只能使用1次</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="err">·</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">选择器</span><span class="p">)</span><span class="w"> </span><span class="n">获取标签元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">jquery对象</span><span class="err">：</span><span class="w"> </span><span class="n">是一组js对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">可以相互转换</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        	</span><span class="c1">// 1. jquery对象 转换成 js对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">ps</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">0</span><span class="p">).</span><span class="na">style</span><span class="p">.</span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;pink&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">ps</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="p">.</span><span class="na">style</span><span class="p">.</span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;yellow&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 2. js 对象 转换成jquery</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">$</span><span class="p">(</span><span class="n">h2</span><span class="p">).</span><span class="na">css</span><span class="p">(</span><span class="s">&#34;color&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;blue&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h4 id="4-选择器">4. 选择器</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">分类</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">基本选择器</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">层级选择器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">属性选择器</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">表单选择器</span><span class="w">
+</span></span></span></code></pre></div><p>#####基本选择器</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">$</span><span class="p">(</span><span class="s">&#34;#id值&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">$</span><span class="p">(</span><span class="s">&#34;.class值&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">$</span><span class="p">(</span><span class="s">&#34;标签名&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">$</span><span class="p">(</span><span class="s">&#34;*&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">$</span><span class="p">(</span><span class="s">&#34;#id,.class,标签&#34;</span><span class="p">)</span><span class="w">    		
+</span></span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222915525.png"
     
     
     
@@ -579,8 +579,8 @@
 ></p>
 <h4 id="5dom操作函数">5.dom操作函数</h4>
 <h5 id="1-文档操作">1. 文档操作</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">内部插入</span>
-</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222932993.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">内部插入</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222932993.png"
     
     
     
@@ -588,8 +588,8 @@
     
     
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">外部插入</span>
-</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222941899.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">外部插入</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222941899.png"
     
     
     
@@ -597,8 +597,8 @@
     
     
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">包裹</span>
-</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222946833.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">包裹</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222946833.png"
     
     
     
@@ -606,8 +606,8 @@
     
     
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">替换</span>
-</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222950499.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">替换</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222950499.png"
     
     
     
@@ -615,8 +615,8 @@
     
     
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">删除</span>
-</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222954236.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">删除</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430222954236.png"
     
     
     
@@ -642,8 +642,8 @@
     
 ></p>
 <h5 id="3-样式操作">3. 样式操作</h5>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">css</span>
-</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430223011085.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">css</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430223011085.png"
     
     
     
@@ -652,13 +652,13 @@
     
 ></p>
 <h4 id="6-事件">6. 事件</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">     <span class="n">js</span>							<span class="n">jquery</span>
-</span></span><span class="line"><span class="cl"><span class="n">xx</span><span class="o">.</span><span class="na">onclick</span> <span class="o">=</span> <span class="n">function</span><span class="o">(){}</span> <span class="o">====&gt;</span>	 <span class="n">xxx</span><span class="o">.</span><span class="na">click</span><span class="o">(</span><span class="n">function</span><span class="o">(){})</span>
-</span></span><span class="line"><span class="cl">         
-</span></span><span class="line"><span class="cl"><span class="n">xx</span><span class="o">.</span><span class="na">onchange</span> <span class="o">=</span> <span class="n">function</span><span class="o">(){}</span> <span class="o">====&gt;</span>  <span class="n">xxx</span><span class="o">.</span><span class="na">change</span><span class="o">(</span><span class="n">function</span><span class="o">(){})</span>         
-</span></span><span class="line"><span class="cl">         
-</span></span><span class="line"><span class="cl"><span class="o">......</span>         
-</span></span></code></pre></div><h4 id="7-遍历">7. 遍历</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">     </span><span class="n">js</span><span class="w">							</span><span class="n">jquery</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xx</span><span class="p">.</span><span class="na">onclick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">function</span><span class="p">(){}</span><span class="w"> </span><span class="o">====&gt;</span><span class="w">	 </span><span class="n">xxx</span><span class="p">.</span><span class="na">click</span><span class="p">(</span><span class="n">function</span><span class="p">(){})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">xx</span><span class="p">.</span><span class="na">onchange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">function</span><span class="p">(){}</span><span class="w"> </span><span class="o">====&gt;</span><span class="w">  </span><span class="n">xxx</span><span class="p">.</span><span class="na">change</span><span class="p">(</span><span class="n">function</span><span class="p">(){})</span><span class="w">         
+</span></span></span><span class="line"><span class="cl"><span class="w">         
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">......</span><span class="w">         
+</span></span></span></code></pre></div><h4 id="7-遍历">7. 遍历</h4>
 <p><img src="/posts/Java-web/20220430215029/image-20220430223024397.png"
     
     
@@ -668,22 +668,22 @@
     
 ></p>
 <h3 id="二jquery插件">二、jQuery插件</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">https:</span><span class="c1">//www.jq22.com/  
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">表单校验插件</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">下载</span> 
-</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">导入</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="mi">1</span><span class="o">.</span> <span class="n">导入jquery库</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;js/jquery-3.5.1.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="mi">2</span><span class="o">.</span> <span class="n">导入validate库</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;js/jquery.validate.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span>  <span class="mi">3</span><span class="o">.</span> <span class="n">中文库</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s">&#34;js/messages_zh.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">编码</span>
-</span></span><span class="line"><span class="cl">    
-</span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430223029722.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">https</span><span class="p">:</span><span class="c1">//www.jq22.com/  </span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">表单校验插件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">下载</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">导入</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">导入jquery库</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s">&#34;js/jquery-3.5.1.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">导入validate库</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s">&#34;js/jquery.validate.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;!--</span><span class="w">  </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">中文库</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">script</span><span class="w"> </span><span class="n">src</span><span class="o">=</span><span class="s">&#34;js/messages_zh.js&#34;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">编码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span></code></pre></div><p><img src="/posts/Java-web/20220430215029/image-20220430223029722.png"
     
     
     

@@ -493,9 +493,9 @@
             
             <div class="js-toc-content" style="height: 100%;">
                 <h4 id="1-理解">1. 理解</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">Java</span> <span class="n">Databases</span> <span class="n">Connectivity</span> <span class="n">是一种独立于数据库系统</span><span class="err">、</span><span class="n">通用SQL数据库存取和操作的一组接口</span><span class="err">（</span><span class="n">一组API</span><span class="err">）</span>
-</span></span></code></pre></div><p><img src="/posts/Java-2/20220430214396/image-20220430224054182.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">Java</span><span class="w"> </span><span class="n">Databases</span><span class="w"> </span><span class="n">Connectivity</span><span class="w"> </span><span class="n">是一种独立于数据库系统</span><span class="err">、</span><span class="n">通用SQL数据库存取和操作的一组接口</span><span class="err">（</span><span class="n">一组API</span><span class="err">）</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/Java-2/20220430214396/image-20220430224054182.png"
     
     
     
@@ -512,159 +512,159 @@
     
 ></p>
 <h4 id="2-作用">2. 作用</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">JDBC提供了一组API</span> <span class="n">开发者只需要针对一组API开发即可</span><span class="err">，</span><span class="n">为开发者屏蔽了一些问题</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">JDBC为连接不同的数据库提供了统一的路径</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">根据不同的数据库厂商提供不同的驱动</span> <span class="n">提高了维护性</span>
-</span></span></code></pre></div><h4 id="3-使用">3. 使用</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">包</span><span class="err">：</span><span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.*</span>  <span class="n">javax</span><span class="o">.</span><span class="na">sql</span><span class="o">.*</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">一个类</span><span class="o">(</span><span class="n">DriverManager</span><span class="o">)</span> <span class="n">三个接口</span><span class="o">(</span><span class="n">Connection</span><span class="err">、</span><span class="n">Statement</span><span class="err">、</span><span class="n">ResultSet</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">使用步骤</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">加载驱动</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&#34;com.mysql.jdbc.Driver&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">获取连接</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">DriverManager</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(</span><span class="s">&#34;jdbc:mysql://localhost:3306/库名&#34;</span><span class="o">,</span> <span class="s">&#34;root&#34;</span><span class="o">,</span> <span class="s">&#34;密码&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">创建命令对象</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">Statement</span> <span class="n">st</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">createStatement</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="o">.</span> <span class="n">编写SQL</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">5</span><span class="o">.</span> <span class="n">执行命令</span> <span class="n">返回结果</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span> <span class="c1">// 执行查询
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	   <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="na">executeUpdate</span><span class="o">(</span><span class="n">sql</span><span class="o">);</span> <span class="c1">// 执行增删改
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="mi">6</span><span class="o">.</span> <span class="n">处理结果</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">    <span class="mi">7</span><span class="o">.</span> <span class="n">关闭资源</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">rs</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	   <span class="n">st</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	   <span class="n">conn</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span></code></pre></div><h3 id="jdbc优化">JDBC优化</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">JDBC提供了一组API</span><span class="w"> </span><span class="n">开发者只需要针对一组API开发即可</span><span class="err">，</span><span class="n">为开发者屏蔽了一些问题</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">JDBC为连接不同的数据库提供了统一的路径</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">根据不同的数据库厂商提供不同的驱动</span><span class="w"> </span><span class="n">提高了维护性</span><span class="w">
+</span></span></span></code></pre></div><h4 id="3-使用">3. 使用</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">包</span><span class="err">：</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="o">*</span><span class="w">  </span><span class="n">javax</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">一个类</span><span class="p">(</span><span class="n">DriverManager</span><span class="p">)</span><span class="w"> </span><span class="n">三个接口</span><span class="p">(</span><span class="n">Connection</span><span class="err">、</span><span class="n">Statement</span><span class="err">、</span><span class="n">ResultSet</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">使用步骤</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">加载驱动</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">Class</span><span class="p">.</span><span class="na">forName</span><span class="p">(</span><span class="s">&#34;com.mysql.jdbc.Driver&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">获取连接</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DriverManager</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="s">&#34;jdbc:mysql://localhost:3306/库名&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;root&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;密码&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">创建命令对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">Statement</span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conn</span><span class="p">.</span><span class="na">createStatement</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">编写SQL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">执行命令</span><span class="w"> </span><span class="n">返回结果</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ResultSet</span><span class="w"> </span><span class="n">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span><span class="w"> </span><span class="c1">// 执行查询</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	   </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="na">executeUpdate</span><span class="p">(</span><span class="n">sql</span><span class="p">);</span><span class="w"> </span><span class="c1">// 执行增删改</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">6</span><span class="p">.</span><span class="w"> </span><span class="n">处理结果</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">7</span><span class="p">.</span><span class="w"> </span><span class="n">关闭资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">rs</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	   </span><span class="n">st</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	   </span><span class="n">conn</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="jdbc优化">JDBC优化</h3>
 <h4 id="1-优化1sql注入">1. 优化1：SQL注入</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">SQL注入问题</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">SQL中出现了特殊的字符</span> <span class="n">导致SQL语句发生变化</span> <span class="n">引发结果不正确</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">解决</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">使用PreparedStatement预编译命令接口</span> <span class="n">替代</span> <span class="n">Statement接口</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">原理</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span><span class="n">对SQL语句先编译</span> <span class="n">检查传递的内容</span> <span class="n">如果出现了特殊字符</span> <span class="n">给转义</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span><span class="n">SQL语句中使用</span><span class="o">?</span> <span class="n">作为占位符</span>  <span class="n">只对</span><span class="o">?</span><span class="n">的内容</span> <span class="n">检查转义</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">PreparedStatement是Statement的子接口</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">避免SQL中拼接变量</span> <span class="n">引发问题</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">复用SQL语句</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    
-</span></span></code></pre></div><h4 id="2-优化2连接对象">2. 优化2：连接对象</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">连接池的必要性</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">连接资源没有得到复用</span><span class="err">，</span><span class="n">导致连接资源创建很多次</span> <span class="n">占用系统资源</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">连接资源创建和关闭都需要时间</span> <span class="n">导致程序效率降低</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">过多的连接请求导致</span> <span class="n">数据库系统宕机</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">连接资源不关闭</span> <span class="n">造成内存泄漏</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">连接池的好处</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">提高连接资源的复用性</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">提高系统的执行效率</span>  <span class="n">连接资源统一由连接池管理</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">合理的分配</span> <span class="n">连接资源</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">减少数据库宕机的可能性</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">开源的连接池</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">DBCP连接池</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">C3P0连接池</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">Druid连接池</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">连接池的使用</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">C3P0使用</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    	<span class="mi">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">c3p0</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">bin</span><span class="o">.</span><span class="na">zip</span>
-</span></span><span class="line"><span class="cl">    	<span class="mi">2</span><span class="o">.</span> <span class="n">引入jar</span>  <span class="n">c3p0</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">jar</span> <span class="n">mchange</span><span class="o">-</span><span class="n">commons</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="na">2</span><span class="o">.</span><span class="na">11</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">    	<span class="mi">3</span><span class="o">.</span> <span class="n">编写代码</span>
-</span></span><span class="line"><span class="cl"><span class="nl">
-</span></span></span><span class="line"><span class="cl"><span class="nl">    		方式1:</span><span class="n">代码配置</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">              <span class="n">方式2</span><span class="err">：</span><span class="n">配置文件方式</span> <span class="o">(</span><span class="n">推荐使用</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                 <span class="err">①</span> <span class="n">在src下创建</span> <span class="n">c3p0</span><span class="o">.</span><span class="na">properties</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                 <span class="err">②</span> <span class="n">在c3p0</span><span class="o">.</span><span class="na">properties</span> <span class="n">配置数据源</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                 <span class="err">③</span> <span class="n">创建连接池对象</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                 <span class="c1">// 1. 创建连接池对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            	<span class="n">ComboPooledDataSource</span> <span class="n">cpds</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComboPooledDataSource</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            	<span class="c1">// 2. 使用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            	<span class="n">connection</span> <span class="o">=</span> <span class="n">cpds</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">   <span class="n">Druid使用</span>
-</span></span><span class="line"><span class="cl">       <span class="mi">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">druid</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">zip</span>
-</span></span><span class="line"><span class="cl">       <span class="mi">2</span><span class="o">.</span> <span class="n">引入</span> <span class="n">jar</span> <span class="n">druid</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">       <span class="mi">3</span><span class="o">.</span> <span class="n">编码</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       	  <span class="err">①</span> <span class="n">在src下创建</span> <span class="n">druid</span><span class="o">.</span><span class="na">properties</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">       	  <span class="err">②</span> <span class="n">在druid</span><span class="o">.</span><span class="na">properties</span> <span class="n">配置数据源</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">          <span class="err">③</span> <span class="n">使用</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 1. 读取配置文件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="n">Properties</span> <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">InputStream</span> <span class="n">is</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getContextClassLoader</span><span class="o">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                    <span class="o">.</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">&#34;druid.properties&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">is</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">//2. 创建连接池对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="n">DataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="n">DruidDataSourceFactory</span><span class="o">.</span><span class="na">createDataSource</span><span class="o">(</span><span class="n">properties</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 3. 使用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="n">connection</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
-</span></span></code></pre></div><p><img src="/posts/Java-2/20220430214396/image-20220430224104108.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">SQL注入问题</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SQL中出现了特殊的字符</span><span class="w"> </span><span class="n">导致SQL语句发生变化</span><span class="w"> </span><span class="n">引发结果不正确</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">解决</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">使用PreparedStatement预编译命令接口</span><span class="w"> </span><span class="n">替代</span><span class="w"> </span><span class="n">Statement接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">原理</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="n">对SQL语句先编译</span><span class="w"> </span><span class="n">检查传递的内容</span><span class="w"> </span><span class="n">如果出现了特殊字符</span><span class="w"> </span><span class="n">给转义</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="n">SQL语句中使用</span><span class="o">?</span><span class="w"> </span><span class="n">作为占位符</span><span class="w">  </span><span class="n">只对</span><span class="o">?</span><span class="n">的内容</span><span class="w"> </span><span class="n">检查转义</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">PreparedStatement是Statement的子接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">避免SQL中拼接变量</span><span class="w"> </span><span class="n">引发问题</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">复用SQL语句</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span></code></pre></div><h4 id="2-优化2连接对象">2. 优化2：连接对象</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">连接池的必要性</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">连接资源没有得到复用</span><span class="err">，</span><span class="n">导致连接资源创建很多次</span><span class="w"> </span><span class="n">占用系统资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">连接资源创建和关闭都需要时间</span><span class="w"> </span><span class="n">导致程序效率降低</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">过多的连接请求导致</span><span class="w"> </span><span class="n">数据库系统宕机</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">连接资源不关闭</span><span class="w"> </span><span class="n">造成内存泄漏</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">连接池的好处</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">提高连接资源的复用性</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">提高系统的执行效率</span><span class="w">  </span><span class="n">连接资源统一由连接池管理</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">合理的分配</span><span class="w"> </span><span class="n">连接资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">减少数据库宕机的可能性</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">开源的连接池</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">DBCP连接池</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">C3P0连接池</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">Druid连接池</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">连接池的使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">C3P0使用</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">下载导包</span><span class="w"> </span><span class="n">c3p0</span><span class="o">-</span><span class="n">0</span><span class="p">.</span><span class="na">9</span><span class="p">.</span><span class="na">5</span><span class="p">.</span><span class="na">2</span><span class="p">.</span><span class="na">bin</span><span class="p">.</span><span class="na">zip</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">引入jar</span><span class="w">  </span><span class="n">c3p0</span><span class="o">-</span><span class="n">0</span><span class="p">.</span><span class="na">9</span><span class="p">.</span><span class="na">5</span><span class="p">.</span><span class="na">2</span><span class="p">.</span><span class="na">jar</span><span class="w"> </span><span class="n">mchange</span><span class="o">-</span><span class="n">commons</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">0</span><span class="p">.</span><span class="na">2</span><span class="p">.</span><span class="na">11</span><span class="p">.</span><span class="na">jar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">编写代码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="nl">方式1</span><span class="p">:</span><span class="n">代码配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="n">方式2</span><span class="err">：</span><span class="n">配置文件方式</span><span class="w"> </span><span class="p">(</span><span class="n">推荐使用</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                 </span><span class="err">①</span><span class="w"> </span><span class="n">在src下创建</span><span class="w"> </span><span class="n">c3p0</span><span class="p">.</span><span class="na">properties</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                 </span><span class="err">②</span><span class="w"> </span><span class="n">在c3p0</span><span class="p">.</span><span class="na">properties</span><span class="w"> </span><span class="n">配置数据源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                 </span><span class="err">③</span><span class="w"> </span><span class="n">创建连接池对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                 </span><span class="c1">// 1. 创建连接池对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            	</span><span class="n">ComboPooledDataSource</span><span class="w"> </span><span class="n">cpds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ComboPooledDataSource</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            	</span><span class="c1">// 2. 使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            	</span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cpds</span><span class="p">.</span><span class="na">getConnection</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">Druid使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">下载导包</span><span class="w"> </span><span class="n">druid</span><span class="o">-</span><span class="n">1</span><span class="p">.</span><span class="na">1</span><span class="p">.</span><span class="na">10</span><span class="p">.</span><span class="na">zip</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">引入</span><span class="w"> </span><span class="n">jar</span><span class="w"> </span><span class="n">druid</span><span class="o">-</span><span class="n">1</span><span class="p">.</span><span class="na">1</span><span class="p">.</span><span class="na">10</span><span class="p">.</span><span class="na">jar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">编码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       	  </span><span class="err">①</span><span class="w"> </span><span class="n">在src下创建</span><span class="w"> </span><span class="n">druid</span><span class="p">.</span><span class="na">properties</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       	  </span><span class="err">②</span><span class="w"> </span><span class="n">在druid</span><span class="p">.</span><span class="na">properties</span><span class="w"> </span><span class="n">配置数据源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="err">③</span><span class="w"> </span><span class="n">使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 1. 读取配置文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Properties</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Properties</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">InputStream</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getContextClassLoader</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">getResourceAsStream</span><span class="p">(</span><span class="s">&#34;druid.properties&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">properties</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">is</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//2. 创建连接池对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DruidDataSourceFactory</span><span class="p">.</span><span class="na">createDataSource</span><span class="p">(</span><span class="n">properties</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 3. 使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSource</span><span class="p">.</span><span class="na">getConnection</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/Java-2/20220430214396/image-20220430224104108.png"
     
     
     
@@ -681,60 +681,60 @@
     
 ></p>
 <h4 id="3-优化3封装连接池工具类">3. 优化3：封装连接池工具类</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">封装连接池工具类</span>  <span class="n">连接池只被创建一次</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">将连接池的创建</span> <span class="n">封装到静态代码块中</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">获取连接池对象的方法</span> <span class="n">静态方法</span>
-</span></span></code></pre></div><h4 id="4-优化4连接对象线程安全">4. 优化4：连接对象线程安全</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">JDK1</span><span class="o">.</span><span class="na">2</span> <span class="n">ThreadLocal类</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">原理</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">将有可能引发线程安全的对象</span><span class="err">，</span><span class="n">绑定在ThreadLocal中</span><span class="err">。</span><span class="n">将该对象复制一份作为本地线程的局部变量</span><span class="err">，</span><span class="n">该对象只能当前线程使用</span><span class="err">。</span><span class="n">因此源对象不会发生任何变化</span><span class="err">，</span><span class="n">所以解决了线程安全问题</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">使用</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="err">①</span> <span class="n">将线程安全问题的对象绑定到ThreadLocal</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="kd">static</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">Connection</span><span class="o">&gt;</span> <span class="n">tl</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="err">②</span> <span class="n">获取绑定的连接对象</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">Connection</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="err">③</span> <span class="n">绑定连接对象到</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">tl</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">conn</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="err">④</span> <span class="n">解绑</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">tl</span><span class="o">.</span><span class="na">remove</span><span class="o">()</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.ujiuye.utils</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.alibaba.druid.pool.DruidDataSourceFactory</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Properties</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="cm">/*
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">封装连接池工具类</span><span class="w">  </span><span class="n">连接池只被创建一次</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">将连接池的创建</span><span class="w"> </span><span class="n">封装到静态代码块中</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">获取连接池对象的方法</span><span class="w"> </span><span class="n">静态方法</span><span class="w">
+</span></span></span></code></pre></div><h4 id="4-优化4连接对象线程安全">4. 优化4：连接对象线程安全</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">JDK1</span><span class="p">.</span><span class="na">2</span><span class="w"> </span><span class="n">ThreadLocal类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">原理</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">将有可能引发线程安全的对象</span><span class="err">，</span><span class="n">绑定在ThreadLocal中</span><span class="err">。</span><span class="n">将该对象复制一份作为本地线程的局部变量</span><span class="err">，</span><span class="n">该对象只能当前线程使用</span><span class="err">。</span><span class="n">因此源对象不会发生任何变化</span><span class="err">，</span><span class="n">所以解决了线程安全问题</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">使用</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">①</span><span class="w"> </span><span class="n">将线程安全问题的对象绑定到ThreadLocal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">Connection</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="err">②</span><span class="w"> </span><span class="n">获取绑定的连接对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Connection</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tl</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="err">③</span><span class="w"> </span><span class="n">绑定连接对象到</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">tl</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">conn</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="err">④</span><span class="w"> </span><span class="n">解绑</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">tl</span><span class="p">.</span><span class="na">remove</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.ujiuye.utils</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.alibaba.druid.pool.DruidDataSourceFactory</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">javax.sql.DataSource</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.InputStream</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.Connection</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.SQLException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Properties</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">* 封装连接池工具类  连接池只被创建一次
 </span></span></span><span class="line"><span class="cl"><span class="cm">
@@ -750,170 +750,170 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm">*
 </span></span></span><span class="line"><span class="cl"><span class="cm">
-</span></span></span><span class="line"><span class="cl"><span class="cm">* */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JDBCUtils</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 1. 解决线程安全问题 实例化ThreadLocal
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">Connection</span><span class="o">&gt;</span> <span class="n">tl</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocal</span><span class="o">&lt;&gt;();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="n">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 1. 读取配置文件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="n">Properties</span> <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">InputStream</span> <span class="n">is</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getContextClassLoader</span><span class="o">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                    <span class="o">.</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">&#34;druid.properties&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">properties</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">is</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 2. 创建连接池对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="n">dataSource</span> <span class="o">=</span> <span class="n">DruidDataSourceFactory</span><span class="o">.</span><span class="na">createDataSource</span><span class="o">(</span><span class="n">properties</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 获取连接
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Connection</span> <span class="nf">getConnection</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// 1. 先从threadlocal中获取连接对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">        <span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// 2. 判断是否 已经绑定
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">connection</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 3. 从池子中获取连接
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="n">connection</span> <span class="o">=</span> <span class="n">dataSource</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 4. 将该连接绑定到ThreadLocal上
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="n">tl</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">connection</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">connection</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 1. 封装释放的方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">release</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1">// 1. 获取绑定上的连接
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">        <span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">tl</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="o">(</span><span class="n">connection</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 2. 解绑
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="n">tl</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c1">// 3. 放回池子
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="n">connection</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h4 id="5-优化5dbutils工具类">5. 优化5：dbutils工具类</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span>	
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">dbutils工具类</span> <span class="n">是</span> <span class="n">apacha提供的将操作数据库的步骤</span> <span class="n">和</span> <span class="n">返回结果为了封装</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">使用</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">下载导包</span> <span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">7</span><span class="o">-</span><span class="n">bin</span><span class="o">.</span><span class="na">zip</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">导入jar</span> <span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">使用</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="err">①</span> <span class="n">创建核心对象</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    		<span class="n">QueryRunner</span> <span class="n">qr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryRunner</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="err">②</span> <span class="n">调用方法</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">             <span class="c1">// 执行增删改
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">             <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">qr</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">conn</span><span class="o">,</span> <span class="n">sql</span><span class="o">,</span> <span class="n">sql中参数</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">			<span class="c1">// 执行查询 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">			<span class="c1">//  BeanHandler 映射一个对象 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">			<span class="c1">// BeanListHandler 映射多个对象 返回list 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">			<span class="c1">// ScaleHandler 返回聚合结果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">			<span class="n">qr</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">conn</span><span class="o">,</span><span class="n">sql</span><span class="o">,</span> <span class="n">ResultSetHandler</span><span class="o">,</span><span class="n">Object</span><span class="o">...</span><span class="na">obj</span><span class="o">)</span>
-</span></span></code></pre></div><h4 id="6-优化6封装通用dao">6. 优化6：封装通用DAO</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">想法</span><span class="err">：</span>	
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">每一个表都有dbutils</span> <span class="n">增删改查的功能</span><span class="err">，</span><span class="n">通过面向对象的继承思想</span><span class="err">。</span><span class="n">将增删改查的封装到父类中</span><span class="err">，</span><span class="n">只需要创建子类继承父类</span> <span class="n">子类具有了增删改查的功能</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">封装</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.ujiuye.dao</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">com.ujiuye.utils.JDBCUtils</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.apache.commons.dbutils.QueryRunner</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.apache.commons.dbutils.handlers.BeanHandler</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.apache.commons.dbutils.handlers.BeanListHandler</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.apache.commons.dbutils.handlers.ScalarHandler</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.sql.SQLException</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JDBCUtils</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 1. 解决线程安全问题 实例化ThreadLocal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">Connection</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 1. 读取配置文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Properties</span><span class="w"> </span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Properties</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">InputStream</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getContextClassLoader</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">getResourceAsStream</span><span class="p">(</span><span class="s">&#34;druid.properties&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">properties</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">is</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 2. 创建连接池对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">dataSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DruidDataSourceFactory</span><span class="p">.</span><span class="na">createDataSource</span><span class="p">(</span><span class="n">properties</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 获取连接</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Connection</span><span class="w"> </span><span class="nf">getConnection</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">SQLException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 1. 先从threadlocal中获取连接对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Connection</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tl</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 2. 判断是否 已经绑定</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">connection</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 3. 从池子中获取连接</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSource</span><span class="p">.</span><span class="na">getConnection</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 4. 将该连接绑定到ThreadLocal上</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">tl</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">connection</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 1. 封装释放的方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">release</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 1. 获取绑定上的连接</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Connection</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tl</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">connection</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 2. 解绑</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">tl</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 3. 放回池子</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">connection</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="5-优化5dbutils工具类">5. 优化5：dbutils工具类</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">理解</span><span class="err">：</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">dbutils工具类</span><span class="w"> </span><span class="n">是</span><span class="w"> </span><span class="n">apacha提供的将操作数据库的步骤</span><span class="w"> </span><span class="n">和</span><span class="w"> </span><span class="n">返回结果为了封装</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">使用</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">下载导包</span><span class="w"> </span><span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="n">1</span><span class="p">.</span><span class="na">7</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="na">zip</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">导入jar</span><span class="w"> </span><span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="n">1</span><span class="p">.</span><span class="na">7</span><span class="p">.</span><span class="na">jar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">①</span><span class="w"> </span><span class="n">创建核心对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="n">QueryRunner</span><span class="w"> </span><span class="n">qr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryRunner</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="err">②</span><span class="w"> </span><span class="n">调用方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="c1">// 执行增删改</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">             </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qr</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">sql中参数</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="c1">// 执行查询 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="c1">//  BeanHandler 映射一个对象 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="c1">// BeanListHandler 映射多个对象 返回list </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="c1">// ScaleHandler 返回聚合结果</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">qr</span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">ResultSetHandler</span><span class="p">,</span><span class="n">Object</span><span class="p">...</span><span class="na">obj</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><h4 id="6-优化6封装通用dao">6. 优化6：封装通用DAO</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">想法</span><span class="err">：</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">每一个表都有dbutils</span><span class="w"> </span><span class="n">增删改查的功能</span><span class="err">，</span><span class="n">通过面向对象的继承思想</span><span class="err">。</span><span class="n">将增删改查的封装到父类中</span><span class="err">，</span><span class="n">只需要创建子类继承父类</span><span class="w"> </span><span class="n">子类具有了增删改查的功能</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">封装</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.ujiuye.dao</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.ujiuye.utils.JDBCUtils</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.commons.dbutils.QueryRunner</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.commons.dbutils.handlers.BeanHandler</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.commons.dbutils.handlers.BeanListHandler</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.commons.dbutils.handlers.ScalarHandler</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.SQLException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 封装增删改查的通用类
 </span></span></span><span class="line"><span class="cl"><span class="cm">
@@ -925,176 +925,176 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">
 </span></span></span><span class="line"><span class="cl"><span class="cm"> *      4. 查个数功能
 </span></span></span><span class="line"><span class="cl"><span class="cm">
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BasicDao</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">QueryRunner</span> <span class="n">qr</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">qr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QueryRunner</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 1. 增删改
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">update</span><span class="o">(</span><span class="n">String</span> <span class="n">sql</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span><span class="na">params</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">qr</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">JDBCUtils</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(),</span> <span class="n">sql</span><span class="o">,</span> <span class="n">params</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">JDBCUtils</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 2. 单查
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">T</span> <span class="nf">querySingle</span><span class="o">(</span><span class="n">String</span> <span class="n">sql</span><span class="o">,</span> <span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">clazz</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span><span class="na">params</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">qr</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">JDBCUtils</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(),</span> <span class="n">sql</span><span class="o">,</span> <span class="k">new</span> <span class="n">BeanHandler</span><span class="o">&lt;&gt;(</span><span class="n">clazz</span><span class="o">),</span> <span class="n">params</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">JDBCUtils</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 3. 多查
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">queryMore</span><span class="o">(</span><span class="n">String</span> <span class="n">sql</span><span class="o">,</span> <span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">clazz</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span><span class="na">params</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">qr</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">JDBCUtils</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(),</span> <span class="n">sql</span><span class="o">,</span> <span class="k">new</span> <span class="n">BeanListHandler</span><span class="o">&lt;&gt;(</span><span class="n">clazz</span><span class="o">),</span> <span class="n">params</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">JDBCUtils</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 4. 查个数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">scale</span><span class="o">(</span><span class="n">String</span> <span class="n">sql</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span><span class="na">params</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">return</span>  <span class="n">qr</span><span class="o">.</span><span class="na">query</span><span class="o">(</span><span class="n">JDBCUtils</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(),</span> <span class="n">sql</span><span class="o">,</span> <span class="k">new</span> <span class="n">ScalarHandler</span><span class="o">&lt;&gt;(),</span> <span class="n">params</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="n">JDBCUtils</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="总结">总结</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">JDBC最终使用步骤</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">导入第三方jar</span>  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="mi">5</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">44</span><span class="o">-</span><span class="n">bin</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">druid</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">导入数据源</span> <span class="n">配置文件</span> <span class="n">引入src目录</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    	<span class="n">druid</span><span class="o">.</span><span class="na">properties</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">导入连接池工具类JDBCUtils</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="o">.</span> <span class="n">导入通用DAO</span>  
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="mi">5</span><span class="o">.</span> <span class="n">创建类继承DAO</span>
-</span></span></code></pre></div><h3 id="一补充">一、补充</h3>
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BasicDao</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">QueryRunner</span><span class="w"> </span><span class="n">qr</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">qr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QueryRunner</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 1. 增删改</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">...</span><span class="na">params</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">qr</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="n">JDBCUtils</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(),</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">JDBCUtils</span><span class="p">.</span><span class="na">release</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 2. 单查</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">querySingle</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">...</span><span class="na">params</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">qr</span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">JDBCUtils</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(),</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BeanHandler</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">clazz</span><span class="p">),</span><span class="w"> </span><span class="n">params</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">JDBCUtils</span><span class="p">.</span><span class="na">release</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 3. 多查</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">queryMore</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clazz</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">...</span><span class="na">params</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">qr</span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">JDBCUtils</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(),</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BeanListHandler</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">clazz</span><span class="p">),</span><span class="w"> </span><span class="n">params</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">JDBCUtils</span><span class="p">.</span><span class="na">release</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 4. 查个数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">...</span><span class="na">params</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w">  </span><span class="n">qr</span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">JDBCUtils</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(),</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ScalarHandler</span><span class="o">&lt;&gt;</span><span class="p">(),</span><span class="w"> </span><span class="n">params</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">SQLException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">JDBCUtils</span><span class="p">.</span><span class="na">release</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="总结">总结</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">JDBC最终使用步骤</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">导入第三方jar</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">5</span><span class="p">.</span><span class="na">1</span><span class="p">.</span><span class="na">44</span><span class="o">-</span><span class="n">bin</span><span class="p">.</span><span class="na">jar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">druid</span><span class="o">-</span><span class="n">1</span><span class="p">.</span><span class="na">1</span><span class="p">.</span><span class="na">10</span><span class="p">.</span><span class="na">jar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">commons</span><span class="o">-</span><span class="n">dbutils</span><span class="o">-</span><span class="n">1</span><span class="p">.</span><span class="na">7</span><span class="p">.</span><span class="na">jar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">导入数据源</span><span class="w"> </span><span class="n">配置文件</span><span class="w"> </span><span class="n">引入src目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">druid</span><span class="p">.</span><span class="na">properties</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">导入连接池工具类JDBCUtils</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">导入通用DAO</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">创建类继承DAO</span><span class="w">
+</span></span></span></code></pre></div><h3 id="一补充">一、补充</h3>
 <p>####1. junit单元测试</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">测试</span><span class="err">：</span><span class="n">白盒测试</span><span class="o">(</span><span class="n">代码测试</span><span class="o">)</span>  <span class="n">黑盒测试</span><span class="o">(</span><span class="n">功能性测试</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span> <span class="n">junit单元测试用法</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="mi">1</span><span class="o">.</span> <span class="n">自定类</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="mi">2</span><span class="o">.</span> <span class="nf">定义测试方法</span> <span class="o">(</span><span class="n">可以多个</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>          <span class="n">public修饰</span>  <span class="n">无返回值</span>  <span class="n">无参</span>  <span class="nd">@Test注解</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>      <span class="mi">3</span><span class="o">.</span> <span class="n">常见注解</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>          
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>          <span class="nd">@BeforeClass</span> <span class="n">测试方法执行之前执行</span> <span class="n">只执行一次</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">*</span>          <span class="nd">@Before</span> <span class="n">每个测试方法执行之前</span> <span class="n">都会执行一次</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">     	   <span class="nd">@Test</span> <span class="n">标注当前方法为测试方法</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">     	   <span class="nd">@After</span> <span class="n">每个测试方法执行之后</span> <span class="n">都会执行该方法</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">     	   <span class="nd">@AfterClass</span> <span class="n">测试方法执行完毕之后执行</span>  <span class="n">只执行一次</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">     		
-</span></span></code></pre></div><h4 id="2-事务">2. 事务</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">开启事务</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="na">setAutoCommit</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">成功</span> <span class="n">提交事务</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">失败</span> <span class="n">回滚事务</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="na">rollBack</span><span class="o">()</span>
-</span></span></code></pre></div><h4 id="3-批处理">3. 批处理</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">添加批处理</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ps</span><span class="o">.</span><span class="na">addBatch</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">执行批处理</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ps</span><span class="o">.</span><span class="na">executeBatch</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">清除批处理</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ps</span><span class="o">.</span><span class="na">clearBatch</span>
-</span></span></code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">测试</span><span class="err">：</span><span class="n">白盒测试</span><span class="p">(</span><span class="n">代码测试</span><span class="p">)</span><span class="w">  </span><span class="n">黑盒测试</span><span class="p">(</span><span class="n">功能性测试</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">junit单元测试用法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w">      </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">自定类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w">      </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="nf">定义测试方法</span><span class="w"> </span><span class="p">(</span><span class="n">可以多个</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w">          </span><span class="n">public修饰</span><span class="w">  </span><span class="n">无返回值</span><span class="w">  </span><span class="n">无参</span><span class="w">  </span><span class="nd">@Test注解</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w">      </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">常见注解</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w">          </span><span class="nd">@BeforeClass</span><span class="w"> </span><span class="n">测试方法执行之前执行</span><span class="w"> </span><span class="n">只执行一次</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">*</span><span class="w">          </span><span class="nd">@Before</span><span class="w"> </span><span class="n">每个测试方法执行之前</span><span class="w"> </span><span class="n">都会执行一次</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     	   </span><span class="nd">@Test</span><span class="w"> </span><span class="n">标注当前方法为测试方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     	   </span><span class="nd">@After</span><span class="w"> </span><span class="n">每个测试方法执行之后</span><span class="w"> </span><span class="n">都会执行该方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     	   </span><span class="nd">@AfterClass</span><span class="w"> </span><span class="n">测试方法执行完毕之后执行</span><span class="w">  </span><span class="n">只执行一次</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     		
+</span></span></span></code></pre></div><h4 id="2-事务">2. 事务</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">开启事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">setAutoCommit</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">成功</span><span class="w"> </span><span class="n">提交事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">commit</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">失败</span><span class="w"> </span><span class="n">回滚事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">conn</span><span class="p">.</span><span class="na">rollBack</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></div><h4 id="3-批处理">3. 批处理</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">添加批处理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ps</span><span class="p">.</span><span class="na">addBatch</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">执行批处理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ps</span><span class="p">.</span><span class="na">executeBatch</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">清除批处理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ps</span><span class="p">.</span><span class="na">clearBatch</span><span class="w">
+</span></span></span></code></pre></div><hr>
 
             </div>
             <hr>

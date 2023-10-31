@@ -599,47 +599,47 @@
 </span></span><span class="line"><span class="cl">    {{ end }}{{ if strings.HasPrefix .Destination &#34;http&#34; }} target=&#34;_blank&#34; rel=&#34;noopener&#34;
 </span></span><span class="line"><span class="cl">    {{ end }}&gt;{{ .Text | safeHTML }}&lt;/a&gt;
 </span></span></code></pre></div><p>对于图像：<code>layouts/_default/_markup/render-image.html</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{{- $image := .Page.Resources.GetMatch (printf &#34;%s&#34; (.Destination | safeURL)) -}}
-</span></span><span class="line"><span class="cl">{{- $Permalink := .Destination | relURL | safeURL -}}
-</span></span><span class="line"><span class="cl">{{- $alt := .PlainText | safeHTML -}}
-</span></span><span class="line"><span class="cl">{{- $Width := 0 -}}
-</span></span><span class="line"><span class="cl">{{- $Height := 0 -}}
-</span></span><span class="line"><span class="cl">{{- $Srcset := &#34;&#34; -}}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">image</span> <span class="p">:</span><span class="o">=</span> <span class="o">.</span><span class="n">Page</span><span class="o">.</span><span class="n">Resources</span><span class="o">.</span><span class="n">GetMatch</span> <span class="p">(</span><span class="n">printf</span> <span class="s2">&#34;</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="p">(</span><span class="o">.</span><span class="n">Destination</span> <span class="o">|</span> <span class="n">safeURL</span><span class="p">))</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Permalink</span> <span class="p">:</span><span class="o">=</span> <span class="o">.</span><span class="n">Destination</span> <span class="o">|</span> <span class="n">relURL</span> <span class="o">|</span> <span class="n">safeURL</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">alt</span> <span class="p">:</span><span class="o">=</span> <span class="o">.</span><span class="n">PlainText</span> <span class="o">|</span> <span class="n">safeHTML</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Width</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Height</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Srcset</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{{/* SVG and external images won&#39;t work with gallery layout, because their width and height attributes are unknown */}}
-</span></span><span class="line"><span class="cl">{{- $galleryImage := false -}}
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">/*</span> <span class="n">SVG</span> <span class="ow">and</span> <span class="n">external</span> <span class="n">images</span> <span class="n">won</span><span class="s1">&#39;t work with gallery layout, because their width and height attributes are unknown */}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">galleryImage</span> <span class="p">:</span><span class="o">=</span> <span class="bp">false</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{{- if $image -}}
-</span></span><span class="line"><span class="cl">    {{- $notSVG := ne (path.Ext .Destination) &#34;.svg&#34; -}}
-</span></span><span class="line"><span class="cl">    {{- $Permalink = $image.RelPermalink -}}
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="k">if</span> <span class="o">$</span><span class="n">image</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">notSVG</span> <span class="p">:</span><span class="o">=</span> <span class="n">ne</span> <span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">Ext</span> <span class="o">.</span><span class="n">Destination</span><span class="p">)</span> <span class="s2">&#34;.svg&#34;</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Permalink</span> <span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">RelPermalink</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    {{- if $notSVG -}}
-</span></span><span class="line"><span class="cl">        {{- $Width = $image.Width -}}
-</span></span><span class="line"><span class="cl">        {{- $Height = $image.Height -}}
-</span></span><span class="line"><span class="cl">        {{- $galleryImage = true -}}
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="k">if</span> <span class="o">$</span><span class="n">notSVG</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Width</span> <span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">Width</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Height</span> <span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">Height</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">galleryImage</span> <span class="o">=</span> <span class="bp">true</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        {{- if (default true .Page.Site.Params.imageProcessing.content.enabled) -}}
-</span></span><span class="line"><span class="cl">            {{- $small := $image.Resize `480x` -}}
-</span></span><span class="line"><span class="cl">            {{- $big := $image.Resize `1024x` -}}
-</span></span><span class="line"><span class="cl">            {{- $Srcset = printf `%s 480w, %s 1024w` $small.RelPermalink $big.RelPermalink -}}
-</span></span><span class="line"><span class="cl">        {{- end -}}
-</span></span><span class="line"><span class="cl">    {{- end -}}
-</span></span><span class="line"><span class="cl">{{- end -}}
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="k">if</span> <span class="p">(</span><span class="n">default</span> <span class="bp">true</span> <span class="o">.</span><span class="n">Page</span><span class="o">.</span><span class="n">Site</span><span class="o">.</span><span class="n">Params</span><span class="o">.</span><span class="n">imageProcessing</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">enabled</span><span class="p">)</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">small</span> <span class="p">:</span><span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">Resize</span> <span class="err">`</span><span class="mi">480</span><span class="n">x</span><span class="err">`</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">big</span> <span class="p">:</span><span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">Resize</span> <span class="err">`</span><span class="mi">1024</span><span class="n">x</span><span class="err">`</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Srcset</span> <span class="o">=</span> <span class="n">printf</span> <span class="err">`</span><span class="o">%</span><span class="n">s</span> <span class="mi">480</span><span class="n">w</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span> <span class="mi">1024</span><span class="n">w</span><span class="err">`</span> <span class="o">$</span><span class="n">small</span><span class="o">.</span><span class="n">RelPermalink</span> <span class="o">$</span><span class="n">big</span><span class="o">.</span><span class="n">RelPermalink</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="n">end</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="n">end</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="n">end</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&lt;img src=&#34;{{ $Permalink }}&#34;
-</span></span><span class="line"><span class="cl">    {{ with $Width }}width=&#34;{{ . }}&#34;{{ end }}
-</span></span><span class="line"><span class="cl">    {{ with $Height }}height=&#34;{{ . }}&#34;{{ end }}
-</span></span><span class="line"><span class="cl">    {{ with $Srcset }}srcset=&#34;{{ . }}&#34;{{ end }}
-</span></span><span class="line"><span class="cl">    loading=&#34;lazy&#34;
-</span></span><span class="line"><span class="cl">    {{ with $alt }}
-</span></span><span class="line"><span class="cl">        alt=&#34;{{ . }}&#34;
-</span></span><span class="line"><span class="cl">    {{ end }}
-</span></span><span class="line"><span class="cl">    {{ if $galleryImage }}
-</span></span><span class="line"><span class="cl">        class=&#34;gallery-image&#34;
-</span></span><span class="line"><span class="cl">        data-flex-grow=&#34;{{ div (mul $image.Width 100) $image.Height }}&#34;
-</span></span><span class="line"><span class="cl">        data-flex-basis=&#34;{{ div (mul $image.Width 240) $image.Height }}px&#34;
-</span></span><span class="line"><span class="cl">    {{ end }}
-</span></span><span class="line"><span class="cl">&gt;
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">&#34;{{ $Permalink }}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">with</span> <span class="o">$</span><span class="n">Width</span> <span class="p">}}</span><span class="n">width</span><span class="o">=</span><span class="s2">&#34;{{ . }}&#34;</span><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">with</span> <span class="o">$</span><span class="n">Height</span> <span class="p">}}</span><span class="n">height</span><span class="o">=</span><span class="s2">&#34;{{ . }}&#34;</span><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">with</span> <span class="o">$</span><span class="n">Srcset</span> <span class="p">}}</span><span class="n">srcset</span><span class="o">=</span><span class="s2">&#34;{{ . }}&#34;</span><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loading</span><span class="o">=</span><span class="s2">&#34;lazy&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">with</span> <span class="o">$</span><span class="n">alt</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alt</span><span class="o">=</span><span class="s2">&#34;{{ . }}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="k">if</span> <span class="o">$</span><span class="n">galleryImage</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">class</span><span class="o">=</span><span class="s2">&#34;gallery-image&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">-</span><span class="n">flex</span><span class="o">-</span><span class="n">grow</span><span class="o">=</span><span class="s2">&#34;{{ div (mul $image.Width 100) $image.Height }}&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">-</span><span class="n">flex</span><span class="o">-</span><span class="n">basis</span><span class="o">=</span><span class="s2">&#34;{{ div (mul $image.Width 240) $image.Height }}px&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span>
 </span></span></code></pre></div><h1 id="最终得到懒加载和路径修改后的">最终得到懒加载和路径修改后的</h1>
 <p>对于文件：<code>layouts/_default/_markup/render-link.html</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{{- $str := .Page.File.Dir -}}
@@ -648,50 +648,50 @@
 </span></span><span class="line"><span class="cl">    {{ end }}{{ if strings.HasPrefix .Destination &#34;http&#34; }} target=&#34;_blank&#34; rel=&#34;noopener&#34;
 </span></span><span class="line"><span class="cl">    {{ end }}&gt;{{ .Text | safeHTML }}&lt;/a&gt;
 </span></span></code></pre></div><p>对于图像：<code>layouts/_default/_markup/render-image.html</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{{- $str := .Page.File.Dir -}}
-</span></span><span class="line"><span class="cl">{{- $path := path.Dir $str -}}
-</span></span><span class="line"><span class="cl">{{- $image := .Page.Resources.GetMatch (printf &#34;%s&#34; (.Destination | safeURL)) -}}
-</span></span><span class="line"><span class="cl">{{- $Permalink := printf &#34;/%s/%s&#34; $path .Destination | relURL | safeURL -}}
-</span></span><span class="line"><span class="cl">{{- $alt := .PlainText | safeHTML -}}
-</span></span><span class="line"><span class="cl">{{- $Width := 0 -}}
-</span></span><span class="line"><span class="cl">{{- $Height := 0 -}}
-</span></span><span class="line"><span class="cl">{{- $Srcset := &#34;&#34; -}}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="nb">str</span> <span class="p">:</span><span class="o">=</span> <span class="o">.</span><span class="n">Page</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">Dir</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">path</span> <span class="p">:</span><span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">Dir</span> <span class="o">$</span><span class="nb">str</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">image</span> <span class="p">:</span><span class="o">=</span> <span class="o">.</span><span class="n">Page</span><span class="o">.</span><span class="n">Resources</span><span class="o">.</span><span class="n">GetMatch</span> <span class="p">(</span><span class="n">printf</span> <span class="s2">&#34;</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="p">(</span><span class="o">.</span><span class="n">Destination</span> <span class="o">|</span> <span class="n">safeURL</span><span class="p">))</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Permalink</span> <span class="p">:</span><span class="o">=</span> <span class="n">printf</span> <span class="s2">&#34;/</span><span class="si">%s</span><span class="s2">/</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">$</span><span class="n">path</span> <span class="o">.</span><span class="n">Destination</span> <span class="o">|</span> <span class="n">relURL</span> <span class="o">|</span> <span class="n">safeURL</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">alt</span> <span class="p">:</span><span class="o">=</span> <span class="o">.</span><span class="n">PlainText</span> <span class="o">|</span> <span class="n">safeHTML</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Width</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Height</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Srcset</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{{/* SVG and external images won&#39;t work with gallery layout, because their width and height attributes are unknown */}}
-</span></span><span class="line"><span class="cl">{{- $galleryImage := false -}}
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">/*</span> <span class="n">SVG</span> <span class="ow">and</span> <span class="n">external</span> <span class="n">images</span> <span class="n">won</span><span class="s1">&#39;t work with gallery layout, because their width and height attributes are unknown */}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">galleryImage</span> <span class="p">:</span><span class="o">=</span> <span class="bp">false</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{{- if $image -}}
-</span></span><span class="line"><span class="cl">    {{- $notSVG := ne (path.Ext .Destination) &#34;.svg&#34; -}}
-</span></span><span class="line"><span class="cl">    {{- $Permalink = $image.RelPermalink -}}
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="k">if</span> <span class="o">$</span><span class="n">image</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">notSVG</span> <span class="p">:</span><span class="o">=</span> <span class="n">ne</span> <span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">Ext</span> <span class="o">.</span><span class="n">Destination</span><span class="p">)</span> <span class="s2">&#34;.svg&#34;</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Permalink</span> <span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">RelPermalink</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    {{- if $notSVG -}}
-</span></span><span class="line"><span class="cl">        {{- $Width = $image.Width -}}
-</span></span><span class="line"><span class="cl">        {{- $Height = $image.Height -}}
-</span></span><span class="line"><span class="cl">        {{- $galleryImage = true -}}
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="k">if</span> <span class="o">$</span><span class="n">notSVG</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Width</span> <span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">Width</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Height</span> <span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">Height</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">galleryImage</span> <span class="o">=</span> <span class="bp">true</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        {{- if (default true .Page.Site.Params.imageProcessing.content.enabled) -}}
-</span></span><span class="line"><span class="cl">            {{- $small := $image.Resize `480x` -}}
-</span></span><span class="line"><span class="cl">            {{- $big := $image.Resize `1024x` -}}
-</span></span><span class="line"><span class="cl">            {{- $Srcset = printf `%s 480w, %s 1024w` $small.RelPermalink $big.RelPermalink -}}
-</span></span><span class="line"><span class="cl">        {{- end -}}
-</span></span><span class="line"><span class="cl">    {{- end -}}
-</span></span><span class="line"><span class="cl">{{- end -}}
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="k">if</span> <span class="p">(</span><span class="n">default</span> <span class="bp">true</span> <span class="o">.</span><span class="n">Page</span><span class="o">.</span><span class="n">Site</span><span class="o">.</span><span class="n">Params</span><span class="o">.</span><span class="n">imageProcessing</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">enabled</span><span class="p">)</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">small</span> <span class="p">:</span><span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">Resize</span> <span class="err">`</span><span class="mi">480</span><span class="n">x</span><span class="err">`</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">big</span> <span class="p">:</span><span class="o">=</span> <span class="o">$</span><span class="n">image</span><span class="o">.</span><span class="n">Resize</span> <span class="err">`</span><span class="mi">1024</span><span class="n">x</span><span class="err">`</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{{</span><span class="o">-</span> <span class="o">$</span><span class="n">Srcset</span> <span class="o">=</span> <span class="n">printf</span> <span class="err">`</span><span class="o">%</span><span class="n">s</span> <span class="mi">480</span><span class="n">w</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span> <span class="mi">1024</span><span class="n">w</span><span class="err">`</span> <span class="o">$</span><span class="n">small</span><span class="o">.</span><span class="n">RelPermalink</span> <span class="o">$</span><span class="n">big</span><span class="o">.</span><span class="n">RelPermalink</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{{</span><span class="o">-</span> <span class="n">end</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span><span class="o">-</span> <span class="n">end</span> <span class="o">-</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">-</span> <span class="n">end</span> <span class="o">-</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&lt;img src=&#34;{{ $Permalink }}&#34;
-</span></span><span class="line"><span class="cl">    {{ with $Width }}width=&#34;{{ . }}&#34;{{ end }}
-</span></span><span class="line"><span class="cl">    {{ with $Height }}height=&#34;{{ . }}&#34;{{ end }}
-</span></span><span class="line"><span class="cl">    {{ with $Srcset }}srcset=&#34;{{ . }}&#34;{{ end }}
-</span></span><span class="line"><span class="cl">    loading=&#34;lazy&#34;
-</span></span><span class="line"><span class="cl">    {{ with $alt }}
-</span></span><span class="line"><span class="cl">        alt=&#34;{{ . }}&#34;
-</span></span><span class="line"><span class="cl">    {{ end }}
-</span></span><span class="line"><span class="cl">    {{ if $galleryImage }}
-</span></span><span class="line"><span class="cl">        class=&#34;gallery-image&#34;
-</span></span><span class="line"><span class="cl">        data-flex-grow=&#34;{{ div (mul $image.Width 100) $image.Height }}&#34;
-</span></span><span class="line"><span class="cl">        data-flex-basis=&#34;{{ div (mul $image.Width 240) $image.Height }}px&#34;
-</span></span><span class="line"><span class="cl">    {{ end }}
-</span></span><span class="line"><span class="cl">&gt;
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">&#34;{{ $Permalink }}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">with</span> <span class="o">$</span><span class="n">Width</span> <span class="p">}}</span><span class="n">width</span><span class="o">=</span><span class="s2">&#34;{{ . }}&#34;</span><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">with</span> <span class="o">$</span><span class="n">Height</span> <span class="p">}}</span><span class="n">height</span><span class="o">=</span><span class="s2">&#34;{{ . }}&#34;</span><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">with</span> <span class="o">$</span><span class="n">Srcset</span> <span class="p">}}</span><span class="n">srcset</span><span class="o">=</span><span class="s2">&#34;{{ . }}&#34;</span><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loading</span><span class="o">=</span><span class="s2">&#34;lazy&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">with</span> <span class="o">$</span><span class="n">alt</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alt</span><span class="o">=</span><span class="s2">&#34;{{ . }}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="k">if</span> <span class="o">$</span><span class="n">galleryImage</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">class</span><span class="o">=</span><span class="s2">&#34;gallery-image&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">-</span><span class="n">flex</span><span class="o">-</span><span class="n">grow</span><span class="o">=</span><span class="s2">&#34;{{ div (mul $image.Width 100) $image.Height }}&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">-</span><span class="n">flex</span><span class="o">-</span><span class="n">basis</span><span class="o">=</span><span class="s2">&#34;{{ div (mul $image.Width 240) $image.Height }}px&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span>
 </span></span></code></pre></div><p>文件<img src="/posts/blog/20220713223482/layouts.zip"
     
     

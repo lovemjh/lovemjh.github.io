@@ -1245,11 +1245,11 @@ bindtouchend</p>
 </span></span><span class="line"><span class="cl">   &lt;button bindtap=&#34;toTest2&#34;&gt;点击跳转&lt;/button&gt;
 </span></span><span class="line"><span class="cl"> &lt;/view&gt;
 </span></span></code></pre></div><p>对应test.js接收参数</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> onLoad: function (options) {
-</span></span><span class="line"><span class="cl">    var id=options.id
-</span></span><span class="line"><span class="cl">    var name=options.name
-</span></span><span class="line"><span class="cl">    console.log(&#39;id:&#39;+id+&#34; name:&#34;+name)
-</span></span><span class="line"><span class="cl">  },
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"> <span class="n">onLoad</span><span class="p">:</span> <span class="n">function</span> <span class="p">(</span><span class="n">options</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">id</span><span class="o">=</span><span class="n">options</span><span class="o">.</span><span class="n">id</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="n">name</span><span class="o">=</span><span class="n">options</span><span class="o">.</span><span class="n">name</span>
+</span></span><span class="line"><span class="cl">    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;id:&#39;</span><span class="o">+</span><span class="n">id</span><span class="o">+</span><span class="s2">&#34; name:&#34;</span><span class="o">+</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span></code></pre></div><p>测试效果：
 <img src="/posts/project/20220529000803/image-20220529001722624.png"
     
@@ -1335,12 +1335,12 @@ bindtouchend</p>
 </span></span><span class="line"><span class="cl"><span class="err">})</span>
 </span></span></code></pre></div><p>在js里面可以给全局变量赋值：</p>
 <p>修改index.js 在onLoad方法中增加给全局变量赋值代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">var app = getApp();
-</span></span><span class="line"><span class="cl">app.globalData.id = 2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">getApp</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span><span class="o">.</span><span class="n">globalData</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="mi">2</span>
 </span></span></code></pre></div><p>修改test2.js获取全局变量的值</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">var app = getApp();
-</span></span><span class="line"><span class="cl">//获取全局变量
-</span></span><span class="line"><span class="cl">console.log(&#34;全局变量id:&#34;+app.globalData.id)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">getApp</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span><span class="err">获取全局变量</span>
+</span></span><span class="line"><span class="cl"><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&#34;全局变量id:&#34;</span><span class="o">+</span><span class="n">app</span><span class="o">.</span><span class="n">globalData</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 </span></span></code></pre></div><p>演示：
 <img src="/posts/project/20220529000803/image-20220529001744640.png"
     
@@ -1357,10 +1357,10 @@ bindtouchend</p>
 </span></span><span class="line"><span class="cl"> &lt;/view&gt;
 </span></span></code></pre></div><p>注意：通过wxml设置data-[参数名]传递参数，[参数名]只能是小写，不能有大写</p>
 <p>修改index.js</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> clickMe: function(e){
-</span></span><span class="line"><span class="cl">     var id = e.currentTarget.dataset.id
-</span></span><span class="line"><span class="cl">    console.log(&#34;获取到传递参数:&#34;+id);
-</span></span><span class="line"><span class="cl">  }
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"> <span class="n">clickMe</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">e</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">     <span class="k">var</span> <span class="n">id</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">currentTarget</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">id</span>
+</span></span><span class="line"><span class="cl">    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&#34;获取到传递参数:&#34;</span><span class="o">+</span><span class="n">id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></div><p>演示效果：
 <img src="/posts/project/20220529000803/image-20220529001759206.png"
     

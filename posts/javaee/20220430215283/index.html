@@ -501,79 +501,79 @@
 </span></span><span class="line"><span class="cl">    ③ 在核心方法中直接使用
 </span></span><span class="line"><span class="cl">    定义将客户端请求信息提供给某个 servlet 的对象。servlet 容器创建 ServletRequest 对象，并将该对象作为参数传递给该 servlet 的 service 方法。
 </span></span></code></pre></div><h3 id="2-作用">2. 作用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">作用</span><span class="err">：</span><span class="n">获取请求信息</span><span class="err">：</span> <span class="n">请求行</span>  <span class="n">请求头</span> <span class="n">请求正文</span>
-</span></span></code></pre></div><h3 id="3-使用">3. 使用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">获取请求行信息</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">scheme</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getScheme</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;协议：&#34;</span><span class="o">+</span><span class="n">scheme</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">serverName</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getServerName</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;主机名：&#34;</span><span class="o">+</span><span class="n">serverName</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">serverPort</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getServerPort</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;端口号：&#34;</span><span class="o">+</span><span class="n">serverPort</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">contextPath</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getContextPath</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;项目名：&#34;</span><span class="o">+</span><span class="n">contextPath</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getMethod</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;请求方式：&#34;</span><span class="o">+</span><span class="n">method</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">StringBuffer</span> <span class="n">requestURL</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestURL</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;请求URL：&#34;</span><span class="o">+</span><span class="n">requestURL</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">获取请求头信息</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">accept</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getHeader</span><span class="o">(</span><span class="s">&#34;Accept&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;accept：&#34;</span><span class="o">+</span><span class="n">accept</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;------------------------------------------&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">headerNames</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getHeaderNames</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="o">(</span><span class="n">headerNames</span><span class="o">.</span><span class="na">hasMoreElements</span><span class="o">()){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">headerNames</span><span class="o">.</span><span class="na">nextElement</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">            <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getHeader</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;：&#34;</span><span class="o">+</span><span class="n">value</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="nf">获取请求正文</span><span class="o">(</span><span class="n">重点</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">获取URL拼接参数</span>
-</span></span><span class="line"><span class="cl">    	<span class="c1">//① 根据一个name获取一个value
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    	<span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="err">·</span> <span class="n">获取表单数据</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// ② 获取一个name对应多个value
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span><span class="o">[]</span> <span class="n">values</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameterValues</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">		
-</span></span><span class="line"><span class="cl">        <span class="c1">// ③ 获取表单中所有的name 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	   <span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameterNames</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	   <span class="c1">// ④ 获取全部的name和 value
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	   <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">[]&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameterMap</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">BeanUtils实现map映射实体类对象</span>
-</span></span><span class="line"><span class="cl">     <span class="err">①</span> <span class="n">下载导包</span> <span class="n">commons</span><span class="o">-</span><span class="n">beanutils</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">8</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">jar</span> <span class="n">commons</span><span class="o">-</span><span class="n">logging</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">jar</span>
-</span></span><span class="line"><span class="cl">     <span class="err">②</span> <span class="n">使用</span>
-</span></span><span class="line"><span class="cl">    	<span class="n">BeanUtils</span><span class="o">.</span><span class="na">populate</span><span class="o">(</span><span class="n">要映射对象</span><span class="o">,</span> <span class="n">map数据</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">		<span class="n">要求</span><span class="err">：</span><span class="n">表单的name值</span> <span class="n">和</span> <span class="n">实体类的属性名</span> <span class="n">一致</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl"><span class="mi">5</span><span class="o">.</span> <span class="n">请求中文乱码</span>
-</span></span><span class="line"><span class="cl">        <span class="n">request</span><span class="o">.</span><span class="na">setCharacterEncoding</span><span class="o">(</span><span class="s">&#34;utf-8&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">6</span><span class="o">.</span> <span class="n">案例</span><span class="err">：</span><span class="n">注册案例</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">7</span><span class="o">.</span> <span class="n">转发</span>
-</span></span><span class="line"><span class="cl">    <span class="n">理解</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    	<span class="n">客户端请求资源ServletA时</span><span class="err">，</span><span class="n">ServletA资源不足或者没有</span><span class="err">，</span><span class="n">请求其他的资源</span><span class="o">(</span><span class="n">页面</span><span class="err">、</span><span class="n">Servlet</span><span class="o">),</span><span class="n">再响应给客户端</span><span class="err">。</span><span class="n">请求其他的资源的过程叫做转发</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">使用</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">   	<span class="c1">// 1. 获取转发器
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">RequestDispatcher</span> <span class="n">rd</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="s">&#34;要转发资源的路径&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> 	<span class="c1">// 2. 请求转发
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">rd</span><span class="o">.</span><span class="na">forward</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span> <span class="c1">// 完全转发
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">rd</span><span class="o">.</span><span class="na">include</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span> <span class="c1">// 部分转发
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">  <span class="n">使用场景</span><span class="err">：</span><span class="n">跳转页面</span> <span class="n">如</span><span class="err">：</span><span class="n">注册成功跳转登录页</span>
-</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225032891.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">作用</span><span class="err">：</span><span class="n">获取请求信息</span><span class="err">：</span><span class="w"> </span><span class="n">请求行</span><span class="w">  </span><span class="n">请求头</span><span class="w"> </span><span class="n">请求正文</span><span class="w">
+</span></span></span></code></pre></div><h3 id="3-使用">3. 使用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">获取请求行信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">scheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getScheme</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;协议：&#34;</span><span class="o">+</span><span class="n">scheme</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">serverName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getServerName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;主机名：&#34;</span><span class="o">+</span><span class="n">serverName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">serverPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getServerPort</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;端口号：&#34;</span><span class="o">+</span><span class="n">serverPort</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">contextPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getContextPath</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;项目名：&#34;</span><span class="o">+</span><span class="n">contextPath</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getMethod</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;请求方式：&#34;</span><span class="o">+</span><span class="n">method</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">StringBuffer</span><span class="w"> </span><span class="n">requestURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestURL</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;请求URL：&#34;</span><span class="o">+</span><span class="n">requestURL</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">获取请求头信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">accept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="s">&#34;Accept&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;accept：&#34;</span><span class="o">+</span><span class="n">accept</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;------------------------------------------&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">headerNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getHeaderNames</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">headerNames</span><span class="p">.</span><span class="na">hasMoreElements</span><span class="p">()){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">headerNames</span><span class="p">.</span><span class="na">nextElement</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getHeader</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;：&#34;</span><span class="o">+</span><span class="n">value</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="nf">获取请求正文</span><span class="p">(</span><span class="n">重点</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">获取URL拼接参数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c1">//① 根据一个name获取一个value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">·</span><span class="w"> </span><span class="n">获取表单数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ② 获取一个name对应多个value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameterValues</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ③ 获取表单中所有的name </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	   </span><span class="n">Enumeration</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameterNames</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	   </span><span class="c1">// ④ 获取全部的name和 value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	   </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameterMap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">BeanUtils实现map映射实体类对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">①</span><span class="w"> </span><span class="n">下载导包</span><span class="w"> </span><span class="n">commons</span><span class="o">-</span><span class="n">beanutils</span><span class="o">-</span><span class="n">1</span><span class="p">.</span><span class="na">8</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">jar</span><span class="w"> </span><span class="n">commons</span><span class="o">-</span><span class="n">logging</span><span class="o">-</span><span class="n">1</span><span class="p">.</span><span class="na">1</span><span class="p">.</span><span class="na">1</span><span class="p">.</span><span class="na">jar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">②</span><span class="w"> </span><span class="n">使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">BeanUtils</span><span class="p">.</span><span class="na">populate</span><span class="p">(</span><span class="n">要映射对象</span><span class="p">,</span><span class="w"> </span><span class="n">map数据</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">要求</span><span class="err">：</span><span class="n">表单的name值</span><span class="w"> </span><span class="n">和</span><span class="w"> </span><span class="n">实体类的属性名</span><span class="w"> </span><span class="n">一致</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">请求中文乱码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">request</span><span class="p">.</span><span class="na">setCharacterEncoding</span><span class="p">(</span><span class="s">&#34;utf-8&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">6</span><span class="p">.</span><span class="w"> </span><span class="n">案例</span><span class="err">：</span><span class="n">注册案例</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">7</span><span class="p">.</span><span class="w"> </span><span class="n">转发</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">理解</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">客户端请求资源ServletA时</span><span class="err">，</span><span class="n">ServletA资源不足或者没有</span><span class="err">，</span><span class="n">请求其他的资源</span><span class="p">(</span><span class="n">页面</span><span class="err">、</span><span class="n">Servlet</span><span class="p">),</span><span class="n">再响应给客户端</span><span class="err">。</span><span class="n">请求其他的资源的过程叫做转发</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">使用</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   	</span><span class="c1">// 1. 获取转发器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">RequestDispatcher</span><span class="w"> </span><span class="n">rd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getRequestDispatcher</span><span class="p">(</span><span class="s">&#34;要转发资源的路径&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> 	</span><span class="c1">// 2. 请求转发</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">rd</span><span class="p">.</span><span class="na">forward</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span><span class="w"> </span><span class="c1">// 完全转发</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">rd</span><span class="p">.</span><span class="na">include</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">);</span><span class="w"> </span><span class="c1">// 部分转发</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">使用场景</span><span class="err">：</span><span class="n">跳转页面</span><span class="w"> </span><span class="n">如</span><span class="err">：</span><span class="n">注册成功跳转登录页</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225032891.png"
     
     
     
@@ -583,62 +583,62 @@
 ></p>
 <h2 id="二响应">二、响应</h2>
 <h3 id="1-理解-1">1. 理解</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl">	<span class="n">定义辅助</span> <span class="n">servlet</span> <span class="n">将响应发送到客户端的对象</span><span class="err">。</span><span class="n">servlet</span> <span class="n">容器创建</span> <span class="n">ServletResponse</span> <span class="n">对象</span><span class="err">，</span><span class="n">并将它作为参数传递给</span> <span class="n">servlet</span> <span class="n">的</span> <span class="n">service</span> <span class="n">方法</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">      <span class="err">①</span> <span class="n">是Servlet中处理响应的对象</span>
-</span></span><span class="line"><span class="cl">      <span class="err">②</span> <span class="n">是Servlet容器</span> <span class="n">创建的</span>
-</span></span><span class="line"><span class="cl">      <span class="err">③</span> <span class="n">作为核心方法的参数</span> <span class="n">开发者只需要在核心方法中使用</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">   <span class="n">ServletResponse接口</span> <span class="o">----&gt;</span> <span class="n">HttpServletResponse子接口</span> <span class="o">----&gt;</span> <span class="n">HttpServletResponseWrapper</span> <span class="n">实现了</span>
-</span></span></code></pre></div><h3 id="2-作用-1">2. 作用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Servlet中处理响应客户端的对象</span><span class="err">。</span><span class="n">可以响应文本</span><span class="err">，</span><span class="n">也可以响应字节</span>
-</span></span></code></pre></div><h3 id="3-使用-1">3. 使用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">	</span><span class="n">定义辅助</span><span class="w"> </span><span class="n">servlet</span><span class="w"> </span><span class="n">将响应发送到客户端的对象</span><span class="err">。</span><span class="n">servlet</span><span class="w"> </span><span class="n">容器创建</span><span class="w"> </span><span class="n">ServletResponse</span><span class="w"> </span><span class="n">对象</span><span class="err">，</span><span class="n">并将它作为参数传递给</span><span class="w"> </span><span class="n">servlet</span><span class="w"> </span><span class="n">的</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">方法</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="err">①</span><span class="w"> </span><span class="n">是Servlet中处理响应的对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="err">②</span><span class="w"> </span><span class="n">是Servlet容器</span><span class="w"> </span><span class="n">创建的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="err">③</span><span class="w"> </span><span class="n">作为核心方法的参数</span><span class="w"> </span><span class="n">开发者只需要在核心方法中使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">ServletResponse接口</span><span class="w"> </span><span class="o">----&gt;</span><span class="w"> </span><span class="n">HttpServletResponse子接口</span><span class="w"> </span><span class="o">----&gt;</span><span class="w"> </span><span class="n">HttpServletResponseWrapper</span><span class="w"> </span><span class="n">实现了</span><span class="w">
+</span></span></span></code></pre></div><h3 id="2-作用-1">2. 作用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Servlet中处理响应客户端的对象</span><span class="err">。</span><span class="n">可以响应文本</span><span class="err">，</span><span class="n">也可以响应字节</span><span class="w">
+</span></span></span></code></pre></div><h3 id="3-使用-1">3. 使用</h3>
 <h4 id="-文本">① 文本</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应文本</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">PrintWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="n">writer</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&#34;I am server, 这是文本信息&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">中文乱码问题解决</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">&#34;text/html; charset=utf-8&#34;</span><span class="o">);</span>
-</span></span></code></pre></div><h4 id="-字节">② 字节</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应字节</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ServletOutputStream</span> <span class="n">sos</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">文件下载案例</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">文件从服务器</span> <span class="o">----&gt;</span> <span class="n">客户端</span> <span class="o">----&gt;</span> <span class="n">下载到本地磁盘</span>
-</span></span><span class="line"><span class="cl">     <span class="c1">// 1. 获取请求信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="n">String</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">&#34;filename&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 2. 实现下载：读入到内存  然后写出到客户端  再由客户端下载到本地
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 3. 读入内存
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 3.1 获取web目录下资源的真实路径
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">String</span> <span class="n">realPath</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getServletContext</span><span class="o">().</span><span class="na">getRealPath</span><span class="o">(</span><span class="s">&#34;img/&#34;</span> <span class="o">+</span> <span class="n">filename</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// System.out.println(realPath);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">    <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">realPath</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 告诉浏览器 该文件需要下载
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">response</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&#34;Content-Disposition&#34;</span><span class="o">,</span> <span class="s">&#34;attchment;filename=&#34;</span><span class="o">+</span><span class="n">filename</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 4. 写出到客户端 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ServletOutputStream</span> <span class="n">sos</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 5. 边读边写
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">byte</span><span class="o">[]</span> <span class="n">buff</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">2</span><span class="o">*</span><span class="mi">1024</span><span class="o">];</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="o">((</span><span class="n">len</span><span class="o">=</span><span class="n">fis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buff</span><span class="o">))!=-</span><span class="mi">1</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">sos</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">sos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">buff</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">len</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1">// 6. 关闭
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">sos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span></code></pre></div><h3 id="4-重定向">4. 重定向</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span>	
-</span></span><span class="line"><span class="cl">	<span class="n">客户端请求ServletA资源</span><span class="err">，</span><span class="n">ServletA没有资源ServletA响应客户端携带302状态码和重定向的url地址</span><span class="err">。</span><span class="n">客户端立刻对重定向的地址发送请求</span><span class="err">。</span><span class="n">这个过程称为重定向</span>
-</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225040929.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应文本</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getWriter</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">writer</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34;I am server, 这是文本信息&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">中文乱码问题解决</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&#34;text/html; charset=utf-8&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h4 id="-字节">② 字节</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">响应字节</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ServletOutputStream</span><span class="w"> </span><span class="n">sos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">文件下载案例</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">文件从服务器</span><span class="w"> </span><span class="o">----&gt;</span><span class="w"> </span><span class="n">客户端</span><span class="w"> </span><span class="o">----&gt;</span><span class="w"> </span><span class="n">下载到本地磁盘</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="c1">// 1. 获取请求信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">String</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getParameter</span><span class="p">(</span><span class="s">&#34;filename&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 2. 实现下载：读入到内存  然后写出到客户端  再由客户端下载到本地</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 3. 读入内存</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 3.1 获取web目录下资源的真实路径</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">realPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getServletContext</span><span class="p">().</span><span class="na">getRealPath</span><span class="p">(</span><span class="s">&#34;img/&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">filename</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// System.out.println(realPath);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">FileInputStream</span><span class="w"> </span><span class="n">fis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="n">realPath</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 告诉浏览器 该文件需要下载</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="s">&#34;Content-Disposition&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;attchment;filename=&#34;</span><span class="o">+</span><span class="n">filename</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 4. 写出到客户端 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ServletOutputStream</span><span class="w"> </span><span class="n">sos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 5. 边读边写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">buff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[</span><span class="n">2</span><span class="o">*</span><span class="n">1024</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">while</span><span class="p">((</span><span class="n">len</span><span class="o">=</span><span class="n">fis</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">buff</span><span class="p">))</span><span class="o">!=-</span><span class="n">1</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sos</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">buff</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 6. 关闭</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">sos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">fis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></div><h3 id="4-重定向">4. 重定向</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">理解</span><span class="err">：</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">客户端请求ServletA资源</span><span class="err">，</span><span class="n">ServletA没有资源ServletA响应客户端携带302状态码和重定向的url地址</span><span class="err">。</span><span class="n">客户端立刻对重定向的地址发送请求</span><span class="err">。</span><span class="n">这个过程称为重定向</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225040929.png"
     
     
     
@@ -646,55 +646,55 @@
     
     
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">(</span><span class="s">&#34;重定向地址&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">使用场景</span><span class="err">：</span><span class="n">跳转页面</span> <span class="n">如</span><span class="err">：</span><span class="n">登录成功跳转首页</span>
-</span></span></code></pre></div><h2 id="三转发和重定向区别">三、转发和重定向区别</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">转发特点</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">转发是由请求发起的</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">发生在服务器内部</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">转发过程中请求地址不变</span> 
-</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="o">.</span> <span class="n">转发只能转发内部资源</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">5</span><span class="o">.</span> <span class="n">转发可以转发WEB</span><span class="o">-</span><span class="n">INF中的资源</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">6</span><span class="o">.</span> <span class="n">表单提交完成之后转发不可以刷新当前页面</span>
-</span></span><span class="line"><span class="cl"><span class="n">重定向特点</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="o">.</span> <span class="n">重定向是由响应发起的</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">2</span><span class="o">.</span> <span class="n">发生在客户端与服务器之间</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="o">.</span> <span class="n">重定向过程请求地址发生变化</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="o">.</span> <span class="n">重定向既可以重定向内部资源</span> <span class="n">也可以重定向外部资源</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">5</span><span class="o">.</span> <span class="n">重定向不可以重定向WEB</span><span class="o">-</span><span class="n">INF下的资源</span>
-</span></span><span class="line"><span class="cl">    <span class="mi">6</span><span class="o">.</span> <span class="n">表单提交完成之后重定向可以刷新当前页面</span>
-</span></span></code></pre></div><h2 id="四作业">四、作业</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现登录和注册功能</span>
-</span></span></code></pre></div><h1 id="共享域">共享域</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">sendRedirect</span><span class="p">(</span><span class="s">&#34;重定向地址&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">使用场景</span><span class="err">：</span><span class="n">跳转页面</span><span class="w"> </span><span class="n">如</span><span class="err">：</span><span class="n">登录成功跳转首页</span><span class="w">
+</span></span></span></code></pre></div><h2 id="三转发和重定向区别">三、转发和重定向区别</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">转发特点</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">转发是由请求发起的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">发生在服务器内部</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">转发过程中请求地址不变</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">转发只能转发内部资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">转发可以转发WEB</span><span class="o">-</span><span class="n">INF中的资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">6</span><span class="p">.</span><span class="w"> </span><span class="n">表单提交完成之后转发不可以刷新当前页面</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">重定向特点</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">重定向是由响应发起的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">发生在客户端与服务器之间</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">重定向过程请求地址发生变化</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">重定向既可以重定向内部资源</span><span class="w"> </span><span class="n">也可以重定向外部资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">重定向不可以重定向WEB</span><span class="o">-</span><span class="n">INF下的资源</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">6</span><span class="p">.</span><span class="w"> </span><span class="n">表单提交完成之后重定向可以刷新当前页面</span><span class="w">
+</span></span></span></code></pre></div><h2 id="四作业">四、作业</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现登录和注册功能</span><span class="w">
+</span></span></span></code></pre></div><h1 id="共享域">共享域</h1>
 <h2 id="1-理解-2">1. 理解</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">在Servlet可以实现数据共享的对象</span><span class="err">。</span>  
-</span></span></code></pre></div><h2 id="2-分类">2. 分类</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span> <span class="n">ServletContext</span> <span class="n">范围最大</span> <span class="n">可以在项目的任何地方实现数据的共享</span>
-</span></span><span class="line"><span class="cl"><span class="err">②</span> <span class="n">session</span>   <span class="n">范围</span> <span class="n">一次会话中</span> <span class="n">实现数据的共享</span>
-</span></span><span class="line"><span class="cl"><span class="err">③</span> <span class="n">request</span>   <span class="n">范围</span> <span class="n">一次请求中</span> <span class="n">实现数据的共享</span>
-</span></span></code></pre></div><h2 id="3-作用">3. 作用</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现Servlet与Servlet之间</span> <span class="n">或者</span> <span class="n">Servlet与页面之间</span>  <span class="n">数据的共享</span>
-</span></span></code></pre></div><h2 id="4-使用">4. 使用</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">保存数据到共享域</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">setAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Object</span> <span class="n">value</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">取共享域数据</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">getAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">删除共享域数据</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">removeAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span>
-</span></span></code></pre></div><h1 id="cookie-和-session">Cookie 和 session</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> </span><span class="n">在Servlet可以实现数据共享的对象</span><span class="err">。</span><span class="w">  
+</span></span></span></code></pre></div><h2 id="2-分类">2. 分类</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="err">①</span><span class="w"> </span><span class="n">ServletContext</span><span class="w"> </span><span class="n">范围最大</span><span class="w"> </span><span class="n">可以在项目的任何地方实现数据的共享</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">②</span><span class="w"> </span><span class="n">session</span><span class="w">   </span><span class="n">范围</span><span class="w"> </span><span class="n">一次会话中</span><span class="w"> </span><span class="n">实现数据的共享</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">③</span><span class="w"> </span><span class="n">request</span><span class="w">   </span><span class="n">范围</span><span class="w"> </span><span class="n">一次请求中</span><span class="w"> </span><span class="n">实现数据的共享</span><span class="w">
+</span></span></span></code></pre></div><h2 id="3-作用">3. 作用</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">实现Servlet与Servlet之间</span><span class="w"> </span><span class="n">或者</span><span class="w"> </span><span class="n">Servlet与页面之间</span><span class="w">  </span><span class="n">数据的共享</span><span class="w">
+</span></span></span></code></pre></div><h2 id="4-使用">4. 使用</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">保存数据到共享域</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">setAttribute</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">取共享域数据</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">getAttribute</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">删除共享域数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">removeAttribute</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><h1 id="cookie-和-session">Cookie 和 session</h1>
 <h2 id="一会话">一、会话</h2>
 <h3 id="1理解">1.理解</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">客户端发送请求到服务器</span><span class="err">，</span><span class="n">连接成功会话开始</span><span class="err">，</span><span class="n">只有连接不断开整个过程就属于一次会话</span><span class="err">。</span><span class="n">从连接成功开始</span> <span class="n">到</span> <span class="n">服务器或者客户端断开结束</span><span class="err">。</span><span class="n">在此期间的任何请求</span> <span class="n">任何资源都属于该次会话</span><span class="err">。</span>
-</span></span></code></pre></div><h3 id="2-作用-2">2. 作用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">由于HTTP协议</span><span class="err">，</span><span class="n">无状态的特点</span><span class="err">。</span><span class="n">每次请求都是一次新的会话</span><span class="err">，</span><span class="n">有时候需要重复验证</span><span class="err">。</span><span class="n">所以用户体验太差</span><span class="err">，</span><span class="n">要解决这种问题</span> <span class="n">使用会话技术</span><span class="err">。</span>
-</span></span></code></pre></div><h3 id="3-会话技术">3. 会话技术</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cookie</span>  <span class="n">客户端会话</span>
-</span></span><span class="line"><span class="cl"><span class="n">session</span> <span class="n">服务器端会话</span>
-</span></span></code></pre></div><h2 id="二cookie">二、Cookie</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> 	</span><span class="n">客户端发送请求到服务器</span><span class="err">，</span><span class="n">连接成功会话开始</span><span class="err">，</span><span class="n">只有连接不断开整个过程就属于一次会话</span><span class="err">。</span><span class="n">从连接成功开始</span><span class="w"> </span><span class="n">到</span><span class="w"> </span><span class="n">服务器或者客户端断开结束</span><span class="err">。</span><span class="n">在此期间的任何请求</span><span class="w"> </span><span class="n">任何资源都属于该次会话</span><span class="err">。</span><span class="w">
+</span></span></span></code></pre></div><h3 id="2-作用-2">2. 作用</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> 	</span><span class="n">由于HTTP协议</span><span class="err">，</span><span class="n">无状态的特点</span><span class="err">。</span><span class="n">每次请求都是一次新的会话</span><span class="err">，</span><span class="n">有时候需要重复验证</span><span class="err">。</span><span class="n">所以用户体验太差</span><span class="err">，</span><span class="n">要解决这种问题</span><span class="w"> </span><span class="n">使用会话技术</span><span class="err">。</span><span class="w">
+</span></span></span></code></pre></div><h3 id="3-会话技术">3. 会话技术</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Cookie</span><span class="w">  </span><span class="n">客户端会话</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">session</span><span class="w"> </span><span class="n">服务器端会话</span><span class="w">
+</span></span></span></code></pre></div><h2 id="二cookie">二、Cookie</h2>
 <h3 id="1-理解-3">1. 理解</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	创建一个 cookie，cookie 是 servlet 发送到 Web 浏览器的少量信息，这些信息由浏览器保存，然后发送回服务器。cookie 的值可以唯一地标识客户端，因此 cookie 常用于会话管理。
 </span></span><span class="line"><span class="cl">    
@@ -710,48 +710,48 @@
     
 ></p>
 <h3 id="2-使用">2. 使用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">创建cookie</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cookie</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">响应客户端</span>
-</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">addCookie</span><span class="o">(</span><span class="n">cookie</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">获取cookie</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">Cookie</span><span class="o">[]</span> <span class="n">cookies</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getCookies</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="o">(</span><span class="n">cookies</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">:</span> <span class="n">cookies</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">cookie</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cookie</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;==&#34;</span><span class="o">+</span><span class="n">value</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;没有cookie.....&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">过期时间</span> <span class="n">和浏览器无关</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setMaxAge</span><span class="o">();</span> <span class="c1">// 单位：m   +秒数 -默认浏览器会话结束  0立即销毁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="mi">5</span><span class="o">.</span> <span class="n">有效路径</span><span class="err">：</span><span class="n">只在当前的有效路径下</span> <span class="n">生效</span>
-</span></span><span class="line"><span class="cl">    <span class="n">默认当前创建cookie的Servlet访问路径的上一层</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setPath</span><span class="o">(</span><span class="n">路径</span><span class="o">);</span> 
-</span></span></code></pre></div><h3 id="3-场景">3. 场景</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">记录上次访问时间</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="nf">登录时的记住账号功能</span><span class="o">(</span><span class="n">作业</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">浏览记录</span>
-</span></span></code></pre></div><h3 id="4-特点">4. 特点</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">Cookie保存到客户端</span> <span class="n">安全性低</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">Cookie保存数据只能是字符串</span> <span class="n">不能有特殊符号</span> <span class="n">空格</span> <span class="n">分号</span> <span class="n">逗号</span> <span class="n">不能以$开头等</span>
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">Cookie保存数据大小最多4KB</span>
-</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">一个服务器可以创建多个Cookie</span>   
-</span></span><span class="line"><span class="cl"><span class="mi">5</span><span class="o">.</span> <span class="n">Cookie可以设置有效时间</span> <span class="n">从调用addCookie方法开始</span> <span class="n">到期之后销毁了</span>
-</span></span><span class="line"><span class="cl"><span class="mi">6</span><span class="o">.</span> <span class="n">Cookie的名字</span><span class="err">、</span><span class="n">路径</span><span class="err">、</span><span class="n">有效时间</span> <span class="n">决定了是不是同一个cookie</span>
-</span></span></code></pre></div><h2 id="三session">三、session</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">创建cookie</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Cookie</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cookie</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">响应客户端</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">addCookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">获取cookie</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Cookie</span><span class="o">[]</span><span class="w"> </span><span class="n">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getCookies</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">cookies</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Cookie</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cookies</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cookie</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cookie</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;==&#34;</span><span class="o">+</span><span class="n">value</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;没有cookie.....&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">过期时间</span><span class="w"> </span><span class="n">和浏览器无关</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setMaxAge</span><span class="p">();</span><span class="w"> </span><span class="c1">// 单位：m   +秒数 -默认浏览器会话结束  0立即销毁</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">有效路径</span><span class="err">：</span><span class="n">只在当前的有效路径下</span><span class="w"> </span><span class="n">生效</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">默认当前创建cookie的Servlet访问路径的上一层</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setPath</span><span class="p">(</span><span class="n">路径</span><span class="p">);</span><span class="w"> 
+</span></span></span></code></pre></div><h3 id="3-场景">3. 场景</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">记录上次访问时间</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="nf">登录时的记住账号功能</span><span class="p">(</span><span class="n">作业</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">浏览记录</span><span class="w">
+</span></span></span></code></pre></div><h3 id="4-特点">4. 特点</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">Cookie保存到客户端</span><span class="w"> </span><span class="n">安全性低</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">Cookie保存数据只能是字符串</span><span class="w"> </span><span class="n">不能有特殊符号</span><span class="w"> </span><span class="n">空格</span><span class="w"> </span><span class="n">分号</span><span class="w"> </span><span class="n">逗号</span><span class="w"> </span><span class="n">不能以$开头等</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">Cookie保存数据大小最多4KB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">一个服务器可以创建多个Cookie</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">Cookie可以设置有效时间</span><span class="w"> </span><span class="n">从调用addCookie方法开始</span><span class="w"> </span><span class="n">到期之后销毁了</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">6</span><span class="p">.</span><span class="w"> </span><span class="n">Cookie的名字</span><span class="err">、</span><span class="n">路径</span><span class="err">、</span><span class="n">有效时间</span><span class="w"> </span><span class="n">决定了是不是同一个cookie</span><span class="w">
+</span></span></span></code></pre></div><h2 id="三session">三、session</h2>
 <h3 id="1-理解-4">1. 理解</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 	<span class="n">HttpSession</span> <span class="n">提供一种方式</span><span class="err">，</span><span class="n">跨多个页面请求或对</span> <span class="n">Web</span> <span class="n">站点的多次访问标识用户并存储有关该用户的信息</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">     <span class="n">Servlet</span> <span class="n">容器使用此接口创建</span> <span class="n">HTTP</span> <span class="n">客户端和</span> <span class="n">HTTP</span> <span class="n">服务器之间的会话</span><span class="err">。</span><span class="n">会话将保留指定的时间段</span><span class="err">，</span><span class="n">跨多个连接或来自用户的页面请求</span><span class="err">。</span><span class="n">一个会话通常对应于一个用户</span><span class="err">，</span><span class="n">该用户可能多次访问一个站点</span><span class="err">。</span><span class="n">服务器能够以多种方式维护会话</span><span class="err">，</span><span class="n">比如使用</span> <span class="n">cookie</span> <span class="n">或重写</span> <span class="n">URL</span><span class="err">。</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">     <span class="err">①</span> <span class="n">session是由Servlet容器创建</span>
-</span></span><span class="line"><span class="cl">     <span class="err">②</span> <span class="n">维护客户端和服务器的会话</span>
-</span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225254929.png"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> 	</span><span class="n">HttpSession</span><span class="w"> </span><span class="n">提供一种方式</span><span class="err">，</span><span class="n">跨多个页面请求或对</span><span class="w"> </span><span class="n">Web</span><span class="w"> </span><span class="n">站点的多次访问标识用户并存储有关该用户的信息</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">Servlet</span><span class="w"> </span><span class="n">容器使用此接口创建</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">客户端和</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">服务器之间的会话</span><span class="err">。</span><span class="n">会话将保留指定的时间段</span><span class="err">，</span><span class="n">跨多个连接或来自用户的页面请求</span><span class="err">。</span><span class="n">一个会话通常对应于一个用户</span><span class="err">，</span><span class="n">该用户可能多次访问一个站点</span><span class="err">。</span><span class="n">服务器能够以多种方式维护会话</span><span class="err">，</span><span class="n">比如使用</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="n">或重写</span><span class="w"> </span><span class="n">URL</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">①</span><span class="w"> </span><span class="n">session是由Servlet容器创建</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="err">②</span><span class="w"> </span><span class="n">维护客户端和服务器的会话</span><span class="w">
+</span></span></span></code></pre></div><p><img src="/posts/JavaEE/20220430215283/image-20220430225254929.png"
     
     
     
@@ -760,55 +760,55 @@
     
 ></p>
 <h3 id="2-使用-1">2. 使用</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">创建cookie</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cookie</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">响应客户端</span>
-</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="na">addCookie</span><span class="o">(</span><span class="n">cookie</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">获取cookie</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">Cookie</span><span class="o">[]</span> <span class="n">cookies</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getCookies</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="o">(</span><span class="n">cookies</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
-</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="o">(</span><span class="n">Cookie</span> <span class="n">cookie</span> <span class="o">:</span> <span class="n">cookies</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">cookie</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">                <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">cookie</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;==&#34;</span><span class="o">+</span><span class="n">value</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">            <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;没有cookie.....&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">过期时间</span> <span class="n">和浏览器无关</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setMaxAge</span><span class="o">();</span> <span class="c1">// 单位：m   +秒数 -默认浏览器会话结束  0立即销毁
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="mi">5</span><span class="o">.</span> <span class="n">有效路径</span><span class="err">：</span><span class="n">只在当前的有效路径下</span> <span class="n">生效</span>
-</span></span><span class="line"><span class="cl">    <span class="n">默认当前创建cookie的Servlet访问路径的上一层</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cookie</span><span class="o">.</span><span class="na">setPath</span><span class="o">(</span><span class="n">路径</span><span class="o">);</span> 
-</span></span></code></pre></div><h3 id="3-场景-1">3. 场景</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">用户登录成功保存用户信息</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">购物车</span>
-</span></span></code></pre></div><h3 id="4-特点-1">4. 特点</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">session将数据保存到服务器</span> <span class="n">相对安全</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">session可以保存任意数据</span> 
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">3</span><span class="o">.</span> <span class="n">session保存数据的大小</span> <span class="n">没有限制</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">.</span> <span class="n">一个服务器对应一个session对象</span> <span class="n">每个用户分别分配不同的id</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">5</span><span class="o">.</span> <span class="n">session可以设置有效时间</span>  <span class="n">这个时间是指两次相邻访问的时间间隔</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="mi">6</span><span class="o">.</span> <span class="n">session是通过JSESSIONID确定是否是同一次会话</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="n">隐藏特点</span><span class="err">：</span>
-</span></span><span class="line"><span class="cl">    <span class="n">session数据的钝化</span><span class="err">（</span><span class="n">序列化到本地磁盘</span><span class="err">）</span><span class="n">和活化</span><span class="err">（</span><span class="n">从本地磁盘序列化到内存</span><span class="err">）</span>
-</span></span></code></pre></div><h3 id="5-总结">5. 总结</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="mi">1</span><span class="o">.</span> <span class="n">保存数据量比较小</span>  <span class="n">安全性低</span>  <span class="n">数据易变</span> <span class="n">使用cookie维护会话</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">.</span> <span class="n">保存的数据量较大</span>  <span class="n">安全性高</span>  <span class="n">数据不易变</span> <span class="n">使用session维护会话</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"> <span class="n">cookie数据保存到了客户端</span> <span class="n">减轻了服务器的压力</span><span class="err">，</span><span class="n">session默认需要借助cookie使用</span>
-</span></span><span class="line"><span class="cl"><span class="n">即使没有cookie</span> <span class="n">session也可以维护会话</span> <span class="n">比如</span><span class="err">：</span><span class="n">重写url地址</span>
-</span></span><span class="line"><span class="cl">   
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">创建cookie</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Cookie</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cookie</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">响应客户端</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">response</span><span class="p">.</span><span class="na">addCookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">获取cookie</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Cookie</span><span class="o">[]</span><span class="w"> </span><span class="n">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getCookies</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">cookies</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Cookie</span><span class="w"> </span><span class="n">cookie</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cookies</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cookie</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cookie</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s">&#34;==&#34;</span><span class="o">+</span><span class="n">value</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;没有cookie.....&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">过期时间</span><span class="w"> </span><span class="n">和浏览器无关</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setMaxAge</span><span class="p">();</span><span class="w"> </span><span class="c1">// 单位：m   +秒数 -默认浏览器会话结束  0立即销毁</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">有效路径</span><span class="err">：</span><span class="n">只在当前的有效路径下</span><span class="w"> </span><span class="n">生效</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">默认当前创建cookie的Servlet访问路径的上一层</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cookie</span><span class="p">.</span><span class="na">setPath</span><span class="p">(</span><span class="n">路径</span><span class="p">);</span><span class="w"> 
+</span></span></span></code></pre></div><h3 id="3-场景-1">3. 场景</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">用户登录成功保存用户信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">购物车</span><span class="w">
+</span></span></span></code></pre></div><h3 id="4-特点-1">4. 特点</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">session将数据保存到服务器</span><span class="w"> </span><span class="n">相对安全</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">session可以保存任意数据</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">3</span><span class="p">.</span><span class="w"> </span><span class="n">session保存数据的大小</span><span class="w"> </span><span class="n">没有限制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">4</span><span class="p">.</span><span class="w"> </span><span class="n">一个服务器对应一个session对象</span><span class="w"> </span><span class="n">每个用户分别分配不同的id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">5</span><span class="p">.</span><span class="w"> </span><span class="n">session可以设置有效时间</span><span class="w">  </span><span class="n">这个时间是指两次相邻访问的时间间隔</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">6</span><span class="p">.</span><span class="w"> </span><span class="n">session是通过JSESSIONID确定是否是同一次会话</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">隐藏特点</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">session数据的钝化</span><span class="err">（</span><span class="n">序列化到本地磁盘</span><span class="err">）</span><span class="n">和活化</span><span class="err">（</span><span class="n">从本地磁盘序列化到内存</span><span class="err">）</span><span class="w">
+</span></span></span></code></pre></div><h3 id="5-总结">5. 总结</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">1</span><span class="p">.</span><span class="w"> </span><span class="n">保存数据量比较小</span><span class="w">  </span><span class="n">安全性低</span><span class="w">  </span><span class="n">数据易变</span><span class="w"> </span><span class="n">使用cookie维护会话</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2</span><span class="p">.</span><span class="w"> </span><span class="n">保存的数据量较大</span><span class="w">  </span><span class="n">安全性高</span><span class="w">  </span><span class="n">数据不易变</span><span class="w"> </span><span class="n">使用session维护会话</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">cookie数据保存到了客户端</span><span class="w"> </span><span class="n">减轻了服务器的压力</span><span class="err">，</span><span class="n">session默认需要借助cookie使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">即使没有cookie</span><span class="w"> </span><span class="n">session也可以维护会话</span><span class="w"> </span><span class="n">比如</span><span class="err">：</span><span class="n">重写url地址</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   
+</span></span></span></code></pre></div>
             </div>
             <hr>
             <div style="text-align: center;">

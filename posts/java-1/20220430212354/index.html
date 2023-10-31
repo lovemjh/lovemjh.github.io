@@ -497,25 +497,25 @@
 <p>1.默认Object类的equals方法，效果与 == 效果是相同的，必须是同一个对象 返回值为true，用来判断对象与参数对象是否相等。</p>
 <p>2.当equals方法重写时，一般都伴随hashCode方法的重写，达到相对的对象有相等的哈希码值的需求。</p>
 <h3 id="代码">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Objects</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Equals方法的使用</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">Student</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&#34;张三&#34;</span> <span class="o">,</span> <span class="mi">18</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">Student</span> <span class="n">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&#34;张三1&#34;</span> <span class="o">,</span> <span class="mi">18</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// System.out.println(s.equals(s1)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(s.equals(null)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(s.equals(s));
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">A</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">A</span><span class="o">{}</span> 
-</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Student</span><span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">name</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">age</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="cm">/*@Override 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Objects</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Equals方法的使用</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Student</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&#34;张三&#34;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">18</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Student</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Student</span><span class="p">(</span><span class="s">&#34;张三1&#34;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">18</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(s.equals(s1)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(s.equals(null)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(s.equals(s));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">A</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">A</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">a</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">A</span><span class="p">{}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Student</span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*@Override 
 </span></span></span><span class="line"><span class="cl"><span class="cm">public boolean equals(Object o) { 
 </span></span></span><span class="line"><span class="cl"><span class="cm">	if (this == o) return true; 
 </span></span></span><span class="line"><span class="cl"><span class="cm">		if (o == null || getClass() != o.getClass()) return false; 
@@ -531,28 +531,28 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">    int result = name != null ? name.hashCode() : 0;
 </span></span></span><span class="line"><span class="cl"><span class="cm">    result = 31 * result + age; 
 </span></span></span><span class="line"><span class="cl"><span class="cm">    return result; }
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">o</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">o</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">getClass</span><span class="o">()</span> <span class="o">!=</span> <span class="n">o</span><span class="o">.</span><span class="na">getClass</span><span class="o">())</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Student</span> <span class="n">student</span> <span class="o">=</span> <span class="o">(</span><span class="n">Student</span><span class="o">)</span> <span class="n">o</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">age</span> <span class="o">==</span> <span class="n">student</span><span class="o">.</span><span class="na">age</span> <span class="o">&amp;&amp;</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">student</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nd">@Override</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Objects</span><span class="o">.</span><span class="na">hash</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">getClass</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Student</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Student</span><span class="p">)</span><span class="w"> </span><span class="n">o</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Objects</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">student</span><span class="p">.</span><span class="na">name</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Override</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">hash</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm">	① 判断参数对象是否为null 
 </span></span></span><span class="line"><span class="cl"><span class="cm">	② 判断参数对象与对象 是否为同一个
 </span></span></span><span class="line"><span class="cl"><span class="cm">    ③ 判断参数对象与对象的数据类型是否相同 
 </span></span></span><span class="line"><span class="cl"><span class="cm">    ④ 判断需求的属性是否相同 
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span> 
-</span></span><span class="line"><span class="cl"><span class="cm">/* @Override 
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* @Override 
 </span></span></span><span class="line"><span class="cl"><span class="cm">public boolean equals(Object st){
 </span></span></span><span class="line"><span class="cl"><span class="cm">	//判断是否为null
 </span></span></span><span class="line"><span class="cl"><span class="cm">    if(st == null){ 
@@ -571,24 +571,24 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">    //判断对象与参数的属性值完全相同 认为同一个对象
 </span></span></span><span class="line"><span class="cl"><span class="cm">    //由于字符串是对象，需要通过equals方法来进行判断 
 </span></span></span><span class="line"><span class="cl"><span class="cm">    return this.name.equals(obj.name) &amp;&amp; this.age == obj.age; 
-</span></span></span><span class="line"><span class="cl"><span class="cm">}*/</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="nd">@Override</span> 
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s">&#34;Student{&#34;</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">        <span class="s">&#34;name=&#39;&#34;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span> 
-</span></span><span class="line"><span class="cl">        <span class="s">&#34;, age=&#34;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">        <span class="sc">&#39;}&#39;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="nf">Student</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">	<span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="string">String</h2>
+</span></span></span><span class="line"><span class="cl"><span class="cm">}*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Override</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Student{&#34;</span><span class="w"> </span><span class="o">+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;name=&#39;&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="s">&#34;, age=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="sc">&#39;}&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="nf">Student</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="nf">Student</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="string">String</h2>
 <h3 id="概述">概述</h3>
 <p>String类是一个值不可改变的常量。可以共享的。字面值&quot;abc&quot;的都是该类的对象。</p>
 <p>底层： 字符数组。</p>
@@ -606,51 +606,51 @@
     
 ></p>
 <p>代码</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="cm">/** 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/** 
 </span></span></span><span class="line"><span class="cl"><span class="cm">1.(***)equals与==的区别:
 </span></span></span><span class="line"><span class="cl"><span class="cm">① == 用来判断数值是否相同，对于基本数据类型来说，判断的是数值，对于引用数据类型，判断的 是对象的地址值是否相同。
 </span></span></span><span class="line"><span class="cl"><span class="cm">	equals方法只能判断对象是否相同，不能判断基本数据类型。
 </span></span></span><span class="line"><span class="cl"><span class="cm">② 如果想根据需求进行判断，只能通过重写equals方法来实现。 
 </span></span></span><span class="line"><span class="cl"><span class="cm">③ 对于Object类的equals方法在没有重写的情况下，效果与== 相同。
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Equals方法与等等号的区别与联系</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&#34;abc&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span> <span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">&#34;abc&#34;</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">s4</span><span class="o">);</span> <span class="c1">//true 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="o">);</span><span class="c1">//false 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">s4</span><span class="o">));</span> <span class="c1">//true 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">s2</span><span class="o">));</span><span class="c1">//true 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="字符串对象创建的细节问题">字符串对象创建的细节问题</h3>
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Equals方法与等等号的区别与联系</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;abc&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;abc&#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s4</span><span class="p">);</span><span class="w"> </span><span class="c1">//true </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="c1">//false </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">s4</span><span class="p">));</span><span class="w"> </span><span class="c1">//true </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">s2</span><span class="p">));</span><span class="c1">//true </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="字符串对象创建的细节问题">字符串对象创建的细节问题</h3>
 <p>对于字符串的拼接形式，如果都是字符串常量，在编译时，直接计算，这种现象称为字符串的编译器优化。</p>
 <h4 id="代码-1">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="cm">/** 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/** 
 </span></span></span><span class="line"><span class="cl"><span class="cm">1.字符串对象创建的细节问题: 
 </span></span></span><span class="line"><span class="cl"><span class="cm">	对于字符串的拼接形式，如果都是字符串常量，在编译时，直接计算，这种现象称为字符串的编译器优化。
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">字符串对象创建的细节问题</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">T</span><span class="o">.</span><span class="na">fun</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">T</span><span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">fun</span><span class="o">(){</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&#34;abc&#34;</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">//对于字符串的拼接形式，如果都是字符串常量，在编译时，直接计算，这种现象称为字符串的编译器优化。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&#34;a&#34;</span><span class="o">+</span><span class="s">&#34;b&#34;</span><span class="o">+</span><span class="s">&#34;c&#34;</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&#34;ab&#34;</span><span class="o">;</span> <span class="n">String</span> 
-</span></span><span class="line"><span class="cl">            <span class="n">s3</span> <span class="o">=</span> <span class="n">s2</span> <span class="o">+</span> <span class="s">&#34;c&#34;</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">s1</span><span class="o">);</span><span class="c1">//true 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s3</span><span class="o">);</span><span class="c1">//false 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="字符串常用方法一">字符串常用方法一</h3>
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">字符串对象创建的细节问题</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">T</span><span class="p">.</span><span class="na">fun</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">T</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">(){</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;abc&#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//对于字符串的拼接形式，如果都是字符串常量，在编译时，直接计算，这种现象称为字符串的编译器优化。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;a&#34;</span><span class="o">+</span><span class="s">&#34;b&#34;</span><span class="o">+</span><span class="s">&#34;c&#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;ab&#34;</span><span class="p">;</span><span class="w"> </span><span class="n">String</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;c&#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s1</span><span class="p">);</span><span class="c1">//true </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span><span class="c1">//false </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="字符串常用方法一">字符串常用方法一</h3>
 <p>1.<code>charAt(int index)</code> 返回索引位置的字符</p>
 <p>2.<code>compareTo(String anotherString)</code> 按字典顺序比较两个字符串。</p>
 <p>​	存在字符序列不同： 对象的unicode码- 参数的unicode码</p>
@@ -664,51 +664,51 @@
 <p>​	1》 <code>equalsIgnoreCase(String anotherString) </code>忽略大小写。</p>
 <p>6.<code>getBytes(charset) </code>将字符串转换成字节数组。</p>
 <h4 id="代码-2">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.io.UnsupportedEncodingException</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">字符串常用方法</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">UnsupportedEncodingException</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 1.charAt(int index) 返回索引位置的字符 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;abcdef&#34;.charAt(3));
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// 2.compareTo(String anotherString) 按字典顺序比较两个字符串。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;abc&#34;.compareTo(&#34;ab&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;a&#34;.compareTo(&#34;A&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;a&#34;.compareToIgnoreCase(&#34;A&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">//concat(String str) 拼接 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;abc&#34;.concat(&#34;hello&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// 3.contains(CharSequence s) 判断包含
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;abc&#34;.contains(&#34;ab&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// 4.endsWith(String suffix)/startsWith(String prefix) 后缀/前缀 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;abc.txt&#34;.endsWith(&#34;txt&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//查找姓张的学生 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span><span class="o">[]</span> <span class="n">names</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;张三&#34;</span><span class="o">,</span><span class="s">&#34;李思&#34;</span><span class="o">,</span><span class="s">&#34;王张五&#34;</span><span class="o">,</span><span class="s">&#34;马六&#34;</span><span class="o">,</span><span class="s">&#34;张龙&#34;</span><span class="o">,</span><span class="s">&#34;李元芳&#34;</span><span class="o">};</span> 
-</span></span><span class="line"><span class="cl">        <span class="cm">/*for (int i = 0; i &lt; names.length; i++) { 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.UnsupportedEncodingException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">字符串常用方法</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">UnsupportedEncodingException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 1.charAt(int index) 返回索引位置的字符 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;abcdef&#34;.charAt(3));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 2.compareTo(String anotherString) 按字典顺序比较两个字符串。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;abc&#34;.compareTo(&#34;ab&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;a&#34;.compareTo(&#34;A&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;a&#34;.compareToIgnoreCase(&#34;A&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//concat(String str) 拼接 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;abc&#34;.concat(&#34;hello&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 3.contains(CharSequence s) 判断包含</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;abc&#34;.contains(&#34;ab&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 4.endsWith(String suffix)/startsWith(String prefix) 后缀/前缀 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;abc.txt&#34;.endsWith(&#34;txt&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//查找姓张的学生 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#34;张三&#34;</span><span class="p">,</span><span class="s">&#34;李思&#34;</span><span class="p">,</span><span class="s">&#34;王张五&#34;</span><span class="p">,</span><span class="s">&#34;马六&#34;</span><span class="p">,</span><span class="s">&#34;张龙&#34;</span><span class="p">,</span><span class="s">&#34;李元芳&#34;</span><span class="p">};</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*for (int i = 0; i &lt; names.length; i++) { 
 </span></span></span><span class="line"><span class="cl"><span class="cm">            if (names[i].startsWith(&#34;张&#34;)){ 
 </span></span></span><span class="line"><span class="cl"><span class="cm">                System.out.println(names[i]);
 </span></span></span><span class="line"><span class="cl"><span class="cm">            } 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        }*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">// equalsIgnoreCase(String anotherString)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/* System.out.println(&#34;aBc&#34;.equals(&#34;abc&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;aBc&#34;.equalsIgnoreCase(&#34;abc&#34;));*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">// 6.getBytes() 将字符串转换成字节数组。 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">s5</span> <span class="o">=</span> <span class="s">&#34;今天天气真好&#34;</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">//强制类型转换无法实现字符串转字节数组 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//中文gbk 两个字节一个中文 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt</span> <span class="o">=</span> <span class="n">s5</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">&#34;GBK&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">//utf-8 三个字节表示一个中文 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">byte</span><span class="o">[]</span> <span class="n">bt1</span> <span class="o">=</span> <span class="n">s5</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="s">&#34;utf-8&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">bt</span><span class="o">));</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">bt1</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="字符串常用方法二">字符串常用方法二</h3>
+</span></span></span><span class="line"><span class="cl"><span class="cm">        }*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// equalsIgnoreCase(String anotherString)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* System.out.println(&#34;aBc&#34;.equals(&#34;abc&#34;)); 
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;aBc&#34;.equalsIgnoreCase(&#34;abc&#34;));*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 6.getBytes() 将字符串转换成字节数组。 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;今天天气真好&#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//强制类型转换无法实现字符串转字节数组 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//中文gbk 两个字节一个中文 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">bt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s5</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&#34;GBK&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//utf-8 三个字节表示一个中文 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">bt1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s5</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="s">&#34;utf-8&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">bt</span><span class="p">));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">bt1</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="字符串常用方法二">字符串常用方法二</h3>
 <p>1.<code>isEmpty()</code> 判断是否为空串</p>
 <p>2.<code>length() </code>字符串的长度</p>
 <p><strong>注意</strong>：</p>
@@ -719,39 +719,39 @@
 <p><strong>注意</strong>：</p>
 <p>​	如果使用转义\ ，两个表示一个\ ，如果做拆分，4个表示两个。</p>
 <h4 id="代码-3">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">String类常用方法一</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 1.isEmpty() 判断是否为空串 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;ab&#34;.isEmpty()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// lastIndexOf(String str) 用法同indexOf 返回参数字符串在字符串对象中最后一次 出现的索引值 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;01234567823&#34;.lastIndexOf(&#34;23&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// 2.length() 字符串的长度 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">};</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// arr.length 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;abc&#34;.length()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// 3.replace(CharSequence target, CharSequence replacement) 替换 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;01234523&#34;.replace(&#34;23&#34;, &#34;我&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//敏感词过滤 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;xxsadfaxxlsdljslfs&#34;.replace(&#34;x&#34;, &#34;**&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// 4.split(String regex) 根据参数拆分字符串为字符串数组 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// String s1 = &#34;a-b-c&#34;; 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// String[] arr1 = s1.split(&#34;-&#34;); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/* String s2 =&#34;a b c&#34;;
-</span></span></span><span class="line"><span class="cl"><span class="cm">        String[] arr1 = s2.split(&#34; &#34;);*/</span>
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">&#34;a\\b\\c&#34;</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 如果使用转义\ ，两个表示一个\ ，如果做拆分，4个表示两个。 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span><span class="o">[]</span> <span class="n">arr1</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">&#34;\\\\&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr1</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">arr1</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span> 
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="字符串常用方法三">字符串常用方法三</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">String类常用方法一</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 1.isEmpty() 判断是否为空串 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;ab&#34;.isEmpty()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// lastIndexOf(String str) 用法同indexOf 返回参数字符串在字符串对象中最后一次 出现的索引值 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;01234567823&#34;.lastIndexOf(&#34;23&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 2.length() 字符串的长度 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">1</span><span class="p">,</span><span class="n">2</span><span class="p">,</span><span class="n">3</span><span class="p">,</span><span class="n">4</span><span class="p">,</span><span class="n">5</span><span class="p">};</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// arr.length </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;abc&#34;.length()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 3.replace(CharSequence target, CharSequence replacement) 替换 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;01234523&#34;.replace(&#34;23&#34;, &#34;我&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//敏感词过滤 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;xxsadfaxxlsdljslfs&#34;.replace(&#34;x&#34;, &#34;**&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 4.split(String regex) 根据参数拆分字符串为字符串数组 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// String s1 = &#34;a-b-c&#34;; </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// String[] arr1 = s1.split(&#34;-&#34;); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* String s2 =&#34;a b c&#34;;
+</span></span></span><span class="line"><span class="cl"><span class="cm">        String[] arr1 = s2.split(&#34; &#34;);*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;a\\b\\c&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 如果使用转义\ ，两个表示一个\ ，如果做拆分，4个表示两个。 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&#34;\\\\&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">arr1</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">arr1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="字符串常用方法三">字符串常用方法三</h3>
 <p>1.<code>substring(int beginIndex, int endIndex) </code>截子串</p>
 <p><strong>注意</strong>：</p>
 <p>如果只有一个参数，表示从该位置截取到末尾，如果还有第二个参数，表示从第一个参数</p>
@@ -759,36 +759,36 @@
 <p>2.<code>toCharArray() </code>字符串转字符数组</p>
 <p>\3. <code>valueOf(Object obj)</code> 返回对象的字符串表示形式</p>
 <h4 id="代码-4">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">String类常用方法二</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// substring(int beginIndex, int endIndex)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;0123456&#34;.substring(1,4)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 2.toCharArray() 字符串转字符数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/*String s = &#34;abcdef&#34;;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">String类常用方法二</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// substring(int beginIndex, int endIndex)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;0123456&#34;.substring(1,4)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 2.toCharArray() 字符串转字符数组</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*String s = &#34;abcdef&#34;;
 </span></span></span><span class="line"><span class="cl"><span class="cm">        char[] cs = s.toCharArray();
 </span></span></span><span class="line"><span class="cl"><span class="cm">        for (int i = 0; i &lt; cs.length; i++) { 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        	System.out.println(cs[i]); 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        }*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">// toLowerCase()/toUpperCase() 转小/大写 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/*System.out.println(&#34;abBcD&#34;.toLowerCase()); 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;abBcD&#34;.toUpperCase());*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">//toString() 转换成字符串 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// System.out.println(s2.toString()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">//trim() 返回字符串的副本，忽略前导空白和尾部空白。 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">&#34; a bc &#34;</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="cm">/* System.out.println(&#34;============&#34;+s3+&#34;=============&#34;);
-</span></span></span><span class="line"><span class="cl"><span class="cm">       System.out.println(&#34;============&#34;+s3.trim()+&#34;=============&#34;);*/</span> 
-</span></span><span class="line"><span class="cl">       
-</span></span><span class="line"><span class="cl">        <span class="c1">// 3. valueOf(Object obj) 返回对象的字符串表示形式 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="stringbuffer-与stringbuilder">StringBuffer 与StringBuilder</h2>
+</span></span></span><span class="line"><span class="cl"><span class="cm">        }*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// toLowerCase()/toUpperCase() 转小/大写 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*System.out.println(&#34;abBcD&#34;.toLowerCase()); 
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;abBcD&#34;.toUpperCase());*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//toString() 转换成字符串 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(s2.toString()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//trim() 返回字符串的副本，忽略前导空白和尾部空白。 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34; a bc &#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* System.out.println(&#34;============&#34;+s3+&#34;=============&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="cm">       System.out.println(&#34;============&#34;+s3.trim()+&#34;=============&#34;);*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">       
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 3. valueOf(Object obj) 返回对象的字符串表示形式 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="stringbuffer-与stringbuilder">StringBuffer 与StringBuilder</h2>
 <h3 id="stringbuffer">StringBuffer</h3>
 <h4 id="概括">概括</h4>
 <p>线程安全的可变字符序列，类似于字符串的一个字符串缓冲区。</p>
@@ -810,32 +810,32 @@
 <p>[start,end) 取不到end的值为end-1</p>
 <p>对于字符串 ，一般都是副本，是新的字符串对象，而对于字符串缓冲区来说，基本都是同一个。</p>
 <h4 id="代码-5">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringBuffer类</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// System.out.println(sb.capacity()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(sb.length()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//链式调用 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="kc">true</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="mi">13</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="mi">12</span><span class="o">.</span><span class="na">3</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="mi">1231</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">//System.out.println(&#34;=========================&#34;);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(sb.capacity());
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(sb.length()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(&#34;====================&#34;); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">StringBuffer</span> <span class="n">sb1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// System.out.println(sb1.capacity()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// ④ delete(int start, int end)/deleteCharAt(int index) 删除
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">StringBuffer</span> <span class="n">sb2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(</span><span class="s">&#34;0123456789&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// System.out.println(sb2.delete(1, 4)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(sb2.deleteCharAt(3)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// StringBuffer sb3 = sb2.append(&#34;345&#34;); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">String</span> <span class="n">ss</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">sb2</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">ss1</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="na">concat</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ss</span> <span class="o">==</span> <span class="n">ss1</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>    
-</span></span></code></pre></div><h3 id="常用方法二">常用方法二</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StringBuffer类</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">StringBuffer</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(sb.capacity()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(sb.length()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//链式调用 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="n">13</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="n">12</span><span class="p">.</span><span class="na">3</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="n">1231</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//System.out.println(&#34;=========================&#34;);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(sb.capacity());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(sb.length()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(&#34;====================&#34;); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">StringBuffer</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(sb1.capacity()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ④ delete(int start, int end)/deleteCharAt(int index) 删除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">StringBuffer</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">(</span><span class="s">&#34;0123456789&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(sb2.delete(1, 4)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(sb2.deleteCharAt(3)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// StringBuffer sb3 = sb2.append(&#34;345&#34;); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">sb2</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">ss1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ss</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&#34;abc&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">ss</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ss1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">    
+</span></span></span></code></pre></div><h3 id="常用方法二">常用方法二</h3>
 <p>1.<code>insert(int offset, Object obj) </code>插入</p>
 <p>2.<code>reverse() </code><strong>反转</strong></p>
 <p>​	判断对称字符串：</p>
@@ -843,48 +843,48 @@
 <p>3.<code>toString() </code>转字符串</p>
 <p>4.<code>crud</code> :增删改查</p>
 <h4 id="代码-6">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringBuffer类常用方法</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&#34;0123456789&#34;</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">StringBuffer</span> <span class="n">sb1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(</span><span class="n">s</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// 1.insert(int offset, Object obj) 插入 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// sb1.insert(2, &#34;我&#34;); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// replace(int start, int end, String str) 替换 半开半闭区间 [start,end) 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(sb1.replace(1, 4, &#34;我们&#34;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// 2.reverse() 反转
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// sb1.reverse(); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// setCharAt(int index, char ch) 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// sb1.setCharAt(1, &#39;我&#39;); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println( sb1); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// String与StringBuffer不是同一个类的对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">s</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">sb1</span><span class="o">.</span><span class="na">toString</span><span class="o">()));</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="string与stringbuffer的区别">String与StringBuffer的区别</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StringBuffer类常用方法</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;0123456789&#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">StringBuffer</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 1.insert(int offset, Object obj) 插入 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// sb1.insert(2, &#34;我&#34;); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// replace(int start, int end, String str) 替换 半开半闭区间 [start,end) </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(sb1.replace(1, 4, &#34;我们&#34;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 2.reverse() 反转</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// sb1.reverse(); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// setCharAt(int index, char ch) </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// sb1.setCharAt(1, &#39;我&#39;); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println( sb1); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// String与StringBuffer不是同一个类的对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">sb1</span><span class="p">.</span><span class="na">toString</span><span class="p">()));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="string与stringbuffer的区别">String与StringBuffer的区别</h3>
 <h3 id="区别">区别</h3>
 <p>1.StringBuffer在操作字符串本身时，速度比String要快，建议操作字符串本身时，用StringBuffer。</p>
 <p>2.equals方法，Stringbuffer本身没有重写equals方法，使用的继承的Object类的equals方法，而String重写了，只要字符序列相同，就是true。</p>
 <h4 id="代码-7">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">String与StringBuffer之间的区别</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">            <span class="c1">// s += i; 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">i</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">long</span> <span class="n">end</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="stringbuilder"><strong>StringBuilder</strong></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">String与StringBuffer之间的区别</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">StringBuffer</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// s += i; </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="stringbuilder"><strong>StringBuilder</strong></h3>
 <p><strong>区别</strong></p>
 <p>StringBuilder线程不安全的，但是执行速度比StringBuffer快。</p>
 <h2 id="system">System</h2>
@@ -899,9 +899,9 @@
 <p>② <code>exit(0)</code> 退出jvm ，非0表示异常退出。</p>
 <p>③ <code>gc()</code> 用于垃圾回收的方法。</p>
 <h3 id="代码-8">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="cm">/**1.属性
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**1.属性
 </span></span></span><span class="line"><span class="cl"><span class="cm">	(***)标准输入 in 
 </span></span></span><span class="line"><span class="cl"><span class="cm">	标准输出 out 
 </span></span></span><span class="line"><span class="cl"><span class="cm">	错误输出流 err 
@@ -909,66 +909,66 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">	① currentTimeMillis() 返回当前时间的毫秒值
 </span></span></span><span class="line"><span class="cl"><span class="cm">    ② exit(0) 退出jvm ，非0表示异常退出。
 </span></span></span><span class="line"><span class="cl"><span class="cm">    ③ gc() 用于垃圾回收的方法。
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span> 
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">System类</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="cm">/* System.out.println(&#34;=================1&#34;); 
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">System类</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* System.out.println(&#34;=================1&#34;); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;=================2&#34;); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.err.println(&#34;=================3&#34;); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;=================4&#34;); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;=================5&#34;); 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;=================6&#34;);*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">// arraycopy(Object src, int srcPos, 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// Object dest, int destPos, int length) 快速数组复制。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;=================6&#34;);*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// arraycopy(Object src, int srcPos, </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Object dest, int destPos, int length) 快速数组复制。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*
 </span></span></span><span class="line"><span class="cl"><span class="cm">        src - 源数组。 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        srcPos - 源数组中的起始位置。 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        dest - 目标数组。 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        destPos - 目标数据中的起始位置。 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        length - 要复制的数组元素的数量。 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span> 
-</span></span><span class="line"><span class="cl">        <span class="cm">/* int[] arr = {0,1,2,3,4,5,6,7};
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* int[] arr = {0,1,2,3,4,5,6,7};
 </span></span></span><span class="line"><span class="cl"><span class="cm">        int[] brr = new int[arr.length];
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.arraycopy(arr, 1, brr, 3, 5); 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Arrays.toString(brr));*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">// ① currentTimeMillis() 返回当前时间的毫秒值 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 从计算机历元 即1970年1月1日0时0分0秒开始计算 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(System.currentTimeMillis()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// ② exit(0) 退出jvm ，非0表示异常退出。 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/*for (int i = 0; i &lt; 5; i++) {
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Arrays.toString(brr));*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ① currentTimeMillis() 返回当前时间的毫秒值 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 从计算机历元 即1970年1月1日0时0分0秒开始计算 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(System.currentTimeMillis()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ② exit(0) 退出jvm ，非0表示异常退出。 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*for (int i = 0; i &lt; 5; i++) {
 </span></span></span><span class="line"><span class="cl"><span class="cm">        	if (i==3){ 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        		System.exit(0); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        	}
 </span></span></span><span class="line"><span class="cl"><span class="cm">        	System.out.println(i); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        }
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;==================&#34;);*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">// ③ gc() 用于垃圾回收的方法。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/* Person p = new Person(); 
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;==================&#34;);*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ③ gc() 用于垃圾回收的方法。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* Person p = new Person(); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        p = null;
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.gc();*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">// getProperties() 系统属性 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Properties</span> <span class="n">prp</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getProperties</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="n">prp</span><span class="o">.</span><span class="na">entrySet</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">it</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="o">(</span><span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
-</span></span><span class="line"><span class="cl">            <span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;===&gt;&#34;</span><span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span> 
-</span></span><span class="line"><span class="cl">        <span class="o">}</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Person</span><span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">finalize</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;对象被垃圾回收了。。。。。&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="math类">Math类</h2>
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.gc();*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// getProperties() 系统属性 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Properties</span><span class="w"> </span><span class="n">prp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">getProperties</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Object</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prp</span><span class="p">.</span><span class="na">entrySet</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Object</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Object</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;===&gt;&#34;</span><span class="o">+</span><span class="w"> </span><span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">finalize</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Throwable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;对象被垃圾回收了。。。。。&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="math类">Math类</h2>
 <h3 id="概括-2">概括</h3>
 <p>Math 类包含用于执行基本数学运算的方法</p>
 <h3 id="常用方法-1">常用方法</h3>
@@ -978,28 +978,28 @@
 <p>④ <code>pow(double a, double b)</code> 返回第一个参数的第二个参数次幂</p>
 <p>⑤ <code>random()</code> 返回值 [0.0,1.0) 随机数</p>
 <h3 id="代码-9">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Math类</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//圆周率 Math.PI 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(Math.PI);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">//区别 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="cm">/*System.out.println(Math.ceil(12.3)); 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Math类</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//圆周率 Math.PI </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(Math.PI);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//区别 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*System.out.println(Math.ceil(12.3)); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Math.floor(12.3));
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Math.round(12.3)); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(&#34;============&#34;);
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Math.ceil(12.5)); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Math.floor(12.5)); 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Math.round(12.5));*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">// ④ pow(double a, double b) 返回第一个参数的第二个参数次幂 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(Math.pow(2 , 10)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        
-</span></span><span class="line"><span class="cl">        <span class="c1">// ⑤ random() 返回值 [0.0,1.0) 随机数 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println( Math.round(Math.random()*100)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="包装类"><strong>包装类</strong></h2>
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(Math.round(12.5));*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ④ pow(double a, double b) 返回第一个参数的第二个参数次幂 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(Math.pow(2 , 10)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// ⑤ random() 返回值 [0.0,1.0) 随机数 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println( Math.round(Math.random()*100)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="包装类"><strong>包装类</strong></h2>
 <h3 id="概括-3">概括</h3>
 <p>包装类：</p>
 <p>1.引入：对基本数据类型进行功能的增强。</p>
@@ -1025,28 +1025,28 @@
 <p>​	② 拆箱： 包装类转变成基本数据类型。</p>
 <p>1.5jdk之后，自动拆箱与装箱，基本数据类型与包装类之间不用调用方法 可以直接转换。</p>
 <h4 id="代码-10">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">包装类</span> <span class="o">{</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="c1">// 求int类型的最大值 /小 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="cm">/*System.out.println(Integer.MAX_VALUE); 
-</span></span></span><span class="line"><span class="cl"><span class="cm">    System.out.println(Integer.MIN_VALUE);*/</span> 
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// Integer(int/String) 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="cm">/*Integer t = new Integer(&#34;abc&#34;); 
-</span></span></span><span class="line"><span class="cl"><span class="cm">    System.out.println(t );*/</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">Integer</span> <span class="n">i1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">12</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">    <span class="c1">// 自动拆箱与装箱 1.5jdk 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// int i = i1.intValue(); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i1</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">m</span> <span class="o">=</span> <span class="n">i1</span><span class="o">;</span> <span class="c1">//拆箱 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Integer</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">13</span><span class="o">;</span><span class="c1">//装箱
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
-</span></span><span class="line"><span class="cl">    <span class="c1">//toBinaryString(int i) 二进制 toHexString(int i) 十六进制 toOctalString(int i) 八进制 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// System.out.println(Integer.toBinaryString(3)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// System.out.println(Integer.toHexString(&#34;abc&#34;.hashCode())); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="character类">Character类</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">包装类</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 求int类型的最大值 /小 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/*System.out.println(Integer.MAX_VALUE); 
+</span></span></span><span class="line"><span class="cl"><span class="cm">    System.out.println(Integer.MIN_VALUE);*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// Integer(int/String) </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/*Integer t = new Integer(&#34;abc&#34;); 
+</span></span></span><span class="line"><span class="cl"><span class="cm">    System.out.println(t );*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="p">(</span><span class="n">12</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 自动拆箱与装箱 1.5jdk </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// int i = i1.intValue(); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="p">;</span><span class="w"> </span><span class="c1">//拆箱 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">13</span><span class="p">;</span><span class="c1">//装箱</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//toBinaryString(int i) 二进制 toHexString(int i) 十六进制 toOctalString(int i) 八进制 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// System.out.println(Integer.toBinaryString(3)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// System.out.println(Integer.toHexString(&#34;abc&#34;.hashCode())); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="character类">Character类</h3>
 <p>常用方法：</p>
 <p>①<code>isDigit(char ch)</code>判断是否为数字</p>
 <p>② <code>isLetter(char ch) </code>判断是否为字母</p>
@@ -1054,14 +1054,14 @@
 <p>中文也认为是字母</p>
 <p>③ <code>isLetterOrDigit(int codePoint)</code> 判断是否为字母或数字。</p>
 <h4 id="代码-11">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Character类</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// System.out.println(Character.isDigit(&#39;1&#39;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(Character.isLetter(&#39;总&#39;)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="biginteger类">BigInteger类</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Character类</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(Character.isDigit(&#39;1&#39;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(Character.isLetter(&#39;总&#39;)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="biginteger类">BigInteger类</h2>
 <p>1.不可变的任意精度的整数</p>
 <p>2.构造方法：</p>
 <p><code>BigInteger(String val) </code></p>
@@ -1071,22 +1071,22 @@
 <p>​	3》 乘 <code>multiply(BigInteger val)</code></p>
 <p>​	4》 除 <code>divide(BigInteger val) </code></p>
 <h3 id="代码-12">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.math.BigInteger</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BigInteger类</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// long l = 11111111111111111111l; 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        	<span class="c1">//创建对象
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">BigInteger</span> <span class="n">big</span> <span class="o">=</span> <span class="k">new</span> 	
-</span></span><span class="line"><span class="cl">        <span class="n">BigInteger</span><span class="o">(</span><span class="s">&#34;11111111111111111111&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">BigInteger</span> <span class="n">big1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">&#34;11&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">big</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">big1</span><span class="o">));</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">big</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">big1</span><span class="o">));</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">big</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">big1</span><span class="o">));</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">big</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="n">big1</span><span class="o">));</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="bigdecimal类">BigDecimal类</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.math.BigInteger</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BigInteger类</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// long l = 11111111111111111111l; </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        	</span><span class="c1">//创建对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BigInteger</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BigInteger</span><span class="p">(</span><span class="s">&#34;11111111111111111111&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BigInteger</span><span class="w"> </span><span class="n">big1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="s">&#34;11&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">big</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">big1</span><span class="p">));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">big</span><span class="p">.</span><span class="na">subtract</span><span class="p">(</span><span class="n">big1</span><span class="p">));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">big</span><span class="p">.</span><span class="na">multiply</span><span class="p">(</span><span class="n">big1</span><span class="p">));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">big</span><span class="p">.</span><span class="na">divide</span><span class="p">(</span><span class="n">big1</span><span class="p">));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="bigdecimal类">BigDecimal类</h2>
 <h3 id="概念">概念</h3>
 <p>不可变的、任意精度的有符号十进制数</p>
 <h3 id="常用方法-2">常用方法</h3>
@@ -1103,25 +1103,25 @@
 <p>​	第三个参数表示舍入模式 ：</p>
 <p>​	<code>Round_HALF_UP</code>	 四舍五入</p>
 <h3 id="代码-13">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.math.BigDecimal</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BigDecimal类</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">BigDecimal</span> <span class="n">big</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="mi">12</span><span class="o">.</span><span class="na">3</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">BigDecimal</span> <span class="n">big1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="mi">12</span><span class="o">.</span><span class="na">3f</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">BigDecimal</span> <span class="n">big2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="s">&#34;0.35&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">BigDecimal</span> <span class="n">big3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="s">&#34;1&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="cm">/* System.out.println(big); 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.math.BigDecimal</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BigDecimal类</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">big</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="n">12</span><span class="p">.</span><span class="na">3</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">big1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="n">12</span><span class="p">.</span><span class="na">3f</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">big2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="s">&#34;0.35&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">big3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* System.out.println(big); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(big1);
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(big2);*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">//运算/*System.out.println(big2.add(big3)); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">big2</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">big3</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">big2</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">big3</span><span class="o">));*/</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">big2</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="n">big3</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="n">BigDecimal</span><span class="o">.</span><span class="na">ROUND_HALF_UP</span><span class="o">));</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="时间类">时间类</h2>
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(big2);*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//运算/*System.out.println(big2.add(big3)); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">big2</span><span class="p">.</span><span class="na">subtract</span><span class="p">(</span><span class="n">big3</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">big2</span><span class="p">.</span><span class="na">multiply</span><span class="p">(</span><span class="n">big3</span><span class="p">));</span><span class="o">*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">big2</span><span class="p">.</span><span class="na">divide</span><span class="p">(</span><span class="n">big3</span><span class="p">,</span><span class="n">1</span><span class="p">,</span><span class="n">BigDecimal</span><span class="p">.</span><span class="na">ROUND_HALF_UP</span><span class="p">));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="时间类">时间类</h2>
 <h3 id="date">Date</h3>
 <p>java.util 表示特定的瞬间，精确到毫秒</p>
 <p>1.构造方法：</p>
@@ -1131,20 +1131,20 @@
 <p>2.常用方法：</p>
 <p>① <code>getTime() </code>返回对象到历元的毫秒值</p>
 <h4 id="代码-14">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Date类</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">Date</span> <span class="n">date</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// System.out.println(date.toGMTString()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Date</span> <span class="n">date1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1">// System.out.println(date1.toLocaleString()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(date.getTime()); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(date1.getTime());
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// System.out.println(System.currentTimeMillis());
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="calendar类">Calendar类</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Date</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Date类</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Date</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(date.toGMTString()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Date</span><span class="w"> </span><span class="n">date1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">(</span><span class="n">1000</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(date1.toLocaleString()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(date.getTime()); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(date1.getTime());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// System.out.println(System.currentTimeMillis());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="calendar类">Calendar类</h3>
 <p>1.<code>Calendar</code>:日历类:抽象类</p>
 <p>2.创建对象：</p>
 <p>​	<code>getInstance() </code></p>
@@ -1155,13 +1155,13 @@
 <p>​	通过 正数 、 负数来表示加或减</p>
 <p>③<code>set(int field, int value)</code>设置</p>
 <h4 id="代码-15">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Calendar类</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//创建对象 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Calendar</span> <span class="n">cd</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span> 
-</span></span><span class="line"><span class="cl">        <span class="cm">/*System.out.println(cd.get(Calendar.YEAR));
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Calendar</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Calendar类</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//创建对象 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Calendar</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Calendar</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*System.out.println(cd.get(Calendar.YEAR));
 </span></span></span><span class="line"><span class="cl"><span class="cm">        //西方第一个月份为0 ，值需要加1 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(cd.get(Calendar.MONTH)+1); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(cd.get(Calendar.DATE)); 
@@ -1169,14 +1169,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(cd.get(Calendar.MINUTE)); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(cd.get(Calendar.SECOND)); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        //西方从周日开始 值要减 1 
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(cd.get(Calendar.DAY_OF_WEEK)-1);*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">//设置日历的方法 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">cd</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">MONTH</span><span class="o">,</span> <span class="mi">13</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cd</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">MONTH</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h3 id="simpledateformat-时间日期格式化类">SimpleDateFormat 时间日期格式化类</h3>
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(cd.get(Calendar.DAY_OF_WEEK)-1);*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//设置日历的方法 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">cd</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">MONTH</span><span class="p">,</span><span class="w"> </span><span class="n">13</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cd</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Calendar</span><span class="p">.</span><span class="na">MONTH</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="simpledateformat-时间日期格式化类">SimpleDateFormat 时间日期格式化类</h3>
 <p>1.格式化 ： 日期 &ndash;》 字符串</p>
 <p>2.解析 : 字符串 &ndash;》 日期</p>
 <p>3.<code>DateFormat </code>:抽象类:</p>
@@ -1196,25 +1196,25 @@
 <p>s 秒</p>
 <p>E 星期</p>
 <h4 id="代码-16">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.text.ParseException</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">日期格式化类</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ParseException</span> <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">SimpleDateFormat</span> <span class="n">sf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">&#34;yyyy年MM月dd HH:mm:ss E&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">        <span class="cm">/* Date date = new Date(); 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.text.ParseException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.text.SimpleDateFormat</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Date</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">日期格式化类</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">ParseException</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SimpleDateFormat</span><span class="w"> </span><span class="n">sf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SimpleDateFormat</span><span class="p">(</span><span class="s">&#34;yyyy年MM月dd HH:mm:ss E&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* Date date = new Date(); 
 </span></span></span><span class="line"><span class="cl"><span class="cm">        String value = sf.format(date);
-</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(value);*/</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1">//2021年11月02 17:17:56 星期二 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">Date</span> <span class="n">date1</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&#34;2021年11月02 17:17:56 星期二&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">date1</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="数字格式化类">数字格式化类</h2>
+</span></span></span><span class="line"><span class="cl"><span class="cm">        System.out.println(value);*/</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//2021年11月02 17:17:56 星期二 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Date</span><span class="w"> </span><span class="n">date1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sf</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&#34;2021年11月02 17:17:56 星期二&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">date1</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="数字格式化类">数字格式化类</h2>
 <h3 id="概述-1">概述</h3>
 <p><code>NumberFormat</code> 数字格式化类 该类是一个抽象类</p>
 <p>1.构造方法：</p>
@@ -1227,22 +1227,22 @@
 <p>③ <code>setMinimumFractionDigits(int newValue)</code> 小数部分允许的最少位数。</p>
 <p>④ <code>setMaximumIntegerDigits(int newValue)</code> 设置整数的最大位数</p>
 <h3 id="代码-17">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.text.NumberFormat</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">数字格式化类</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">NumberFormat</span> <span class="n">nf</span> <span class="o">=</span> <span class="n">NumberFormat</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// NumberFormat nf = NumberFormat.getCurrencyInstance(); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// NumberFormat nf = NumberFormat.getPercentInstance();
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// nf.setMaximumFractionDigits(5);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// nf.setMinimumFractionDigits(3);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// nf.setMaximumIntegerDigits(3); 
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">nf</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="mi">12345678</span><span class="o">.</span><span class="na">6</span><span class="o">));</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><h2 id="decimalformat类">DecimalFormat类</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.text.NumberFormat</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">数字格式化类</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">NumberFormat</span><span class="w"> </span><span class="n">nf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NumberFormat</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// NumberFormat nf = NumberFormat.getCurrencyInstance(); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// NumberFormat nf = NumberFormat.getPercentInstance();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// nf.setMaximumFractionDigits(5);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// nf.setMinimumFractionDigits(3);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// nf.setMaximumIntegerDigits(3); </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nf</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">12345678</span><span class="p">.</span><span class="na">6</span><span class="p">));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="decimalformat类">DecimalFormat类</h2>
 <p>1.<code>DecimalFormat</code>:用于格式化十进制数字</p>
 <p>2.构造方法：</p>
 <p>​	<code>DecimalFormat(String pattern) </code></p>
@@ -1250,16 +1250,16 @@
 <p># 小数位数不够不补0</p>
 <p>0 小数位数不够 补0。</p>
 <h3 id="代码-18">代码</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.demo</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">java.text.DecimalFormat</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DecimalFormat类</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// DecimalFormat df = new DecimalFormat(&#34;##,##.##&#34;);
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">DecimalFormat</span> <span class="n">df</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DecimalFormat</span><span class="o">(</span><span class="s">&#34;00,00.00&#34;</span><span class="o">);</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">df</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="mi">12345678</span><span class="o">.</span><span class="na">1</span><span class="o">));</span> 
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.demo</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.text.DecimalFormat</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DecimalFormat类</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// DecimalFormat df = new DecimalFormat(&#34;##,##.##&#34;);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">DecimalFormat</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DecimalFormat</span><span class="p">(</span><span class="s">&#34;00,00.00&#34;</span><span class="p">);</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">12345678</span><span class="p">.</span><span class="na">1</span><span class="p">));</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
             </div>
             <hr>
             <div style="text-align: center;">

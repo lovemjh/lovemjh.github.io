@@ -510,53 +510,53 @@
     
     
 ></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 下载redis
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">下载</span><span class="n">redis</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">2. 上传到linux上并进行解压缩
+</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">上传到</span><span class="n">linux上并进行解压缩</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">tar zxf redis-5.0.5.tar.gz
+</span></span><span class="line"><span class="cl"><span class="n">tar</span> <span class="n">zxf</span> <span class="n">redis</span><span class="o">-</span><span class="mf">5.0</span><span class="o">.</span><span class="mf">5.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">3. 按装redis运行环境
+</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">按装</span><span class="n">redis运行环境</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Redis是c语言开发的安装redis需要c语言的编译环境。如果没有gcc需要在线安装。
+</span></span><span class="line"><span class="cl"><span class="n">Redis是c语言开发的安装redis需要c语言的编译环境</span><span class="err">。如果没有</span><span class="n">gcc需要在线安装</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum install gcc-c++
+</span></span><span class="line"><span class="cl"><span class="n">yum</span> <span class="n">install</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum -y install gcc automake autoconf libtool make 
+</span></span><span class="line"><span class="cl"><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">gcc</span> <span class="n">automake</span> <span class="n">autoconf</span> <span class="n">libtool</span> <span class="n">make</span> 
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">yum -y install  tcl
+</span></span><span class="line"><span class="cl"><span class="n">yum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span>  <span class="n">tcl</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">4. 编译。进入redis源码目录。
+</span></span><span class="line"><span class="cl"><span class="mf">4.</span> <span class="err">编译。进入</span><span class="n">redis源码目录</span><span class="err">。</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl"><span class="n">make</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">5. 安装。
+</span></span><span class="line"><span class="cl"><span class="mf">5.</span> <span class="err">安装。</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">make install PREFIX=/usr/local/redis
+</span></span><span class="line"><span class="cl"><span class="n">make</span> <span class="n">install</span> <span class="n">PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">PREFIX参数指定redis的安装目录。一般软件安装到/usr/local/redis目录下
+</span></span><span class="line"><span class="cl"><span class="n">PREFIX参数指定redis的安装目录</span><span class="err">。一般软件安装到</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">redis目录下</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">6. Redis服务端启动
+</span></span><span class="line"><span class="cl"><span class="mf">6.</span> <span class="n">Redis服务端启动</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> ./redis-server
+</span></span><span class="line"><span class="cl"> <span class="o">./</span><span class="n">redis</span><span class="o">-</span><span class="n">server</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">7. 使用redis-cli连接到redis
+</span></span><span class="line"><span class="cl"><span class="mf">7.</span> <span class="err">使用</span><span class="n">redis</span><span class="o">-</span><span class="n">cli连接到redis</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> ./redis-cli
+</span></span><span class="line"><span class="cl"> <span class="o">./</span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">[root@ibm001 bin]# ./redis-cli
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">ibm001</span> <span class="n">bin</span><span class="p">]</span><span class="c1"># ./redis-cli</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">127.0.0.1:6379&gt;
+</span></span><span class="line"><span class="cl"><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">6379</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">8. 退出客户端
+</span></span><span class="line"><span class="cl"><span class="mf">8.</span> <span class="err">退出客户端</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> Quit
+</span></span><span class="line"><span class="cl"> <span class="n">Quit</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> Exit
+</span></span><span class="line"><span class="cl"> <span class="n">Exit</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">9. 关闭redis服务
+</span></span><span class="line"><span class="cl"><span class="mf">9.</span> <span class="err">关闭</span><span class="n">redis服务</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">./redis-cli shutdown
+</span></span><span class="line"><span class="cl"><span class="o">./</span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">shutdown</span>
 </span></span></code></pre></div><h1 id="reids的相关配置">Reids的相关配置</h1>
 <ol>
 <li>后台启动redis.不要阻塞前端窗口</li>
@@ -860,212 +860,212 @@
 <ol>
 <li>导入依赖</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">context</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">20</span><span class="o">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">aspects</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">20</span><span class="o">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">webmvc</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">20</span><span class="o">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">jdbc</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">20</span><span class="o">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">jms</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">20</span><span class="o">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">context</span><span class="o">-</span><span class="n">support</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">20</span><span class="o">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">redis</span><span class="o">.</span><span class="na">clients</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jedis</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;!--</span> <span class="n">返回json字符串的支持</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">fasterxml</span><span class="o">.</span><span class="na">jackson</span><span class="o">.</span><span class="na">core</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jackson</span><span class="o">-</span><span class="n">databind</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">.</span><span class="na">8</span><span class="o">.</span><span class="na">8</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">test</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">junit</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">junit</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">.</span><span class="na">12</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">test</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span></code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">context</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">20</span><span class="p">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">aspects</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">20</span><span class="p">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">webmvc</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">20</span><span class="p">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">jdbc</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">20</span><span class="p">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">jms</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">20</span><span class="p">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">context</span><span class="o">-</span><span class="n">support</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">20</span><span class="p">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">redis</span><span class="p">.</span><span class="na">clients</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jedis</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">2</span><span class="p">.</span><span class="na">9</span><span class="p">.</span><span class="na">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;!--</span><span class="w"> </span><span class="n">返回json字符串的支持</span><span class="w"> </span><span class="o">--&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="p">.</span><span class="na">fasterxml</span><span class="p">.</span><span class="na">jackson</span><span class="p">.</span><span class="na">core</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jackson</span><span class="o">-</span><span class="n">databind</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">2</span><span class="p">.</span><span class="na">8</span><span class="p">.</span><span class="na">8</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="p">.</span><span class="na">springframework</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">test</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="p">.</span><span class="na">3</span><span class="p">.</span><span class="na">0</span><span class="p">.</span><span class="na">RELEASE</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">junit</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">junit</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">4</span><span class="p">.</span><span class="na">12</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="n">test</span><span class="o">&lt;/</span><span class="n">scope</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><ol>
 <li>把相关的类交给spring容器管理</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;jedisPoolConfig&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;redis.clients.jedis.JedisPoolConfig&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;!--</span> <span class="n">最大空闲连接数</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;maxIdle&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;3&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;!--</span> <span class="n">最大连接数</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;maxTotal&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;5&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;!--</span> <span class="n">连接耗尽时是否阻塞</span><span class="o">,</span> <span class="n">false报异常</span><span class="o">,</span><span class="n">ture阻塞直到超时</span><span class="o">,</span> <span class="n">默认true</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;blockWhenExhausted&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;!--</span> <span class="n">获取连接时的最大等待毫秒数</span><span class="o">(</span><span class="n">如果设置为阻塞时BlockWhenExhausted</span><span class="o">),</span><span class="n">如果超时就抛异常</span><span class="o">,</span> <span class="n">小于零</span><span class="o">:</span><span class="n">阻塞不确定的时间</span><span class="o">,</span> <span class="n">默认</span><span class="o">-</span><span class="mi">1</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;maxWaitMillis&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;30000&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;!--</span> <span class="n">在获取连接的时候检查有效性</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">property</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;testOnBorrow&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">bean</span> <span class="n">id</span><span class="o">=</span><span class="s">&#34;jedisPool&#34;</span> <span class="n">class</span><span class="o">=</span><span class="s">&#34;redis.clients.jedis.JedisPool&#34;</span> <span class="n">destroy</span><span class="o">-</span><span class="n">method</span><span class="o">=</span><span class="s">&#34;close&#34;</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;poolConfig&#34;</span> <span class="n">ref</span><span class="o">=</span><span class="s">&#34;jedisPoolConfig&#34;</span><span class="o">&gt;&lt;/</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;host&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;192.168.18.201&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;port&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;6379&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;timeout&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;30000&#34;</span> <span class="o">/&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;password&#34;</span> <span class="n">value</span><span class="o">=</span><span class="s">&#34;123456&#34;</span><span class="o">&gt;&lt;/</span><span class="n">constructor</span><span class="o">-</span><span class="n">arg</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">&lt;/</span><span class="n">bean</span><span class="o">&gt;</span>
-</span></span></code></pre></div><p>测试</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nd">@RunWith</span><span class="o">(</span><span class="n">SpringJUnit4ClassRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nd">@ContextConfiguration</span><span class="o">(</span><span class="s">&#34;classpath:applicationContext.xml&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JedisTest</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nd">@Autowired</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="kd">private</span> <span class="n">JedisPool</span> <span class="n">jedisPool</span><span class="o">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nd">@Test</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testAdd</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">Jedis</span> <span class="n">jedis</span> <span class="o">=</span> <span class="n">jedisPool</span><span class="o">.</span><span class="na">getResource</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">jedis</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">,</span><span class="s">&#34;wangwu&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">jedis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nd">@Test</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testAddPerson</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">Person</span> <span class="n">person</span><span class="o">=</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span><span class="s">&#34;张三&#34;</span><span class="o">,</span><span class="s">&#34;男&#34;</span><span class="o">,</span><span class="mi">22</span><span class="o">,</span><span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">Jedis</span> <span class="n">jedis</span> <span class="o">=</span> <span class="n">jedisPool</span><span class="o">.</span><span class="na">getResource</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="c1">// jedis.set(&#34;person&#34;, JsonUtils.objectToJson(person));
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"> <span class="n">jedis</span><span class="o">.</span><span class="na">hset</span><span class="o">(</span><span class="s">&#34;persons&#34;</span><span class="o">,</span><span class="n">person</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span><span class="n">JsonUtils</span><span class="o">.</span><span class="na">objectToJson</span><span class="o">(</span><span class="n">person</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">jedis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="nd">@Test</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testAddPerson2</span><span class="o">(){</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">Jedis</span> <span class="n">jedis</span> <span class="o">=</span> <span class="n">jedisPool</span><span class="o">.</span><span class="na">getResource</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">String</span> <span class="n">jsonData</span><span class="o">=</span><span class="n">jedis</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;person&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">Person</span> <span class="n">person</span><span class="o">=</span><span class="n">JsonUtils</span><span class="o">.</span><span class="na">jsonToEntity</span><span class="o">(</span><span class="n">jsonData</span><span class="o">,</span><span class="n">Person</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="n">jedis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"> <span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">bean</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s">&#34;jedisPoolConfig&#34;</span><span class="w"> </span><span class="kd">class</span><span class="err">=&#34;</span><span class="nc">redis</span><span class="p">.</span><span class="na">clients</span><span class="p">.</span><span class="na">jedis</span><span class="p">.</span><span class="na">JedisPoolConfig</span><span class="s">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;!-- 最大空闲连接数 --&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;property name=&#34;</span><span class="n">maxIdle</span><span class="s">&#34; value=&#34;</span><span class="n">3</span><span class="s">&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;!-- 最大连接数 --&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;property name=&#34;</span><span class="n">maxTotal</span><span class="s">&#34; value=&#34;</span><span class="n">5</span><span class="s">&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;!-- 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true --&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;property name=&#34;</span><span class="n">blockWhenExhausted</span><span class="s">&#34; value=&#34;</span><span class="kc">true</span><span class="s">&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;!-- 获取连接时的最大等待毫秒数(如果设置为阻塞时BlockWhenExhausted),如果超时就抛异常, 小于零:阻塞不确定的时间, 默认-1 --&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;property name=&#34;</span><span class="n">maxWaitMillis</span><span class="s">&#34; value=&#34;</span><span class="n">30000</span><span class="s">&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;!-- 在获取连接的时候检查有效性 --&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;property name=&#34;</span><span class="n">testOnBorrow</span><span class="s">&#34; value=&#34;</span><span class="kc">true</span><span class="s">&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;/bean&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;bean id=&#34;</span><span class="n">jedisPool</span><span class="s">&#34; class=&#34;</span><span class="n">redis</span><span class="p">.</span><span class="na">clients</span><span class="p">.</span><span class="na">jedis</span><span class="p">.</span><span class="na">JedisPool</span><span class="s">&#34; destroy-method=&#34;</span><span class="n">close</span><span class="s">&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;constructor-arg name=&#34;</span><span class="n">poolConfig</span><span class="s">&#34; ref=&#34;</span><span class="n">jedisPoolConfig</span><span class="s">&#34;&gt;&lt;/constructor-arg&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;constructor-arg name=&#34;</span><span class="n">host</span><span class="s">&#34; value=&#34;</span><span class="n">192</span><span class="p">.</span><span class="na">168</span><span class="p">.</span><span class="na">18</span><span class="p">.</span><span class="na">201</span><span class="s">&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;constructor-arg name=&#34;</span><span class="n">port</span><span class="s">&#34; value=&#34;</span><span class="n">6379</span><span class="s">&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;constructor-arg name=&#34;</span><span class="n">timeout</span><span class="s">&#34; value=&#34;</span><span class="n">30000</span><span class="s">&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;constructor-arg name=&#34;</span><span class="n">password</span><span class="s">&#34; value=&#34;</span><span class="n">123456</span><span class="s">&#34;&gt;&lt;/constructor-arg&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s"> &lt;/bean&gt;
+</span></span></span></code></pre></div><p>测试</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@RunWith</span><span class="p">(</span><span class="n">SpringJUnit4ClassRunner</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@ContextConfiguration</span><span class="p">(</span><span class="s">&#34;classpath:applicationContext.xml&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JedisTest</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">JedisPool</span><span class="w"> </span><span class="n">jedisPool</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAdd</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">Jedis</span><span class="w"> </span><span class="n">jedis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jedisPool</span><span class="p">.</span><span class="na">getResource</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">jedis</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">,</span><span class="s">&#34;wangwu&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">jedis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAddPerson</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="n">100</span><span class="p">,</span><span class="s">&#34;张三&#34;</span><span class="p">,</span><span class="s">&#34;男&#34;</span><span class="p">,</span><span class="n">22</span><span class="p">,</span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">Jedis</span><span class="w"> </span><span class="n">jedis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jedisPool</span><span class="p">.</span><span class="na">getResource</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="c1">// jedis.set(&#34;person&#34;, JsonUtils.objectToJson(person));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">jedis</span><span class="p">.</span><span class="na">hset</span><span class="p">(</span><span class="s">&#34;persons&#34;</span><span class="p">,</span><span class="n">person</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span><span class="n">JsonUtils</span><span class="p">.</span><span class="na">objectToJson</span><span class="p">(</span><span class="n">person</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">jedis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAddPerson2</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">Jedis</span><span class="w"> </span><span class="n">jedis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jedisPool</span><span class="p">.</span><span class="na">getResource</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">jsonData</span><span class="o">=</span><span class="n">jedis</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&#34;person&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="n">person</span><span class="o">=</span><span class="n">JsonUtils</span><span class="p">.</span><span class="na">jsonToEntity</span><span class="p">(</span><span class="n">jsonData</span><span class="p">,</span><span class="n">Person</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">person</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">jedis</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
             </div>
             <hr>
             <div style="text-align: center;">
